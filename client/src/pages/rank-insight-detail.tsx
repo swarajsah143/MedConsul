@@ -137,7 +137,7 @@ export default function RankInsightDetailPage() {
       score: h.closingScore ?? 0,
     }));
 
-  const roundColors = ['#0d9488', '#2563eb', '#d97706', '#dc2626'];
+  const roundColors = ['#dc2626', '#2563eb', '#d97706', '#dc2626'];
 
   return (
     <div className="space-y-6 pb-10">
@@ -164,7 +164,7 @@ export default function RankInsightDetailPage() {
           <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight max-w-3xl">
             {collegeName}
           </h1>
-          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-teal-100">
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-red-100">
             <span className="flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5" /> {collegeInfo.city}, {collegeInfo.state}
             </span>
@@ -179,7 +179,7 @@ export default function RankInsightDetailPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <StatCard
           icon={Award}
-          color="bg-teal-50 dark:bg-teal-950/30 text-teal-600 dark:text-teal-400"
+          color="bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400"
           label="Latest Closing Rank"
           value={`#${latestRank.toLocaleString()}`}
           sub={`${latestYear} Round 1`}
@@ -212,7 +212,7 @@ export default function RankInsightDetailPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-bold flex items-center gap-2">
-              <BarChart3 className="w-4 h-4 text-teal-600" />
+              <BarChart3 className="w-4 h-4 text-red-600" />
               Closing Rank Trend
             </CardTitle>
             <CardDescription className="text-xs">
@@ -385,7 +385,7 @@ export default function RankInsightDetailPage() {
       <Card>
         <CardHeader className="pb-2">
           <CardTitle className="text-sm font-bold flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-teal-600" />
+            <Calendar className="w-4 h-4 text-red-600" />
             Complete Historical Data
           </CardTitle>
           <CardDescription className="text-xs">
@@ -416,7 +416,7 @@ export default function RankInsightDetailPage() {
                   return (
                     <tr key={`${h.year}-${h.round}`} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
                       <td className="px-5 py-3 font-bold text-slate-800 dark:text-slate-200">{h.year}</td>
-                      <td className="px-5 py-3 text-center font-extrabold text-teal-600 dark:text-teal-400">
+                      <td className="px-5 py-3 text-center font-extrabold text-red-600 dark:text-red-400">
                         R{h.round}
                       </td>
                       <td className="px-5 py-3 text-right font-extrabold text-slate-900 dark:text-slate-50 tabular-nums">
