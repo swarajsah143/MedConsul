@@ -76,7 +76,7 @@ function InfoSection({
     <Card id={id} className="scroll-mt-20">
       <CardHeader className="pb-3">
         <CardTitle className="text-base font-bold flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
+          <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center text-red-600 dark:text-red-400 shrink-0">
             <Icon className="w-4 h-4" />
           </div>
           {title}
@@ -169,7 +169,7 @@ export default function CollegeDetailPage() {
         ].map((stat) => (
           <Card key={stat.label} className="p-4">
             <div className="flex items-start gap-3">
-              <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
+              <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-red-600 dark:text-red-400 shrink-0">
                 <stat.icon className="w-4.5 h-4.5" />
               </div>
               <div className="min-w-0">
@@ -194,7 +194,7 @@ export default function CollegeDetailPage() {
                 onClick={() => scrollToSection(section.id)}
                 className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
                   isActive
-                    ? 'bg-teal-600 text-white shadow-sm'
+                    ? 'bg-red-600 text-white shadow-sm'
                     : 'text-slate-500 hover:bg-slate-200/60 dark:hover:bg-slate-800'
                 }`}
               >
@@ -262,7 +262,7 @@ export default function CollegeDetailPage() {
           <Card id="proscons" className="scroll-mt-20">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-bold flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center text-red-600 dark:text-red-400 shrink-0">
                   <ThumbsUp className="w-4 h-4" />
                 </div>
                 Pros & Cons
@@ -309,7 +309,7 @@ export default function CollegeDetailPage() {
           <Card id="gallery" className="scroll-mt-20">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-bold flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center text-red-600 dark:text-red-400 shrink-0">
                   <Image className="w-4 h-4" />
                 </div>
                 Gallery
@@ -321,7 +321,7 @@ export default function CollegeDetailPage() {
                   <button
                     key={idx}
                     onClick={() => setSelectedImage(selectedImage === idx ? null : idx)}
-                    className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-100 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                    className="group relative rounded-xl overflow-hidden aspect-[4/3] bg-slate-100 dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                   >
                     <img
                       src={img.url}
@@ -357,7 +357,7 @@ export default function CollegeDetailPage() {
           <Card id="videos" className="scroll-mt-20">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-bold flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-teal-50 dark:bg-teal-950/30 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center text-red-600 dark:text-red-400 shrink-0">
                   <Play className="w-4 h-4" />
                 </div>
                 Review Videos
@@ -419,7 +419,7 @@ export default function CollegeDetailPage() {
                 </div>
                 <div className="flex justify-between py-2">
                   <span className="text-slate-400">Annual Fees</span>
-                  <span className="font-semibold text-teal-600">{college.annualFees}</span>
+                  <span className="font-semibold text-red-600">{college.annualFees}</span>
                 </div>
                 <div className="flex justify-between py-2">
                   <span className="text-slate-400">NEET Cutoff</span>

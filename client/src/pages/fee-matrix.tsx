@@ -223,7 +223,7 @@ export default function FeeMatrixPage() {
         <span className="flex items-center gap-1">
           {children}
           <ArrowUpDown
-            className={`w-3 h-3 shrink-0 ${active ? 'text-teal-600' : 'text-slate-400'}`}
+            className={`w-3 h-3 shrink-0 ${active ? 'text-red-600' : 'text-slate-400'}`}
           />
         </span>
       </th>
@@ -246,13 +246,13 @@ export default function FeeMatrixPage() {
       >
         <Button
           variant="outline"
-          className={`flex items-center gap-2 ${showFilters ? 'bg-teal-50/50 border-teal-200 text-teal-700' : ''}`}
+          className={`flex items-center gap-2 ${showFilters ? 'bg-red-50/50 border-red-200 text-red-700' : ''}`}
           onClick={() => setShowFilters(!showFilters)}
         >
           <Filter className="w-4 h-4" />
           <span className="hidden sm:inline">Filters</span>
           {activeFilterCount > 0 && (
-            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-teal-600 text-white text-[10px] font-bold">
+            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">
               {activeFilterCount}
             </span>
           )}
@@ -444,7 +444,7 @@ export default function FeeMatrixPage() {
                   <tr
                     key={entry.id}
                     onClick={() => navigate(`/fee-matrix/${entry.id}`)}
-                    className="hover:bg-teal-50/40 dark:hover:bg-teal-950/20 transition-colors cursor-pointer group"
+                    className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors cursor-pointer group"
                   >
                     <td className="px-3 py-3.5 font-bold text-slate-800 dark:text-slate-100 min-w-[200px]">
                       <div className="truncate max-w-[220px]">{entry.name}</div>
@@ -490,7 +490,7 @@ export default function FeeMatrixPage() {
                       {entry.nriSeats || '-'}
                     </td>
                     <td className="px-3 py-3.5 text-center">
-                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-teal-600 transition-colors inline-block" />
+                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 transition-colors inline-block" />
                     </td>
                   </tr>
                 ))}

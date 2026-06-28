@@ -83,14 +83,14 @@ function ProgressRing({ completed, total }: { completed: number; total: number }
         <circle cx="50" cy="50" r={radius} fill="none" stroke="currentColor" strokeWidth="8" className="text-slate-200 dark:text-slate-800" />
         <circle
           cx="50" cy="50" r={radius} fill="none" strokeWidth="8" strokeLinecap="round"
-          stroke={pct === 100 ? '#10b981' : '#0d9488'}
+          stroke={pct === 100 ? '#10b981' : '#dc2626'}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           className="transition-all duration-700 ease-out"
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className={`text-lg font-extrabold ${pct === 100 ? 'text-emerald-600' : 'text-teal-600'}`}>{pct}%</span>
+        <span className={`text-lg font-extrabold ${pct === 100 ? 'text-emerald-600' : 'text-red-600'}`}>{pct}%</span>
         <span className="text-[9px] text-slate-400 font-semibold">{completed}/{total}</span>
       </div>
     </div>
@@ -111,7 +111,7 @@ function DocCard({
       className={`rounded-xl border p-4 transition-all duration-200 ${
         isChecked
           ? 'bg-emerald-50/40 border-emerald-200 dark:bg-emerald-950/10 dark:border-emerald-900/30'
-          : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-teal-300 hover:shadow-md dark:hover:border-teal-800'
+          : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-red-300 hover:shadow-md dark:hover:border-red-800'
       }`}
     >
       <div className="flex gap-3">
@@ -121,7 +121,7 @@ function DocCard({
           className={`w-6 h-6 shrink-0 rounded-md border-2 flex items-center justify-center transition-colors mt-0.5 ${
             isChecked
               ? 'bg-emerald-500 border-emerald-500 text-white'
-              : 'border-slate-300 dark:border-slate-600 hover:border-teal-500'
+              : 'border-slate-300 dark:border-slate-600 hover:border-red-500'
           }`}
           aria-label={isChecked ? `Unmark ${doc.name}` : `Mark ${doc.name} as done`}
         >
@@ -172,7 +172,7 @@ function DocCard({
               </span>
             )}
             {doc.counsellingTypes.length > 0 && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-teal-50 dark:bg-teal-950/20 text-teal-700 dark:text-teal-400 rounded text-[10px] font-semibold">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 rounded text-[10px] font-semibold">
                 <Shield className="w-3 h-3" /> {doc.counsellingTypes.join(', ')}
               </span>
             )}
@@ -307,19 +307,19 @@ export default function DocChecklistPage() {
     <div className="space-y-6 pb-10 print:pb-0 print:space-y-4" ref={printRef}>
       <PageHeader
         icon={ClipboardCheck}
-        iconClassName="text-teal-600"
+        iconClassName="text-red-600"
         title="Document Checklist"
         description="Complete guide to documents needed for NEET UG online registration and physical college reporting."
       >
         <Button
           variant="outline"
-          className={`flex items-center gap-2 print:hidden ${showFilters ? 'bg-teal-50/50 border-teal-200 text-teal-700' : ''}`}
+          className={`flex items-center gap-2 print:hidden ${showFilters ? 'bg-red-50/50 border-red-200 text-red-700' : ''}`}
           onClick={() => setShowFilters(!showFilters)}
         >
           <Filter className="w-4 h-4" />
           <span className="hidden sm:inline">Filters</span>
           {activeFilterCount > 0 && (
-            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-teal-600 text-white text-[10px] font-bold">{activeFilterCount}</span>
+            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">{activeFilterCount}</span>
           )}
         </Button>
         <Button variant="outline" onClick={handlePrint} className="flex items-center gap-2 print:hidden">
@@ -333,8 +333,8 @@ export default function DocChecklistPage() {
       </PageHeader>
 
       {/* Progress Section */}
-      <Card className="border-teal-100 dark:border-teal-900/30 overflow-hidden">
-        <div className="bg-gradient-to-r from-teal-50/80 to-emerald-50/80 dark:from-teal-950/20 dark:to-emerald-950/20 p-5">
+      <Card className="border-red-100 dark:border-red-900/30 overflow-hidden">
+        <div className="bg-gradient-to-r from-red-50/80 to-rose-50/80 dark:from-red-950/20 dark:to-rose-950/20 p-5">
           <div className="flex flex-col sm:flex-row items-center gap-5">
             <ProgressRing completed={completedDocs} total={totalDocs} />
             <div className="flex-1 w-full space-y-3">
@@ -349,11 +349,11 @@ export default function DocChecklistPage() {
                     <span className="font-semibold text-slate-600 dark:text-slate-400 flex items-center gap-1">
                       <Monitor className="w-3 h-3" /> Online
                     </span>
-                    <span className="font-bold text-teal-600">{onlineComplete}/{onlineDocs.length}</span>
+                    <span className="font-bold text-red-600">{onlineComplete}/{onlineDocs.length}</span>
                   </div>
                   <div className="h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-500 ${onlineComplete === onlineDocs.length && onlineDocs.length > 0 ? 'bg-emerald-500' : 'bg-teal-500'}`}
+                      className={`h-full rounded-full transition-all duration-500 ${onlineComplete === onlineDocs.length && onlineDocs.length > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
                       style={{ width: `${onlineDocs.length > 0 ? (onlineComplete / onlineDocs.length) * 100 : 0}%` }}
                     />
                   </div>
@@ -363,11 +363,11 @@ export default function DocChecklistPage() {
                     <span className="font-semibold text-slate-600 dark:text-slate-400 flex items-center gap-1">
                       <UserCheck className="w-3 h-3" /> Physical
                     </span>
-                    <span className="font-bold text-teal-600">{physicalComplete}/{physicalDocs.length}</span>
+                    <span className="font-bold text-red-600">{physicalComplete}/{physicalDocs.length}</span>
                   </div>
                   <div className="h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-500 ${physicalComplete === physicalDocs.length && physicalDocs.length > 0 ? 'bg-emerald-500' : 'bg-teal-500'}`}
+                      className={`h-full rounded-full transition-all duration-500 ${physicalComplete === physicalDocs.length && physicalDocs.length > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
                       style={{ width: `${physicalDocs.length > 0 ? (physicalComplete / physicalDocs.length) * 100 : 0}%` }}
                     />
                   </div>
@@ -413,7 +413,7 @@ export default function DocChecklistPage() {
           onClick={() => setActiveTab('online')}
           className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
             activeTab === 'online'
-              ? 'bg-teal-600 text-white shadow-md shadow-teal-600/20'
+              ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
               : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:bg-slate-50'
           }`}
         >
@@ -429,7 +429,7 @@ export default function DocChecklistPage() {
           onClick={() => setActiveTab('physical')}
           className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
             activeTab === 'physical'
-              ? 'bg-teal-600 text-white shadow-md shadow-teal-600/20'
+              ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
               : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:bg-slate-50'
           }`}
         >

@@ -91,7 +91,7 @@ export default function CollegesPage() {
             <Filter className="w-4 h-4" />
             Filters
             {activeFilterCount > 0 && (
-              <span className="ml-1 w-5 h-5 flex items-center justify-center rounded-full bg-teal-600 text-white text-[10px] font-bold">
+              <span className="ml-1 w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">
                 {activeFilterCount}
               </span>
             )}
@@ -159,7 +159,7 @@ export default function CollegesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {filtered.map((college) => (
             <Link key={college.id} to={`/colleges/${college.id}`} className="group">
-              <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col border-slate-200 dark:border-slate-800 group-hover:border-teal-300 dark:group-hover:border-teal-800">
+              <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col border-slate-200 dark:border-slate-800 group-hover:border-red-300 dark:group-hover:border-red-800">
                 {/* Thumbnail */}
                 <div className="relative h-44 overflow-hidden bg-slate-100 dark:bg-slate-800">
                   <img
@@ -180,7 +180,7 @@ export default function CollegesPage() {
 
                 {/* Content */}
                 <CardContent className="flex-1 flex flex-col p-5 space-y-3">
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
                     {college.name}
                   </h3>
 
@@ -216,7 +216,7 @@ export default function CollegesPage() {
                   </div>
 
                   <div className="pt-1">
-                    <span className="text-xs font-semibold text-teal-600 dark:text-teal-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <span className="text-xs font-semibold text-red-600 dark:text-red-400 flex items-center gap-1 group-hover:gap-2 transition-all">
                       View Full Review <ChevronRight className="w-3.5 h-3.5" />
                     </span>
                   </div>

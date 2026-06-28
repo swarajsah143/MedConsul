@@ -34,7 +34,7 @@ import {
   Wallet,
 } from 'lucide-react';
 
-const PIE_COLORS = ['#0d9488', '#2563eb', '#d97706', '#f43f5e', '#8b5cf6', '#06b6d4', '#84cc16'];
+const PIE_COLORS = ['#dc2626', '#2563eb', '#d97706', '#f43f5e', '#8b5cf6', '#06b6d4', '#84cc16'];
 
 const typeColor = (t: string) =>
   t === 'Government'
@@ -46,7 +46,7 @@ const typeColor = (t: string) =>
 function InfoRow({ label, value, icon: Icon }: { label: string; value: string; icon: typeof IndianRupee }) {
   return (
     <div className="flex items-start gap-3 py-3 border-b border-slate-100 dark:border-slate-800 last:border-0">
-      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0 mt-0.5">
+      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-red-600 dark:text-red-400 shrink-0 mt-0.5">
         <Icon className="w-4 h-4" />
       </div>
       <div className="min-w-0 flex-1">
@@ -133,7 +133,7 @@ export default function FeeDetailPage() {
           <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold leading-tight max-w-3xl">
             {entry.name}
           </h1>
-          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-teal-100">
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-red-100">
             <span className="flex items-center gap-1">
               <MapPin className="w-3.5 h-3.5" /> {entry.city}, {entry.state}
             </span>
@@ -148,7 +148,7 @@ export default function FeeDetailPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <Card className="p-4">
           <div className="flex items-start gap-3">
-            <div className="w-9 h-9 rounded-lg bg-teal-50 dark:bg-teal-950/30 flex items-center justify-center text-teal-600 shrink-0">
+            <div className="w-9 h-9 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center text-red-600 shrink-0">
               <IndianRupee className="w-4 h-4" />
             </div>
             <div>
@@ -215,7 +215,7 @@ export default function FeeDetailPage() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <IndianRupee className="w-4 h-4 text-teal-600" />
+                <IndianRupee className="w-4 h-4 text-red-600" />
                 First Year Fee Composition
               </CardTitle>
               <CardDescription className="text-xs">
@@ -388,7 +388,7 @@ export default function FeeDetailPage() {
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <Wallet className="w-4 h-4 text-teal-600" />
+                <Wallet className="w-4 h-4 text-red-600" />
                 Year-wise Fee Table
               </CardTitle>
             </CardHeader>
@@ -432,12 +432,12 @@ export default function FeeDetailPage() {
                       </tr>
                     ))}
                     {/* Total Row */}
-                    <tr className="bg-teal-50/50 dark:bg-teal-950/20 font-bold">
-                      <td className="px-5 py-3 text-teal-700 dark:text-teal-400">
+                    <tr className="bg-red-50/50 dark:bg-red-950/20 font-bold">
+                      <td className="px-5 py-3 text-red-700 dark:text-red-400">
                         Grand Total
                       </td>
                       <td className="px-5 py-3 text-right" colSpan={4}></td>
-                      <td className="px-5 py-3 text-right tabular-nums text-teal-700 dark:text-teal-400 text-sm">
+                      <td className="px-5 py-3 text-right tabular-nums text-red-700 dark:text-red-400 text-sm">
                         {formatINRFull(totalAllYears)}
                       </td>
                     </tr>
@@ -507,7 +507,7 @@ export default function FeeDetailPage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <IndianRupee className="w-4 h-4 text-teal-600" />
+                <IndianRupee className="w-4 h-4 text-red-600" />
                 Fee Component Breakdown
               </CardTitle>
             </CardHeader>
@@ -526,11 +526,11 @@ export default function FeeDetailPage() {
                     </span>
                   </div>
                 ))}
-                <div className="flex items-center justify-between px-6 py-3 bg-teal-50/50 dark:bg-teal-950/20 text-xs font-bold">
-                  <span className="text-teal-700 dark:text-teal-400">
+                <div className="flex items-center justify-between px-6 py-3 bg-red-50/50 dark:bg-red-950/20 text-xs font-bold">
+                  <span className="text-red-700 dark:text-red-400">
                     Total First Year
                   </span>
-                  <span className="text-teal-700 dark:text-teal-400 tabular-nums">
+                  <span className="text-red-700 dark:text-red-400 tabular-nums">
                     {formatINRFull(entry.totalFirstYear)}
                   </span>
                 </div>
