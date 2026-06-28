@@ -1,65 +1,34 @@
-import app from './app';
-import { config } from './config';
-import { prisma } from './config/database';
-import { redis } from './config/redis';
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-async function bootstrap() {
-  let dbConnected = false;
-  let redisConnected = false;
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import { env } from './config/env';
+import { initializeDatabase } from './config/database';
+import routes from './routes';
 
-  // ─── Try PostgreSQL ───────────────────────────────────────
-  try {
-    await prisma.$connect();
-    dbConnected = true;
-    console.log('✅ PostgreSQL connected via Prisma');
-  } catch (error: any) {
-    console.warn('⚠️  PostgreSQL unavailable — running without database.');
-    console.warn(`   Reason: ${error.message || error}`);
-    console.warn('   The API will return errors for DB-dependent routes.');
-    console.warn('   Frontend mock fallbacks will handle the UI.\n');
-  }
+const app = express();
 
-  // ─── Try Redis ────────────────────────────────────────────
-  try {
-    await redis.connect();
-    redisConnected = true;
-  } catch (error: any) {
-    console.warn('⚠️  Redis unavailable — OTP/session features disabled.');
-    console.warn(`   Reason: ${error.message || error}\n`);
-  }
+app.use(cors({
+  origin: env.clientUrl,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
-  // ─── Start HTTP server regardless ─────────────────────────
-  const server = app.listen(config.port, () => {
-    const dbStatus = dbConnected ? '✅ Connected' : '⚠️  Offline';
-    const redisStatus = redisConnected ? '✅ Connected' : '⚠️  Offline';
-    console.log(`
-╔══════════════════════════════════════════════╗
-║                                              ║
-║      🏥  MedCounsel AI Server                ║
-║                                              ║
-║      Environment: ${config.nodeEnv.padEnd(25)}║
-║      Port:        ${String(config.port).padEnd(25)}║
-║      API:         http://localhost:${String(config.port).padEnd(14)}║
-║      PostgreSQL:  ${dbStatus.padEnd(25)}║
-║      Redis:       ${redisStatus.padEnd(25)}║
-║                                              ║
-╚══════════════════════════════════════════════╝
-    `);
-  });
+app.use(express.json());
+app.use(cookieParser());
 
-  // Graceful shutdown
-  const signals: NodeJS.Signals[] = ['SIGTERM', 'SIGINT'];
-  signals.forEach((signal) => {
-    process.on(signal, async () => {
-      console.log(`\n🛑 ${signal} received. Shutting down gracefully...`);
-      server.close(async () => {
-        if (dbConnected) await prisma.$disconnect();
-        if (redisConnected) await redis.disconnect();
-        console.log('✅ Connections closed. Goodbye!');
-        process.exit(0);
-      });
-    });
-  });
-}
+app.use('/api', routes);
 
-bootstrap();
+app.use((_req, res) => {
+  res.status(404).json({ success: false, message: 'Route not found' });
+});
+
+initializeDatabase();
+
+app.listen(env.port, () => {
+  console.log(`\n  MedCounsel AI Server running on http://localhost:${env.port}\n`);
+});

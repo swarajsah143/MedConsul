@@ -1,136 +1,132 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { AuthService } from '../services/auth.service';
-import { AppError } from '../utils/errors';
-import { AuthenticatedRequest } from '../types';
+import { AuthRequest } from '../middlewares/auth.middleware';
 
 const authService = new AuthService();
 
-export class AuthController {
-  /**
-   * Request login/signup OTP via WhatsApp/SMS
-   */
-  async requestOtp(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { phone } = req.body;
-      const result = await authService.requestMobileOtp(phone);
-      res.status(200).json({
-        success: true,
-        message: result.message,
-        data: {
-          deliveryChannel: result.deliveryChannel,
-          expiresInSeconds: result.expiresInSeconds,
-        },
-      });
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  /**
-   * Verify login OTP and return JWT session
-   */
-  async verifyOtp(req: Request, res: Response, next: NextFunction) {
-    try {
-      const { phone, otp } = req.body;
-      const result = await authService.verifyMobileOtp(phone, otp);
-
-      // Set HttpOnly refresh token cookie
-      res.cookie('refreshToken', result.tokens.refreshToken, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-        path: '/api/auth/refresh',
-      });
-
-      res.status(200).json({
-        success: true,
-        message: result.message,
-        data: {
-          user: result.user,
-          accessToken: result.tokens.accessToken,
-          isNewUser: result.isNewUser,
-        },
-      });
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  /**
-   * Rotate access/refresh tokens
-   */
-  async refreshToken(req: Request, res: Response, next: NextFunction) {
-    try {
-      const refreshToken = req.cookies?.refreshToken || req.body?.refreshToken;
-
-      if (!refreshToken) {
-        throw new AppError('Refresh token is required', 400);
-      }
-
-      const result = await authService.refreshToken(refreshToken);
-
-      res.cookie('refreshToken', result.tokens.refreshToken, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        path: '/api/auth/refresh',
-      });
-
-      res.status(200).json({
-        success: true,
-        data: {
-          accessToken: result.tokens.accessToken,
-        },
-      });
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  /**
-   * Log out active session
-   */
-  async logout(req: AuthenticatedRequest, res: Response, next: NextFunction) {
-    try {
-      if (!req.user) {
-        throw new AppError('Authentication required', 401);
-      }
-
-      await authService.logout(req.user.userId);
-
-      // Clear refresh token cookie
-      res.clearCookie('refreshToken', { path: '/api/auth/refresh' });
-
-      res.status(200).json({
-        success: true,
-        message: 'Logged out successfully',
-      });
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  /**
-   * Fetch current user profile
-   */
-  async getProfile(req: AuthenticatedRequest, res: Response, next: NextFunction) {
-    try {
-      if (!req.user) {
-        throw new AppError('Authentication required', 401);
-      }
-
-      const user = await authService.getProfile(req.user.userId);
-
-      res.status(200).json({
-        success: true,
-        data: {
-          user,
-        },
-      });
-    } catch (error) {
-      next(error);
-    }
-  }
+function setRefreshCookie(res: Response, token: string) {
+  res.cookie('refreshToken', token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'lax',
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    path: '/api/auth',
+  });
 }
+
+function clearRefreshCookie(res: Response) {
+  res.clearCookie('refreshToken', { path: '/api/auth' });
+}
+
+export const authController = {
+  async register(req: Request, res: Response) {
+    try {
+      const { name, email, password } = req.body;
+      const result = await authService.register(name, email, password);
+      setRefreshCookie(res, result.refreshToken);
+      res.status(201).json({
+        success: true,
+        message: 'Account created successfully',
+        data: { user: result.user, accessToken: result.accessToken },
+      });
+    } catch (err: any) {
+      res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Registration failed',
+      });
+    }
+  },
+
+  async login(req: Request, res: Response) {
+    try {
+      const { email, password } = req.body;
+      const result = await authService.login(email, password);
+      setRefreshCookie(res, result.refreshToken);
+      res.json({
+        success: true,
+        message: 'Login successful',
+        data: { user: result.user, accessToken: result.accessToken },
+      });
+    } catch (err: any) {
+      res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Login failed',
+      });
+    }
+  },
+
+  async refresh(req: Request, res: Response) {
+    try {
+      const token = req.cookies?.refreshToken || req.body?.refreshToken;
+      const result = await authService.refreshToken(token);
+      setRefreshCookie(res, result.refreshToken);
+      res.json({
+        success: true,
+        message: 'Token refreshed',
+        data: { user: result.user, accessToken: result.accessToken },
+      });
+    } catch (err: any) {
+      clearRefreshCookie(res);
+      res.status(err.status || 401).json({
+        success: false,
+        message: err.message || 'Token refresh failed',
+      });
+    }
+  },
+
+  async logout(req: Request, res: Response) {
+    try {
+      const token = req.cookies?.refreshToken;
+      await authService.logout(token);
+      clearRefreshCookie(res);
+      res.json({ success: true, message: 'Logged out successfully' });
+    } catch {
+      clearRefreshCookie(res);
+      res.json({ success: true, message: 'Logged out' });
+    }
+  },
+
+  async forgotPassword(req: Request, res: Response) {
+    try {
+      const { email } = req.body;
+      const result = await authService.forgotPassword(email);
+      // In dev mode include resetToken in response for testing
+      const data: any = { message: result.message };
+      if (process.env.NODE_ENV !== 'production' && result.resetToken) {
+        data.resetToken = result.resetToken;
+      }
+      res.json({ success: true, ...data });
+    } catch (err: any) {
+      res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Failed to process request',
+      });
+    }
+  },
+
+  async resetPassword(req: Request, res: Response) {
+    try {
+      const { token, password } = req.body;
+      const result = await authService.resetPassword(token, password);
+      clearRefreshCookie(res);
+      res.json({ success: true, message: result.message });
+    } catch (err: any) {
+      res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Password reset failed',
+      });
+    }
+  },
+
+  async me(req: AuthRequest, res: Response) {
+    try {
+      const user = authService.getProfile(req.user!.userId);
+      res.json({ success: true, data: { user } });
+    } catch (err: any) {
+      res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Failed to fetch profile',
+      });
+    }
+  },
+};

@@ -1,51 +1,40 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import type { User } from '@/types';
-import { authService } from '@/services/auth.service';
+import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { api } from '@/lib/api';
+
+export interface AuthUser {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  createdAt: string;
+}
 
 interface AuthContextType {
-  user: User | null;
+  user: AuthUser | null;
   isLoading: boolean;
   isAuthenticated: boolean;
-  requestOtp: (phone: string) => Promise<{ deliveryChannel: 'whatsapp' | 'sms' | 'console'; expiresInSeconds: number }>;
-  verifyOtp: (phone: string, otp: string) => Promise<void>;
+  login: (email: string, password: string, remember?: boolean) => Promise<void>;
+  register: (name: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
-  refreshProfile: () => Promise<void>;
+  forgotPassword: (email: string) => Promise<{ message: string; resetToken?: string }>;
+  resetPassword: (token: string, password: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>({
-    id: 'mock-admin-id',
-    email: 'admin@medcounsel.ai',
-    firstName: 'Swaraj',
-    lastName: 'Sah',
-    phone: '+919999999999',
-    role: 'ADMIN',
-    isVerified: true,
-    neetScore: 685,
-    neetRank: 1204,
-    state: 'Maharashtra',
-    category: 'General',
-  });
-  const [isLoading, setIsLoading] = useState(false);
+export function AuthProvider({ children }: { children: ReactNode }) {
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const isAuthenticated = !!user;
-
-  // Check if user has active session on mount
-  // Skip profile fetch when running with mock user (MVP mode)
+  // Check existing session on mount
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
-    if (token && token !== 'mock') {
-      authService
-        .getProfile()
+    if (token) {
+      api.get('/auth/me')
         .then((res) => {
-          if (res.success && res.data?.user) {
-            setUser(res.data.user);
-          }
+          if (res.success && res.data?.user) setUser(res.data.user);
         })
         .catch(() => {
-          // Don't clear mock user — only remove the stale token
           localStorage.removeItem('accessToken');
         })
         .finally(() => setIsLoading(false));
@@ -54,53 +43,43 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const requestOtp = useCallback(async (phone: string) => {
-    try {
-      const res = await authService.requestOtp(phone);
-      if (res.success && res.data) {
-        return res.data;
-      }
-      throw new Error(res.message || 'Failed to send OTP');
-    } catch (error: any) {
-      const message = error.response?.data?.message || error.message || 'Failed to request OTP';
-      throw new Error(message);
+  const login = useCallback(async (email: string, password: string, remember = false) => {
+    const res = await api.post('/auth/login', { email, password });
+    if (res.success && res.data) {
+      localStorage.setItem('accessToken', res.data.accessToken);
+      if (remember) localStorage.setItem('rememberEmail', email);
+      else localStorage.removeItem('rememberEmail');
+      setUser(res.data.user);
+    } else {
+      throw { message: res.message || 'Login failed' };
     }
   }, []);
 
-  const verifyOtp = useCallback(async (phone: string, otp: string) => {
-    try {
-      const res = await authService.verifyOtp(phone, otp);
-      if (res.success && res.data?.accessToken) {
-        localStorage.setItem('accessToken', res.data.accessToken);
-        setUser(res.data.user);
-      } else {
-        throw new Error(res.message || 'OTP verification failed');
-      }
-    } catch (error: any) {
-      const message = error.response?.data?.message || error.message || 'Verification failed';
-      throw new Error(message);
+  const register = useCallback(async (name: string, email: string, password: string) => {
+    const res = await api.post('/auth/register', { name, email, password });
+    if (res.success && res.data) {
+      localStorage.setItem('accessToken', res.data.accessToken);
+      setUser(res.data.user);
+    } else {
+      throw { message: res.message || 'Registration failed' };
     }
   }, []);
 
   const logout = useCallback(async () => {
-    try {
-      await authService.logout();
-    } catch {
-      // Continue cleanup on failure
-    }
+    try { await api.post('/auth/logout'); } catch { /* ignore */ }
     localStorage.removeItem('accessToken');
     setUser(null);
   }, []);
 
-  const refreshProfile = useCallback(async () => {
-    try {
-      const res = await authService.getProfile();
-      if (res.success && res.data?.user) {
-        setUser(res.data.user);
-      }
-    } catch {
-      // Gracefully ignore failures on passive refresh
-    }
+  const forgotPassword = useCallback(async (email: string) => {
+    const res = await api.post('/auth/forgot-password', { email });
+    if (!res.success) throw { message: res.message };
+    return { message: res.message, resetToken: res.resetToken };
+  }, []);
+
+  const resetPassword = useCallback(async (token: string, password: string) => {
+    const res = await api.post('/auth/reset-password', { token, password });
+    if (!res.success) throw { message: res.message };
   }, []);
 
   return (
@@ -108,11 +87,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       value={{
         user,
         isLoading,
-        isAuthenticated,
-        requestOtp,
-        verifyOtp,
+        isAuthenticated: !!user,
+        login,
+        register,
         logout,
-        refreshProfile,
+        forgotPassword,
+        resetPassword,
       }}
     >
       {children}
@@ -121,10 +101,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useAuth() {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error('useAuth must be used within AuthProvider');
+  return ctx;
 }
-export default AuthProvider;
