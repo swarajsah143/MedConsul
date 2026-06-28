@@ -1,102 +1,136 @@
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useNavigate } from 'react-router-dom';
-import { Loader2, Phone, MessageSquare } from 'lucide-react';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { Loader2, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { AuthLayout } from '@/components/layout/auth-layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { ErrorAlert } from '@/components/ui/error-alert';
 import { useAuth } from '@/providers/auth-provider';
-import { phoneLoginSchema, type PhoneLoginFormData } from '@/schemas/auth.schema';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { requestOtp } = useAuth();
+  const { login } = useAuth();
+
+  const [email, setEmail] = useState(() => localStorage.getItem('rememberEmail') || '');
+  const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(() => !!localStorage.getItem('rememberEmail'));
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<PhoneLoginFormData>({
-    resolver: zodResolver(phoneLoginSchema),
-    defaultValues: {
-      phone: '',
-    },
-  });
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !password) {
+      setError('Please fill in all fields');
+      return;
+    }
 
-  const onSubmit = async (data: PhoneLoginFormData) => {
     try {
       setError('');
-      // Request OTP
-      const result = await requestOtp(data.phone);
-      
-      // Navigate to OTP verification screen passing the phone
-      navigate('/verify-otp', {
-        state: { 
-          phone: data.phone,
-          deliveryChannel: result.deliveryChannel,
-          expiresInSeconds: result.expiresInSeconds
-        },
-      });
+      setLoading(true);
+      await login(email.trim(), password, remember);
+      navigate('/rank-insights', { replace: true });
     } catch (err: any) {
-      setError(err.message || 'Failed to send OTP. Please try again.');
+      setError(err.message || 'Login failed. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <AuthLayout
-      title="Sign in or Sign up"
-      subtitle="Enter your mobile number to verify and access your account"
-    >
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <ErrorAlert message={error} />
+    <AuthLayout title="Welcome back" subtitle="Sign in to your account to continue">
+      <form onSubmit={handleSubmit} className="space-y-5">
+        {error && (
+          <div className="bg-destructive/10 text-destructive text-sm px-4 py-3 rounded-lg border border-destructive/20 animate-fade-in">
+            {error}
+          </div>
+        )}
 
         <div className="space-y-2">
-          <Label htmlFor="phone" required>Mobile Number</Label>
+          <Label htmlFor="email" required>Email Address</Label>
           <div className="relative">
-            <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              id="phone"
-              type="tel"
-              placeholder="+919999999999"
+              id="email"
+              type="email"
+              placeholder="you@example.com"
               className="pl-10"
-              {...register('phone')}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+              autoFocus={!email}
             />
           </div>
-          {errors.phone && (
-            <p className="text-destructive text-xs mt-1">{errors.phone.message}</p>
-          )}
-          <p className="text-[11px] text-muted-foreground mt-1">
-            Include country code (e.g. +91 for India). We will send a 6-digit OTP code to this number.
-          </p>
+        </div>
+
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <Label htmlFor="password" required>Password</Label>
+            <Link
+              to="/forgot-password"
+              className="text-xs font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              Forgot password?
+            </Link>
+          </div>
+          <div className="relative">
+            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              id="password"
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Enter your password"
+              className="pl-10 pr-10"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+              autoFocus={!!email}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+              tabIndex={-1}
+            >
+              {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            </button>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            id="remember"
+            checked={remember}
+            onChange={(e) => setRemember(e.target.checked)}
+            className="h-4 w-4 rounded border-input text-primary focus:ring-ring accent-primary"
+          />
+          <label htmlFor="remember" className="text-sm text-muted-foreground cursor-pointer select-none">
+            Remember me
+          </label>
         </div>
 
         <Button
           type="submit"
           className="w-full h-11 gradient-primary text-white font-semibold"
           size="lg"
-          disabled={isSubmitting}
+          disabled={loading}
         >
-          {isSubmitting ? (
+          {loading ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin mr-2" />
-              Sending OTP...
+              Signing in...
             </>
           ) : (
-            <>
-              <MessageSquare className="h-4 w-4 mr-2" />
-              Get Verification Code
-            </>
+            'Sign In'
           )}
         </Button>
 
-        <div className="rounded-lg bg-teal-50/50 dark:bg-teal-950/20 border border-teal-100/50 dark:border-teal-900/30 p-3 text-xs text-teal-800 dark:text-teal-400">
-          🔒 MedCounsel AI will first try delivering verification codes instantly via <strong>WhatsApp</strong>. If it fails or is unavailable, we will automatically fallback to standard carrier <strong>SMS</strong>.
-        </div>
+        <p className="text-center text-sm text-muted-foreground">
+          Don't have an account?{' '}
+          <Link to="/signup" className="font-semibold text-primary hover:text-primary/80 transition-colors">
+            Create one
+          </Link>
+        </p>
       </form>
     </AuthLayout>
   );

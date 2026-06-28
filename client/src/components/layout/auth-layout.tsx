@@ -9,9 +9,8 @@ interface AuthLayoutProps {
 export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
   return (
     <div className="min-h-screen flex">
-      {/* Left Panel — Brand */}
+      {/* Left Panel — Branding */}
       <div className="hidden lg:flex lg:w-1/2 gradient-primary relative overflow-hidden">
-        {/* Decorative Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-300/10 rounded-full blur-3xl" />
@@ -34,8 +33,8 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
               Navigate Your Medical<br />Career with Confidence
             </h2>
             <p className="text-teal-100 text-lg leading-relaxed">
-              AI-powered cutoff analysis, allotment tracking, document guidance, 
-              and personalized counseling — all in one platform.
+              AI-powered cutoff analysis, college reviews, fee comparison,
+              and document preparation — all in one platform.
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">

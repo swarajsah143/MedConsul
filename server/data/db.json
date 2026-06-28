@@ -1,0 +1,40 @@
+{
+  "users": {
+    "a70e5db3-a552-4dd9-a4f4-c07e55425ef9": {
+      "id": "a70e5db3-a552-4dd9-a4f4-c07e55425ef9",
+      "name": "Admin User",
+      "email": "admin@medcounsel.ai",
+      "password": "$2b$12$HALJKpOGGE1xtKdlBE9dmOwyL9T4xgYKOJXr4kYhCL6KBYq7YfQby",
+      "role": "admin",
+      "createdAt": "2026-06-28T12:18:41.078Z",
+      "updatedAt": "2026-06-28T12:18:41.078Z"
+    },
+    "0822df20-e0de-470f-bbf8-fc9827b81db9": {
+      "id": "0822df20-e0de-470f-bbf8-fc9827b81db9",
+      "name": "Swaraj Sah",
+      "email": "swaraj@medcounsel.ai",
+      "password": "$2b$12$uOV6V8AD9XMISCd1m6THEewQSfGv4vh7tVtAYn2F6EfQjEP.40r82",
+      "role": "student",
+      "createdAt": "2026-06-28T12:18:43.350Z",
+      "updatedAt": "2026-06-28T12:18:43.350Z"
+    },
+    "74a3b165-cee6-4a9d-a971-9d0029683173": {
+      "id": "74a3b165-cee6-4a9d-a971-9d0029683173",
+      "name": "Demo Student",
+      "email": "demo@medcounsel.ai",
+      "password": "$2b$12$kQ.5yIMrRK8x4FEeUPxDoOV//vXNVF3WnK5fpaQqX9GyAzU2hT.ba",
+      "role": "student",
+      "createdAt": "2026-06-28T12:18:45.587Z",
+      "updatedAt": "2026-06-28T12:18:45.587Z"
+    }
+  },
+  "refreshTokens": {
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNzBlNWRiMy1hNTUyLTRkZDktYTRmNC1jMDdlNTU0MjVlZjkiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NDkyMjIsImV4cCI6MTc4MzI1NDAyMn0.nbJT1QPrsb-r11_saBjwTy1Af8dOPhwZ7U4mTsBv-1A": {
+      "id": "d1e4880e-6ad0-41a2-ad4e-2b997b655cbd",
+      "userId": "a70e5db3-a552-4dd9-a4f4-c07e55425ef9",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNzBlNWRiMy1hNTUyLTRkZDktYTRmNC1jMDdlNTU0MjVlZjkiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NDkyMjIsImV4cCI6MTc4MzI1NDAyMn0.nbJT1QPrsb-r11_saBjwTy1Af8dOPhwZ7U4mTsBv-1A",
+      "expiresAt": "2026-07-05T12:20:22.556Z"
+    }
+  },
+  "passwordResets": {}
+}

@@ -2,16 +2,11 @@
   "name": "medcounsel-ai",
   "version": "1.0.0",
   "private": true,
-  "description": "MedCounsel AI — NEET UG Counseling Assistant",
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "dev:client": "npm --prefix client run dev",
     "dev:server": "npm --prefix server run dev",
-    "build:client": "npm --prefix client run build",
-    "build:server": "npm --prefix server run build",
-    "db:migrate": "npm --prefix server run db:migrate",
-    "db:seed": "npm --prefix server run db:seed",
-    "db:studio": "npm --prefix server run db:studio"
+    "seed": "npm --prefix server run seed"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

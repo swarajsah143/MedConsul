@@ -1,58 +1,72 @@
-import axios from 'axios';
+const API_BASE = '/api';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+interface ApiOptions {
+  method?: string;
+  body?: unknown;
+  headers?: Record<string, string>;
+}
 
-export const api = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
+async function request<T = any>(url: string, opts: ApiOptions = {}): Promise<T> {
+  const token = localStorage.getItem('accessToken');
+  const headers: Record<string, string> = {
     'Content-Type': 'application/json',
-  },
-  withCredentials: true,
-});
+    ...opts.headers,
+  };
+  if (token) headers['Authorization'] = `Bearer ${token}`;
 
-// Request interceptor - attach access token
-api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('accessToken');
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+  const res = await fetch(`${API_BASE}${url}`, {
+    method: opts.method || 'GET',
+    headers,
+    body: opts.body ? JSON.stringify(opts.body) : undefined,
+    credentials: 'include',
+  });
 
-// Response interceptor - handle token refresh
-api.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const originalRequest = error.config;
+  const data = await res.json();
 
-    // If 401 and not already retried, try refreshing
-    if (error.response?.status === 401 && !originalRequest._retry) {
-      originalRequest._retry = true;
-
-      try {
-        const { data } = await axios.post(
-          `${API_BASE_URL}/auth/refresh`,
-          {},
-          { withCredentials: true }
-        );
-
-        if (data.success && data.data?.accessToken) {
-          localStorage.setItem('accessToken', data.data.accessToken);
-          originalRequest.headers.Authorization = `Bearer ${data.data.accessToken}`;
-          return api(originalRequest);
-        }
-      } catch {
-        // Refresh failed - clear token but do NOT hard-redirect.
-        // Let the component-level error handlers manage the UX.
-        localStorage.removeItem('accessToken');
+  if (!res.ok) {
+    // Try token refresh on 401
+    if (res.status === 401 && token && !url.includes('/auth/refresh')) {
+      const refreshed = await tryRefresh();
+      if (refreshed) {
+        // Retry original request with new token
+        headers['Authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
+        const retryRes = await fetch(`${API_BASE}${url}`, {
+          method: opts.method || 'GET',
+          headers,
+          body: opts.body ? JSON.stringify(opts.body) : undefined,
+          credentials: 'include',
+        });
+        const retryData = await retryRes.json();
+        if (!retryRes.ok) throw { status: retryRes.status, message: retryData.message };
+        return retryData;
       }
     }
-
-    return Promise.reject(error);
+    throw { status: res.status, message: data.message || 'Request failed' };
   }
-);
 
-export default api;
+  return data;
+}
+
+async function tryRefresh(): Promise<boolean> {
+  try {
+    const res = await fetch(`${API_BASE}/auth/refresh`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+    });
+    const data = await res.json();
+    if (res.ok && data.success && data.data?.accessToken) {
+      localStorage.setItem('accessToken', data.data.accessToken);
+      return true;
+    }
+  } catch { /* ignore */ }
+  localStorage.removeItem('accessToken');
+  return false;
+}
+
+export const api = {
+  get: <T = any>(url: string) => request<T>(url),
+  post: <T = any>(url: string, body?: unknown) => request<T>(url, { method: 'POST', body }),
+  put: <T = any>(url: string, body?: unknown) => request<T>(url, { method: 'PUT', body }),
+  delete: <T = any>(url: string) => request<T>(url, { method: 'DELETE' }),
+};

@@ -1,67 +1,55 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
-import { Spinner } from '@/components/ui/spinner';
+import { Loader2 } from 'lucide-react';
 
-// Pages
+// Auth pages
 import LoginPage from '@/pages/login';
-import VerifyOtpPage from '@/pages/verify-otp';
-import DashboardPage from '@/pages/dashboard';
-import NotificationsPage from '@/pages/notifications';
-import NotificationDetailsPage from '@/pages/notification-details';
-import AdminNotificationPage from '@/pages/admin-notification';
-import CutoffAnalysisPage from '@/pages/cutoff-analysis';
+import SignupPage from '@/pages/signup';
+import ForgotPasswordPage from '@/pages/forgot-password';
+import ResetPasswordPage from '@/pages/reset-password';
+
+// App pages
 import RankInsightsPage from '@/pages/rank-insights';
 import RankInsightDetailPage from '@/pages/rank-insight-detail';
 import FeeMatrixPage from '@/pages/fee-matrix';
 import FeeDetailPage from '@/pages/fee-detail';
-import DocumentsPage from '@/pages/documents';
 import CollegesPage from '@/pages/colleges';
 import CollegeDetailPage from '@/pages/college-detail';
-import RulesPage from '@/pages/rules';
-import AiChatPage from '@/pages/ai-chat';
-import ProfilePage from '@/pages/profile';
+import DocChecklistPage from '@/pages/doc-checklist';
 import DashboardLayout from '@/components/layout/dashboard-layout';
+
+function FullPageSpinner() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
+      <Loader2 className="w-8 h-8 animate-spin text-teal-600" />
+    </div>
+  );
+}
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
-
-  if (isLoading) return <Spinner fullPage />;
+  if (isLoading) return <FullPageSpinner />;
   if (!isAuthenticated) return <Navigate to="/login" replace />;
-
   return <>{children}</>;
 }
 
 function PublicRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
-
-  if (isLoading) return <Spinner fullPage />;
-  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
-
+  if (isLoading) return <FullPageSpinner />;
+  if (isAuthenticated) return <Navigate to="/rank-insights" replace />;
   return <>{children}</>;
 }
 
 export default function AppRoutes() {
   return (
     <Routes>
-      {/* Public Routes */}
-      <Route
-        path="/login"
-        element={
-          <PublicRoute>
-            <LoginPage />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/verify-otp"
-        element={
-          <PublicRoute>
-            <VerifyOtpPage />
-          </PublicRoute>
-        }
-      />
+      {/* Auth routes */}
+      <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
+      <Route path="/signup" element={<PublicRoute><SignupPage /></PublicRoute>} />
+      <Route path="/forgot-password" element={<PublicRoute><ForgotPasswordPage /></PublicRoute>} />
+      <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-      {/* Protected Routes */}
+      {/* Protected app routes */}
       <Route
         path="/"
         element={
@@ -70,23 +58,14 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        <Route index element={<Navigate to="/dashboard" replace />} />
-        <Route path="dashboard" element={<DashboardPage />} />
-        <Route path="notifications" element={<NotificationsPage />} />
-        <Route path="notifications/:id" element={<NotificationDetailsPage />} />
-        <Route path="notifications/new" element={<AdminNotificationPage />} />
-        <Route path="notifications/edit/:id" element={<AdminNotificationPage />} />
-        <Route path="cutoffs" element={<CutoffAnalysisPage />} />
+        <Route index element={<Navigate to="/rank-insights" replace />} />
         <Route path="rank-insights" element={<RankInsightsPage />} />
         <Route path="rank-insights/detail" element={<RankInsightDetailPage />} />
         <Route path="fee-matrix" element={<FeeMatrixPage />} />
         <Route path="fee-matrix/:id" element={<FeeDetailPage />} />
         <Route path="colleges" element={<CollegesPage />} />
         <Route path="colleges/:id" element={<CollegeDetailPage />} />
-        <Route path="rules" element={<RulesPage />} />
-        <Route path="documents" element={<DocumentsPage />} />
-        <Route path="ai-chat" element={<AiChatPage />} />
-        <Route path="profile" element={<ProfilePage />} />
+        <Route path="doc-checklist" element={<DocChecklistPage />} />
       </Route>
 
       {/* Fallback */}
