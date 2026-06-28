@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
-import { api } from '@/lib/api';
+import { api, markLoggedOut, clearLoggedOut } from '@/lib/api';
 
 export interface AuthUser {
   id: string;
@@ -44,6 +44,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const login = useCallback(async (email: string, password: string, remember = false) => {
+    clearLoggedOut();
     const res = await api.post('/auth/login', { email, password });
     if (res.success && res.data) {
       localStorage.setItem('accessToken', res.data.accessToken);
@@ -56,6 +57,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const register = useCallback(async (name: string, email: string, password: string) => {
+    clearLoggedOut();
     const res = await api.post('/auth/register', { name, email, password });
     if (res.success && res.data) {
       localStorage.setItem('accessToken', res.data.accessToken);
@@ -66,9 +68,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const logout = useCallback(async () => {
-    try { await api.post('/auth/logout'); } catch { /* ignore */ }
+    // 1. Prevent in-flight requests from re-setting the token
+    markLoggedOut();
+    // 2. Clear storage
     localStorage.removeItem('accessToken');
+    sessionStorage.clear();
+    // 3. Clear user state — triggers ProtectedRoute → <Navigate to="/login">
     setUser(null);
+    // 4. Invalidate server session (fire and forget, don't block UI)
+    fetch('/api/auth/logout', { method: 'POST', credentials: 'include' }).catch(() => {});
   }, []);
 
   const forgotPassword = useCallback(async (email: string) => {

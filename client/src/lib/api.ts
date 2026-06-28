@@ -1,5 +1,11 @@
 const API_BASE = '/api';
 
+// When true, prevents tryRefresh from re-setting tokens after logout
+let loggedOut = false;
+
+export function markLoggedOut() { loggedOut = true; }
+export function clearLoggedOut() { loggedOut = false; }
+
 interface ApiOptions {
   method?: string;
   body?: unknown;
@@ -21,11 +27,17 @@ async function request<T = any>(url: string, opts: ApiOptions = {}): Promise<T> 
     credentials: 'include',
   });
 
-  const data = await res.json();
+  let data: any;
+  try {
+    data = await res.json();
+  } catch {
+    if (!res.ok) throw { status: res.status, message: `Server error (${res.status})` };
+    throw { status: res.status, message: 'Invalid server response' };
+  }
 
   if (!res.ok) {
-    // Try token refresh on 401
-    if (res.status === 401 && token && !url.includes('/auth/refresh')) {
+    // Try token refresh on 401 (but never after logout)
+    if (res.status === 401 && token && !url.includes('/auth/refresh') && !loggedOut) {
       const refreshed = await tryRefresh();
       if (refreshed) {
         // Retry original request with new token
@@ -36,8 +48,8 @@ async function request<T = any>(url: string, opts: ApiOptions = {}): Promise<T> 
           body: opts.body ? JSON.stringify(opts.body) : undefined,
           credentials: 'include',
         });
-        const retryData = await retryRes.json();
-        if (!retryRes.ok) throw { status: retryRes.status, message: retryData.message };
+        const retryData = await retryRes.json().catch(() => ({}));
+        if (!retryRes.ok) throw { status: retryRes.status, message: retryData.message || 'Request failed' };
         return retryData;
       }
     }
@@ -48,19 +60,20 @@ async function request<T = any>(url: string, opts: ApiOptions = {}): Promise<T> 
 }
 
 async function tryRefresh(): Promise<boolean> {
+  if (loggedOut) return false;
   try {
     const res = await fetch(`${API_BASE}/auth/refresh`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
     });
-    const data = await res.json();
-    if (res.ok && data.success && data.data?.accessToken) {
+    const data = await res.json().catch(() => null);
+    if (!loggedOut && res.ok && data?.success && data.data?.accessToken) {
       localStorage.setItem('accessToken', data.data.accessToken);
       return true;
     }
   } catch { /* ignore */ }
-  localStorage.removeItem('accessToken');
+  if (!loggedOut) localStorage.removeItem('accessToken');
   return false;
 }
 

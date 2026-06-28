@@ -1,4 +1,4 @@
-import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
 import {
   Stethoscope,
@@ -7,6 +7,7 @@ import {
   BarChart3,
   IndianRupee,
   ClipboardCheck,
+  Bot,
   Menu,
   X,
   LogOut,
@@ -20,6 +21,7 @@ const navigation = [
   { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
   { name: 'College Reviews', href: '/colleges', icon: GraduationCap },
   { name: 'Doc Checklist', href: '/doc-checklist', icon: ClipboardCheck },
+  { name: 'AI Assistant', href: '/ai-assistant', icon: Bot },
 ];
 
 function NavItem({ item, active, onClick }: { item: typeof navigation[0]; active: boolean; onClick?: () => void }) {
@@ -71,7 +73,7 @@ export default function DashboardLayout() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex">
       {/* Desktop Sidebar */}
-      <aside className="hidden md:flex flex-col w-60 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0">
+      <aside className="hidden md:flex flex-col w-60 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-20 relative">
         <Link to="/dashboard" className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
             <Stethoscope className="w-4.5 h-4.5" />

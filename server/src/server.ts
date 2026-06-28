@@ -8,18 +8,23 @@ import cookieParser from 'cookie-parser';
 import { env } from './config/env';
 import { initializeDatabase } from './config/database';
 import routes from './routes';
+import { sseRoutes } from './routes/chat.sse';
 
 const app = express();
 
 app.use(cors({
   origin: env.clientUrl,
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use(express.json());
 app.use(cookieParser());
+
+// SSE streaming routes — mounted BEFORE regular API routes
+// These bypass Express's response handling and write to the raw socket
+app.use('/api/chat', sseRoutes);
 
 app.use('/api', routes);
 
