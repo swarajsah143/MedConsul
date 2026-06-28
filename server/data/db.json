@@ -1,40 +1,518 @@
 {
   "users": {
-    "a70e5db3-a552-4dd9-a4f4-c07e55425ef9": {
-      "id": "a70e5db3-a552-4dd9-a4f4-c07e55425ef9",
+    "53dbb5bd-66d3-416b-8209-8969264197fc": {
+      "id": "53dbb5bd-66d3-416b-8209-8969264197fc",
       "name": "Admin User",
       "email": "admin@medcounsel.ai",
-      "password": "$2b$12$HALJKpOGGE1xtKdlBE9dmOwyL9T4xgYKOJXr4kYhCL6KBYq7YfQby",
+      "password": "$2b$12$0BLyfOpubz.o4DPoCs0B4OcVwPDvhOR2xJnD5m/GEVE/SsBZQeRWu",
       "role": "admin",
-      "createdAt": "2026-06-28T12:18:41.078Z",
-      "updatedAt": "2026-06-28T12:18:41.078Z"
+      "createdAt": "2026-06-28T13:15:42.144Z",
+      "updatedAt": "2026-06-28T13:15:42.144Z"
     },
-    "0822df20-e0de-470f-bbf8-fc9827b81db9": {
-      "id": "0822df20-e0de-470f-bbf8-fc9827b81db9",
+    "a995854f-25fb-4d96-93b8-9d1d000f0bcc": {
+      "id": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
       "name": "Swaraj Sah",
       "email": "swaraj@medcounsel.ai",
-      "password": "$2b$12$uOV6V8AD9XMISCd1m6THEewQSfGv4vh7tVtAYn2F6EfQjEP.40r82",
+      "password": "$2b$12$lUs.dIXzelYE0yOom.ikh.2PaRhTJjpMm.OGNvGehacudIFTQxl9S",
       "role": "student",
-      "createdAt": "2026-06-28T12:18:43.350Z",
-      "updatedAt": "2026-06-28T12:18:43.350Z"
+      "createdAt": "2026-06-28T13:15:43.784Z",
+      "updatedAt": "2026-06-28T13:15:43.784Z"
     },
-    "74a3b165-cee6-4a9d-a971-9d0029683173": {
-      "id": "74a3b165-cee6-4a9d-a971-9d0029683173",
+    "7bdeb91e-ad96-4345-bfab-cbc9256abfc2": {
+      "id": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
       "name": "Demo Student",
       "email": "demo@medcounsel.ai",
-      "password": "$2b$12$kQ.5yIMrRK8x4FEeUPxDoOV//vXNVF3WnK5fpaQqX9GyAzU2hT.ba",
+      "password": "$2b$12$PmVioNswd.4mM.7cmUJCfemA4t.Y/gnix6u4/wfUEc4by3VREIAu2",
       "role": "student",
-      "createdAt": "2026-06-28T12:18:45.587Z",
-      "updatedAt": "2026-06-28T12:18:45.587Z"
+      "createdAt": "2026-06-28T13:15:45.439Z",
+      "updatedAt": "2026-06-28T13:15:45.439Z"
     }
   },
   "refreshTokens": {
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNzBlNWRiMy1hNTUyLTRkZDktYTRmNC1jMDdlNTU0MjVlZjkiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NDk3MTksImV4cCI6MTc4MzI1NDUxOX0.qs8E4mqP5lW4hokbhHXVhbSlRnTAak0wWLWleUEXBVs": {
-      "id": "7ec6fc96-f0b3-41df-8caf-c667067282dd",
-      "userId": "a70e5db3-a552-4dd9-a4f4-c07e55425ef9",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhNzBlNWRiMy1hNTUyLTRkZDktYTRmNC1jMDdlNTU0MjVlZjkiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NDk3MTksImV4cCI6MTc4MzI1NDUxOX0.qs8E4mqP5lW4hokbhHXVhbSlRnTAak0wWLWleUEXBVs",
-      "expiresAt": "2026-07-05T12:28:39.610Z"
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUyOTI2LCJleHAiOjE3ODMyNTc3MjZ9.DgMQ6-wXVifIiyGzXusJqqMrvkDNAX_uI-OHGZVLMg8": {
+      "id": "1574ac90-b238-4ffd-890c-65d716f0ea9d",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUyOTI2LCJleHAiOjE3ODMyNTc3MjZ9.DgMQ6-wXVifIiyGzXusJqqMrvkDNAX_uI-OHGZVLMg8",
+      "expiresAt": "2026-07-05T13:22:06.552Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NTI5NTAsImV4cCI6MTc4MzI1Nzc1MH0.Ajnl7gKS2FUQYIKqAqb3bcxVGvE_BmsvM25YCYr9TTw": {
+      "id": "f2d260f0-59d9-4655-969c-76dca1833efb",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NTI5NTAsImV4cCI6MTc4MzI1Nzc1MH0.Ajnl7gKS2FUQYIKqAqb3bcxVGvE_BmsvM25YCYr9TTw",
+      "expiresAt": "2026-07-05T13:22:30.822Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUyOTUxLCJleHAiOjE3ODMyNTc3NTF9.G6tZx0INdxTga9dzHuWQxfWANbtf2Kbpg1GJv058Y6A": {
+      "id": "18323da8-7e0b-4be2-ad87-a63a6e7fc525",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUyOTUxLCJleHAiOjE3ODMyNTc3NTF9.G6tZx0INdxTga9dzHuWQxfWANbtf2Kbpg1GJv058Y6A",
+      "expiresAt": "2026-07-05T13:22:31.512Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMDEyLCJleHAiOjE3ODMyNTc4MTJ9.i4O_oUVaS13ONBGWmtGiwUkb48MeP5Ky-hoH7R3vu0w": {
+      "id": "96db9bbe-78a0-43ee-a769-eb4d74caf212",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMDEyLCJleHAiOjE3ODMyNTc4MTJ9.i4O_oUVaS13ONBGWmtGiwUkb48MeP5Ky-hoH7R3vu0w",
+      "expiresAt": "2026-07-05T13:23:32.882Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMDUzLCJleHAiOjE3ODMyNTc4NTN9.fNfXasKFJgeTrTHR4tDCNK7zfdh_tH2OAKNgDGPazis": {
+      "id": "00118a07-5d94-4cec-95a7-a2e178e0969e",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMDUzLCJleHAiOjE3ODMyNTc4NTN9.fNfXasKFJgeTrTHR4tDCNK7zfdh_tH2OAKNgDGPazis",
+      "expiresAt": "2026-07-05T13:24:13.684Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMTc3LCJleHAiOjE3ODMyNTc5Nzd9.poDReVseZlB4ewDR1OtCSsENyw9dNozQ82E5T3fm7js": {
+      "id": "5e4f4f58-52ae-4539-a1da-8ca3cadf00aa",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMTc3LCJleHAiOjE3ODMyNTc5Nzd9.poDReVseZlB4ewDR1OtCSsENyw9dNozQ82E5T3fm7js",
+      "expiresAt": "2026-07-05T13:26:17.214Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMjM2LCJleHAiOjE3ODMyNTgwMzZ9.oZ6_8Mpk1mQNLKF_QqXEn1b5y0aoXU3jcN723iA3BvY": {
+      "id": "27a34bd6-96d9-41e8-8e99-3c918b7abcbf",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMjM2LCJleHAiOjE3ODMyNTgwMzZ9.oZ6_8Mpk1mQNLKF_QqXEn1b5y0aoXU3jcN723iA3BvY",
+      "expiresAt": "2026-07-05T13:27:16.168Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMjk5LCJleHAiOjE3ODMyNTgwOTl9.Bwq5PYYDyC2Ksp5wtMZi2dEFzfvDL1qbrqotGYB1INg": {
+      "id": "208dd084-7878-40bf-960c-962f21173f7a",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMjk5LCJleHAiOjE3ODMyNTgwOTl9.Bwq5PYYDyC2Ksp5wtMZi2dEFzfvDL1qbrqotGYB1INg",
+      "expiresAt": "2026-07-05T13:28:19.962Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMzYwLCJleHAiOjE3ODMyNTgxNjB9.d0zse1lfNFIFlwY9g6A7yH0kGliiYMdSyGi8xO0Kvco": {
+      "id": "11b7eb86-d2aa-4173-8034-723362c3bcb1",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzMzYwLCJleHAiOjE3ODMyNTgxNjB9.d0zse1lfNFIFlwY9g6A7yH0kGliiYMdSyGi8xO0Kvco",
+      "expiresAt": "2026-07-05T13:29:20.630Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNDA1LCJleHAiOjE3ODMyNTgyMDV9.Pa7diDmgAsS_oOzeTgKZ2Sey3u4WgOR84sYqwgSGwhM": {
+      "id": "22ed0703-3617-4782-9b9e-e2935c707688",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNDA1LCJleHAiOjE3ODMyNTgyMDV9.Pa7diDmgAsS_oOzeTgKZ2Sey3u4WgOR84sYqwgSGwhM",
+      "expiresAt": "2026-07-05T13:30:05.213Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNTU1LCJleHAiOjE3ODMyNTgzNTV9.p6FlVtZWRhxNsUQgmC7juvSmcmmW17pgI4YqMO0FH7c": {
+      "id": "3086e3c5-a0e9-4bbf-88fa-ee78fc94d5c3",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNTU1LCJleHAiOjE3ODMyNTgzNTV9.p6FlVtZWRhxNsUQgmC7juvSmcmmW17pgI4YqMO0FH7c",
+      "expiresAt": "2026-07-05T13:32:35.685Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNTg3LCJleHAiOjE3ODMyNTgzODd9.D226RFEdxVchH-ChtMi5b2s6kWWfl6KID57NIMLTJos": {
+      "id": "8f692fe2-1f7e-46b1-addf-73bdf00ba712",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNTg3LCJleHAiOjE3ODMyNTgzODd9.D226RFEdxVchH-ChtMi5b2s6kWWfl6KID57NIMLTJos",
+      "expiresAt": "2026-07-05T13:33:07.809Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNjE0LCJleHAiOjE3ODMyNTg0MTR9.Dxh55AmDkJrUhnXwrwQADcwKX3gIZRvQdBtGpioRwew": {
+      "id": "d83ca55d-9afc-4082-8e15-74556dfb535c",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNjE0LCJleHAiOjE3ODMyNTg0MTR9.Dxh55AmDkJrUhnXwrwQADcwKX3gIZRvQdBtGpioRwew",
+      "expiresAt": "2026-07-05T13:33:34.397Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNjUxLCJleHAiOjE3ODMyNTg0NTF9.RLmAnW0WR_qgbr-TKEyzvVjVTxDh0sIBmRVuRSPUsRE": {
+      "id": "946c71b6-3e3f-400d-81d8-efb7777ce1e5",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNjUxLCJleHAiOjE3ODMyNTg0NTF9.RLmAnW0WR_qgbr-TKEyzvVjVTxDh0sIBmRVuRSPUsRE",
+      "expiresAt": "2026-07-05T13:34:11.411Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNjg5LCJleHAiOjE3ODMyNTg0ODl9.0qd7hSvNHdn_2eAwxJp-tvXF-2DhtZmPKG52DtryLao": {
+      "id": "84b4cfd3-9019-4551-85e0-ea06a90ccd99",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNjg5LCJleHAiOjE3ODMyNTg0ODl9.0qd7hSvNHdn_2eAwxJp-tvXF-2DhtZmPKG52DtryLao",
+      "expiresAt": "2026-07-05T13:34:49.052Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNzMwLCJleHAiOjE3ODMyNTg1MzB9.XKKFW-s54olXvv6Tsiro425MDUS7kuWOzY1E9q-H-XA": {
+      "id": "f520a7d3-98b3-403f-b356-de4b88c84440",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzNzMwLCJleHAiOjE3ODMyNTg1MzB9.XKKFW-s54olXvv6Tsiro425MDUS7kuWOzY1E9q-H-XA",
+      "expiresAt": "2026-07-05T13:35:30.262Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzODUzLCJleHAiOjE3ODMyNTg2NTN9.9EUaUR1qCo94sdMCgpk4jhqz_JKad9WoVe97eekNWz8": {
+      "id": "530af232-e605-40da-975a-ad4dfa9cc60c",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjUzODUzLCJleHAiOjE3ODMyNTg2NTN9.9EUaUR1qCo94sdMCgpk4jhqz_JKad9WoVe97eekNWz8",
+      "expiresAt": "2026-07-05T13:37:33.185Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjU0MzY1LCJleHAiOjE3ODMyNTkxNjV9.W3D5YB_RLfUwXgbqkR6VyfvLp9g0_UO_dL8RZhnhTrI": {
+      "id": "9bfe3bbd-e8c4-4c97-a3ad-8a3357a17903",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjU0MzY1LCJleHAiOjE3ODMyNTkxNjV9.W3D5YB_RLfUwXgbqkR6VyfvLp9g0_UO_dL8RZhnhTrI",
+      "expiresAt": "2026-07-05T13:46:05.868Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjU0Mzk1LCJleHAiOjE3ODMyNTkxOTV9._Rhr2oTxoekYxUYhLXI4XQIEGKUMQXMw1T0bZjKsYEI": {
+      "id": "b86ecaf9-871e-4de3-8515-09000361bd44",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YmRlYjkxZS1hZDk2LTQzNDUtYmZhYi1jYmM5MjU2YWJmYzIiLCJlbWFpbCI6ImRlbW9AbWVkY291bnNlbC5haSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzgyNjU0Mzk1LCJleHAiOjE3ODMyNTkxOTV9._Rhr2oTxoekYxUYhLXI4XQIEGKUMQXMw1T0bZjKsYEI",
+      "expiresAt": "2026-07-05T13:46:35.890Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NTQ0MjcsImV4cCI6MTc4MzI1OTIyN30.0yfKRw1lU0qk_nqlLj2xvUzGNey7ibyit3JxSVNt410": {
+      "id": "e0631df6-8696-4750-a0e6-8ab6958028ec",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NTQ0MjcsImV4cCI6MTc4MzI1OTIyN30.0yfKRw1lU0qk_nqlLj2xvUzGNey7ibyit3JxSVNt410",
+      "expiresAt": "2026-07-05T13:47:07.073Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NjI0ODcsImV4cCI6MTc4MzI2NzI4N30.cJlhjmoTWwHh86NTx_1UeFXTDGpz0oirk9ON-3UUPC8": {
+      "id": "728e2dbc-b502-4129-adbd-8546ec78fd49",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NjI0ODcsImV4cCI6MTc4MzI2NzI4N30.cJlhjmoTWwHh86NTx_1UeFXTDGpz0oirk9ON-3UUPC8",
+      "expiresAt": "2026-07-05T16:01:27.075Z"
     }
   },
-  "passwordResets": {}
+  "passwordResets": {},
+  "chatSessions": {
+    "80b84524-9141-4a8a-9224-bc3225eafa94": {
+      "id": "80b84524-9141-4a8a-9224-bc3225eafa94",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Which colleges can I get with rank 5000?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which colleges can I get with rank 5000?"
+        }
+      ],
+      "createdAt": "2026-06-28T13:22:06.618Z",
+      "updatedAt": "2026-06-28T13:22:06.743Z"
+    },
+    "8b74dbb0-4846-4d00-8776-942d765996e8": {
+      "id": "8b74dbb0-4846-4d00-8776-942d765996e8",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Compare fees of government colleges",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Compare fees of government colleges"
+        }
+      ],
+      "createdAt": "2026-06-28T13:22:31.575Z",
+      "updatedAt": "2026-06-28T13:22:31.763Z"
+    },
+    "e4a5725e-3958-442c-ae8a-60642e86201b": {
+      "id": "e4a5725e-3958-442c-ae8a-60642e86201b",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Compare fees of government vs private colleges",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Compare fees of government vs private colleges"
+        }
+      ],
+      "createdAt": "2026-06-28T13:23:32.967Z",
+      "updatedAt": "2026-06-28T13:23:33.117Z"
+    },
+    "b0650b2d-9e75-4654-8fd3-a48aed07035f": {
+      "id": "b0650b2d-9e75-4654-8fd3-a48aed07035f",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "fees",
+      "messages": [
+        {
+          "role": "user",
+          "content": "fees"
+        }
+      ],
+      "createdAt": "2026-06-28T13:24:13.757Z",
+      "updatedAt": "2026-06-28T13:24:13.883Z"
+    },
+    "a150d6ef-9fdf-4822-8c5e-17209820900c": {
+      "id": "a150d6ef-9fdf-4822-8c5e-17209820900c",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "fees",
+      "messages": [
+        {
+          "role": "user",
+          "content": "fees"
+        }
+      ],
+      "createdAt": "2026-06-28T13:26:17.304Z",
+      "updatedAt": "2026-06-28T13:26:17.406Z"
+    },
+    "15e9e783-f536-4253-a69b-c9614f5fb456": {
+      "id": "15e9e783-f536-4253-a69b-c9614f5fb456",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "fees",
+      "messages": [
+        {
+          "role": "user",
+          "content": "fees"
+        }
+      ],
+      "createdAt": "2026-06-28T13:27:16.261Z",
+      "updatedAt": "2026-06-28T13:27:16.391Z"
+    },
+    "7739c5f3-0a7d-490c-929e-94a13d6959f9": {
+      "id": "7739c5f3-0a7d-490c-929e-94a13d6959f9",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "fees",
+      "messages": [
+        {
+          "role": "user",
+          "content": "fees"
+        }
+      ],
+      "createdAt": "2026-06-28T13:28:20.043Z",
+      "updatedAt": "2026-06-28T13:28:20.166Z"
+    },
+    "e3e49620-7a7c-429d-8ea5-ec18493d42ab": {
+      "id": "e3e49620-7a7c-429d-8ea5-ec18493d42ab",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "What documents do I need?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What documents do I need?"
+        }
+      ],
+      "createdAt": "2026-06-28T13:29:20.700Z",
+      "updatedAt": "2026-06-28T13:29:20.833Z"
+    },
+    "82967cbc-860d-4656-9f72-ddadad967a69": {
+      "id": "82967cbc-860d-4656-9f72-ddadad967a69",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "documents needed",
+      "messages": [
+        {
+          "role": "user",
+          "content": "documents needed"
+        }
+      ],
+      "createdAt": "2026-06-28T13:30:05.300Z",
+      "updatedAt": "2026-06-28T13:30:05.427Z"
+    },
+    "f036bd2f-814c-4edf-b041-3238bb144fdb": {
+      "id": "f036bd2f-814c-4edf-b041-3238bb144fdb",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Compare fees of government vs private colleges",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Compare fees of government vs private colleges"
+        }
+      ],
+      "createdAt": "2026-06-28T13:32:35.762Z",
+      "updatedAt": "2026-06-28T13:32:35.898Z"
+    },
+    "35849e41-1789-4962-aa2e-b266cec1da73": {
+      "id": "35849e41-1789-4962-aa2e-b266cec1da73",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "fees",
+      "messages": [
+        {
+          "role": "user",
+          "content": "fees"
+        }
+      ],
+      "createdAt": "2026-06-28T13:33:07.883Z",
+      "updatedAt": "2026-06-28T13:33:08.017Z"
+    },
+    "5249cb4d-51f9-4fab-bc9a-faa6726faa8c": {
+      "id": "5249cb4d-51f9-4fab-bc9a-faa6726faa8c",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "fees",
+      "messages": [
+        {
+          "role": "user",
+          "content": "fees"
+        }
+      ],
+      "createdAt": "2026-06-28T13:33:34.483Z",
+      "updatedAt": "2026-06-28T13:33:34.614Z"
+    },
+    "b1e63eb7-375a-4945-b3d2-26ef36ea91df": {
+      "id": "b1e63eb7-375a-4945-b3d2-26ef36ea91df",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "What documents do I need for physical reporting?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What documents do I need for physical reporting?"
+        }
+      ],
+      "createdAt": "2026-06-28T13:34:11.512Z",
+      "updatedAt": "2026-06-28T13:34:11.646Z"
+    },
+    "e6306d20-6cab-4649-b61d-4fa2f1069558": {
+      "id": "e6306d20-6cab-4649-b61d-4fa2f1069558",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "documents for reporting",
+      "messages": [
+        {
+          "role": "user",
+          "content": "documents for reporting"
+        },
+        {
+          "role": "assistant",
+          "content": "## Required Documents\n\n### From Document Checklist\n\n**Migration Certificate** [Physical Reporting] — Conditional\nFormat: Original\nRequired for AIQ/Deemed if studied in different state.\n\n**Provisional Allotment Letter** [Physical Reporting] — MANDATORY\nFormat: A4 Printout\nDownload from MCC/state counselling portal after allotment.\n\n**Transfer Certificate (TC)** [Physical Reporting] — MANDATORY\nFormat: Original\nFrom last school. May need DEO countersign.\n\n**Anti-Ragging Affidavit** [Physical Reporting] — MANDATORY\nFormat: Stamp Paper\nBoth student and parent sign. Generate at antiragging.in.\n\n**Medical Fitness Certificate** [Physical Reporting] — MANDATORY\nFormat: Original\nFrom registered MBBS practitioner. Some colleges do own exam.\n\n**Passport-size Photographs (10 copies)** [Physical Reporting] — MANDATORY\nFormat: Physical\nWhite background, 3.5x4.5cm. Match NEET application photo.\n\n**Demand Draft / Fee Payment Receipt** [Physical Reporting] — MANDATORY\nFormat: DD/Receipt\nConfirm payee name from allotment letter.\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T13:34:49.135Z",
+      "updatedAt": "2026-06-28T13:34:49.288Z"
+    },
+    "1f5ef52f-e9d5-452b-8f06-52fbef386149": {
+      "id": "1f5ef52f-e9d5-452b-8f06-52fbef386149",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Compare fees of government vs private colleges",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Compare fees of government vs private colleges"
+        }
+      ],
+      "createdAt": "2026-06-28T13:35:30.335Z",
+      "updatedAt": "2026-06-28T13:35:30.472Z"
+    },
+    "9651dfc6-2626-4820-8954-d8f84629e5e1": {
+      "id": "9651dfc6-2626-4820-8954-d8f84629e5e1",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Which colleges can I get with AIR 3000?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which colleges can I get with AIR 3000?"
+        }
+      ],
+      "createdAt": "2026-06-28T13:35:30.587Z",
+      "updatedAt": "2026-06-28T13:35:30.693Z"
+    },
+    "5374dadd-8c1f-447d-af01-1a9d58f4e2ca": {
+      "id": "5374dadd-8c1f-447d-af01-1a9d58f4e2ca",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Compare fees",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Compare fees"
+        },
+        {
+          "role": "assistant",
+          "content": "## Fee Comparison\n\n### From Fee & Seat Matrix\n\n**AIIMS, New Delhi** (Government, Delhi)\nTuition: Rs 1,628 | Hostel: Rs 1,200 | Total 1st Year: Rs 12,328\nGovt Seats: 107 | Mgmt Seats: 0 | NRI Seats: 18\n\n**MAMC, New Delhi** (Government, Delhi)\nTuition: Rs 4,445 | Hostel: Rs 3,600 | Total 1st Year: Rs 30,045\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**Grant MC, Mumbai** (Government, Maharashtra)\nTuition: Rs 28,000 | Hostel: Rs 18,000 | Total 1st Year: Rs 83,000\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**BMCRI, Bengaluru** (Government, Karnataka)\nTuition: Rs 70,150 | Hostel: Rs 24,000 | Total 1st Year: Rs 1.42 Lakh\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**KMC Manipal** (Deemed, Karnataka)\nTuition: Rs 17.80 Lakh | Hostel: Rs 1.80 Lakh | Total 1st Year: Rs 22.55 Lakh\nGovt Seats: 0 | Mgmt Seats: 200 | NRI Seats: 50\n\n**CMC Vellore** (Private, Tamil Nadu)\nTuition: Rs 52,000 | Hostel: Rs 36,000 | Total 1st Year: Rs 1.36 Lakh\nGovt Seats: 60 | Mgmt Seats: 30 | NRI Seats: 10\n\n**AFMC Pune** (Government, Maharashtra)\nTuition: Free | Hostel: Free | Total 1st Year: Rs 15,000\nGovt Seats: 130 | Mgmt Seats: 0 | NRI Seats: 0\n\n**JIPMER, Puducherry** (Government, Puducherry)\nTuition: Rs 5,750 | Hostel: Rs 4,800 | Total 1st Year: Rs 26,550\nGovt Seats: 150 | Mgmt Seats: 0 | NRI Seats: 15\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T13:37:33.263Z",
+      "updatedAt": "2026-06-28T13:37:33.579Z"
+    },
+    "c1dfde55-8c0c-41f5-a6ae-46c5572598c9": {
+      "id": "c1dfde55-8c0c-41f5-a6ae-46c5572598c9",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Colleges for rank 2000",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Colleges for rank 2000"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Options Based on Your Rank\n\n### From Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| Grant MC, Mumbai | MBBS | General | Maharashtra State | 2025 R1 | Closing Rank: #1,900 | Score: 683 |\n| AIIMS, New Delhi | MBBS | SC | AIQ | 2025 R1 | Closing Rank: #2,700 | Score: 630 |\n| Stanley MC, Chennai | MBBS | General | Tamil Nadu State | 2025 R1 | Closing Rank: #2,950 | Score: 660 |\n| BMCRI, Bengaluru | MBBS | OBC | Karnataka State | 2025 R1 | Closing Rank: #3,900 | Score: 662 |\n| Grant MC, Mumbai | MBBS | OBC | Maharashtra State | 2025 R1 | Closing Rank: #5,100 | Score: 655 |\n| CMC Vellore | MBBS | General | Management | 2025 R1 | Closing Rank: #5,410 | Score: 662 |\n| KMC Manipal | MBBS | General | AIQ | 2025 R1 | Closing Rank: #10,500 | Score: 648 |\n| Grant MC, Mumbai | BDS | General | Maharashtra State | 2025 R1 | Closing Rank: #15,420 | Score: 615 |\n| KMC Manipal | MBBS | General | Management | 2025 R1 | Closing Rank: #42,150 | Score: 565 |\n\n### From College Reviews\n\n**Grant Medical College & Sir JJ Hospital, Mumbai** (Government) — Mumbai, Maharashtra\nEstablished: 1845 | Seats: 250 | Fees: ~28,000/yr | Cutoff: AIR 500-2500 (State)\nOne of Asia's oldest medical colleges. 1350-bed Sir JJ Hospital. Major trauma center.\n\n**Kasturba Medical College (KMC), Manipal** (Deemed) — Manipal, Karnataka\nEstablished: 1953 | Seats: 250 | Fees: ~17,80,000/yr | Cutoff: AIR 15K-45K (Mgmt)\nUnder MAHE. 2000-bed NABH hospital. International curriculum, 600-acre campus.\n\n**Armed Forces Medical College (AFMC), Pune** (Government) — Pune, Maharashtra\nEstablished: 1948 | Seats: 150 | Fees: Fully funded | Cutoff: AIR 100-800\nMilitary medical school. Free education with stipend. 7-14 year service bond.\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T13:37:33.634Z",
+      "updatedAt": "2026-06-28T13:37:33.806Z"
+    },
+    "33dda990-2b16-4b61-b757-56348cab4239": {
+      "id": "33dda990-2b16-4b61-b757-56348cab4239",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Documents for reporting",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Documents for reporting"
+        },
+        {
+          "role": "assistant",
+          "content": "## Required Documents\n\n### From Document Checklist\n\n**Migration Certificate** [Physical Reporting] — Conditional\nFormat: Original\nRequired for AIQ/Deemed if studied in different state.\n\n**Provisional Allotment Letter** [Physical Reporting] — MANDATORY\nFormat: A4 Printout\nDownload from MCC/state counselling portal after allotment.\n\n**Transfer Certificate (TC)** [Physical Reporting] — MANDATORY\nFormat: Original\nFrom last school. May need DEO countersign.\n\n**Anti-Ragging Affidavit** [Physical Reporting] — MANDATORY\nFormat: Stamp Paper\nBoth student and parent sign. Generate at antiragging.in.\n\n**Medical Fitness Certificate** [Physical Reporting] — MANDATORY\nFormat: Original\nFrom registered MBBS practitioner. Some colleges do own exam.\n\n**Passport-size Photographs (10 copies)** [Physical Reporting] — MANDATORY\nFormat: Physical\nWhite background, 3.5x4.5cm. Match NEET application photo.\n\n**Demand Draft / Fee Payment Receipt** [Physical Reporting] — MANDATORY\nFormat: DD/Receipt\nConfirm payee name from allotment letter.\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T13:37:33.859Z",
+      "updatedAt": "2026-06-28T13:37:34.019Z"
+    },
+    "3dac96cb-b4bd-4dda-8781-b3bdb22497c0": {
+      "id": "3dac96cb-b4bd-4dda-8781-b3bdb22497c0",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "Tell me about AIIMS",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Tell me about AIIMS"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Information\n\n### From College Reviews\n\n**AIIMS, New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1956 | Seats: 125 | Fees: ~1,628/yr | Cutoff: AIR 1-57 (General)\nIndia's premier medical institute. 2400-bed hospital, world-class research, 110-acre campus.\n\n**Maulana Azad Medical College (MAMC), New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1958 | Seats: 250 | Fees: ~4,445/yr | Cutoff: AIR 60-150 (General)\nAssociated with Lok Nayak (2800 beds), GB Pant, and Guru Nanak Eye Centre. 4000+ combined beds.\n\n**Grant Medical College & Sir JJ Hospital, Mumbai** (Government) — Mumbai, Maharashtra\nEstablished: 1845 | Seats: 250 | Fees: ~28,000/yr | Cutoff: AIR 500-2500 (State)\nOne of Asia's oldest medical colleges. 1350-bed Sir JJ Hospital. Major trauma center.\n\n**Bangalore Medical College (BMCRI)** (Government) — Bengaluru, Karnataka\nEstablished: 1955 | Seats: 250 | Fees: ~70,150/yr | Cutoff: AIR 400-1500 (State)\nKarnataka's premier govt medical college. Victoria Hospital (900 beds), Vani Vilas (500 beds).\n\n**Kasturba Medical College (KMC), Manipal** (Deemed) — Manipal, Karnataka\nEstablished: 1953 | Seats: 250 | Fees: ~17,80,000/yr | Cutoff: AIR 15K-45K (Mgmt)\nUnder MAHE. 2000-bed NABH hospital. International curriculum, 600-acre campus.\n\n**Christian Medical College (CMC), Vellore** (Private) — Vellore, Tamil Nadu\nEstablished: 1900 | Seats: 100 | Fees: ~52,000/yr | Cutoff: AIR 2K-6K (General)\nPioneer in Indian medicine. 2700-bed JCI hospital. First renal transplant in India.\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T13:37:34.074Z",
+      "updatedAt": "2026-06-28T13:37:34.252Z"
+    },
+    "cfff2c81-6cc1-4a12-a821-e36e2b73ae4d": {
+      "id": "cfff2c81-6cc1-4a12-a821-e36e2b73ae4d",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "What is quantum physics",
+      "messages": [
+        {
+          "role": "user",
+          "content": "What is quantum physics"
+        },
+        {
+          "role": "assistant",
+          "content": "## Search Results\n\n### From College Reviews\n\n**AIIMS, New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1956 | Seats: 125 | Fees: ~1,628/yr | Cutoff: AIR 1-57 (General)\nIndia's premier medical institute. 2400-bed hospital, world-class research, 110-acre campus.\n\n**Maulana Azad Medical College (MAMC), New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1958 | Seats: 250 | Fees: ~4,445/yr | Cutoff: AIR 60-150 (General)\nAssociated with Lok Nayak (2800 beds), GB Pant, and Guru Nanak Eye Centre. 4000+ combined beds.\n\n**Grant Medical College & Sir JJ Hospital, Mumbai** (Government) — Mumbai, Maharashtra\nEstablished: 1845 | Seats: 250 | Fees: ~28,000/yr | Cutoff: AIR 500-2500 (State)\nOne of Asia's oldest medical colleges. 1350-bed Sir JJ Hospital. Major trauma center.\n\n**Bangalore Medical College (BMCRI)** (Government) — Bengaluru, Karnataka\nEstablished: 1955 | Seats: 250 | Fees: ~70,150/yr | Cutoff: AIR 400-1500 (State)\nKarnataka's premier govt medical college. Victoria Hospital (900 beds), Vani Vilas (500 beds).\n\n**Kasturba Medical College (KMC), Manipal** (Deemed) — Manipal, Karnataka\nEstablished: 1953 | Seats: 250 | Fees: ~17,80,000/yr | Cutoff: AIR 15K-45K (Mgmt)\nUnder MAHE. 2000-bed NABH hospital. International curriculum, 600-acre campus.\n\n**Christian Medical College (CMC), Vellore** (Private) — Vellore, Tamil Nadu\nEstablished: 1900 | Seats: 100 | Fees: ~52,000/yr | Cutoff: AIR 2K-6K (General)\nPioneer in Indian medicine. 2700-bed JCI hospital. First renal transplant in India.\n\n### From Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| AIIMS, New Delhi | MBBS | General | AIQ | 2025 R1 | Closing Rank: #57 | Score: 715 |\n| AIIMS, New Delhi | MBBS | OBC | AIQ | 2025 R1 | Closing Rank: #450 | Score: 686 |\n| AIIMS, New Delhi | MBBS | SC | AIQ | 2025 R1 | Closing Rank: #2,700 | Score: 630 |\n| MAMC, New Delhi | MBBS | General | Delhi State | 2025 R1 | Closing Rank: #85 | Score: 710 |\n| MAMC, New Delhi | MBBS | General | AIQ | 2025 R1 | Closing Rank: #98 | Score: 708 |\n| Grant MC, Mumbai | MBBS | General | Maharashtra State | 2025 R1 | Closing Rank: #1,900 | Score: 683 |\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T13:37:34.307Z",
+      "updatedAt": "2026-06-28T13:37:34.495Z"
+    },
+    "cb552138-c06c-49c5-8479-f84fc33eabbd": {
+      "id": "cb552138-c06c-49c5-8479-f84fc33eabbd",
+      "userId": "7bdeb91e-ad96-4345-bfab-cbc9256abfc2",
+      "title": "documents needed",
+      "messages": [
+        {
+          "role": "user",
+          "content": "documents needed"
+        },
+        {
+          "role": "assistant",
+          "content": "## Required Documents\n\n### From Document Checklist\n\n**NEET UG Scorecard / Rank Letter** [Online Registration] — MANDATORY\nFormat: PDF/JPEG\nDownload from nta.ac.in. Both scorecard and rank letter needed.\n\n**NEET UG Admit Card** [Online Registration] — MANDATORY\nFormat: PDF/JPEG\nMust show photograph, roll number, and exam center.\n\n**Class 10th Marksheet & Certificate** [Online Registration] — MANDATORY\nFormat: PDF/JPEG\nFor DOB verification. Name must match NEET application.\n\n**Class 12th Marksheet & Certificate** [Online Registration] — MANDATORY\nFormat: PDF/JPEG\nMust show PCB + English aggregate.\n\n**Aadhar Card / Government Photo ID** [Online Registration] — MANDATORY\nFormat: PDF/JPEG\nAadhar universally accepted.\n\n**Category Certificate (SC/ST/OBC/EWS)** [Online Registration] — Conditional\nFormat: PDF\nOBC must have non-creamy layer clause, issued within last year.\n\n**Domicile / Residence Certificate** [Online Registration] — Conditional\nFormat: PDF\nRequired for state quota. Proves 10-15 years continuous residence.\n\n**Provisional Allotment Letter** [Physical Reporting] — MANDATORY\nFormat: A4 Printout\nDownload from MCC/state counselling portal after allotment.\n\n**Transfer Certificate (TC)** [Physical Reporting] — MANDATORY\nFormat: Original\nFrom last school. May need DEO countersign.\n\n**Migration Certificate** [Physical Reporting] — Conditional\nFormat: Original\nRequired for AIQ/Deemed if studied in different state.\n\n**Anti-Ragging Affidavit** [Physical Reporting] — MANDATORY\nFormat: Stamp Paper\nBoth student and parent sign. Generate at antiragging.in.\n\n**Medical Fitness Certificate** [Physical Reporting] — MANDATORY\nFormat: Original\nFrom registered MBBS practitioner. Some colleges do own exam.\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T13:46:35.966Z",
+      "updatedAt": "2026-06-28T13:46:36.139Z"
+    },
+    "73710fef-82ed-48da-909b-1ac6055124bb": {
+      "id": "73710fef-82ed-48da-909b-1ac6055124bb",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "title": "Which colleges can I get with AIR 45,000?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which colleges can I get with AIR 45,000?"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Options Based on Your Rank\n\n### From Closing Rank Insights\n\nKMC Manipal | MBBS | General | Management | 2025 R1 | Closing Rank: #42,150 | Score: 565\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        },
+        {
+          "role": "user",
+          "content": "hey"
+        },
+        {
+          "role": "assistant",
+          "content": "## Search Results\n\n### From College Reviews\n\n**AIIMS, New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1956 | Seats: 125 | Fees: ~1,628/yr | Cutoff: AIR 1-57 (General)\nIndia's premier medical institute. 2400-bed hospital, world-class research, 110-acre campus.\n\n**Maulana Azad Medical College (MAMC), New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1958 | Seats: 250 | Fees: ~4,445/yr | Cutoff: AIR 60-150 (General)\nAssociated with Lok Nayak (2800 beds), GB Pant, and Guru Nanak Eye Centre. 4000+ combined beds.\n\n**Grant Medical College & Sir JJ Hospital, Mumbai** (Government) — Mumbai, Maharashtra\nEstablished: 1845 | Seats: 250 | Fees: ~28,000/yr | Cutoff: AIR 500-2500 (State)\nOne of Asia's oldest medical colleges. 1350-bed Sir JJ Hospital. Major trauma center.\n\n**Bangalore Medical College (BMCRI)** (Government) — Bengaluru, Karnataka\nEstablished: 1955 | Seats: 250 | Fees: ~70,150/yr | Cutoff: AIR 400-1500 (State)\nKarnataka's premier govt medical college. Victoria Hospital (900 beds), Vani Vilas (500 beds).\n\n**Kasturba Medical College (KMC), Manipal** (Deemed) — Manipal, Karnataka\nEstablished: 1953 | Seats: 250 | Fees: ~17,80,000/yr | Cutoff: AIR 15K-45K (Mgmt)\nUnder MAHE. 2000-bed NABH hospital. International curriculum, 600-acre campus.\n\n**Christian Medical College (CMC), Vellore** (Private) — Vellore, Tamil Nadu\nEstablished: 1900 | Seats: 100 | Fees: ~52,000/yr | Cutoff: AIR 2K-6K (General)\nPioneer in Indian medicine. 2700-bed JCI hospital. First renal transplant in India.\n\n### From Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| AIIMS, New Delhi | MBBS | General | AIQ | 2025 R1 | Closing Rank: #57 | Score: 715 |\n| AIIMS, New Delhi | MBBS | OBC | AIQ | 2025 R1 | Closing Rank: #450 | Score: 686 |\n| AIIMS, New Delhi | MBBS | SC | AIQ | 2025 R1 | Closing Rank: #2,700 | Score: 630 |\n| MAMC, New Delhi | MBBS | General | Delhi State | 2025 R1 | Closing Rank: #85 | Score: 710 |\n| MAMC, New Delhi | MBBS | General | AIQ | 2025 R1 | Closing Rank: #98 | Score: 708 |\n| Grant MC, Mumbai | MBBS | General | Maharashtra State | 2025 R1 | Closing Rank: #1,900 | Score: 683 |\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T13:47:13.168Z",
+      "updatedAt": "2026-06-28T13:47:17.398Z"
+    },
+    "f0cde6aa-da82-4786-9f4c-4f026a5936b0": {
+      "id": "f0cde6aa-da82-4786-9f4c-4f026a5936b0",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "title": "Which colleges can I get with AIR 45,000?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which colleges can I get with AIR 45,000?"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Options Based on Your Rank\n\n### From Closing Rank Insights\n\nKMC Manipal | MBBS | General | Management | 2025 R1 | Closing Rank: #42,150 | Score: 565\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        }
+      ],
+      "createdAt": "2026-06-28T15:40:23.936Z",
+      "updatedAt": "2026-06-28T15:40:24.001Z"
+    }
+  }
 }

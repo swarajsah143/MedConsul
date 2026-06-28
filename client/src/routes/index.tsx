@@ -17,6 +17,7 @@ import FeeDetailPage from '@/pages/fee-detail';
 import CollegesPage from '@/pages/colleges';
 import CollegeDetailPage from '@/pages/college-detail';
 import DocChecklistPage from '@/pages/doc-checklist';
+import AiAssistantPage from '@/pages/ai-assistant';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 
 function FullPageSpinner() {
@@ -68,6 +69,7 @@ export default function AppRoutes() {
         <Route path="colleges" element={<CollegesPage />} />
         <Route path="colleges/:id" element={<CollegeDetailPage />} />
         <Route path="doc-checklist" element={<DocChecklistPage />} />
+        <Route path="ai-assistant" element={<AiAssistantPage />} />
       </Route>
 
       {/* Fallback */}
