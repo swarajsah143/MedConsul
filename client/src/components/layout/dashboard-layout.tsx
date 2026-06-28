@@ -2,6 +2,7 @@ import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
 import {
   Stethoscope,
+  LayoutDashboard,
   GraduationCap,
   BarChart3,
   IndianRupee,
@@ -14,6 +15,7 @@ import {
 import { useState, useEffect, useRef } from 'react';
 
 const navigation = [
+  { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Rank Insights', href: '/rank-insights', icon: BarChart3 },
   { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
   { name: 'College Reviews', href: '/colleges', icon: GraduationCap },
@@ -70,12 +72,12 @@ export default function DashboardLayout() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex">
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-60 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0">
-        <div className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800">
+        <Link to="/dashboard" className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
             <Stethoscope className="w-4.5 h-4.5" />
           </div>
           <span className="font-bold text-sm text-slate-800 dark:text-slate-200 tracking-tight">MedCounsel AI</span>
-        </div>
+        </Link>
 
         <nav className="flex-1 py-4 px-3 space-y-0.5" role="navigation" aria-label="Main navigation">
           {navigation.map((item) => (
@@ -100,12 +102,12 @@ export default function DashboardLayout() {
           <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
           <aside className="fixed inset-y-0 left-0 w-72 bg-white dark:bg-slate-900 shadow-2xl z-50 flex flex-col animate-in slide-in-from-left duration-200">
             <div className="h-14 flex items-center justify-between px-5 border-b border-slate-200 dark:border-slate-800">
-              <div className="flex items-center gap-2.5">
+              <Link to="/dashboard" className="flex items-center gap-2.5" onClick={() => setMobileMenuOpen(false)}>
                 <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
                   <Stethoscope className="w-4.5 h-4.5" />
                 </div>
                 <span className="font-bold text-sm text-slate-800 dark:text-slate-200">MedCounsel AI</span>
-              </div>
+              </Link>
               <button onClick={() => setMobileMenuOpen(false)} className="p-1.5 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors" aria-label="Close menu">
                 <X className="w-5 h-5" />
               </button>
@@ -139,12 +141,12 @@ export default function DashboardLayout() {
             >
               <Menu className="w-5 h-5" />
             </button>
-            <div className="flex items-center gap-2">
+            <Link to="/dashboard" className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-lg gradient-primary flex items-center justify-center text-white">
                 <Stethoscope className="w-3.5 h-3.5" />
               </div>
               <span className="font-bold text-sm text-slate-800 dark:text-slate-200">MedCounsel AI</span>
-            </div>
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-1.5">

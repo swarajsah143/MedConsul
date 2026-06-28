@@ -9,6 +9,7 @@ import ForgotPasswordPage from '@/pages/forgot-password';
 import ResetPasswordPage from '@/pages/reset-password';
 
 // App pages
+import DashboardPage from '@/pages/dashboard';
 import RankInsightsPage from '@/pages/rank-insights';
 import RankInsightDetailPage from '@/pages/rank-insight-detail';
 import FeeMatrixPage from '@/pages/fee-matrix';
@@ -36,7 +37,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 function PublicRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
   if (isLoading) return <FullPageSpinner />;
-  if (isAuthenticated) return <Navigate to="/rank-insights" replace />;
+  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
   return <>{children}</>;
 }
 
@@ -58,7 +59,8 @@ export default function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        <Route index element={<Navigate to="/rank-insights" replace />} />
+        <Route index element={<Navigate to="/dashboard" replace />} />
+        <Route path="dashboard" element={<DashboardPage />} />
         <Route path="rank-insights" element={<RankInsightsPage />} />
         <Route path="rank-insights/detail" element={<RankInsightDetailPage />} />
         <Route path="fee-matrix" element={<FeeMatrixPage />} />
