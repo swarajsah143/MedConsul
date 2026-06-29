@@ -5,6 +5,8 @@ import { INSIGHTS_DATA, INSIGHT_FILTER_OPTIONS } from '@/lib/insights-data';
 import { FEE_MATRIX_DATA } from '@/lib/fee-matrix-data';
 import { MOCK_COLLEGES } from '@/lib/college-data';
 import { CHECKLIST_DOCS } from '@/lib/checklist-data';
+import { getRecentAnnouncements } from '@/lib/announcements-data';
+import { VIDEOS_DATA } from '@/lib/videos-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import {
@@ -20,6 +22,9 @@ import {
   Clock,
   Bell,
   ChevronRight,
+  Megaphone,
+  PlayCircle,
+  ExternalLink,
 } from 'lucide-react';
 
 // Read checklist progress from localStorage
@@ -70,39 +75,32 @@ const QUICK_ACTIONS = [
   },
 ];
 
-const RECENT_UPDATES = [
-  {
-    icon: Building2,
-    title: 'New college profiles added',
-    description: 'AFMC Pune and St. John\'s Bengaluru reviews are now available',
-    time: '2 hours ago',
-    color: 'text-blue-600 bg-blue-50 dark:bg-blue-950/20',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Closing ranks updated for 2025',
-    description: 'Round 2 data now available for AIIMS, JIPMER, and BMCRI',
-    time: '5 hours ago',
-    color: 'text-red-600 bg-red-50 dark:bg-red-950/20',
-  },
-  {
-    icon: IndianRupee,
-    title: 'Fee structures published',
-    description: 'KMC Manipal and CMC Vellore year-wise fee breakdowns added',
-    time: '1 day ago',
-    color: 'text-amber-600 bg-amber-50 dark:bg-amber-950/20',
-  },
-  {
-    icon: FileText,
-    title: 'Checklist updated for 2026',
-    description: 'Physical reporting documents updated with latest MCC requirements',
-    time: '2 days ago',
-    color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/20',
-  },
-];
+const TYPE_COLORS: Record<string, string> = {
+  'Allotment': 'text-blue-600 bg-blue-50 dark:bg-blue-950/20',
+  'Counselling': 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/20',
+  'Public Notice': 'text-red-600 bg-red-50 dark:bg-red-950/20',
+  'Seat Matrix': 'text-amber-600 bg-amber-50 dark:bg-amber-950/20',
+  'Merit list': 'text-purple-600 bg-purple-50 dark:bg-purple-950/20',
+  'Rank List': 'text-purple-600 bg-purple-50 dark:bg-purple-950/20',
+  'Last rank': 'text-indigo-600 bg-indigo-50 dark:bg-indigo-950/20',
+  'Opening and closing rank': 'text-indigo-600 bg-indigo-50 dark:bg-indigo-950/20',
+};
+
+const TYPE_ICONS: Record<string, typeof Bell> = {
+  'Allotment': FileText,
+  'Counselling': GraduationCap,
+  'Public Notice': Megaphone,
+  'Seat Matrix': BarChart3,
+  'Merit list': TrendingUp,
+  'Rank List': TrendingUp,
+  'Last rank': TrendingUp,
+  'Opening and closing rank': TrendingUp,
+};
 
 export default function DashboardPage() {
   const { user } = useAuth();
+
+  const recentAnnouncements = useMemo(() => getRecentAnnouncements(6), []);
 
   const stats = useMemo(() => {
     const checklist = getChecklistProgress();
@@ -112,6 +110,7 @@ export default function DashboardPage() {
       docCategories: CHECKLIST_DOCS.length,
       feeRecords: FEE_MATRIX_DATA.length,
       states: INSIGHT_FILTER_OPTIONS.states.length,
+      videos: VIDEOS_DATA.length,
       checklistDone: checklist.completed,
       checklistTotal: checklist.total,
     };
@@ -198,12 +197,13 @@ export default function DashboardPage() {
       {/* Statistics */}
       <section>
         <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4">Platform Overview</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
           {[
             { label: 'Total Colleges', value: `${stats.colleges}`, sub: `${stats.states} states covered`, icon: Building2, color: 'text-blue-600 bg-blue-50 dark:bg-blue-950/20' },
             { label: 'Rank Records', value: `${stats.rankRecords}`, sub: '3 years of data', icon: BarChart3, color: 'text-red-600 bg-red-50 dark:bg-red-950/20' },
             { label: 'Documents', value: `${stats.docCategories}`, sub: `${checklistPct}% completed`, icon: ClipboardCheck, color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/20' },
             { label: 'Fee Records', value: `${stats.feeRecords}`, sub: 'across all quotas', icon: IndianRupee, color: 'text-amber-600 bg-amber-50 dark:bg-amber-950/20' },
+            { label: 'Videos', value: `${stats.videos}`, sub: '4 categories', icon: PlayCircle, color: 'text-purple-600 bg-purple-50 dark:bg-purple-950/20' },
           ].map((stat) => (
             <Card key={stat.label} className="hover:shadow-md transition-shadow">
               <CardContent className="p-5">
@@ -225,28 +225,53 @@ export default function DashboardPage() {
 
       {/* Bottom Grid: Recent Updates + Quick Access */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        {/* Recent Updates */}
+        {/* Recent Announcements */}
         <section className="lg:col-span-3">
           <div className="flex items-center gap-2 mb-4">
-            <Bell className="w-4 h-4 text-slate-400" />
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Recent Updates</h2>
+            <Megaphone className="w-4 h-4 text-slate-400" />
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Latest Announcements</h2>
           </div>
           <Card>
             <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
-              {RECENT_UPDATES.map((update, idx) => (
-                <div key={idx} className="flex gap-3.5 p-4 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
-                  <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${update.color}`}>
-                    <update.icon className="w-4 h-4" />
+              {recentAnnouncements.map((a) => {
+                const Icon = TYPE_ICONS[a.announcementType] || Bell;
+                const color = TYPE_COLORS[a.announcementType] || 'text-slate-600 bg-slate-50 dark:bg-slate-800';
+                return (
+                  <div key={a.id} className="flex gap-3.5 p-4 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${color}`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">{a.title}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{a.shortDescription}</p>
+                      <div className="flex items-center gap-2 mt-1.5">
+                        <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">
+                          {a.announcementType}
+                        </span>
+                        {a.state && (
+                          <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400">
+                            {a.state}
+                          </span>
+                        )}
+                        {a.documentUrl && (
+                          <a
+                            href={a.documentUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[10px] text-red-600 dark:text-red-400 font-medium flex items-center gap-0.5 hover:underline"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            View <ExternalLink className="w-2.5 h-2.5" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                    <span className="text-[10px] text-slate-400 shrink-0 flex items-center gap-1 self-start mt-1">
+                      <Clock className="w-3 h-3" /> {a.month} {a.day}
+                    </span>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">{update.title}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{update.description}</p>
-                  </div>
-                  <span className="text-[10px] text-slate-400 shrink-0 flex items-center gap-1 self-start mt-1">
-                    <Clock className="w-3 h-3" /> {update.time}
-                  </span>
-                </div>
-              ))}
+                );
+              })}
             </CardContent>
           </Card>
         </section>

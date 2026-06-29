@@ -154,6 +154,24 @@
       "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI2NjI0ODcsImV4cCI6MTc4MzI2NzI4N30.cJlhjmoTWwHh86NTx_1UeFXTDGpz0oirk9ON-3UUPC8",
       "expiresAt": "2026-07-05T16:01:27.075Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI3MTczNzEsImV4cCI6MTc4MzMyMjE3MX0.eJT75MpiO9MiCmkUnEjXixPT4JVV1aE2BDCQPlwU8dY": {
+      "id": "46fc0258-8860-45d0-b012-a1187035a360",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI3MTczNzEsImV4cCI6MTc4MzMyMjE3MX0.eJT75MpiO9MiCmkUnEjXixPT4JVV1aE2BDCQPlwU8dY",
+      "expiresAt": "2026-07-06T07:16:11.486Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI3MjYwMTcsImV4cCI6MTc4MzMzMDgxN30.Bl41_23q8p0ieX0Y8vNw1KmWLbBoNf4sYKR96qSlqfw": {
+      "id": "723097b3-2780-4cfb-956b-814c213343e2",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI3MjYwMTcsImV4cCI6MTc4MzMzMDgxN30.Bl41_23q8p0ieX0Y8vNw1KmWLbBoNf4sYKR96qSlqfw",
+      "expiresAt": "2026-07-06T09:40:17.365Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI3MzI4NDQsImV4cCI6MTc4MzMzNzY0NH0.yt7PsHoaK-nECNq54QRYu1IGsVduxhCS6R_aJDxnnms": {
+      "id": "1e9e035b-9048-458b-a5e0-c517b1f2b574",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI3MzI4NDQsImV4cCI6MTc4MzMzNzY0NH0.yt7PsHoaK-nECNq54QRYu1IGsVduxhCS6R_aJDxnnms",
+      "expiresAt": "2026-07-06T11:34:04.431Z"
     }
   },
   "passwordResets": {},
@@ -513,6 +531,55 @@
       ],
       "createdAt": "2026-06-28T15:40:23.936Z",
       "updatedAt": "2026-06-28T15:40:24.001Z"
+    },
+    "742b0fc0-510f-4d8c-956c-9226eac1a637": {
+      "id": "742b0fc0-510f-4d8c-956c-9226eac1a637",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "title": "Which colleges can I get with AIR 45,000?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which colleges can I get with AIR 45,000?"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Options Based on Your Rank\n\n### From Closing Rank Insights\n\nKMC Manipal | MBBS | General | Management | 2025 R1 | Closing Rank: #42,150 | Score: 565\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        },
+        {
+          "role": "user",
+          "content": "I got 640 score, which college will be best fit?"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Information\n\n### From Closing Rank Insights\n\nAIIMS, New Delhi | MBBS | SC | AIQ | 2025 R1 | Closing Rank: #2,700 | Score: 630\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        },
+        {
+          "role": "user",
+          "content": "what about if would have got around 710"
+        },
+        {
+          "role": "assistant",
+          "content": "## Closing Rank Data\n\n### From Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| AFMC Pune | MBBS | General | AIQ | 2025 R1 | Closing Rank: #720 | Score: 698 |\n| Seth GS / KEM, Mumbai | MBBS | General | Maharashtra State | 2025 R1 | Closing Rank: #650 | Score: 700 |\n| BMCRI, Bengaluru | MBBS | General | Karnataka State | 2025 R1 | Closing Rank: #945 | Score: 695 |\n| AIIMS, New Delhi | MBBS | OBC | AIQ | 2025 R1 | Closing Rank: #450 | Score: 686 |\n| Grant MC, Mumbai | MBBS | General | Maharashtra State | 2025 R1 | Closing Rank: #1,900 | Score: 683 |\n| AIIMS, New Delhi | MBBS | SC | AIQ | 2025 R1 | Closing Rank: #2,700 | Score: 630 |\n| Stanley MC, Chennai | MBBS | General | Tamil Nadu State | 2025 R1 | Closing Rank: #2,950 | Score: 660 |\n| BMCRI, Bengaluru | MBBS | OBC | Karnataka State | 2025 R1 | Closing Rank: #3,900 | Score: 662 |\n| Grant MC, Mumbai | MBBS | OBC | Maharashtra State | 2025 R1 | Closing Rank: #5,100 | Score: 655 |\n| CMC Vellore | MBBS | General | Management | 2025 R1 | Closing Rank: #5,410 | Score: 662 |\n\n### From College Reviews\n\n**AIIMS, New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1956 | Seats: 125 | Fees: ~1,628/yr | Cutoff: AIR 1-57 (General)\nIndia's premier medical institute. 2400-bed hospital, world-class research, 110-acre campus.\n\n**Maulana Azad Medical College (MAMC), New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1958 | Seats: 250 | Fees: ~4,445/yr | Cutoff: AIR 60-150 (General)\nAssociated with Lok Nayak (2800 beds), GB Pant, and Guru Nanak Eye Centre. 4000+ combined beds.\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        },
+        {
+          "role": "user",
+          "content": "what are the fees structure for AIIMS delhi"
+        },
+        {
+          "role": "assistant",
+          "content": "## Fee Comparison\n\n### From College Reviews\n\n**AIIMS, New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1956 | Seats: 125 | Fees: ~1,628/yr | Cutoff: AIR 1-57 (General)\nIndia's premier medical institute. 2400-bed hospital, world-class research, 110-acre campus.\n\n**Maulana Azad Medical College (MAMC), New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1958 | Seats: 250 | Fees: ~4,445/yr | Cutoff: AIR 60-150 (General)\nAssociated with Lok Nayak (2800 beds), GB Pant, and Guru Nanak Eye Centre. 4000+ combined beds.\n\n**Armed Forces Medical College (AFMC), Pune** (Government) — Pune, Maharashtra\nEstablished: 1948 | Seats: 150 | Fees: Fully funded | Cutoff: AIR 100-800\nMilitary medical school. Free education with stipend. 7-14 year service bond.\n\n**Grant Medical College & Sir JJ Hospital, Mumbai** (Government) — Mumbai, Maharashtra\nEstablished: 1845 | Seats: 250 | Fees: ~28,000/yr | Cutoff: AIR 500-2500 (State)\nOne of Asia's oldest medical colleges. 1350-bed Sir JJ Hospital. Major trauma center.\n\n**Bangalore Medical College (BMCRI)** (Government) — Bengaluru, Karnataka\nEstablished: 1955 | Seats: 250 | Fees: ~70,150/yr | Cutoff: AIR 400-1500 (State)\nKarnataka's premier govt medical college. Victoria Hospital (900 beds), Vani Vilas (500 beds).\n\n**Kasturba Medical College (KMC), Manipal** (Deemed) — Manipal, Karnataka\nEstablished: 1953 | Seats: 250 | Fees: ~17,80,000/yr | Cutoff: AIR 15K-45K (Mgmt)\nUnder MAHE. 2000-bed NABH hospital. International curriculum, 600-acre campus.\n\n### From Fee & Seat Matrix\n\n**AIIMS, New Delhi** (Government, Delhi)\nTuition: Rs 1,628 | Hostel: Rs 1,200 | Total 1st Year: Rs 12,328\nGovt Seats: 107 | Mgmt Seats: 0 | NRI Seats: 18\n\n**MAMC, New Delhi** (Government, Delhi)\nTuition: Rs 4,445 | Hostel: Rs 3,600 | Total 1st Year: Rs 30,045\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**Grant MC, Mumbai** (Government, Maharashtra)\nTuition: Rs 28,000 | Hostel: Rs 18,000 | Total 1st Year: Rs 83,000\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**BMCRI, Bengaluru** (Government, Karnataka)\nTuition: Rs 70,150 | Hostel: Rs 24,000 | Total 1st Year: Rs 1.42 Lakh\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**KMC Manipal** (Deemed, Karnataka)\nTuition: Rs 17.80 Lakh | Hostel: Rs 1.80 Lakh | Total 1st Year: Rs 22.55 Lakh\nGovt Seats: 0 | Mgmt Seats: 200 | NRI Seats: 50\n\n**CMC Vellore** (Private, Tamil Nadu)\nTuition: Rs 52,000 | Hostel: Rs 36,000 | Total 1st Year: Rs 1.36 Lakh\nGovt Seats: 60 | Mgmt Seats: 30 | NRI Seats: 10\n\n\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*"
+        },
+        {
+          "role": "user",
+          "content": "what about BDS in AIIMS"
+        },
+        {
+          "role": "assistant",
+          "content": "I don't have specific data matching your query in my database.\n\nYou can explore the relevant modules in MedCounsel AI for detailed information:\n- **Closing Rank Insights** — cutoff and rank analysis\n- **College Reviews** — detailed college profiles\n- **Fee & Seat Matrix** — fee comparisons\n- **Document Checklist** — admission preparation\n\n> *Try rephrasing your question with specific details like college names, ranks, states, or categories.*"
+        }
+      ],
+      "createdAt": "2026-06-29T07:13:31.046Z",
+      "updatedAt": "2026-06-29T07:15:17.551Z"
     }
   }
 }
