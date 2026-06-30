@@ -8,7 +8,6 @@ import { CHECKLIST_DOCS } from '@/lib/checklist-data';
 import { getRecentAnnouncements } from '@/lib/announcements-data';
 import { VIDEOS_DATA } from '@/lib/videos-data';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import {
   GraduationCap,
   BarChart3,
@@ -25,9 +24,12 @@ import {
   Megaphone,
   PlayCircle,
   ExternalLink,
+  Bot,
+  Star,
+  Shield,
+  BookOpen,
 } from 'lucide-react';
 
-// Read checklist progress from localStorage
 function getChecklistProgress(): { completed: number; total: number } {
   const total = CHECKLIST_DOCS.length;
   try {
@@ -40,38 +42,60 @@ function getChecklistProgress(): { completed: number; total: number } {
   return { completed: 0, total };
 }
 
-const QUICK_ACTIONS = [
+const CONTROL_PANEL_ITEMS = [
   {
     title: 'College Reviews',
-    description: 'Explore detailed reviews of top medical colleges across India',
-    icon: GraduationCap,
+    description: 'Honest insights on colleges, faculty, campus & admissions.',
+    icon: Star,
     href: '/colleges',
-    color: 'bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400',
-    border: 'hover:border-blue-200 dark:hover:border-blue-800',
+    gradient: 'from-blue-500 to-blue-600',
+    bg: 'bg-blue-50 dark:bg-blue-950/30',
+    iconColor: 'text-blue-600 dark:text-blue-400',
   },
   {
-    title: 'Closing Rank Insights',
-    description: 'Analyze historical closing ranks, scores, and admission trends',
+    title: 'Closing Ranks',
+    description: 'Know last year cut-offs & safe rank ranges instantly.',
     icon: BarChart3,
     href: '/rank-insights',
-    color: 'bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400',
-    border: 'hover:border-red-200 dark:hover:border-red-800',
-  },
-  {
-    title: 'Document Checklist',
-    description: 'Track and prepare all required documents for counselling',
-    icon: ClipboardCheck,
-    href: '/doc-checklist',
-    color: 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400',
-    border: 'hover:border-emerald-200 dark:hover:border-emerald-800',
+    gradient: 'from-red-500 to-rose-600',
+    bg: 'bg-red-50 dark:bg-red-950/30',
+    iconColor: 'text-red-600 dark:text-red-400',
   },
   {
     title: 'Fee & Seat Matrix',
-    description: 'Compare tuition fees, hostel charges, and seat distribution',
+    description: 'Compare tuition fees, hostel charges & seat distribution.',
     icon: IndianRupee,
     href: '/fee-matrix',
-    color: 'bg-amber-50 dark:bg-amber-950/20 text-amber-600 dark:text-amber-400',
-    border: 'hover:border-amber-200 dark:hover:border-amber-800',
+    gradient: 'from-amber-500 to-orange-600',
+    bg: 'bg-amber-50 dark:bg-amber-950/30',
+    iconColor: 'text-amber-600 dark:text-amber-400',
+  },
+  {
+    title: 'Document Checklist',
+    description: 'Never miss a document with step-by-step guidance.',
+    icon: ClipboardCheck,
+    href: '/doc-checklist',
+    gradient: 'from-emerald-500 to-green-600',
+    bg: 'bg-emerald-50 dark:bg-emerald-950/30',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
+  },
+  {
+    title: 'Alerts & Notifications',
+    description: 'Real-time updates for rounds, deadlines & changes.',
+    icon: Bell,
+    href: '/announcements',
+    gradient: 'from-purple-500 to-violet-600',
+    bg: 'bg-purple-50 dark:bg-purple-950/30',
+    iconColor: 'text-purple-600 dark:text-purple-400',
+  },
+  {
+    title: 'AI Assistant',
+    description: 'Get instant answers to all your counselling queries.',
+    icon: Bot,
+    href: '/ai-assistant',
+    gradient: 'from-cyan-500 to-teal-600',
+    bg: 'bg-cyan-50 dark:bg-cyan-950/30',
+    iconColor: 'text-cyan-600 dark:text-cyan-400',
   },
 ];
 
@@ -100,7 +124,7 @@ const TYPE_ICONS: Record<string, typeof Bell> = {
 export default function DashboardPage() {
   const { user } = useAuth();
 
-  const recentAnnouncements = useMemo(() => getRecentAnnouncements(6), []);
+  const recentAnnouncements = useMemo(() => getRecentAnnouncements(5), []);
 
   const stats = useMemo(() => {
     const checklist = getChecklistProgress();
@@ -123,70 +147,115 @@ export default function DashboardPage() {
 
   return (
     <div className="space-y-8 pb-10 page-enter">
-      {/* Hero Section */}
-      <div className="gradient-primary rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-56 h-56 bg-white/5 rounded-full blur-3xl" />
-        <div className="relative z-10">
-          <div className="flex items-center gap-2 mb-1">
-            <Sparkles className="w-5 h-5 text-red-200" />
-            <span className="text-xs font-semibold text-red-200 uppercase tracking-wider">NEET UG 2026</span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Welcome back, {firstName}
-          </h1>
-          <p className="text-red-100/90 mt-1.5 text-sm sm:text-base max-w-lg">
-            Your NEET counselling workspace. Track closing ranks, compare colleges, prepare documents, and plan your admission.
-          </p>
+      {/* Hero Welcome Banner */}
+      <div className="relative rounded-2xl overflow-hidden">
+        <div className="gradient-primary p-6 sm:p-8 lg:p-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+          <div className="absolute top-1/2 right-1/4 w-32 h-32 bg-rose-400/10 rounded-full blur-2xl" />
 
-          {/* Checklist mini-progress inside hero */}
-          <div className="mt-5 flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-3 max-w-sm border border-white/10">
-            <div className="relative w-10 h-10 shrink-0">
-              <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
-                <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="3" />
-                <circle
-                  cx="18" cy="18" r="14" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"
-                  strokeDasharray={`${checklistPct * 0.88} 88`}
-                  className="transition-all duration-700"
-                />
-              </svg>
-              <span className="absolute inset-0 flex items-center justify-center text-[9px] font-bold">{checklistPct}%</span>
+          <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  NEET UG 2026
+                </span>
+              </div>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+                Welcome back, {firstName}!
+              </h1>
+              <p className="text-red-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
+                Your complete NEET counselling companion. Track ranks, compare colleges, prepare documents & get AI-powered guidance.
+              </p>
             </div>
-            <div className="min-w-0">
-              <p className="text-xs font-semibold">Document Checklist</p>
-              <p className="text-[11px] text-red-200">{stats.checklistDone} of {stats.checklistTotal} completed</p>
+
+            {/* Checklist Progress Ring */}
+            <div className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl px-5 py-4 border border-white/10 sm:min-w-[240px]">
+              <div className="relative w-14 h-14 shrink-0">
+                <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                  <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2.5" />
+                  <circle
+                    cx="18" cy="18" r="14" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"
+                    strokeDasharray={`${checklistPct * 0.88} 88`}
+                    className="transition-all duration-700"
+                  />
+                </svg>
+                <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white">{checklistPct}%</span>
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-white">Doc Checklist</p>
+                <p className="text-xs text-red-200 mt-0.5">{stats.checklistDone} of {stats.checklistTotal} completed</p>
+                <Link to="/doc-checklist" className="inline-flex items-center gap-1 text-xs font-medium text-white/80 hover:text-white mt-1 transition-colors">
+                  Continue <ChevronRight className="w-3 h-3" />
+                </Link>
+              </div>
             </div>
-            <Link to="/doc-checklist" className="ml-auto shrink-0">
-              <ChevronRight className="w-4 h-4 text-red-200 hover:text-white transition-colors" />
-            </Link>
           </div>
         </div>
       </div>
 
-      {/* Quick Action Cards */}
+      {/* Stats Row */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        {[
+          { label: 'Colleges', value: stats.colleges, icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
+          { label: 'Rank Records', value: stats.rankRecords, icon: BarChart3, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Documents', value: stats.docCategories, icon: ClipboardCheck, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
+          { label: 'Fee Records', value: stats.feeRecords, icon: IndianRupee, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
+          { label: 'Videos', value: stats.videos, icon: PlayCircle, color: 'text-purple-600', bg: 'bg-purple-50 dark:bg-purple-950/30' },
+        ].map((stat) => (
+          <Card key={stat.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+            <CardContent className="p-4 sm:p-5">
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${stat.bg} transition-transform duration-300 group-hover:scale-110`}>
+                  <stat.icon className={`w-5 h-5 ${stat.color}`} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-slate-100 leading-none">{stat.value}</p>
+                  <p className="text-[11px] font-medium text-muted-foreground mt-1 uppercase tracking-wider">{stat.label}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Admission Control Panel */}
       <section>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Quick Actions</h2>
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
+            <Shield className="w-4.5 h-4.5 text-red-600 dark:text-red-400" />
+          </div>
+          <div>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Your Admission Control Panel</h2>
+            <p className="text-xs text-muted-foreground">Everything you need for a confident admission</p>
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {QUICK_ACTIONS.map((action) => (
-            <Link key={action.href} to={action.href} className="group">
-              <Card className={`h-full hover:shadow-lg transition-all duration-300 ${action.border}`}>
-                <CardContent className="p-5 space-y-3">
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${action.color} transition-transform duration-300 group-hover:scale-110`}>
-                    <action.icon className="w-5 h-5" />
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {CONTROL_PANEL_ITEMS.map((item) => (
+            <Link key={item.href + item.title} to={item.href} className="group">
+              <Card className="h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-transparent hover:border-slate-200 dark:hover:border-slate-700 overflow-hidden relative">
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300`} />
+                <CardContent className="p-5 sm:p-6 relative">
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${item.bg} transition-all duration-300 group-hover:scale-110 group-hover:shadow-md`}>
+                      <item.icon className={`w-6 h-6 ${item.iconColor}`} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
-                      {action.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                      {action.description}
-                    </p>
+                  <div className="flex items-center justify-end mt-3">
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-600 dark:text-red-400 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                      Explore <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
                   </div>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-600 dark:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Explore <ArrowRight className="w-3 h-3" />
-                  </span>
                 </CardContent>
               </Card>
             </Link>
@@ -194,62 +263,36 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      {/* Statistics */}
-      <section>
-        <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4">Platform Overview</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-          {[
-            { label: 'Total Colleges', value: `${stats.colleges}`, sub: `${stats.states} states covered`, icon: Building2, color: 'text-blue-600 bg-blue-50 dark:bg-blue-950/20' },
-            { label: 'Rank Records', value: `${stats.rankRecords}`, sub: '3 years of data', icon: BarChart3, color: 'text-red-600 bg-red-50 dark:bg-red-950/20' },
-            { label: 'Documents', value: `${stats.docCategories}`, sub: `${checklistPct}% completed`, icon: ClipboardCheck, color: 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/20' },
-            { label: 'Fee Records', value: `${stats.feeRecords}`, sub: 'across all quotas', icon: IndianRupee, color: 'text-amber-600 bg-amber-50 dark:bg-amber-950/20' },
-            { label: 'Videos', value: `${stats.videos}`, sub: '4 categories', icon: PlayCircle, color: 'text-purple-600 bg-purple-50 dark:bg-purple-950/20' },
-          ].map((stat) => (
-            <Card key={stat.label} className="hover:shadow-md transition-shadow">
-              <CardContent className="p-5">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">{stat.label}</p>
-                    <p className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 mt-1">{stat.value}</p>
-                    <p className="text-[11px] text-muted-foreground mt-0.5">{stat.sub}</p>
-                  </div>
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${stat.color}`}>
-                    <stat.icon className="w-5 h-5" />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Bottom Grid: Recent Updates + Quick Access */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+      {/* Bottom Grid: Announcements + Quick Tips */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Recent Announcements */}
-        <section className="lg:col-span-3">
-          <div className="flex items-center gap-2 mb-4">
-            <Megaphone className="w-4 h-4 text-slate-400" />
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Latest Announcements</h2>
+        <section className="lg:col-span-2">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <Megaphone className="w-4.5 h-4.5 text-red-500" />
+              <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Latest Updates</h2>
+            </div>
+            <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">Live Feed</span>
           </div>
-          <Card>
+          <Card className="overflow-hidden">
             <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
-              {recentAnnouncements.map((a) => {
+              {recentAnnouncements.map((a, idx) => {
                 const Icon = TYPE_ICONS[a.announcementType] || Bell;
                 const color = TYPE_COLORS[a.announcementType] || 'text-slate-600 bg-slate-50 dark:bg-slate-800';
                 return (
-                  <div key={a.id} className="flex gap-3.5 p-4 hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
-                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${color}`}>
+                  <div key={a.id} className="flex gap-3.5 p-4 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors group/item cursor-default">
+                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${color} transition-transform duration-200 group-hover/item:scale-105`}>
                       <Icon className="w-4 h-4" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">{a.title}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">{a.shortDescription}</p>
-                      <div className="flex items-center gap-2 mt-1.5">
-                        <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-snug">{a.title}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed line-clamp-2">{a.shortDescription}</p>
+                      <div className="flex items-center gap-2 mt-2 flex-wrap">
+                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">
                           {a.announcementType}
                         </span>
                         {a.state && (
-                          <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400">
+                          <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400">
                             {a.state}
                           </span>
                         )}
@@ -261,14 +304,16 @@ export default function DashboardPage() {
                             className="text-[10px] text-red-600 dark:text-red-400 font-medium flex items-center gap-0.5 hover:underline"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            View <ExternalLink className="w-2.5 h-2.5" />
+                            View PDF <ExternalLink className="w-2.5 h-2.5" />
                           </a>
                         )}
                       </div>
                     </div>
-                    <span className="text-[10px] text-slate-400 shrink-0 flex items-center gap-1 self-start mt-1">
-                      <Clock className="w-3 h-3" /> {a.month} {a.day}
-                    </span>
+                    <div className="shrink-0 text-right self-start mt-0.5">
+                      <span className="inline-flex items-center gap-1 text-[10px] text-slate-400 bg-slate-50 dark:bg-slate-800/50 px-2 py-1 rounded-full">
+                        <Clock className="w-3 h-3" /> {a.month} {a.day}
+                      </span>
+                    </div>
                   </div>
                 );
               })}
@@ -276,32 +321,59 @@ export default function DashboardPage() {
           </Card>
         </section>
 
-        {/* Quick Access */}
-        <section className="lg:col-span-2">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4">Quick Access</h2>
-          <Card>
-            <CardContent className="p-4 space-y-2.5">
-              {[
-                { label: 'Explore Colleges', href: '/colleges', icon: GraduationCap, color: 'bg-blue-50 dark:bg-blue-950/20 text-blue-600' },
-                { label: 'Analyze Closing Ranks', href: '/rank-insights', icon: BarChart3, color: 'bg-red-50 dark:bg-red-950/20 text-red-600' },
-                { label: 'View Documents', href: '/doc-checklist', icon: ClipboardCheck, color: 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-600' },
-                { label: 'Compare Fees', href: '/fee-matrix', icon: IndianRupee, color: 'bg-amber-50 dark:bg-amber-950/20 text-amber-600' },
-              ].map((item) => (
-                <Button
-                  key={item.href}
-                  asChild
-                  variant="ghost"
-                  className="w-full justify-start h-auto py-3 px-3 hover:bg-slate-50 dark:hover:bg-slate-800"
-                >
-                  <Link to={item.href} className="flex items-center gap-3">
-                    <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${item.color}`}>
-                      <item.icon className="w-4 h-4" />
-                    </div>
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{item.label}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-slate-300 ml-auto" />
-                  </Link>
-                </Button>
-              ))}
+        {/* Quick Tips & Resources */}
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <BookOpen className="w-4.5 h-4.5 text-amber-500" />
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Quick Tips</h2>
+          </div>
+          <div className="space-y-3">
+            {[
+              {
+                tip: 'Start by completing your Document Checklist to ensure you have everything ready.',
+                color: 'border-l-emerald-500',
+                bg: 'bg-emerald-50/50 dark:bg-emerald-950/10',
+              },
+              {
+                tip: 'Use Rank Insights to compare your expected rank with previous year closing ranks.',
+                color: 'border-l-red-500',
+                bg: 'bg-red-50/50 dark:bg-red-950/10',
+              },
+              {
+                tip: 'Check the Fee Matrix before counselling to plan your budget across quotas.',
+                color: 'border-l-amber-500',
+                bg: 'bg-amber-50/50 dark:bg-amber-950/10',
+              },
+              {
+                tip: 'Ask our AI Assistant any doubt about counselling process or college selection.',
+                color: 'border-l-cyan-500',
+                bg: 'bg-cyan-50/50 dark:bg-cyan-950/10',
+              },
+            ].map((item, idx) => (
+              <Card key={idx} className={`border-l-4 ${item.color} ${item.bg} hover:shadow-sm transition-shadow`}>
+                <CardContent className="p-4">
+                  <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{item.tip}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Platform Stats Mini */}
+          <Card className="mt-4 bg-slate-50 dark:bg-slate-800/50">
+            <CardContent className="p-4">
+              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-3">Coverage</p>
+              <div className="space-y-2.5">
+                {[
+                  { label: 'States Covered', value: stats.states },
+                  { label: 'Video Resources', value: stats.videos },
+                  { label: 'Years of Data', value: 3 },
+                ].map((s) => (
+                  <div key={s.label} className="flex items-center justify-between">
+                    <span className="text-xs text-slate-600 dark:text-slate-400">{s.label}</span>
+                    <span className="text-sm font-bold text-slate-900 dark:text-slate-100">{s.value}</span>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </section>

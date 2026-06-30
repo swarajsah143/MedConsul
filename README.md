@@ -13,7 +13,7 @@ A comprehensive NEET UG counseling assistant that helps medical aspirants analyz
 
 ### Fee & Seat Matrix
 - Compare tuition fees, hostel charges, miscellaneous fees, and security deposits
-- View seat distribution across government, management, and NRI quotas
+- View seat distribution across government, management, and NRI quotas  
 - Filter by state, college, course, category, and quota
 - Detailed fee breakdown with pie charts, year-wise stacked bar charts, and scholarship info
 - CSV export support
