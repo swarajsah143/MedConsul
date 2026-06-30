@@ -18,6 +18,9 @@ import CollegesPage from '@/pages/colleges';
 import CollegeDetailPage from '@/pages/college-detail';
 import DocChecklistPage from '@/pages/doc-checklist';
 import AiAssistantPage from '@/pages/ai-assistant';
+import AnnouncementsPage from '@/pages/announcements';
+import AllotmentStatesPage from '@/pages/allotment-states';
+import AllotmentDetailPage from '@/pages/allotment-detail';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 
 function FullPageSpinner() {
@@ -62,6 +65,9 @@ export default function AppRoutes() {
       >
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="announcements" element={<AnnouncementsPage />} />
+        <Route path="allotment" element={<AllotmentStatesPage />} />
+        <Route path="allotment/:counselling" element={<AllotmentDetailPage />} />
         <Route path="rank-insights" element={<RankInsightsPage />} />
         <Route path="rank-insights/detail" element={<RankInsightDetailPage />} />
         <Route path="fee-matrix" element={<FeeMatrixPage />} />

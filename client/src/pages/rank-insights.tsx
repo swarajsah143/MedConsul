@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   INSIGHTS_DATA,
@@ -10,54 +10,30 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
-import { PageHeader } from '@/components/ui/page-header';
 import { EmptyState } from '@/components/ui/empty-state';
 import {
   Search,
-  TrendingDown,
   ArrowUpDown,
   Download,
   Filter,
   X,
   BarChart3,
   ChevronRight,
+  Building2,
+  Target,
+  FileText,
+  Award,
+  Sparkles,
+  GraduationCap,
+  MapPin,
+  ArrowRight,
+  SlidersHorizontal,
 } from 'lucide-react';
 
 type SortField = 'college' | 'course' | 'category' | 'quota' | 'round' | 'closingRank' | 'closingScore';
+type SearchMode = 'rank' | 'score';
 
 const PAGE_SIZE = 12;
-
-function SelectFilter({
-  label,
-  value,
-  onChange,
-  options,
-  allLabel,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  options: (string | number)[];
-  allLabel: string;
-}) {
-  return (
-    <div className="space-y-1.5">
-      <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">{label}</label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full h-9 px-3 rounded-lg border border-input bg-background text-xs focus:outline-none focus:ring-2 focus:ring-ring"
-      >
-        <option value="All">{allLabel}</option>
-        {options.map((o) => (
-          <option key={String(o)} value={String(o)}>
-            {typeof o === 'number' ? `Round ${o}` : o}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
 
 export default function RankInsightsPage() {
   const navigate = useNavigate();
@@ -74,41 +50,42 @@ export default function RankInsightsPage() {
   const [rankMax, setRankMax] = useState('');
   const [scoreMin, setScoreMin] = useState('');
   const [scoreMax, setScoreMax] = useState('');
-  const [showFilters, setShowFilters] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
+  const [searchMode, setSearchMode] = useState<SearchMode>('rank');
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>('cards');
 
   // Table state
   const [sortBy, setSortBy] = useState<SortField>('closingRank');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [page, setPage] = useState(1);
 
+  // Lock body scroll when modal open
+  useEffect(() => {
+    if (showFilters) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [showFilters]);
+
   const activeFilterCount = [
-    state !== 'All',
-    college !== 'All',
-    course !== 'All',
-    category !== 'All',
-    quota !== 'All',
-    round !== 'All',
-    rankMin !== '',
-    rankMax !== '',
-    scoreMin !== '',
-    scoreMax !== '',
+    state !== 'All', college !== 'All', course !== 'All',
+    category !== 'All', quota !== 'All', round !== 'All',
+    rankMin !== '', rankMax !== '', scoreMin !== '', scoreMax !== '',
   ].filter(Boolean).length;
 
-  // Start with the deduplicated latest entries
   const baseEntries = useMemo(() => getLatestEntries(), []);
 
-  // Filtered + sorted data
   const filtered = useMemo(() => {
     let data = baseEntries;
-
     if (search) {
       const q = search.toLowerCase();
-      data = data.filter(
-        (e) =>
-          e.college.name.toLowerCase().includes(q) ||
-          e.course.toLowerCase().includes(q) ||
-          e.category.toLowerCase().includes(q) ||
-          e.quota.toLowerCase().includes(q)
+      data = data.filter((e) =>
+        e.college.name.toLowerCase().includes(q) ||
+        e.course.toLowerCase().includes(q) ||
+        e.category.toLowerCase().includes(q) ||
+        e.quota.toLowerCase().includes(q)
       );
     }
     if (state !== 'All') data = data.filter((e) => e.college.state === state);
@@ -122,67 +99,45 @@ export default function RankInsightsPage() {
     if (scoreMin) data = data.filter((e) => (e.closingScore ?? 0) >= Number(scoreMin));
     if (scoreMax) data = data.filter((e) => (e.closingScore ?? 0) <= Number(scoreMax));
 
-    // Sort
     data = [...data].sort((a, b) => {
       let cmp = 0;
       switch (sortBy) {
-        case 'college':
-          cmp = a.college.name.localeCompare(b.college.name);
-          break;
-        case 'course':
-          cmp = a.course.localeCompare(b.course);
-          break;
-        case 'category':
-          cmp = a.category.localeCompare(b.category);
-          break;
-        case 'quota':
-          cmp = a.quota.localeCompare(b.quota);
-          break;
-        case 'round':
-          cmp = a.round - b.round;
-          break;
-        case 'closingRank':
-          cmp = a.closingRank - b.closingRank;
-          break;
-        case 'closingScore':
-          cmp = (a.closingScore ?? 0) - (b.closingScore ?? 0);
-          break;
+        case 'college': cmp = a.college.name.localeCompare(b.college.name); break;
+        case 'course': cmp = a.course.localeCompare(b.course); break;
+        case 'category': cmp = a.category.localeCompare(b.category); break;
+        case 'quota': cmp = a.quota.localeCompare(b.quota); break;
+        case 'round': cmp = a.round - b.round; break;
+        case 'closingRank': cmp = a.closingRank - b.closingRank; break;
+        case 'closingScore': cmp = (a.closingScore ?? 0) - (b.closingScore ?? 0); break;
       }
       return sortOrder === 'asc' ? cmp : -cmp;
     });
-
     return data;
   }, [baseEntries, search, state, college, course, category, quota, round, rankMin, rankMax, scoreMin, scoreMax, sortBy, sortOrder]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  const handleSort = useCallback(
-    (field: SortField) => {
-      if (sortBy === field) {
-        setSortOrder((o) => (o === 'asc' ? 'desc' : 'asc'));
-      } else {
-        setSortBy(field);
-        setSortOrder('asc');
-      }
-      setPage(1);
-    },
-    [sortBy]
-  );
+  const handleSort = useCallback((field: SortField) => {
+    if (sortBy === field) {
+      setSortOrder((o) => (o === 'asc' ? 'desc' : 'asc'));
+    } else {
+      setSortBy(field);
+      setSortOrder('asc');
+    }
+    setPage(1);
+  }, [sortBy]);
 
   const handleReset = () => {
-    setSearch('');
-    setState('All');
-    setCollege('All');
-    setCourse('All');
-    setCategory('All');
-    setQuota('All');
-    setRound('All');
-    setRankMin('');
-    setRankMax('');
-    setScoreMin('');
-    setScoreMax('');
+    setSearch(''); setState('All'); setCollege('All'); setCourse('All');
+    setCategory('All'); setQuota('All'); setRound('All');
+    setRankMin(''); setRankMax(''); setScoreMin(''); setScoreMax('');
     setPage(1);
+  };
+
+  const handleApplyFilters = () => {
+    setPage(1);
+    setShowFilters(false);
   };
 
   const handleRowClick = (entry: InsightEntry) => {
@@ -198,12 +153,9 @@ export default function RankInsightsPage() {
 
   const handleExportCsv = () => {
     const header = 'College,State,Course,Category,Quota,Year,Round,Closing Rank,Closing Score\n';
-    const rows = filtered
-      .map(
-        (e) =>
-          `"${e.college.name}","${e.college.state}","${e.course}","${e.category}","${e.quota}",${e.year},${e.round},${e.closingRank},${e.closingScore ?? 'N/A'}`
-      )
-      .join('\n');
+    const rows = filtered.map((e) =>
+      `"${e.college.name}","${e.college.state}","${e.course}","${e.category}","${e.quota}",${e.year},${e.round},${e.closingRank},${e.closingScore ?? 'N/A'}`
+    ).join('\n');
     const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -218,152 +170,531 @@ export default function RankInsightsPage() {
     return (
       <th
         onClick={() => handleSort(field)}
-        className={`px-4 py-3.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 select-none ${className || ''}`}
+        className={`px-4 py-3.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 select-none transition-colors duration-150 ${className || ''}`}
       >
         <span className="flex items-center gap-1.5">
           {children}
-          <ArrowUpDown className={`w-3 h-3 ${active ? 'text-red-600' : 'text-slate-400'}`} />
+          <ArrowUpDown className={`w-3 h-3 transition-colors duration-200 ${active ? 'text-red-600' : 'text-slate-400'}`} />
         </span>
       </th>
     );
   }
 
   return (
-    <div className="space-y-6 pb-10">
-      <PageHeader
-        icon={BarChart3}
-        title="Closing Rank Insights"
-        description="Analyze historical closing ranks and scores across colleges, categories, and quotas. Click any row for year-over-year trends."
-      >
-        <Button
-          variant="outline"
-          className={`flex items-center gap-2 ${showFilters ? 'bg-red-50/50 border-red-200 text-red-700' : ''}`}
-          onClick={() => setShowFilters(!showFilters)}
-        >
-          <Filter className="w-4 h-4" />
-          <span className="hidden sm:inline">Filters</span>
-          {activeFilterCount > 0 && (
-            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">
-              {activeFilterCount}
-            </span>
-          )}
-        </Button>
-        <Button onClick={handleExportCsv} className="gradient-primary text-white flex items-center gap-2 shadow-sm">
-          <Download className="w-4 h-4" />
-          <span className="hidden sm:inline">Export CSV</span>
-        </Button>
-      </PageHeader>
+    <div className="space-y-6 pb-10 page-enter">
+      {/* Hero Header */}
+      <div className="relative rounded-2xl overflow-hidden">
+        <div className="gradient-primary p-6 sm:p-8">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+          <div className="relative z-10">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div className="space-y-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  NEET UG Counselling
+                </span>
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                  <BarChart3 className="w-7 h-7 text-red-200" />
+                  Closing Rank Insights
+                </h1>
+                <p className="text-red-100/90 text-sm max-w-xl leading-relaxed">
+                  Find your safe rank range. Compare closing ranks across colleges, categories & quotas. Click any entry to see year-over-year trends.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 shrink-0">
+                <Button
+                  onClick={() => setShowFilters(true)}
+                  className="bg-white text-red-600 hover:bg-red-50 transition-all duration-200 shadow-sm font-semibold"
+                >
+                  <SlidersHorizontal className="w-4 h-4 mr-2" />
+                  Advanced Filters
+                  {activeFilterCount > 0 && (
+                    <span className="ml-2 w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">
+                      {activeFilterCount}
+                    </span>
+                  )}
+                </Button>
+                <Button onClick={handleExportCsv} className="bg-white/15 text-white border border-white/20 hover:bg-white/25 transition-all duration-200">
+                  <Download className="w-4 h-4 mr-2" />
+                  <span className="hidden sm:inline">Export CSV</span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ========== FILTER MODAL ========== */}
+      {showFilters && (
+        <div className="fixed inset-0 z-50 flex items-start justify-center">
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200"
+            onClick={() => setShowFilters(false)}
+          />
+
+          {/* Modal */}
+          <div className="relative z-50 w-full max-w-3xl mx-4 mt-8 mb-8 max-h-[calc(100vh-4rem)] flex flex-col rounded-2xl overflow-hidden shadow-2xl animate-in slide-in-from-top-4 fade-in duration-300">
+            {/* Modal Header */}
+            <div className="gradient-primary px-6 py-5 shrink-0">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center border border-white/10">
+                    <SlidersHorizontal className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-extrabold text-white">Advanced Filters</h2>
+                    <p className="text-red-200 text-xs mt-0.5">Refine your search results</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowFilters(false)}
+                  className="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-all duration-200 hover:scale-105"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="flex-1 overflow-y-auto bg-white dark:bg-slate-900">
+              <div className="p-6 space-y-7">
+
+                {/* ---- Section 1: Rank & Round Filters ---- */}
+                <section className="space-y-5">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <span className="w-1 h-5 rounded-full bg-red-500" />
+                    Rank & Round Filters
+                  </h3>
+
+                  {/* Search Mode Toggle */}
+                  <div className="grid grid-cols-2 gap-0 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+                    <button
+                      onClick={() => setSearchMode('rank')}
+                      className={`py-3 text-sm font-semibold transition-all duration-200 ${
+                        searchMode === 'rank'
+                          ? 'gradient-primary text-white shadow-md'
+                          : 'bg-slate-50 dark:bg-slate-800 text-slate-500 hover:text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
+                      }`}
+                    >
+                      Search by Rank
+                    </button>
+                    <button
+                      onClick={() => setSearchMode('score')}
+                      className={`py-3 text-sm font-semibold transition-all duration-200 ${
+                        searchMode === 'score'
+                          ? 'gradient-primary text-white shadow-md'
+                          : 'bg-slate-50 dark:bg-slate-800 text-slate-500 hover:text-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
+                      }`}
+                    >
+                      Search by Score
+                    </button>
+                  </div>
+
+                  {/* Range Inputs */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Rank Range */}
+                    <div className={`rounded-xl border-2 p-4 transition-all duration-300 ${
+                      searchMode === 'rank'
+                        ? 'border-red-300 dark:border-red-800 bg-red-50/30 dark:bg-red-950/10 shadow-sm'
+                        : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50'
+                    }`}>
+                      <div className="flex items-center justify-between mb-3">
+                        <p className={`text-xs font-bold ${searchMode === 'rank' ? 'text-red-600 dark:text-red-400' : 'text-slate-500'}`}>
+                          All India Rank Range
+                        </p>
+                        <span className="text-[10px] font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Optional</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Input
+                          type="number"
+                          placeholder="0"
+                          value={rankMin}
+                          onChange={(e) => setRankMin(e.target.value)}
+                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
+                        />
+                        <span className="text-slate-400 font-medium shrink-0">—</span>
+                        <Input
+                          type="number"
+                          placeholder="5000000"
+                          value={rankMax}
+                          onChange={(e) => setRankMax(e.target.value)}
+                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Score Range */}
+                    <div className={`rounded-xl border-2 p-4 transition-all duration-300 ${
+                      searchMode === 'score'
+                        ? 'border-red-300 dark:border-red-800 bg-red-50/30 dark:bg-red-950/10 shadow-sm'
+                        : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50'
+                    }`}>
+                      <div className="flex items-center justify-between mb-3">
+                        <p className={`text-xs font-bold ${searchMode === 'score' ? 'text-red-600 dark:text-red-400' : 'text-slate-500'}`}>
+                          NEET UG Score Range
+                        </p>
+                        <span className="text-[10px] font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Optional</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Input
+                          type="number"
+                          placeholder="113"
+                          value={scoreMin}
+                          onChange={(e) => setScoreMin(e.target.value)}
+                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
+                        />
+                        <span className="text-slate-400 font-medium shrink-0">—</span>
+                        <Input
+                          type="number"
+                          placeholder="720"
+                          value={scoreMax}
+                          onChange={(e) => setScoreMax(e.target.value)}
+                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Rounds + Year Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {/* Rounds */}
+                    <div>
+                      <p className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-3">Rounds</p>
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          onClick={() => setRound('All')}
+                          className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
+                            round === 'All'
+                              ? 'gradient-primary text-white border-transparent shadow-md'
+                              : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                          }`}
+                        >
+                          All
+                        </button>
+                        {INSIGHT_FILTER_OPTIONS.rounds.map((r) => (
+                          <button
+                            key={r}
+                            onClick={() => setRound(String(r))}
+                            className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
+                              round === String(r)
+                                ? 'gradient-primary text-white border-transparent shadow-md'
+                                : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                            }`}
+                          >
+                            Round {r}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Category Pills */}
+                    <div>
+                      <p className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-3">Category</p>
+                      <div className="flex flex-wrap gap-2">
+                        <button
+                          onClick={() => setCategory('All')}
+                          className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
+                            category === 'All'
+                              ? 'gradient-primary text-white border-transparent shadow-md'
+                              : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                          }`}
+                        >
+                          All
+                        </button>
+                        {INSIGHT_FILTER_OPTIONS.categories.map((cat) => (
+                          <button
+                            key={cat}
+                            onClick={() => setCategory(String(cat))}
+                            className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
+                              category === String(cat)
+                                ? 'gradient-primary text-white border-transparent shadow-md'
+                                : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                            }`}
+                          >
+                            {cat}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* ---- Section 2: Location & Institute ---- */}
+                <section className="space-y-4">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <span className="w-1 h-5 rounded-full bg-blue-500" />
+                    Location & Institute
+                  </h3>
+
+                  <div className="rounded-xl bg-blue-50/50 dark:bg-blue-950/10 border border-blue-100 dark:border-blue-900/30 p-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-xs font-bold text-slate-700 dark:text-slate-300">State / Counselling</label>
+                        <select
+                          value={state}
+                          onChange={(e) => setState(e.target.value)}
+                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
+                        >
+                          <option value="All">All States</option>
+                          {INSIGHT_FILTER_OPTIONS.states.map((s) => (
+                            <option key={s} value={s}>{s}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Institute</label>
+                        <select
+                          value={college}
+                          onChange={(e) => setCollege(e.target.value)}
+                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
+                        >
+                          <option value="All">Select Institute</option>
+                          {INSIGHT_FILTER_OPTIONS.colleges.map((c) => (
+                            <option key={c} value={c}>{c}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* ---- Section 3: Course & Quota ---- */}
+                <section className="space-y-4">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <span className="w-1 h-5 rounded-full bg-purple-500" />
+                    Course & Quota
+                  </h3>
+
+                  <div className="rounded-xl bg-purple-50/50 dark:bg-purple-950/10 border border-purple-100 dark:border-purple-900/30 p-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Course</label>
+                        <select
+                          value={course}
+                          onChange={(e) => setCourse(e.target.value)}
+                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
+                        >
+                          <option value="All">All Courses</option>
+                          {INSIGHT_FILTER_OPTIONS.courses.map((c) => (
+                            <option key={c} value={c}>{c}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="space-y-2">
+                        <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Quota</label>
+                        <select
+                          value={quota}
+                          onChange={(e) => setQuota(e.target.value)}
+                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
+                        >
+                          <option value="All">All Quotas</option>
+                          {INSIGHT_FILTER_OPTIONS.quotas.map((q) => (
+                            <option key={q} value={q}>{q}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* ---- Section 4: Quick Search ---- */}
+                <section className="space-y-4">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                    <span className="w-1 h-5 rounded-full bg-emerald-500" />
+                    Quick Search
+                  </h3>
+
+                  <div className="relative">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      placeholder="Type college name, course, category..."
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      className="pl-11 h-12 text-sm rounded-xl border-slate-200 dark:border-slate-600 focus:border-red-400 focus:shadow-lg transition-all duration-200"
+                    />
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="shrink-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 px-6 py-4">
+              <div className="flex items-center justify-between">
+                <Button
+                  variant="outline"
+                  onClick={handleReset}
+                  className="h-11 px-6 rounded-xl border-2 hover:border-red-300 hover:text-red-600 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Clear All
+                </Button>
+                <div className="flex items-center gap-3">
+                  {activeFilterCount > 0 && (
+                    <span className="text-xs text-muted-foreground">
+                      <span className="font-bold text-red-600">{activeFilterCount}</span> filter{activeFilterCount !== 1 ? 's' : ''} active
+                    </span>
+                  )}
+                  <Button
+                    onClick={handleApplyFilters}
+                    className="gradient-primary text-white h-11 px-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] font-semibold"
+                  >
+                    Show {filtered.length} Results
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Summary Stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         {[
-          { label: 'Total Records', value: INSIGHTS_DATA.length.toLocaleString(), sub: 'across all years' },
-          { label: 'Colleges', value: String(INSIGHT_FILTER_OPTIONS.colleges.length), sub: 'institutions tracked' },
-          { label: 'Filtered Results', value: String(filtered.length), sub: 'matching entries' },
-          { label: 'Latest Year', value: '2025', sub: 'most recent data' },
+          { label: 'Total Records', value: INSIGHTS_DATA.length.toLocaleString(), icon: FileText, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
+          { label: 'Colleges Tracked', value: String(INSIGHT_FILTER_OPTIONS.colleges.length), icon: Building2, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
+          { label: 'Filtered Results', value: String(filtered.length), icon: Target, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Latest Year', value: '2025', icon: Award, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
         ].map((s) => (
-          <Card key={s.label} className="p-4">
-            <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">{s.label}</p>
-            <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-200 mt-1">{s.value}</p>
-            <p className="text-[11px] text-slate-400 mt-0.5">{s.sub}</p>
+          <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+            <CardContent className="p-4 sm:p-5">
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${s.bg} transition-transform duration-300 group-hover:scale-110`}>
+                  <s.icon className={`w-5 h-5 ${s.color}`} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-slate-100 leading-none">{s.value}</p>
+                  <p className="text-[10px] font-semibold text-muted-foreground mt-1 uppercase tracking-wider">{s.label}</p>
+                </div>
+              </div>
+            </CardContent>
           </Card>
         ))}
       </div>
 
-      {/* Filter Panel */}
-      {showFilters && (
-        <Card className="shadow-sm glass animate-fade-in">
-          <CardContent className="pt-6 space-y-5">
-            {/* Search row */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search college, course, category, quota..."
-                  value={search}
-                  onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-                  className="pl-10"
-                />
-              </div>
-              <div className="flex gap-2">
-                <Button
-                  onClick={() => setPage(1)}
-                  className="gradient-primary text-white"
-                >
-                  Apply
-                </Button>
-                {activeFilterCount > 0 && (
-                  <Button variant="outline" onClick={handleReset}>
-                    <X className="w-3.5 h-3.5 mr-1" /> Clear
-                  </Button>
-                )}
-              </div>
-            </div>
-
-            {/* Dropdowns grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-              <SelectFilter label="State" value={state} onChange={(v) => { setState(v); setPage(1); }} options={INSIGHT_FILTER_OPTIONS.states} allLabel="All States" />
-              <SelectFilter label="College" value={college} onChange={(v) => { setCollege(v); setPage(1); }} options={INSIGHT_FILTER_OPTIONS.colleges} allLabel="All Colleges" />
-              <SelectFilter label="Course" value={course} onChange={(v) => { setCourse(v); setPage(1); }} options={INSIGHT_FILTER_OPTIONS.courses} allLabel="All Courses" />
-              <SelectFilter label="Category" value={category} onChange={(v) => { setCategory(v); setPage(1); }} options={INSIGHT_FILTER_OPTIONS.categories} allLabel="All Categories" />
-              <SelectFilter label="Quota" value={quota} onChange={(v) => { setQuota(v); setPage(1); }} options={INSIGHT_FILTER_OPTIONS.quotas} allLabel="All Quotas" />
-              <SelectFilter label="Round" value={round} onChange={(v) => { setRound(v); setPage(1); }} options={INSIGHT_FILTER_OPTIONS.rounds} allLabel="All Rounds" />
-            </div>
-
-            {/* Range inputs */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-100 dark:border-slate-800">
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Rank Range</label>
-                <div className="flex gap-2 items-center">
-                  <Input
-                    type="number"
-                    placeholder="Min"
-                    value={rankMin}
-                    onChange={(e) => { setRankMin(e.target.value); setPage(1); }}
-                    className="text-xs"
-                  />
-                  <span className="text-slate-400 text-xs shrink-0">to</span>
-                  <Input
-                    type="number"
-                    placeholder="Max"
-                    value={rankMax}
-                    onChange={(e) => { setRankMax(e.target.value); setPage(1); }}
-                    className="text-xs"
-                  />
-                </div>
-              </div>
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Score Range</label>
-                <div className="flex gap-2 items-center">
-                  <Input
-                    type="number"
-                    placeholder="Min"
-                    value={scoreMin}
-                    onChange={(e) => { setScoreMin(e.target.value); setPage(1); }}
-                    className="text-xs"
-                  />
-                  <span className="text-slate-400 text-xs shrink-0">to</span>
-                  <Input
-                    type="number"
-                    placeholder="Max"
-                    value={scoreMax}
-                    onChange={(e) => { setScoreMax(e.target.value); setPage(1); }}
-                    className="text-xs"
-                  />
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+      {/* Active Filters Tags */}
+      {activeFilterCount > 0 && (
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-semibold text-slate-500">Active filters:</span>
+          {state !== 'All' && <FilterTag label={`State: ${state}`} onRemove={() => setState('All')} />}
+          {college !== 'All' && <FilterTag label={`College: ${college}`} onRemove={() => setCollege('All')} />}
+          {course !== 'All' && <FilterTag label={`Course: ${course}`} onRemove={() => setCourse('All')} />}
+          {category !== 'All' && <FilterTag label={`Category: ${category}`} onRemove={() => setCategory('All')} />}
+          {quota !== 'All' && <FilterTag label={`Quota: ${quota}`} onRemove={() => setQuota('All')} />}
+          {round !== 'All' && <FilterTag label={`Round ${round}`} onRemove={() => setRound('All')} />}
+          {rankMin && <FilterTag label={`Rank >= ${rankMin}`} onRemove={() => setRankMin('')} />}
+          {rankMax && <FilterTag label={`Rank <= ${rankMax}`} onRemove={() => setRankMax('')} />}
+          {scoreMin && <FilterTag label={`Score >= ${scoreMin}`} onRemove={() => setScoreMin('')} />}
+          {scoreMax && <FilterTag label={`Score <= ${scoreMax}`} onRemove={() => setScoreMax('')} />}
+          <button onClick={handleReset} className="text-xs font-semibold text-red-600 hover:text-red-700 hover:underline transition-colors ml-1">
+            Clear all
+          </button>
+        </div>
       )}
 
-      {/* Results Table */}
+      {/* View Toggle + Results Count */}
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-muted-foreground">
+          Showing <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length}</span> results
+          {activeFilterCount > 0 && <span className="text-red-600 dark:text-red-400 font-medium"> (filtered)</span>}
+        </p>
+        <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5">
+          <button
+            onClick={() => setViewMode('cards')}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 ${viewMode === 'cards' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+          >
+            Cards
+          </button>
+          <button
+            onClick={() => setViewMode('table')}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 ${viewMode === 'table' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+          >
+            Table
+          </button>
+        </div>
+      </div>
+
+      {/* Results */}
       {filtered.length === 0 ? (
         <EmptyState
           title="No results found"
           description="Adjust your filters or search query to find closing rank data."
           action={{ label: 'Clear Filters', onClick: handleReset }}
         />
+      ) : viewMode === 'cards' ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {paginated.map((entry, idx) => (
+            <Card
+              key={entry.id}
+              onClick={() => handleRowClick(entry)}
+              className="group cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative border-transparent hover:border-red-200 dark:hover:border-red-900/40"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <CardContent className="p-5">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-red-100 dark:group-hover:bg-red-950/50 group-hover:shadow-md">
+                    <GraduationCap className="w-5 h-5 text-red-600 dark:text-red-400" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
+                      {entry.college.name}
+                    </h3>
+                    <p className="text-[11px] text-muted-foreground flex items-center gap-1 mt-0.5">
+                      <MapPin className="w-3 h-3" />
+                      {entry.college.city}, {entry.college.state}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                    entry.college.type === 'Government'
+                      ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400'
+                      : entry.college.type === 'Deemed'
+                      ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400'
+                      : 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400'
+                  }`}>
+                    {entry.college.type}
+                  </span>
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                    {entry.course}
+                  </span>
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/20 text-purple-600 dark:text-purple-400">
+                    {entry.category}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-3 gap-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl p-3">
+                  <div className="text-center">
+                    <p className="text-[10px] font-semibold text-muted-foreground uppercase">Rank</p>
+                    <p className="text-lg font-extrabold text-slate-900 dark:text-slate-100 tabular-nums mt-0.5">
+                      #{entry.closingRank.toLocaleString()}
+                    </p>
+                  </div>
+                  <div className="text-center border-x border-slate-200 dark:border-slate-700">
+                    <p className="text-[10px] font-semibold text-muted-foreground uppercase">Score</p>
+                    <p className="text-lg font-extrabold text-emerald-600 dark:text-emerald-400 tabular-nums mt-0.5">
+                      {entry.closingScore ?? 'N/A'}
+                    </p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-[10px] font-semibold text-muted-foreground uppercase">Round</p>
+                    <p className="text-lg font-extrabold text-red-600 dark:text-red-400 mt-0.5">
+                      R{entry.round}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+                  <span className="text-[11px] text-muted-foreground truncate max-w-[60%]">{entry.quota}</span>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-600 dark:text-red-400 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                    View Trends <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       ) : (
         <Card className="overflow-hidden">
           <div className="overflow-x-auto">
@@ -385,13 +716,14 @@ export default function RankInsightsPage() {
                   <tr
                     key={entry.id}
                     onClick={() => handleRowClick(entry)}
-                    className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors cursor-pointer group"
+                    className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors duration-200 cursor-pointer group"
                   >
                     <td className="px-4 py-3.5 font-bold text-slate-800 dark:text-slate-100 max-w-[220px]">
-                      <div className="truncate">{entry.college.name}</div>
-                      <div className="text-[10px] text-muted-foreground font-normal mt-0.5">
+                      <div className="truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">{entry.college.name}</div>
+                      <div className="text-[10px] text-muted-foreground font-normal mt-0.5 flex items-center gap-1">
+                        <MapPin className="w-2.5 h-2.5" />
                         {entry.college.city}, {entry.college.state}
-                        <span className={`ml-2 px-1.5 py-0.5 rounded text-[9px] font-bold ${
+                        <span className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[9px] font-bold ${
                           entry.college.type === 'Government'
                             ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
                             : entry.college.type === 'Deemed'
@@ -406,24 +738,26 @@ export default function RankInsightsPage() {
                       {entry.course}
                     </td>
                     <td className="px-4 py-3.5 whitespace-nowrap">
-                      <span className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded font-bold text-slate-700 dark:text-slate-300">
+                      <span className="bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full font-bold text-slate-700 dark:text-slate-300 text-[10px]">
                         {entry.category}
                       </span>
                     </td>
                     <td className="px-4 py-3.5 whitespace-nowrap text-slate-600 dark:text-slate-400 font-medium max-w-[180px] truncate">
                       {entry.quota}
                     </td>
-                    <td className="px-4 py-3.5 whitespace-nowrap text-center font-extrabold text-red-600 dark:text-red-400">
-                      R{entry.round}
+                    <td className="px-4 py-3.5 whitespace-nowrap text-center">
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 font-extrabold text-red-600 dark:text-red-400 text-[11px]">
+                        R{entry.round}
+                      </span>
                     </td>
-                    <td className="px-4 py-3.5 whitespace-nowrap text-right font-extrabold text-slate-900 dark:text-slate-50 tabular-nums">
+                    <td className="px-4 py-3.5 whitespace-nowrap text-right font-extrabold text-slate-900 dark:text-slate-50 tabular-nums text-sm">
                       #{entry.closingRank.toLocaleString()}
                     </td>
                     <td className="px-4 py-3.5 whitespace-nowrap text-right font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">
                       {entry.closingScore ?? 'N/A'}
                     </td>
                     <td className="px-4 py-3.5 text-center">
-                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 transition-colors inline-block" />
+                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all duration-200 inline-block" />
                     </td>
                   </tr>
                 ))}
@@ -440,6 +774,32 @@ export default function RankInsightsPage() {
         itemCount={paginated.length}
         totalItems={filtered.length}
       />
+
+      {/* Student Tip Banner */}
+      <Card className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border-amber-200 dark:border-amber-900/30">
+        <CardContent className="p-4 sm:p-5 flex items-start gap-3">
+          <div className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-950/40 flex items-center justify-center shrink-0">
+            <Sparkles className="w-4 h-4 text-amber-600" />
+          </div>
+          <div>
+            <p className="text-sm font-bold text-amber-900 dark:text-amber-200">Pro Tip for Students</p>
+            <p className="text-xs text-amber-700 dark:text-amber-400 mt-0.5 leading-relaxed">
+              Click on any college entry to see year-over-year closing rank trends. This helps you understand if a college is getting more or less competitive over time, so you can make a safer choice list.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
     </div>
+  );
+}
+
+function FilterTag({ label, onRemove }: { label: string; onRemove: () => void }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-xs font-semibold border border-red-200 dark:border-red-900/40 hover:bg-red-100 dark:hover:bg-red-950/50 transition-colors duration-200 group/tag">
+      {label}
+      <button onClick={(e) => { e.stopPropagation(); onRemove(); }} className="w-4 h-4 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors duration-200">
+        <X className="w-3 h-3" />
+      </button>
+    </span>
   );
 }

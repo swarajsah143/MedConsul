@@ -12,11 +12,15 @@ import {
   X,
   LogOut,
   ChevronDown,
+  Megaphone,
+  MapPin,
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
+  { name: 'Announcements', href: '/announcements', icon: Megaphone },
+  { name: 'Allotment Mapping', href: '/allotment', icon: MapPin },
   { name: 'Rank Insights', href: '/rank-insights', icon: BarChart3 },
   { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
   { name: 'College Reviews', href: '/colleges', icon: GraduationCap },

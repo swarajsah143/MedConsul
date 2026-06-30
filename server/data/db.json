@@ -172,6 +172,36 @@
       "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI3MzI4NDQsImV4cCI6MTc4MzMzNzY0NH0.yt7PsHoaK-nECNq54QRYu1IGsVduxhCS6R_aJDxnnms",
       "expiresAt": "2026-07-06T11:34:04.431Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4MDcxMTMsImV4cCI6MTc4MzQxMTkxM30.3FGkJ96l-dKBUlid8CW3Z4iuIlle4Ls4xxz-mCvLoj0": {
+      "id": "75abeb6c-7e0b-4a1d-a6e4-1ffbf3faf30f",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4MDcxMTMsImV4cCI6MTc4MzQxMTkxM30.3FGkJ96l-dKBUlid8CW3Z4iuIlle4Ls4xxz-mCvLoj0",
+      "expiresAt": "2026-07-07T08:11:53.996Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4MjkwNDgsImV4cCI6MTc4MzQzMzg0OH0.I_FE5O-mxkPgm6w3DyUY5ZkFlcW6cUuXsRgI1vKFtGQ": {
+      "id": "d61d6466-e6a0-4c6a-925b-42ce855b2f3c",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4MjkwNDgsImV4cCI6MTc4MzQzMzg0OH0.I_FE5O-mxkPgm6w3DyUY5ZkFlcW6cUuXsRgI1vKFtGQ",
+      "expiresAt": "2026-07-07T14:17:28.600Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4Mzg4OTIsImV4cCI6MTc4MzQ0MzY5Mn0.DimYR4E60hHbl48qqA5s2PXqnAAnyHPqOugao5TeMYk": {
+      "id": "3422dbcc-e1a8-460d-8ebd-168b3593d018",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4Mzg4OTIsImV4cCI6MTc4MzQ0MzY5Mn0.DimYR4E60hHbl48qqA5s2PXqnAAnyHPqOugao5TeMYk",
+      "expiresAt": "2026-07-07T17:01:32.549Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4NDE5ODEsImV4cCI6MTc4MzQ0Njc4MX0.Qs6n5SCc6i9gdYga41EpL0NsNP4O-4r7295--Fr0r2w": {
+      "id": "eae1bf73-1a87-4155-a889-8108e780b2bb",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4NDE5ODEsImV4cCI6MTc4MzQ0Njc4MX0.Qs6n5SCc6i9gdYga41EpL0NsNP4O-4r7295--Fr0r2w",
+      "expiresAt": "2026-07-07T17:53:01.215Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4NDM0MDAsImV4cCI6MTc4MzQ0ODIwMH0.h9RQKIsFrXpLsSuKvDqdJKmQyqTis13CzofGj988iec": {
+      "id": "41622a6c-0238-4bbe-91f5-1cda5429cde3",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4NDM0MDAsImV4cCI6MTc4MzQ0ODIwMH0.h9RQKIsFrXpLsSuKvDqdJKmQyqTis13CzofGj988iec",
+      "expiresAt": "2026-07-07T18:16:40.184Z"
     }
   },
   "passwordResets": {},
@@ -580,6 +610,23 @@
       ],
       "createdAt": "2026-06-29T07:13:31.046Z",
       "updatedAt": "2026-06-29T07:15:17.551Z"
+    },
+    "392e3c4c-5788-465b-8f5b-52a06e1f4b53": {
+      "id": "392e3c4c-5788-465b-8f5b-52a06e1f4b53",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "Show MBBS colleges in Uttar Pradesh.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Show MBBS colleges in Uttar Pradesh."
+        },
+        {
+          "role": "assistant",
+          "content": "I don't have specific data matching your query in my database.\n\nYou can explore the relevant modules in MedCounsel AI for detailed information:\n- **Closing Rank Insights** — cutoff and rank analysis\n- **College Reviews** — detailed college profiles\n- **Fee & Seat Matrix** — fee comparisons\n- **Document Checklist** — admission preparation\n\n> *Try rephrasing your question with specific details like college names, ranks, states, or categories.*"
+        }
+      ],
+      "createdAt": "2026-06-29T17:12:11.858Z",
+      "updatedAt": "2026-06-29T17:12:11.924Z"
     }
   }
 }
