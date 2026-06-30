@@ -28,6 +28,7 @@ import {
   Star,
   Shield,
   BookOpen,
+  MapPin,
 } from 'lucide-react';
 
 function getChecklistProgress(): { completed: number; total: number } {
@@ -51,6 +52,7 @@ const CONTROL_PANEL_ITEMS = [
     gradient: 'from-blue-500 to-blue-600',
     bg: 'bg-blue-50 dark:bg-blue-950/30',
     iconColor: 'text-blue-600 dark:text-blue-400',
+    stat: '30+ colleges',
   },
   {
     title: 'Closing Ranks',
@@ -60,6 +62,17 @@ const CONTROL_PANEL_ITEMS = [
     gradient: 'from-red-500 to-rose-600',
     bg: 'bg-red-50 dark:bg-red-950/30',
     iconColor: 'text-red-600 dark:text-red-400',
+    stat: '3 years data',
+  },
+  {
+    title: 'Allotment Mapping',
+    description: 'Find which colleges you can get based on rank or state.',
+    icon: MapPin,
+    href: '/allotment',
+    gradient: 'from-indigo-500 to-purple-600',
+    bg: 'bg-indigo-50 dark:bg-indigo-950/30',
+    iconColor: 'text-indigo-600 dark:text-indigo-400',
+    stat: '35 states',
   },
   {
     title: 'Fee & Seat Matrix',
@@ -69,6 +82,7 @@ const CONTROL_PANEL_ITEMS = [
     gradient: 'from-amber-500 to-orange-600',
     bg: 'bg-amber-50 dark:bg-amber-950/30',
     iconColor: 'text-amber-600 dark:text-amber-400',
+    stat: 'All quotas',
   },
   {
     title: 'Document Checklist',
@@ -78,24 +92,27 @@ const CONTROL_PANEL_ITEMS = [
     gradient: 'from-emerald-500 to-green-600',
     bg: 'bg-emerald-50 dark:bg-emerald-950/30',
     iconColor: 'text-emerald-600 dark:text-emerald-400',
+    stat: 'Track progress',
   },
   {
-    title: 'Alerts & Notifications',
+    title: 'Announcements',
     description: 'Real-time updates for rounds, deadlines & changes.',
     icon: Bell,
     href: '/announcements',
     gradient: 'from-purple-500 to-violet-600',
     bg: 'bg-purple-50 dark:bg-purple-950/30',
     iconColor: 'text-purple-600 dark:text-purple-400',
+    stat: 'Live feed',
   },
   {
-    title: 'AI Assistant',
+    title: 'MedAssist AI',
     description: 'Get instant answers to all your counselling queries.',
     icon: Bot,
     href: '/ai-assistant',
     gradient: 'from-cyan-500 to-teal-600',
     bg: 'bg-cyan-50 dark:bg-cyan-950/30',
     iconColor: 'text-cyan-600 dark:text-cyan-400',
+    stat: 'Ask anything',
   },
 ];
 
@@ -196,10 +213,11 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         {[
           { label: 'Colleges', value: stats.colleges, icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
           { label: 'Rank Records', value: stats.rankRecords, icon: BarChart3, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'States', value: 35, icon: MapPin, color: 'text-indigo-600', bg: 'bg-indigo-50 dark:bg-indigo-950/30' },
           { label: 'Documents', value: stats.docCategories, icon: ClipboardCheck, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Fee Records', value: stats.feeRecords, icon: IndianRupee, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
           { label: 'Videos', value: stats.videos, icon: PlayCircle, color: 'text-purple-600', bg: 'bg-purple-50 dark:bg-purple-950/30' },
@@ -232,28 +250,30 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {CONTROL_PANEL_ITEMS.map((item) => (
             <Link key={item.href + item.title} to={item.href} className="group">
-              <Card className="h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border-transparent hover:border-slate-200 dark:hover:border-slate-700 overflow-hidden relative">
+              <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border-transparent hover:border-red-200 dark:hover:border-red-900/40 overflow-hidden relative">
+                <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-300`} />
-                <CardContent className="p-5 sm:p-6 relative">
-                  <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${item.bg} transition-all duration-300 group-hover:scale-110 group-hover:shadow-md`}>
-                      <item.icon className={`w-6 h-6 ${item.iconColor}`} />
+                <CardContent className="p-5 relative">
+                  <div className="flex items-start gap-3.5">
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${item.bg} transition-all duration-300 group-hover:scale-110 group-hover:shadow-md`}>
+                      <item.icon className={`w-5.5 h-5.5 ${item.iconColor}`} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                      <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors leading-snug">
                         {item.title}
                       </h3>
-                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                      <p className="text-[11px] text-muted-foreground mt-1 leading-relaxed line-clamp-2">
                         {item.description}
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center justify-end mt-3">
+                  <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+                    <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">{item.stat}</span>
                     <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-600 dark:text-red-400 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                      Explore <ArrowRight className="w-3.5 h-3.5" />
+                      Open <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </CardContent>
@@ -272,7 +292,9 @@ export default function DashboardPage() {
               <Megaphone className="w-4.5 h-4.5 text-red-500" />
               <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Latest Updates</h2>
             </div>
-            <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">Live Feed</span>
+            <Link to="/announcements" className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline flex items-center gap-1 transition-colors">
+              View All <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
           <Card className="overflow-hidden">
             <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
@@ -333,40 +355,49 @@ export default function DashboardPage() {
                 tip: 'Start by completing your Document Checklist to ensure you have everything ready.',
                 color: 'border-l-emerald-500',
                 bg: 'bg-emerald-50/50 dark:bg-emerald-950/10',
+                link: '/doc-checklist',
               },
               {
-                tip: 'Use Rank Insights to compare your expected rank with previous year closing ranks.',
-                color: 'border-l-red-500',
-                bg: 'bg-red-50/50 dark:bg-red-950/10',
+                tip: 'Use Allotment Mapping to find colleges matching your rank across all 35 states.',
+                color: 'border-l-indigo-500',
+                bg: 'bg-indigo-50/50 dark:bg-indigo-950/10',
+                link: '/allotment',
               },
               {
-                tip: 'Check the Fee Matrix before counselling to plan your budget across quotas.',
+                tip: 'Compare fees in Fee Matrix before counselling to plan your budget smartly.',
                 color: 'border-l-amber-500',
                 bg: 'bg-amber-50/50 dark:bg-amber-950/10',
+                link: '/fee-matrix',
               },
               {
-                tip: 'Ask our AI Assistant any doubt about counselling process or college selection.',
+                tip: 'Ask MedAssist AI any doubt — counselling process, college selection, or documents.',
                 color: 'border-l-cyan-500',
                 bg: 'bg-cyan-50/50 dark:bg-cyan-950/10',
+                link: '/ai-assistant',
               },
             ].map((item, idx) => (
-              <Card key={idx} className={`border-l-4 ${item.color} ${item.bg} hover:shadow-sm transition-shadow`}>
-                <CardContent className="p-4">
-                  <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{item.tip}</p>
-                </CardContent>
-              </Card>
+              <Link key={idx} to={item.link}>
+                <Card className={`border-l-4 ${item.color} ${item.bg} hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 cursor-pointer group/tip`}>
+                  <CardContent className="p-4 flex items-center gap-3">
+                    <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed flex-1">{item.tip}</p>
+                    <ChevronRight className="w-4 h-4 text-slate-300 shrink-0 group-hover/tip:text-red-500 group-hover/tip:translate-x-0.5 transition-all duration-200" />
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
 
           {/* Platform Stats Mini */}
           <Card className="mt-4 bg-slate-50 dark:bg-slate-800/50">
             <CardContent className="p-4">
-              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-3">Coverage</p>
+              <p className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider mb-3">Platform Coverage</p>
               <div className="space-y-2.5">
                 {[
-                  { label: 'States Covered', value: stats.states },
-                  { label: 'Video Resources', value: stats.videos },
-                  { label: 'Years of Data', value: 3 },
+                  { label: 'States & UTs', value: '35' },
+                  { label: 'College Reviews', value: String(stats.colleges) },
+                  { label: 'Years of Data', value: '3' },
+                  { label: 'Video Resources', value: String(stats.videos) },
+                  { label: 'AI Knowledge Base', value: '13 articles' },
                 ].map((s) => (
                   <div key={s.label} className="flex items-center justify-between">
                     <span className="text-xs text-slate-600 dark:text-slate-400">{s.label}</span>

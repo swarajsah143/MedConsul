@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   FEE_MATRIX_DATA,
@@ -10,66 +10,30 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
-import { PageHeader } from '@/components/ui/page-header';
 import { EmptyState } from '@/components/ui/empty-state';
 import {
   Search,
   ArrowUpDown,
   Download,
-  Filter,
   X,
   IndianRupee,
   ChevronRight,
   Building2,
   Users,
+  Sparkles,
+  SlidersHorizontal,
+  MapPin,
+  GraduationCap,
+  ArrowRight,
+  TrendingUp,
+  Wallet,
+  Target,
 } from 'lucide-react';
 
-type SortField =
-  | 'college'
-  | 'tuitionFee'
-  | 'hostelFee'
-  | 'miscCharges'
-  | 'securityDeposit'
-  | 'totalFirstYear'
-  | 'govtSeats'
-  | 'mgmtSeats'
-  | 'nriSeats';
+type SortField = 'college' | 'tuitionFee' | 'hostelFee' | 'totalFirstYear' | 'govtSeats' | 'mgmtSeats';
+type ViewMode = 'cards' | 'table';
 
-const PAGE_SIZE = 10;
-
-function SelectFilter({
-  label,
-  value,
-  onChange,
-  options,
-  allLabel,
-}: {
-  label: string;
-  value: string;
-  onChange: (v: string) => void;
-  options: string[];
-  allLabel: string;
-}) {
-  return (
-    <div className="space-y-1.5">
-      <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-        {label}
-      </label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full h-9 px-3 rounded-lg border border-input bg-background text-xs focus:outline-none focus:ring-2 focus:ring-ring"
-      >
-        <option value="All">{allLabel}</option>
-        {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
+const PAGE_SIZE = 12;
 
 export default function FeeMatrixPage() {
   const navigate = useNavigate();
@@ -80,31 +44,29 @@ export default function FeeMatrixPage() {
   const [course, setCourse] = useState('All');
   const [category, setCategory] = useState('All');
   const [quota, setQuota] = useState('All');
-  const [showFilters, setShowFilters] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
+  const [viewMode, setViewMode] = useState<ViewMode>('cards');
 
   const [sortBy, setSortBy] = useState<SortField>('totalFirstYear');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [page, setPage] = useState(1);
 
+  useEffect(() => {
+    if (showFilters) { document.body.style.overflow = 'hidden'; }
+    else { document.body.style.overflow = ''; }
+    return () => { document.body.style.overflow = ''; };
+  }, [showFilters]);
+
   const activeFilterCount = [
-    state !== 'All',
-    college !== 'All',
-    course !== 'All',
-    category !== 'All',
-    quota !== 'All',
+    state !== 'All', college !== 'All', course !== 'All',
+    category !== 'All', quota !== 'All', search !== '',
   ].filter(Boolean).length;
 
   const filtered = useMemo(() => {
     let data = FEE_MATRIX_DATA;
-
     if (search) {
       const q = search.toLowerCase();
-      data = data.filter(
-        (e) =>
-          e.name.toLowerCase().includes(q) ||
-          e.city.toLowerCase().includes(q) ||
-          e.course.toLowerCase().includes(q)
-      );
+      data = data.filter((e) => e.name.toLowerCase().includes(q) || e.city.toLowerCase().includes(q) || e.course.toLowerCase().includes(q));
     }
     if (state !== 'All') data = data.filter((e) => e.state === state);
     if (college !== 'All') data = data.filter((e) => e.name === college);
@@ -115,78 +77,38 @@ export default function FeeMatrixPage() {
     data = [...data].sort((a, b) => {
       let cmp = 0;
       switch (sortBy) {
-        case 'college':
-          cmp = a.name.localeCompare(b.name);
-          break;
-        case 'tuitionFee':
-          cmp = a.tuitionFee - b.tuitionFee;
-          break;
-        case 'hostelFee':
-          cmp = a.hostelFee - b.hostelFee;
-          break;
-        case 'miscCharges':
-          cmp = a.miscCharges - b.miscCharges;
-          break;
-        case 'securityDeposit':
-          cmp = a.securityDeposit - b.securityDeposit;
-          break;
-        case 'totalFirstYear':
-          cmp = a.totalFirstYear - b.totalFirstYear;
-          break;
-        case 'govtSeats':
-          cmp = a.govtSeats - b.govtSeats;
-          break;
-        case 'mgmtSeats':
-          cmp = a.mgmtSeats - b.mgmtSeats;
-          break;
-        case 'nriSeats':
-          cmp = a.nriSeats - b.nriSeats;
-          break;
+        case 'college': cmp = a.name.localeCompare(b.name); break;
+        case 'tuitionFee': cmp = a.tuitionFee - b.tuitionFee; break;
+        case 'hostelFee': cmp = a.hostelFee - b.hostelFee; break;
+        case 'totalFirstYear': cmp = a.totalFirstYear - b.totalFirstYear; break;
+        case 'govtSeats': cmp = a.govtSeats - b.govtSeats; break;
+        case 'mgmtSeats': cmp = a.mgmtSeats - b.mgmtSeats; break;
       }
       return sortOrder === 'asc' ? cmp : -cmp;
     });
-
     return data;
   }, [search, state, college, course, category, quota, sortBy, sortOrder]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-  const handleSort = useCallback(
-    (field: SortField) => {
-      if (sortBy === field) {
-        setSortOrder((o) => (o === 'asc' ? 'desc' : 'asc'));
-      } else {
-        setSortBy(field);
-        setSortOrder('asc');
-      }
-      setPage(1);
-    },
-    [sortBy]
-  );
+  const handleSort = useCallback((field: SortField) => {
+    if (sortBy === field) setSortOrder((o) => (o === 'asc' ? 'desc' : 'asc'));
+    else { setSortBy(field); setSortOrder('asc'); }
+    setPage(1);
+  }, [sortBy]);
 
   const handleReset = () => {
-    setSearch('');
-    setState('All');
-    setCollege('All');
-    setCourse('All');
-    setCategory('All');
-    setQuota('All');
-    setPage(1);
+    setSearch(''); setState('All'); setCollege('All');
+    setCourse('All'); setCategory('All'); setQuota('All'); setPage(1);
   };
 
   const handleExportCsv = () => {
-    const header =
-      'College,State,City,Type,Course,Category,Quota,Tuition Fee,Hostel Fee,Misc Charges,Security Deposit,Total First Year,Govt Seats,Mgmt Seats,NRI Seats\n';
-    const rows = filtered
-      .map(
-        (e) =>
-          `"${e.name}","${e.state}","${e.city}","${e.type}","${e.course}","${e.category}","${e.quota}",${e.tuitionFee},${e.hostelFee},${e.miscCharges},${e.securityDeposit},${e.totalFirstYear},${e.govtSeats},${e.mgmtSeats},${e.nriSeats}`
-      )
-      .join('\n');
-    const blob = new Blob([header + rows], {
-      type: 'text/csv;charset=utf-8;',
-    });
+    const header = 'College,State,City,Type,Course,Category,Quota,Tuition,Hostel,Misc,Deposit,Total 1st Yr,Govt Seats,Mgmt Seats,NRI Seats\n';
+    const rows = filtered.map((e) =>
+      `"${e.name}","${e.state}","${e.city}","${e.type}","${e.course}","${e.category}","${e.quota}",${e.tuitionFee},${e.hostelFee},${e.miscCharges},${e.securityDeposit},${e.totalFirstYear},${e.govtSeats},${e.mgmtSeats},${e.nriSeats}`
+    ).join('\n');
+    const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -196,301 +118,383 @@ export default function FeeMatrixPage() {
   };
 
   // Summary stats
-  const avgTotal =
-    filtered.length > 0
-      ? Math.round(
-          filtered.reduce((sum, e) => sum + e.totalFirstYear, 0) / filtered.length
-        )
-      : 0;
+  const avgTotal = filtered.length > 0 ? Math.round(filtered.reduce((s, e) => s + e.totalFirstYear, 0) / filtered.length) : 0;
+  const minTotal = filtered.length > 0 ? Math.min(...filtered.map((e) => e.totalFirstYear)) : 0;
+  const maxTotal = filtered.length > 0 ? Math.max(...filtered.map((e) => e.totalFirstYear)) : 0;
   const totalGovtSeats = filtered.reduce((s, e) => s + e.govtSeats, 0);
-  const totalMgmtSeats = filtered.reduce((s, e) => s + e.mgmtSeats, 0);
 
-  function SortHeader({
-    field,
-    children,
-    className,
-  }: {
-    field: SortField;
-    children: React.ReactNode;
-    className?: string;
-  }) {
+  const typeColor = (t: string) =>
+    t === 'Government' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400'
+    : t === 'Deemed' ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400'
+    : 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400';
+
+  const typeIconBg = (t: string) =>
+    t === 'Government' ? 'bg-emerald-100 dark:bg-emerald-950/40'
+    : t === 'Deemed' ? 'bg-blue-100 dark:bg-blue-950/40'
+    : 'bg-amber-100 dark:bg-amber-950/40';
+
+  const typeIconColor = (t: string) =>
+    t === 'Government' ? 'text-emerald-600' : t === 'Deemed' ? 'text-blue-600' : 'text-amber-600';
+
+  function SortHeader({ field, children, className }: { field: SortField; children: React.ReactNode; className?: string }) {
     const active = sortBy === field;
     return (
-      <th
-        onClick={() => handleSort(field)}
-        className={`px-3 py-3.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 select-none whitespace-nowrap ${className || ''}`}
-      >
+      <th onClick={() => handleSort(field)} className={`px-3 py-3.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 select-none whitespace-nowrap transition-colors duration-150 ${className || ''}`}>
         <span className="flex items-center gap-1">
           {children}
-          <ArrowUpDown
-            className={`w-3 h-3 shrink-0 ${active ? 'text-red-600' : 'text-slate-400'}`}
-          />
+          <ArrowUpDown className={`w-3 h-3 shrink-0 transition-colors ${active ? 'text-red-600' : 'text-slate-400'}`} />
         </span>
       </th>
     );
   }
 
-  const typeColor = (t: string) =>
-    t === 'Government'
-      ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
-      : t === 'Deemed'
-      ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400'
-      : 'bg-amber-50 text-amber-700 dark:bg-amber-950/20 dark:text-amber-400';
-
   return (
-    <div className="space-y-6 pb-10">
-      <PageHeader
-        icon={IndianRupee}
-        title="Fee & Seat Matrix"
-        description="Compare tuition fees, hostel charges, and seat distribution across medical colleges. Click any row for detailed breakdowns."
-      >
-        <Button
-          variant="outline"
-          className={`flex items-center gap-2 ${showFilters ? 'bg-red-50/50 border-red-200 text-red-700' : ''}`}
-          onClick={() => setShowFilters(!showFilters)}
-        >
-          <Filter className="w-4 h-4" />
-          <span className="hidden sm:inline">Filters</span>
-          {activeFilterCount > 0 && (
-            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">
-              {activeFilterCount}
-            </span>
-          )}
-        </Button>
-        <Button
-          onClick={handleExportCsv}
-          className="gradient-primary text-white flex items-center gap-2 shadow-sm"
-        >
-          <Download className="w-4 h-4" />
-          <span className="hidden sm:inline">Export CSV</span>
-        </Button>
-      </PageHeader>
-
-      {/* Summary Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <Card className="p-4">
-          <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-            Entries
-          </p>
-          <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-200 mt-1">
-            {filtered.length}
-          </p>
-          <p className="text-[11px] text-slate-400 mt-0.5">matching filters</p>
-        </Card>
-        <Card className="p-4">
-          <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-            Avg. 1st Year
-          </p>
-          <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-200 mt-1">
-            {formatINR(avgTotal)}
-          </p>
-          <p className="text-[11px] text-slate-400 mt-0.5">across results</p>
-        </Card>
-        <Card className="p-4">
-          <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-            Govt Seats
-          </p>
-          <p className="text-2xl font-extrabold text-emerald-600 mt-1">
-            {totalGovtSeats.toLocaleString()}
-          </p>
-          <p className="text-[11px] text-slate-400 mt-0.5">government quota</p>
-        </Card>
-        <Card className="p-4">
-          <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-            Mgmt Seats
-          </p>
-          <p className="text-2xl font-extrabold text-amber-600 mt-1">
-            {totalMgmtSeats.toLocaleString()}
-          </p>
-          <p className="text-[11px] text-slate-400 mt-0.5">management quota</p>
-        </Card>
+    <div className="space-y-6 pb-10 page-enter">
+      {/* Hero */}
+      <div className="relative rounded-2xl overflow-hidden">
+        <div className="gradient-primary p-6 sm:p-8">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+          <div className="relative z-10">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div className="space-y-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
+                  <Sparkles className="w-3.5 h-3.5" /> NEET UG 2026
+                </span>
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
+                  <IndianRupee className="w-7 h-7 text-red-200" />
+                  Fee & Seat Matrix
+                </h1>
+                <p className="text-red-100/90 text-sm max-w-xl leading-relaxed">
+                  Compare tuition fees, hostel charges, and seat distribution across medical colleges. Plan your budget smartly.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 shrink-0">
+                <Button onClick={() => setShowFilters(true)} className="bg-white text-red-600 hover:bg-red-50 transition-all duration-200 shadow-sm font-semibold">
+                  <SlidersHorizontal className="w-4 h-4 mr-2" />
+                  Filters
+                  {activeFilterCount > 0 && (
+                    <span className="ml-2 w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">{activeFilterCount}</span>
+                  )}
+                </Button>
+                <Button onClick={handleExportCsv} className="bg-white/15 text-white border border-white/20 hover:bg-white/25 transition-all duration-200">
+                  <Download className="w-4 h-4 mr-2" />
+                  <span className="hidden sm:inline">Export</span>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Filter Panel */}
-      {showFilters && (
-        <Card className="shadow-sm glass animate-fade-in">
-          <CardContent className="pt-6 space-y-5">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search college, city, course..."
-                  value={search}
-                  onChange={(e) => {
-                    setSearch(e.target.value);
-                    setPage(1);
-                  }}
-                  className="pl-10"
-                />
+      {/* Stats */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { label: 'Avg. 1st Year', value: formatINR(avgTotal), icon: Wallet, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Lowest Fee', value: formatINR(minTotal), icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
+          { label: 'Highest Fee', value: formatINR(maxTotal), icon: IndianRupee, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
+          { label: 'Govt Seats', value: totalGovtSeats.toLocaleString(), icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
+        ].map((s) => (
+          <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+            <CardContent className="p-4 sm:p-5">
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${s.bg} transition-transform duration-300 group-hover:scale-110`}>
+                  <s.icon className={`w-5 h-5 ${s.color}`} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-slate-100 leading-none">{s.value}</p>
+                  <p className="text-[10px] font-semibold text-muted-foreground mt-1 uppercase tracking-wider">{s.label}</p>
+                </div>
               </div>
-              <div className="flex gap-2">
-                <Button
-                  onClick={() => setPage(1)}
-                  className="gradient-primary text-white"
-                >
-                  Apply
-                </Button>
-                {activeFilterCount > 0 && (
-                  <Button variant="outline" onClick={handleReset}>
-                    <X className="w-3.5 h-3.5 mr-1" /> Clear
-                  </Button>
-                )}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Filter Modal */}
+      {showFilters && (
+        <div className="fixed inset-0 z-50 flex items-start justify-center">
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm fade-in" onClick={() => setShowFilters(false)} />
+          <div className="relative z-50 w-full max-w-3xl mx-4 mt-8 mb-8 max-h-[calc(100vh-4rem)] flex flex-col rounded-2xl overflow-hidden shadow-2xl slide-in-from-top-4 fade-in">
+            <div className="gradient-primary px-6 py-5 shrink-0">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center border border-white/10">
+                    <SlidersHorizontal className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-extrabold text-white">Fee Filters</h2>
+                    <p className="text-red-200 text-xs mt-0.5">Narrow down colleges by fees and seats</p>
+                  </div>
+                </div>
+                <button onClick={() => setShowFilters(false)} className="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-all duration-200 hover:scale-105">
+                  <X className="w-5 h-5" />
+                </button>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-              <SelectFilter
-                label="State"
-                value={state}
-                onChange={(v) => {
-                  setState(v);
-                  setPage(1);
-                }}
-                options={FEE_FILTER_OPTIONS.states}
-                allLabel="All States"
-              />
-              <SelectFilter
-                label="College"
-                value={college}
-                onChange={(v) => {
-                  setCollege(v);
-                  setPage(1);
-                }}
-                options={FEE_FILTER_OPTIONS.colleges}
-                allLabel="All Colleges"
-              />
-              <SelectFilter
-                label="Course"
-                value={course}
-                onChange={(v) => {
-                  setCourse(v);
-                  setPage(1);
-                }}
-                options={FEE_FILTER_OPTIONS.courses}
-                allLabel="All Courses"
-              />
-              <SelectFilter
-                label="Category"
-                value={category}
-                onChange={(v) => {
-                  setCategory(v);
-                  setPage(1);
-                }}
-                options={FEE_FILTER_OPTIONS.categories}
-                allLabel="All Categories"
-              />
-              <SelectFilter
-                label="Quota"
-                value={quota}
-                onChange={(v) => {
-                  setQuota(v);
-                  setPage(1);
-                }}
-                options={FEE_FILTER_OPTIONS.quotas}
-                allLabel="All Quotas"
-              />
+            <div className="flex-1 overflow-y-auto bg-white dark:bg-slate-900 p-6 space-y-7">
+              {/* Search */}
+              <section className="space-y-4">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="w-1 h-5 rounded-full bg-red-500" /> Quick Search
+                </h3>
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input placeholder="Search college, city, course..." value={search} onChange={(e) => setSearch(e.target.value)}
+                    className="pl-11 h-12 text-sm rounded-xl focus:shadow-lg transition-all duration-200" />
+                </div>
+              </section>
+
+              {/* Location */}
+              <section className="space-y-4">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="w-1 h-5 rounded-full bg-blue-500" /> Location & Institute
+                </h3>
+                <div className="rounded-xl bg-blue-50/50 dark:bg-blue-950/10 border border-blue-100 dark:border-blue-900/30 p-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-slate-700 dark:text-slate-300">State</label>
+                      <select value={state} onChange={(e) => setState(e.target.value)}
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        <option value="All">All States</option>
+                        {FEE_FILTER_OPTIONS.states.map((s) => <option key={s} value={s}>{s}</option>)}
+                      </select>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-slate-700 dark:text-slate-300">College</label>
+                      <select value={college} onChange={(e) => setCollege(e.target.value)}
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        <option value="All">All Colleges</option>
+                        {FEE_FILTER_OPTIONS.colleges.map((c) => <option key={c} value={c}>{c}</option>)}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Course & Category */}
+              <section className="space-y-4">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="w-1 h-5 rounded-full bg-purple-500" /> Course, Category & Quota
+                </h3>
+                <div className="rounded-xl bg-purple-50/50 dark:bg-purple-950/10 border border-purple-100 dark:border-purple-900/30 p-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Course</label>
+                      <select value={course} onChange={(e) => setCourse(e.target.value)}
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        <option value="All">All Courses</option>
+                        {FEE_FILTER_OPTIONS.courses.map((c) => <option key={c} value={c}>{c}</option>)}
+                      </select>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Category</label>
+                      <select value={category} onChange={(e) => setCategory(e.target.value)}
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        <option value="All">All Categories</option>
+                        {FEE_FILTER_OPTIONS.categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                      </select>
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Quota</label>
+                      <select value={quota} onChange={(e) => setQuota(e.target.value)}
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        <option value="All">All Quotas</option>
+                        {FEE_FILTER_OPTIONS.quotas.map((q) => <option key={q} value={q}>{q}</option>)}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Sort */}
+              <section className="space-y-4">
+                <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
+                  <span className="w-1 h-5 rounded-full bg-emerald-500" /> Sort By
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { field: 'totalFirstYear' as SortField, label: 'Total Fee' },
+                    { field: 'tuitionFee' as SortField, label: 'Tuition' },
+                    { field: 'hostelFee' as SortField, label: 'Hostel' },
+                    { field: 'govtSeats' as SortField, label: 'Govt Seats' },
+                    { field: 'college' as SortField, label: 'College Name' },
+                  ].map((item) => (
+                    <button key={item.field} onClick={() => { setSortBy(item.field); setSortOrder('asc'); }}
+                      className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
+                        sortBy === item.field
+                          ? 'gradient-primary text-white border-transparent shadow-md'
+                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                      }`}>
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </section>
             </div>
-          </CardContent>
-        </Card>
+
+            <div className="shrink-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 px-6 py-4">
+              <div className="flex items-center justify-between">
+                <Button variant="outline" onClick={handleReset} className="h-11 px-6 rounded-xl border-2 hover:border-red-300 hover:text-red-600 transition-all hover:scale-[1.02] active:scale-[0.98]">Clear All</Button>
+                <Button onClick={() => { setPage(1); setShowFilters(false); }} className="gradient-primary text-white h-11 px-8 rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] font-semibold">
+                  Show {filtered.length} Results
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
       )}
 
-      {/* Table */}
+      {/* Active Filter Tags + View Toggle */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-2">
+          {activeFilterCount > 0 && (
+            <>
+              {state !== 'All' && <FilterTag label={state} onRemove={() => { setState('All'); setPage(1); }} />}
+              {college !== 'All' && <FilterTag label={college} onRemove={() => { setCollege('All'); setPage(1); }} />}
+              {course !== 'All' && <FilterTag label={course} onRemove={() => { setCourse('All'); setPage(1); }} />}
+              {category !== 'All' && <FilterTag label={category} onRemove={() => { setCategory('All'); setPage(1); }} />}
+              {quota !== 'All' && <FilterTag label={quota} onRemove={() => { setQuota('All'); setPage(1); }} />}
+              {search && <FilterTag label={`"${search}"`} onRemove={() => { setSearch(''); setPage(1); }} />}
+              <button onClick={handleReset} className="text-xs font-semibold text-red-600 hover:underline">Clear all</button>
+            </>
+          )}
+          {activeFilterCount === 0 && (
+            <p className="text-sm text-muted-foreground">
+              Showing <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length}</span> fee records
+            </p>
+          )}
+        </div>
+        <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5">
+          <button onClick={() => setViewMode('cards')}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 ${viewMode === 'cards' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+            Cards
+          </button>
+          <button onClick={() => setViewMode('table')}
+            className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all duration-200 ${viewMode === 'table' ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}>
+            Table
+          </button>
+        </div>
+      </div>
+
+      {/* Results */}
       {filtered.length === 0 ? (
-        <EmptyState
-          title="No results found"
-          description="Adjust your filters or search query to find fee data."
-          action={{ label: 'Clear Filters', onClick: handleReset }}
-        />
+        <EmptyState title="No results found" description="Adjust your filters or search to find fee data." action={{ label: 'Clear Filters', onClick: handleReset }} />
+      ) : viewMode === 'cards' ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {paginated.map((entry) => (
+            <Card
+              key={entry.id}
+              onClick={() => navigate(`/fee-matrix/${entry.id}`)}
+              className="group cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative border-transparent hover:border-red-200 dark:hover:border-red-900/40"
+            >
+              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 via-rose-500 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <CardContent className="p-5">
+                {/* Header */}
+                <div className="flex items-start gap-3 mb-3">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md ${typeIconBg(entry.type)}`}>
+                    <GraduationCap className={`w-5 h-5 ${typeIconColor(entry.type)}`} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
+                      {entry.name}
+                    </h3>
+                    <p className="text-[11px] text-muted-foreground flex items-center gap-1 mt-0.5">
+                      <MapPin className="w-3 h-3" /> {entry.city}, {entry.state}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${typeColor(entry.type)}`}>{entry.type}</span>
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">{entry.course}</span>
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/20 text-purple-600 dark:text-purple-400">{entry.category}</span>
+                </div>
+
+                {/* Fee Highlight */}
+                <div className="bg-gradient-to-r from-slate-50 to-slate-100/50 dark:from-slate-800/50 dark:to-slate-800/30 rounded-xl p-4 mb-3">
+                  <div className="text-center">
+                    <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Total 1st Year Fee</p>
+                    <p className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 mt-1 tabular-nums">
+                      {formatINR(entry.totalFirstYear)}
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+                    <div className="text-center">
+                      <p className="text-[9px] font-semibold text-muted-foreground uppercase">Tuition</p>
+                      <p className="text-sm font-bold text-slate-700 dark:text-slate-300 tabular-nums mt-0.5">{formatINR(entry.tuitionFee)}</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-[9px] font-semibold text-muted-foreground uppercase">Hostel</p>
+                      <p className="text-sm font-bold text-slate-700 dark:text-slate-300 tabular-nums mt-0.5">{formatINR(entry.hostelFee)}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Seats */}
+                <div className="flex items-center gap-3 text-[11px]">
+                  {entry.govtSeats > 0 && (
+                    <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-semibold">
+                      <Building2 className="w-3 h-3" /> {entry.govtSeats} Govt
+                    </span>
+                  )}
+                  {entry.mgmtSeats > 0 && (
+                    <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400 font-semibold">
+                      <Users className="w-3 h-3" /> {entry.mgmtSeats} Mgmt
+                    </span>
+                  )}
+                  {entry.nriSeats > 0 && (
+                    <span className="flex items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold">
+                      {entry.nriSeats} NRI
+                    </span>
+                  )}
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-300 ml-auto opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300" />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       ) : (
+        /* Table View */
         <Card className="overflow-hidden">
+          <div className="h-1 gradient-primary" />
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-left text-xs">
               <thead className="bg-slate-50 dark:bg-slate-900 text-slate-500 font-bold border-b border-slate-100 dark:border-slate-800 uppercase tracking-wider">
                 <tr>
                   <SortHeader field="college">College</SortHeader>
-                  <SortHeader field="tuitionFee" className="text-right">
-                    Tuition
-                  </SortHeader>
-                  <SortHeader field="hostelFee" className="text-right">
-                    Hostel
-                  </SortHeader>
-                  <SortHeader field="miscCharges" className="text-right">
-                    Misc
-                  </SortHeader>
-                  <SortHeader field="securityDeposit" className="text-right">
-                    Deposit
-                  </SortHeader>
-                  <SortHeader field="totalFirstYear" className="text-right">
-                    Total 1st Yr
-                  </SortHeader>
-                  <SortHeader field="govtSeats" className="text-center">
-                    <span className="flex items-center gap-1">
-                      <Building2 className="w-3 h-3" /> Govt
-                    </span>
-                  </SortHeader>
-                  <SortHeader field="mgmtSeats" className="text-center">
-                    <span className="flex items-center gap-1">
-                      <Users className="w-3 h-3" /> Mgmt
-                    </span>
-                  </SortHeader>
-                  <SortHeader field="nriSeats" className="text-center">
-                    NRI
-                  </SortHeader>
+                  <SortHeader field="tuitionFee" className="text-right">Tuition</SortHeader>
+                  <SortHeader field="hostelFee" className="text-right">Hostel</SortHeader>
+                  <th className="px-3 py-3.5 text-right whitespace-nowrap">Misc</th>
+                  <SortHeader field="totalFirstYear" className="text-right">Total 1st Yr</SortHeader>
+                  <SortHeader field="govtSeats" className="text-center">Govt</SortHeader>
+                  <SortHeader field="mgmtSeats" className="text-center">Mgmt</SortHeader>
+                  <th className="px-3 py-3.5 text-center">NRI</th>
                   <th className="px-3 py-3.5 w-8"></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {paginated.map((entry) => (
-                  <tr
-                    key={entry.id}
-                    onClick={() => navigate(`/fee-matrix/${entry.id}`)}
-                    className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors cursor-pointer group"
-                  >
+                  <tr key={entry.id} onClick={() => navigate(`/fee-matrix/${entry.id}`)}
+                    className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors duration-200 cursor-pointer group">
                     <td className="px-3 py-3.5 font-bold text-slate-800 dark:text-slate-100 min-w-[200px]">
-                      <div className="truncate max-w-[220px]">{entry.name}</div>
+                      <div className="truncate max-w-[220px] group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">{entry.name}</div>
                       <div className="flex flex-wrap items-center gap-1.5 mt-1 text-[10px] text-muted-foreground font-normal">
-                        <span>
-                          {entry.city}, {entry.state}
-                        </span>
-                        <span
-                          className={`px-1.5 py-0.5 rounded font-bold ${typeColor(entry.type)}`}
-                        >
-                          {entry.type}
-                        </span>
-                        <span className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded font-semibold text-slate-500">
-                          {entry.course}
-                        </span>
-                        <span className="text-slate-400">
-                          {entry.category} · {entry.quota}
-                        </span>
+                        <span className="flex items-center gap-0.5"><MapPin className="w-2.5 h-2.5" />{entry.city}, {entry.state}</span>
+                        <span className={`px-1.5 py-0.5 rounded-full font-bold ${typeColor(entry.type)}`}>{entry.type}</span>
                       </div>
                     </td>
-                    <td className="px-3 py-3.5 text-right tabular-nums font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">
-                      {formatINR(entry.tuitionFee)}
-                    </td>
-                    <td className="px-3 py-3.5 text-right tabular-nums font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">
-                      {formatINR(entry.hostelFee)}
-                    </td>
-                    <td className="px-3 py-3.5 text-right tabular-nums text-slate-500 whitespace-nowrap">
-                      {formatINR(entry.miscCharges)}
-                    </td>
-                    <td className="px-3 py-3.5 text-right tabular-nums text-slate-500 whitespace-nowrap">
-                      {formatINR(entry.securityDeposit)}
-                    </td>
-                    <td className="px-3 py-3.5 text-right tabular-nums font-extrabold text-slate-900 dark:text-slate-50 whitespace-nowrap">
-                      {formatINR(entry.totalFirstYear)}
-                    </td>
-                    <td className="px-3 py-3.5 text-center tabular-nums font-bold text-emerald-600 dark:text-emerald-400">
-                      {entry.govtSeats || '-'}
-                    </td>
-                    <td className="px-3 py-3.5 text-center tabular-nums font-bold text-amber-600 dark:text-amber-400">
-                      {entry.mgmtSeats || '-'}
-                    </td>
-                    <td className="px-3 py-3.5 text-center tabular-nums font-bold text-blue-600 dark:text-blue-400">
-                      {entry.nriSeats || '-'}
-                    </td>
+                    <td className="px-3 py-3.5 text-right tabular-nums font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">{formatINR(entry.tuitionFee)}</td>
+                    <td className="px-3 py-3.5 text-right tabular-nums font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">{formatINR(entry.hostelFee)}</td>
+                    <td className="px-3 py-3.5 text-right tabular-nums text-slate-500 whitespace-nowrap">{formatINR(entry.miscCharges)}</td>
+                    <td className="px-3 py-3.5 text-right tabular-nums font-extrabold text-slate-900 dark:text-slate-50 whitespace-nowrap">{formatINR(entry.totalFirstYear)}</td>
+                    <td className="px-3 py-3.5 text-center tabular-nums font-bold text-emerald-600 dark:text-emerald-400">{entry.govtSeats || '-'}</td>
+                    <td className="px-3 py-3.5 text-center tabular-nums font-bold text-amber-600 dark:text-amber-400">{entry.mgmtSeats || '-'}</td>
+                    <td className="px-3 py-3.5 text-center tabular-nums font-bold text-blue-600 dark:text-blue-400">{entry.nriSeats || '-'}</td>
                     <td className="px-3 py-3.5 text-center">
-                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 transition-colors inline-block" />
+                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all duration-200 inline-block" />
                     </td>
                   </tr>
                 ))}
@@ -500,13 +504,33 @@ export default function FeeMatrixPage() {
         </Card>
       )}
 
-      <Pagination
-        page={page}
-        totalPages={totalPages}
-        onPageChange={setPage}
-        itemCount={paginated.length}
-        totalItems={filtered.length}
-      />
+      <Pagination page={page} totalPages={totalPages} onPageChange={setPage} itemCount={paginated.length} totalItems={filtered.length} />
+
+      {/* Tip */}
+      <Card className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border-amber-200 dark:border-amber-900/30">
+        <CardContent className="p-4 sm:p-5 flex items-start gap-3">
+          <div className="w-9 h-9 rounded-xl bg-amber-100 dark:bg-amber-950/40 flex items-center justify-center shrink-0">
+            <Sparkles className="w-4 h-4 text-amber-600" />
+          </div>
+          <div>
+            <p className="text-sm font-bold text-amber-900 dark:text-amber-200">Budget Planning Tip</p>
+            <p className="text-xs text-amber-700 dark:text-amber-400 mt-0.5 leading-relaxed">
+              Click on any college card to see year-wise fee progression, pie chart breakdown, seat distribution, scholarship options, and refund policies. Government colleges are 10-100x cheaper than private ones.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
     </div>
+  );
+}
+
+function FilterTag({ label, onRemove }: { label: string; onRemove: () => void }) {
+  return (
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-[11px] font-semibold border border-red-200 dark:border-red-900/40 hover:bg-red-100 transition-colors">
+      {label}
+      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors">
+        <X className="w-2.5 h-2.5" />
+      </button>
+    </span>
   );
 }
