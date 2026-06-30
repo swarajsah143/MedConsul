@@ -77,7 +77,7 @@ export default function DashboardLayout() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex">
       {/* Desktop Sidebar */}
-      <aside className="hidden md:flex flex-col w-60 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-20 relative">
+      <aside className="hidden md:flex flex-col w-60 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-30 relative">
         <Link to="/dashboard" className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
             <Stethoscope className="w-4.5 h-4.5" />
@@ -137,8 +137,8 @@ export default function DashboardLayout() {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <header className="h-14 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-5 z-10 shrink-0">
+      <div className="flex-1 flex flex-col min-w-0">
+        <header className="h-14 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-5 z-30 shrink-0 relative">
           <div className="flex items-center gap-3 md:hidden">
             <button
               onClick={() => setMobileMenuOpen(true)}
@@ -175,7 +175,7 @@ export default function DashboardLayout() {
             </button>
 
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 py-1 z-50 animate-fade-in">
+              <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 py-1 z-[60] animate-fade-in">
                 <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
                   <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">{user?.name}</p>
                   <p className="text-xs text-slate-400 truncate mt-0.5">{user?.email}</p>
@@ -192,7 +192,7 @@ export default function DashboardLayout() {
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6">
           <div className="max-w-7xl mx-auto space-y-6">
             <Outlet />
           </div>

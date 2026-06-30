@@ -59,15 +59,17 @@ function generateFallbackFromRAG(query: string): string {
   const { intent, chunks } = buildContextPrompt(query);
 
   if (chunks.length === 0) {
-    return `I don't have specific data matching your query in my database.
+    return `Hey! I understand your question, but I don't have specific data matching it in my database right now.
 
-You can explore the relevant modules in MedCounsel AI for detailed information:
-- **Closing Rank Insights** — cutoff and rank analysis
-- **College Reviews** — detailed college profiles
-- **Fee & Seat Matrix** — fee comparisons
-- **Document Checklist** — admission preparation
+Here's what I can help you with:
+- **"Which college can I get with rank 15000?"** — I'll show you matching colleges
+- **"Tell me about AIIMS Delhi"** — detailed college profiles
+- **"Compare fees of government colleges"** — fee comparisons
+- **"What documents do I need?"** — complete checklist
+- **"Explain the counselling process"** — step-by-step guide
+- **"What are my chances as OBC with rank 5000?"** — category-wise analysis
 
-> *Try rephrasing your question with specific details like college names, ranks, states, or categories.*`;
+Try asking something specific about NEET counselling, colleges, ranks, fees, or documents!`;
   }
 
   // Group chunks by source
@@ -80,33 +82,44 @@ You can explore the relevant modules in MedCounsel AI for detailed information:
 
   let response = '';
 
-  // Add intent-specific header
+  // Add intent-specific header and intro
   switch (intent) {
     case 'rank_prediction':
-      response += '## College Options Based on Your Rank\n\n';
+      response += '## College Options Based on Your Rank\n\nHere are the colleges that match your rank range:\n\n';
       break;
     case 'cutoff_query':
-      response += '## Closing Rank Data\n\n';
+      response += '## Closing Rank Data\n\nHere\'s the latest closing rank information:\n\n';
       break;
     case 'fee_comparison':
-      response += '## Fee Comparison\n\n';
+      response += '## Fee Comparison\n\nHere\'s a breakdown of fees across colleges:\n\n';
       break;
     case 'document_info':
-      response += '## Required Documents\n\n';
+      response += '## Required Documents for NEET Counselling\n\nHere\'s your complete checklist:\n\n';
       break;
     case 'college_info':
-      response += '## College Information\n\n';
+      response += '## College Information\n\nHere\'s what I found:\n\n';
+      break;
+    case 'process_guidance':
+      response += '## Counselling Process Guide\n\n';
+      break;
+    case 'eligibility':
+      response += '## Eligibility & Exam Information\n\n';
+      break;
+    case 'comparison':
+      response += '## Comparison\n\n';
       break;
     default:
-      response += '## Search Results\n\n';
+      response += '## Here\'s What I Found\n\n';
   }
 
   // Format each source's results
   for (const [source, sourceChunks] of bySource) {
-    response += `### From ${source}\n\n`;
+    // Don't add sub-header if it's the knowledge base (content is self-contained)
+    if (source !== 'NEET Counselling Guide') {
+      response += `### ${source}\n\n`;
+    }
 
     if (source === 'Closing Rank Insights' && sourceChunks.length > 1) {
-      // Format as table
       response += '| College | Course | Category | Quota | Year | Rank | Score |\n';
       response += '|---------|--------|----------|-------|------|------|-------|\n';
       for (const chunk of sourceChunks) {
@@ -118,10 +131,6 @@ You can explore the relevant modules in MedCounsel AI for detailed information:
         }
       }
       response += '\n';
-    } else if (source === 'Fee & Seat Matrix' && sourceChunks.length > 1) {
-      for (const chunk of sourceChunks) {
-        response += chunk.content + '\n\n';
-      }
     } else {
       for (const chunk of sourceChunks) {
         response += chunk.content + '\n\n';
@@ -129,7 +138,23 @@ You can explore the relevant modules in MedCounsel AI for detailed information:
     }
   }
 
-  response += `\n> *Data sourced from MedCounsel AI database. For interactive analysis, use the dedicated modules.*`;
+  // Add helpful footer based on intent
+  switch (intent) {
+    case 'rank_prediction':
+      response += '\n> **Tip:** Use the **Allotment Mapping** module to see detailed state-wise allotments for your rank range. The **Rank Insights** module shows year-over-year trends.';
+      break;
+    case 'cutoff_query':
+      response += '\n> **Tip:** Click on any college in **Rank Insights** to see historical trends across 3 years.';
+      break;
+    case 'fee_comparison':
+      response += '\n> **Tip:** Visit the **Fee & Seat Matrix** module for a detailed breakdown with hostel, miscellaneous charges, and seat distribution.';
+      break;
+    case 'document_info':
+      response += '\n> **Tip:** Use the **Document Checklist** module to track your preparation progress with checkboxes.';
+      break;
+    default:
+      response += '\n> *Data sourced from MedCounsel AI database. Feel free to ask follow-up questions!*';
+  }
 
   return response;
 }
