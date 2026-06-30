@@ -21,6 +21,7 @@ import AiAssistantPage from '@/pages/ai-assistant';
 import AnnouncementsPage from '@/pages/announcements';
 import AllotmentStatesPage from '@/pages/allotment-states';
 import AllotmentDetailPage from '@/pages/allotment-detail';
+import CounsellingConditionsPage from '@/pages/counselling-conditions';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 
 function FullPageSpinner() {
@@ -74,6 +75,8 @@ export default function AppRoutes() {
         <Route path="fee-matrix/:id" element={<FeeDetailPage />} />
         <Route path="colleges" element={<CollegesPage />} />
         <Route path="colleges/:id" element={<CollegeDetailPage />} />
+        <Route path="counselling-conditions" element={<Navigate to="/counselling-conditions/eligibility" replace />} />
+        <Route path="counselling-conditions/:section" element={<CounsellingConditionsPage />} />
         <Route path="doc-checklist" element={<DocChecklistPage />} />
         <Route path="ai-assistant" element={<AiAssistantPage />} />
       </Route>

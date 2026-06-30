@@ -12,15 +12,48 @@ import {
   X,
   LogOut,
   ChevronDown,
+  ChevronRight,
   Megaphone,
   MapPin,
+  ScrollText,
+  ShieldCheck,
+  ClipboardList,
+  Home,
+  Users,
+  type LucideIcon,
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
-const navigation = [
+interface NavLeaf {
+  name: string;
+  href: string;
+  icon: LucideIcon;
+}
+
+interface NavGroupType {
+  name: string;
+  icon: LucideIcon;
+  basePath: string;
+  children: NavLeaf[];
+}
+
+type NavEntry = NavLeaf | NavGroupType;
+
+const navigation: NavEntry[] = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Announcements', href: '/announcements', icon: Megaphone },
   { name: 'Allotment Mapping', href: '/allotment', icon: MapPin },
+  {
+    name: 'Counselling Conditions',
+    icon: ScrollText,
+    basePath: '/counselling-conditions',
+    children: [
+      { name: 'Eligibility', href: '/counselling-conditions/eligibility', icon: ShieldCheck },
+      { name: 'Application', href: '/counselling-conditions/application', icon: ClipboardList },
+      { name: 'Domicile', href: '/counselling-conditions/domicile', icon: Home },
+      { name: 'Counselling', href: '/counselling-conditions/counselling', icon: Users },
+    ],
+  },
   { name: 'Rank Insights', href: '/rank-insights', icon: BarChart3 },
   { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
   { name: 'College Reviews', href: '/colleges', icon: GraduationCap },
@@ -28,7 +61,7 @@ const navigation = [
   { name: 'AI Assistant', href: '/ai-assistant', icon: Bot },
 ];
 
-function NavItem({ item, active, onClick }: { item: typeof navigation[0]; active: boolean; onClick?: () => void }) {
+function NavItem({ item, active, onClick }: { item: NavLeaf; active: boolean; onClick?: () => void }) {
   const Icon = item.icon;
   return (
     <Link
@@ -43,6 +76,67 @@ function NavItem({ item, active, onClick }: { item: typeof navigation[0]; active
       <Icon className={`w-[18px] h-[18px] ${active ? 'text-red-600 dark:text-red-400' : 'text-slate-400'}`} />
       {item.name}
     </Link>
+  );
+}
+
+function NavGroup({
+  group,
+  pathname,
+  isActive,
+  onNavigate,
+}: {
+  group: NavGroupType;
+  pathname: string;
+  isActive: (href: string) => boolean;
+  onNavigate?: () => void;
+}) {
+  const Icon = group.icon;
+  const groupActive = pathname === group.basePath || pathname.startsWith(group.basePath + '/');
+  const [open, setOpen] = useState(groupActive);
+
+  useEffect(() => {
+    if (groupActive) setOpen(true);
+  }, [groupActive]);
+
+  return (
+    <div>
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className={`flex w-full items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-200 ${
+          groupActive
+            ? 'bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400'
+            : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
+        }`}
+      >
+        <Icon className={`w-[18px] h-[18px] ${groupActive ? 'text-red-600 dark:text-red-400' : 'text-slate-400'}`} />
+        <span className="flex-1 text-left">{group.name}</span>
+        <ChevronRight className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${open ? 'rotate-90' : ''}`} />
+      </button>
+      {open && (
+        <div className="mt-0.5 ml-4 pl-3 border-l border-slate-200 dark:border-slate-800 space-y-0.5">
+          {group.children.map((child) => {
+            const ChildIcon = child.icon;
+            const active = isActive(child.href);
+            return (
+              <Link
+                key={child.href}
+                to={child.href}
+                onClick={onNavigate}
+                className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-[12.5px] font-medium transition-all duration-200 ${
+                  active
+                    ? 'bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400'
+                    : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
+                }`}
+              >
+                <ChildIcon className={`w-4 h-4 ${active ? 'text-red-600 dark:text-red-400' : 'text-slate-400'}`} />
+                {child.name}
+              </Link>
+            );
+          })}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -85,10 +179,14 @@ export default function DashboardLayout() {
           <span className="font-bold text-sm text-slate-800 dark:text-slate-200 tracking-tight">MedCounsel AI</span>
         </Link>
 
-        <nav className="flex-1 py-4 px-3 space-y-0.5" role="navigation" aria-label="Main navigation">
-          {navigation.map((item) => (
-            <NavItem key={item.name} item={item} active={isActive(item.href)} />
-          ))}
+        <nav className="flex-1 py-4 px-3 space-y-0.5 overflow-y-auto" role="navigation" aria-label="Main navigation">
+          {navigation.map((item) =>
+            'children' in item ? (
+              <NavGroup key={item.name} group={item} pathname={location.pathname} isActive={isActive} />
+            ) : (
+              <NavItem key={item.name} item={item} active={isActive(item.href)} />
+            )
+          )}
         </nav>
 
         <div className="p-3 border-t border-slate-200 dark:border-slate-800">
@@ -119,9 +217,19 @@ export default function DashboardLayout() {
               </button>
             </div>
             <nav className="flex-1 py-4 px-3 space-y-0.5 overflow-y-auto" role="navigation">
-              {navigation.map((item) => (
-                <NavItem key={item.name} item={item} active={isActive(item.href)} />
-              ))}
+              {navigation.map((item) =>
+                'children' in item ? (
+                  <NavGroup
+                    key={item.name}
+                    group={item}
+                    pathname={location.pathname}
+                    isActive={isActive}
+                    onNavigate={() => setMobileMenuOpen(false)}
+                  />
+                ) : (
+                  <NavItem key={item.name} item={item} active={isActive(item.href)} />
+                )
+              )}
             </nav>
             <div className="p-3 border-t border-slate-200 dark:border-slate-800">
               <button
