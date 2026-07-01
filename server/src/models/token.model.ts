@@ -1,58 +1,76 @@
-import { store } from '../config/database';
-import { v4 as uuid } from 'uuid';
+import mongoose, { Schema, Document } from 'mongoose';
+
+// ── Refresh Token ──────────────────────────────────────────
+
+interface IRefreshToken extends Document {
+  userId: string;
+  token: string;
+  expiresAt: Date;
+}
+
+const refreshTokenSchema = new Schema<IRefreshToken>({
+  userId: { type: String, required: true, index: true },
+  token: { type: String, required: true, unique: true },
+  expiresAt: { type: Date, required: true },
+});
+
+refreshTokenSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 }); // TTL auto-cleanup
+
+const RefreshTokenDoc = mongoose.model<IRefreshToken>('RefreshToken', refreshTokenSchema);
+
+// ── Password Reset ─────────────────────────────────────────
+
+interface IPasswordReset extends Document {
+  userId: string;
+  token: string;
+  expiresAt: Date;
+  used: boolean;
+}
+
+const passwordResetSchema = new Schema<IPasswordReset>({
+  userId: { type: String, required: true, index: true },
+  token: { type: String, required: true, unique: true },
+  expiresAt: { type: Date, required: true },
+  used: { type: Boolean, default: false },
+});
+
+passwordResetSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 3600 }); // cleanup after 1hr
+
+const PasswordResetDoc = mongoose.model<IPasswordReset>('PasswordReset', passwordResetSchema);
+
+// ── Public API ─────────────────────────────────────────────
 
 export const TokenModel = {
-  createRefreshToken(userId: string, token: string, expiresAt: Date): void {
-    const db = store.load();
-    db.refreshTokens[token] = { id: uuid(), userId, token, expiresAt: expiresAt.toISOString() };
-    store.save(db);
+  async createRefreshToken(userId: string, token: string, expiresAt: Date): Promise<void> {
+    await RefreshTokenDoc.create({ userId, token, expiresAt });
   },
 
-  findRefreshToken(token: string): { userId: string; token: string; expiresAt: string } | undefined {
-    const db = store.load();
-    return db.refreshTokens[token];
+  async findRefreshToken(token: string) {
+    const doc = await RefreshTokenDoc.findOne({ token });
+    if (!doc) return undefined;
+    return { userId: doc.userId, token: doc.token, expiresAt: doc.expiresAt.toISOString() };
   },
 
-  deleteRefreshToken(token: string): void {
-    const db = store.load();
-    delete db.refreshTokens[token];
-    store.save(db);
+  async deleteRefreshToken(token: string): Promise<void> {
+    await RefreshTokenDoc.deleteOne({ token });
   },
 
-  deleteAllUserRefreshTokens(userId: string): void {
-    const db = store.load();
-    for (const key of Object.keys(db.refreshTokens)) {
-      if (db.refreshTokens[key].userId === userId) {
-        delete db.refreshTokens[key];
-      }
-    }
-    store.save(db);
+  async deleteAllUserRefreshTokens(userId: string): Promise<void> {
+    await RefreshTokenDoc.deleteMany({ userId });
   },
 
-  createPasswordReset(userId: string, token: string, expiresAt: Date): void {
-    const db = store.load();
-    // Remove old resets for this user
-    for (const key of Object.keys(db.passwordResets)) {
-      if (db.passwordResets[key].userId === userId) {
-        delete db.passwordResets[key];
-      }
-    }
-    db.passwordResets[token] = { id: uuid(), userId, token, expiresAt: expiresAt.toISOString(), used: false };
-    store.save(db);
+  async createPasswordReset(userId: string, token: string, expiresAt: Date): Promise<void> {
+    await PasswordResetDoc.deleteMany({ userId }); // remove old resets
+    await PasswordResetDoc.create({ userId, token, expiresAt });
   },
 
-  findValidPasswordReset(token: string): { userId: string; token: string; expiresAt: string; used: boolean } | undefined {
-    const db = store.load();
-    const reset = db.passwordResets[token];
-    if (!reset || reset.used || new Date(reset.expiresAt) < new Date()) return undefined;
-    return reset;
+  async findValidPasswordReset(token: string) {
+    const doc = await PasswordResetDoc.findOne({ token, used: false, expiresAt: { $gt: new Date() } });
+    if (!doc) return undefined;
+    return { userId: doc.userId, token: doc.token, expiresAt: doc.expiresAt.toISOString(), used: doc.used };
   },
 
-  markResetUsed(token: string): void {
-    const db = store.load();
-    if (db.passwordResets[token]) {
-      db.passwordResets[token].used = true;
-      store.save(db);
-    }
+  async markResetUsed(token: string): Promise<void> {
+    await PasswordResetDoc.findOneAndUpdate({ token }, { used: true });
   },
 };

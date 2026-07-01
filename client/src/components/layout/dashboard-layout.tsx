@@ -20,6 +20,7 @@ import {
   ClipboardList,
   Home,
   Users,
+  Layers,
   type LucideIcon,
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
@@ -52,6 +53,7 @@ const navigation: NavEntry[] = [
       { name: 'Application', href: '/counselling-conditions/application', icon: ClipboardList },
       { name: 'Domicile', href: '/counselling-conditions/domicile', icon: Home },
       { name: 'Counselling', href: '/counselling-conditions/counselling', icon: Users },
+      { name: 'Quota & Reservation', href: '/counselling-conditions/quota', icon: Layers },
     ],
   },
   { name: 'Rank Insights', href: '/rank-insights', icon: BarChart3 },
