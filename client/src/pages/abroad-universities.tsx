@@ -1,0 +1,220 @@
+import { useState, useMemo } from 'react';
+import {
+  ABROAD_COUNTRIES,
+  searchAbroad,
+  recommendedAbroad,
+  isRecommended,
+  type AbroadUniversity,
+} from '@/lib/abroad-data';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import {
+  Globe2,
+  Search,
+  ChevronDown,
+  Star,
+  Sparkles,
+  GraduationCap,
+  Wallet,
+  Clock,
+  BadgeCheck,
+  Languages,
+  ExternalLink,
+} from 'lucide-react';
+
+const money = (n: number) => `$${n.toLocaleString()}`;
+
+function AbroadCard({ x }: { x: AbroadUniversity }) {
+  const total = x.tuitionPerYearUSD + x.livingCostPerYearUSD;
+  const recommended = isRecommended(x);
+  return (
+    <Card className="group h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-transparent hover:border-red-200 dark:hover:border-red-900/40 relative">
+      {/* Photo banner */}
+      <div className="relative h-32 bg-gradient-to-br from-red-500 to-rose-600 overflow-hidden">
+        <img
+          src={x.image}
+          alt={x.name}
+          loading="lazy"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+        {recommended && (
+          <span className="absolute top-2.5 left-2.5 inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500 text-white shadow">
+            <Sparkles className="w-3 h-3" /> Recommended
+          </span>
+        )}
+        <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/85 backdrop-blur-sm text-amber-600 shadow">
+          <Star className="w-3 h-3 fill-amber-500 text-amber-500" /> {x.rating.toFixed(1)}
+        </span>
+        <div className="absolute bottom-2.5 left-3 right-3 flex items-center gap-1.5 text-white">
+          <span className="text-base leading-none">{x.flag}</span>
+          <span className="text-[11px] font-semibold truncate drop-shadow">{x.city}, {x.country}</span>
+        </div>
+      </div>
+
+      <CardContent className="p-5">
+        <div className="flex items-start gap-3">
+          <div className="w-11 h-11 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+            <GraduationCap className="w-5 h-5 text-red-600 dark:text-red-400" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors line-clamp-2">
+              {x.name}
+            </h3>
+            <div className="flex flex-wrap items-center gap-2 mt-1 text-[11px] text-muted-foreground">
+              <span className="inline-flex items-center gap-1"><GraduationCap className="w-3 h-3" /> {x.degree}</span>
+              <span className="inline-flex items-center gap-1"><Clock className="w-3 h-3" /> {x.durationYears} yrs</span>
+              <span className="inline-flex items-center gap-1"><Languages className="w-3 h-3" /> {x.medium}</span>
+            </div>
+          </div>
+        </div>
+
+        <p className="text-xs text-muted-foreground mt-3 leading-relaxed line-clamp-2">{x.highlight}</p>
+
+        {/* Cost */}
+        <div className="grid grid-cols-3 gap-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-2.5 mt-3">
+          <div className="text-center">
+            <p className="text-[9px] font-semibold text-muted-foreground uppercase">Tuition/yr</p>
+            <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{money(x.tuitionPerYearUSD)}</p>
+          </div>
+          <div className="text-center border-x border-slate-200 dark:border-slate-700">
+            <p className="text-[9px] font-semibold text-muted-foreground uppercase">Living/yr</p>
+            <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{money(x.livingCostPerYearUSD)}</p>
+          </div>
+          <div className="text-center">
+            <p className="text-[9px] font-semibold text-muted-foreground uppercase">Total/yr</p>
+            <p className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400 tabular-nums">{money(total)}</p>
+          </div>
+        </div>
+
+        {/* Recognitions */}
+        <div className="flex flex-wrap items-center gap-1.5 mt-3">
+          {x.recognitions.map((r) => (
+            <span key={r} className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400">
+              <BadgeCheck className="w-3 h-3" /> {r}
+            </span>
+          ))}
+        </div>
+
+        <button className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 dark:text-red-400 hover:gap-2.5 transition-all">
+          View Details <ExternalLink className="w-3.5 h-3.5" />
+        </button>
+      </CardContent>
+    </Card>
+  );
+}
+
+export default function AbroadUniversitiesPage() {
+  const [query, setQuery] = useState('');
+  const [country, setCountry] = useState('All Countries');
+
+  const isSearching = query.trim() !== '' || country !== 'All Countries';
+  const results = useMemo(() => searchAbroad(query, country), [query, country]);
+  const recommended = useMemo(() => recommendedAbroad(6), []);
+
+  return (
+    <div className="space-y-6 pb-10 page-enter">
+      {/* Hero */}
+      <div className="relative rounded-2xl overflow-hidden">
+        <div className="gradient-primary p-6 sm:p-8 lg:p-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+          <div className="relative z-10 space-y-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
+              <Sparkles className="w-3.5 h-3.5" /> Study Abroad
+            </span>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
+              <Globe2 className="w-7 h-7 sm:w-8 sm:h-8" /> Abroad Universities
+            </h1>
+            <p className="text-red-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
+              Research affordable, NMC-recognised medical universities abroad. Search by name or explore our curated recommendations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Search */}
+      <Card className="overflow-hidden border-0 shadow-lg">
+        <div className="h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400" />
+        <CardContent className="p-5 sm:p-6">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="relative flex-1">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+              <Input
+                placeholder="Search universities by name, city or country..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                className="pl-12 h-11 text-base rounded-xl"
+              />
+            </div>
+            <div className="relative sm:w-64">
+              <Globe2 className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none z-10" />
+              <select
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                className="h-11 w-full appearance-none rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 pl-11 pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer"
+              >
+                <option value="All Countries">All Countries</option>
+                {ABROAD_COUNTRIES.map((c) => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none" />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Recommended (no active search) */}
+      {!isSearching && (
+        <div className="space-y-4">
+          <div className="flex items-center gap-2.5">
+            <span className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center">
+              <Wallet className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            </span>
+            <div>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Recommended: Affordable &amp; Good</h2>
+              <p className="text-xs text-muted-foreground">Best value picks — strong ratings with low total cost of study.</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {recommended.map((x) => (
+              <AbroadCard key={x.id} x={x} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* All / search results */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between px-1">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            {isSearching ? 'Search Results' : 'All Universities'}
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            <span className="font-bold text-slate-800 dark:text-slate-200">{results.length}</span> found
+          </p>
+        </div>
+
+        {results.length === 0 ? (
+          <Card className="bg-slate-50 dark:bg-slate-800/50 border-dashed">
+            <CardContent className="p-10 text-center">
+              <div className="w-16 h-16 rounded-2xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center mx-auto mb-4">
+                <Search className="w-8 h-8 text-slate-400" />
+              </div>
+              <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">No universities match your search</p>
+              <p className="text-xs text-muted-foreground mt-1">Try a different name or select another country.</p>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {results.map((x) => (
+              <AbroadCard key={x.id} x={x} />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
