@@ -215,11 +215,59 @@
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4NDkxMTYsImV4cCI6MTc4MzQ1MzkxNn0.pePfJdKPYrY92dQpDN0ze_4jY3biLYdEoavlpHb3iD0",
       "expiresAt": "2026-07-07T19:51:56.367Z"
     },
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4NTE4NTksImV4cCI6MTc4MzQ1NjY1OX0.gN6YdTRhGARGneAb-nqVsQ_5xNo3qpuX_Kluv3P3GSE": {
-      "id": "8da35e33-a566-4ae7-81b6-6de63a086fdd",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4OTgwMzQsImV4cCI6MTc4MzUwMjgzNH0.X1hczPx64J__ySZXvkyewulVQxuNendov_bopLJXyyY": {
+      "id": "82104b90-391c-493c-a0b7-386b692a25bc",
       "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4NTE4NTksImV4cCI6MTc4MzQ1NjY1OX0.gN6YdTRhGARGneAb-nqVsQ_5xNo3qpuX_Kluv3P3GSE",
-      "expiresAt": "2026-07-07T20:37:39.136Z"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4OTgwMzQsImV4cCI6MTc4MzUwMjgzNH0.X1hczPx64J__ySZXvkyewulVQxuNendov_bopLJXyyY",
+      "expiresAt": "2026-07-08T09:27:14.987Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4OTk5NDMsImV4cCI6MTc4MzUwNDc0M30.U81SztHwjwCP_UnbAkRe7tnFJc3GGE6lUb6hmv_W7WY": {
+      "id": "9c991353-b7f9-40f7-b10d-447546de511b",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI4OTk5NDMsImV4cCI6MTc4MzUwNDc0M30.U81SztHwjwCP_UnbAkRe7tnFJc3GGE6lUb6hmv_W7WY",
+      "expiresAt": "2026-07-08T09:59:03.614Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MDEyNTAsImV4cCI6MTc4MzUwNjA1MH0.kgMMe_uGCLZ6dt0_pPbGHULN0kkgzQEKW1Y5wYeKWMQ": {
+      "id": "3f4a4dcf-ec31-4408-a701-01ba240b47bc",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MDEyNTAsImV4cCI6MTc4MzUwNjA1MH0.kgMMe_uGCLZ6dt0_pPbGHULN0kkgzQEKW1Y5wYeKWMQ",
+      "expiresAt": "2026-07-08T10:20:50.077Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MDI3MDAsImV4cCI6MTc4MzUwNzUwMH0.Cyan7xOsZl_AE-a7INWr4_NEsVReMrOzYXWbEV1ECKY": {
+      "id": "fd31d67c-2cb0-4f78-8762-274296df0bbe",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MDI3MDAsImV4cCI6MTc4MzUwNzUwMH0.Cyan7xOsZl_AE-a7INWr4_NEsVReMrOzYXWbEV1ECKY",
+      "expiresAt": "2026-07-08T10:45:00.584Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MDQ3NzEsImV4cCI6MTc4MzUwOTU3MX0.Pciqrm741yGUF_ygifxl_MPso97MWOUT4kVkboE6i5w": {
+      "id": "2028fd53-26fd-4a6a-8b13-62ab9d296453",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MDQ3NzEsImV4cCI6MTc4MzUwOTU3MX0.Pciqrm741yGUF_ygifxl_MPso97MWOUT4kVkboE6i5w",
+      "expiresAt": "2026-07-08T11:19:31.972Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MDQ4MDcsImV4cCI6MTc4MzUwOTYwN30.EWAaT1uHu6Im683LQ08Pv2EYbbW7zfiL-GM7rpBJMpo": {
+      "id": "0e79738c-55c6-4201-aa8c-8a8e78efc55e",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MDQ4MDcsImV4cCI6MTc4MzUwOTYwN30.EWAaT1uHu6Im683LQ08Pv2EYbbW7zfiL-GM7rpBJMpo",
+      "expiresAt": "2026-07-08T11:20:07.135Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MzMzNDcsImV4cCI6MTc4MzUzODE0N30.KxjxUHBQtVc_aXj_I3SpM6QlhawIECF_avZN--UqO-A": {
+      "id": "ebf129f7-c174-4cd8-9474-7b9e06eae69c",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MzMzNDcsImV4cCI6MTc4MzUzODE0N30.KxjxUHBQtVc_aXj_I3SpM6QlhawIECF_avZN--UqO-A",
+      "expiresAt": "2026-07-08T19:15:47.746Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MzM2NDMsImV4cCI6MTc4MzUzODQ0M30.ykAL5bqTZGy9twBIYMXLUCwgKnRuNrVHFmvYZqTaMuA": {
+      "id": "2b4d4a8c-d702-41fe-b61e-cea9757bbfe3",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MzM2NDMsImV4cCI6MTc4MzUzODQ0M30.ykAL5bqTZGy9twBIYMXLUCwgKnRuNrVHFmvYZqTaMuA",
+      "expiresAt": "2026-07-08T19:20:43.956Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MzM5MTMsImV4cCI6MTc4MzUzODcxM30.G7Slbl2oKgi4aRdsKwk7V1iAnoU0RLrMOXDPOdTp4lM": {
+      "id": "832a8ca2-d294-415f-b952-ef9a44849b15",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MzM5MTMsImV4cCI6MTc4MzUzODcxM30.G7Slbl2oKgi4aRdsKwk7V1iAnoU0RLrMOXDPOdTp4lM",
+      "expiresAt": "2026-07-08T19:25:13.955Z"
     }
   },
   "passwordResets": {},
@@ -780,6 +828,23 @@
       ],
       "createdAt": "2026-06-30T19:52:52.800Z",
       "updatedAt": "2026-06-30T19:52:52.832Z"
+    },
+    "b5615626-4431-4e84-a257-f578607e5819": {
+      "id": "b5615626-4431-4e84-a257-f578607e5819",
+      "userId": "6a44fea80cf3c2f1175168d9",
+      "title": "Which colleges can I get with AIR 45,000?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which colleges can I get with AIR 45,000?"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Options Based on Your Rank\n\nHere are the colleges that match your rank range:\n\n### Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| KMC Manipal | MBBS | General | Management | 2025 R1 | Closing Rank: #42,150 | Score: 565 |\n| Patna MC, Patna | MBBS | OBC | Bihar State | 2025 R1 | Closing Rank: #28,000 | Score: 580 |\n| St. John's, Bengaluru | MBBS | General | Management | 2025 R1 | Closing Rank: #18,000 | Score: 630 |\n| Grant MC, Mumbai | BDS | General | Maharashtra State | 2025 R1 | Closing Rank: #15,420 | Score: 615 |\n| Patna MC, Patna | MBBS | General | Bihar State | 2025 R1 | Closing Rank: #15,000 | Score: 620 |\n| KMC Manipal | MBBS | General | AIQ | 2025 R1 | Closing Rank: #10,500 | Score: 648 |\n| KGMU, Lucknow | MBBS | OBC | UP State | 2025 R1 | Closing Rank: #8,500 | Score: 640 |\n| AIIMS, New Delhi | MBBS | ST | AIQ | 2025 R1 | Closing Rank: #5,500 | Score: 590 |\n| CMC Vellore | MBBS | General | Management | 2025 R1 | Closing Rank: #5,410 | Score: 662 |\n| SMS MC, Jaipur | MBBS | General | Rajasthan State | 2025 R1 | Closing Rank: #5,200 | Score: 658 |\n| Grant MC, Mumbai | MBBS | OBC | Maharashtra State | 2025 R1 | Closing Rank: #5,100 | Score: 655 |\n| GMC Chandigarh | MBBS | General | AIQ | 2025 R1 | Closing Rank: #5,000 | Score: 660 |\n\n**Basic Eligibility for NEET UG:**\n\n- **Age:** Minimum 17 years at time of admission (no upper age limit since 2019 Supreme Court ruling)\n- **Qualification:** Class 12 or equivalent with Physics, Chemistry, Biology/Biotechnology and English\n- **Marks:** Minimum 50% aggregate in PCB for General; 40% for SC/ST/OBC; 45% for PwD\n- **Attempts:** No limit on number of attempts\n- **Nationality:** Indian citizens, NRIs, OCIs, PIOs, and foreign nationals can apply\n\n**For NEET UG 2026:**\n- Exam conducted by NTA (National Testing Agency)\n- Single exam for all medical/dental colleges in India (except AIIMS & JIPMER which now merged)\n- Pen-and-paper based exam (OMR sheet)\n- Duration: 3 hours 20 minutes\n- Total marks: 720 (180 questions × 4 marks each, -1 for wrong answer)\n\n**Government vs Private Medical Colleges — Key Differences:**\n\n| Factor | Government | Private/Deemed |\n|--------|-----------|----------------|\n| **Fees** | Rs 5K - 1.5L/year | Rs 5L - 25L/year |\n| **Total MBBS cost** | Rs 1-8 Lakh | Rs 30-1.5 Crore |\n| **Patient load** | Very high (great exposure) | Moderate |\n| **Infrastructure** | Varies (some old) | Usually modern |\n| **Faculty** | Experienced, may be overburdened | Good ratio, more accessible |\n| **Clinical exposure** | Excellent (high OPD/IPD) | Good but less volume |\n| **Bond** | Some states have bond (2-5 yrs) | Usually no bond |\n| **Hostel** | Basic but cheap | Better amenities, costlier |\n\n**Bottom line:** If you can get a government seat, it's almost always the better choice financially. A government college MBBS degree is valued equally (sometimes more) by employers and PG exam committees.\n\n**Exception:** Top deemed universities like KMC Manipal, CMC Vellore offer excellent education but at premium fees.\n\n**MBBS vs BDS — Should You Choose BDS?**\n\n**MBBS:**\n- 5.5 years (4.5 + 1 year internship)\n- Better long-term career prospects\n- Higher earning potential\n- More PG specialization options\n- More competitive (lower closing rank needed)\n\n**BDS:**\n- 5 years (4 + 1 year internship)\n- Easier to get admission (higher closing rank)\n- Good career in private practice\n- Fewer PG seats available\n- Lower initial investment in private practice setup\n\n**Our recommendation:** If your rank allows MBBS in a government college, always prefer it. Consider BDS only if:\n- Your rank doesn't qualify for MBBS anywhere\n- You have genuine interest in dentistry\n- Private college MBBS is unaffordable\n\n**Never drop a year just for MBBS** if you have a government BDS seat — unless you're very confident about improving your rank significantly.\n\n\n> **Tip:** Use the **Allotment Mapping** module to see detailed state-wise allotments for your rank range. The **Rank Insights** module shows year-over-year trends."
+        }
+      ],
+      "createdAt": "2026-07-01T15:18:30.759Z",
+      "updatedAt": "2026-07-01T15:18:30.834Z"
     }
   }
 }

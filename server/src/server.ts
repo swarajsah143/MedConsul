@@ -31,11 +31,14 @@ app.use((_req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
 });
 
-// Initialize JSON file store (for chat sessions fallback) + connect MongoDB
+// Initialize JSON file store (for chat sessions)
 initializeDatabase();
 
-connectDatabase().then(() => {
-  app.listen(env.port, () => {
-    console.log(`\n  MedCounsel AI Server running on http://localhost:${env.port}\n`);
-  });
+// Start server immediately, connect MongoDB in background
+app.listen(env.port, () => {
+  console.log(`\n  MedCounsel AI Server running on http://localhost:${env.port}\n`);
+});
+
+connectDatabase().catch((err) => {
+  console.error('  MongoDB connection failed — auth features will not work until reconnected');
 });
