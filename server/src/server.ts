@@ -6,7 +6,7 @@ import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import { env } from './config/env';
-import { initializeDatabase } from './config/database';
+import { connectDatabase, initializeDatabase } from './config/database';
 import routes from './routes';
 import { sseRoutes } from './routes/chat.sse';
 
@@ -22,8 +22,7 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
-// SSE streaming routes — mounted BEFORE regular API routes
-// These bypass Express's response handling and write to the raw socket
+// SSE streaming routes
 app.use('/api/chat', sseRoutes);
 
 app.use('/api', routes);
@@ -32,8 +31,11 @@ app.use((_req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
 });
 
+// Initialize JSON file store (for chat sessions fallback) + connect MongoDB
 initializeDatabase();
 
-app.listen(env.port, () => {
-  console.log(`\n  MedCounsel AI Server running on http://localhost:${env.port}\n`);
+connectDatabase().then(() => {
+  app.listen(env.port, () => {
+    console.log(`\n  MedCounsel AI Server running on http://localhost:${env.port}\n`);
+  });
 });

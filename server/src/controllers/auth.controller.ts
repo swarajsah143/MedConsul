@@ -120,7 +120,7 @@ export const authController = {
 
   async me(req: AuthRequest, res: Response) {
     try {
-      const user = authService.getProfile(req.user!.userId);
+      const user = await authService.getProfile(req.user!.userId);
       res.json({ success: true, data: { user } });
     } catch (err: any) {
       res.status(err.status || 500).json({

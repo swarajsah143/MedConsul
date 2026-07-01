@@ -2,9 +2,10 @@ import dotenv from 'dotenv';
 import path from 'path';
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-import { initializeDatabase } from './config/database';
+import { connectDatabase } from './config/database';
 import { UserModel } from './models/user.model';
 import { hashPassword } from './utils/password';
+import mongoose from 'mongoose';
 
 const DEMO_ACCOUNTS = [
   {
@@ -28,21 +29,23 @@ const DEMO_ACCOUNTS = [
 ];
 
 async function seed() {
-  initializeDatabase();
+  await connectDatabase();
   console.log('\n  Seeding demo accounts...\n');
 
   for (const account of DEMO_ACCOUNTS) {
-    const existing = UserModel.findByEmail(account.email);
+    const existing = await UserModel.findByEmail(account.email);
     if (existing) {
       console.log(`  [skip] ${account.email} already exists`);
       continue;
     }
     const hashed = await hashPassword(account.password);
-    UserModel.create(account.name, account.email, hashed, account.role);
+    await UserModel.create(account.name, account.email, hashed, account.role);
     console.log(`  [created] ${account.email} (${account.role})`);
   }
 
   console.log('\n  Seeding complete.\n');
+  await mongoose.disconnect();
+  process.exit(0);
 }
 
 seed();

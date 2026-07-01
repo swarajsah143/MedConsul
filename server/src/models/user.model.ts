@@ -1,60 +1,58 @@
-import { store } from '../config/database';
-import { v4 as uuid } from 'uuid';
+import mongoose, { Schema, Document } from 'mongoose';
 
-export interface User {
-  id: string;
+export interface IUser extends Document {
+  _id: string;
   name: string;
   email: string;
   password: string;
   role: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-export type SafeUser = Omit<User, 'password'>;
+export type SafeUser = Omit<IUser, 'password'> & { id: string };
+
+const userSchema = new Schema<IUser>(
+  {
+    name: { type: String, required: true, trim: true },
+    email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+    password: { type: String, required: true },
+    role: { type: String, default: 'student' },
+  },
+  { timestamps: true }
+);
+
+const UserDoc = mongoose.model<IUser>('User', userSchema);
 
 export const UserModel = {
-  findByEmail(email: string): User | undefined {
-    const db = store.load();
-    return Object.values(db.users).find(
-      (u: any) => u.email === email.toLowerCase()
-    ) as User | undefined;
+  async findByEmail(email: string): Promise<IUser | null> {
+    return UserDoc.findOne({ email: email.toLowerCase() });
   },
 
-  findById(id: string): User | undefined {
-    const db = store.load();
-    return db.users[id] as User | undefined;
+  async findById(id: string): Promise<IUser | null> {
+    return UserDoc.findById(id);
   },
 
-  create(name: string, email: string, hashedPassword: string, role = 'student'): SafeUser {
-    const db = store.load();
-    const id = uuid();
-    const now = new Date().toISOString();
-    const user: User = {
-      id,
+  async create(name: string, email: string, hashedPassword: string, role = 'student'): Promise<SafeUser> {
+    const user = await UserDoc.create({
       name,
       email: email.toLowerCase(),
       password: hashedPassword,
       role,
-      createdAt: now,
-      updatedAt: now,
-    };
-    db.users[id] = user;
-    store.save(db);
+    });
     return toSafe(user);
   },
 
-  updatePassword(id: string, hashedPassword: string): void {
-    const db = store.load();
-    if (db.users[id]) {
-      db.users[id].password = hashedPassword;
-      db.users[id].updatedAt = new Date().toISOString();
-      store.save(db);
-    }
+  async updatePassword(id: string, hashedPassword: string): Promise<void> {
+    await UserDoc.findByIdAndUpdate(id, { password: hashedPassword });
   },
 };
 
-export function toSafe(user: User): SafeUser {
-  const { password: _, ...safe } = user;
-  return safe;
+export function toSafe(user: IUser): SafeUser {
+  const obj = user.toObject();
+  const { password: _, _id, __v, ...rest } = obj;
+  return { ...rest, id: _id.toString() } as SafeUser;
 }
+
+// Re-export for backward compat
+export type User = IUser;
