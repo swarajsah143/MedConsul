@@ -33,6 +33,11 @@ export const UserModel = {
     return UserDoc.findById(id);
   },
 
+  async findAll(): Promise<SafeUser[]> {
+    const users = await UserDoc.find().sort({ createdAt: -1 });
+    return users.map(toSafe);
+  },
+
   async create(name: string, email: string, hashedPassword: string, role = 'student'): Promise<SafeUser> {
     const user = await UserDoc.create({
       name,

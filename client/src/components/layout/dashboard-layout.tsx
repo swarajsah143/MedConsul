@@ -23,6 +23,12 @@ import {
   Layers,
   MessageCircle,
   Sparkles,
+  Compass,
+  Building2,
+  BookOpen,
+  Newspaper,
+  Globe2,
+  Shield,
   type LucideIcon,
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
@@ -62,8 +68,22 @@ const navigation: NavEntry[] = [
   { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
   { name: 'College Reviews', href: '/colleges', icon: GraduationCap },
   { name: 'Doc Checklist', href: '/doc-checklist', icon: ClipboardCheck },
+  {
+    name: 'Explore',
+    icon: Compass,
+    basePath: '/explore',
+    children: [
+      { name: 'University', href: '/explore/university', icon: Building2 },
+      { name: 'Courses', href: '/explore/courses', icon: BookOpen },
+      { name: 'Blogs', href: '/explore/blogs', icon: Newspaper },
+    ],
+  },
+  { name: 'Abroad Universities', href: '/abroad-universities', icon: Globe2 },
   { name: 'AI Assistant', href: '/ai-assistant', icon: Bot },
 ];
+
+// Admin-only entry, shown above everything else for admin users
+const ADMIN_NAV: NavLeaf = { name: 'Admin Dashboard', href: '/admin', icon: Shield };
 
 function NavItem({ item, active, onClick }: { item: NavLeaf; active: boolean; onClick?: () => void }) {
   const Icon = item.icon;
@@ -165,6 +185,8 @@ export default function DashboardLayout() {
   const isActive = (href: string) =>
     location.pathname === href || location.pathname.startsWith(href + '/');
 
+  const visibleNav: NavEntry[] = user?.role === 'admin' ? [ADMIN_NAV, ...navigation] : navigation;
+
   const handleLogout = async () => {
     await logout();
     navigate('/login', { replace: true });
@@ -184,7 +206,7 @@ export default function DashboardLayout() {
         </Link>
 
         <nav className="flex-1 py-4 px-3 space-y-0.5 overflow-y-auto" role="navigation" aria-label="Main navigation">
-          {navigation.map((item) =>
+          {visibleNav.map((item) =>
             'children' in item ? (
               <NavGroup key={item.name} group={item} pathname={location.pathname} isActive={isActive} />
             ) : (
@@ -221,7 +243,7 @@ export default function DashboardLayout() {
               </button>
             </div>
             <nav className="flex-1 py-4 px-3 space-y-0.5 overflow-y-auto" role="navigation">
-              {navigation.map((item) =>
+              {visibleNav.map((item) =>
                 'children' in item ? (
                   <NavGroup
                     key={item.name}

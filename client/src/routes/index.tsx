@@ -22,6 +22,9 @@ import AnnouncementsPage from '@/pages/announcements';
 import AllotmentStatesPage from '@/pages/allotment-states';
 import AllotmentDetailPage from '@/pages/allotment-detail';
 import CounsellingConditionsPage from '@/pages/counselling-conditions';
+import ExplorePage from '@/pages/explore';
+import AbroadUniversitiesPage from '@/pages/abroad-universities';
+import AdminDashboardPage from '@/pages/admin-dashboard';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 
 function FullPageSpinner() {
@@ -46,6 +49,13 @@ function PublicRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+function AdminRoute({ children }: { children: React.ReactNode }) {
+  const { user, isLoading } = useAuth();
+  if (isLoading) return <FullPageSpinner />;
+  if (user?.role !== 'admin') return <Navigate to="/dashboard" replace />;
+  return <>{children}</>;
+}
+
 export default function AppRoutes() {
   return (
     <Routes>
@@ -65,6 +75,7 @@ export default function AppRoutes() {
         }
       >
         <Route index element={<Navigate to="/dashboard" replace />} />
+        <Route path="admin" element={<AdminRoute><AdminDashboardPage /></AdminRoute>} />
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
@@ -78,6 +89,9 @@ export default function AppRoutes() {
         <Route path="counselling-conditions" element={<Navigate to="/counselling-conditions/eligibility" replace />} />
         <Route path="counselling-conditions/:section" element={<CounsellingConditionsPage />} />
         <Route path="doc-checklist" element={<DocChecklistPage />} />
+        <Route path="explore" element={<Navigate to="/explore/university" replace />} />
+        <Route path="explore/:section" element={<ExplorePage />} />
+        <Route path="abroad-universities" element={<AbroadUniversitiesPage />} />
         <Route path="ai-assistant" element={<AiAssistantPage />} />
       </Route>
 

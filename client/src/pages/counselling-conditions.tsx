@@ -1,6 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ALL_STATES } from '@/lib/allotment-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import {
@@ -18,6 +17,19 @@ import {
   Search,
   Star,
 } from 'lucide-react';
+
+// All 28 states + 8 Union Territories of India
+const ALL_INDIA_STATES = [
+  'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa',
+  'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala',
+  'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland',
+  'Odisha', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura',
+  'Uttar Pradesh', 'Uttarakhand', 'West Bengal',
+  // Union Territories
+  'Andaman and Nicobar Islands', 'Chandigarh',
+  'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Jammu and Kashmir',
+  'Ladakh', 'Lakshadweep', 'Puducherry',
+];
 
 type SectionKey = 'eligibility' | 'application' | 'domicile' | 'counselling' | 'quota';
 
@@ -578,7 +590,7 @@ export default function CounsellingConditionsPage() {
   const isQuotaTab = active === 'quota';
 
   // State dropdown (for non-quota tabs)
-  const stateOptions = useMemo(() => ['All India Quota - MCC', ...ALL_STATES.filter((s) => s !== 'All India Quota - MCC')], []);
+  const stateOptions = useMemo(() => ['All India Quota - MCC', ...[...ALL_INDIA_STATES].sort()], []);
   const [selectedState, setSelectedState] = useState('All India Quota - MCC');
   const [stateMenuOpen, setStateMenuOpen] = useState(false);
   const stateRef = useRef<HTMLDivElement>(null);
@@ -615,11 +627,14 @@ export default function CounsellingConditionsPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8 lg:p-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-          <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-rose-400/10 rounded-full blur-2xl" />
+      <div className="relative rounded-2xl">
+        <div className="gradient-primary rounded-2xl p-6 sm:p-8 lg:p-10 relative">
+          {/* Decorative blurs — clipped to the hero, but kept below content so the dropdown can overflow */}
+          <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+            <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-rose-400/10 rounded-full blur-2xl" />
+          </div>
 
           <div className="relative z-10 space-y-4 text-center">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
@@ -707,7 +722,7 @@ export default function CounsellingConditionsPage() {
                     <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-200 ${stateMenuOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {stateMenuOpen && (
-                    <div className="absolute left-0 right-0 mt-2 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 py-1.5 z-[35] animate-fade-in text-left max-h-72 overflow-y-auto">
+                    <div className="absolute left-0 right-0 mt-2 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 py-1.5 z-[35] animate-fade-in text-left max-h-[372px] overflow-y-auto">
                       {stateOptions.map((st) => {
                         const isOn = st === selectedState;
                         return (
