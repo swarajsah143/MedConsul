@@ -623,76 +623,74 @@ export default function RankInsightsPage() {
         />
       ) : viewMode === 'cards' ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {paginated.map((entry, idx) => (
-            <Card
+          {paginated.map((entry) => (
+            <div
               key={entry.id}
               onClick={() => handleRowClick(entry)}
-              className="group cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden relative border-transparent hover:border-red-200 dark:hover:border-red-900/40"
+              className="group cursor-pointer rounded-2xl bg-slate-900 dark:bg-slate-950 border border-slate-800 dark:border-slate-700/50 overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300 relative"
             >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <CardContent className="p-5">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+              <div className="p-4 sm:p-5 relative">
+                {/* Header */}
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-red-100 dark:group-hover:bg-red-950/50 group-hover:shadow-md">
-                    <GraduationCap className="w-5 h-5 text-red-600 dark:text-red-400" />
+                  <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
+                    <GraduationCap className="w-5 h-5 text-red-400" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
+                    <h3 className="text-sm font-bold text-white leading-snug truncate group-hover:text-red-300 transition-colors duration-200">
                       {entry.college.name}
                     </h3>
-                    <p className="text-[11px] text-muted-foreground flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3" />
-                      {entry.college.city}, {entry.college.state}
+                    <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
+                      <MapPin className="w-3 h-3 text-slate-500" /> {entry.college.city}, {entry.college.state}
                     </p>
                   </div>
                 </div>
 
+                {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                    entry.college.type === 'Government'
-                      ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400'
-                      : entry.college.type === 'Deemed'
-                      ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400'
-                      : 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400'
-                  }`}>
-                    {entry.college.type}
-                  </span>
-                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                    {entry.course}
-                  </span>
-                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-purple-50 dark:bg-purple-950/20 text-purple-600 dark:text-purple-400">
-                    {entry.category}
-                  </span>
+                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                    entry.college.type === 'Government' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                    entry.college.type === 'Deemed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
+                    'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                  }`}>{entry.college.type}</span>
+                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">{entry.course}</span>
+                  <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">{entry.category}</span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl p-3">
-                  <div className="text-center">
-                    <p className="text-[10px] font-semibold text-muted-foreground uppercase">Rank</p>
-                    <p className="text-lg font-extrabold text-slate-900 dark:text-slate-100 tabular-nums mt-0.5">
-                      #{entry.closingRank.toLocaleString()}
-                    </p>
-                  </div>
-                  <div className="text-center border-x border-slate-200 dark:border-slate-700">
-                    <p className="text-[10px] font-semibold text-muted-foreground uppercase">Score</p>
-                    <p className="text-lg font-extrabold text-emerald-600 dark:text-emerald-400 tabular-nums mt-0.5">
-                      {entry.closingScore ?? 'N/A'}
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[10px] font-semibold text-muted-foreground uppercase">Round</p>
-                    <p className="text-lg font-extrabold text-red-600 dark:text-red-400 mt-0.5">
-                      R{entry.round}
-                    </p>
+                {/* Rank / Score / Round */}
+                <div className="rounded-xl bg-slate-800/80 border border-slate-700/50 p-3">
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="text-center">
+                      <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Rank</p>
+                      <p className="text-lg font-extrabold tabular-nums mt-0.5 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">
+                        #{entry.closingRank.toLocaleString()}
+                      </p>
+                    </div>
+                    <div className="text-center border-x border-slate-700/50">
+                      <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Score</p>
+                      <p className="text-lg font-extrabold text-emerald-400 tabular-nums mt-0.5">
+                        {entry.closingScore ?? 'N/A'}
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Round</p>
+                      <p className="text-lg font-extrabold text-red-400 mt-0.5">
+                        R{entry.round}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-                  <span className="text-[11px] text-muted-foreground truncate max-w-[60%]">{entry.quota}</span>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-600 dark:text-red-400 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    View Trends <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
+                {/* Bottom */}
+                <div className="flex items-center justify-between mt-3">
+                  <span className="text-[10px] text-slate-500 truncate max-w-[65%] font-medium">{entry.quota}</span>
+                  <div className="w-7 h-7 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                    <ArrowRight className="w-3.5 h-3.5 text-red-400" />
+                  </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
       ) : (

@@ -21,6 +21,8 @@ import {
   Home,
   Users,
   Layers,
+  MessageCircle,
+  Sparkles,
   type LucideIcon,
 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
@@ -308,6 +310,30 @@ export default function DashboardLayout() {
           </div>
         </main>
       </div>
+
+      {/* ── Floating MedAssist Chatbot Button (visible on all pages except AI assistant) ── */}
+      {location.pathname !== '/ai-assistant' && (
+        <Link
+          to="/ai-assistant"
+          className="fixed bottom-6 right-6 z-50 group"
+          aria-label="Open MedAssist AI"
+        >
+          <div className="relative">
+            {/* Pulse ring */}
+            <span className="absolute inset-0 rounded-full bg-red-500/30 animate-ping" style={{ animationDuration: '2s' }} />
+            {/* Button */}
+            <div className="relative w-14 h-14 rounded-full gradient-primary shadow-lg shadow-red-500/30 flex items-center justify-center text-white hover:shadow-xl hover:shadow-red-500/40 hover:scale-110 active:scale-95 transition-all duration-200">
+              <MessageCircle className="w-6 h-6" />
+            </div>
+            {/* Label tooltip */}
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[11px] font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-200 pointer-events-none shadow-lg">
+              <Sparkles className="w-3 h-3 inline mr-1" />
+              Ask MedAssist
+              <div className="absolute top-full right-5 w-2 h-2 bg-slate-900 dark:bg-white rotate-45 -mt-1" />
+            </div>
+          </div>
+        </Link>
+      )}
     </div>
   );
 }

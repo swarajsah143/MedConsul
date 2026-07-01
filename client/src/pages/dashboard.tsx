@@ -398,20 +398,15 @@ export default function DashboardPage() {
         <div className="absolute inset-0 gradient-primary" />
         <div className="absolute inset-0 gradient-mesh opacity-50" />
 
-        {/* Floating decorative elements */}
-        <div className="absolute top-6 right-8 w-20 h-20 float-slow hidden sm:block">
-          <div className="w-full h-full rounded-2xl bg-white/[0.07] backdrop-blur-sm border border-white/10 flex items-center justify-center rotate-12">
-            <Stethoscope className="w-8 h-8 text-white/30" />
+        {/* Floating decorative elements — positioned to avoid the progress card area */}
+        <div className="absolute top-6 left-[60%] w-16 h-16 float-slow hidden md:block">
+          <div className="w-full h-full rounded-2xl bg-white/[0.06] backdrop-blur-sm border border-white/10 flex items-center justify-center rotate-12">
+            <Stethoscope className="w-6 h-6 text-white/20" />
           </div>
         </div>
-        <div className="absolute bottom-8 right-24 w-14 h-14 float-medium hidden lg:block">
-          <div className="w-full h-full rounded-xl bg-white/[0.06] backdrop-blur-sm border border-white/10 flex items-center justify-center -rotate-6">
-            <HeartPulse className="w-6 h-6 text-white/25" />
-          </div>
-        </div>
-        <div className="absolute top-1/2 right-[15%] w-10 h-10 float-fast hidden lg:block">
-          <div className="w-full h-full rounded-lg bg-white/[0.05] border border-white/10 flex items-center justify-center rotate-6">
-            <Activity className="w-4 h-4 text-white/20" />
+        <div className="absolute bottom-12 left-[55%] w-12 h-12 float-medium hidden lg:block">
+          <div className="w-full h-full rounded-xl bg-white/[0.05] backdrop-blur-sm border border-white/10 flex items-center justify-center -rotate-6">
+            <HeartPulse className="w-5 h-5 text-white/15" />
           </div>
         </div>
 
@@ -436,16 +431,6 @@ export default function DashboardPage() {
                 </span>
               )}
             </div>
-            <Link
-              to="/ai-assistant"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs font-semibold border border-white/15 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:shadow-white/5 active:scale-[0.97] group/ai"
-            >
-              <div className="w-5 h-5 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
-                <Zap className="w-3 h-3 text-white" />
-              </div>
-              Ask MedAssist
-              <ArrowRight className="w-3 h-3 text-white/50 group-hover/ai:text-white group-hover/ai:translate-x-0.5 transition-all duration-200" />
-            </Link>
           </div>
 
           {/* Greeting */}
@@ -485,52 +470,98 @@ export default function DashboardPage() {
             </div>
           </form>
 
-          {/* Bottom row: Summary chips + Checklist progress */}
-          <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hero-enter-cards">
-            {/* Summary chips */}
-            <div className="flex flex-wrap gap-2">
-              <Link to="/colleges" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm border border-white/10 text-white/80 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 group/chip">
-                <Building2 className="w-3.5 h-3.5 text-blue-300 group-hover/chip:scale-110 transition-transform" />
-                <span className="font-bold text-white">{stats.colleges}</span> Colleges
-              </Link>
-              <Link to="/allotment" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm border border-white/10 text-white/80 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 group/chip">
-                <MapPin className="w-3.5 h-3.5 text-indigo-300 group-hover/chip:scale-110 transition-transform" />
-                <span className="font-bold text-white">{stats.states}</span> States
-              </Link>
-              <Link to="/rank-insights" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm border border-white/10 text-white/80 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 group/chip">
-                <BarChart3 className="w-3.5 h-3.5 text-rose-300 group-hover/chip:scale-110 transition-transform" />
-                <span className="font-bold text-white">{stats.rankRecords}</span> Rank Records
-              </Link>
-              {todaySummary.docsRemaining > 0 && (
-                <Link to="/doc-checklist" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 backdrop-blur-sm border border-amber-400/20 text-amber-200 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5">
-                  <ClipboardCheck className="w-3.5 h-3.5" />
-                  <span className="font-bold text-amber-100">{todaySummary.docsRemaining}</span> docs remaining
-                </Link>
-              )}
-            </div>
-
-            {/* Mini progress ring */}
-            <Link to="/doc-checklist" className="flex items-center gap-3 bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm rounded-xl px-4 py-2.5 border border-white/10 transition-all duration-300 hover:-translate-y-0.5 group/prog shrink-0">
-              <div className="relative w-10 h-10 shrink-0">
-                <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
-                  <circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="2.5" />
-                  <circle
-                    cx="18" cy="18" r="14" fill="none"
-                    stroke={checklistPct === 100 ? '#34d399' : 'white'}
-                    strokeWidth="2.5" strokeLinecap="round"
-                    strokeDasharray={`${checklistPct * 0.88} 88`}
-                    className="transition-all duration-700"
-                  />
-                </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white">{checklistPct}%</span>
-              </div>
-              <div className="min-w-0 hidden sm:block">
-                <p className="text-[11px] font-semibold text-white/90">Readiness</p>
-                <p className="text-[10px] text-white/50">{stats.checklistDone}/{stats.checklistTotal} docs</p>
-              </div>
-              <ChevronRight className="w-3.5 h-3.5 text-white/30 group-hover/prog:text-white/60 group-hover/prog:translate-x-0.5 transition-all shrink-0" />
+          {/* Bottom row: Summary chips */}
+          <div className="mt-6 flex flex-wrap gap-2 hero-enter-cards">
+            <Link to="/colleges" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm border border-white/10 text-white/80 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 group/chip">
+              <Building2 className="w-3.5 h-3.5 text-blue-300 group-hover/chip:scale-110 transition-transform" />
+              <span className="font-bold text-white">{stats.colleges}</span> Colleges
             </Link>
+            <Link to="/allotment" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm border border-white/10 text-white/80 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 group/chip">
+              <MapPin className="w-3.5 h-3.5 text-indigo-300 group-hover/chip:scale-110 transition-transform" />
+              <span className="font-bold text-white">{stats.states}</span> States
+            </Link>
+            <Link to="/rank-insights" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm border border-white/10 text-white/80 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 group/chip">
+              <BarChart3 className="w-3.5 h-3.5 text-rose-300 group-hover/chip:scale-110 transition-transform" />
+              <span className="font-bold text-white">{stats.rankRecords}</span> Rank Records
+            </Link>
+            {todaySummary.docsRemaining > 0 && (
+              <Link to="/doc-checklist" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 backdrop-blur-sm border border-amber-400/20 text-amber-200 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5">
+                <ClipboardCheck className="w-3.5 h-3.5" />
+                <span className="font-bold text-amber-100">{todaySummary.docsRemaining}</span> docs remaining
+              </Link>
+            )}
           </div>
+        </div>
+
+        {/* ── Your Progress Card (right-middle, solid white) ── */}
+        <div className="absolute right-5 sm:right-8 lg:right-10 top-0 bottom-0 hidden md:flex items-center z-10 hero-enter-cards">
+          <Link to="/doc-checklist" className="group/prog block">
+            <motion.div
+              className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl shadow-black/20 p-5 w-[220px]"
+              whileHover={{ y: -4, scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            >
+              {/* Header */}
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-6 h-6 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
+                  <Activity className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
+                </div>
+                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Your Progress</span>
+              </div>
+
+              {/* Ring + Info */}
+              <div className="flex items-center gap-3">
+                <div className="relative w-14 h-14 shrink-0">
+                  <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                    <circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-slate-100 dark:text-slate-800" />
+                    <motion.circle cx="18" cy="18" r="14" fill="none" strokeWidth="2.5" strokeLinecap="round"
+                      stroke={checklistPct === 100 ? '#059669' : '#dc2626'}
+                      initial={{ strokeDasharray: '0 88' }}
+                      animate={{ strokeDasharray: `${checklistPct * 0.88} 88` }}
+                      transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                  </svg>
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-base font-extrabold text-slate-900 dark:text-slate-100 leading-none tabular-nums">{checklistPct}%</span>
+                  </span>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-bold text-slate-900 dark:text-slate-100">Readiness</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">{stats.checklistDone}/{stats.checklistTotal} docs</p>
+                  <div className="h-1 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden mt-1.5">
+                    <motion.div
+                      className="h-full rounded-full"
+                      style={{ backgroundColor: checklistPct === 100 ? '#059669' : '#dc2626' }}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${checklistPct}%` }}
+                      transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Milestones */}
+              <div className="grid grid-cols-3 gap-1.5 mt-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+                {[
+                  { label: 'Colleges', val: stats.colleges },
+                  { label: 'States', val: stats.states },
+                  { label: 'Docs', val: stats.checklistDone },
+                ].map((m) => (
+                  <div key={m.label} className="text-center py-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                    <p className="text-xs font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{m.val}</p>
+                    <p className="text-[7px] text-slate-400 font-bold uppercase tracking-widest mt-0.5">{m.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="mt-2.5 flex items-center justify-center gap-1 text-[10px] font-semibold text-red-600 dark:text-red-400 group-hover/prog:gap-1.5 transition-all">
+                {checklistPct === 100 ? 'All prepared' : 'Complete checklist'}
+                <ChevronRight className="w-3 h-3 group-hover/prog:translate-x-0.5 transition-transform" />
+              </div>
+            </motion.div>
+          </Link>
         </div>
       </div>
 
@@ -594,75 +625,60 @@ export default function DashboardPage() {
         </Card>
       </FadeIn>
 
-      {/* ═══════════════ MAIN WIDGET GRID ═══════════════ */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-
-        {/* ── LEFT COLUMN (2/3) ── */}
-        <div className="lg:col-span-2 space-y-6">
-
-          {/* ── Control Panel ── */}
-          <FadeIn delay={0.1}>
-            <SectionHeader
-              icon={Shield}
-              iconBg="bg-red-50 dark:bg-red-950/30"
-              iconColor="text-red-600 dark:text-red-400"
-              title="Your Control Panel"
-              subtitle={`${controlPanelItems.length} modules`}
-            />
-            <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-3" delay={0.1}>
-              {controlPanelItems.map((item) => (
-                <StaggerItem key={item.href + item.title}>
-                  <Link to={item.href} className="group block h-full">
-                    <CardElevation lift={-5} className="h-full">
-                      <Card
-                        className="h-full rounded-xl overflow-hidden relative border-slate-200/60 dark:border-slate-800/60 hover:border-transparent hover:shadow-xl transition-all duration-300 bg-white dark:bg-slate-900"
-                        style={{ '--card-glow': item.glow, '--card-accent': item.accent } as React.CSSProperties}
+      {/* ═══════════════ CONTROL PANEL (full width) ═══════════════ */}
+      <FadeIn delay={0.1}>
+        <SectionHeader
+          icon={Shield}
+          iconBg="bg-red-50 dark:bg-red-950/30"
+          iconColor="text-red-600 dark:text-red-400"
+          title="Your Control Panel"
+          subtitle={`${controlPanelItems.length} modules`}
+        />
+        <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-3" delay={0.1}>
+          {controlPanelItems.map((item) => (
+            <StaggerItem key={item.href + item.title}>
+              <Link to={item.href} className="group block h-full">
+                <CardElevation lift={-5} className="h-full">
+                  <Card
+                    className="h-full rounded-xl overflow-hidden relative border-slate-200/60 dark:border-slate-800/60 hover:border-transparent hover:shadow-xl transition-all duration-300 bg-white dark:bg-slate-900"
+                  >
+                    <div className={`h-[3px] bg-gradient-to-r ${item.gradient}`} />
+                    <CardContent className="p-4 relative flex flex-col items-center text-center">
+                      <motion.div
+                        className={`w-11 h-11 rounded-xl flex items-center justify-center ${item.bg} shadow-sm mt-1`}
+                        whileHover={{ y: -2, scale: 1.1 }}
+                        transition={{ type: 'spring', stiffness: 350, damping: 18 }}
                       >
-                        {/* Top gradient line */}
-                        <div className={`h-[3px] bg-gradient-to-r ${item.gradient}`} />
+                        <item.icon className={`w-5 h-5 ${item.iconColor}`} />
+                      </motion.div>
+                      <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 mt-3 leading-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-[10px] text-muted-foreground mt-1.5 leading-relaxed line-clamp-2">
+                        {item.description}
+                      </p>
+                      <div className="mt-3 w-full pt-2.5 border-t border-slate-100 dark:border-slate-800/60">
+                        <span className={`inline-flex items-center gap-1 text-[10px] font-bold ${item.iconColor}`}>
+                          {item.stat}
+                        </span>
+                      </div>
+                      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-300">
+                        <ArrowRight className={`w-3.5 h-3.5 ${item.iconColor}`} />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CardElevation>
+              </Link>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
+      </FadeIn>
 
-                        <CardContent className="p-4 relative flex flex-col items-center text-center">
-                          {/* Icon */}
-                          <motion.div
-                            className={`w-11 h-11 rounded-xl flex items-center justify-center ${item.bg} shadow-sm mt-1`}
-                            whileHover={{ y: -2, scale: 1.1 }}
-                            transition={{ type: 'spring', stiffness: 350, damping: 18 }}
-                          >
-                            <item.icon className={`w-5 h-5 ${item.iconColor}`} />
-                          </motion.div>
-
-                          {/* Title */}
-                          <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 mt-3 leading-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
-                            {item.title}
-                          </h3>
-
-                          {/* Description */}
-                          <p className="text-[10px] text-muted-foreground mt-1.5 leading-relaxed line-clamp-2">
-                            {item.description}
-                          </p>
-
-                          {/* Stat badge */}
-                          <div className="mt-3 w-full pt-2.5 border-t border-slate-100 dark:border-slate-800/60">
-                            <span className={`inline-flex items-center gap-1 text-[10px] font-bold ${item.iconColor}`}>
-                              {item.stat}
-                            </span>
-                          </div>
-
-                          {/* Hover arrow */}
-                          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-300">
-                            <ArrowRight className={`w-3.5 h-3.5 ${item.iconColor}`} />
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </CardElevation>
-                  </Link>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </FadeIn>
-
-          {/* Live Announcements Feed */}
-          <FadeIn delay={0.2}>
+      {/* ═══════════════ ANNOUNCEMENTS + UPCOMING (side by side) ═══════════════ */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+        {/* Announcements (3/5) */}
+        <div className="lg:col-span-3">
+          <FadeIn delay={0.15}>
             <SectionHeader icon={Megaphone} iconBg="bg-purple-50 dark:bg-purple-950/30" iconColor="text-purple-600 dark:text-purple-400" title="Latest Updates"
               action={<Link to="/announcements" className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline flex items-center gap-1 transition-colors">View All <ArrowRight className="w-3 h-3" /></Link>}
             />
@@ -672,13 +688,13 @@ export default function DashboardPage() {
                   const Icon = TYPE_ICONS[a.announcementType] || Bell;
                   const color = TYPE_COLORS[a.announcementType] || 'text-slate-600 bg-slate-50 dark:bg-slate-800';
                   return (
-                    <Link key={a.id} to="/announcements" className="flex gap-3.5 p-4 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors group/item">
-                      <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${color} transition-transform duration-200 group-hover/item:scale-110`}>
-                        <Icon className="w-4 h-4" />
+                    <Link key={a.id} to="/announcements" className="flex gap-3 p-3.5 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors group/item">
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${color} transition-transform duration-200 group-hover/item:scale-110`}>
+                        <Icon className="w-3.5 h-3.5" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-snug group-hover/item:text-red-600 dark:group-hover/item:text-red-400 transition-colors">{a.title}</p>
-                        <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                        <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200 leading-snug group-hover/item:text-red-600 dark:group-hover/item:text-red-400 transition-colors">{a.title}</p>
+                        <div className="flex items-center gap-2 mt-1 flex-wrap">
                           <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">{a.announcementType}</span>
                           {a.state && (
                             <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400">{a.state}</span>
@@ -690,7 +706,7 @@ export default function DashboardPage() {
                           )}
                         </div>
                       </div>
-                      <span className="inline-flex items-center gap-1 text-[10px] text-slate-400 bg-slate-50 dark:bg-slate-800/50 px-2 py-1 rounded-full self-start mt-0.5 shrink-0">
+                      <span className="inline-flex items-center gap-1 text-[10px] text-slate-400 bg-slate-50 dark:bg-slate-800/50 px-2 py-1 rounded-full self-start shrink-0">
                         <Clock className="w-3 h-3" /> {a.month} {a.day}
                       </span>
                     </Link>
@@ -701,99 +717,21 @@ export default function DashboardPage() {
           </FadeIn>
         </div>
 
-        {/* ── RIGHT COLUMN (1/3) ── */}
-        <div className="space-y-6">
-
-          {/* Counselling Progress Widget */}
-          <FadeIn delay={0.15}>
-            <SectionHeader icon={Activity} iconBg="bg-emerald-50 dark:bg-emerald-950/30" iconColor="text-emerald-600 dark:text-emerald-400" title="Your Progress" />
-            <Card className="overflow-hidden">
-              <CardContent className="p-5 space-y-5">
-                <div className="flex items-center gap-5">
-                  <div className="relative w-20 h-20 shrink-0">
-                    <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
-                      <circle cx="18" cy="18" r="15" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-100 dark:text-slate-800" />
-                      <motion.circle cx="18" cy="18" r="15" fill="none" strokeWidth="2" strokeLinecap="round"
-                        stroke={checklistPct === 100 ? '#059669' : checklistPct > 50 ? '#2563eb' : '#dc2626'}
-                        initial={{ strokeDasharray: '0 94.2' }}
-                        animate={{ strokeDasharray: `${checklistPct * 0.942} 94.2` }}
-                        transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                      />
-                    </svg>
-                    <span className="absolute inset-0 flex flex-col items-center justify-center">
-                      <span className="text-lg font-extrabold text-slate-900 dark:text-slate-100 leading-none">
-                        <CountUp to={checklistPct} duration={1} suffix="%" />
-                      </span>
-                      <span className="text-[8px] text-muted-foreground font-semibold uppercase mt-0.5">Ready</span>
-                    </span>
-                  </div>
-                  <div className="space-y-1.5 flex-1 min-w-0">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-500">Documents</span>
-                      <span className="font-bold text-slate-900 dark:text-slate-100">{stats.checklistDone}/{stats.checklistTotal}</span>
-                    </div>
-                    <AnimatedProgress value={checklistPct} color={checklistPct === 100 ? 'bg-emerald-500' : 'bg-red-500'} />
-                    <Link to="/doc-checklist" className="text-[11px] font-semibold text-red-600 dark:text-red-400 hover:underline flex items-center gap-1 mt-1">
-                      {checklistPct === 100 ? 'All done!' : 'Complete checklist'} <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
-                  {[
-                    { label: 'Colleges\nExplored', value: stats.colleges },
-                    { label: 'States\nCovered', value: stats.states },
-                    { label: 'Docs\nReady', value: stats.checklistDone },
-                  ].map((m) => (
-                    <div key={m.label} className="text-center p-2 rounded-lg bg-slate-50 dark:bg-slate-800/50">
-                      <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">
-                        <CountUp to={typeof m.value === 'number' ? m.value : 0} duration={0.8} />
-                      </p>
-                      <p className="text-[9px] text-muted-foreground font-medium uppercase tracking-wider mt-0.5 whitespace-pre-line leading-tight">{m.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </FadeIn>
-
-          {/* AI Recommendations Widget */}
-          <FadeIn delay={0.25}>
-            <SectionHeader icon={Bot} iconBg="bg-cyan-50 dark:bg-cyan-950/30" iconColor="text-cyan-600 dark:text-cyan-400" title="AI Suggests" />
-            <Card className="overflow-hidden border-0 shadow-sm bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800/50">
-              <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
-                {[
-                  { text: checklistPct < 100 ? 'Complete your document checklist before counselling begins' : 'Review closing rank trends for your target colleges', icon: checklistPct < 100 ? ClipboardCheck : TrendingUp, href: checklistPct < 100 ? '/doc-checklist' : '/rank-insights', color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
-                  { text: 'Compare fees across government and private colleges', icon: IndianRupee, href: '/fee-matrix', color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
-                  { text: `Search allotments across ${stats.states} states by your rank`, icon: MapPin, href: '/allotment', color: 'text-indigo-600', bg: 'bg-indigo-50 dark:bg-indigo-950/30' },
-                  { text: 'Ask MedAssist about counselling process and strategy', icon: Sparkles, href: '/ai-assistant', color: 'text-cyan-600', bg: 'bg-cyan-50 dark:bg-cyan-950/30' },
-                ].map((rec, idx) => (
-                  <Link key={idx} to={rec.href} className="flex items-center gap-3 p-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group/rec">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${rec.bg} transition-transform duration-200 group-hover/rec:scale-110`}>
-                      <rec.icon className={`w-4 h-4 ${rec.color}`} />
-                    </div>
-                    <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed flex-1 group-hover/rec:text-slate-900 dark:group-hover/rec:text-slate-100 transition-colors">{rec.text}</p>
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-300 shrink-0 group-hover/rec:text-red-500 group-hover/rec:translate-x-0.5 transition-all duration-200" />
-                  </Link>
-                ))}
-              </CardContent>
-            </Card>
-          </FadeIn>
-
-          {/* Upcoming Events Widget */}
-          <FadeIn delay={0.3}>
+        {/* Upcoming Events (2/5) */}
+        <div className="lg:col-span-2">
+          <FadeIn delay={0.2}>
             <SectionHeader icon={Clock} iconBg="bg-amber-50 dark:bg-amber-950/30" iconColor="text-amber-600 dark:text-amber-400" title="Upcoming" />
             <Card>
               <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
                 {[
-                  { date: 'Jul 2026', event: 'NEET UG 2026 Result Expected', status: 'upcoming', color: 'bg-red-500' },
-                  { date: 'Aug 2026', event: 'MCC AIQ Registration Opens', status: 'upcoming', color: 'bg-blue-500' },
-                  { date: 'Aug 2026', event: 'State Counselling Registration', status: 'upcoming', color: 'bg-emerald-500' },
-                  { date: 'Sep 2026', event: 'AIQ Round 1 Choice Filling', status: 'upcoming', color: 'bg-purple-500' },
-                  { date: 'Oct 2026', event: 'Round 1 Seat Allotment', status: 'upcoming', color: 'bg-amber-500' },
+                  { date: 'Jul 2026', event: 'NEET UG 2026 Result Expected', color: 'bg-red-500' },
+                  { date: 'Aug 2026', event: 'MCC AIQ Registration Opens', color: 'bg-blue-500' },
+                  { date: 'Aug 2026', event: 'State Counselling Registration', color: 'bg-emerald-500' },
+                  { date: 'Sep 2026', event: 'AIQ Round 1 Choice Filling', color: 'bg-purple-500' },
+                  { date: 'Oct 2026', event: 'Round 1 Seat Allotment', color: 'bg-amber-500' },
                 ].map((evt, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-3.5 group/evt hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
-                    <div className="text-center shrink-0 w-12">
+                  <div key={idx} className="flex items-center gap-3 p-3.5 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
+                    <div className="text-center shrink-0 w-11">
                       <p className="text-[9px] font-bold text-muted-foreground uppercase">{evt.date.split(' ')[0]}</p>
                       <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100">{evt.date.split(' ')[1]}</p>
                     </div>
@@ -804,7 +742,6 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
           </FadeIn>
-
         </div>
       </div>
 
