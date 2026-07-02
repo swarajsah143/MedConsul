@@ -18,7 +18,7 @@ import {
   AnimatedProgress,
   CardElevation,
 } from '@/components/ui/motion';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   GraduationCap,
   BarChart3,
@@ -32,9 +32,9 @@ import {
   Clock,
   Bell,
   ChevronRight,
+  ChevronDown,
   Megaphone,
   PlayCircle,
-  ExternalLink,
   Bot,
   Star,
   Shield,
@@ -345,6 +345,7 @@ export default function DashboardPage() {
 
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const [timelineOpen, setTimelineOpen] = useState(false);
 
   // Time-aware greeting
   const greeting = useMemo(() => {
@@ -674,77 +675,6 @@ export default function DashboardPage() {
         </StaggerContainer>
       </FadeIn>
 
-      {/* ═══════════════ ANNOUNCEMENTS + UPCOMING (side by side) ═══════════════ */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
-        {/* Announcements (3/5) */}
-        <div className="lg:col-span-3">
-          <FadeIn delay={0.15}>
-            <SectionHeader icon={Megaphone} iconBg="bg-purple-50 dark:bg-purple-950/30" iconColor="text-purple-600 dark:text-purple-400" title="Latest Updates"
-              action={<Link to="/announcements" className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline flex items-center gap-1 transition-colors">View All <ArrowRight className="w-3 h-3" /></Link>}
-            />
-            <Card className="overflow-hidden">
-              <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
-                {recentAnnouncements.map((a) => {
-                  const Icon = TYPE_ICONS[a.announcementType] || Bell;
-                  const color = TYPE_COLORS[a.announcementType] || 'text-slate-600 bg-slate-50 dark:bg-slate-800';
-                  return (
-                    <Link key={a.id} to="/announcements" className="flex gap-3 p-3.5 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors group/item">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5 ${color} transition-transform duration-200 group-hover/item:scale-110`}>
-                        <Icon className="w-3.5 h-3.5" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-[13px] font-semibold text-slate-800 dark:text-slate-200 leading-snug group-hover/item:text-red-600 dark:group-hover/item:text-red-400 transition-colors">{a.title}</p>
-                        <div className="flex items-center gap-2 mt-1 flex-wrap">
-                          <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">{a.announcementType}</span>
-                          {a.state && (
-                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400">{a.state}</span>
-                          )}
-                          {a.documentUrl && (
-                            <span className="text-[10px] text-red-600 dark:text-red-400 font-medium flex items-center gap-0.5">
-                              PDF <ExternalLink className="w-2.5 h-2.5" />
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                      <span className="inline-flex items-center gap-1 text-[10px] text-slate-400 bg-slate-50 dark:bg-slate-800/50 px-2 py-1 rounded-full self-start shrink-0">
-                        <Clock className="w-3 h-3" /> {a.month} {a.day}
-                      </span>
-                    </Link>
-                  );
-                })}
-              </CardContent>
-            </Card>
-          </FadeIn>
-        </div>
-
-        {/* Upcoming Events (2/5) */}
-        <div className="lg:col-span-2">
-          <FadeIn delay={0.2}>
-            <SectionHeader icon={Clock} iconBg="bg-amber-50 dark:bg-amber-950/30" iconColor="text-amber-600 dark:text-amber-400" title="Upcoming" />
-            <Card>
-              <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
-                {[
-                  { date: 'Jul 2026', event: 'NEET UG 2026 Result Expected', color: 'bg-red-500' },
-                  { date: 'Aug 2026', event: 'MCC AIQ Registration Opens', color: 'bg-blue-500' },
-                  { date: 'Aug 2026', event: 'State Counselling Registration', color: 'bg-emerald-500' },
-                  { date: 'Sep 2026', event: 'AIQ Round 1 Choice Filling', color: 'bg-purple-500' },
-                  { date: 'Oct 2026', event: 'Round 1 Seat Allotment', color: 'bg-amber-500' },
-                ].map((evt, idx) => (
-                  <div key={idx} className="flex items-center gap-3 p-3.5 hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors">
-                    <div className="text-center shrink-0 w-11">
-                      <p className="text-[9px] font-bold text-muted-foreground uppercase">{evt.date.split(' ')[0]}</p>
-                      <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100">{evt.date.split(' ')[1]}</p>
-                    </div>
-                    <div className={`w-1 h-8 rounded-full ${evt.color} shrink-0`} />
-                    <p className="text-xs text-slate-700 dark:text-slate-300 font-medium flex-1 leading-snug">{evt.event}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          </FadeIn>
-        </div>
-      </div>
-
       {/* ═══════════════ TRENDING COLLEGES CAROUSEL ═══════════════ */}
       <FadeIn delay={0.1}>
         <div className="flex items-center justify-between mb-4">
@@ -764,55 +694,106 @@ export default function DashboardPage() {
         <TrendingCarousel colleges={MOCK_COLLEGES.slice(0, 10)} />
       </FadeIn>
 
-      {/* ═══════════════ COUNSELLING TIMELINE ═══════════════ */}
+      {/* ═══════════════ COUNSELLING TIMELINE (Dropdown) ═══════════════ */}
       <FadeIn delay={0.1}>
-        <div className="flex items-center gap-2.5 mb-5">
-          <div className="w-8 h-8 rounded-lg bg-violet-50 dark:bg-violet-950/30 flex items-center justify-center">
-            <Clock className="w-4 h-4 text-violet-600 dark:text-violet-400" />
-          </div>
-          <div>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Counselling Timeline 2026</h2>
-            <p className="text-[10px] text-muted-foreground">Key milestones for your journey</p>
-          </div>
-        </div>
-        <Card className="overflow-hidden">
-          <CardContent className="p-0">
-            <div className="relative">
-              {/* Vertical line */}
-              <div className="absolute left-[39px] top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800" />
-              {[
-                { month: 'May', event: 'NEET UG 2026 Exam', detail: 'Pen-and-paper exam conducted by NTA across India', done: true, color: 'bg-emerald-500' },
-                { month: 'Jul', event: 'Result & Scorecard', detail: 'Download from nta.ac.in. Calculate expected rank', done: false, color: 'bg-red-500' },
-                { month: 'Aug', event: 'MCC Registration Opens', detail: 'Register on mcc.nic.in for AIQ counselling', done: false, color: 'bg-blue-500' },
-                { month: 'Aug', event: 'State Registration', detail: 'Register separately on your state counselling portal', done: false, color: 'bg-emerald-500' },
-                { month: 'Sep', event: 'Round 1 Choice Filling', detail: 'Fill college preferences. Lock before deadline', done: false, color: 'bg-purple-500' },
-                { month: 'Sep', event: 'Round 1 Allotment', detail: 'Check result. Report to college if allotted', done: false, color: 'bg-amber-500' },
-                { month: 'Oct', event: 'Round 2 & Upgrades', detail: 'Float/upgrade options. New choice filling window', done: false, color: 'bg-indigo-500' },
-                { month: 'Nov', event: 'Mop-up & Stray Round', detail: 'Final rounds for remaining seats', done: false, color: 'bg-pink-500' },
-              ].map((step, idx) => (
-                <div key={idx} className="flex items-start gap-4 p-4 pl-5 hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors relative group/step">
-                  {/* Month */}
-                  <div className="w-8 text-center shrink-0 pt-0.5">
-                    <span className="text-[10px] font-bold text-muted-foreground uppercase">{step.month}</span>
-                  </div>
-                  {/* Dot on timeline */}
-                  <div className="relative shrink-0 pt-1">
-                    <div className={`w-3 h-3 rounded-full ${step.done ? step.color : 'bg-slate-300 dark:bg-slate-600'} ring-2 ring-white dark:ring-slate-900 z-10 relative transition-transform duration-300 group-hover/step:scale-125`} />
-                  </div>
-                  {/* Content */}
-                  <div className="flex-1 min-w-0 pb-2">
-                    <p className={`text-sm font-bold leading-snug ${step.done ? 'text-slate-400 dark:text-slate-500 line-through' : 'text-slate-900 dark:text-slate-100'}`}>
-                      {step.event}
-                    </p>
-                    <p className="text-[11px] text-muted-foreground mt-0.5 leading-relaxed">{step.detail}</p>
-                  </div>
-                  {step.done && (
-                    <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded-full shrink-0 mt-1">Done</span>
-                  )}
-                </div>
-              ))}
+        <Card className="overflow-hidden border-slate-200/60 dark:border-slate-800/60">
+          <button
+            type="button"
+            onClick={() => setTimelineOpen((v) => !v)}
+            className="w-full flex items-center justify-between p-4 sm:p-5 hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors cursor-pointer"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/20">
+                <Clock className="w-5 h-5 text-white" />
+              </div>
+              <div className="text-left">
+                <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100">Counselling Timeline 2026</h2>
+                <p className="text-[10px] sm:text-xs text-muted-foreground mt-0.5">Key milestones for your journey</p>
+              </div>
             </div>
-          </CardContent>
+            <div className="flex items-center gap-2">
+              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-bold text-violet-600 dark:text-violet-400 bg-violet-50 dark:bg-violet-950/30 px-2.5 py-1 rounded-full">
+                1/8 completed
+              </span>
+              <motion.div
+                animate={{ rotate: timelineOpen ? 180 : 0 }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <ChevronDown className="w-5 h-5 text-slate-400 dark:text-slate-500" />
+              </motion.div>
+            </div>
+          </button>
+
+          <AnimatePresence initial={false}>
+            {timelineOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                className="overflow-hidden"
+              >
+                <div className="border-t border-slate-100 dark:border-slate-800">
+                  <CardContent className="p-0">
+                    <div className="relative">
+                      {/* Vertical line */}
+                      <div className="absolute left-[39px] top-0 bottom-0 w-px bg-gradient-to-b from-emerald-300 via-slate-200 to-slate-200 dark:from-emerald-700 dark:via-slate-800 dark:to-slate-800" />
+                      {[
+                        { month: 'May', event: 'NEET UG 2026 Exam', detail: 'Pen-and-paper exam conducted by NTA across India', done: true, color: 'bg-emerald-500', gradient: 'from-emerald-500 to-green-500' },
+                        { month: 'Jul', event: 'Result & Scorecard', detail: 'Download from nta.ac.in. Calculate expected rank', done: false, color: 'bg-red-500', gradient: 'from-red-500 to-rose-500' },
+                        { month: 'Aug', event: 'MCC Registration Opens', detail: 'Register on mcc.nic.in for AIQ counselling', done: false, color: 'bg-blue-500', gradient: 'from-blue-500 to-indigo-500' },
+                        { month: 'Aug', event: 'State Registration', detail: 'Register separately on your state counselling portal', done: false, color: 'bg-emerald-500', gradient: 'from-emerald-500 to-teal-500' },
+                        { month: 'Sep', event: 'Round 1 Choice Filling', detail: 'Fill college preferences. Lock before deadline', done: false, color: 'bg-purple-500', gradient: 'from-purple-500 to-violet-500' },
+                        { month: 'Sep', event: 'Round 1 Allotment', detail: 'Check result. Report to college if allotted', done: false, color: 'bg-amber-500', gradient: 'from-amber-500 to-orange-500' },
+                        { month: 'Oct', event: 'Round 2 & Upgrades', detail: 'Float/upgrade options. New choice filling window', done: false, color: 'bg-indigo-500', gradient: 'from-indigo-500 to-blue-500' },
+                        { month: 'Nov', event: 'Mop-up & Stray Round', detail: 'Final rounds for remaining seats', done: false, color: 'bg-pink-500', gradient: 'from-pink-500 to-rose-500' },
+                      ].map((step, idx) => (
+                        <motion.div
+                          key={idx}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: idx * 0.05, duration: 0.3 }}
+                          className="flex items-start gap-4 p-4 pl-5 hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors relative group/step"
+                        >
+                          {/* Month */}
+                          <div className="w-8 text-center shrink-0 pt-0.5">
+                            <span className="text-[10px] font-bold text-muted-foreground uppercase">{step.month}</span>
+                          </div>
+                          {/* Dot on timeline */}
+                          <div className="relative shrink-0 pt-0.5">
+                            <div className={`w-3.5 h-3.5 rounded-full bg-gradient-to-br ${step.gradient} ring-[3px] ring-white dark:ring-slate-900 z-10 relative transition-all duration-300 group-hover/step:scale-[1.4] group-hover/step:ring-2 ${step.done ? 'shadow-md shadow-emerald-500/30' : ''}`} />
+                            {step.done && (
+                              <motion.div
+                                className="absolute inset-0 rounded-full bg-emerald-400/30"
+                                animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                              />
+                            )}
+                          </div>
+                          {/* Content */}
+                          <div className="flex-1 min-w-0 pb-2">
+                            <p className={`text-sm font-bold leading-snug ${step.done ? 'text-slate-400 dark:text-slate-500 line-through' : 'text-slate-900 dark:text-slate-100'}`}>
+                              {step.event}
+                            </p>
+                            <p className="text-[11px] text-muted-foreground mt-0.5 leading-relaxed">{step.detail}</p>
+                          </div>
+                          {step.done ? (
+                            <span className="text-[9px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2.5 py-1 rounded-full shrink-0 mt-0.5 flex items-center gap-1">
+                              <span className="w-1 h-1 rounded-full bg-emerald-500" /> Done
+                            </span>
+                          ) : (
+                            <span className="text-[9px] font-medium text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-800/50 px-2 py-1 rounded-full shrink-0 mt-0.5">
+                              Upcoming
+                            </span>
+                          )}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Card>
       </FadeIn>
     </div>
