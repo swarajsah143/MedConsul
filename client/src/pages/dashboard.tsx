@@ -11,12 +11,9 @@ import { ALL_STATES } from '@/lib/allotment-data';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   FadeIn,
-  SlideIn,
   StaggerContainer,
   StaggerItem,
   CountUp,
-  AnimatedProgress,
-  CardElevation,
 } from '@/components/ui/motion';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -245,11 +242,13 @@ export default function DashboardPage() {
       description: 'Explore detailed reviews of top medical colleges across India.',
       icon: Star,
       href: '/colleges',
-      gradient: 'from-blue-500 to-blue-600',
-      glow: 'rgba(59,130,246,0.12)',
-      accent: 'rgba(59,130,246,0.4)',
-      bg: 'bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/40 dark:to-blue-900/20',
-      iconColor: 'text-blue-600 dark:text-blue-400',
+      iconBg: 'bg-blue-500/10 border-blue-500/20 group-hover:bg-blue-500/20',
+      iconText: 'text-blue-400',
+      hoverTitle: 'group-hover:text-blue-300',
+      statColor: 'text-blue-400/80',
+      arrowBg: 'bg-blue-500/10 border-blue-500/20',
+      glowBg: 'from-blue-500/5 via-transparent to-blue-500/5',
+      glowShadow: '0 20px 40px -12px rgba(59,130,246,0.15)',
       stat: `${stats.colleges} colleges`,
     },
     {
@@ -257,11 +256,13 @@ export default function DashboardPage() {
       description: 'Analyze historical closing ranks, trends & safe rank ranges.',
       icon: BarChart3,
       href: '/rank-insights',
-      gradient: 'from-red-500 to-rose-600',
-      glow: 'rgba(220,38,38,0.12)',
-      accent: 'rgba(220,38,38,0.4)',
-      bg: 'bg-gradient-to-br from-red-50 to-rose-100/50 dark:from-red-950/40 dark:to-rose-900/20',
-      iconColor: 'text-red-600 dark:text-red-400',
+      iconBg: 'bg-red-500/10 border-red-500/20 group-hover:bg-red-500/20',
+      iconText: 'text-red-400',
+      hoverTitle: 'group-hover:text-red-300',
+      statColor: 'text-red-400/80',
+      arrowBg: 'bg-red-500/10 border-red-500/20',
+      glowBg: 'from-red-500/5 via-transparent to-red-500/5',
+      glowShadow: '0 20px 40px -12px rgba(239,68,68,0.15)',
       stat: `${stats.rankYears} years data`,
     },
     {
@@ -269,11 +270,13 @@ export default function DashboardPage() {
       description: 'Eligibility, application, domicile & quota rules explained.',
       icon: BookOpen,
       href: '/counselling-conditions/eligibility',
-      gradient: 'from-violet-500 to-purple-600',
-      glow: 'rgba(139,92,246,0.12)',
-      accent: 'rgba(139,92,246,0.4)',
-      bg: 'bg-gradient-to-br from-violet-50 to-purple-100/50 dark:from-violet-950/40 dark:to-purple-900/20',
-      iconColor: 'text-violet-600 dark:text-violet-400',
+      iconBg: 'bg-purple-500/10 border-purple-500/20 group-hover:bg-purple-500/20',
+      iconText: 'text-purple-400',
+      hoverTitle: 'group-hover:text-purple-300',
+      statColor: 'text-purple-400/80',
+      arrowBg: 'bg-purple-500/10 border-purple-500/20',
+      glowBg: 'from-purple-500/5 via-transparent to-purple-500/5',
+      glowShadow: '0 20px 40px -12px rgba(168,85,247,0.15)',
       stat: '5 sections',
     },
     {
@@ -281,11 +284,13 @@ export default function DashboardPage() {
       description: 'Track every document needed for counselling & reporting.',
       icon: ClipboardCheck,
       href: '/doc-checklist',
-      gradient: 'from-emerald-500 to-green-600',
-      glow: 'rgba(16,185,129,0.12)',
-      accent: 'rgba(16,185,129,0.4)',
-      bg: 'bg-gradient-to-br from-emerald-50 to-green-100/50 dark:from-emerald-950/40 dark:to-green-900/20',
-      iconColor: 'text-emerald-600 dark:text-emerald-400',
+      iconBg: 'bg-emerald-500/10 border-emerald-500/20 group-hover:bg-emerald-500/20',
+      iconText: 'text-emerald-400',
+      hoverTitle: 'group-hover:text-emerald-300',
+      statColor: 'text-emerald-400/80',
+      arrowBg: 'bg-emerald-500/10 border-emerald-500/20',
+      glowBg: 'from-emerald-500/5 via-transparent to-emerald-500/5',
+      glowShadow: '0 20px 40px -12px rgba(16,185,129,0.15)',
       stat: `${stats.checklistDone}/${stats.checklistTotal} done`,
     },
     {
@@ -293,11 +298,13 @@ export default function DashboardPage() {
       description: 'Compare tuition, hostel fees & seat distribution by quota.',
       icon: IndianRupee,
       href: '/fee-matrix',
-      gradient: 'from-amber-500 to-orange-600',
-      glow: 'rgba(245,158,11,0.12)',
-      accent: 'rgba(245,158,11,0.4)',
-      bg: 'bg-gradient-to-br from-amber-50 to-orange-100/50 dark:from-amber-950/40 dark:to-orange-900/20',
-      iconColor: 'text-amber-600 dark:text-amber-400',
+      iconBg: 'bg-amber-500/10 border-amber-500/20 group-hover:bg-amber-500/20',
+      iconText: 'text-amber-400',
+      hoverTitle: 'group-hover:text-amber-300',
+      statColor: 'text-amber-400/80',
+      arrowBg: 'bg-amber-500/10 border-amber-500/20',
+      glowBg: 'from-amber-500/5 via-transparent to-amber-500/5',
+      glowShadow: '0 20px 40px -12px rgba(245,158,11,0.15)',
       stat: `${stats.feeRecords} records`,
     },
     {
@@ -305,11 +312,13 @@ export default function DashboardPage() {
       description: 'Live counselling notifications, allotments & public notices.',
       icon: Bell,
       href: '/announcements',
-      gradient: 'from-pink-500 to-rose-600',
-      glow: 'rgba(236,72,153,0.12)',
-      accent: 'rgba(236,72,153,0.4)',
-      bg: 'bg-gradient-to-br from-pink-50 to-rose-100/50 dark:from-pink-950/40 dark:to-rose-900/20',
-      iconColor: 'text-pink-600 dark:text-pink-400',
+      iconBg: 'bg-pink-500/10 border-pink-500/20 group-hover:bg-pink-500/20',
+      iconText: 'text-pink-400',
+      hoverTitle: 'group-hover:text-pink-300',
+      statColor: 'text-pink-400/80',
+      arrowBg: 'bg-pink-500/10 border-pink-500/20',
+      glowBg: 'from-pink-500/5 via-transparent to-pink-500/5',
+      glowShadow: '0 20px 40px -12px rgba(236,72,153,0.15)',
       stat: `${stats.announcements} updates`,
     },
     {
@@ -317,11 +326,13 @@ export default function DashboardPage() {
       description: 'Expert guidance videos on counselling & college selection.',
       icon: PlayCircle,
       href: '/colleges',
-      gradient: 'from-orange-500 to-red-600',
-      glow: 'rgba(249,115,22,0.12)',
-      accent: 'rgba(249,115,22,0.4)',
-      bg: 'bg-gradient-to-br from-orange-50 to-red-100/50 dark:from-orange-950/40 dark:to-red-900/20',
-      iconColor: 'text-orange-600 dark:text-orange-400',
+      iconBg: 'bg-orange-500/10 border-orange-500/20 group-hover:bg-orange-500/20',
+      iconText: 'text-orange-400',
+      hoverTitle: 'group-hover:text-orange-300',
+      statColor: 'text-orange-400/80',
+      arrowBg: 'bg-orange-500/10 border-orange-500/20',
+      glowBg: 'from-orange-500/5 via-transparent to-orange-500/5',
+      glowShadow: '0 20px 40px -12px rgba(249,115,22,0.15)',
       stat: `${stats.videos} videos`,
     },
     {
@@ -329,11 +340,13 @@ export default function DashboardPage() {
       description: 'Get instant AI-powered answers to any counselling query.',
       icon: Bot,
       href: '/ai-assistant',
-      gradient: 'from-cyan-500 to-teal-600',
-      glow: 'rgba(6,182,212,0.12)',
-      accent: 'rgba(6,182,212,0.4)',
-      bg: 'bg-gradient-to-br from-cyan-50 to-teal-100/50 dark:from-cyan-950/40 dark:to-teal-900/20',
-      iconColor: 'text-cyan-600 dark:text-cyan-400',
+      iconBg: 'bg-cyan-500/10 border-cyan-500/20 group-hover:bg-cyan-500/20',
+      iconText: 'text-cyan-400',
+      hoverTitle: 'group-hover:text-cyan-300',
+      statColor: 'text-cyan-400/80',
+      arrowBg: 'bg-cyan-500/10 border-cyan-500/20',
+      glowBg: 'from-cyan-500/5 via-transparent to-cyan-500/5',
+      glowShadow: '0 20px 40px -12px rgba(6,182,212,0.15)',
       stat: 'Ask anything',
     },
   ], [stats]);
@@ -639,36 +652,46 @@ export default function DashboardPage() {
           {controlPanelItems.map((item) => (
             <StaggerItem key={item.href + item.title}>
               <Link to={item.href} className="group block h-full">
-                <CardElevation lift={-5} className="h-full">
-                  <Card
-                    className="h-full rounded-xl overflow-hidden relative border-slate-200/60 dark:border-slate-800/60 hover:border-transparent hover:shadow-xl transition-all duration-300 bg-white dark:bg-slate-900"
-                  >
-                    <div className={`h-[3px] bg-gradient-to-r ${item.gradient}`} />
-                    <CardContent className="p-4 relative flex flex-col items-center text-center">
-                      <motion.div
-                        className={`w-11 h-11 rounded-xl flex items-center justify-center ${item.bg} shadow-sm mt-1`}
-                        whileHover={{ y: -2, scale: 1.1 }}
-                        transition={{ type: 'spring', stiffness: 350, damping: 18 }}
-                      >
-                        <item.icon className={`w-5 h-5 ${item.iconColor}`} />
-                      </motion.div>
-                      <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 mt-3 leading-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-[10px] text-muted-foreground mt-1.5 leading-relaxed line-clamp-2">
-                        {item.description}
-                      </p>
-                      <div className="mt-3 w-full pt-2.5 border-t border-slate-100 dark:border-slate-800/60">
-                        <span className={`inline-flex items-center gap-1 text-[10px] font-bold ${item.iconColor}`}>
-                          {item.stat}
-                        </span>
+                <div
+                  className="h-full rounded-2xl bg-slate-900 dark:bg-slate-950 border border-slate-800 dark:border-slate-700/50 overflow-hidden hover:-translate-y-1 transition-all duration-300 relative"
+                  style={{ boxShadow: '0 0 0 0 transparent' }}
+                  onMouseEnter={(e) => { e.currentTarget.style.boxShadow = item.glowShadow; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.boxShadow = '0 0 0 0 transparent'; }}
+                >
+                  {/* Hover glow overlay */}
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${item.glowBg} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+
+                  <div className="p-4 sm:p-5 relative flex flex-col items-center text-center h-full">
+                    {/* Icon */}
+                    <motion.div
+                      className={`w-11 h-11 rounded-xl ${item.iconBg} border flex items-center justify-center shrink-0 transition-all duration-300`}
+                      whileHover={{ y: -3, scale: 1.12, rotate: 3 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+                    >
+                      <item.icon className={`w-5 h-5 ${item.iconText}`} />
+                    </motion.div>
+
+                    {/* Title */}
+                    <h3 className={`text-[13px] font-bold text-white mt-3 leading-tight ${item.hoverTitle} transition-colors duration-200`}>
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-[10px] text-slate-400 mt-1.5 leading-relaxed line-clamp-2 flex-1">
+                      {item.description}
+                    </p>
+
+                    {/* Stat + Arrow */}
+                    <div className="mt-3 w-full pt-2.5 border-t border-slate-800 flex items-center justify-between">
+                      <span className={`text-[10px] font-bold ${item.statColor} tabular-nums`}>
+                        {item.stat}
+                      </span>
+                      <div className={`w-6 h-6 rounded-full ${item.arrowBg} border flex items-center justify-center opacity-0 group-hover:opacity-100 translate-x-1 group-hover:translate-x-0 transition-all duration-300`}>
+                        <ArrowRight className={`w-3 h-3 ${item.iconText}`} />
                       </div>
-                      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-300">
-                        <ArrowRight className={`w-3.5 h-3.5 ${item.iconColor}`} />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CardElevation>
+                    </div>
+                  </div>
+                </div>
               </Link>
             </StaggerItem>
           ))}

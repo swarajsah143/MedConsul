@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
+import { motion } from 'framer-motion';
 import {
   Search,
   ChevronRight,
@@ -49,6 +50,20 @@ const ICON_TEXT_COLORS = [
   'text-blue-600', 'text-emerald-600', 'text-purple-600', 'text-amber-600',
   'text-cyan-600', 'text-rose-600', 'text-indigo-600', 'text-teal-600',
 ];
+
+const CATEGORY_STYLES: Record<string, { gradient: string; bg: string; text: string; glow: string }> = {
+  General: { gradient: 'from-slate-500 to-slate-600', bg: 'bg-slate-100 dark:bg-slate-800', text: 'text-slate-700 dark:text-slate-300', glow: 'shadow-slate-500/15' },
+  OBC: { gradient: 'from-amber-500 to-orange-600', bg: 'bg-amber-50 dark:bg-amber-950/30', text: 'text-amber-700 dark:text-amber-400', glow: 'shadow-amber-500/15' },
+  SC: { gradient: 'from-blue-500 to-indigo-600', bg: 'bg-blue-50 dark:bg-blue-950/30', text: 'text-blue-700 dark:text-blue-400', glow: 'shadow-blue-500/15' },
+  ST: { gradient: 'from-emerald-500 to-teal-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30', text: 'text-emerald-700 dark:text-emerald-400', glow: 'shadow-emerald-500/15' },
+};
+const DEFAULT_CAT_STYLE = { gradient: 'from-purple-500 to-violet-600', bg: 'bg-purple-50 dark:bg-purple-950/30', text: 'text-purple-700 dark:text-purple-400', glow: 'shadow-purple-500/15' };
+
+const SEAT_STYLES: Record<string, { bg: string; text: string }> = {
+  Government: { bg: 'bg-emerald-50 dark:bg-emerald-950/30', text: 'text-emerald-700 dark:text-emerald-400' },
+  Deemed: { bg: 'bg-blue-50 dark:bg-blue-950/30', text: 'text-blue-700 dark:text-blue-400' },
+};
+const DEFAULT_SEAT_STYLE = { bg: 'bg-amber-50 dark:bg-amber-950/30', text: 'text-amber-700 dark:text-amber-400' };
 
 const RANK_RESULTS_PER_PAGE = 15;
 
@@ -392,73 +407,92 @@ export default function AllotmentStatesPage() {
               ) : (
                 <>
                   {/* Results Cards */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {paginatedRankResults.map((entry) => (
-                      <Card
-                        key={`${entry.counselling}-${entry.id}`}
-                        className="group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden cursor-pointer border-transparent hover:border-indigo-200 dark:hover:border-indigo-900/40"
-                        onClick={() => handleSelectState(entry.counselling)}
-                      >
-                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <CardContent className="p-4">
-                          {/* Institute */}
-                          <div className="flex items-start gap-3 mb-3">
-                            <div className="w-9 h-9 rounded-lg bg-indigo-50 dark:bg-indigo-950/30 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
-                              <GraduationCap className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                            </div>
-                            <div className="min-w-0">
-                              <p className="text-xs font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {paginatedRankResults.map((entry, idx) => {
+                      const catStyle = CATEGORY_STYLES[entry.category] || DEFAULT_CAT_STYLE;
+                      const seatStyle = SEAT_STYLES[entry.seatType] || DEFAULT_SEAT_STYLE;
+                      return (
+                        <motion.div
+                          key={`${entry.counselling}-${entry.id}`}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.4, delay: idx * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                          <Card
+                            className={`group relative overflow-hidden cursor-pointer border-slate-200/60 dark:border-slate-800/60 hover:border-transparent transition-all duration-500 hover:shadow-2xl ${catStyle.glow} h-full bg-white dark:bg-slate-900`}
+                            onClick={() => handleSelectState(entry.counselling)}
+                          >
+                            {/* Top gradient bar */}
+                            <div className={`h-1 bg-gradient-to-r ${catStyle.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
+
+                            {/* Hover glow */}
+                            <div className={`absolute -top-16 -right-16 w-36 h-36 rounded-full bg-gradient-to-br ${catStyle.gradient} opacity-0 group-hover:opacity-[0.07] blur-3xl transition-opacity duration-700 pointer-events-none`} />
+
+                            <CardContent className="p-4 relative">
+                              {/* Header: Icon + Round Badge */}
+                              <div className="flex items-start justify-between mb-3">
+                                <motion.div
+                                  className={`w-10 h-10 rounded-xl bg-gradient-to-br ${catStyle.gradient} flex items-center justify-center shadow-lg ${catStyle.glow}`}
+                                  whileHover={{ scale: 1.15, rotate: 5 }}
+                                  transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+                                >
+                                  <GraduationCap className="w-5 h-5 text-white" />
+                                </motion.div>
+                                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 border border-indigo-100 dark:border-indigo-900/40">
+                                  <span className="text-[9px] font-bold text-indigo-500 dark:text-indigo-400 uppercase">Round</span>
+                                  <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{entry.round}</span>
+                                </span>
+                              </div>
+
+                              {/* Institute Name */}
+                              <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-purple-600 dark:group-hover:from-indigo-400 dark:group-hover:to-purple-400 transition-all duration-300 mb-1.5">
                                 {entry.instituteName}
-                              </p>
-                              <p className="text-[10px] text-muted-foreground mt-0.5 flex items-center gap-1">
-                                <MapPin className="w-2.5 h-2.5" /> {entry.counselling === 'All India Quota - MCC' ? 'MCC' : entry.counselling}
-                              </p>
-                            </div>
-                          </div>
+                              </h3>
 
-                          {/* Stats Grid */}
-                          <div className="grid grid-cols-3 gap-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-2.5">
-                            <div className="text-center">
-                              <p className="text-[9px] font-semibold text-muted-foreground uppercase">Rank</p>
-                              <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">
-                                #{entry.allIndiaRank.toLocaleString()}
+                              {/* Counselling location */}
+                              <p className="text-[10px] text-muted-foreground flex items-center gap-1 mb-3">
+                                <MapPin className="w-2.5 h-2.5" />
+                                {entry.counselling === 'All India Quota - MCC' ? 'MCC — All India Quota' : entry.counselling}
                               </p>
-                            </div>
-                            <div className="text-center border-x border-slate-200 dark:border-slate-700">
-                              <p className="text-[9px] font-semibold text-muted-foreground uppercase">Score</p>
-                              <p className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400 tabular-nums">
-                                {entry.neetScore}
-                              </p>
-                            </div>
-                            <div className="text-center">
-                              <p className="text-[9px] font-semibold text-muted-foreground uppercase">Round</p>
-                              <p className="text-sm font-extrabold text-red-600 dark:text-red-400">R{entry.round}</p>
-                            </div>
-                          </div>
 
-                          {/* Tags */}
-                          <div className="flex items-center gap-1.5 mt-2.5 flex-wrap">
-                            <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${
-                              entry.category === 'General' ? 'bg-slate-100 dark:bg-slate-800 text-slate-600' :
-                              entry.category === 'OBC' ? 'bg-amber-50 dark:bg-amber-950/30 text-amber-700' :
-                              entry.category === 'SC' ? 'bg-blue-50 dark:bg-blue-950/30 text-blue-700' :
-                              entry.category === 'ST' ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700' :
-                              'bg-purple-50 dark:bg-purple-950/30 text-purple-700'
-                            }`}>
-                              {entry.category}
-                            </span>
-                            <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${
-                              entry.seatType === 'Government' ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700' :
-                              entry.seatType === 'Deemed' ? 'bg-blue-50 dark:bg-blue-950/30 text-blue-700' :
-                              'bg-amber-50 dark:bg-amber-950/30 text-amber-700'
-                            }`}>
-                              {entry.seatType}
-                            </span>
-                            <ArrowRight className="w-3 h-3 text-slate-300 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
+                              {/* Stats Row */}
+                              <div className="grid grid-cols-2 gap-2 mb-3">
+                                <div className="rounded-xl bg-gradient-to-br from-slate-50 to-slate-100/50 dark:from-slate-800/80 dark:to-slate-800/40 p-2.5 text-center border border-slate-100 dark:border-slate-800">
+                                  <p className="text-[8px] font-bold text-muted-foreground uppercase tracking-widest">All India Rank</p>
+                                  <p className="text-base font-extrabold text-slate-900 dark:text-slate-100 tabular-nums leading-tight mt-0.5">
+                                    #{entry.allIndiaRank.toLocaleString()}
+                                  </p>
+                                </div>
+                                <div className="rounded-xl bg-gradient-to-br from-emerald-50 to-green-50/50 dark:from-emerald-950/30 dark:to-green-950/20 p-2.5 text-center border border-emerald-100 dark:border-emerald-900/30">
+                                  <p className="text-[8px] font-bold text-emerald-600/70 dark:text-emerald-500/70 uppercase tracking-widest">NEET Score</p>
+                                  <p className="text-base font-extrabold text-emerald-700 dark:text-emerald-400 tabular-nums leading-tight mt-0.5">
+                                    {entry.neetScore}
+                                  </p>
+                                </div>
+                              </div>
+
+                              {/* Bottom: Tags + Arrow */}
+                              <div className="flex items-center gap-1.5 pt-3 border-t border-slate-100 dark:border-slate-800/60">
+                                <span className={`text-[9px] font-bold px-2.5 py-1 rounded-full border ${catStyle.bg} ${catStyle.text} border-current/10`}>
+                                  {entry.category}
+                                </span>
+                                <span className={`text-[9px] font-bold px-2.5 py-1 rounded-full ${seatStyle.bg} ${seatStyle.text}`}>
+                                  {entry.seatType}
+                                </span>
+                                <motion.div
+                                  className="ml-auto opacity-0 group-hover:opacity-100"
+                                  initial={false}
+                                  animate={{ x: 0 }}
+                                  whileHover={{ x: 3 }}
+                                >
+                                  <ArrowRight className="w-4 h-4 text-indigo-400 dark:text-indigo-500" />
+                                </motion.div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </motion.div>
+                      );
+                    })}
                   </div>
 
                   <Pagination
@@ -481,40 +515,56 @@ export default function AllotmentStatesPage() {
                   icon: Target,
                   title: 'Enter Your Rank',
                   description: 'Type your NEET All India Rank in the search box above.',
-                  color: 'text-indigo-600',
-                  bg: 'bg-indigo-50 dark:bg-indigo-950/30',
+                  gradient: 'from-indigo-500 to-blue-600',
+                  glow: 'shadow-indigo-500/20',
+                  bg: 'bg-gradient-to-br from-indigo-50 to-blue-50/50 dark:from-indigo-950/30 dark:to-blue-950/20',
                 },
                 {
                   icon: Building2,
                   title: 'See Matching Colleges',
                   description: 'We search across all 35 states & MCC to find colleges in your rank range.',
-                  color: 'text-purple-600',
-                  bg: 'bg-purple-50 dark:bg-purple-950/30',
+                  gradient: 'from-purple-500 to-violet-600',
+                  glow: 'shadow-purple-500/20',
+                  bg: 'bg-gradient-to-br from-purple-50 to-violet-50/50 dark:from-purple-950/30 dark:to-violet-950/20',
                 },
                 {
                   icon: TrendingUp,
                   title: 'Plan Your Choices',
                   description: 'Compare allotments across categories and rounds to make an informed choice list.',
-                  color: 'text-pink-600',
-                  bg: 'bg-pink-50 dark:bg-pink-950/30',
+                  gradient: 'from-pink-500 to-rose-600',
+                  glow: 'shadow-pink-500/20',
+                  bg: 'bg-gradient-to-br from-pink-50 to-rose-50/50 dark:from-pink-950/30 dark:to-rose-950/20',
                 },
               ].map((step, idx) => (
-                <Card key={idx} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <CardContent className="p-5 text-center space-y-3">
-                    <div className={`w-12 h-12 rounded-2xl ${step.bg} flex items-center justify-center mx-auto transition-transform duration-300 group-hover:scale-110`}>
-                      <step.icon className={`w-6 h-6 ${step.color}`} />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">{step.title}</h3>
-                      <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{step.description}</p>
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <span className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-sm font-extrabold text-slate-400">
-                        {idx + 1}
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <Card className={`group relative overflow-hidden border-slate-200/60 dark:border-slate-800/60 hover:border-transparent hover:shadow-2xl ${step.glow} transition-all duration-500 h-full`}>
+                    <div className={`h-1 bg-gradient-to-r ${step.gradient} opacity-50 group-hover:opacity-100 transition-opacity duration-300`} />
+                    <div className={`absolute -top-16 -right-16 w-32 h-32 rounded-full bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-[0.06] blur-3xl transition-opacity duration-700 pointer-events-none`} />
+                    <CardContent className="p-5 text-center space-y-3 relative">
+                      <motion.div
+                        className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center mx-auto shadow-lg ${step.glow}`}
+                        whileHover={{ scale: 1.15, rotate: 5 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+                      >
+                        <step.icon className="w-6 h-6 text-white" />
+                      </motion.div>
+                      <div>
+                        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">{step.title}</h3>
+                        <p className="text-[11px] text-muted-foreground mt-1.5 leading-relaxed">{step.description}</p>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <span className={`w-8 h-8 rounded-full ${step.bg} border border-current/5 flex items-center justify-center text-sm font-extrabold bg-gradient-to-br ${step.gradient} text-white shadow-sm`}>
+                          {idx + 1}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           )}
