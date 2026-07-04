@@ -47,15 +47,29 @@ const TYPE_STYLES: Record<string, string> = {
   Central: 'bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400',
 };
 
+const NEON_TYPE: Record<string, { border: string; text: string; bg: string; icon: string; glow: string; hoverText: string }> = {
+  Government: { border: 'border-emerald-500/20', text: 'text-emerald-400', bg: 'bg-emerald-500/10', icon: 'text-emerald-400', glow: 'hover:shadow-emerald-500/10', hoverText: 'group-hover:text-emerald-300' },
+  Private: { border: 'border-amber-500/20', text: 'text-amber-400', bg: 'bg-amber-500/10', icon: 'text-amber-400', glow: 'hover:shadow-amber-500/10', hoverText: 'group-hover:text-amber-300' },
+  Deemed: { border: 'border-blue-500/20', text: 'text-blue-400', bg: 'bg-blue-500/10', icon: 'text-blue-400', glow: 'hover:shadow-blue-500/10', hoverText: 'group-hover:text-blue-300' },
+  AIIMS: { border: 'border-red-500/20', text: 'text-red-400', bg: 'bg-red-500/10', icon: 'text-red-400', glow: 'hover:shadow-red-500/10', hoverText: 'group-hover:text-red-300' },
+  Central: { border: 'border-purple-500/20', text: 'text-purple-400', bg: 'bg-purple-500/10', icon: 'text-purple-400', glow: 'hover:shadow-purple-500/10', hoverText: 'group-hover:text-purple-300' },
+};
+const DEFAULT_NEON = { border: 'border-slate-500/20', text: 'text-slate-400', bg: 'bg-slate-500/10', icon: 'text-slate-400', glow: 'hover:shadow-slate-500/10', hoverText: 'group-hover:text-slate-300' };
+
 function selectClass() {
   return 'h-11 w-full appearance-none rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 pl-4 pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer';
 }
 
 function UniversityCard({ u }: { u: University }) {
+  const neon = NEON_TYPE[u.type] || DEFAULT_NEON;
+
   return (
-    <Card className="group h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-transparent hover:border-red-200 dark:hover:border-red-900/40 relative">
+    <div className={`group h-full rounded-2xl bg-slate-900 dark:bg-slate-950 border border-slate-800 dark:border-slate-700/50 overflow-hidden hover:shadow-2xl ${neon.glow} hover:-translate-y-1 transition-all duration-300 relative`}>
+      {/* Hover glow */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
       {/* Photo banner */}
-      <div className="relative h-32 bg-gradient-to-br from-red-500 to-rose-600 overflow-hidden">
+      <div className="relative h-32 overflow-hidden">
         <img
           src={u.image}
           alt={u.name}
@@ -63,66 +77,70 @@ function UniversityCard({ u }: { u: University }) {
           onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
-        <span className={`absolute top-2.5 right-2.5 text-[10px] font-bold px-2 py-0.5 rounded-full backdrop-blur-sm ${TYPE_STYLES[u.type] || 'bg-white/80 text-slate-700'}`}>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+        <span className={`absolute top-2.5 right-2.5 text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${neon.bg} ${neon.text} ${neon.border}`}>
           {u.type}
         </span>
-        <div className="absolute bottom-2.5 left-3 right-3 flex items-center gap-1.5 text-white">
+        <div className="absolute bottom-2.5 left-3 right-3 flex items-center gap-1.5 text-white/80">
           <MapPin className="w-3 h-3 shrink-0" />
-          <span className="text-[11px] font-semibold truncate drop-shadow">{u.city}, {u.state}</span>
+          <span className="text-[11px] font-semibold truncate">{u.city}, {u.state}</span>
         </div>
       </div>
 
-      <CardContent className="p-5">
+      <div className="p-4 sm:p-5 relative">
+        {/* Icon + Name */}
         <div className="flex items-start gap-3 mb-3">
-          <div className="w-11 h-11 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
-            <GraduationCap className="w-5 h-5 text-red-600 dark:text-red-400" />
+          <div className={`w-10 h-10 rounded-xl ${neon.bg} border ${neon.border} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+            <GraduationCap className={`w-5 h-5 ${neon.icon}`} />
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors line-clamp-2">
+            <h3 className={`text-sm font-bold text-white leading-snug ${neon.hoverText} transition-colors line-clamp-2`}>
               {u.name}
             </h3>
-            <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-              <MapPin className="w-3 h-3" /> {u.city}, {u.state}
+            <p className="text-[11px] text-slate-400 mt-0.5 flex items-center gap-1">
+              <MapPin className="w-3 h-3 text-slate-500" /> {u.city}, {u.state}
             </p>
           </div>
         </div>
 
+        {/* Tags */}
         <div className="flex flex-wrap items-center gap-1.5 mb-3">
-          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${TYPE_STYLES[u.type] || 'bg-slate-100 text-slate-600'}`}>
+          <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${neon.bg} ${neon.text} ${neon.border}`}>
             {u.type}
           </span>
-          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">
+          <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-slate-800 border border-slate-700/50 text-slate-400">
             Est. {u.established}
           </span>
         </div>
 
-        <div className="border-t border-slate-100 dark:border-slate-800 pt-3">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Courses Offered</p>
+        {/* Courses */}
+        <div className="border-t border-slate-800 pt-3 mb-3">
+          <p className="text-[8px] font-bold uppercase tracking-widest text-slate-500 mb-2">Courses Offered</p>
           <div className="flex flex-wrap gap-1">
             {u.courses.slice(0, 6).map((c) => (
-              <span key={c} className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-red-50/60 dark:bg-red-950/20 text-red-600 dark:text-red-400">
+              <span key={c} className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-red-500/10 border border-red-500/20 text-red-400">
                 {c}
               </span>
             ))}
             {u.courses.length > 6 && (
-              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500">
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700/50 text-slate-500">
                 +{u.courses.length - 6}
               </span>
             )}
           </div>
         </div>
 
+        {/* Website link */}
         <a
           href={u.website}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 dark:text-red-400 hover:gap-2.5 transition-all"
+          className={`inline-flex items-center gap-1.5 text-xs font-semibold ${neon.text} hover:gap-2.5 transition-all duration-300`}
         >
-          Visit Website <ExternalLink className="w-3.5 h-3.5" />
+          Visit Website <ExternalLink className="w-3.5 h-3.5 opacity-60" />
         </a>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }
 
@@ -280,35 +298,68 @@ function CoursesSection() {
 }
 
 // ─────────────────────── Blogs ───────────────────────
+
+const BLOG_CAT_NEON: Record<string, { bg: string; text: string; border: string; icon: string; glow: string; hoverText: string }> = {
+  University: { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20', icon: 'text-blue-400', glow: 'hover:shadow-blue-500/10', hoverText: 'group-hover:text-blue-300' },
+  Research: { bg: 'bg-emerald-500/10', text: 'text-emerald-400', border: 'border-emerald-500/20', icon: 'text-emerald-400', glow: 'hover:shadow-emerald-500/10', hoverText: 'group-hover:text-emerald-300' },
+  Discovery: { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20', icon: 'text-purple-400', glow: 'hover:shadow-purple-500/10', hoverText: 'group-hover:text-purple-300' },
+  Admissions: { bg: 'bg-amber-500/10', text: 'text-amber-400', border: 'border-amber-500/20', icon: 'text-amber-400', glow: 'hover:shadow-amber-500/10', hoverText: 'group-hover:text-amber-300' },
+  Career: { bg: 'bg-cyan-500/10', text: 'text-cyan-400', border: 'border-cyan-500/20', icon: 'text-cyan-400', glow: 'hover:shadow-cyan-500/10', hoverText: 'group-hover:text-cyan-300' },
+};
+const DEFAULT_BLOG_NEON = { bg: 'bg-red-500/10', text: 'text-red-400', border: 'border-red-500/20', icon: 'text-red-400', glow: 'hover:shadow-red-500/10', hoverText: 'group-hover:text-red-300' };
+
 function BlogCard({ b }: { b: Blog }) {
   const dateStr = new Date(b.date + 'T00:00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  const neon = BLOG_CAT_NEON[b.category] || DEFAULT_BLOG_NEON;
+
   return (
-    <a href={b.url} className="group block h-full">
-      <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-transparent hover:border-red-200 dark:hover:border-red-900/40">
-        <CardContent className="p-5 flex flex-col h-full">
-          <span className="inline-flex items-center gap-1 self-start text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 mb-3">
-            {b.category}
-          </span>
+    <a href={b.url} target="_blank" rel="noopener noreferrer" className="group block h-full">
+      <div className="h-full rounded-2xl bg-gradient-to-br from-red-50/80 via-orange-50/60 to-amber-50/40 dark:from-red-950/25 dark:via-orange-950/15 dark:to-amber-950/10 border border-red-200/60 dark:border-red-900/30 overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300 relative">
+        {/* Hover glow */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 via-transparent to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+        <div className="p-4 sm:p-5 relative flex flex-col h-full">
+          {/* Category badge + Read time */}
+          <div className="flex items-center justify-between mb-3">
+            <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${neon.bg} ${neon.text} ${neon.border}`}>
+              <Newspaper className={`w-3 h-3 ${neon.icon}`} />
+              {b.category}
+            </span>
+            <span className="flex items-center gap-1 text-[10px] font-medium text-slate-500 dark:text-slate-400">
+              <Clock className="w-3 h-3" /> {b.readTime}
+            </span>
+          </div>
+
+          {/* Title */}
           <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors line-clamp-2">
             {b.title}
           </h3>
-          <p className="text-xs text-muted-foreground mt-2 leading-relaxed line-clamp-3 flex-1">{b.excerpt}</p>
 
+          {/* Excerpt */}
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed line-clamp-3 flex-1">{b.excerpt}</p>
+
+          {/* Tags */}
           <div className="flex flex-wrap gap-1 mt-3">
             {b.tags.slice(0, 3).map((t) => (
-              <span key={t} className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500">
+              <span key={t} className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-white/60 dark:bg-slate-800/60 border border-red-100 dark:border-slate-700/50 text-slate-600 dark:text-slate-400">
                 #{t}
               </span>
             ))}
           </div>
 
-          <div className="flex items-center gap-3 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-[11px] text-muted-foreground">
-            <span className="flex items-center gap-1"><User className="w-3 h-3" /> {b.author}</span>
+          {/* Footer: Author + Date */}
+          <div className="flex items-center gap-3 mt-4 pt-3 border-t border-red-100/80 dark:border-red-900/20 text-[11px] text-slate-500 dark:text-slate-400">
+            <span className="flex items-center gap-1.5">
+              <div className="w-5 h-5 rounded-full bg-red-100 dark:bg-red-950/30 border border-red-200 dark:border-red-800/40 flex items-center justify-center">
+                <User className="w-2.5 h-2.5 text-red-500 dark:text-red-400" />
+              </div>
+              {b.author}
+            </span>
             <span className="flex items-center gap-1"><CalendarDays className="w-3 h-3" /> {dateStr}</span>
-            <span className="flex items-center gap-1 ml-auto"><Clock className="w-3 h-3" /> {b.readTime}</span>
+            <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-0 group-hover:opacity-100 text-red-500 dark:text-red-400 transition-opacity duration-300" />
           </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </a>
   );
 }
