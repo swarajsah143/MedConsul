@@ -52,7 +52,6 @@ const STAT_COLORS = [
 ];
 
 function PatientLoadCard({ data }: { data: string }) {
-  // Parse "Label: Value | Label: Value | ... trailing sentence."
   const parts = data.split('|').map((s) => s.trim());
   const stats: { label: string; value: string }[] = [];
   let description = '';
@@ -62,7 +61,6 @@ function PatientLoadCard({ data }: { data: string }) {
     if (colonIdx === -1) { description = part; continue; }
     const label = part.slice(0, colonIdx).trim();
     let value = part.slice(colonIdx + 1).trim();
-    // If value contains a sentence (period followed by space + uppercase), split it
     const sentenceBreak = value.search(/\.\s+[A-Z]/);
     if (sentenceBreak !== -1) {
       description = value.slice(sentenceBreak + 2);
@@ -71,33 +69,60 @@ function PatientLoadCard({ data }: { data: string }) {
     if (label && value) stats.push({ label, value });
   }
 
+  const STAT_GRADIENTS = [
+    'from-red-500 to-rose-600',
+    'from-blue-500 to-indigo-600',
+    'from-emerald-500 to-green-600',
+    'from-amber-500 to-orange-600',
+  ];
+
   return (
-    <FadeIn>
-      <div className="space-y-3">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
-            <HeartPulse className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <Card className="overflow-hidden border-slate-200/60 dark:border-slate-800/60 hover:shadow-lg transition-shadow duration-300">
+        <div className="h-[3px] bg-gradient-to-r from-rose-500 to-pink-600 opacity-60" />
+        <CardContent className="p-5">
+          <div className="flex items-center gap-3 mb-4">
+            <motion.div
+              className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center shadow-lg shadow-rose-500/10"
+              whileHover={{ scale: 1.1, rotate: 3 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+            >
+              <HeartPulse className="w-5 h-5 text-white" />
+            </motion.div>
+            <h3 className="text-lg font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+              Patient Load
+            </h3>
           </div>
-          Patient Load
-        </h3>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pl-9">
-          {stats.map((s, i) => {
-            const color = STAT_COLORS[i % STAT_COLORS.length];
-            return (
-              <div key={i} className={`rounded-xl ${color.bg} px-3 py-3`}>
-                <p className={`text-base font-extrabold ${color.text} leading-tight`}>{s.value}</p>
-                <p className="text-[10px] font-medium text-slate-500 dark:text-slate-400 mt-1 leading-snug">{s.label}</p>
-              </div>
-            );
-          })}
-        </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {stats.map((s, i) => {
+              const color = STAT_COLORS[i % STAT_COLORS.length];
+              const gradient = STAT_GRADIENTS[i % STAT_GRADIENTS.length];
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                  className={`rounded-xl ${color.bg} px-3.5 py-3.5 border border-slate-100 dark:border-slate-800/50 hover:shadow-md transition-all duration-300 group/stat`}
+                >
+                  <p className={`text-lg font-extrabold ${color.text} leading-tight group-hover/stat:scale-105 transition-transform origin-left`}>{s.value}</p>
+                  <p className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 mt-1.5 leading-snug uppercase tracking-wider">{s.label}</p>
+                </motion.div>
+              );
+            })}
+          </div>
 
-        {description && (
-          <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-[1.7] pl-9">{description}</p>
-        )}
-      </div>
-    </FadeIn>
+          {description && (
+            <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-[1.8] mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/60">{description}</p>
+          )}
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
 
@@ -203,21 +228,48 @@ function PhotoStack({ images }: { images: Array<{ url: string; caption: string }
   );
 }
 
-function ContentBlock({ icon: Icon, title, text }: { icon: LucideIcon; title: string; text: string }) {
+function ContentBlock({ icon: Icon, title, text, gradient = 'from-red-500 to-rose-600', delay = 0 }: {
+  icon: LucideIcon; title: string; text: string; gradient?: string; delay?: number;
+}) {
+  // Split text into sentences for better readability
+  const firstSentenceEnd = text.indexOf('. ');
+  const highlight = firstSentenceEnd > 0 ? text.slice(0, firstSentenceEnd + 1) : '';
+  const rest = firstSentenceEnd > 0 ? text.slice(firstSentenceEnd + 2) : text;
+
   return (
-    <FadeIn>
-      <div className="space-y-2.5">
-        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
-            <Icon className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <Card className="overflow-hidden border-slate-200/60 dark:border-slate-800/60 hover:shadow-lg transition-shadow duration-300 group/block">
+        <div className={`h-[3px] bg-gradient-to-r ${gradient} opacity-60 group-hover/block:opacity-100 transition-opacity duration-300`} />
+        <CardContent className="p-5">
+          <div className="flex items-center gap-3 mb-4">
+            <motion.div
+              className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg shadow-red-500/10`}
+              whileHover={{ scale: 1.1, rotate: 3 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+            >
+              <Icon className="w-5 h-5 text-white" />
+            </motion.div>
+            <h3 className="text-lg font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+              {title}
+            </h3>
           </div>
-          {title}
-        </h3>
-        <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-[1.7] pl-9">
-          {text}
-        </p>
-      </div>
-    </FadeIn>
+          <div className="space-y-2">
+            {highlight && (
+              <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">
+                {highlight}
+              </p>
+            )}
+            <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-[1.8]">
+              {rest}
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
 
@@ -317,76 +369,129 @@ export default function CollegeDetailPage() {
 
               {activeTab === 'overview' && (
                 <>
-                  <ContentBlock icon={BookOpen} title="About" text={college.about} />
-                  <ContentBlock icon={Users} title="Faculty Quality" text={college.facultyQuality} />
+                  <ContentBlock icon={BookOpen} title="About" text={college.about} gradient="from-blue-500 to-indigo-600" delay={0} />
+                  <ContentBlock icon={Users} title="Faculty Quality" text={college.facultyQuality} gradient="from-purple-500 to-violet-600" delay={0.1} />
 
                   {/* Pros & Cons */}
-                  <FadeIn>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <Card className="border-l-4 border-l-emerald-500 bg-emerald-50/30 dark:bg-emerald-950/10">
-                        <CardContent className="p-4 space-y-2.5">
-                          <h4 className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
-                            <ThumbsUp className="w-3.5 h-3.5" /> Advantages
-                          </h4>
-                          {college.pros.map((p, i) => (
-                            <p key={i} className="text-xs text-slate-700 dark:text-slate-300 flex gap-2 leading-relaxed">
-                              <span className="text-emerald-500 mt-0.5 shrink-0">+</span> {p}
-                            </p>
-                          ))}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}>
+                      <Card className="overflow-hidden border-slate-200/60 dark:border-slate-800/60 hover:shadow-lg transition-all duration-300 h-full group/pros">
+                        <div className="h-[3px] bg-gradient-to-r from-emerald-500 to-green-500" />
+                        <CardContent className="p-5 space-y-3">
+                          <div className="flex items-center gap-2.5">
+                            <motion.div
+                              className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shadow-md shadow-emerald-500/15"
+                              whileHover={{ scale: 1.1 }}
+                            >
+                              <ThumbsUp className="w-4 h-4 text-white" />
+                            </motion.div>
+                            <h4 className="text-base font-extrabold text-emerald-700 dark:text-emerald-400">
+                              Advantages
+                            </h4>
+                          </div>
+                          <div className="space-y-2">
+                            {college.pros.map((p, i) => (
+                              <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.3 + i * 0.06 }}
+                                className="flex gap-2.5 items-start p-2 rounded-lg hover:bg-emerald-50/50 dark:hover:bg-emerald-950/10 transition-colors"
+                              >
+                                <span className="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950/30 flex items-center justify-center shrink-0 mt-0.5 text-emerald-600 text-[10px] font-bold">{i + 1}</span>
+                                <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{p}</p>
+                              </motion.div>
+                            ))}
+                          </div>
                         </CardContent>
                       </Card>
-                      <Card className="border-l-4 border-l-rose-500 bg-rose-50/30 dark:bg-rose-950/10">
-                        <CardContent className="p-4 space-y-2.5">
-                          <h4 className="text-xs font-bold text-rose-700 dark:text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
-                            <ThumbsDown className="w-3.5 h-3.5" /> Considerations
-                          </h4>
-                          {college.cons.map((c, i) => (
-                            <p key={i} className="text-xs text-slate-700 dark:text-slate-300 flex gap-2 leading-relaxed">
-                              <span className="text-rose-500 mt-0.5 shrink-0">-</span> {c}
-                            </p>
-                          ))}
+                    </motion.div>
+
+                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}>
+                      <Card className="overflow-hidden border-slate-200/60 dark:border-slate-800/60 hover:shadow-lg transition-all duration-300 h-full group/cons">
+                        <div className="h-[3px] bg-gradient-to-r from-rose-500 to-red-500" />
+                        <CardContent className="p-5 space-y-3">
+                          <div className="flex items-center gap-2.5">
+                            <motion.div
+                              className="w-9 h-9 rounded-xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center shadow-md shadow-rose-500/15"
+                              whileHover={{ scale: 1.1 }}
+                            >
+                              <ThumbsDown className="w-4 h-4 text-white" />
+                            </motion.div>
+                            <h4 className="text-base font-extrabold text-rose-700 dark:text-rose-400">
+                              Considerations
+                            </h4>
+                          </div>
+                          <div className="space-y-2">
+                            {college.cons.map((c, i) => (
+                              <motion.div
+                                key={i}
+                                initial={{ opacity: 0, x: 10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.35 + i * 0.06 }}
+                                className="flex gap-2.5 items-start p-2 rounded-lg hover:bg-rose-50/50 dark:hover:bg-rose-950/10 transition-colors"
+                              >
+                                <span className="w-5 h-5 rounded-full bg-rose-100 dark:bg-rose-950/30 flex items-center justify-center shrink-0 mt-0.5 text-rose-600 text-[10px] font-bold">{i + 1}</span>
+                                <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{c}</p>
+                              </motion.div>
+                            ))}
+                          </div>
                         </CardContent>
                       </Card>
-                    </div>
-                  </FadeIn>
+                    </motion.div>
+                  </div>
                 </>
               )}
 
               {activeTab === 'academics' && (
                 <>
-                  <ContentBlock icon={Stethoscope} title="Hospital Facilities" text={college.hospitalFacilities} />
-                  <ContentBlock icon={Activity} title="Clinical Exposure" text={college.clinicalExposure} />
-
-                  {/* Patient Load */}
+                  <ContentBlock icon={Stethoscope} title="Hospital Facilities" text={college.hospitalFacilities} gradient="from-emerald-500 to-teal-600" delay={0} />
+                  <ContentBlock icon={Activity} title="Clinical Exposure" text={college.clinicalExposure} gradient="from-blue-500 to-cyan-600" delay={0.1} />
                   <PatientLoadCard data={college.patientLoad} />
                 </>
               )}
 
               {activeTab === 'campus' && (
                 <>
-                  <ContentBlock icon={Building2} title="Campus Infrastructure" text={college.campusInfrastructure} />
-                  <ContentBlock icon={Home} title="Hostel Facilities" text={college.hostelFacilities} />
-                  <ContentBlock icon={Smile} title="Student Life" text={college.studentLife} />
+                  <ContentBlock icon={Building2} title="Campus Infrastructure" text={college.campusInfrastructure} gradient="from-amber-500 to-orange-600" delay={0} />
+                  <ContentBlock icon={Home} title="Hostel Facilities" text={college.hostelFacilities} gradient="from-indigo-500 to-violet-600" delay={0.1} />
+                  <ContentBlock icon={Smile} title="Student Life" text={college.studentLife} gradient="from-pink-500 to-rose-600" delay={0.2} />
                 </>
               )}
 
               {activeTab === 'gallery' && (
                 <>
                   {/* Tinder-style Photo Stack */}
-                  <FadeIn>
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 mb-4">
-                      <Image className="w-4 h-4 text-red-600" /> Campus Gallery
-                      <span className="text-[10px] font-medium text-muted-foreground ml-auto">Click to shuffle</span>
-                    </h3>
+                  <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+                    <div className="flex items-center gap-3 mb-5">
+                      <motion.div
+                        className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center shadow-lg shadow-violet-500/10"
+                        whileHover={{ scale: 1.1, rotate: 3 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+                      >
+                        <Image className="w-5 h-5 text-white" />
+                      </motion.div>
+                      <div>
+                        <h3 className="text-lg font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">Campus Gallery</h3>
+                        <p className="text-[11px] text-muted-foreground">Click to shuffle photos</p>
+                      </div>
+                    </div>
                     <PhotoStack images={college.gallery} />
-                  </FadeIn>
+                  </motion.div>
 
                   {/* Videos */}
                   {college.reviewVideos.length > 0 && (
-                    <FadeIn>
-                      <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 mb-4">
-                        <Play className="w-4 h-4 text-red-600" /> Review Videos
-                      </h3>
+                    <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+                      <div className="flex items-center gap-3 mb-5">
+                        <motion.div
+                          className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shadow-lg shadow-red-500/10"
+                          whileHover={{ scale: 1.1, rotate: 3 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+                        >
+                          <Play className="w-5 h-5 text-white" />
+                        </motion.div>
+                        <h3 className="text-lg font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">Review Videos</h3>
+                      </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {college.reviewVideos.map((video, idx) => (
                           <Card key={idx} className="overflow-hidden group hover:shadow-lg transition-shadow duration-300">
@@ -402,7 +507,7 @@ export default function CollegeDetailPage() {
                           </Card>
                         ))}
                       </div>
-                    </FadeIn>
+                    </motion.div>
                   )}
                 </>
               )}

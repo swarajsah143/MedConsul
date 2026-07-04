@@ -30,7 +30,7 @@ export const authController = {
         data: { user: result.user, accessToken: result.accessToken },
       });
     } catch (err: any) {
-      res.status(err.status || 500).json({
+      console.error("LOGIN ERROR:", err); res.status(err.status || 500).json({
         success: false,
         message: err.message || 'Registration failed',
       });
@@ -48,7 +48,7 @@ export const authController = {
         data: { user: result.user, accessToken: result.accessToken },
       });
     } catch (err: any) {
-      res.status(err.status || 500).json({
+      console.error("LOGIN ERROR:", err); res.status(err.status || 500).json({
         success: false,
         message: err.message || 'Login failed',
       });
@@ -97,7 +97,7 @@ export const authController = {
       }
       res.json({ success: true, ...data });
     } catch (err: any) {
-      res.status(err.status || 500).json({
+      console.error("LOGIN ERROR:", err); res.status(err.status || 500).json({
         success: false,
         message: err.message || 'Failed to process request',
       });
@@ -111,7 +111,7 @@ export const authController = {
       clearRefreshCookie(res);
       res.json({ success: true, message: result.message });
     } catch (err: any) {
-      res.status(err.status || 500).json({
+      console.error("LOGIN ERROR:", err); res.status(err.status || 500).json({
         success: false,
         message: err.message || 'Password reset failed',
       });
@@ -123,7 +123,7 @@ export const authController = {
       const user = await authService.getProfile(req.user!.userId);
       res.json({ success: true, data: { user } });
     } catch (err: any) {
-      res.status(err.status || 500).json({
+      console.error("LOGIN ERROR:", err); res.status(err.status || 500).json({
         success: false,
         message: err.message || 'Failed to fetch profile',
       });
