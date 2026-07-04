@@ -325,6 +325,12 @@
       "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODMxODAxNDAsImV4cCI6MTc4Mzc4NDk0MH0.mTILvvzvdLWAtLahiKY89-xAWEf13U7jc2EVGA6Lt14",
       "expiresAt": "2026-07-11T15:49:00.924Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODMxODA0MjksImV4cCI6MTc4Mzc4NTIyOX0.7bfMcknEzKlFLr0tbLliXxE2Ul82LyJXO3xvpTSuxZE": {
+      "id": "502add33-a600-4ed3-8903-f1bec73a0923",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODMxODA0MjksImV4cCI6MTc4Mzc4NTIyOX0.7bfMcknEzKlFLr0tbLliXxE2Ul82LyJXO3xvpTSuxZE",
+      "expiresAt": "2026-07-11T15:53:49.509Z"
     }
   },
   "passwordResets": {},
@@ -902,6 +908,23 @@
       ],
       "createdAt": "2026-07-01T15:18:30.759Z",
       "updatedAt": "2026-07-01T15:18:30.834Z"
+    },
+    "34df1756-41ff-44e0-8417-ab61e570285b": {
+      "id": "34df1756-41ff-44e0-8417-ab61e570285b",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "Which colleges can I get with AIR 45,000?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which colleges can I get with AIR 45,000?"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Options Based on Your Rank\n\nHere are the colleges that match your rank range:\n\n### Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| KMC Manipal | MBBS | General | Management | 2025 R1 | Closing Rank: #42,150 | Score: 565 |\n| Patna MC, Patna | MBBS | OBC | Bihar State | 2025 R1 | Closing Rank: #28,000 | Score: 580 |\n| St. John's, Bengaluru | MBBS | General | Management | 2025 R1 | Closing Rank: #18,000 | Score: 630 |\n| Grant MC, Mumbai | BDS | General | Maharashtra State | 2025 R1 | Closing Rank: #15,420 | Score: 615 |\n| Patna MC, Patna | MBBS | General | Bihar State | 2025 R1 | Closing Rank: #15,000 | Score: 620 |\n| KMC Manipal | MBBS | General | AIQ | 2025 R1 | Closing Rank: #10,500 | Score: 648 |\n| KGMU, Lucknow | MBBS | OBC | UP State | 2025 R1 | Closing Rank: #8,500 | Score: 640 |\n| AIIMS, New Delhi | MBBS | ST | AIQ | 2025 R1 | Closing Rank: #5,500 | Score: 590 |\n| CMC Vellore | MBBS | General | Management | 2025 R1 | Closing Rank: #5,410 | Score: 662 |\n| SMS MC, Jaipur | MBBS | General | Rajasthan State | 2025 R1 | Closing Rank: #5,200 | Score: 658 |\n| Grant MC, Mumbai | MBBS | OBC | Maharashtra State | 2025 R1 | Closing Rank: #5,100 | Score: 655 |\n| GMC Chandigarh | MBBS | General | AIQ | 2025 R1 | Closing Rank: #5,000 | Score: 660 |\n\n**Basic Eligibility for NEET UG:**\n\n- **Age:** Minimum 17 years at time of admission (no upper age limit since 2019 Supreme Court ruling)\n- **Qualification:** Class 12 or equivalent with Physics, Chemistry, Biology/Biotechnology and English\n- **Marks:** Minimum 50% aggregate in PCB for General; 40% for SC/ST/OBC; 45% for PwD\n- **Attempts:** No limit on number of attempts\n- **Nationality:** Indian citizens, NRIs, OCIs, PIOs, and foreign nationals can apply\n\n**For NEET UG 2026:**\n- Exam conducted by NTA (National Testing Agency)\n- Single exam for all medical/dental colleges in India (except AIIMS & JIPMER which now merged)\n- Pen-and-paper based exam (OMR sheet)\n- Duration: 3 hours 20 minutes\n- Total marks: 720 (180 questions × 4 marks each, -1 for wrong answer)\n\n**Government vs Private Medical Colleges — Key Differences:**\n\n| Factor | Government | Private/Deemed |\n|--------|-----------|----------------|\n| **Fees** | Rs 5K - 1.5L/year | Rs 5L - 25L/year |\n| **Total MBBS cost** | Rs 1-8 Lakh | Rs 30-1.5 Crore |\n| **Patient load** | Very high (great exposure) | Moderate |\n| **Infrastructure** | Varies (some old) | Usually modern |\n| **Faculty** | Experienced, may be overburdened | Good ratio, more accessible |\n| **Clinical exposure** | Excellent (high OPD/IPD) | Good but less volume |\n| **Bond** | Some states have bond (2-5 yrs) | Usually no bond |\n| **Hostel** | Basic but cheap | Better amenities, costlier |\n\n**Bottom line:** If you can get a government seat, it's almost always the better choice financially. A government college MBBS degree is valued equally (sometimes more) by employers and PG exam committees.\n\n**Exception:** Top deemed universities like KMC Manipal, CMC Vellore offer excellent education but at premium fees.\n\n**MBBS vs BDS — Should You Choose BDS?**\n\n**MBBS:**\n- 5.5 years (4.5 + 1 year internship)\n- Better long-term career prospects\n- Higher earning potential\n- More PG specialization options\n- More competitive (lower closing rank needed)\n\n**BDS:**\n- 5 years (4 + 1 year internship)\n- Easier to get admission (higher closing rank)\n- Good career in private practice\n- Fewer PG seats available\n- Lower initial investment in private practice setup\n\n**Our recommendation:** If your rank allows MBBS in a government college, always prefer it. Consider BDS only if:\n- Your rank doesn't qualify for MBBS anywhere\n- You have genuine interest in dentistry\n- Private college MBBS is unaffordable\n\n**Never drop a year just for MBBS** if you have a government BDS seat — unless you're very confident about improving your rank significantly.\n\n\n> **Tip:** Use the **Allotment Mapping** module to see detailed state-wise allotments for your rank range. The **Rank Insights** module shows year-over-year trends."
+        }
+      ],
+      "createdAt": "2026-07-04T15:55:20.158Z",
+      "updatedAt": "2026-07-04T15:55:20.281Z"
     }
   }
 }
