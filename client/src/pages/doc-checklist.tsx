@@ -1,14 +1,10 @@
 import { useState, useMemo, useCallback, useRef } from 'react';
-import {
-  CHECKLIST_DOCS,
-  CHECKLIST_FILTER_OPTIONS,
-  type ChecklistDoc,
-  type ChecklistSection,
-} from '@/lib/checklist-data';
+import { useCollection, distinct } from '@/lib/data-api';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { PageHeader } from '@/components/ui/page-header';
+import { EmptyState } from '@/components/ui/empty-state';
 import {
   Search,
   Filter,
@@ -25,20 +21,57 @@ import {
   HardDrive,
   Tag,
   Shield,
+  Loader2,
+  AlertTriangle,
 } from 'lucide-react';
+
+type ChecklistSection = 'online' | 'physical';
+
+/** Admin-managed checklist document. Only `id` is guaranteed. */
+interface ChecklistDoc {
+  id: string;
+  name?: string;
+  section?: ChecklistSection;
+  mandatory?: boolean;
+  format?: string;
+  fileSize?: string;
+  notes?: string;
+  states?: string[];
+  categories?: string[];
+  counsellingTypes?: string[];
+}
+
+/** Admin-managed state-wise document requirement. */
+interface StateDoc {
+  id: string;
+  state?: string;
+  checklistType?: string;
+  documents?: string[];
+}
 
 const STORAGE_KEY = 'medcounsel-checklist-state';
 
+/**
+ * Progress is keyed off document id. Ids are Mongo ObjectIds now, so previously
+ * saved ids simply won't match any live document — that's fine, they're ignored.
+ */
 function loadChecked(): Set<string> {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return new Set(JSON.parse(raw));
-  } catch { /* ignore */ }
+    if (raw) {
+      const parsed: unknown = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        return new Set(parsed.filter((v): v is string => typeof v === 'string'));
+      }
+    }
+  } catch { /* ignore malformed/stale state */ }
   return new Set();
 }
 
 function saveChecked(set: Set<string>) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([...set]));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify([...set]));
+  } catch { /* ignore quota / private-mode errors */ }
 }
 
 function SelectFilter({
@@ -106,6 +139,11 @@ function DocCard({
   isChecked: boolean;
   onToggle: () => void;
 }) {
+  const name = doc.name ?? 'Untitled document';
+  const categories = doc.categories ?? [];
+  const counsellingTypes = doc.counsellingTypes ?? [];
+  const states = doc.states ?? [];
+
   return (
     <div
       className={`rounded-xl border p-4 transition-all duration-200 ${
@@ -123,7 +161,7 @@ function DocCard({
               ? 'bg-emerald-500 border-emerald-500 text-white'
               : 'border-slate-300 dark:border-slate-600 hover:border-red-500'
           }`}
-          aria-label={isChecked ? `Unmark ${doc.name}` : `Mark ${doc.name} as done`}
+          aria-label={isChecked ? `Unmark ${name}` : `Mark ${name} as done`}
         >
           {isChecked && <Check className="w-4 h-4" />}
         </button>
@@ -133,7 +171,7 @@ function DocCard({
           {/* Title Row */}
           <div className="flex flex-wrap items-center gap-2">
             <h4 className={`text-sm font-bold leading-snug ${isChecked ? 'text-slate-400 line-through' : 'text-slate-800 dark:text-slate-100'}`}>
-              {doc.name}
+              {name}
             </h4>
             {doc.mandatory ? (
               <span className="px-2 py-0.5 bg-rose-50 text-rose-700 border border-rose-100 rounded text-[9px] font-bold uppercase tracking-wider dark:bg-rose-950/30 dark:border-rose-900/50 dark:text-rose-400">
@@ -147,38 +185,42 @@ function DocCard({
           </div>
 
           {/* Notes */}
-          <div className={`flex gap-2 items-start text-xs p-2.5 rounded-lg ${
-            isChecked
-              ? 'bg-emerald-50/60 text-emerald-700/60 dark:bg-emerald-900/10 dark:text-emerald-400/50'
-              : 'bg-slate-50 text-slate-600 dark:bg-slate-800/50 dark:text-slate-400'
-          }`}>
-            <Info className="w-3.5 h-3.5 mt-0.5 shrink-0" />
-            <span className="leading-relaxed">{doc.notes}</span>
-          </div>
+          {doc.notes && (
+            <div className={`flex gap-2 items-start text-xs p-2.5 rounded-lg ${
+              isChecked
+                ? 'bg-emerald-50/60 text-emerald-700/60 dark:bg-emerald-900/10 dark:text-emerald-400/50'
+                : 'bg-slate-50 text-slate-600 dark:bg-slate-800/50 dark:text-slate-400'
+            }`}>
+              <Info className="w-3.5 h-3.5 mt-0.5 shrink-0" />
+              <span className="leading-relaxed">{doc.notes}</span>
+            </div>
+          )}
 
           {/* Meta Tags */}
           <div className="flex flex-wrap gap-2">
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-400 rounded text-[10px] font-semibold">
-              <FileText className="w-3 h-3" /> {doc.format}
-            </span>
+            {doc.format && (
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-400 rounded text-[10px] font-semibold">
+                <FileText className="w-3 h-3" /> {doc.format}
+              </span>
+            )}
             {doc.fileSize && (
               <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-50 dark:bg-purple-950/20 text-purple-700 dark:text-purple-400 rounded text-[10px] font-semibold">
                 <HardDrive className="w-3 h-3" /> {doc.fileSize}
               </span>
             )}
-            {doc.categories.length > 0 && (
+            {categories.length > 0 && (
               <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 rounded text-[10px] font-semibold">
-                <Tag className="w-3 h-3" /> {doc.categories.join(', ')}
+                <Tag className="w-3 h-3" /> {categories.join(', ')}
               </span>
             )}
-            {doc.counsellingTypes.length > 0 && (
+            {counsellingTypes.length > 0 && (
               <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 rounded text-[10px] font-semibold">
-                <Shield className="w-3 h-3" /> {doc.counsellingTypes.join(', ')}
+                <Shield className="w-3 h-3" /> {counsellingTypes.join(', ')}
               </span>
             )}
-            {doc.states.length > 0 && (
+            {states.length > 0 && (
               <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-400 rounded text-[10px] font-semibold">
-                {doc.states.join(', ')}
+                {states.join(', ')}
               </span>
             )}
           </div>
@@ -189,6 +231,16 @@ function DocCard({
 }
 
 export default function DocChecklistPage() {
+  const docsQuery = useCollection<ChecklistDoc>('checklistDocs');
+  const stateDocsQuery = useCollection<StateDoc>('stateDocs');
+
+  const loading = docsQuery.loading || stateDocsQuery.loading;
+  const error = docsQuery.error ?? stateDocsQuery.error;
+  const reload = useCallback(() => {
+    docsQuery.reload();
+    stateDocsQuery.reload();
+  }, [docsQuery, stateDocsQuery]);
+
   const [checked, setChecked] = useState<Set<string>>(loadChecked);
   const [activeTab, setActiveTab] = useState<ChecklistSection>('online');
   const [search, setSearch] = useState('');
@@ -199,6 +251,27 @@ export default function DocChecklistPage() {
   const printRef = useRef<HTMLDivElement>(null);
 
   const activeFilterCount = [state !== 'All', category !== 'All', counsellingType !== 'All'].filter(Boolean).length;
+
+  // Filter options come from the live data (state list is the union of the
+  // state-wise requirement rows and any states pinned on a checklist doc).
+  const allDocs = docsQuery.data;
+  const stateOptions = useMemo(() => {
+    const set = new Set<string>(distinct(stateDocsQuery.data, 'state'));
+    for (const d of allDocs) for (const s of d.states ?? []) if (s) set.add(s);
+    return [...set].sort();
+  }, [stateDocsQuery.data, allDocs]);
+
+  const categoryOptions = useMemo(() => {
+    const set = new Set<string>();
+    for (const d of allDocs) for (const c of d.categories ?? []) if (c) set.add(c);
+    return [...set].sort();
+  }, [allDocs]);
+
+  const counsellingTypeOptions = useMemo(() => {
+    const set = new Set<string>();
+    for (const d of allDocs) for (const t of d.counsellingTypes ?? []) if (t) set.add(t);
+    return [...set].sort();
+  }, [allDocs]);
 
   const toggleCheck = useCallback((id: string) => {
     setChecked((prev) => {
@@ -217,18 +290,18 @@ export default function DocChecklistPage() {
       if (search) {
         const q = search.toLowerCase();
         data = data.filter(
-          (d) => d.name.toLowerCase().includes(q) || d.notes.toLowerCase().includes(q)
+          (d) => (d.name ?? '').toLowerCase().includes(q) || (d.notes ?? '').toLowerCase().includes(q)
         );
       }
       if (state !== 'All') {
-        data = data.filter((d) => d.states.length === 0 || d.states.includes(state));
+        data = data.filter((d) => (d.states ?? []).length === 0 || (d.states ?? []).includes(state));
       }
       if (category !== 'All') {
-        data = data.filter((d) => d.categories.length === 0 || d.categories.includes(category));
+        data = data.filter((d) => (d.categories ?? []).length === 0 || (d.categories ?? []).includes(category));
       }
       if (counsellingType !== 'All') {
         data = data.filter(
-          (d) => d.counsellingTypes.length === 0 || d.counsellingTypes.includes(counsellingType)
+          (d) => (d.counsellingTypes ?? []).length === 0 || (d.counsellingTypes ?? []).includes(counsellingType)
         );
       }
 
@@ -237,8 +310,8 @@ export default function DocChecklistPage() {
     [search, state, category, counsellingType]
   );
 
-  const onlineDocs = useMemo(() => filterDocs(CHECKLIST_DOCS.filter((d) => d.section === 'online')), [filterDocs]);
-  const physicalDocs = useMemo(() => filterDocs(CHECKLIST_DOCS.filter((d) => d.section === 'physical')), [filterDocs]);
+  const onlineDocs = useMemo(() => filterDocs(allDocs.filter((d) => d.section === 'online')), [filterDocs, allDocs]);
+  const physicalDocs = useMemo(() => filterDocs(allDocs.filter((d) => d.section === 'physical')), [filterDocs, allDocs]);
 
   const currentDocs = activeTab === 'online' ? onlineDocs : physicalDocs;
   const allFilteredDocs = [...onlineDocs, ...physicalDocs];
@@ -271,26 +344,24 @@ export default function DocChecklistPage() {
       '',
     ];
 
-    onlineDocs.forEach((d, i) => {
+    const pushDoc = (d: ChecklistDoc, i: number) => {
       const status = checked.has(d.id) ? '[x]' : '[ ]';
-      lines.push(`${status} ${i + 1}. ${d.name} ${d.mandatory ? '(MANDATORY)' : '(Optional)'}`);
-      lines.push(`   Format: ${d.format}${d.fileSize ? ` | Size: ${d.fileSize}` : ''}`);
-      lines.push(`   Notes: ${d.notes}`);
+      lines.push(`${status} ${i + 1}. ${d.name ?? 'Untitled document'} ${d.mandatory ? '(MANDATORY)' : '(Optional)'}`);
+      if (d.format || d.fileSize) {
+        lines.push(`   Format: ${d.format ?? '—'}${d.fileSize ? ` | Size: ${d.fileSize}` : ''}`);
+      }
+      if (d.notes) lines.push(`   Notes: ${d.notes}`);
       lines.push('');
-    });
+    };
+
+    onlineDocs.forEach(pushDoc);
 
     lines.push('═══════════════════════════════════════════════');
     lines.push('SECTION 2: PHYSICAL REPORTING DOCUMENTS');
     lines.push('═══════════════════════════════════════════════');
     lines.push('');
 
-    physicalDocs.forEach((d, i) => {
-      const status = checked.has(d.id) ? '[x]' : '[ ]';
-      lines.push(`${status} ${i + 1}. ${d.name} ${d.mandatory ? '(MANDATORY)' : '(Optional)'}`);
-      lines.push(`   Format: ${d.format}${d.fileSize ? ` | Size: ${d.fileSize}` : ''}`);
-      lines.push(`   Notes: ${d.notes}`);
-      lines.push('');
-    });
+    physicalDocs.forEach(pushDoc);
 
     lines.push(`Progress: ${completedDocs}/${totalDocs} documents completed (${totalDocs > 0 ? Math.round((completedDocs / totalDocs) * 100) : 0}%)`);
 
@@ -302,6 +373,43 @@ export default function DocChecklistPage() {
     a.click();
     URL.revokeObjectURL(url);
   };
+
+  const header = (
+    <PageHeader
+      icon={ClipboardCheck}
+      iconClassName="text-red-600"
+      title="Document Checklist"
+      description="Complete guide to documents needed for NEET UG online registration and physical college reporting."
+    />
+  );
+
+  if (loading) {
+    return (
+      <div className="space-y-6 pb-10">
+        {header}
+        <Card>
+          <CardContent className="py-20 flex flex-col items-center justify-center gap-3">
+            <Loader2 className="w-7 h-7 text-red-600 animate-spin" />
+            <p className="text-sm text-muted-foreground">Loading document checklist...</p>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="space-y-6 pb-10">
+        {header}
+        <EmptyState
+          icon={AlertTriangle}
+          title="Could not load the document checklist"
+          description={error}
+          action={{ label: 'Retry', onClick: reload }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6 pb-10 print:pb-0 print:space-y-4" ref={printRef}>
@@ -399,9 +507,9 @@ export default function DocChecklistPage() {
               )}
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-              <SelectFilter label="State" value={state} onChange={setState} options={CHECKLIST_FILTER_OPTIONS.states} allLabel="All States" />
-              <SelectFilter label="Category" value={category} onChange={setCategory} options={CHECKLIST_FILTER_OPTIONS.categories} allLabel="All Categories" />
-              <SelectFilter label="Counselling Type" value={counsellingType} onChange={setCounsellingType} options={CHECKLIST_FILTER_OPTIONS.counsellingTypes} allLabel="All Types" />
+              <SelectFilter label="State" value={state} onChange={setState} options={stateOptions} allLabel="All States" />
+              <SelectFilter label="Category" value={category} onChange={setCategory} options={categoryOptions} allLabel="All Categories" />
+              <SelectFilter label="Counselling Type" value={counsellingType} onChange={setCounsellingType} options={counsellingTypeOptions} allLabel="All Types" />
             </div>
           </CardContent>
         </Card>

@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ALL_STATES, searchAllotmentsByRank, ALLOTMENT_FILTER_OPTIONS, type AllotmentEntry } from '@/lib/allotment-data';
+import { useAllotments, byRankRange, type AllotmentEntry } from '@/lib/allotment-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
+import { EmptyState } from '@/components/ui/empty-state';
 import { motion } from 'framer-motion';
 import {
   Search,
@@ -20,6 +21,9 @@ import {
   Target,
   TrendingUp,
   Zap,
+  Loader2,
+  AlertTriangle,
+  Database,
 } from 'lucide-react';
 
 type ViewMode = 'state' | 'rank';
@@ -69,6 +73,8 @@ const RANK_RESULTS_PER_PAGE = 15;
 
 export default function AllotmentStatesPage() {
   const navigate = useNavigate();
+  const { data, loading, error, reload, counsellings, filterOptions } = useAllotments();
+
   const [mode, setMode] = useState<ViewMode>('state');
   const [stateSearch, setStateSearch] = useState('');
 
@@ -81,11 +87,13 @@ export default function AllotmentStatesPage() {
   const [rankCategory, setRankCategory] = useState('All');
   const [rankRound, setRankRound] = useState('All');
 
+  // Counselling list comes from the allotments actually loaded — a counselling with
+  // no rows is not offered, so nobody clicks through to an empty table.
   const filteredStates = useMemo(() => {
-    if (!stateSearch) return ALL_STATES;
+    if (!stateSearch) return counsellings;
     const q = stateSearch.toLowerCase();
-    return ALL_STATES.filter((s) => s.toLowerCase().includes(q));
-  }, [stateSearch]);
+    return counsellings.filter((s) => s.toLowerCase().includes(q));
+  }, [counsellings, stateSearch]);
 
   const handleSelectState = (state: string) => {
     navigate(`/allotment/${encodeURIComponent(state)}`);
@@ -99,8 +107,7 @@ export default function AllotmentStatesPage() {
     setTimeout(() => {
       const min = Math.max(1, rank - rankRange);
       const max = rank + rankRange;
-      const results = searchAllotmentsByRank(min, max);
-      setRankResults(results);
+      setRankResults(byRankRange(data, min, max));
       setRankSearching(false);
       setRankPage(1);
     }, 300);
@@ -109,10 +116,10 @@ export default function AllotmentStatesPage() {
   // Filter rank results
   const filteredRankResults = useMemo(() => {
     if (!rankResults) return [];
-    let data = rankResults;
-    if (rankCategory !== 'All') data = data.filter((e) => e.category === rankCategory);
-    if (rankRound !== 'All') data = data.filter((e) => e.round === Number(rankRound));
-    return data;
+    let rows = rankResults;
+    if (rankCategory !== 'All') rows = rows.filter((e) => e.category === rankCategory);
+    if (rankRound !== 'All') rows = rows.filter((e) => e.round === Number(rankRound));
+    return rows;
   }, [rankResults, rankCategory, rankRound]);
 
   const rankTotalPages = Math.ceil(filteredRankResults.length / RANK_RESULTS_PER_PAGE);
@@ -120,6 +127,55 @@ export default function AllotmentStatesPage() {
     (rankPage - 1) * RANK_RESULTS_PER_PAGE,
     rankPage * RANK_RESULTS_PER_PAGE
   );
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-20">
+        <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-md mx-auto mt-12">
+        <EmptyState
+          icon={AlertTriangle}
+          title="Couldn't load allotment data"
+          description={error}
+          action={{ label: 'Try Again', onClick: reload }}
+        />
+      </div>
+    );
+  }
+
+  // The collection is empty — no rows have been loaded yet. This is NOT the same as
+  // "your filters matched nothing", and must not be dressed up as a search miss.
+  if (data.length === 0) {
+    return (
+      <div className="space-y-6 pb-10 page-enter">
+        <div className="relative rounded-2xl overflow-hidden">
+          <div className="gradient-primary p-6 sm:p-8 lg:p-10">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+            <div className="relative z-10 space-y-3">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+                Allotment Mapping
+              </h1>
+              <p className="text-red-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
+                Find which colleges you can get based on your NEET rank.
+              </p>
+            </div>
+          </div>
+        </div>
+        <EmptyState
+          icon={Database}
+          title="No allotment data yet"
+          description="Seat allotment records haven't been loaded. An admin can add them under Manage Data → Seat Allotments."
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6 pb-10 page-enter">
@@ -362,7 +418,7 @@ export default function AllotmentStatesPage() {
               {/* Quick Filter Pills */}
               <div className="flex flex-wrap gap-2 items-center">
                 <span className="text-xs font-semibold text-slate-500 mr-1">Category:</span>
-                {['All', ...ALLOTMENT_FILTER_OPTIONS.categories].map((cat) => (
+                {['All', ...filterOptions.categories].map((cat) => (
                   <button
                     key={cat}
                     onClick={() => { setRankCategory(cat); setRankPage(1); }}
@@ -379,7 +435,7 @@ export default function AllotmentStatesPage() {
                 <span className="text-slate-300 dark:text-slate-600 mx-1">|</span>
 
                 <span className="text-xs font-semibold text-slate-500 mr-1">Round:</span>
-                {['All', '1', '2', '3'].map((r) => (
+                {['All', ...filterOptions.rounds.map(String)].map((r) => (
                   <button
                     key={r}
                     onClick={() => { setRankRound(r); setRankPage(1); }}
@@ -466,7 +522,7 @@ export default function AllotmentStatesPage() {
                                 <div className="rounded-xl bg-gradient-to-br from-emerald-50 to-green-50/50 dark:from-emerald-950/30 dark:to-green-950/20 p-2.5 text-center border border-emerald-100 dark:border-emerald-900/30">
                                   <p className="text-[8px] font-bold text-emerald-600/70 dark:text-emerald-500/70 uppercase tracking-widest">NEET Score</p>
                                   <p className="text-base font-extrabold text-emerald-700 dark:text-emerald-400 tabular-nums leading-tight mt-0.5">
-                                    {entry.neetScore}
+                                    {entry.neetScore ?? '—'}
                                   </p>
                                 </div>
                               </div>
@@ -522,7 +578,7 @@ export default function AllotmentStatesPage() {
                 {
                   icon: Building2,
                   title: 'See Matching Colleges',
-                  description: 'We search across all 35 states & MCC to find colleges in your rank range.',
+                  description: 'We search every counselling in the allotment data to find colleges in your rank range.',
                   gradient: 'from-purple-500 to-violet-600',
                   glow: 'shadow-purple-500/20',
                   bg: 'bg-gradient-to-br from-purple-50 to-violet-50/50 dark:from-purple-950/30 dark:to-violet-950/20',

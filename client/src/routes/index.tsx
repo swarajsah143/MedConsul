@@ -25,6 +25,7 @@ import CounsellingConditionsPage from '@/pages/counselling-conditions';
 import ExplorePage from '@/pages/explore';
 import AbroadUniversitiesPage from '@/pages/abroad-universities';
 import AdminDashboardPage from '@/pages/admin-dashboard';
+import AdminDataPage from '@/pages/admin-data';
 import DashboardLayout from '@/components/layout/dashboard-layout';
 
 function FullPageSpinner() {
@@ -76,6 +77,8 @@ export default function AppRoutes() {
       >
         <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="admin" element={<AdminRoute><AdminDashboardPage /></AdminRoute>} />
+        <Route path="admin/data" element={<AdminRoute><AdminDataPage /></AdminRoute>} />
+        <Route path="admin/data/:collection" element={<AdminRoute><AdminDataPage /></AdminRoute>} />
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />

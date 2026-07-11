@@ -1,8 +1,7 @@
 import { useMemo, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
-import { CHECKLIST_DOCS } from '@/lib/checklist-data';
-import { getRecentAnnouncements } from '@/lib/announcements-data';
+import { useCollection } from '@/lib/data-api';
 import { Card, CardContent } from '@/components/ui/card';
 import { FadeIn } from '@/components/ui/motion';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,20 +22,42 @@ import {
   Clock,
   FileText,
   TrendingUp,
+  Loader2,
 } from 'lucide-react';
+
+// ── Types (admin-managed; only `id` is guaranteed) ──────────
+
+interface DashAnnouncement {
+  id: string;
+  date?: string;
+  title?: string;
+  announcementType?: string;
+}
+
+interface DashChecklistDoc {
+  id: string;
+}
 
 // ── Helpers ────────────────────────────────────────────────
 
-function getChecklistProgress(): { completed: number; total: number } {
-  const total = CHECKLIST_DOCS.length;
+/** Ids the user has ticked off. Stale ids (from the old static data) are ignored. */
+function loadCheckedIds(): string[] {
   try {
     const raw = localStorage.getItem('medcounsel-checklist-state');
     if (raw) {
-      const checked = JSON.parse(raw) as string[];
-      return { completed: checked.length, total };
+      const parsed: unknown = JSON.parse(raw);
+      if (Array.isArray(parsed)) return parsed.filter((v): v is string => typeof v === 'string');
     }
-  } catch { /* ignore */ }
-  return { completed: 0, total };
+  } catch { /* ignore malformed/stale state */ }
+  return [];
+}
+
+/** 'YYYY-MM-DD' -> '25 Jun 2026'. Empty when the date is missing/unparseable. */
+function formatAnnouncementDate(date?: string): string {
+  if (!date) return '';
+  const d = new Date(`${date}T00:00:00`);
+  if (Number.isNaN(d.getTime())) return date;
+  return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
 const TYPE_ICONS: Record<string, typeof Bell> = {
@@ -79,8 +100,27 @@ export default function DashboardPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [timelineOpen, setTimelineOpen] = useState(false);
 
-  const recentAnnouncements = useMemo(() => getRecentAnnouncements(4), []);
-  const checklist = useMemo(() => getChecklistProgress(), []);
+  const announcements = useCollection<DashAnnouncement>('announcements');
+  const checklistDocs = useCollection<DashChecklistDoc>('checklistDocs');
+
+  // Newest first by real date, top 4.
+  const recentAnnouncements = useMemo(
+    () =>
+      [...announcements.data]
+        .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
+        .slice(0, 4),
+    [announcements.data],
+  );
+
+  const checklist = useMemo(() => {
+    const docs = checklistDocs.data;
+    const checkedIds = new Set(loadCheckedIds());
+    return {
+      total: docs.length,
+      completed: docs.filter((d) => checkedIds.has(d.id)).length,
+    };
+  }, [checklistDocs.data]);
+
   const checklistPct = checklist.total > 0
     ? Math.round((checklist.completed / checklist.total) * 100)
     : 0;
@@ -158,18 +198,34 @@ export default function DashboardPage() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-sm font-bold text-slate-900 dark:text-slate-100">
-                    Your documents: {checklist.completed} of {checklist.total} ready
+                    {checklistDocs.loading
+                      ? 'Loading your documents...'
+                      : checklistDocs.error
+                        ? 'Your documents'
+                        : `Your documents: ${checklist.completed} of ${checklist.total} ready`}
                   </p>
-                  <span className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{checklistPct}%</span>
+                  {!checklistDocs.loading && !checklistDocs.error && (
+                    <span className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{checklistPct}%</span>
+                  )}
+                  {checklistDocs.loading && <Loader2 className="w-4 h-4 text-slate-400 animate-spin shrink-0" />}
                 </div>
                 <div className="h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden mt-2">
                   <div
                     className="h-full rounded-full transition-all duration-700"
-                    style={{ width: `${checklistPct}%`, backgroundColor: checklistPct === 100 ? '#059669' : '#dc2626' }}
+                    style={{
+                      width: checklistDocs.loading || checklistDocs.error ? '0%' : `${checklistPct}%`,
+                      backgroundColor: checklistPct === 100 ? '#059669' : '#dc2626',
+                    }}
                   />
                 </div>
                 <p className="text-xs text-muted-foreground mt-1.5">
-                  {checklistPct === 100 ? 'All done! You are ready for counselling.' : 'Tap here to see which documents you still need.'}
+                  {checklistDocs.error
+                    ? 'Could not load your checklist right now. Tap to open it.'
+                    : checklistDocs.loading
+                      ? 'Fetching the latest document checklist.'
+                      : checklistPct === 100 && checklist.total > 0
+                        ? 'All done! You are ready for counselling.'
+                        : 'Tap here to see which documents you still need.'}
                 </p>
               </div>
               <ChevronRight className="w-5 h-5 text-slate-300 dark:text-slate-600 group-hover:text-slate-500 transition-colors shrink-0" />
@@ -214,25 +270,47 @@ export default function DashboardPage() {
         </div>
         <Card>
           <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
-            {recentAnnouncements.map((a) => {
-              const Icon = TYPE_ICONS[a.announcementType] || Bell;
-              return (
-                <Link
-                  key={a.id}
-                  to="/announcements"
-                  className="flex items-center gap-3 p-4 hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors"
+            {announcements.loading ? (
+              <div className="flex items-center justify-center gap-2.5 p-8">
+                <Loader2 className="w-5 h-5 text-red-600 animate-spin" />
+                <p className="text-sm text-muted-foreground">Loading latest updates...</p>
+              </div>
+            ) : announcements.error ? (
+              <div className="p-6 text-center space-y-2">
+                <p className="text-sm text-muted-foreground">Could not load the latest updates.</p>
+                <button
+                  onClick={announcements.reload}
+                  className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4 text-slate-500 dark:text-slate-400" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-slate-900 dark:text-slate-100 truncate">{a.title}</p>
-                    <p className="text-xs text-muted-foreground mt-0.5">{a.announcementType} · {a.month} {a.day}</p>
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 shrink-0" />
-                </Link>
-              );
-            })}
+                  Retry
+                </button>
+              </div>
+            ) : recentAnnouncements.length === 0 ? (
+              <p className="p-6 text-center text-sm text-muted-foreground">No announcements yet.</p>
+            ) : (
+              recentAnnouncements.map((a) => {
+                const type = a.announcementType ?? '';
+                const Icon = TYPE_ICONS[type] || Bell;
+                const dateStr = formatAnnouncementDate(a.date);
+                const meta = [type, dateStr].filter(Boolean).join(' · ');
+                return (
+                  <Link
+                    key={a.id}
+                    to="/announcements"
+                    className="flex items-center gap-3 p-4 hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
+                      <Icon className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-slate-900 dark:text-slate-100 truncate">{a.title ?? 'Untitled announcement'}</p>
+                      {meta && <p className="text-xs text-muted-foreground mt-0.5">{meta}</p>}
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 shrink-0" />
+                  </Link>
+                );
+              })
+            )}
           </CardContent>
         </Card>
       </FadeIn>

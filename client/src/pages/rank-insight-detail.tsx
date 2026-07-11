@@ -1,9 +1,6 @@
 import { useMemo } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import {
-  INSIGHTS_DATA,
-  getHistoricalData,
-} from '@/lib/insights-data';
+import { useCollections, byId, type College, type ClosingRank } from '@/lib/data-api';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -31,7 +28,15 @@ import {
   MapPin,
   Sparkles,
   GraduationCap,
+  Loader2,
 } from 'lucide-react';
+
+interface HistoricalPoint {
+  year: number;
+  round: number;
+  closingRank: number;
+  closingScore?: number | null;
+}
 
 function StatCard({
   label,
@@ -76,17 +81,61 @@ export default function RankInsightDetailPage() {
   const category = searchParams.get('category') || '';
   const quota = searchParams.get('quota') || '';
 
-  const history = useMemo(
-    () => getHistoricalData(collegeId, course, category, quota),
-    [collegeId, course, category, quota]
+  const { data, loading, error } = useCollections<{ colleges: College[]; closingRanks: ClosingRank[] }>([
+    'colleges',
+    'closingRanks',
+  ]);
+
+  // Rows for this exact college + course + category + quota combination, oldest first.
+  const history = useMemo<HistoricalPoint[]>(
+    () =>
+      (data.closingRanks ?? [])
+        .filter(
+          (e) =>
+            e.collegeId === collegeId &&
+            e.course === course &&
+            e.category === category &&
+            e.quota === quota
+        )
+        .map((e) => ({
+          year: e.year,
+          round: e.round,
+          closingRank: e.closingRank ?? 0,
+          closingScore: e.closingScore,
+        }))
+        .sort((a, b) => a.year - b.year || a.round - b.round),
+    [data.closingRanks, collegeId, course, category, quota]
   );
 
+  // The rank row carries only a collegeId — join against colleges for the display info.
   const collegeInfo = useMemo(
-    () => INSIGHTS_DATA.find((e) => e.collegeId === collegeId)?.college,
-    [collegeId]
+    () => byId(data.colleges ?? []).get(collegeId),
+    [data.colleges, collegeId]
   );
 
-  if (!history.length || !collegeInfo) {
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-3">
+        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <p className="text-sm text-muted-foreground">Loading historical trends...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-md mx-auto mt-12">
+        <EmptyState
+          icon={AlertTriangle}
+          title="Couldn't load trend data"
+          description={error}
+          action={{ label: 'Back to Insights', onClick: () => navigate('/rank-insights') }}
+        />
+      </div>
+    );
+  }
+
+  if (!history.length) {
     return (
       <div className="max-w-md mx-auto mt-12">
         <EmptyState
@@ -99,6 +148,8 @@ export default function RankInsightDetailPage() {
     );
   }
 
+  const displayName = collegeName || collegeInfo?.name || 'Unknown college';
+
   const round1Data = history.filter((h) => h.round === 1);
   const latestRank = round1Data.at(-1)?.closingRank ?? 0;
   const oldestRank = round1Data.at(0)?.closingRank ?? 0;
@@ -108,8 +159,8 @@ export default function RankInsightDetailPage() {
   const scoreChange = latestScore - oldestScore;
   const yearsTracked = [...new Set(history.map((h) => h.year))].length;
 
-  const years = [...new Set(history.map((h) => h.year))].sort();
-  const rounds = [...new Set(history.map((h) => h.round))].sort();
+  const years = [...new Set(history.map((h) => h.year))].sort((a, b) => a - b);
+  const rounds = [...new Set(history.map((h) => h.round))].sort((a, b) => a - b);
 
   const rankChartData = years.map((yr) => {
     const row: Record<string, number | string> = { year: String(yr) };
@@ -178,22 +229,26 @@ export default function RankInsightDetailPage() {
               </div>
               <div className="min-w-0">
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight">
-                  {collegeName}
+                  {displayName}
                 </h1>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-red-100/90">
-                  <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5" /> {collegeInfo.city}, {collegeInfo.state}
-                  </span>
+                  {collegeInfo && (
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5" /> {collegeInfo.city}, {collegeInfo.state}
+                    </span>
+                  )}
                   <span className="flex items-center gap-1.5">
                     <Target className="w-3.5 h-3.5" /> {quota}
                   </span>
-                  <span className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold ${
-                    collegeInfo.type === 'Government' ? 'bg-emerald-500/20 text-emerald-200' :
-                    collegeInfo.type === 'Deemed' ? 'bg-blue-500/20 text-blue-200' :
-                    'bg-amber-500/20 text-amber-200'
-                  }`}>
-                    {collegeInfo.type}
-                  </span>
+                  {collegeInfo && (
+                    <span className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold ${
+                      collegeInfo.type === 'Government' ? 'bg-emerald-500/20 text-emerald-200' :
+                      collegeInfo.type === 'Deemed' ? 'bg-blue-500/20 text-blue-200' :
+                      'bg-amber-500/20 text-amber-200'
+                    }`}>
+                      {collegeInfo.type}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -217,7 +272,7 @@ export default function RankInsightDetailPage() {
           bg={rankChange > 0 ? 'bg-emerald-50 dark:bg-emerald-950/30' : rankChange < 0 ? 'bg-rose-50 dark:bg-rose-950/30' : 'bg-slate-50 dark:bg-slate-800'}
           label="Rank Trend"
           value={rankChange > 0 ? `Improved ${rankChange.toLocaleString()}` : rankChange < 0 ? `Dropped ${Math.abs(rankChange).toLocaleString()}` : 'Stable'}
-          sub={`${round1Data.at(0)?.year} vs ${round1Data.at(-1)?.year}`}
+          sub={`${round1Data.at(0)?.year ?? '--'} vs ${round1Data.at(-1)?.year ?? '--'}`}
         />
         <StatCard
           icon={Target}

@@ -1,9 +1,5 @@
 import { useState, useMemo } from 'react';
-import {
-  ANNOUNCEMENTS_DATA,
-  ANNOUNCEMENT_FILTER_OPTIONS,
-  type Announcement,
-} from '@/lib/announcements-data';
+import { useCollection, distinct } from '@/lib/data-api';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -22,14 +18,60 @@ import {
   TrendingUp,
   Calendar,
   ArrowUpRight,
+  Loader2,
+  AlertTriangle,
 } from 'lucide-react';
 
 const PAGE_SIZE = 12;
 
-const MONTH_ORDER: Record<string, number> = {
-  JAN: 1, FEB: 2, MAR: 3, APR: 4, MAY: 5, JUN: 6,
-  JUL: 7, AUG: 8, SEP: 9, OCT: 10, NOV: 11, DEC: 12,
-};
+/** Admin-managed announcement. Only `id` is guaranteed — guard everything else. */
+interface Announcement {
+  id: string;
+  date?: string;              // 'YYYY-MM-DD'
+  title?: string;
+  announcementType?: string;
+  state?: string;             // '' = All-India / MCC
+  shortDescription?: string;
+  documentLabel?: string;
+  documentUrl?: string;       // '' = no document
+}
+
+/** Announcement + fields derived from the real `date` (replaces the old month/day strings). */
+interface DatedAnnouncement extends Announcement {
+  ts: number;         // epoch ms, 0 when the date is missing/unparseable
+  monthKey: string;   // 'YYYY-MM' — used for the month filter
+  monthLabel: string; // 'Jun 2026'
+  monthShort: string; // 'JUN'
+  dayLabel: string;   // '25'
+}
+
+const MONTH_SHORT = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+/** 60 days — an announcement newer than this gets the red "recent" date chip. */
+const RECENT_MS = 60 * 24 * 60 * 60 * 1000;
+
+function decorate(a: Announcement): DatedAnnouncement {
+  const raw = a.date ?? '';
+  const d = raw ? new Date(`${raw}T00:00:00`) : null;
+  const valid = d !== null && !Number.isNaN(d.getTime());
+
+  if (!valid || d === null) {
+    return { ...a, ts: 0, monthKey: '', monthLabel: '', monthShort: '—', dayLabel: '—' };
+  }
+
+  const month = d.getMonth();
+  const year = d.getFullYear();
+  const short = MONTH_SHORT[month] ?? '—';
+
+  return {
+    ...a,
+    ts: d.getTime(),
+    monthKey: `${year}-${String(month + 1).padStart(2, '0')}`,
+    monthLabel: `${short.charAt(0)}${short.slice(1).toLowerCase()} ${year}`,
+    monthShort: short,
+    dayLabel: String(d.getDate()),
+  };
+}
 
 const TYPE_COLORS: Record<string, { text: string; bg: string; border: string }> = {
   'Allotment': { text: 'text-blue-700 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-950/30', border: 'border-blue-200 dark:border-blue-900/40' },
@@ -90,6 +132,8 @@ const TYPE_GLOWS: Record<string, string> = {
 };
 
 export default function AnnouncementsPage() {
+  const { data, loading, error, reload } = useCollection<Announcement>('announcements');
+
   const [search, setSearch] = useState('');
   const [stateFilter, setStateFilter] = useState('All');
   const [typeFilter, setTypeFilter] = useState('All');
@@ -103,29 +147,37 @@ export default function AnnouncementsPage() {
     search !== '',
   ].filter(Boolean).length;
 
-  const sorted = useMemo(() =>
-    [...ANNOUNCEMENTS_DATA].sort((a, b) => {
-      const ma = MONTH_ORDER[a.month] ?? 0;
-      const mb = MONTH_ORDER[b.month] ?? 0;
-      if (mb !== ma) return mb - ma;
-      return parseInt(b.day) - parseInt(a.day);
-    }),
-  []);
+  // Real dates now — sort newest first, no month-index guesswork.
+  const sorted = useMemo(
+    () => data.map(decorate).sort((a, b) => b.ts - a.ts),
+    [data],
+  );
+
+  // Filter options come from the live data.
+  const stateOptions = useMemo(() => distinct(sorted, 'state'), [sorted]);
+  const typeOptions = useMemo(() => distinct(sorted, 'announcementType'), [sorted]);
+  const monthOptions = useMemo(() => {
+    const seen = new Map<string, string>();
+    for (const a of sorted) {
+      if (a.monthKey && !seen.has(a.monthKey)) seen.set(a.monthKey, a.monthLabel);
+    }
+    return [...seen.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+  }, [sorted]);
 
   const filtered = useMemo(() => {
-    let data = sorted;
+    let rows = sorted;
     if (search) {
       const q = search.toLowerCase();
-      data = data.filter((a) =>
-        a.title.toLowerCase().includes(q) ||
-        a.shortDescription.toLowerCase().includes(q) ||
-        (a.state?.toLowerCase().includes(q) ?? false)
+      rows = rows.filter((a) =>
+        (a.title ?? '').toLowerCase().includes(q) ||
+        (a.shortDescription ?? '').toLowerCase().includes(q) ||
+        (a.state ?? '').toLowerCase().includes(q)
       );
     }
-    if (stateFilter !== 'All') data = data.filter((a) => a.state === stateFilter);
-    if (typeFilter !== 'All') data = data.filter((a) => a.announcementType === typeFilter);
-    if (monthFilter !== 'All') data = data.filter((a) => a.month === monthFilter);
-    return data;
+    if (stateFilter !== 'All') rows = rows.filter((a) => a.state === stateFilter);
+    if (typeFilter !== 'All') rows = rows.filter((a) => a.announcementType === typeFilter);
+    if (monthFilter !== 'All') rows = rows.filter((a) => a.monthKey === monthFilter);
+    return rows;
   }, [sorted, search, stateFilter, typeFilter, monthFilter]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
@@ -162,140 +214,164 @@ export default function AnnouncementsPage() {
         </div>
       </div>
 
-      {/* Search & Filters Bar */}
-      <Card className="overflow-hidden">
-        <CardContent className="p-4 sm:p-5">
-          <div className="flex flex-col sm:flex-row gap-3">
-            {/* Search */}
-            <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-              <Input
-                placeholder="Search announcements..."
-                value={search}
-                onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-                className="pl-10 h-11 rounded-xl text-sm focus:shadow-md transition-all duration-200"
-              />
-            </div>
-
-            {/* Month Filter */}
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-slate-400 shrink-0 hidden sm:block" />
-              <select
-                value={monthFilter}
-                onChange={(e) => { setMonthFilter(e.target.value); setPage(1); }}
-                className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[140px]"
-              >
-                <option value="All">All Months</option>
-                {ANNOUNCEMENT_FILTER_OPTIONS.months.map((m) => (
-                  <option key={m} value={m}>{m}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* State Filter */}
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-slate-400 shrink-0 hidden sm:block" />
-              <select
-                value={stateFilter}
-                onChange={(e) => { setStateFilter(e.target.value); setPage(1); }}
-                className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[160px]"
-              >
-                <option value="All">All States</option>
-                {ANNOUNCEMENT_FILTER_OPTIONS.states.map((s) => (
-                  <option key={s} value={s}>{s}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* Type Filter Pills */}
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold text-slate-500 mr-1">Type:</span>
-            <button
-              onClick={() => { setTypeFilter('All'); setPage(1); }}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
-                typeFilter === 'All'
-                  ? 'gradient-primary text-white border-transparent shadow-md'
-                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
-              }`}
-            >
-              All
-            </button>
-            {ANNOUNCEMENT_FILTER_OPTIONS.types.map((t) => {
-              const colors = TYPE_COLORS[t] || DEFAULT_COLORS;
-              const isActive = typeFilter === t;
-              return (
-                <button
-                  key={t}
-                  onClick={() => { setTypeFilter(t); setPage(1); }}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
-                    isActive
-                      ? 'gradient-primary text-white border-transparent shadow-md'
-                      : `${colors.bg} ${colors.text} ${colors.border} hover:shadow-sm`
-                  }`}
-                >
-                  {t}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Active filter tags */}
-          {activeFilterCount > 0 && (
-            <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 flex-wrap">
-              <span className="text-[11px] text-slate-400">Active:</span>
-              {search && <FilterTag label={`"${search}"`} onRemove={() => { setSearch(''); setPage(1); }} />}
-              {stateFilter !== 'All' && <FilterTag label={stateFilter} onRemove={() => { setStateFilter('All'); setPage(1); }} />}
-              {typeFilter !== 'All' && <FilterTag label={typeFilter} onRemove={() => { setTypeFilter('All'); setPage(1); }} />}
-              {monthFilter !== 'All' && <FilterTag label={monthFilter} onRemove={() => { setMonthFilter('All'); setPage(1); }} />}
-              <button onClick={handleReset} className="text-[11px] font-semibold text-red-600 hover:underline ml-1">Clear all</button>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Results Count */}
-      <div className="flex items-center justify-between">
-        <p className="text-sm text-muted-foreground">
-          <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length}</span> announcement{filtered.length !== 1 ? 's' : ''}
-          {activeFilterCount > 0 && <span className="text-red-600 font-medium"> (filtered)</span>}
-        </p>
-      </div>
-
-      {/* Announcement Cards Grid */}
-      {filtered.length === 0 ? (
+      {loading ? (
+        <Card>
+          <CardContent className="py-20 flex flex-col items-center justify-center gap-3">
+            <Loader2 className="w-7 h-7 text-red-600 animate-spin" />
+            <p className="text-sm text-muted-foreground">Loading announcements...</p>
+          </CardContent>
+        </Card>
+      ) : error ? (
         <EmptyState
-          title="No announcements found"
-          description="Try adjusting your search or filters to find what you're looking for."
-          action={{ label: 'Clear Filters', onClick: handleReset }}
+          icon={AlertTriangle}
+          title="Could not load announcements"
+          description={error}
+          action={{ label: 'Retry', onClick: reload }}
         />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {paginated.map((announcement, idx) => (
-            <AnnouncementCard key={announcement.id} announcement={announcement} index={idx} />
-          ))}
-        </div>
-      )}
+        <>
+          {/* Search & Filters Bar */}
+          <Card className="overflow-hidden">
+            <CardContent className="p-4 sm:p-5">
+              <div className="flex flex-col sm:flex-row gap-3">
+                {/* Search */}
+                <div className="relative flex-1">
+                  <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    placeholder="Search announcements..."
+                    value={search}
+                    onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+                    className="pl-10 h-11 rounded-xl text-sm focus:shadow-md transition-all duration-200"
+                  />
+                </div>
 
-      <Pagination
-        page={page}
-        totalPages={totalPages}
-        onPageChange={setPage}
-        itemCount={paginated.length}
-        totalItems={filtered.length}
-      />
+                {/* Month Filter */}
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-slate-400 shrink-0 hidden sm:block" />
+                  <select
+                    value={monthFilter}
+                    onChange={(e) => { setMonthFilter(e.target.value); setPage(1); }}
+                    className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[140px]"
+                  >
+                    <option value="All">All Months</option>
+                    {monthOptions.map(([key, label]) => (
+                      <option key={key} value={key}>{label}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* State Filter */}
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-slate-400 shrink-0 hidden sm:block" />
+                  <select
+                    value={stateFilter}
+                    onChange={(e) => { setStateFilter(e.target.value); setPage(1); }}
+                    className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[160px]"
+                  >
+                    <option value="All">All States</option>
+                    {stateOptions.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Type Filter Pills */}
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-slate-500 mr-1">Type:</span>
+                <button
+                  onClick={() => { setTypeFilter('All'); setPage(1); }}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
+                    typeFilter === 'All'
+                      ? 'gradient-primary text-white border-transparent shadow-md'
+                      : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                  }`}
+                >
+                  All
+                </button>
+                {typeOptions.map((t) => {
+                  const colors = TYPE_COLORS[t] || DEFAULT_COLORS;
+                  const isActive = typeFilter === t;
+                  return (
+                    <button
+                      key={t}
+                      onClick={() => { setTypeFilter(t); setPage(1); }}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
+                        isActive
+                          ? 'gradient-primary text-white border-transparent shadow-md'
+                          : `${colors.bg} ${colors.text} ${colors.border} hover:shadow-sm`
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Active filter tags */}
+              {activeFilterCount > 0 && (
+                <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 flex-wrap">
+                  <span className="text-[11px] text-slate-400">Active:</span>
+                  {search && <FilterTag label={`"${search}"`} onRemove={() => { setSearch(''); setPage(1); }} />}
+                  {stateFilter !== 'All' && <FilterTag label={stateFilter} onRemove={() => { setStateFilter('All'); setPage(1); }} />}
+                  {typeFilter !== 'All' && <FilterTag label={typeFilter} onRemove={() => { setTypeFilter('All'); setPage(1); }} />}
+                  {monthFilter !== 'All' && (
+                    <FilterTag
+                      label={monthOptions.find(([key]) => key === monthFilter)?.[1] ?? monthFilter}
+                      onRemove={() => { setMonthFilter('All'); setPage(1); }}
+                    />
+                  )}
+                  <button onClick={handleReset} className="text-[11px] font-semibold text-red-600 hover:underline ml-1">Clear all</button>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Results Count */}
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-muted-foreground">
+              <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length}</span> announcement{filtered.length !== 1 ? 's' : ''}
+              {activeFilterCount > 0 && <span className="text-red-600 font-medium"> (filtered)</span>}
+            </p>
+          </div>
+
+          {/* Announcement Cards Grid */}
+          {filtered.length === 0 ? (
+            <EmptyState
+              title="No announcements found"
+              description="Try adjusting your search or filters to find what you're looking for."
+              action={{ label: 'Clear Filters', onClick: handleReset }}
+            />
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {paginated.map((announcement, idx) => (
+                <AnnouncementCard key={announcement.id} announcement={announcement} index={idx} />
+              ))}
+            </div>
+          )}
+
+          <Pagination
+            page={page}
+            totalPages={totalPages}
+            onPageChange={setPage}
+            itemCount={paginated.length}
+            totalItems={filtered.length}
+          />
+        </>
+      )}
     </div>
   );
 }
 
-function AnnouncementCard({ announcement: a, index }: { announcement: Announcement; index: number }) {
-  const colors = TYPE_COLORS[a.announcementType] || DEFAULT_COLORS;
-  const Icon = TYPE_ICONS[a.announcementType] || Bell;
-  const gradient = TYPE_GRADIENTS[a.announcementType] || 'from-slate-500 to-slate-600';
-  const glow = TYPE_GLOWS[a.announcementType] || 'shadow-slate-500/20';
+function AnnouncementCard({ announcement: a, index }: { announcement: DatedAnnouncement; index: number }) {
+  const type = a.announcementType ?? '';
+  const colors = TYPE_COLORS[type] || DEFAULT_COLORS;
+  const Icon = TYPE_ICONS[type] || Bell;
+  const gradient = TYPE_GRADIENTS[type] || 'from-slate-500 to-slate-600';
+  const glow = TYPE_GLOWS[type] || 'shadow-slate-500/20';
 
-  const monthNum = MONTH_ORDER[a.month] ?? 0;
-  const isRecent = monthNum >= 5;
+  const isRecent = a.ts > 0 && Date.now() - a.ts <= RECENT_MS;
+  const docLabel = a.documentLabel || type || 'Document';
 
   return (
     <motion.div
@@ -323,29 +399,34 @@ function AnnouncementCard({ announcement: a, index }: { announcement: Announceme
               <Icon className="w-5 h-5 text-white" />
             </motion.div>
 
-            <div className={`flex flex-col items-center px-3 py-1.5 rounded-xl transition-all duration-300 group-hover:scale-105 ${
-              isRecent
-                ? 'bg-red-50 dark:bg-red-950/30'
-                : 'bg-slate-50 dark:bg-slate-800'
-            }`}>
+            <div
+              title={a.monthLabel || undefined}
+              className={`flex flex-col items-center px-3 py-1.5 rounded-xl transition-all duration-300 group-hover:scale-105 ${
+                isRecent
+                  ? 'bg-red-50 dark:bg-red-950/30'
+                  : 'bg-slate-50 dark:bg-slate-800'
+              }`}
+            >
               <span className={`text-[9px] font-bold uppercase leading-none tracking-wider ${
                 isRecent ? 'text-red-500 dark:text-red-400' : 'text-slate-400'
               }`}>
-                {a.month}
+                {a.monthShort}
               </span>
               <span className={`text-lg font-extrabold leading-none mt-0.5 ${
                 isRecent ? 'text-red-600 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'
               }`}>
-                {a.day}
+                {a.dayLabel}
               </span>
             </div>
           </div>
 
           {/* Tags */}
           <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
-            <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${colors.bg} ${colors.text} border ${colors.border}`}>
-              {a.announcementType}
-            </span>
+            {type && (
+              <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${colors.bg} ${colors.text} border ${colors.border}`}>
+                {type}
+              </span>
+            )}
             {a.state && (
               <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400">
                 <MapPin className="w-2.5 h-2.5" />
@@ -356,12 +437,12 @@ function AnnouncementCard({ announcement: a, index }: { announcement: Announceme
 
           {/* Title */}
           <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-600 group-hover:to-rose-500 dark:group-hover:from-red-400 dark:group-hover:to-rose-400 transition-all duration-300 mb-2">
-            {a.title}
+            {a.title ?? 'Untitled announcement'}
           </h3>
 
           {/* Description */}
           <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2 mb-4">
-            {a.shortDescription}
+            {a.shortDescription ?? ''}
           </p>
 
           {/* Bottom: Document action */}
@@ -376,14 +457,14 @@ function AnnouncementCard({ announcement: a, index }: { announcement: Announceme
               >
                 <span className="flex items-center gap-1.5">
                   <Icon className="w-3.5 h-3.5" />
-                  {a.documentLabel}
+                  {docLabel}
                 </span>
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-50 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all duration-300" />
               </a>
             ) : (
               <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 py-2 rounded-xl ${colors.bg} ${colors.text} opacity-60`}>
                 <Icon className="w-3.5 h-3.5" />
-                {a.documentLabel}
+                {docLabel}
               </span>
             )}
           </div>

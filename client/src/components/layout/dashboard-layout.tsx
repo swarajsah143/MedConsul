@@ -1,37 +1,37 @@
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
-import { ANNOUNCEMENTS_DATA } from '@/lib/announcements-data';
-import { CHECKLIST_DOCS } from '@/lib/checklist-data';
+import { useCollection } from '@/lib/data-api';
 import {
-  Stethoscope,
-  LayoutDashboard,
-  GraduationCap,
   BarChart3,
-  IndianRupee,
-  ClipboardCheck,
-  Menu,
-  X,
-  LogOut,
+  BookOpen,
+  Building2,
   ChevronDown,
   ChevronRight,
-  Megaphone,
-  MapPin,
-  ScrollText,
-  ShieldCheck,
+  ClipboardCheck,
   ClipboardList,
-  Home,
-  Users,
-  Layers,
-  Sparkles,
   Compass,
-  Building2,
-  BookOpen,
-  Newspaper,
+  Database,
   Globe2,
+  GraduationCap,
+  Home,
+  IndianRupee,
+  Layers,
+  LayoutDashboard,
+  LogOut,
+  MapPin,
+  Megaphone,
+  Menu,
+  Newspaper,
+  ScrollText,
   Shield,
+  ShieldCheck,
+  Sparkles,
+  Stethoscope,
+  Users,
+  X,
   type LucideIcon,
 } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 interface NavLeaf {
   name: string;
@@ -54,25 +54,26 @@ interface NavSection {
   items: NavEntry[];
 }
 
-function getChecklistRemaining(): number {
+/** Ids the user has ticked off. Stale ids (from the old static data) are ignored. */
+function loadCheckedIds(): string[] {
   try {
     const raw = localStorage.getItem('medcounsel-checklist-state');
     if (raw) {
-      const checked = JSON.parse(raw) as string[];
-      return Math.max(CHECKLIST_DOCS.length - checked.length, 0);
+      const parsed: unknown = JSON.parse(raw);
+      if (Array.isArray(parsed)) return parsed.filter((v): v is string => typeof v === 'string');
     }
-  } catch { /* ignore */ }
-  return CHECKLIST_DOCS.length;
+  } catch { /* ignore malformed/stale state */ }
+  return [];
 }
 
-function buildNavSections(): NavSection[] {
-  const docsRemaining = getChecklistRemaining();
+/** Badge counts come from the API now — render no badge while loading or on error. */
+function buildNavSections(announcementBadge?: string, docsBadge?: string): NavSection[] {
   return [
     {
       label: 'Overview',
       items: [
         { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-        { name: 'Announcements', href: '/announcements', icon: Megaphone, badge: String(ANNOUNCEMENTS_DATA.length) },
+        { name: 'Announcements', href: '/announcements', icon: Megaphone, badge: announcementBadge },
       ],
     },
     {
@@ -99,7 +100,7 @@ function buildNavSections(): NavSection[] {
             { name: 'Quota & Reservation', href: '/counselling-conditions/quota', icon: Layers },
           ],
         },
-        { name: 'Doc Checklist', href: '/doc-checklist', icon: ClipboardCheck, badge: docsRemaining > 0 ? String(docsRemaining) : undefined },
+        { name: 'Doc Checklist', href: '/doc-checklist', icon: ClipboardCheck, badge: docsBadge },
         {
           name: 'Explore',
           icon: Compass,
@@ -117,7 +118,10 @@ function buildNavSections(): NavSection[] {
 }
 
 // Admin-only entry, shown above everything else for admin users
-const ADMIN_NAV: NavLeaf = { name: 'Admin Dashboard', href: '/admin', icon: Shield };
+const ADMIN_NAV: NavLeaf[] = [
+  { name: 'Admin Dashboard', href: '/admin', icon: Shield },
+  { name: 'Manage Data', href: '/admin/data', icon: Database },
+];
 
 function NavItem({ item, active, onClick }: { item: NavLeaf; active: boolean; onClick?: () => void }) {
   const Icon = item.icon;
@@ -224,9 +228,25 @@ export default function DashboardLayout() {
   const isActive = (href: string) =>
     location.pathname === href || location.pathname.startsWith(href + '/');
 
-  const navSections = buildNavSections();
+  // Nav badge counts are admin-managed data now.
+  const announcements = useCollection<{ id: string }>('announcements');
+  const checklistDocs = useCollection<{ id: string }>('checklistDocs');
+
+  const announcementBadge = useMemo(() => {
+    if (announcements.loading || announcements.error) return undefined;
+    return announcements.data.length > 0 ? String(announcements.data.length) : undefined;
+  }, [announcements.loading, announcements.error, announcements.data]);
+
+  const docsBadge = useMemo(() => {
+    if (checklistDocs.loading || checklistDocs.error) return undefined;
+    const checked = new Set(loadCheckedIds());
+    const remaining = checklistDocs.data.filter((d) => !checked.has(d.id)).length;
+    return remaining > 0 ? String(remaining) : undefined;
+  }, [checklistDocs.loading, checklistDocs.error, checklistDocs.data]);
+
+  const navSections = buildNavSections(announcementBadge, docsBadge);
   const visibleSections: NavSection[] = user?.role === 'admin'
-    ? navSections.map((s, i) => (i === 0 ? { ...s, items: [ADMIN_NAV, ...s.items] } : s))
+    ? navSections.map((s, i) => (i === 0 ? { ...s, items: [...ADMIN_NAV, ...s.items] } : s))
     : navSections;
 
   const handleLogout = async () => {

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FEE_MATRIX_DATA, formatINRFull, type CollegeFeeEntry } from '@/lib/fee-matrix-data';
+import { useCollections, byId, type College, type FeeEntry } from '@/lib/data-api';
+import { formatINRFull } from '@/lib/fee-matrix-data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -10,7 +11,7 @@ import {
 } from 'recharts';
 import {
   ArrowLeft, IndianRupee, MapPin, GraduationCap, Building2, Users,
-  CalendarClock, RefreshCw, Link2, Award, AlertTriangle, Wallet, Sparkles,
+  CalendarClock, RefreshCw, Link2, Award, AlertTriangle, Wallet, Sparkles, Loader2,
 } from 'lucide-react';
 
 const PIE_COLORS = ['#dc2626', '#2563eb', '#d97706', '#f43f5e', '#8b5cf6', '#06b6d4', '#84cc16'];
@@ -19,7 +20,36 @@ export default function FeeDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const entry: CollegeFeeEntry | undefined = useMemo(() => FEE_MATRIX_DATA.find((e) => e.id === id), [id]);
+  const { data, loading, error } = useCollections<{ colleges: College[]; fees: FeeEntry[] }>([
+    'colleges',
+    'fees',
+  ]);
+
+  const entry = useMemo(() => (data.fees ?? []).find((e) => e.id === id), [data.fees, id]);
+
+  // The fee row carries only a collegeId — join for name/city/state/type.
+  const collegeInfo = useMemo(
+    () => (entry ? byId(data.colleges ?? []).get(entry.collegeId) : undefined),
+    [data.colleges, entry]
+  );
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-3">
+        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <p className="text-sm text-muted-foreground">Loading fee details...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-md mx-auto mt-12">
+        <EmptyState icon={AlertTriangle} title="Couldn't load fee data" description={error}
+          action={{ label: 'Back to Fee Matrix', onClick: () => navigate('/fee-matrix') }} />
+      </div>
+    );
+  }
 
   if (!entry) {
     return (
@@ -30,19 +60,49 @@ export default function FeeDetailPage() {
     );
   }
 
-  const pieData = entry.feeBreakdown.filter((b) => b.amount > 0).map((b) => ({ name: b.label, value: b.amount }));
+  // ── every optional field guarded: admin rows may fill only the required ones ──
+  const collegeName = collegeInfo?.name ?? 'Unknown college';
+  const collegeType = collegeInfo?.type ?? '';
+  const tuitionFee = entry.tuitionFee ?? 0;
+  const hostelFee = entry.hostelFee ?? 0;
+  const miscCharges = entry.miscCharges ?? 0;
+  const securityDeposit = entry.securityDeposit ?? 0;
+  const totalFirstYear = entry.totalFirstYear ?? (tuitionFee + hostelFee + miscCharges + securityDeposit);
+  const govtSeats = entry.govtSeats ?? 0;
+  const mgmtSeats = entry.mgmtSeats ?? 0;
+  const nriSeats = entry.nriSeats ?? 0;
+  const yearWiseFees = entry.yearWiseFees ?? [];
+  const scholarships = entry.scholarships ?? [];
+
+  // Fall back to the component fees when no explicit breakdown was entered.
+  const feeBreakdown = entry.feeBreakdown?.length
+    ? entry.feeBreakdown.map((b) => ({ label: b.label ?? '', amount: b.amount ?? 0 }))
+    : [
+        { label: 'Tuition Fee', amount: tuitionFee },
+        { label: 'Hostel Fee', amount: hostelFee },
+        { label: 'Misc Charges', amount: miscCharges },
+        { label: 'Security Deposit', amount: securityDeposit },
+      ].filter((b) => b.amount > 0);
+
+  const pieData = feeBreakdown.filter((b) => b.amount > 0).map((b) => ({ name: b.label, value: b.amount }));
   const seatData = [
-    { name: 'Government', seats: entry.govtSeats, fill: '#059669' },
-    { name: 'Management', seats: entry.mgmtSeats, fill: '#d97706' },
-    { name: 'NRI', seats: entry.nriSeats, fill: '#2563eb' },
+    { name: 'Government', seats: govtSeats, fill: '#059669' },
+    { name: 'Management', seats: mgmtSeats, fill: '#d97706' },
+    { name: 'NRI', seats: nriSeats, fill: '#2563eb' },
   ].filter((s) => s.seats > 0);
 
-  const yearBarData = entry.yearWiseFees.map((y) => ({
-    name: y.year, Tuition: y.tuition, Hostel: y.hostel, Misc: y.misc, Deposit: y.deposit,
+  const yearBarData = yearWiseFees.map((y) => ({
+    name: y.year ?? '',
+    Tuition: y.tuition ?? 0,
+    Hostel: y.hostel ?? 0,
+    Misc: y.misc ?? 0,
+    Deposit: y.deposit ?? 0,
   }));
 
-  const totalAllYears = entry.yearWiseFees.reduce((s, y) => s + y.total, 0);
-  const totalSeats = entry.govtSeats + entry.mgmtSeats + entry.nriSeats;
+  const totalAllYears = yearWiseFees.length
+    ? yearWiseFees.reduce((s, y) => s + (y.total ?? 0), 0)
+    : totalFirstYear;
+  const totalSeats = govtSeats + mgmtSeats + nriSeats;
 
   const typeColor = (t: string) =>
     t === 'Government' ? 'bg-emerald-500/20 text-emerald-200' : t === 'Deemed' ? 'bg-blue-500/20 text-blue-200' : 'bg-amber-500/20 text-amber-200';
@@ -61,7 +121,7 @@ export default function FeeDetailPage() {
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
           <div className="relative z-10 space-y-4">
             <div className="flex flex-wrap gap-2">
-              <span className={`text-[10px] uppercase font-bold px-3 py-1 rounded-full ${typeColor(entry.type)}`}>{entry.type}</span>
+              {collegeType && <span className={`text-[10px] uppercase font-bold px-3 py-1 rounded-full ${typeColor(collegeType)}`}>{collegeType}</span>}
               <span className="text-[10px] uppercase font-bold px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 text-white">{entry.course}</span>
               <span className="text-[10px] uppercase font-bold px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 text-white">{entry.category} - {entry.quota}</span>
             </div>
@@ -70,9 +130,11 @@ export default function FeeDetailPage() {
                 <GraduationCap className="w-7 h-7 text-white" />
               </div>
               <div>
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight">{entry.name}</h1>
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight">{collegeName}</h1>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-red-100/90">
-                  <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {entry.city}, {entry.state}</span>
+                  {collegeInfo && (
+                    <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {collegeInfo.city}, {collegeInfo.state}</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -83,10 +145,10 @@ export default function FeeDetailPage() {
       {/* Quick Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
-          { label: 'Total 1st Year', value: formatINRFull(entry.totalFirstYear), icon: IndianRupee, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Total 1st Year', value: formatINRFull(totalFirstYear), icon: IndianRupee, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
           { label: 'Total All Years', value: formatINRFull(totalAllYears), icon: Wallet, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Total Seats', value: String(totalSeats), icon: Users, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
-          { label: 'Govt Seats', value: String(entry.govtSeats || '--'), icon: Building2, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
+          { label: 'Govt Seats', value: String(govtSeats || '--'), icon: Building2, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <CardContent className="p-4 sm:p-5">
@@ -138,36 +200,38 @@ export default function FeeDetailPage() {
           </Card>
 
           {/* Year-wise Bar */}
-          <Card className="group hover:shadow-lg transition-shadow duration-300">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-950/30 flex items-center justify-center">
-                  <CalendarClock className="w-4 h-4 text-blue-600" />
+          {yearBarData.length > 0 && (
+            <Card className="group hover:shadow-lg transition-shadow duration-300">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-950/30 flex items-center justify-center">
+                    <CalendarClock className="w-4 h-4 text-blue-600" />
+                  </div>
+                  Year-wise Fee Progression
+                </CardTitle>
+                <CardDescription className="text-xs">How fees are structured from 1st year through internship</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="h-72">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={yearBarData} margin={{ top: 5, right: 20, bottom: 5, left: 10 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                      <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#94a3b8' }} tickLine={false} />
+                      <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} tickLine={false} axisLine={false}
+                        tickFormatter={(v: number) => v >= 100000 ? `${(v / 100000).toFixed(0)}L` : `${(v / 1000).toFixed(0)}K`} />
+                      <Tooltip contentStyle={{ background: 'white', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '12px', boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)', padding: '12px' }}
+                        formatter={(value, name) => [formatINRFull(Number(value)), String(name)]} />
+                      <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
+                      <Bar dataKey="Tuition" stackId="a" fill="#0d9488" />
+                      <Bar dataKey="Hostel" stackId="a" fill="#2563eb" />
+                      <Bar dataKey="Misc" stackId="a" fill="#d97706" />
+                      <Bar dataKey="Deposit" stackId="a" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
                 </div>
-                Year-wise Fee Progression
-              </CardTitle>
-              <CardDescription className="text-xs">How fees are structured from 1st year through internship</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="h-72">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={yearBarData} margin={{ top: 5, right: 20, bottom: 5, left: 10 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                    <XAxis dataKey="name" tick={{ fontSize: 10, fill: '#94a3b8' }} tickLine={false} />
-                    <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} tickLine={false} axisLine={false}
-                      tickFormatter={(v: number) => v >= 100000 ? `${(v / 100000).toFixed(0)}L` : `${(v / 1000).toFixed(0)}K`} />
-                    <Tooltip contentStyle={{ background: 'white', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '12px', boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)', padding: '12px' }}
-                      formatter={(value, name) => [formatINRFull(Number(value)), String(name)]} />
-                    <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
-                    <Bar dataKey="Tuition" stackId="a" fill="#0d9488" />
-                    <Bar dataKey="Hostel" stackId="a" fill="#2563eb" />
-                    <Bar dataKey="Misc" stackId="a" fill="#d97706" />
-                    <Bar dataKey="Deposit" stackId="a" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Seat Distribution */}
           {seatData.length > 0 && (
@@ -203,54 +267,56 @@ export default function FeeDetailPage() {
           )}
 
           {/* Year-wise Table */}
-          <Card className="overflow-hidden">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
-                  <Wallet className="w-4 h-4 text-red-600" />
-                </div>
-                Year-wise Fee Table
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-0">
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse text-xs">
-                  <thead className="bg-slate-50 dark:bg-slate-900 text-slate-500 font-bold border-b border-slate-100 dark:border-slate-800 uppercase tracking-wider">
-                    <tr>
-                      <th className="px-5 py-3.5 text-left">Year</th>
-                      <th className="px-5 py-3.5 text-right">Tuition</th>
-                      <th className="px-5 py-3.5 text-right">Hostel</th>
-                      <th className="px-5 py-3.5 text-right">Misc</th>
-                      <th className="px-5 py-3.5 text-right">Deposit</th>
-                      <th className="px-5 py-3.5 text-right">Total</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                    {entry.yearWiseFees.map((y) => (
-                      <tr key={y.year} className="group/row hover:bg-red-50/30 dark:hover:bg-red-950/10 transition-colors duration-200">
-                        <td className="px-5 py-3 font-bold text-slate-800 dark:text-slate-200">
-                          <span className="inline-flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-red-400 group-hover/row:scale-125 transition-transform duration-200" />
-                            {y.year}
-                          </span>
-                        </td>
-                        <td className="px-5 py-3 text-right tabular-nums text-slate-600 dark:text-slate-400">{formatINRFull(y.tuition)}</td>
-                        <td className="px-5 py-3 text-right tabular-nums text-slate-600 dark:text-slate-400">{formatINRFull(y.hostel)}</td>
-                        <td className="px-5 py-3 text-right tabular-nums text-slate-500">{formatINRFull(y.misc)}</td>
-                        <td className="px-5 py-3 text-right tabular-nums text-slate-500">{formatINRFull(y.deposit)}</td>
-                        <td className="px-5 py-3 text-right tabular-nums font-extrabold text-slate-900 dark:text-slate-50">{formatINRFull(y.total)}</td>
+          {yearWiseFees.length > 0 && (
+            <Card className="overflow-hidden">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm font-bold flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
+                    <Wallet className="w-4 h-4 text-red-600" />
+                  </div>
+                  Year-wise Fee Table
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-0">
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse text-xs">
+                    <thead className="bg-slate-50 dark:bg-slate-900 text-slate-500 font-bold border-b border-slate-100 dark:border-slate-800 uppercase tracking-wider">
+                      <tr>
+                        <th className="px-5 py-3.5 text-left">Year</th>
+                        <th className="px-5 py-3.5 text-right">Tuition</th>
+                        <th className="px-5 py-3.5 text-right">Hostel</th>
+                        <th className="px-5 py-3.5 text-right">Misc</th>
+                        <th className="px-5 py-3.5 text-right">Deposit</th>
+                        <th className="px-5 py-3.5 text-right">Total</th>
                       </tr>
-                    ))}
-                    <tr className="bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-950/20 dark:to-rose-950/20 font-bold">
-                      <td className="px-5 py-3.5 text-red-700 dark:text-red-400">Grand Total</td>
-                      <td className="px-5 py-3.5 text-right" colSpan={4}></td>
-                      <td className="px-5 py-3.5 text-right tabular-nums text-red-700 dark:text-red-400 text-sm">{formatINRFull(totalAllYears)}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </CardContent>
-          </Card>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                      {yearWiseFees.map((y) => (
+                        <tr key={y.year} className="group/row hover:bg-red-50/30 dark:hover:bg-red-950/10 transition-colors duration-200">
+                          <td className="px-5 py-3 font-bold text-slate-800 dark:text-slate-200">
+                            <span className="inline-flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-red-400 group-hover/row:scale-125 transition-transform duration-200" />
+                              {y.year}
+                            </span>
+                          </td>
+                          <td className="px-5 py-3 text-right tabular-nums text-slate-600 dark:text-slate-400">{formatINRFull(y.tuition ?? 0)}</td>
+                          <td className="px-5 py-3 text-right tabular-nums text-slate-600 dark:text-slate-400">{formatINRFull(y.hostel ?? 0)}</td>
+                          <td className="px-5 py-3 text-right tabular-nums text-slate-500">{formatINRFull(y.misc ?? 0)}</td>
+                          <td className="px-5 py-3 text-right tabular-nums text-slate-500">{formatINRFull(y.deposit ?? 0)}</td>
+                          <td className="px-5 py-3 text-right tabular-nums font-extrabold text-slate-900 dark:text-slate-50">{formatINRFull(y.total ?? 0)}</td>
+                        </tr>
+                      ))}
+                      <tr className="bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-950/20 dark:to-rose-950/20 font-bold">
+                        <td className="px-5 py-3.5 text-red-700 dark:text-red-400">Grand Total</td>
+                        <td className="px-5 py-3.5 text-right" colSpan={4}></td>
+                        <td className="px-5 py-3.5 text-right tabular-nums text-red-700 dark:text-red-400 text-sm">{formatINRFull(totalAllYears)}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
 
         {/* Right Sidebar */}
@@ -263,14 +329,14 @@ export default function FeeDetailPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-0">
-              <InfoRow icon={CalendarClock} label="Payment Schedule" value={entry.paymentSchedule} />
-              <InfoRow icon={RefreshCw} label="Refund Policy" value={entry.refundPolicy} />
+              <InfoRow icon={CalendarClock} label="Payment Schedule" value={entry.paymentSchedule ?? 'Not specified'} />
+              <InfoRow icon={RefreshCw} label="Refund Policy" value={entry.refundPolicy ?? 'Not specified'} />
               {entry.bondDetails && <InfoRow icon={Link2} label="Service Bond" value={entry.bondDetails} />}
             </CardContent>
           </Card>
 
           {/* Scholarships */}
-          {entry.scholarships.length > 0 && (
+          {scholarships.length > 0 && (
             <Card>
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm font-bold flex items-center gap-2">
@@ -279,7 +345,7 @@ export default function FeeDetailPage() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {entry.scholarships.map((s, i) => (
+                  {scholarships.map((s, i) => (
                     <li key={i} className="flex gap-2.5 text-xs text-slate-600 dark:text-slate-400">
                       <span className="w-6 h-6 rounded-full bg-amber-50 dark:bg-amber-950/30 flex items-center justify-center shrink-0 mt-0.5">
                         <Award className="w-3 h-3 text-amber-600 dark:text-amber-400" />
@@ -301,7 +367,7 @@ export default function FeeDetailPage() {
             </CardHeader>
             <CardContent className="p-0">
               <div className="divide-y divide-slate-100 dark:divide-slate-800">
-                {entry.feeBreakdown.map((b) => (
+                {feeBreakdown.map((b) => (
                   <div key={b.label} className="flex items-center justify-between px-6 py-3 text-xs hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors">
                     <span className="text-slate-600 dark:text-slate-400">{b.label}</span>
                     <span className="font-bold text-slate-800 dark:text-slate-200 tabular-nums">{formatINRFull(b.amount)}</span>
@@ -309,7 +375,7 @@ export default function FeeDetailPage() {
                 ))}
                 <div className="flex items-center justify-between px-6 py-3.5 bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-950/20 dark:to-rose-950/20 text-xs font-bold">
                   <span className="text-red-700 dark:text-red-400">Total First Year</span>
-                  <span className="text-red-700 dark:text-red-400 tabular-nums text-sm">{formatINRFull(entry.totalFirstYear)}</span>
+                  <span className="text-red-700 dark:text-red-400 tabular-nums text-sm">{formatINRFull(totalFirstYear)}</span>
                 </div>
               </div>
             </CardContent>

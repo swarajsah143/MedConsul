@@ -6,6 +6,9 @@
  * in the SOURCES array at the bottom. No other file needs to change.
  */
 
+import { isMongoConnected } from '../../config/database';
+import { DB_SOURCES } from './db-sources';
+
 // ── Data Source Interface ──────────────────────────────────
 
 export interface RetrievedChunk {
@@ -18,12 +21,13 @@ export interface RetrievedChunk {
 export interface DataSource {
   name: string;
   keywords: string[];
-  search(query: string, params: Record<string, string>): RetrievedChunk[];
+  /** DB-backed sources are async; the static fallbacks return an array directly. */
+  search(query: string, params: Record<string, string>): RetrievedChunk[] | Promise<RetrievedChunk[]>;
 }
 
 // ── Utility ────────────────────────────────────────────────
 
-function matchScore(query: string, text: string): number {
+export function matchScore(query: string, text: string): number {
   const qWords = query.toLowerCase().split(/\s+/).filter((w) => w.length > 2);
   const tLower = text.toLowerCase();
   let matched = 0;
@@ -33,7 +37,7 @@ function matchScore(query: string, text: string): number {
   return qWords.length > 0 ? matched / qWords.length : 0;
 }
 
-function extractParam(query: string, patterns: RegExp[]): string | null {
+export function extractParam(query: string, patterns: RegExp[]): string | null {
   for (const p of patterns) {
     const m = query.match(p);
     if (m) return m[1].trim();
@@ -283,7 +287,7 @@ interface KBEntry {
   tags: string[];
 }
 
-const knowledgeBase: KBEntry[] = [
+export const knowledgeBase: KBEntry[] = [
   // ===== MCC AIQ Counselling Process =====
   {
     title: 'MCC AIQ Counselling Overview',
@@ -388,7 +392,7 @@ class KnowledgeBaseSource implements DataSource {
 
 // ── Source Registry ────────────────────────────────────────
 
-const SOURCES: DataSource[] = [
+const STATIC_SOURCES: DataSource[] = [
   new CollegeSource(),
   new CutoffSource(),
   new FeeSource(),
@@ -398,31 +402,37 @@ const SOURCES: DataSource[] = [
 
 /**
  * Retrieve relevant data chunks for a user query.
+ *
+ * Reads admin-managed data from Mongo when it is connected. The hardcoded arrays
+ * above remain only as an offline fallback — they are a frozen snapshot and will
+ * NOT reflect anything an admin edits.
  */
-export function retrieve(query: string, params: Record<string, string> = {}): RetrievedChunk[] {
+export async function retrieve(
+  query: string,
+  params: Record<string, string> = {}
+): Promise<RetrievedChunk[]> {
   const q = query.toLowerCase();
+  const sources = isMongoConnected() ? DB_SOURCES : STATIC_SOURCES;
 
-  const scored = SOURCES.map((source) => {
-    const kwScore = source.keywords.filter((kw) => q.includes(kw)).length;
-    return { source, kwScore };
-  });
+  const scored = sources.map((source) => ({
+    source,
+    kwScore: source.keywords.filter((kw) => q.includes(kw)).length,
+  }));
 
   let activeSources = scored.filter((s) => s.kwScore > 0).map((s) => s.source);
   if (activeSources.length === 0) {
     // Default: knowledge base + colleges + cutoffs
-    activeSources = [SOURCES[4], SOURCES[0], SOURCES[1]];
+    activeSources = [sources[4], sources[0], sources[1]];
   }
 
-  const allChunks: RetrievedChunk[] = [];
-  for (const source of activeSources) {
-    allChunks.push(...source.search(query, params));
-  }
+  const chunks = await Promise.all(activeSources.map((s) => s.search(query, params)));
 
-  return allChunks
+  return chunks
+    .flat()
     .sort((a, b) => b.relevance - a.relevance)
     .slice(0, 15);
 }
 
 export function listSources(): string[] {
-  return SOURCES.map((s) => s.name);
+  return (isMongoConnected() ? DB_SOURCES : STATIC_SOURCES).map((s) => s.name);
 }

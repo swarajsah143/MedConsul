@@ -49,11 +49,15 @@ async function request<T = any>(url: string, opts: ApiOptions = {}): Promise<T> 
           credentials: 'include',
         });
         const retryData = await retryRes.json().catch(() => ({}));
-        if (!retryRes.ok) throw { status: retryRes.status, message: retryData.message || 'Request failed' };
+        // Carry `errors` through: the admin form needs field-level validation errors,
+        // not just a message.
+        if (!retryRes.ok) {
+          throw { status: retryRes.status, message: retryData.message || 'Request failed', errors: retryData.errors };
+        }
         return retryData;
       }
     }
-    throw { status: res.status, message: data.message || 'Request failed' };
+    throw { status: res.status, message: data.message || 'Request failed', errors: data.errors };
   }
 
   return data;

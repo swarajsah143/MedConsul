@@ -1,10 +1,7 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  FEE_MATRIX_DATA,
-  FEE_FILTER_OPTIONS,
-  formatINR,
-} from '@/lib/fee-matrix-data';
+import { useCollections, byId, distinct, type College, type FeeEntry } from '@/lib/data-api';
+import { formatINR } from '@/lib/fee-matrix-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,15 +24,43 @@ import {
   TrendingUp,
   Wallet,
   ClipboardCheck,
+  Loader2,
+  AlertTriangle,
 } from 'lucide-react';
 
 type SortField = 'college' | 'tuitionFee' | 'hostelFee' | 'totalFirstYear' | 'govtSeats' | 'mgmtSeats';
 type ViewMode = 'cards' | 'table';
 
+/** A fee row joined against its college — the API stores only a collegeId, and every money/seat field is optional. */
+interface FeeRow {
+  id: string;
+  collegeId: string;
+  name: string;
+  state: string;
+  city: string;
+  type: string;
+  course: string;
+  category: string;
+  quota: string;
+  tuitionFee: number;
+  hostelFee: number;
+  miscCharges: number;
+  securityDeposit: number;
+  totalFirstYear: number;
+  govtSeats: number;
+  mgmtSeats: number;
+  nriSeats: number;
+}
+
 const PAGE_SIZE = 12;
 
 export default function FeeMatrixPage() {
   const navigate = useNavigate();
+
+  const { data, loading, error } = useCollections<{ colleges: College[]; fees: FeeEntry[] }>([
+    'colleges',
+    'fees',
+  ]);
 
   const [search, setSearch] = useState('');
   const [state, setState] = useState('All');
@@ -61,19 +86,59 @@ export default function FeeMatrixPage() {
     category !== 'All', quota !== 'All', search !== '',
   ].filter(Boolean).length;
 
+  // ── join + normalise: college info from `colleges`, every optional number defaulted ──
+  const rows = useMemo<FeeRow[]>(() => {
+    const collegeMap = byId(data.colleges ?? []);
+    return (data.fees ?? []).map((f) => {
+      const c = collegeMap.get(f.collegeId);
+      const tuitionFee = f.tuitionFee ?? 0;
+      const hostelFee = f.hostelFee ?? 0;
+      const miscCharges = f.miscCharges ?? 0;
+      const securityDeposit = f.securityDeposit ?? 0;
+      return {
+        id: f.id,
+        collegeId: f.collegeId,
+        name: c?.name ?? 'Unknown college',
+        state: c?.state ?? '',
+        city: c?.city ?? '',
+        type: c?.type ?? '',
+        course: f.course ?? '',
+        category: f.category ?? '',
+        quota: f.quota ?? '',
+        tuitionFee,
+        hostelFee,
+        miscCharges,
+        securityDeposit,
+        totalFirstYear: f.totalFirstYear ?? (tuitionFee + hostelFee + miscCharges + securityDeposit),
+        govtSeats: f.govtSeats ?? 0,
+        mgmtSeats: f.mgmtSeats ?? 0,
+        nriSeats: f.nriSeats ?? 0,
+      };
+    });
+  }, [data.colleges, data.fees]);
+
+  // Dropdown options built from the live rows, so admin-added colleges/quotas show up automatically.
+  const filterOptions = useMemo(() => ({
+    states: distinct(rows, 'state'),
+    colleges: distinct(rows, 'name'),
+    courses: distinct(rows, 'course'),
+    categories: distinct(rows, 'category'),
+    quotas: distinct(rows, 'quota'),
+  }), [rows]);
+
   const filtered = useMemo(() => {
-    let data = FEE_MATRIX_DATA;
+    let list = rows;
     if (search) {
       const q = search.toLowerCase();
-      data = data.filter((e) => e.name.toLowerCase().includes(q) || e.city.toLowerCase().includes(q) || e.course.toLowerCase().includes(q));
+      list = list.filter((e) => e.name.toLowerCase().includes(q) || e.city.toLowerCase().includes(q) || e.course.toLowerCase().includes(q));
     }
-    if (state !== 'All') data = data.filter((e) => e.state === state);
-    if (college !== 'All') data = data.filter((e) => e.name === college);
-    if (course !== 'All') data = data.filter((e) => e.course === course);
-    if (category !== 'All') data = data.filter((e) => e.category === category);
-    if (quota !== 'All') data = data.filter((e) => e.quota === quota);
+    if (state !== 'All') list = list.filter((e) => e.state === state);
+    if (college !== 'All') list = list.filter((e) => e.name === college);
+    if (course !== 'All') list = list.filter((e) => e.course === course);
+    if (category !== 'All') list = list.filter((e) => e.category === category);
+    if (quota !== 'All') list = list.filter((e) => e.quota === quota);
 
-    data = [...data].sort((a, b) => {
+    list = [...list].sort((a, b) => {
       let cmp = 0;
       switch (sortBy) {
         case 'college': cmp = a.name.localeCompare(b.name); break;
@@ -85,8 +150,8 @@ export default function FeeMatrixPage() {
       }
       return sortOrder === 'asc' ? cmp : -cmp;
     });
-    return data;
-  }, [search, state, college, course, category, quota, sortBy, sortOrder]);
+    return list;
+  }, [rows, search, state, college, course, category, quota, sortBy, sortOrder]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
@@ -104,10 +169,10 @@ export default function FeeMatrixPage() {
 
   const handleExportCsv = () => {
     const header = 'College,State,City,Type,Course,Category,Quota,Tuition,Hostel,Misc,Deposit,Total 1st Yr,Govt Seats,Mgmt Seats,NRI Seats\n';
-    const rows = filtered.map((e) =>
+    const csvRows = filtered.map((e) =>
       `"${e.name}","${e.state}","${e.city}","${e.type}","${e.course}","${e.category}","${e.quota}",${e.tuitionFee},${e.hostelFee},${e.miscCharges},${e.securityDeposit},${e.totalFirstYear},${e.govtSeats},${e.mgmtSeats},${e.nriSeats}`
     ).join('\n');
-    const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' });
+    const blob = new Blob([header + csvRows], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -136,6 +201,28 @@ export default function FeeMatrixPage() {
           <ArrowUpDown className={`w-3 h-3 shrink-0 transition-colors ${active ? 'text-red-600' : 'text-slate-400'}`} />
         </span>
       </th>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-3">
+        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <p className="text-sm text-muted-foreground">Loading fee & seat data...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-md mx-auto mt-12">
+        <EmptyState
+          icon={AlertTriangle}
+          title="Couldn't load fee data"
+          description={error}
+          action={{ label: 'Retry', onClick: () => window.location.reload() }}
+        />
+      </div>
     );
   }
 
@@ -249,7 +336,7 @@ export default function FeeMatrixPage() {
                       <select value={state} onChange={(e) => setState(e.target.value)}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All States</option>
-                        {FEE_FILTER_OPTIONS.states.map((s) => <option key={s} value={s}>{s}</option>)}
+                        {filterOptions.states.map((s) => <option key={s} value={s}>{s}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">
@@ -257,7 +344,7 @@ export default function FeeMatrixPage() {
                       <select value={college} onChange={(e) => setCollege(e.target.value)}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Colleges</option>
-                        {FEE_FILTER_OPTIONS.colleges.map((c) => <option key={c} value={c}>{c}</option>)}
+                        {filterOptions.colleges.map((c) => <option key={c} value={c}>{c}</option>)}
                       </select>
                     </div>
                   </div>
@@ -276,7 +363,7 @@ export default function FeeMatrixPage() {
                       <select value={course} onChange={(e) => setCourse(e.target.value)}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Courses</option>
-                        {FEE_FILTER_OPTIONS.courses.map((c) => <option key={c} value={c}>{c}</option>)}
+                        {filterOptions.courses.map((c) => <option key={c} value={c}>{c}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">
@@ -284,7 +371,7 @@ export default function FeeMatrixPage() {
                       <select value={category} onChange={(e) => setCategory(e.target.value)}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Categories</option>
-                        {FEE_FILTER_OPTIONS.categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                        {filterOptions.categories.map((c) => <option key={c} value={c}>{c}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">
@@ -292,7 +379,7 @@ export default function FeeMatrixPage() {
                       <select value={quota} onChange={(e) => setQuota(e.target.value)}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Quotas</option>
-                        {FEE_FILTER_OPTIONS.quotas.map((q) => <option key={q} value={q}>{q}</option>)}
+                        {filterOptions.quotas.map((q) => <option key={q} value={q}>{q}</option>)}
                       </select>
                     </div>
                   </div>
@@ -401,11 +488,13 @@ export default function FeeMatrixPage() {
 
                 {/* Tags row */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
-                    entry.type === 'Government' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
-                    entry.type === 'Deemed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
-                    'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                  }`}>{entry.type}</span>
+                  {entry.type && (
+                    <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                      entry.type === 'Government' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                      entry.type === 'Deemed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
+                      'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                    }`}>{entry.type}</span>
+                  )}
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">{entry.course}</span>
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">{entry.category}</span>
                 </div>
@@ -492,7 +581,7 @@ export default function FeeMatrixPage() {
                       <div className="truncate max-w-[220px] group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">{entry.name}</div>
                       <div className="flex flex-wrap items-center gap-1.5 mt-1 text-[10px] text-muted-foreground font-normal">
                         <span className="flex items-center gap-0.5"><MapPin className="w-2.5 h-2.5" />{entry.city}, {entry.state}</span>
-                        <span className={`px-1.5 py-0.5 rounded-full font-bold ${typeColor(entry.type)}`}>{entry.type}</span>
+                        {entry.type && <span className={`px-1.5 py-0.5 rounded-full font-bold ${typeColor(entry.type)}`}>{entry.type}</span>}
                       </div>
                     </td>
                     <td className="px-3 py-3.5 text-right tabular-nums font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">{formatINR(entry.tuitionFee)}</td>

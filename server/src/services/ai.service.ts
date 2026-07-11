@@ -55,8 +55,8 @@ function checkRateLimit(userId: string): { allowed: boolean; retryAfter?: number
 // When no AI API key is set, we generate a formatted response
 // directly from the retrieved data chunks.
 
-function generateFallbackFromRAG(query: string): string {
-  const { intent, chunks } = buildContextPrompt(query);
+async function generateFallbackFromRAG(query: string): Promise<string> {
+  const { intent, chunks } = await buildContextPrompt(query);
 
   if (chunks.length === 0) {
     return `Hey! I understand your question, but I don't have specific data matching it in my database right now.
@@ -174,7 +174,7 @@ async function callProvider(
   // No API key → generate response from RAG data directly
   if (!apiKey) {
     const userMsg = messages.filter((m) => m.role === 'user').pop();
-    const text = generateFallbackFromRAG(userMsg?.content || '');
+    const text = await generateFallbackFromRAG(userMsg?.content || '');
     // In fallback mode, send the complete response.
     // The frontend handles typing animation on its side.
     onChunk(text);
@@ -208,7 +208,7 @@ async function callProvider(
     if (err?.name === 'AbortError') throw err;
     console.error(`  AI provider unreachable (${baseUrl}) — falling back to RAG:`, err?.message);
     const userMsg = messages.filter((m) => m.role === 'user').pop();
-    const text = generateFallbackFromRAG(userMsg?.content || '');
+    const text = await generateFallbackFromRAG(userMsg?.content || '');
     onChunk(text);
     onDone(text);
     return;
@@ -218,7 +218,7 @@ async function callProvider(
     const err = await res.text();
     console.error(`  AI provider error (${res.status}) — falling back to RAG: ${err.slice(0, 200)}`);
     const userMsg = messages.filter((m) => m.role === 'user').pop();
-    const text = generateFallbackFromRAG(userMsg?.content || '');
+    const text = await generateFallbackFromRAG(userMsg?.content || '');
     onChunk(text);
     onDone(text);
     return;
@@ -355,7 +355,7 @@ export const aiService = {
     const query = lastUserMsg?.content || '';
 
     // Build RAG-enriched system prompt
-    const { systemPrompt } = buildContextPrompt(query);
+    const { systemPrompt } = await buildContextPrompt(query);
 
     const messages: ChatMsg[] = [
       { role: 'system', content: systemPrompt },

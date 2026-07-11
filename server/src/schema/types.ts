@@ -1,0 +1,65 @@
+/**
+ * The field-schema layer — the single source of truth for every admin-managed
+ * collection.
+ *
+ * One CollectionSchema drives all of:
+ *   - the Mongoose model              (models/resource.model.ts)
+ *   - request validation             (schema/validate.ts)
+ *   - the admin CRUD routes          (routes/admin.resources.routes.ts)
+ *   - the public read API            (routes/data.routes.ts)
+ *   - the RAG retriever's sources    (services/rag/retriever.ts)
+ *   - the admin table + form in the client, which fetches these schemas at runtime
+ *
+ * Adding a new admin-managed collection means adding one entry to
+ * schema/collections.ts. It must not mean writing ten near-identical files.
+ */
+
+export type FieldType =
+  | 'string'    // single-line text
+  | 'text'      // multi-line prose
+  | 'number'
+  | 'boolean'
+  | 'enum'      // one of `options`
+  | 'url'
+  | 'string[]'  // list of free strings (pros, cons, tags, courses…)
+  | 'enum[]'    // multi-select from `options` (applicability filters)
+  | 'object[]'  // repeating sub-form, shape given by `of`
+  | 'ref';      // foreign key into another collection
+
+export interface Field {
+  name: string;
+  type: FieldType;
+  label: string;
+  required?: boolean;
+  /** for enum / enum[] */
+  options?: string[];
+  /** for ref — the target collection's `name` */
+  ref?: string;
+  /** for object[] — the shape of each row */
+  of?: Field[];
+  /** show this column in the admin list table (keep to ~5 or the table is unreadable) */
+  inList?: boolean;
+  /** expose as a filter control in the admin list + public API */
+  filterable?: boolean;
+  /** included in the free-text search */
+  searchable?: boolean;
+  default?: unknown;
+  help?: string;
+}
+
+export interface CollectionSchema {
+  /** url-safe id: /api/admin/resources/<name> */
+  name: string;
+  label: string;
+  /** plural noun for UI copy */
+  labelPlural: string;
+  fields: Field[];
+  /** default sort, e.g. '-createdAt' or 'name' */
+  defaultSort?: string;
+  /** if set, this collection is exposed read-only at /api/data/<name> for the app */
+  publicRead?: boolean;
+  description?: string;
+}
+
+/** Every field a record always carries, injected by the model layer. */
+export const SYSTEM_FIELDS = ['id', 'createdAt', 'updatedAt'] as const;

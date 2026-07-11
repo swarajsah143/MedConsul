@@ -1,11 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  INSIGHTS_DATA,
-  INSIGHT_FILTER_OPTIONS,
-  getLatestEntries,
-  type InsightEntry,
-} from '@/lib/insights-data';
+import { useCollections, byId, distinct, type College, type ClosingRank } from '@/lib/data-api';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,15 +22,30 @@ import {
   MapPin,
   ArrowRight,
   SlidersHorizontal,
+  Loader2,
+  AlertTriangle,
 } from 'lucide-react';
 
 type SortField = 'college' | 'course' | 'category' | 'quota' | 'round' | 'closingRank' | 'closingScore';
 type SearchMode = 'rank' | 'score';
 
+/** A closing-rank row joined against its college. The API is normalised — rank rows carry only a collegeId. */
+interface InsightRow extends ClosingRank {
+  collegeName: string;
+  collegeState: string;
+  collegeCity: string;
+  collegeType: string;
+}
+
 const PAGE_SIZE = 12;
 
 export default function RankInsightsPage() {
   const navigate = useNavigate();
+
+  const { data, loading, error } = useCollections<{ colleges: College[]; closingRanks: ClosingRank[] }>([
+    'colleges',
+    'closingRanks',
+  ]);
 
   // Filters
   const [search, setSearch] = useState('');
@@ -74,34 +84,79 @@ export default function RankInsightsPage() {
     rankMin !== '', rankMax !== '', scoreMin !== '', scoreMax !== '',
   ].filter(Boolean).length;
 
-  const baseEntries = useMemo(() => getLatestEntries(), []);
+  // ── join: every rank row gets its college's name/state/city/type ──
+  const rows = useMemo<InsightRow[]>(() => {
+    const collegeMap = byId(data.colleges ?? []);
+    return (data.closingRanks ?? []).map((r) => {
+      const c = collegeMap.get(r.collegeId);
+      return {
+        ...r,
+        collegeName: c?.name ?? 'Unknown college',
+        collegeState: c?.state ?? '',
+        collegeCity: c?.city ?? '',
+        collegeType: c?.type ?? '',
+      };
+    });
+  }, [data.colleges, data.closingRanks]);
+
+  // Filter dropdown options built from the live data, so new years/quotas appear automatically.
+  const filterOptions = useMemo(() => ({
+    states: distinct(rows, 'collegeState'),
+    colleges: distinct(rows, 'collegeName'),
+    courses: distinct(rows, 'course'),
+    categories: distinct(rows, 'category'),
+    quotas: distinct(rows, 'quota'),
+    rounds: [...new Set(rows.map((r) => r.round))].sort((a, b) => a - b),
+  }), [rows]);
+
+  const latestYear = useMemo(
+    () => (rows.length ? Math.max(...rows.map((r) => r.year)) : null),
+    [rows]
+  );
+
+  // Latest (most recent year, then highest round) entry per college+course+category+quota.
+  const baseEntries = useMemo(() => {
+    const grouped = new Map<string, InsightRow>();
+    for (const entry of rows) {
+      const key = `${entry.collegeId}|${entry.course}|${entry.category}|${entry.quota}`;
+      const existing = grouped.get(key);
+      if (
+        !existing ||
+        entry.year > existing.year ||
+        (entry.year === existing.year && entry.round > existing.round)
+      ) {
+        grouped.set(key, entry);
+      }
+    }
+    return [...grouped.values()];
+  }, [rows]);
 
   const filtered = useMemo(() => {
-    let data = baseEntries;
+    let list = baseEntries;
     if (search) {
       const q = search.toLowerCase();
-      data = data.filter((e) =>
-        e.college.name.toLowerCase().includes(q) ||
+      list = list.filter((e) =>
+        e.collegeName.toLowerCase().includes(q) ||
         e.course.toLowerCase().includes(q) ||
         e.category.toLowerCase().includes(q) ||
         e.quota.toLowerCase().includes(q)
       );
     }
-    if (state !== 'All') data = data.filter((e) => e.college.state === state);
-    if (college !== 'All') data = data.filter((e) => e.college.name === college);
-    if (course !== 'All') data = data.filter((e) => e.course === course);
-    if (category !== 'All') data = data.filter((e) => e.category === category);
-    if (quota !== 'All') data = data.filter((e) => e.quota === quota);
-    if (round !== 'All') data = data.filter((e) => e.round === Number(round));
-    if (rankMin) data = data.filter((e) => e.closingRank >= Number(rankMin));
-    if (rankMax) data = data.filter((e) => e.closingRank <= Number(rankMax));
-    if (scoreMin) data = data.filter((e) => (e.closingScore ?? 0) >= Number(scoreMin));
-    if (scoreMax) data = data.filter((e) => (e.closingScore ?? 0) <= Number(scoreMax));
+    if (state !== 'All') list = list.filter((e) => e.collegeState === state);
+    if (college !== 'All') list = list.filter((e) => e.collegeName === college);
+    if (course !== 'All') list = list.filter((e) => e.course === course);
+    if (category !== 'All') list = list.filter((e) => e.category === category);
+    if (quota !== 'All') list = list.filter((e) => e.quota === quota);
+    if (round !== 'All') list = list.filter((e) => e.round === Number(round));
+    if (rankMin) list = list.filter((e) => e.closingRank >= Number(rankMin));
+    if (rankMax) list = list.filter((e) => e.closingRank <= Number(rankMax));
+    if (scoreMin) list = list.filter((e) => (e.closingScore ?? 0) >= Number(scoreMin));
+    if (scoreMax) list = list.filter((e) => (e.closingScore ?? 0) <= Number(scoreMax));
 
-    data = [...data].sort((a, b) => {
+    list = [...list].sort((a, b) => {
       let cmp = 0;
       switch (sortBy) {
-        case 'college': cmp = a.college.name.localeCompare(b.college.name); break;
+        case 'college': cmp = a.collegeName.localeCompare(b.collegeName); break;
         case 'course': cmp = a.course.localeCompare(b.course); break;
         case 'category': cmp = a.category.localeCompare(b.category); break;
         case 'quota': cmp = a.quota.localeCompare(b.quota); break;
@@ -111,7 +166,7 @@ export default function RankInsightsPage() {
       }
       return sortOrder === 'asc' ? cmp : -cmp;
     });
-    return data;
+    return list;
   }, [baseEntries, search, state, college, course, category, quota, round, rankMin, rankMax, scoreMin, scoreMax, sortBy, sortOrder]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
@@ -139,10 +194,10 @@ export default function RankInsightsPage() {
     setShowFilters(false);
   };
 
-  const handleRowClick = (entry: InsightEntry) => {
+  const handleRowClick = (entry: InsightRow) => {
     const params = new URLSearchParams({
       collegeId: entry.collegeId,
-      college: entry.college.name,
+      college: entry.collegeName,
       course: entry.course,
       category: entry.category,
       quota: entry.quota,
@@ -152,10 +207,10 @@ export default function RankInsightsPage() {
 
   const handleExportCsv = () => {
     const header = 'College,State,Course,Category,Quota,Year,Round,Closing Rank,Closing Score\n';
-    const rows = filtered.map((e) =>
-      `"${e.college.name}","${e.college.state}","${e.course}","${e.category}","${e.quota}",${e.year},${e.round},${e.closingRank},${e.closingScore ?? 'N/A'}`
+    const csvRows = filtered.map((e) =>
+      `"${e.collegeName}","${e.collegeState}","${e.course}","${e.category}","${e.quota}",${e.year},${e.round},${e.closingRank},${e.closingScore ?? 'N/A'}`
     ).join('\n');
-    const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' });
+    const blob = new Blob([header + csvRows], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -176,6 +231,28 @@ export default function RankInsightsPage() {
           <ArrowUpDown className={`w-3 h-3 transition-colors duration-200 ${active ? 'text-red-600' : 'text-slate-400'}`} />
         </span>
       </th>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-3">
+        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <p className="text-sm text-muted-foreground">Loading closing rank data...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-md mx-auto mt-12">
+        <EmptyState
+          icon={AlertTriangle}
+          title="Couldn't load closing ranks"
+          description={error}
+          action={{ label: 'Retry', onClick: () => window.location.reload() }}
+        />
+      </div>
     );
   }
 
@@ -372,7 +449,7 @@ export default function RankInsightsPage() {
                         >
                           All
                         </button>
-                        {INSIGHT_FILTER_OPTIONS.rounds.map((r) => (
+                        {filterOptions.rounds.map((r) => (
                           <button
                             key={r}
                             onClick={() => setRound(String(r))}
@@ -402,7 +479,7 @@ export default function RankInsightsPage() {
                         >
                           All
                         </button>
-                        {INSIGHT_FILTER_OPTIONS.categories.map((cat) => (
+                        {filterOptions.categories.map((cat) => (
                           <button
                             key={cat}
                             onClick={() => setCategory(String(cat))}
@@ -437,7 +514,7 @@ export default function RankInsightsPage() {
                           className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All States</option>
-                          {INSIGHT_FILTER_OPTIONS.states.map((s) => (
+                          {filterOptions.states.map((s) => (
                             <option key={s} value={s}>{s}</option>
                           ))}
                         </select>
@@ -450,7 +527,7 @@ export default function RankInsightsPage() {
                           className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
                         >
                           <option value="All">Select Institute</option>
-                          {INSIGHT_FILTER_OPTIONS.colleges.map((c) => (
+                          {filterOptions.colleges.map((c) => (
                             <option key={c} value={c}>{c}</option>
                           ))}
                         </select>
@@ -476,7 +553,7 @@ export default function RankInsightsPage() {
                           className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All Courses</option>
-                          {INSIGHT_FILTER_OPTIONS.courses.map((c) => (
+                          {filterOptions.courses.map((c) => (
                             <option key={c} value={c}>{c}</option>
                           ))}
                         </select>
@@ -489,7 +566,7 @@ export default function RankInsightsPage() {
                           className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All Quotas</option>
-                          {INSIGHT_FILTER_OPTIONS.quotas.map((q) => (
+                          {filterOptions.quotas.map((q) => (
                             <option key={q} value={q}>{q}</option>
                           ))}
                         </select>
@@ -550,10 +627,10 @@ export default function RankInsightsPage() {
       {/* Summary Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         {[
-          { label: 'Total Records', value: INSIGHTS_DATA.length.toLocaleString(), icon: FileText, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
-          { label: 'Colleges Tracked', value: String(INSIGHT_FILTER_OPTIONS.colleges.length), icon: Building2, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
+          { label: 'Total Records', value: rows.length.toLocaleString(), icon: FileText, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
+          { label: 'Colleges Tracked', value: String(filterOptions.colleges.length), icon: Building2, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Filtered Results', value: String(filtered.length), icon: Target, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
-          { label: 'Latest Year', value: '2025', icon: Award, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
+          { label: 'Latest Year', value: latestYear ? String(latestYear) : '--', icon: Award, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <CardContent className="p-4 sm:p-5">
@@ -638,21 +715,23 @@ export default function RankInsightsPage() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-sm font-bold text-white leading-snug truncate group-hover:text-red-300 transition-colors duration-200">
-                      {entry.college.name}
+                      {entry.collegeName}
                     </h3>
                     <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3 text-slate-500" /> {entry.college.city}, {entry.college.state}
+                      <MapPin className="w-3 h-3 text-slate-500" /> {entry.collegeCity}, {entry.collegeState}
                     </p>
                   </div>
                 </div>
 
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
-                    entry.college.type === 'Government' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
-                    entry.college.type === 'Deemed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
-                    'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                  }`}>{entry.college.type}</span>
+                  {entry.collegeType && (
+                    <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                      entry.collegeType === 'Government' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                      entry.collegeType === 'Deemed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
+                      'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                    }`}>{entry.collegeType}</span>
+                  )}
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">{entry.course}</span>
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">{entry.category}</span>
                 </div>
@@ -663,7 +742,7 @@ export default function RankInsightsPage() {
                     <div className="text-center">
                       <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Rank</p>
                       <p className="text-lg font-extrabold tabular-nums mt-0.5 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">
-                        #{entry.closingRank.toLocaleString()}
+                        #{(entry.closingRank ?? 0).toLocaleString()}
                       </p>
                     </div>
                     <div className="text-center border-x border-slate-700/50">
@@ -716,19 +795,21 @@ export default function RankInsightsPage() {
                     className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors duration-200 cursor-pointer group"
                   >
                     <td className="px-4 py-3.5 font-bold text-slate-800 dark:text-slate-100 max-w-[220px]">
-                      <div className="truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">{entry.college.name}</div>
+                      <div className="truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">{entry.collegeName}</div>
                       <div className="text-[10px] text-muted-foreground font-normal mt-0.5 flex items-center gap-1">
                         <MapPin className="w-2.5 h-2.5" />
-                        {entry.college.city}, {entry.college.state}
-                        <span className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[9px] font-bold ${
-                          entry.college.type === 'Government'
-                            ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
-                            : entry.college.type === 'Deemed'
-                            ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400'
-                            : 'bg-amber-50 text-amber-700 dark:bg-amber-950/20 dark:text-amber-400'
-                        }`}>
-                          {entry.college.type}
-                        </span>
+                        {entry.collegeCity}, {entry.collegeState}
+                        {entry.collegeType && (
+                          <span className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[9px] font-bold ${
+                            entry.collegeType === 'Government'
+                              ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
+                              : entry.collegeType === 'Deemed'
+                              ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400'
+                              : 'bg-amber-50 text-amber-700 dark:bg-amber-950/20 dark:text-amber-400'
+                          }`}>
+                            {entry.collegeType}
+                          </span>
+                        )}
                       </div>
                     </td>
                     <td className="px-4 py-3.5 whitespace-nowrap font-medium text-slate-700 dark:text-slate-300">
@@ -748,7 +829,7 @@ export default function RankInsightsPage() {
                       </span>
                     </td>
                     <td className="px-4 py-3.5 whitespace-nowrap text-right font-extrabold text-slate-900 dark:text-slate-50 tabular-nums text-sm">
-                      #{entry.closingRank.toLocaleString()}
+                      #{(entry.closingRank ?? 0).toLocaleString()}
                     </td>
                     <td className="px-4 py-3.5 whitespace-nowrap text-right font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">
                       {entry.closingScore ?? 'N/A'}

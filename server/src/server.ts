@@ -17,7 +17,9 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-app.use(express.json());
+// Default is 100kb, which a bulk import (CSV of rank rows, or 30 colleges of
+// review prose) blows past instantly with an opaque PayloadTooLargeError.
+app.use(express.json({ limit: '25mb' }));
 app.use(cookieParser());
 
 // SSE streaming routes

@@ -1,9 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import {
-  getAllotmentsForCounselling,
-  ALLOTMENT_FILTER_OPTIONS,
-} from '@/lib/allotment-data';
+import { useAllotments, forCounselling } from '@/lib/allotment-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,6 +21,9 @@ import {
   Award,
   Filter,
   BarChart3,
+  Loader2,
+  AlertTriangle,
+  Database,
 } from 'lucide-react';
 
 type SortField = 'allIndiaRank' | 'stateRank' | 'neetScore' | 'category' | 'instituteName' | 'seatType' | 'round';
@@ -35,7 +35,9 @@ export default function AllotmentDetailPage() {
   const counselling = decodeURIComponent(rawCounselling || '');
   const navigate = useNavigate();
 
-  const allData = useMemo(() => getAllotmentsForCounselling(counselling), [counselling]);
+  const { data, loading, error, reload, filterOptions } = useAllotments();
+
+  const allData = useMemo(() => forCounselling(data, counselling), [data, counselling]);
 
   // Filters
   const [search, setSearch] = useState('');
@@ -72,29 +74,30 @@ export default function AllotmentDetailPage() {
   [allData]);
 
   const filtered = useMemo(() => {
-    let data = allData;
+    let rows = allData;
     if (search) {
       const q = search.toLowerCase();
-      data = data.filter((e) =>
+      rows = rows.filter((e) =>
         e.instituteName.toLowerCase().includes(q) ||
         e.category.toLowerCase().includes(q) ||
-        e.subcategory.toLowerCase().includes(q)
+        (e.subcategory ?? '').toLowerCase().includes(q)
       );
     }
-    if (categoryFilter !== 'All') data = data.filter((e) => e.category === categoryFilter);
-    if (seatTypeFilter !== 'All') data = data.filter((e) => e.seatType === seatTypeFilter);
-    if (roundFilter !== 'All') data = data.filter((e) => e.round === Number(roundFilter));
-    if (rankMin) data = data.filter((e) => e.allIndiaRank >= Number(rankMin));
-    if (rankMax) data = data.filter((e) => e.allIndiaRank <= Number(rankMax));
-    if (scoreMin) data = data.filter((e) => e.neetScore >= Number(scoreMin));
-    if (scoreMax) data = data.filter((e) => e.neetScore <= Number(scoreMax));
+    if (categoryFilter !== 'All') rows = rows.filter((e) => e.category === categoryFilter);
+    if (seatTypeFilter !== 'All') rows = rows.filter((e) => e.seatType === seatTypeFilter);
+    if (roundFilter !== 'All') rows = rows.filter((e) => e.round === Number(roundFilter));
+    if (rankMin) rows = rows.filter((e) => e.allIndiaRank >= Number(rankMin));
+    if (rankMax) rows = rows.filter((e) => e.allIndiaRank <= Number(rankMax));
+    // A row with no recorded NEET score can't satisfy a score bound — don't guess one for it.
+    if (scoreMin) rows = rows.filter((e) => e.neetScore !== undefined && e.neetScore >= Number(scoreMin));
+    if (scoreMax) rows = rows.filter((e) => e.neetScore !== undefined && e.neetScore <= Number(scoreMax));
 
-    data = [...data].sort((a, b) => {
+    rows = [...rows].sort((a, b) => {
       let cmp = 0;
       switch (sortBy) {
         case 'allIndiaRank': cmp = a.allIndiaRank - b.allIndiaRank; break;
         case 'stateRank': cmp = (a.stateRank ?? 999999) - (b.stateRank ?? 999999); break;
-        case 'neetScore': cmp = a.neetScore - b.neetScore; break;
+        case 'neetScore': cmp = (a.neetScore ?? -1) - (b.neetScore ?? -1); break;
         case 'category': cmp = a.category.localeCompare(b.category); break;
         case 'instituteName': cmp = a.instituteName.localeCompare(b.instituteName); break;
         case 'seatType': cmp = a.seatType.localeCompare(b.seatType); break;
@@ -102,7 +105,7 @@ export default function AllotmentDetailPage() {
       }
       return sortOrder === 'asc' ? cmp : -cmp;
     });
-    return data;
+    return rows;
   }, [allData, search, categoryFilter, seatTypeFilter, roundFilter, rankMin, rankMax, scoreMin, scoreMax, sortBy, sortOrder]);
 
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
@@ -127,7 +130,7 @@ export default function AllotmentDetailPage() {
   const handleExportCsv = () => {
     const header = 'All India Rank,State Rank,NEET Score,Category,Subcategory,Institute,Seat Type,Counselling,Round\n';
     const rows = filtered.map((e) =>
-      `${e.allIndiaRank},${e.stateRank ?? '-'},${e.neetScore},"${e.category}","${e.subcategory}","${e.instituteName}","${e.seatType}","${e.counselling}",R${e.round}`
+      `${e.allIndiaRank},${e.stateRank ?? '-'},${e.neetScore ?? '-'},"${e.category}","${e.subcategory ?? ''}","${e.instituteName}","${e.seatType}","${e.counselling}",R${e.round}`
     ).join('\n');
     const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
@@ -139,17 +142,60 @@ export default function AllotmentDetailPage() {
   };
 
   const isMCC = counselling === 'All India Quota - MCC';
+  const roundCount = new Set(allData.map((e) => e.round)).size;
 
-  if (!allData.length) {
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center py-20">
+        <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+      </div>
+    );
+  }
+
+  if (error) {
     return (
       <div className="space-y-4 page-enter">
         <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to States
         </Button>
         <EmptyState
-          title="No allotment data"
-          description={`Allotment data for "${counselling}" is not available yet. Please check back later.`}
-          action={{ label: 'Go Back', onClick: () => navigate('/allotment') }}
+          icon={AlertTriangle}
+          title="Couldn't load allotment data"
+          description={error}
+          action={{ label: 'Try Again', onClick: reload }}
+        />
+      </div>
+    );
+  }
+
+  // Nothing has been loaded at all — say so plainly rather than implying this one
+  // counselling happens to be missing from an otherwise-populated dataset.
+  if (data.length === 0) {
+    return (
+      <div className="space-y-4 page-enter">
+        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Back to States
+        </Button>
+        <EmptyState
+          icon={Database}
+          title="No allotment data yet"
+          description="Seat allotment records haven't been loaded. An admin can add them under Manage Data → Seat Allotments."
+        />
+      </div>
+    );
+  }
+
+  // Data exists, but none of it is for this counselling.
+  if (allData.length === 0) {
+    return (
+      <div className="space-y-4 page-enter">
+        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Back to States
+        </Button>
+        <EmptyState
+          title={`No allotments for ${counselling}`}
+          description="Allotment records have been loaded, but none of them belong to this counselling yet."
+          action={{ label: 'Back to States', onClick: () => navigate('/allotment') }}
         />
       </div>
     );
@@ -221,7 +267,7 @@ export default function AllotmentDetailPage() {
           { label: 'Total Allotments', value: allData.length.toLocaleString(), icon: Award, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
           { label: 'Institutes', value: String(institutes.length), icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
           { label: 'Filtered', value: filtered.length.toLocaleString(), icon: Target, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
-          { label: 'Rounds', value: '3', icon: BarChart3, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
+          { label: 'Rounds', value: String(roundCount), icon: BarChart3, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <CardContent className="p-4">
@@ -339,7 +385,7 @@ export default function AllotmentDetailPage() {
                   Round
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {['All', ...ALLOTMENT_FILTER_OPTIONS.rounds.map(String)].map((r) => (
+                  {['All', ...filterOptions.rounds.map(String)].map((r) => (
                     <button
                       key={r}
                       onClick={() => setRoundFilter(r)}
@@ -362,7 +408,7 @@ export default function AllotmentDetailPage() {
                   Category
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {['All', ...ALLOTMENT_FILTER_OPTIONS.categories].map((cat) => (
+                  {['All', ...filterOptions.categories].map((cat) => (
                     <button
                       key={cat}
                       onClick={() => setCategoryFilter(cat)}
@@ -385,7 +431,7 @@ export default function AllotmentDetailPage() {
                   Seat Type
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {['All', ...ALLOTMENT_FILTER_OPTIONS.seatTypes].map((st) => (
+                  {['All', ...filterOptions.seatTypes].map((st) => (
                     <button
                       key={st}
                       onClick={() => setSeatTypeFilter(st)}
@@ -448,8 +494,8 @@ export default function AllotmentDetailPage() {
       {/* Table */}
       {filtered.length === 0 ? (
         <EmptyState
-          title="No allotments found"
-          description="Adjust your filters to find allotment data."
+          title="No allotments match your filters"
+          description={`None of the ${allData.length.toLocaleString()} allotments for ${counselling} match the filters you've set.`}
           action={{ label: 'Clear Filters', onClick: handleReset }}
         />
       ) : (
@@ -486,7 +532,7 @@ export default function AllotmentDetailPage() {
                       </td>
                     )}
                     <td className="px-3 sm:px-4 py-3.5 font-bold text-slate-800 dark:text-slate-200 tabular-nums">
-                      {entry.neetScore}
+                      {entry.neetScore ?? '-'}
                     </td>
                     <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap">
                       <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${
@@ -500,7 +546,7 @@ export default function AllotmentDetailPage() {
                       </span>
                     </td>
                     <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap text-slate-500 font-medium text-[11px]">
-                      {entry.subcategory}
+                      {entry.subcategory || '-'}
                     </td>
                     <td className="px-3 sm:px-4 py-3.5 max-w-[280px]">
                       <p className="font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
