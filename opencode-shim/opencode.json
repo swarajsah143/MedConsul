@@ -1,0 +1,34 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "medcounsel": {
+      "mode": "primary",
+      "description": "NEET UG counselling chatbot. Answers from the context supplied by MedCounsel's RAG layer.",
+      "temperature": 0.3,
+      "prompt": "{file:./medcounsel-agent.txt}",
+
+      "// tools": "A chatbot must have NO tools. Left enabled, the model tries to call one, opencode raises permission.v2.asked, and the session blocks forever waiting for a human. The shim also auto-rejects permission prompts as a backstop.",
+      "tools": { "*": false },
+      "permission": {
+        "*": "deny",
+        "read": "deny",
+        "edit": "deny",
+        "bash": "deny",
+        "glob": "deny",
+        "grep": "deny",
+        "webfetch": "deny"
+      }
+    }
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": { "baseURL": "http://localhost:11434/v1" },
+      "models": {
+        "qwen2.5:3b": { "name": "Qwen2.5 3B" },
+        "qwen2.5:latest": { "name": "Qwen2.5 7B" }
+      }
+    }
+  }
+}

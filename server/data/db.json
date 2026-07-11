@@ -355,6 +355,42 @@
       "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTAwODcsImV4cCI6MTc4NjM4MjA4N30._EU2cJzZ7wpi325d1YwYNNwCn_qeljiqmzAFWaEPLSg",
       "expiresAt": "2026-08-10T17:14:47.981Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQxNjksImV4cCI6MTc4NjM4NjE2OX0.3hCvj6OjGpeN-TKb4AKfsDZwkoB-9yXwtm3IeyH9Lz8": {
+      "id": "5d7cb9c1-d449-42a3-a90e-9714d25dfb18",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQxNjksImV4cCI6MTc4NjM4NjE2OX0.3hCvj6OjGpeN-TKb4AKfsDZwkoB-9yXwtm3IeyH9Lz8",
+      "expiresAt": "2026-08-10T18:22:49.706Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQxNzcsImV4cCI6MTc4NjM4NjE3N30.xYm0a89scSozqMVrzBXhcx_40BmWrFBe6exqfSylsOs": {
+      "id": "91003c49-48e5-4642-80f0-7194a8998583",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQxNzcsImV4cCI6MTc4NjM4NjE3N30.xYm0a89scSozqMVrzBXhcx_40BmWrFBe6exqfSylsOs",
+      "expiresAt": "2026-08-10T18:22:57.836Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQxOTUsImV4cCI6MTc4NjM4NjE5NX0.SjzWCzQApu3x22vRQuNOh8Rcb9mYl8vzGAwfgQxxQeg": {
+      "id": "64a82c30-665f-44be-92ab-9002ccff8809",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQxOTUsImV4cCI6MTc4NjM4NjE5NX0.SjzWCzQApu3x22vRQuNOh8Rcb9mYl8vzGAwfgQxxQeg",
+      "expiresAt": "2026-08-10T18:23:15.052Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQyMDUsImV4cCI6MTc4NjM4NjIwNX0.ELCJjvk0Zv25I_QvDS4ouIGmj49nCaZQESiMJ--8eVk": {
+      "id": "75e91c6e-b31e-4c9c-9779-00631003eef8",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQyMDUsImV4cCI6MTc4NjM4NjIwNX0.ELCJjvk0Zv25I_QvDS4ouIGmj49nCaZQESiMJ--8eVk",
+      "expiresAt": "2026-08-10T18:23:25.858Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQyNTcsImV4cCI6MTc4NjM4NjI1N30.VlUB6XrY-63bHhAwOx9SJktrlB-JmYLYd904irILG2M": {
+      "id": "1e2efcf4-da38-49b2-8f81-6c6ea11311a2",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQyNTcsImV4cCI6MTc4NjM4NjI1N30.VlUB6XrY-63bHhAwOx9SJktrlB-JmYLYd904irILG2M",
+      "expiresAt": "2026-08-10T18:24:17.158Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQ0NzYsImV4cCI6MTc4NjM4NjQ3Nn0.TClamCVW-l_Gz8drWwpxd_TGGlQpdBh-4H75W3CG_Rk": {
+      "id": "c099de82-c3ef-487d-8ef7-5c5e0be94179",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODM3OTQ0NzYsImV4cCI6MTc4NjM4NjQ3Nn0.TClamCVW-l_Gz8drWwpxd_TGGlQpdBh-4H75W3CG_Rk",
+      "expiresAt": "2026-08-10T18:27:56.174Z"
     }
   },
   "passwordResets": {},
@@ -949,6 +985,99 @@
       ],
       "createdAt": "2026-07-04T15:55:20.158Z",
       "updatedAt": "2026-07-04T15:55:20.281Z"
+    },
+    "4adcacc7-a75b-4576-be3a-5ec4e8073418": {
+      "id": "4adcacc7-a75b-4576-be3a-5ec4e8073418",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "New conversation",
+      "messages": [],
+      "createdAt": "2026-07-11T18:22:49.732Z",
+      "updatedAt": "2026-07-11T18:22:49.732Z"
+    },
+    "cd34032b-a862-4f58-89b8-295d80c7fa34": {
+      "id": "cd34032b-a862-4f58-89b8-295d80c7fa34",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "New conversation",
+      "messages": [],
+      "createdAt": "2026-07-11T18:22:57.855Z",
+      "updatedAt": "2026-07-11T18:22:57.855Z"
+    },
+    "0497c596-cbf3-4795-90cc-461152911a86": {
+      "id": "0497c596-cbf3-4795-90cc-461152911a86",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "Which government colleges can I get with a NEET rank around ...",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which government colleges can I get with a NEET rank around 60 in general AIQ, and what fees should I expect?"
+        }
+      ],
+      "createdAt": "2026-07-11T18:23:15.070Z",
+      "updatedAt": "2026-07-11T18:23:15.196Z"
+    },
+    "d8af66b7-6743-45b0-b9cb-7b274fc363f2": {
+      "id": "d8af66b7-6743-45b0-b9cb-7b274fc363f2",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "hi",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hi"
+        }
+      ],
+      "createdAt": "2026-07-11T18:23:25.876Z",
+      "updatedAt": "2026-07-11T18:23:25.995Z"
+    },
+    "27448735-5432-4dff-802b-0bb2727d59ea": {
+      "id": "27448735-5432-4dff-802b-0bb2727d59ea",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "Which government colleges can I get with a NEET rank around ...",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which government colleges can I get with a NEET rank around 60 in general AIQ, and what fees should I expect?"
+        },
+        {
+          "role": "assistant",
+          "content": "Based on your rank of approximately 60 in the AIQ ranking system for NEET UG 2025 R1, let's categorize some potentially eligible government medical colleges. We don't have exact college quotas at this time, so we'll use closing ranks to estimate your best options.\n\n### **Safe Choices** (Closing Rank > Your Rank)\n\nFor students with a rank of around 60 in the AIQ system:\n\n- As of the latest data I have:\n  - Grant MC, Mumbai | MBBS | General\n    - Closing Rank: #1,900\n    - Score: 683\n\nThis is your current \"Safe\" option as it's well above your expected rank. Other government medical colleges with similar or higher ranks are:\n\n- **Pondicherry University | MBBS | General** (Closing Rank ~20k+) – Would be considered safer but may not be feasible since it’s in a different state.\n\n### **Moderate Choices** (Your Rank ≈ Closing Rank)\n\nDue to the lack of exact quota data, these are estimates based on closing ranks:\n\n- MAMC, New Delhi | MBBS | General\n  - Closing Rank: #85\n  - Score: 710\n\nThis seems like a moderate choice. Other government colleges with similar or lower closing ranks might include:\n\n- **Grant MC, Mumbai** (MBBS General) – Similar situation here since their rank falls in the same approximate range.\n\n### **Aspirational Choices** (Closing Rank < Your Rank)\n\nFor aspirational options without exact quotas at this time:\n\n- MAMC, New Delhi | MBBS | Management Quota\n  - Closing Rank: #98\n  - Score: 708\n\nOther similar options may include:\n  \n- **CMC Vellore**, AIQ quota\n\nThese colleges are worth considering in the hopes of a better closing rank as your actual score improves. It's important to monitor your performance and wait for additional data.\n\n### Fees Overview (for context)\n\nBased on our best available data:\n\n- Government Medical Colleges typically offer lower fees compared to private or deemed institutions, ranging from Rs 5K - 1.5L annually.\n- If you were accepted into MAMC in the General Quota, you might expect fees around **Rs 600k – ₹700k (total MBBS cost)** for MBBS studies if they follow standard parameters.\n\n**Summary:**\n\n- Safe choices (closing rank > your rank): **Grant MC**\n- Moderate options (closing rank ≈ your rank): **MAMC, Mumbai**\n- Aspirational options (considering MAMC Management Quota) are the college we can discuss with higher probability, such as **CMC Vellore AIQ quota**\n\n**Next steps:**\n\n1. Continue to monitor the MedCounsel AI Rank Insights.\n2. Register for MCC AIQ and state-level counselling once it opens in mid-July.\n3. Focus on securing a seat but also be prepared for later rounds where aspirational choices might become easier to fill.\n\nWould you like some further analysis or assistance with this step-by-step process?"
+        }
+      ],
+      "createdAt": "2026-07-11T18:24:17.179Z",
+      "updatedAt": "2026-07-11T18:24:50.885Z"
+    },
+    "69d89434-31ae-46a7-909f-c9a54aa590c9": {
+      "id": "69d89434-31ae-46a7-909f-c9a54aa590c9",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "fees at MAMC Delhi?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "fees at MAMC Delhi?"
+        },
+        {
+          "role": "assistant",
+          "content": "### Comparison of Tuition Fees by Colleges\n\nHere is a detailed breakdown of the tuition fees for Maulana Azad Medical College (MAMC), New Delhi, in comparison to other top-ranking medical colleges:\n\n| **Colleges**                           | **Tuition Fee per Year**   | **Hostel Fee per Year**  | **Total Tuition**       |\n|----------------------------------------|------------------------------|-------------------------|------------------------|\n| Maulana Azad Medical College (MAMC)    | Rs 4,445                   | Rs 3,600                | Rs 8,045               |\n| AIIMS, New Delhi                        | Rs 1,628                    | Rs 1,200                | Rs 7,828               |\n| Grant Medical College & Sir JJ Hospital | Rs 28,000                  | Rs 18,000                | Rs 91,000              |\n\n### Additional Information\n- **MAMC offers both government and management (Mgmt) seats.** Government seats cost approximately Rs 4,445/year. MAMC is known for its strong foundation in a heritage setting with top-notch facilities.\n- The government seats make up the majority of the available slots at MAMC, while there are no Management category seats.\n\n### Next Steps\nTo get more specific details on other colleges or to refine your search based on your academic goals and affordability, consider reaching out for personalized suggestions. Remember, factors like location, specialization, hospital affiliation, and scholarship opportunities can significantly impact the overall cost.\n\nWould you like to explore fees at another college or have any other questions?"
+        }
+      ],
+      "createdAt": "2026-07-11T18:27:56.198Z",
+      "updatedAt": "2026-07-11T18:28:13.515Z"
+    },
+    "e1ad0311-a9ea-4451-84d8-be483568a1b4": {
+      "id": "e1ad0311-a9ea-4451-84d8-be483568a1b4",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "title": "fees at MAMC Delhi?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "fees at MAMC Delhi?"
+        },
+        {
+          "role": "assistant",
+          "content": "## Fee Comparison\n\nHere's a breakdown of fees across colleges:\n\n### College Reviews\n\n**Maulana Azad Medical College (MAMC), New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1958 | Seats: 250 | Fees: ~4,445/yr | Cutoff: AIR 60-150 (General)\nAssociated with Lok Nayak (2800 beds), GB Pant, and Guru Nanak Eye Centre. 4000+ combined beds. One of the best government medical colleges in North India.\n\n**AIIMS, New Delhi** (Government) — New Delhi, Delhi\nEstablished: 1956 | Seats: 125 | Fees: ~1,628/yr | Cutoff: AIR 1-57 (General)\nIndia's premier medical institute. 2400-bed hospital, world-class research, 110-acre campus. Consistently ranked #1 for medical education in India.\n\n**Grant Medical College & Sir JJ Hospital, Mumbai** (Government) — Mumbai, Maharashtra\nEstablished: 1845 | Seats: 250 | Fees: ~28,000/yr | Cutoff: AIR 500-2500 (State)\nOne of Asia's oldest medical colleges. 1350-bed Sir JJ Hospital. Major trauma center. Heritage campus in South Mumbai.\n\n**Bangalore Medical College (BMCRI)** (Government) — Bengaluru, Karnataka\nEstablished: 1955 | Seats: 250 | Fees: ~70,150/yr | Cutoff: AIR 400-1500 (State)\nKarnataka's premier govt medical college. Victoria Hospital (900 beds), Vani Vilas (500 beds). Excellent clinical exposure in cardiology and neurology.\n\n**Kasturba Medical College (KMC), Manipal** (Deemed) — Manipal, Karnataka\nEstablished: 1953 | Seats: 250 | Fees: ~17,80,000/yr | Cutoff: AIR 15K-45K (Mgmt)\nUnder MAHE. 2000-bed NABH hospital. International curriculum, 600-acre campus. Known for strong research culture and global alumni network.\n\n**Christian Medical College (CMC), Vellore** (Private) — Vellore, Tamil Nadu\nEstablished: 1900 | Seats: 100 | Fees: ~52,000/yr | Cutoff: AIR 2K-6K (General)\nPioneer in Indian medicine. 2700-bed JCI hospital. First renal transplant in India. Extremely affordable for a private college. Known for community medicine.\n\n**Armed Forces Medical College (AFMC), Pune** (Government) — Pune, Maharashtra\nEstablished: 1948 | Seats: 150 | Fees: Fully funded | Cutoff: AIR 100-800\nMilitary medical school. Free education with stipend. 7-14 year service bond. Excellent infrastructure, discipline, and placement in military hospitals.\n\n**St. John's Medical College, Bengaluru** (Private) — Bengaluru, Karnataka\nEstablished: 1963 | Seats: 150 | Fees: ~6,25,000/yr | Cutoff: AIR 8K-25K\nWHO Collaborating Centre. 1200-bed NABH hospital. 135-acre green campus. Known for community health programs.\n\n### Fee & Seat Matrix\n\n**MAMC, New Delhi** (Government, Delhi)\nTuition: Rs 4,445 | Hostel: Rs 3,600 | Total 1st Year: Rs 30,045\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**AIIMS, New Delhi** (Government, Delhi)\nTuition: Rs 1,628 | Hostel: Rs 1,200 | Total 1st Year: Rs 12,328\nGovt Seats: 107 | Mgmt Seats: 0 | NRI Seats: 18\n\n**Grant MC, Mumbai** (Government, Maharashtra)\nTuition: Rs 28,000 | Hostel: Rs 18,000 | Total 1st Year: Rs 83,000\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**BMCRI, Bengaluru** (Government, Karnataka)\nTuition: Rs 70,150 | Hostel: Rs 24,000 | Total 1st Year: Rs 1.42 Lakh\nGovt Seats: 200 | Mgmt Seats: 0 | NRI Seats: 0\n\n**KMC Manipal** (Deemed, Karnataka)\nTuition: Rs 17.80 Lakh | Hostel: Rs 1.80 Lakh | Total 1st Year: Rs 22.55 Lakh\nGovt Seats: 0 | Mgmt Seats: 200 | NRI Seats: 50\n\n**CMC Vellore** (Private, Tamil Nadu)\nTuition: Rs 52,000 | Hostel: Rs 36,000 | Total 1st Year: Rs 1.36 Lakh\nGovt Seats: 60 | Mgmt Seats: 30 | NRI Seats: 10\n\n**AFMC Pune** (Government, Maharashtra)\nTuition: Free | Hostel: Free | Total 1st Year: Rs 15,000\nGovt Seats: 130 | Mgmt Seats: 0 | NRI Seats: 0\n\n\n> **Tip:** Visit the **Fee & Seat Matrix** module for a detailed breakdown with hostel, miscellaneous charges, and seat distribution."
+        }
+      ],
+      "createdAt": "2026-07-11T18:28:14.592Z",
+      "updatedAt": "2026-07-11T18:28:14.762Z"
     }
   }
 }

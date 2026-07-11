@@ -182,26 +182,46 @@ async function callProvider(
     return;
   }
 
-  // Real API call with streaming
-  const res = await fetch(`${baseUrl}/chat/completions`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model,
-      messages,
-      stream: true,
-      max_tokens: 2048,
-      temperature: 0.3, // Lower temperature for factual responses
-    }),
-    signal,
-  });
+  // Real API call with streaming.
+  // If the provider is unreachable or errors, degrade to the RAG answer rather
+  // than failing the chat outright — a dead upstream should cost answer quality,
+  // not the whole feature. A caller-initiated abort is NOT a provider failure,
+  // so it is rethrown untouched.
+  let res: Response;
+  try {
+    res = await fetch(`${baseUrl}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        messages,
+        stream: true,
+        max_tokens: 2048,
+        temperature: 0.3, // Lower temperature for factual responses
+      }),
+      signal,
+    });
+  } catch (err: any) {
+    if (err?.name === 'AbortError') throw err;
+    console.error(`  AI provider unreachable (${baseUrl}) — falling back to RAG:`, err?.message);
+    const userMsg = messages.filter((m) => m.role === 'user').pop();
+    const text = generateFallbackFromRAG(userMsg?.content || '');
+    onChunk(text);
+    onDone(text);
+    return;
+  }
 
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`AI provider error (${res.status}): ${err}`);
+    console.error(`  AI provider error (${res.status}) — falling back to RAG: ${err.slice(0, 200)}`);
+    const userMsg = messages.filter((m) => m.role === 'user').pop();
+    const text = generateFallbackFromRAG(userMsg?.content || '');
+    onChunk(text);
+    onDone(text);
+    return;
   }
 
   const reader = res.body?.getReader();

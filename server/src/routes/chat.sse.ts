@@ -70,7 +70,13 @@ function handleSSE(req: Request, res: Response, sessionId: string, action: 'send
   );
 
   const ac = new AbortController();
-  req.on('close', () => ac.abort());
+  // Abort on client disconnect — watch the SOCKET, not the request.
+  // IncomingMessage emits 'close' as soon as the request body has been fully
+  // received, so req.on('close') fires immediately on every call and would
+  // abort the provider fetch before it is even issued. That went unnoticed
+  // while the keyless RAG fallback was in use, because it writes its chunks
+  // synchronously and never checks the signal.
+  socket.on('close', () => ac.abort());
 
   aiService.streamResponse(
     sessionId, userId,
