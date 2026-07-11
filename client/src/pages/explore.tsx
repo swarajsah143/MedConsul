@@ -39,14 +39,6 @@ const SECTIONS: { key: SectionKey; label: string; icon: typeof Compass }[] = [
   { key: 'blogs', label: 'Blogs', icon: Newspaper },
 ];
 
-const TYPE_STYLES: Record<string, string> = {
-  Government: 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400',
-  Private: 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400',
-  Deemed: 'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400',
-  AIIMS: 'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400',
-  Central: 'bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-400',
-};
-
 const NEON_TYPE: Record<string, { border: string; text: string; bg: string; icon: string; glow: string; hoverText: string }> = {
   Government: { border: 'border-emerald-500/20', text: 'text-emerald-400', bg: 'bg-emerald-500/10', icon: 'text-emerald-400', glow: 'hover:shadow-emerald-500/10', hoverText: 'group-hover:text-emerald-300' },
   Private: { border: 'border-amber-500/20', text: 'text-amber-400', bg: 'bg-amber-500/10', icon: 'text-amber-400', glow: 'hover:shadow-amber-500/10', hoverText: 'group-hover:text-amber-300' },

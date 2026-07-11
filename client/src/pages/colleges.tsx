@@ -9,7 +9,6 @@ import {
   GraduationCap,
   MapPin,
   Building2,
-  ChevronRight,
   X,
   Sparkles,
   Users,
@@ -27,16 +26,6 @@ const typeColors: Record<string, string> = {
   Government: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400',
   Private: 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400',
   Deemed: 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400',
-};
-
-const typeIconBg: Record<string, string> = {
-  Government: 'bg-emerald-100 dark:bg-emerald-950/40',
-  Private: 'bg-amber-100 dark:bg-amber-950/40',
-  Deemed: 'bg-blue-100 dark:bg-blue-950/40',
-};
-
-const typeIconColor: Record<string, string> = {
-  Government: 'text-emerald-600', Private: 'text-amber-600', Deemed: 'text-blue-600',
 };
 
 export default function CollegesPage() {

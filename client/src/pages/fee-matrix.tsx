@@ -4,7 +4,6 @@ import {
   FEE_MATRIX_DATA,
   FEE_FILTER_OPTIONS,
   formatINR,
-  type CollegeFeeEntry,
 } from '@/lib/fee-matrix-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -27,7 +26,6 @@ import {
   ArrowRight,
   TrendingUp,
   Wallet,
-  Target,
   ClipboardCheck,
 } from 'lucide-react';
 
@@ -128,14 +126,6 @@ export default function FeeMatrixPage() {
     t === 'Government' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400'
     : t === 'Deemed' ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400'
     : 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400';
-
-  const typeIconBg = (t: string) =>
-    t === 'Government' ? 'bg-emerald-100 dark:bg-emerald-950/40'
-    : t === 'Deemed' ? 'bg-blue-100 dark:bg-blue-950/40'
-    : 'bg-amber-100 dark:bg-amber-950/40';
-
-  const typeIconColor = (t: string) =>
-    t === 'Government' ? 'text-emerald-600' : t === 'Deemed' ? 'text-blue-600' : 'text-amber-600';
 
   function SortHeader({ field, children, className }: { field: SortField; children: React.ReactNode; className?: string }) {
     const active = sortBy === field;

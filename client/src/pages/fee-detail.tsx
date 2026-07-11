@@ -124,11 +124,11 @@ export default function FeeDetailPage() {
                   <ResponsiveContainer width="100%" height="100%">
                     <PieChart>
                       <Pie data={pieData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={100} innerRadius={55} paddingAngle={2}
-                        label={({ name, percent }) => `${name.split(' ')[0]} ${(percent * 100).toFixed(0)}%`} labelLine={false}>
+                        label={({ name, percent }) => `${String(name ?? '').split(' ')[0]} ${((percent ?? 0) * 100).toFixed(0)}%`} labelLine={false}>
                         {pieData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                       </Pie>
                       <Tooltip contentStyle={{ background: 'white', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '12px', boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)', padding: '12px' }}
-                        formatter={(value: number) => [formatINRFull(value), '']} />
+                        formatter={(value) => [formatINRFull(Number(value)), '']} />
                       <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '12px' }} />
                     </PieChart>
                   </ResponsiveContainer>
@@ -157,7 +157,7 @@ export default function FeeDetailPage() {
                     <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} tickLine={false} axisLine={false}
                       tickFormatter={(v: number) => v >= 100000 ? `${(v / 100000).toFixed(0)}L` : `${(v / 1000).toFixed(0)}K`} />
                     <Tooltip contentStyle={{ background: 'white', border: '1px solid #e2e8f0', borderRadius: '12px', fontSize: '12px', boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)', padding: '12px' }}
-                      formatter={(value: number, name: string) => [formatINRFull(value), name]} />
+                      formatter={(value, name) => [formatINRFull(Number(value)), String(name)]} />
                     <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
                     <Bar dataKey="Tuition" stackId="a" fill="#0d9488" />
                     <Bar dataKey="Hostel" stackId="a" fill="#2563eb" />

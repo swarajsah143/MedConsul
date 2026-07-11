@@ -139,21 +139,6 @@ export default function AnnouncementsPage() {
     setPage(1);
   };
 
-  // Count by type for the stat summary
-  const typeCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-    ANNOUNCEMENTS_DATA.forEach((a) => {
-      counts[a.announcementType] = (counts[a.announcementType] || 0) + 1;
-    });
-    return counts;
-  }, []);
-
-  const topTypes = useMemo(() =>
-    Object.entries(typeCounts)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 4),
-  [typeCounts]);
-
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero Header */}

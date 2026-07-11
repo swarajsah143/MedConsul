@@ -3,7 +3,6 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import {
   INSIGHTS_DATA,
   getHistoricalData,
-  type HistoricalPoint,
 } from '@/lib/insights-data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -32,7 +31,6 @@ import {
   MapPin,
   Sparkles,
   GraduationCap,
-  ChevronRight,
 } from 'lucide-react';
 
 function StatCard({
@@ -295,7 +293,7 @@ export default function RankInsightDetailPage() {
                       boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)',
                       padding: '12px',
                     }}
-                    formatter={(value: number, name: string) => [`#${value.toLocaleString()}`, name]}
+                    formatter={(value, name) => [`#${Number(value).toLocaleString()}`, String(name)]}
                   />
                   <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
                   {rounds.map((r, i) => (
@@ -350,7 +348,7 @@ export default function RankInsightDetailPage() {
                       boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)',
                       padding: '12px',
                     }}
-                    formatter={(value: number, name: string) => [value, name]}
+                    formatter={(value, name) => [Number(value), String(name)]}
                   />
                   <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
                   {rounds.map((r, i) => (

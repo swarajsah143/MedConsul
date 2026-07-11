@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {
   getAllotmentsForCounselling,
   ALLOTMENT_FILTER_OPTIONS,
-  type AllotmentEntry,
 } from '@/lib/allotment-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';

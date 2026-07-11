@@ -15,7 +15,6 @@ import {
   Search,
   ArrowUpDown,
   Download,
-  Filter,
   X,
   BarChart3,
   ChevronRight,

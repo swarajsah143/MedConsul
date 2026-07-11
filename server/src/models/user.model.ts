@@ -75,8 +75,19 @@ export const UserModel = {
   },
 
   async findAll(): Promise<SafeUser[]> {
-    const users = await UserDoc.find().sort({ createdAt: -1 });
-    return users.map(toSafe);
+    // Mirrors findByEmail/findById: a Mongoose document is not an IUser — spreading
+    // one yields its internals, not name/email — so it must go through docToUser.
+    // This branch was also missing the JSON-store path entirely, which meant the
+    // admin user list queried Mongo even when running on the file store.
+    if (isMongoConnected()) {
+      const docs = await UserDoc.find().sort({ createdAt: -1 });
+      return docs.map((doc) => toSafe(docToUser(doc)));
+    }
+    const db = store.load();
+    const users = Object.values(db.users || {}) as IUser[];
+    return users
+      .sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''))
+      .map(toSafe);
   },
 
   async create(name: string, email: string, hashedPassword: string, role = 'student'): Promise<SafeUser> {

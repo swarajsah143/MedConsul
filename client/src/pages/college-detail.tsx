@@ -4,7 +4,7 @@ import { MOCK_COLLEGES } from '@/lib/college-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { EmptyState } from '@/components/ui/empty-state';
-import { FadeIn, StaggerContainer, StaggerItem, CardElevation } from '@/components/ui/motion';
+import { FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/motion';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, MapPin, Building2, Globe, GraduationCap, Users, BookOpen,
@@ -69,13 +69,6 @@ function PatientLoadCard({ data }: { data: string }) {
     if (label && value) stats.push({ label, value });
   }
 
-  const STAT_GRADIENTS = [
-    'from-red-500 to-rose-600',
-    'from-blue-500 to-indigo-600',
-    'from-emerald-500 to-green-600',
-    'from-amber-500 to-orange-600',
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -101,7 +94,6 @@ function PatientLoadCard({ data }: { data: string }) {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {stats.map((s, i) => {
               const color = STAT_COLORS[i % STAT_COLORS.length];
-              const gradient = STAT_GRADIENTS[i % STAT_GRADIENTS.length];
               return (
                 <motion.div
                   key={i}

@@ -15,7 +15,6 @@ import {
   Info,
   Layers,
   Search,
-  Star,
 } from 'lucide-react';
 
 // All 28 states + 8 Union Territories of India
