@@ -370,9 +370,9 @@
  * Structure:
  *   <div className="relative rounded-2xl overflow-hidden">
  *     <div className="gradient-primary p-6 sm:p-8 lg:p-10">
- *       {/* Decorative blurs */}
+ *       {/* Decorative blurs *\/}
  *       <div className="absolute ... bg-white/5 rounded-full blur-3xl" />
- *       {/* Content */}
+ *       {/* Content *\/}
  *       <div className="relative z-10">
  *         <Badge />  — bg-white/15 backdrop-blur-sm rounded-full
  *         <h1 />     — text-2xl sm:text-3xl font-extrabold text-white
