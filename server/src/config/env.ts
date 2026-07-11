@@ -1,3 +1,5 @@
+import './load-env';
+
 export const env = {
   port: parseInt(process.env.PORT || '5000', 10),
   clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',

@@ -1,3 +1,4 @@
+import './load-env';
 import mongoose from 'mongoose';
 import fs from 'fs';
 import path from 'path';
