@@ -7,7 +7,9 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "seed": "tsx src/seed.ts",
-    "test:integrity": "tsx src/test/integrity.test.ts"
+    "test:integrity": "tsx src/test/integrity.test.ts",
+    "test:documents": "tsx src/test/documents.test.ts",
+    "test": "npm run test:integrity && npm run test:documents"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -17,6 +19,7 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.7.3",
+    "multer": "^2.2.0",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
@@ -25,6 +28,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.2.0",
     "@types/uuid": "^10.0.0",
     "tsx": "^4.19.4",
     "typescript": "~5.7.3"

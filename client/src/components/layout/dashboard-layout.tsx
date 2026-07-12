@@ -11,6 +11,7 @@ import {
   ClipboardList,
   Compass,
   Database,
+  FileCheck,
   Globe2,
   GraduationCap,
   Home,
@@ -121,6 +122,7 @@ function buildNavSections(announcementBadge?: string, docsBadge?: string): NavSe
 const ADMIN_NAV: NavLeaf[] = [
   { name: 'Admin Dashboard', href: '/admin', icon: Shield },
   { name: 'Manage Data', href: '/admin/data', icon: Database },
+  { name: 'Verify Documents', href: '/admin/verifications', icon: FileCheck },
 ];
 
 function NavItem({ item, active, onClick }: { item: NavLeaf; active: boolean; onClick?: () => void }) {
