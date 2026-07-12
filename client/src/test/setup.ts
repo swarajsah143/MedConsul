@@ -45,4 +45,22 @@ Object.defineProperty(HTMLElement.prototype, 'getBoundingClientRect', {
 })
 
 window.scrollTo = vi.fn()
+// jsdom has no scrollIntoView; schema-form calls it to jump to the first invalid field.
+if (!Element.prototype.scrollIntoView) Element.prototype.scrollIntoView = vi.fn()
 if (!window.URL.createObjectURL) window.URL.createObjectURL = vi.fn(() => 'blob:mock')
+
+// This jsdom exposes `localStorage` as a plain empty object with no setItem, so the
+// app's api client (which reads the auth token from it) blows up. Give it a real one.
+if (typeof (globalThis as any).localStorage?.setItem !== 'function') {
+  const store = new Map<string, string>()
+  const storage: Storage = {
+    get length() { return store.size },
+    clear: () => store.clear(),
+    getItem: (k: string) => (store.has(k) ? store.get(k)! : null),
+    key: (i: number) => [...store.keys()][i] ?? null,
+    removeItem: (k: string) => void store.delete(k),
+    setItem: (k: string, v: string) => void store.set(k, String(v)),
+  }
+  Object.defineProperty(globalThis, 'localStorage', { configurable: true, value: storage })
+  Object.defineProperty(window, 'localStorage', { configurable: true, value: storage })
+}
