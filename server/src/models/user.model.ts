@@ -117,4 +117,51 @@ export const UserModel = {
       store.save(db);
     }
   },
+
+  /** Edit a user's profile/role. Password is NOT touched here — see updatePassword. */
+  async update(
+    id: string,
+    patch: Partial<Pick<IUser, 'name' | 'email' | 'role'>>
+  ): Promise<SafeUser | null> {
+    const clean: Record<string, any> = {};
+    if (patch.name !== undefined) clean.name = patch.name;
+    if (patch.email !== undefined) clean.email = patch.email.toLowerCase();
+    if (patch.role !== undefined) clean.role = patch.role;
+
+    if (isMongoConnected()) {
+      const doc = await UserDoc.findByIdAndUpdate(id, { $set: clean }, { new: true });
+      return doc ? toSafe(docToUser(doc)) : null;
+    }
+    const db = store.load();
+    const user = db.users?.[id] as IUser | undefined;
+    if (!user) return null;
+    Object.assign(user, clean, { updatedAt: new Date().toISOString() });
+    store.save(db);
+    return toSafe(user);
+  },
+
+  async remove(id: string): Promise<boolean> {
+    if (isMongoConnected()) {
+      const r = await UserDoc.findByIdAndDelete(id);
+      return !!r;
+    }
+    const db = store.load();
+    if (!db.users?.[id]) return false;
+    delete db.users[id];
+    store.save(db);
+    return true;
+  },
+
+  /**
+   * How many admins exist.
+   *
+   * Load-bearing: the routes use this to refuse the last admin demoting or deleting
+   * themselves. Without it, one wrong click locks everyone out of the admin panel
+   * permanently, with no recovery path short of editing the database by hand.
+   */
+  async countAdmins(): Promise<number> {
+    if (isMongoConnected()) return UserDoc.countDocuments({ role: 'admin' });
+    const db = store.load();
+    return Object.values(db.users || {}).filter((u: any) => u.role === 'admin').length;
+  },
 };

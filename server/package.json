@@ -9,7 +9,8 @@
     "seed": "tsx src/seed.ts",
     "test:integrity": "tsx src/test/integrity.test.ts",
     "test:documents": "tsx src/test/documents.test.ts",
-    "test": "npm run test:integrity && npm run test:documents"
+    "test": "npm run test:integrity && npm run test:documents && npm run test:admin-users",
+    "test:admin-users": "tsx src/test/admin-users.test.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

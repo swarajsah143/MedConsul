@@ -1,6 +1,30 @@
 import { Response } from 'express';
+import bcrypt from 'bcryptjs';
+import fs from 'fs';
 import { AuthRequest } from '../middlewares/auth.middleware';
 import { UserModel } from '../models/user.model';
+import { SubmissionModel } from '../models/submission.model';
+import { resolveStored } from '../config/uploads';
+
+/**
+ * Admin user management.
+ *
+ * The guards are the important part here. An admin panel that lets the only admin
+ * demote or delete themselves is a panel that locks everyone out permanently — there
+ * is no recovery short of editing the database by hand.
+ */
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const ROLES = ['student', 'admin'];
+
+/** The same rules signup enforces — an admin-set password must not be weaker. */
+function passwordProblem(pw: string): string | null {
+  if (pw.length < 8) return 'Password must be at least 8 characters';
+  if (!/[A-Z]/.test(pw)) return 'Password must contain an uppercase letter';
+  if (!/[a-z]/.test(pw)) return 'Password must contain a lowercase letter';
+  if (!/[0-9]/.test(pw)) return 'Password must contain a number';
+  return null;
+}
 
 export const adminController = {
   async listUsers(_req: AuthRequest, res: Response): Promise<void> {
@@ -15,6 +39,114 @@ export const adminController = {
     res.json({
       success: true,
       data: { totalUsers: users.length, admins, students },
+    });
+  },
+
+  async createUser(req: AuthRequest, res: Response): Promise<void> {
+    const { name, email, password, role = 'student' } = req.body || {};
+
+    if (!String(name || '').trim()) { res.status(400).json({ success: false, message: 'Name is required' }); return; }
+    if (!EMAIL_RE.test(String(email || ''))) { res.status(400).json({ success: false, message: 'A valid email is required' }); return; }
+    if (!ROLES.includes(role)) { res.status(400).json({ success: false, message: `Role must be one of: ${ROLES.join(', ')}` }); return; }
+
+    const pwProblem = passwordProblem(String(password || ''));
+    if (pwProblem) { res.status(400).json({ success: false, message: pwProblem }); return; }
+
+    if (await UserModel.findByEmail(email)) {
+      res.status(409).json({ success: false, message: 'A user with that email already exists' });
+      return;
+    }
+
+    const user = await UserModel.create(String(name).trim(), email, await bcrypt.hash(password, 12), role);
+    res.status(201).json({ success: true, data: { user } });
+  },
+
+  async updateUser(req: AuthRequest, res: Response): Promise<void> {
+    const id = String(req.params.id);
+    const me = req.user!.userId;
+    const { name, email, role } = req.body || {};
+
+    const target = await UserModel.findById(id);
+    if (!target) { res.status(404).json({ success: false, message: 'User not found' }); return; }
+
+    if (email !== undefined) {
+      if (!EMAIL_RE.test(String(email))) { res.status(400).json({ success: false, message: 'A valid email is required' }); return; }
+      const clash = await UserModel.findByEmail(String(email));
+      if (clash && clash.id !== id) {
+        res.status(409).json({ success: false, message: 'Another user already has that email' });
+        return;
+      }
+    }
+
+    if (role !== undefined) {
+      if (!ROLES.includes(role)) { res.status(400).json({ success: false, message: `Role must be one of: ${ROLES.join(', ')}` }); return; }
+
+      // You cannot demote yourself — you would lose the panel mid-action, with no undo.
+      if (id === me && role !== 'admin') {
+        res.status(409).json({ success: false, message: 'You cannot remove your own admin role.' });
+        return;
+      }
+      // And nobody can demote the last admin.
+      if (target.role === 'admin' && role !== 'admin' && (await UserModel.countAdmins()) <= 1) {
+        res.status(409).json({ success: false, message: 'This is the only admin. Promote someone else first.' });
+        return;
+      }
+    }
+
+    const updated = await UserModel.update(id, {
+      name: name !== undefined ? String(name).trim() : undefined,
+      email,
+      role,
+    });
+    res.json({ success: true, data: { user: updated } });
+  },
+
+  /** Admin sets a new password — e.g. a student is locked out of their account. */
+  async resetPassword(req: AuthRequest, res: Response): Promise<void> {
+    const id = String(req.params.id);
+    const { password } = req.body || {};
+
+    const target = await UserModel.findById(id);
+    if (!target) { res.status(404).json({ success: false, message: 'User not found' }); return; }
+
+    const problem = passwordProblem(String(password || ''));
+    if (problem) { res.status(400).json({ success: false, message: problem }); return; }
+
+    await UserModel.updatePassword(id, await bcrypt.hash(password, 12));
+    res.json({ success: true, message: `Password updated for ${target.email}` });
+  },
+
+  async deleteUser(req: AuthRequest, res: Response): Promise<void> {
+    const id = String(req.params.id);
+    const me = req.user!.userId;
+
+    const target = await UserModel.findById(id);
+    if (!target) { res.status(404).json({ success: false, message: 'User not found' }); return; }
+
+    if (id === me) {
+      res.status(409).json({ success: false, message: 'You cannot delete your own account.' });
+      return;
+    }
+    if (target.role === 'admin' && (await UserModel.countAdmins()) <= 1) {
+      res.status(409).json({ success: false, message: 'This is the only admin. Promote someone else first.' });
+      return;
+    }
+
+    // Their uploaded identity documents go with them. Leaving Aadhaar scans and
+    // marksheets on disk after the account is gone is a data-retention problem,
+    // not a tidiness one.
+    const submissions = await SubmissionModel.forUser(id);
+    for (const s of submissions) {
+      const full = resolveStored(s.storedName);
+      if (full) await fs.promises.unlink(full).catch(() => {});
+      await SubmissionModel.remove(s.id);
+    }
+
+    await UserModel.remove(id);
+    res.json({
+      success: true,
+      message: `Deleted ${target.email}`,
+      data: { deletedDocuments: submissions.length },
     });
   },
 };
