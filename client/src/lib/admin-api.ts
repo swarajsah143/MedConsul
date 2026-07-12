@@ -104,10 +104,21 @@ export const adminApi = {
   remove: (collection: string, id: string) =>
     call<any>(() => api.delete(`/admin/resources/${collection}/${id}`)),
 
+  /**
+   * Bulk import. The server UPSERTS on each collection's natural key, so `inserted`
+   * counts only genuinely new rows — re-importing an unchanged file legitimately
+   * returns inserted: 0, updated: N. Report all three or the UI claims nothing happened.
+   */
   bulk: (collection: string, rows: any[], replace = false) =>
-    call<{ inserted: number; replaced: boolean }>(() =>
-      api.post(`/admin/resources/${collection}/bulk`, { rows, replace })),
+    call<BulkResult>(() => api.post(`/admin/resources/${collection}/bulk`, { rows, replace })),
 };
+
+export interface BulkResult {
+  inserted: number;
+  updated: number;
+  deleted: number;
+  replaced: boolean;
+}
 
 /** Blank record matching a schema — the "create" form's initial state. */
 export function emptyRecord(schema: CollectionSchema): Record<string, any> {

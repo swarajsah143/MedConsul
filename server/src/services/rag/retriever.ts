@@ -412,25 +412,32 @@ export async function retrieve(
   params: Record<string, string> = {}
 ): Promise<RetrievedChunk[]> {
   const q = query.toLowerCase();
-  const sources = isMongoConnected() ? DB_SOURCES : STATIC_SOURCES;
 
-  const scored = sources.map((source) => ({
-    source,
-    kwScore: source.keywords.filter((kw) => q.includes(kw)).length,
-  }));
-
-  let activeSources = scored.filter((s) => s.kwScore > 0).map((s) => s.source);
-  if (activeSources.length === 0) {
+  const pick = (sources: DataSource[]) => {
+    const scored = sources.map((source) => ({
+      source,
+      kwScore: source.keywords.filter((kw) => q.includes(kw)).length,
+    }));
+    const active = scored.filter((s) => s.kwScore > 0).map((s) => s.source);
     // Default: knowledge base + colleges + cutoffs
-    activeSources = [sources[4], sources[0], sources[1]];
+    return active.length ? active : [sources[4], sources[0], sources[1]];
+  };
+
+  const gather = async (sources: DataSource[]) => {
+    const chunks = await Promise.all(pick(sources).map((s) => s.search(query, params)));
+    return chunks.flat().sort((a, b) => b.relevance - a.relevance).slice(0, 15);
+  };
+
+  if (!isMongoConnected()) return gather(STATIC_SOURCES);
+
+  try {
+    return await gather(DB_SOURCES);
+  } catch (err) {
+    // Mongo can drop AFTER boot. Without this, every chat message became a hard
+    // error instead of degrading to the static snapshot this file promises.
+    console.error('  RAG: Mongo query failed, falling back to the static snapshot:', (err as Error)?.message);
+    return gather(STATIC_SOURCES);
   }
-
-  const chunks = await Promise.all(activeSources.map((s) => s.search(query, params)));
-
-  return chunks
-    .flat()
-    .sort((a, b) => b.relevance - a.relevance)
-    .slice(0, 15);
 }
 
 export function listSources(): string[] {

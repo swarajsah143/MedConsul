@@ -6,7 +6,8 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "seed": "tsx src/seed.ts"
+    "seed": "tsx src/seed.ts",
+    "test:integrity": "tsx src/test/integrity.test.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",

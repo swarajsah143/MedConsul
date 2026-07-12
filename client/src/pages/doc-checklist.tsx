@@ -310,16 +310,21 @@ export default function DocChecklistPage() {
     [search, state, category, counsellingType]
   );
 
-  const onlineDocs = useMemo(() => filterDocs(allDocs.filter((d) => d.section === 'online')), [filterDocs, allDocs]);
-  const physicalDocs = useMemo(() => filterDocs(allDocs.filter((d) => d.section === 'physical')), [filterDocs, allDocs]);
+  // Unfiltered sections — these drive PROGRESS. A search or filter must never make
+  // an untouched checklist look complete.
+  const allOnlineDocs = useMemo(() => allDocs.filter((d) => d.section === 'online'), [allDocs]);
+  const allPhysicalDocs = useMemo(() => allDocs.filter((d) => d.section === 'physical'), [allDocs]);
+
+  // Filtered sections — these drive what is DISPLAYED.
+  const onlineDocs = useMemo(() => filterDocs(allOnlineDocs), [filterDocs, allOnlineDocs]);
+  const physicalDocs = useMemo(() => filterDocs(allPhysicalDocs), [filterDocs, allPhysicalDocs]);
 
   const currentDocs = activeTab === 'online' ? onlineDocs : physicalDocs;
-  const allFilteredDocs = [...onlineDocs, ...physicalDocs];
 
-  const totalDocs = allFilteredDocs.length;
-  const completedDocs = allFilteredDocs.filter((d) => checked.has(d.id)).length;
-  const onlineComplete = onlineDocs.filter((d) => checked.has(d.id)).length;
-  const physicalComplete = physicalDocs.filter((d) => checked.has(d.id)).length;
+  const totalDocs = allDocs.length;
+  const completedDocs = allDocs.filter((d) => checked.has(d.id)).length;
+  const onlineComplete = allOnlineDocs.filter((d) => checked.has(d.id)).length;
+  const physicalComplete = allPhysicalDocs.filter((d) => checked.has(d.id)).length;
 
   const handleReset = () => {
     setSearch('');
@@ -457,12 +462,12 @@ export default function DocChecklistPage() {
                     <span className="font-semibold text-slate-600 dark:text-slate-400 flex items-center gap-1">
                       <Monitor className="w-3 h-3" /> Online
                     </span>
-                    <span className="font-bold text-red-600">{onlineComplete}/{onlineDocs.length}</span>
+                    <span className="font-bold text-red-600">{onlineComplete}/{allOnlineDocs.length}</span>
                   </div>
                   <div className="h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-500 ${onlineComplete === onlineDocs.length && onlineDocs.length > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
-                      style={{ width: `${onlineDocs.length > 0 ? (onlineComplete / onlineDocs.length) * 100 : 0}%` }}
+                      className={`h-full rounded-full transition-all duration-500 ${onlineComplete === allOnlineDocs.length && allOnlineDocs.length > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
+                      style={{ width: `${allOnlineDocs.length > 0 ? (onlineComplete / allOnlineDocs.length) * 100 : 0}%` }}
                     />
                   </div>
                 </div>
@@ -471,12 +476,12 @@ export default function DocChecklistPage() {
                     <span className="font-semibold text-slate-600 dark:text-slate-400 flex items-center gap-1">
                       <UserCheck className="w-3 h-3" /> Physical
                     </span>
-                    <span className="font-bold text-red-600">{physicalComplete}/{physicalDocs.length}</span>
+                    <span className="font-bold text-red-600">{physicalComplete}/{allPhysicalDocs.length}</span>
                   </div>
                   <div className="h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-500 ${physicalComplete === physicalDocs.length && physicalDocs.length > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
-                      style={{ width: `${physicalDocs.length > 0 ? (physicalComplete / physicalDocs.length) * 100 : 0}%` }}
+                      className={`h-full rounded-full transition-all duration-500 ${physicalComplete === allPhysicalDocs.length && allPhysicalDocs.length > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
+                      style={{ width: `${allPhysicalDocs.length > 0 ? (physicalComplete / allPhysicalDocs.length) * 100 : 0}%` }}
                     />
                   </div>
                 </div>

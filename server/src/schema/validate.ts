@@ -116,6 +116,16 @@ function coerce(f: Field, raw: any): [boolean, any?, string?] {
       }
       return [true, out];
     }
+    case 'ref': {
+      // Shape check only; existence is verified against the DB in the route
+      // (validate() has no DB access). Previously refs fell through to `default`
+      // and any garbage string was stored as a foreign key.
+      const v = String(raw).trim();
+      if (!/^[a-f0-9]{24}$/i.test(v)) {
+        return [false, undefined, `${f.label}: "${v}" is not a valid id`];
+      }
+      return [true, v];
+    }
     case 'url': {
       const s = String(raw).trim();
       if (s && !/^(https?:\/\/|\/)/i.test(s)) {

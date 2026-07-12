@@ -25,6 +25,7 @@ const COLLEGE_TYPES = ['Government', 'Private', 'Deemed'];
 
 export const colleges: CollectionSchema = {
   name: 'colleges',
+  naturalKey: ['name'],
   label: 'College',
   labelPlural: 'Colleges',
   publicRead: true,
@@ -83,6 +84,7 @@ export const colleges: CollectionSchema = {
 
 export const closingRanks: CollectionSchema = {
   name: 'closingRanks',
+  naturalKey: ['collegeId', 'year', 'round', 'course', 'category', 'quota'],
   label: 'Closing rank',
   labelPlural: 'Closing Ranks',
   publicRead: true,
@@ -102,6 +104,7 @@ export const closingRanks: CollectionSchema = {
 
 export const fees: CollectionSchema = {
   name: 'fees',
+  naturalKey: ['collegeId', 'course', 'category', 'quota'],
   label: 'Fee entry',
   labelPlural: 'Fee & Seat Matrix',
   publicRead: true,
@@ -149,6 +152,7 @@ export const fees: CollectionSchema = {
 
 export const allotments: CollectionSchema = {
   name: 'allotments',
+  naturalKey: ['counselling', 'round', 'category', 'course', 'allIndiaRank', 'instituteName'],
   label: 'Allotment',
   labelPlural: 'Seat Allotments',
   publicRead: true,
@@ -173,6 +177,7 @@ export const allotments: CollectionSchema = {
 
 export const announcements: CollectionSchema = {
   name: 'announcements',
+  naturalKey: ['date', 'title'],
   label: 'Announcement',
   labelPlural: 'Announcements',
   publicRead: true,
@@ -193,6 +198,7 @@ export const announcements: CollectionSchema = {
 
 export const checklistDocs: CollectionSchema = {
   name: 'checklistDocs',
+  naturalKey: ['section', 'name'],
   label: 'Checklist document',
   labelPlural: 'Document Checklist',
   publicRead: true,
@@ -212,6 +218,7 @@ export const checklistDocs: CollectionSchema = {
 
 export const stateDocs: CollectionSchema = {
   name: 'stateDocs',
+  naturalKey: ['state', 'checklistType'],
   label: 'State document requirement',
   labelPlural: 'State Document Requirements',
   publicRead: true,
@@ -228,6 +235,7 @@ export const stateDocs: CollectionSchema = {
 
 export const universities: CollectionSchema = {
   name: 'universities',
+  naturalKey: ['name', 'state'],
   label: 'University',
   labelPlural: 'Explore — Universities',
   publicRead: true,
@@ -250,6 +258,7 @@ export const universities: CollectionSchema = {
 
 export const blogs: CollectionSchema = {
   name: 'blogs',
+  naturalKey: ['title'],
   label: 'Blog post',
   labelPlural: 'Explore — Blogs',
   publicRead: true,
@@ -271,6 +280,7 @@ export const blogs: CollectionSchema = {
 
 export const abroadUniversities: CollectionSchema = {
   name: 'abroadUniversities',
+  naturalKey: ['name', 'country'],
   label: 'Abroad university',
   labelPlural: 'Abroad — Universities',
   publicRead: true,
@@ -294,6 +304,7 @@ export const abroadUniversities: CollectionSchema = {
 
 export const knowledgeBase: CollectionSchema = {
   name: 'knowledgeBase',
+  naturalKey: ['title'],
   label: 'Knowledge base entry',
   labelPlural: 'Chatbot Knowledge Base',
   publicRead: false,

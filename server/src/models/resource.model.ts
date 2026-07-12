@@ -27,6 +27,9 @@ function subSchema(fields: Field[]): Schema {
   return new Schema(def, { _id: false });
 }
 
+/** Ceiling on the unpaginated public read. Pages needing more must use /paged. */
+export const PUBLIC_MAX = 5000;
+
 const models = new Map<string, mongoose.Model<any>>();
 
 function modelFor(schema: CollectionSchema): mongoose.Model<any> {
@@ -54,6 +57,12 @@ function modelFor(schema: CollectionSchema): mongoose.Model<any> {
   const searchable = schema.fields.filter((f) => f.searchable).map((f) => f.name);
   if (searchable.length) {
     s.index(Object.fromEntries(searchable.map((n) => [n, 'text'])) as any);
+  }
+
+  // Unique natural key — makes bulk import idempotent (re-running a CSV updates
+  // rather than duplicating) and guarantees the upsert below matches at most one doc.
+  if (schema.naturalKey?.length) {
+    s.index(Object.fromEntries(schema.naturalKey.map((n) => [n, 1])), { unique: true });
   }
 
   const m = mongoose.model(schema.name, s, schema.name);
@@ -98,19 +107,41 @@ export function resource(schema: CollectionSchema) {
     for (const [key, raw] of Object.entries(query.filters || {})) {
       const f = schema.fields.find((x) => x.name === key);
       if (!f) continue;                       // ignore unknown params rather than 500
-      const vals = Array.isArray(raw) ? raw : [raw];
-      const cast = (v: string) => (f.type === 'number' ? Number(v)
-        : f.type === 'boolean' ? v === 'true'
-        : v);
-      where[key] = vals.length > 1 ? { $in: vals.map(cast) } : cast(vals[0]);
+
+      const vals = (Array.isArray(raw) ? raw : [raw]).map((v) => String(v));
+
+      if (f.type === 'number') {
+        // A non-numeric value used to reach Mongo as NaN and 500 a PUBLIC endpoint.
+        const nums = vals.map(Number).filter((n) => Number.isFinite(n));
+        if (!nums.length) { where[key] = { $in: [] }; continue; }   // match nothing, don't crash
+        where[key] = nums.length > 1 ? { $in: nums } : nums[0];
+      } else if (f.type === 'boolean') {
+        // Anything that isn't an explicit true/false used to silently become `false`.
+        const bools = vals
+          .map((v) => v.toLowerCase())
+          .filter((v) => ['true', 'false', '1', '0'].includes(v))
+          .map((v) => v === 'true' || v === '1');
+        if (!bools.length) continue;                                // ignore junk instead of inverting
+        where[key] = bools.length > 1 ? { $in: bools } : bools[0];
+      } else if (f.type === 'string' && !f.options) {
+        // Free-text filters are contains/case-insensitive. An exact, case-sensitive
+        // equality match meant typing "delhi" into the State filter returned nothing.
+        const rxs = vals.map((v) => new RegExp(escapeRx(v), 'i'));
+        where[key] = rxs.length > 1 ? { $in: rxs } : rxs[0];
+      } else {
+        where[key] = vals.length > 1 ? { $in: vals } : vals[0];
+      }
     }
 
-    if (query.q?.trim()) {
+    // `?q=a&q=b` arrives as an array, and .trim() on an array threw TypeError -> 500.
+    const qRaw = Array.isArray(query.q) ? query.q[0] : query.q;
+    const q = typeof qRaw === 'string' ? qRaw.trim() : '';
+    if (q) {
       const searchable = schema.fields.filter((f) => f.searchable).map((f) => f.name);
-      if (searchable.length) {
-        const rx = new RegExp(query.q.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-        where.$or = searchable.map((n) => ({ [n]: rx }));
-      }
+      // No searchable field used to mean "drop q silently and return EVERYTHING".
+      if (!searchable.length) return { _id: { $in: [] } };
+      const rx = new RegExp(escapeRx(q), 'i');
+      where.$or = searchable.map((n) => ({ [n]: rx }));
     }
     return where;
   };
@@ -137,9 +168,16 @@ export function resource(schema: CollectionSchema) {
       };
     },
 
-    /** No pagination — for the public app, which filters client-side on small sets. */
+    /**
+     * Unpaginated read for the public app, which filters client-side on small sets.
+     * Hard-capped: without a limit, one /api/data/closingRanks with 50k rows would
+     * ship the entire collection to every visitor's browser.
+     */
     async all(query: ListQuery = {}): Promise<any[]> {
-      const docs = await M().find(buildFilter(query)).sort(query.sort || schema.defaultSort || '-createdAt');
+      const docs = await M()
+        .find(buildFilter(query))
+        .sort(query.sort || schema.defaultSort || '-createdAt')
+        .limit(PUBLIC_MAX);
       return docs.map(toPlain);
     },
 
@@ -163,24 +201,80 @@ export function resource(schema: CollectionSchema) {
       return !!r;
     },
 
-    /** Bulk insert — the only realistic way to load hundreds of rank/fee rows. */
-    async insertMany(rows: Record<string, any>[]): Promise<number> {
-      if (!rows.length) return 0;
-      const r = await M().insertMany(rows, { ordered: false });
-      return r.length;
+    /**
+     * Bulk import — UPSERT on the natural key, never delete-then-insert.
+     *
+     * The previous implementation did deleteAll() + insertMany(), which minted a
+     * fresh ObjectId for every row. Re-importing `colleges` therefore orphaned
+     * every closingRanks/fees/allotments row that referenced the old ids, and the
+     * whole site rendered "Unknown college". Upserting keeps each row's _id, so
+     * foreign keys survive — and because the natural key is a unique index, running
+     * the same CSV twice updates rather than duplicating.
+     *
+     * `replace` now means "make the collection match this file": rows in the DB whose
+     * natural key is absent from the import are deleted. It no longer means "wipe it".
+     */
+    async importMany(
+      rows: Record<string, any>[],
+      opts: { replace?: boolean } = {}
+    ): Promise<{ created: number; updated: number; deleted: number }> {
+      if (!rows.length) return { created: 0, updated: 0, deleted: 0 };
+      const key = schema.naturalKey;
+
+      if (!key?.length) {
+        // No natural key: fall back to plain insert (nothing can reference it anyway).
+        if (opts.replace) await M().deleteMany({});
+        const r = await M().insertMany(rows, { ordered: false });
+        return { created: r.length, updated: 0, deleted: 0 };
+      }
+
+      const keyOf = (row: Record<string, any>) =>
+        Object.fromEntries(key.map((k) => [k, row[k]]));
+
+      const ops = rows.map((row) => ({
+        updateOne: {
+          filter: keyOf(row),
+          update: { $set: row, $setOnInsert: {} },
+          upsert: true,
+        },
+      }));
+
+      const res = await M().bulkWrite(ops as any, { ordered: false });
+      const created = res.upsertedCount ?? 0;
+      const updated = res.modifiedCount ?? 0;
+
+      let deleted = 0;
+      if (opts.replace) {
+        const keep = rows.map(keyOf);
+        const r = await M().deleteMany({ $nor: keep });
+        deleted = r.deletedCount ?? 0;
+      }
+      return { created, updated, deleted };
     },
 
     async count(): Promise<number> {
       return M().countDocuments({});
     },
 
-    async deleteAll(): Promise<number> {
-      const r = await M().deleteMany({});
-      return r.deletedCount ?? 0;
+    /** How many docs in this collection point at `id` via `field`. Used by the delete guard. */
+    async countBy(field: string, value: string): Promise<number> {
+      return M().countDocuments({ [field]: value });
+    },
+
+    /** Do all these ids exist? Returns the ones that do NOT. */
+    async missingIds(ids: string[]): Promise<string[]> {
+      const valid = ids.filter((i) => mongoose.isValidObjectId(i));
+      const found = await M().find({ _id: { $in: valid } }).select('_id');
+      const have = new Set(found.map((d: any) => d._id.toString()));
+      return [...new Set(ids)].filter((i) => !have.has(i));
     },
 
     raw: M,
   };
+}
+
+function escapeRx(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 export type Resource = ReturnType<typeof resource>;

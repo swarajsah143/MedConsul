@@ -59,6 +59,19 @@ export interface CollectionSchema {
   /** if set, this collection is exposed read-only at /api/data/<name> for the app */
   publicRead?: boolean;
   description?: string;
+
+  /**
+   * Fields that together identify a record independently of its _id.
+   *
+   * Load-bearing. Bulk import UPSERTS on this key instead of delete-then-insert,
+   * so re-importing a CSV keeps each row's existing _id. Without it, re-importing
+   * `colleges` minted fresh ObjectIds and orphaned every closingRanks/fees/allotments
+   * row that referenced them — the entire site rendered "Unknown college".
+   *
+   * It is also enforced as a unique index, which makes import idempotent: running
+   * the same CSV twice updates rows rather than duplicating them.
+   */
+  naturalKey?: string[];
 }
 
 /** Every field a record always carries, injected by the model layer. */

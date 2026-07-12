@@ -99,8 +99,17 @@ export default function FeeDetailPage() {
     Deposit: y.deposit ?? 0,
   }));
 
+  // A year row saved without an explicit Total contributes 0 to a naive sum, which
+  // turns a complete-looking record into a grand total of Rs 0 ("Free"). Derive the
+  // row's total from its components whenever the stored total isn't a positive number.
+  const yearTotal = (y: (typeof yearWiseFees)[number]): number => {
+    const stored = y.total ?? 0;
+    if (typeof stored === 'number' && stored > 0) return stored;
+    return (y.tuition ?? 0) + (y.hostel ?? 0) + (y.misc ?? 0) + (y.deposit ?? 0);
+  };
+
   const totalAllYears = yearWiseFees.length
-    ? yearWiseFees.reduce((s, y) => s + (y.total ?? 0), 0)
+    ? yearWiseFees.reduce((s, y) => s + yearTotal(y), 0)
     : totalFirstYear;
   const totalSeats = govtSeats + mgmtSeats + nriSeats;
 
@@ -303,7 +312,7 @@ export default function FeeDetailPage() {
                           <td className="px-5 py-3 text-right tabular-nums text-slate-600 dark:text-slate-400">{formatINRFull(y.hostel ?? 0)}</td>
                           <td className="px-5 py-3 text-right tabular-nums text-slate-500">{formatINRFull(y.misc ?? 0)}</td>
                           <td className="px-5 py-3 text-right tabular-nums text-slate-500">{formatINRFull(y.deposit ?? 0)}</td>
-                          <td className="px-5 py-3 text-right tabular-nums font-extrabold text-slate-900 dark:text-slate-50">{formatINRFull(y.total ?? 0)}</td>
+                          <td className="px-5 py-3 text-right tabular-nums font-extrabold text-slate-900 dark:text-slate-50">{formatINRFull(yearTotal(y))}</td>
                         </tr>
                       ))}
                       <tr className="bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-950/20 dark:to-rose-950/20 font-bold">

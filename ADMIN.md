@@ -92,3 +92,25 @@ a template from the same screen.
 
 Import is **all-or-nothing**: if any row fails validation, nothing is written and you get
 `row N, column X: message` for each failure. A half-imported CSV is worse than a rejected one.
+
+### Import is an upsert, not a re-insert — and this matters a lot
+
+Each collection declares a `naturalKey` (colleges → `name`; closingRanks →
+`collegeId + year + round + course + category + quota`; and so on). Import matches on that
+key and **updates matching rows in place, preserving their `_id`**.
+
+This is not a detail. The original implementation did `deleteAll()` then `insertMany()`, so
+re-importing the colleges CSV minted brand-new ObjectIds — and **orphaned all 279 closing-rank
+rows and 65 fee rows**, making every college on the site render as "Unknown college". It was
+reproduced, and there is now a regression test (`npm --prefix server run test:integrity`) that
+fails loudly if it ever comes back.
+
+Consequences you can rely on:
+
+- Running the same CSV twice is a no-op (`inserted: 0, updated: N`). Imports are idempotent.
+- **"Make the collection match this file"** (the old "replace all") deletes rows *absent from
+  the file*. It no longer wipes the collection first, so foreign keys survive.
+- A `collegeId` that doesn't resolve to a real college is **rejected** at import — you can no
+  longer create a dangling foreign key.
+- Deleting a college that rank/fee/allotment rows reference returns **409** with the counts.
+  Pass `?cascade=true` to delete the dependents along with it.

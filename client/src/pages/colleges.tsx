@@ -30,10 +30,14 @@ const typeColors: Record<string, string> = {
 };
 
 export default function CollegesPage() {
-  const { data: colleges, loading, error, reload } = useCollection<College>('colleges');
+  const { data: allColleges, loading, error, reload } = useCollection<College>('colleges');
   const [search, setSearch] = useState('');
   const [selectedState, setSelectedState] = useState('All');
   const [selectedType, setSelectedType] = useState('All');
+
+  // A college an admin deactivated must not appear publicly. Legacy rows have no
+  // isActive field at all — treat those as active.
+  const colleges = useMemo(() => allColleges.filter((c) => c.isActive !== false), [allColleges]);
 
   // Filter options come from the live data, so a newly added state shows up automatically.
   const states = useMemo(() => distinct(colleges, 'state'), [colleges]);

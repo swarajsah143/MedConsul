@@ -1,5 +1,6 @@
 import { Router, Response } from 'express';
 import { COLLECTIONS, getSchema } from '../schema/collections';
+import { CollectionSchema } from '../schema/types';
 import { validate } from '../schema/validate';
 import { resource } from '../models/resource.model';
 import { isMongoConnected } from '../config/database';
@@ -47,6 +48,56 @@ function withSchema(req: AuthRequest, res: Response) {
   return resource(schema);
 }
 
+/**
+ * Every `ref` value must point at a row that actually exists.
+ *
+ * validate.ts cannot do this — it has no DB access — so a CSV could previously set
+ * collegeId to any string at all and the row would import "successfully" while
+ * pointing at nothing.
+ */
+async function checkRefs(
+  schema: CollectionSchema,
+  rows: Record<string, any>[]
+): Promise<{ row: number; field: string; message: string }[]> {
+  const refFields = schema.fields.filter((f) => f.type === 'ref' && f.ref);
+  if (!refFields.length) return [];
+
+  const errors: { row: number; field: string; message: string }[] = [];
+
+  for (const f of refFields) {
+    const target = getSchema(f.ref!);
+    if (!target) continue;
+
+    const wanted = rows
+      .map((r, i) => ({ i, v: r[f.name] }))
+      .filter((x) => x.v !== undefined && x.v !== null && x.v !== '');
+    if (!wanted.length) continue;
+
+    const missing = new Set(await resource(target).missingIds(wanted.map((w) => String(w.v))));
+    for (const w of wanted) {
+      if (missing.has(String(w.v))) {
+        errors.push({
+          row: w.i + 1,
+          field: f.name,
+          message: `${f.label}: no ${target.label} exists with id "${w.v}"`,
+        });
+      }
+    }
+  }
+  return errors;
+}
+
+/** Which collections point at `collection` and via which field. */
+function referencersOf(collection: string): { schema: CollectionSchema; field: string }[] {
+  const out: { schema: CollectionSchema; field: string }[] = [];
+  for (const s of COLLECTIONS) {
+    for (const f of s.fields) {
+      if (f.type === 'ref' && f.ref === collection) out.push({ schema: s, field: f.name });
+    }
+  }
+  return out;
+}
+
 router.get('/resources/:collection', async (req: AuthRequest, res: Response) => {
   const r = withSchema(req, res);
   if (!r) return;
@@ -69,6 +120,13 @@ router.post('/resources/:collection', async (req: AuthRequest, res: Response) =>
   if (!r) return;
   const { value, errors } = validate(r.schema, req.body || {});
   if (errors.length) { res.status(400).json({ success: false, message: 'Validation failed', errors }); return; }
+
+  const refErrors = await checkRefs(r.schema, [value]);
+  if (refErrors.length) {
+    res.status(400).json({ success: false, message: 'Validation failed', errors: refErrors.map(({ field, message }) => ({ field, message })) });
+    return;
+  }
+
   const item = await r.create(value);
   res.status(201).json({ success: true, data: { item } });
 });
@@ -78,17 +136,64 @@ router.put('/resources/:collection/:id', async (req: AuthRequest, res: Response)
   if (!r) return;
   const { value, errors } = validate(r.schema, req.body || {}, { partial: true });
   if (errors.length) { res.status(400).json({ success: false, message: 'Validation failed', errors }); return; }
+
+  const refErrors = await checkRefs(r.schema, [value]);
+  if (refErrors.length) {
+    res.status(400).json({ success: false, message: 'Validation failed', errors: refErrors.map(({ field, message }) => ({ field, message })) });
+    return;
+  }
+
   const item = await r.update(String(req.params.id), value);
   if (!item) { res.status(404).json({ success: false, message: 'Not found' }); return; }
   res.json({ success: true, data: { item } });
 });
 
+/**
+ * Delete, guarded against orphaning.
+ *
+ * Deleting a college that 40 rank rows point at used to succeed silently and leave
+ * those rows rendering "Unknown college" forever. Now it 409s with the counts, and
+ * the caller must opt in with ?cascade=true to delete the dependents too.
+ */
 router.delete('/resources/:collection/:id', async (req: AuthRequest, res: Response) => {
   const r = withSchema(req, res);
   if (!r) return;
-  const ok = await r.remove(String(req.params.id));
+  const id = String(req.params.id);
+  const cascade = req.query.cascade === 'true';
+
+  const refs = referencersOf(r.schema.name);
+  const blocking: { collection: string; label: string; field: string; count: number }[] = [];
+  for (const ref of refs) {
+    const count = await resource(ref.schema).countBy(ref.field, id);
+    if (count > 0) blocking.push({ collection: ref.schema.name, label: ref.schema.labelPlural, field: ref.field, count });
+  }
+
+  if (blocking.length && !cascade) {
+    res.status(409).json({
+      success: false,
+      message:
+        `Cannot delete this ${r.schema.label.toLowerCase()} — ` +
+        blocking.map((b) => `${b.count} ${b.label.toLowerCase()}`).join(' and ') +
+        ` reference it. Re-send with ?cascade=true to delete those too.`,
+      references: blocking,
+    });
+    return;
+  }
+
+  if (blocking.length && cascade) {
+    for (const b of blocking) {
+      const target = getSchema(b.collection)!;
+      await resource(target).raw().deleteMany({ [b.field]: id });
+    }
+  }
+
+  const ok = await r.remove(id);
   if (!ok) { res.status(404).json({ success: false, message: 'Not found' }); return; }
-  res.json({ success: true, message: 'Deleted' });
+  res.json({
+    success: true,
+    message: 'Deleted',
+    data: { cascadedDeletes: blocking.reduce((n, b) => n + b.count, 0) },
+  });
 });
 
 /**
@@ -118,6 +223,11 @@ router.post('/resources/:collection/bulk', async (req: AuthRequest, res: Respons
     else clean.push(value);
   });
 
+  // Every ref must resolve to a real row, or the import silently creates orphans.
+  if (!rowErrors.length) {
+    rowErrors.push(...(await checkRefs(r.schema, clean)));
+  }
+
   if (rowErrors.length) {
     res.status(400).json({
       success: false,
@@ -128,11 +238,17 @@ router.post('/resources/:collection/bulk', async (req: AuthRequest, res: Respons
     return;
   }
 
+  // UPSERT on the natural key. This used to be deleteAll() + insertMany(), which
+  // gave every row a fresh ObjectId — re-importing colleges orphaned all 279 rank
+  // rows and 65 fee rows, and the site rendered "Unknown college" everywhere.
+  // `replace` now means "make the collection match this file", not "wipe it first".
   const replace = req.body?.replace === true;
-  if (replace) await r.deleteAll();
+  const { created, updated, deleted } = await r.importMany(clean, { replace });
 
-  const inserted = await r.insertMany(clean);
-  res.json({ success: true, data: { inserted, replaced: replace } });
+  res.json({
+    success: true,
+    data: { inserted: created, updated, deleted, replaced: replace },
+  });
 });
 
 export default router;

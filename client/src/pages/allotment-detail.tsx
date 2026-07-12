@@ -108,8 +108,16 @@ export default function AllotmentDetailPage() {
     return rows;
   }, [allData, search, categoryFilter, seatTypeFilter, roundFilter, rankMin, rankMax, scoreMin, scoreMax, sortBy, sortOrder]);
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
-  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+
+  // A narrowing filter can leave `page` past the end of the new result set, which
+  // renders an empty table with no pagination control — as if the data vanished.
+  useEffect(() => {
+    if (page > totalPages) setPage(1);
+  }, [totalPages, page]);
+
+  const safePage = Math.min(page, totalPages);
+  const paginated = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const handleSort = useCallback((field: SortField) => {
     if (sortBy === field) {
@@ -359,9 +367,9 @@ export default function AllotmentDetailPage() {
                       <span className="text-[10px] font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Optional</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Input type="number" placeholder="Min" value={rankMin} onChange={(e) => setRankMin(e.target.value)} className="h-11 text-sm" />
+                      <Input type="number" placeholder="Min" value={rankMin} onChange={(e) => { setRankMin(e.target.value); setPage(1); }} className="h-11 text-sm" />
                       <span className="text-slate-400 font-medium shrink-0">—</span>
-                      <Input type="number" placeholder="Max" value={rankMax} onChange={(e) => setRankMax(e.target.value)} className="h-11 text-sm" />
+                      <Input type="number" placeholder="Max" value={rankMax} onChange={(e) => { setRankMax(e.target.value); setPage(1); }} className="h-11 text-sm" />
                     </div>
                   </div>
                   <div className="rounded-xl border-2 border-slate-200 dark:border-slate-700 p-4">
@@ -370,9 +378,9 @@ export default function AllotmentDetailPage() {
                       <span className="text-[10px] font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Optional</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Input type="number" placeholder="Min" value={scoreMin} onChange={(e) => setScoreMin(e.target.value)} className="h-11 text-sm" />
+                      <Input type="number" placeholder="Min" value={scoreMin} onChange={(e) => { setScoreMin(e.target.value); setPage(1); }} className="h-11 text-sm" />
                       <span className="text-slate-400 font-medium shrink-0">—</span>
-                      <Input type="number" placeholder="Max" value={scoreMax} onChange={(e) => setScoreMax(e.target.value)} className="h-11 text-sm" />
+                      <Input type="number" placeholder="Max" value={scoreMax} onChange={(e) => { setScoreMax(e.target.value); setPage(1); }} className="h-11 text-sm" />
                     </div>
                   </div>
                 </div>
@@ -388,7 +396,7 @@ export default function AllotmentDetailPage() {
                   {['All', ...filterOptions.rounds.map(String)].map((r) => (
                     <button
                       key={r}
-                      onClick={() => setRoundFilter(r)}
+                      onClick={() => { setRoundFilter(r); setPage(1); }}
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         roundFilter === r
                           ? 'gradient-primary text-white border-transparent shadow-md'
@@ -411,7 +419,7 @@ export default function AllotmentDetailPage() {
                   {['All', ...filterOptions.categories].map((cat) => (
                     <button
                       key={cat}
-                      onClick={() => setCategoryFilter(cat)}
+                      onClick={() => { setCategoryFilter(cat); setPage(1); }}
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         categoryFilter === cat
                           ? 'gradient-primary text-white border-transparent shadow-md'
@@ -434,7 +442,7 @@ export default function AllotmentDetailPage() {
                   {['All', ...filterOptions.seatTypes].map((st) => (
                     <button
                       key={st}
-                      onClick={() => setSeatTypeFilter(st)}
+                      onClick={() => { setSeatTypeFilter(st); setPage(1); }}
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         seatTypeFilter === st
                           ? 'gradient-primary text-white border-transparent shadow-md'
@@ -458,7 +466,7 @@ export default function AllotmentDetailPage() {
                   <Input
                     placeholder="Type institute name..."
                     value={search}
-                    onChange={(e) => setSearch(e.target.value)}
+                    onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                     className="pl-11 h-12 text-sm rounded-xl focus:shadow-lg transition-all duration-200"
                   />
                 </div>
@@ -581,7 +589,7 @@ export default function AllotmentDetailPage() {
       )}
 
       <Pagination
-        page={page}
+        page={safePage}
         totalPages={totalPages}
         onPageChange={setPage}
         itemCount={paginated.length}

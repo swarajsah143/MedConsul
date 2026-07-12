@@ -153,8 +153,16 @@ export default function FeeMatrixPage() {
     return list;
   }, [rows, search, state, college, course, category, quota, sortBy, sortOrder]);
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
-  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+
+  // A narrowing filter can leave `page` past the end of the new result set, which
+  // renders an empty grid with no pagination control — as if the data vanished.
+  useEffect(() => {
+    if (page > totalPages) setPage(1);
+  }, [totalPages, page]);
+
+  const safePage = Math.min(page, totalPages);
+  const paginated = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const handleSort = useCallback((field: SortField) => {
     if (sortBy === field) setSortOrder((o) => (o === 'asc' ? 'desc' : 'asc'));
@@ -319,7 +327,7 @@ export default function FeeMatrixPage() {
                 </h3>
                 <div className="relative">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Search college, city, course..." value={search} onChange={(e) => setSearch(e.target.value)}
+                  <Input placeholder="Search college, city, course..." value={search} onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                     className="pl-11 h-12 text-sm rounded-xl focus:shadow-lg transition-all duration-200" />
                 </div>
               </section>
@@ -333,7 +341,7 @@ export default function FeeMatrixPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">State</label>
-                      <select value={state} onChange={(e) => setState(e.target.value)}
+                      <select value={state} onChange={(e) => { setState(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All States</option>
                         {filterOptions.states.map((s) => <option key={s} value={s}>{s}</option>)}
@@ -341,7 +349,7 @@ export default function FeeMatrixPage() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">College</label>
-                      <select value={college} onChange={(e) => setCollege(e.target.value)}
+                      <select value={college} onChange={(e) => { setCollege(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Colleges</option>
                         {filterOptions.colleges.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -360,7 +368,7 @@ export default function FeeMatrixPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Course</label>
-                      <select value={course} onChange={(e) => setCourse(e.target.value)}
+                      <select value={course} onChange={(e) => { setCourse(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Courses</option>
                         {filterOptions.courses.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -368,7 +376,7 @@ export default function FeeMatrixPage() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Category</label>
-                      <select value={category} onChange={(e) => setCategory(e.target.value)}
+                      <select value={category} onChange={(e) => { setCategory(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Categories</option>
                         {filterOptions.categories.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -376,7 +384,7 @@ export default function FeeMatrixPage() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Quota</label>
-                      <select value={quota} onChange={(e) => setQuota(e.target.value)}
+                      <select value={quota} onChange={(e) => { setQuota(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Quotas</option>
                         {filterOptions.quotas.map((q) => <option key={q} value={q}>{q}</option>)}
@@ -602,7 +610,7 @@ export default function FeeMatrixPage() {
         </Card>
       )}
 
-      <Pagination page={page} totalPages={totalPages} onPageChange={setPage} itemCount={paginated.length} totalItems={filtered.length} />
+      <Pagination page={safePage} totalPages={totalPages} onPageChange={setPage} itemCount={paginated.length} totalItems={filtered.length} />
 
       {/* Tip */}
       <Card className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border-amber-200 dark:border-amber-900/30">

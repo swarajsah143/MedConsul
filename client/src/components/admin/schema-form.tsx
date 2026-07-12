@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { FormEvent } from 'react';
 import { Loader2, Plus, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -466,6 +466,17 @@ export function SchemaForm({
 }: SchemaFormProps) {
   const [value, setValue] = useState<FormValue>(() => hydrate(schema, initial));
   const [clientErrors, setClientErrors] = useState<Record<string, string>>({});
+  /**
+   * Fields whose SERVER error the user has already addressed by editing them.
+   * Without this, the red border, the message and the top banner survive every
+   * keystroke until the next submit — the form looks broken after it's been fixed.
+   */
+  const [fixedServerFields, setFixedServerFields] = useState<Record<string, boolean>>({});
+
+  // A fresh set of server errors (a new submit) makes every dismissal stale.
+  useEffect(() => {
+    setFixedServerFields({});
+  }, [errors]);
 
   /**
    * Sections: everything that isn't long prose goes in "Details" (required and
@@ -494,7 +505,10 @@ export function SchemaForm({
     return map;
   }, [errors]);
 
-  const errorFor = (name: string): string | undefined => serverErrors[name] ?? clientErrors[name];
+  const serverErrorFor = (name: string): string | undefined =>
+    fixedServerFields[name] ? undefined : serverErrors[name];
+
+  const errorFor = (name: string): string | undefined => serverErrorFor(name) ?? clientErrors[name];
 
   const setField = (name: string, v: unknown) => {
     setValue((prev) => ({ ...prev, [name]: v }));
@@ -503,6 +517,12 @@ export function SchemaForm({
       const next = { ...prev };
       delete next[name];
       return next;
+    });
+    // Editing a field the server flagged clears that flag too — otherwise it stays
+    // red (and the banner stays up) no matter what the user types.
+    setFixedServerFields((prev) => {
+      if (!serverErrors[name] || prev[name]) return prev;
+      return { ...prev, [name]: true };
     });
   };
 
@@ -544,7 +564,8 @@ export function SchemaForm({
   };
 
   const isEdit = Boolean(initial);
-  const hasErrors = Object.keys(clientErrors).length > 0 || (errors?.length ?? 0) > 0;
+  const openServerErrors = Object.keys(serverErrors).filter((name) => !fixedServerFields[name]);
+  const hasErrors = Object.keys(clientErrors).length > 0 || openServerErrors.length > 0;
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">

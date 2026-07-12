@@ -280,7 +280,12 @@ export default function CollegeDetailPage() {
   const [activeTab, setActiveTab] = useState<Tab>('overview');
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
-  const college = useMemo(() => colleges.find((c) => c.id === id) ?? null, [colleges, id]);
+  // A deactivated college is treated as non-existent on the public site.
+  // Legacy rows have no isActive field — treat those as active.
+  const college = useMemo(() => {
+    const found = colleges.find((c) => c.id === id);
+    return found && found.isActive !== false ? found : null;
+  }, [colleges, id]);
 
   if (loading) {
     return (

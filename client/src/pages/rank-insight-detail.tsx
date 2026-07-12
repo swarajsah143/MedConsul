@@ -150,13 +150,31 @@ export default function RankInsightDetailPage() {
 
   const displayName = collegeName || collegeInfo?.name || 'Unknown college';
 
+  // The hero stats used to read Round-1 rows only and coerce a miss to 0, so a
+  // college/course/category/quota combination with no Round-1 record rendered a
+  // closing rank of "#0" as though that were a real, achievable cutoff.
+  // Fall back to all rounds, and show an em-dash when there is genuinely no data.
   const round1Data = history.filter((h) => h.round === 1);
-  const latestRank = round1Data.at(-1)?.closingRank ?? 0;
-  const oldestRank = round1Data.at(0)?.closingRank ?? 0;
-  const rankChange = oldestRank - latestRank;
-  const latestScore = round1Data.at(-1)?.closingScore ?? 0;
-  const oldestScore = round1Data.at(0)?.closingScore ?? 0;
-  const scoreChange = latestScore - oldestScore;
+  const statRows = round1Data.length ? round1Data : history;
+
+  // A rank of 0 is not a rank: `closingRank ?? 0` above turns a missing value into 0,
+  // and "#0" would read as the most competitive cutoff possible. Treat it as no data.
+  const positiveRank = (v: number | null | undefined): number | null =>
+    typeof v === 'number' && v > 0 ? v : null;
+
+  const latestRank = positiveRank(statRows.at(-1)?.closingRank);
+  const oldestRank = positiveRank(statRows.at(0)?.closingRank);
+  const rankChange = latestRank !== null && oldestRank !== null ? oldestRank - latestRank : null;
+
+  // A missing score is not a score of zero: coercing it made the delta equal to the
+  // entire latest score.
+  const latestScore = statRows.at(-1)?.closingScore ?? null;
+  const oldestScore = statRows.at(0)?.closingScore ?? null;
+  const scoreChange =
+    latestScore !== null && latestScore !== undefined && oldestScore !== null && oldestScore !== undefined
+      ? latestScore - oldestScore
+      : null;
+
   const yearsTracked = [...new Set(history.map((h) => h.year))].length;
 
   const years = [...new Set(history.map((h) => h.year))].sort((a, b) => a - b);
@@ -263,24 +281,24 @@ export default function RankInsightDetailPage() {
           color="text-red-600 dark:text-red-400"
           bg="bg-red-50 dark:bg-red-950/30"
           label="Latest Closing Rank"
-          value={`#${latestRank.toLocaleString()}`}
-          sub={`${latestYear} Round 1`}
+          value={latestRank === null ? '—' : `#${latestRank.toLocaleString()}`}
+          sub={round1Data.length ? `${latestYear} Round 1` : `${latestYear} (no Round 1 data)`}
         />
         <StatCard
-          icon={rankChange > 0 ? TrendingDown : TrendingUp}
-          color={rankChange > 0 ? 'text-emerald-600' : rankChange < 0 ? 'text-rose-600' : 'text-slate-500'}
-          bg={rankChange > 0 ? 'bg-emerald-50 dark:bg-emerald-950/30' : rankChange < 0 ? 'bg-rose-50 dark:bg-rose-950/30' : 'bg-slate-50 dark:bg-slate-800'}
+          icon={(rankChange ?? 0) > 0 ? TrendingDown : TrendingUp}
+          color={(rankChange ?? 0) > 0 ? 'text-emerald-600' : (rankChange ?? 0) < 0 ? 'text-rose-600' : 'text-slate-500'}
+          bg={(rankChange ?? 0) > 0 ? 'bg-emerald-50 dark:bg-emerald-950/30' : (rankChange ?? 0) < 0 ? 'bg-rose-50 dark:bg-rose-950/30' : 'bg-slate-50 dark:bg-slate-800'}
           label="Rank Trend"
-          value={rankChange > 0 ? `Improved ${rankChange.toLocaleString()}` : rankChange < 0 ? `Dropped ${Math.abs(rankChange).toLocaleString()}` : 'Stable'}
-          sub={`${round1Data.at(0)?.year ?? '--'} vs ${round1Data.at(-1)?.year ?? '--'}`}
+          value={rankChange === null ? '—' : rankChange > 0 ? `Improved ${rankChange.toLocaleString()}` : rankChange < 0 ? `Dropped ${Math.abs(rankChange).toLocaleString()}` : 'Stable'}
+          sub={`${statRows.at(0)?.year ?? '--'} vs ${statRows.at(-1)?.year ?? '--'}`}
         />
         <StatCard
           icon={Target}
           color="text-blue-600 dark:text-blue-400"
           bg="bg-blue-50 dark:bg-blue-950/30"
           label="Latest Score"
-          value={latestScore ? String(latestScore) : 'N/A'}
-          sub={scoreChange > 0 ? `+${scoreChange} pts over ${yearsTracked} yrs` : scoreChange < 0 ? `${scoreChange} pts` : 'Stable'}
+          value={latestScore === null || latestScore === undefined ? '—' : String(latestScore)}
+          sub={scoreChange === null ? 'no score data' : scoreChange > 0 ? `+${scoreChange} pts over ${yearsTracked} yrs` : scoreChange < 0 ? `${scoreChange} pts` : 'Stable'}
         />
         <StatCard
           icon={Calendar}
@@ -301,7 +319,9 @@ export default function RankInsightDetailPage() {
           <div>
             <p className="text-sm font-bold text-blue-900 dark:text-blue-200">What does this mean for you?</p>
             <p className="text-xs text-blue-700 dark:text-blue-400 mt-1 leading-relaxed">
-              {rankChange > 0
+              {rankChange === null
+                ? `There isn't enough history for this combination yet to describe a trend.`
+                : rankChange > 0
                 ? `Good news! This college's closing rank has improved (gone lower) by ${rankChange.toLocaleString()} positions. It's becoming more competitive, so apply early and keep it as a strong preference.`
                 : rankChange < 0
                 ? `This college's closing rank has increased by ${Math.abs(rankChange).toLocaleString()} positions, meaning slightly less competition. You may have a better chance this year if your rank is near the cutoff.`

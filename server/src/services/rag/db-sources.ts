@@ -93,17 +93,23 @@ export class DbCutoffSource implements DataSource {
       results = results.filter((r: any) => r.year === latestYear);
     }
 
-    return results.slice(0, 12).map((r: any) => {
-      const name = cmap.get(r.collegeId)?.name ?? 'Unknown college';
-      return {
-        source: this.name,
-        title: `${name} — ${r.category} ${r.quota}`,
-        content: `${name} | ${r.course} | ${r.category} | ${r.quota} | ${r.year} R${r.round} | Closing Rank: #${Number(r.closingRank).toLocaleString()} | Score: ${r.closingScore ?? 'n/a'}`,
-        relevance: targetRank
-          ? 1 - Math.abs(r.closingRank - targetRank) / 100000
-          : matchScore(query, `${name} ${r.category} ${r.quota}`),
-      };
-    });
+    // Sort by relevance BEFORE slicing. Slicing first meant that for any question
+    // without a numeric rank in it, the 12 rows handed to the model were simply the
+    // first 12 in insertion order — not the 12 that actually matched the question.
+    return results
+      .map((r: any) => {
+        const name = cmap.get(r.collegeId)?.name ?? 'Unknown college';
+        return {
+          source: this.name,
+          title: `${name} — ${r.category} ${r.quota}`,
+          content: `${name} | ${r.course} | ${r.category} | ${r.quota} | ${r.year} R${r.round} | Closing Rank: #${Number(r.closingRank).toLocaleString()} | Score: ${r.closingScore ?? 'n/a'}`,
+          relevance: targetRank
+            ? 1 - Math.abs(r.closingRank - targetRank) / 100000
+            : matchScore(query, `${name} ${r.category} ${r.quota}`),
+        };
+      })
+      .sort((a, b) => b.relevance - a.relevance)
+      .slice(0, 12);
   }
 }
 

@@ -38,26 +38,55 @@ function useSchemas() {
   return { schemas, error };
 }
 
+/** The server caps `limit` at 500, so one request can never see past the 500th row. */
+const REF_PAGE_SIZE = 500;
+
 /** Ref fields need id -> human label, or the table shows raw Mongo ids. */
 function useRefLabels(schema: CollectionSchema | undefined) {
   const [labels, setLabels] = useState<Record<string, Record<string, string>>>({});
+  const [refError, setRefError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!schema) return;
     const refs = [...new Set(schema.fields.filter((f) => f.type === 'ref' && f.ref).map((f) => f.ref!))];
     if (!refs.length) return;
 
-    Promise.all(
-      refs.map(async (ref) => {
-        const res = await adminApi.list(ref, { limit: 500, sort: 'name' });
-        const map: Record<string, string> = {};
+    let cancelled = false;
+
+    /** Page through the whole collection — stopping at 500 makes every row past the
+     *  cap unselectable in the ref <select> and unfilterable in the table. */
+    const loadRef = async (ref: string) => {
+      const map: Record<string, string> = {};
+      let page = 1;
+      let pages = 1;
+      do {
+        const res = await adminApi.list(ref, { limit: REF_PAGE_SIZE, page, sort: 'name' });
         for (const item of res.items) map[item.id] = item.name ?? item.title ?? item.id;
-        return [ref, map] as const;
+        pages = Math.max(1, Number(res.pages) || 1);
+        if (!res.items.length) break; // defensive: never spin on a server that keeps saying "more"
+        page += 1;
+      } while (page <= pages);
+      return [ref, map] as const;
+    };
+
+    // Without a catch this was an unhandled rejection: the College dropdown just
+    // stayed empty forever with nothing on screen to explain why.
+    Promise.all(refs.map(loadRef))
+      .then((pairs) => {
+        if (cancelled) return;
+        setLabels(Object.fromEntries(pairs));
+        setRefError(null);
       })
-    ).then((pairs) => setLabels(Object.fromEntries(pairs)));
+      .catch((e: any) => {
+        if (cancelled) return;
+        setLabels({});
+        setRefError(e?.message || 'Failed to load linked records. Reference dropdowns will be empty.');
+      });
+
+    return () => { cancelled = true; };
   }, [schema]);
 
-  return labels;
+  return { labels, refError };
 }
 
 export default function AdminDataPage() {
@@ -73,7 +102,7 @@ export default function AdminDataPage() {
     () => schemas?.find((s) => s.name === collection),
     [schemas, collection]
   );
-  const refLabels = useRefLabels(schema);
+  const { labels: refLabels, refError } = useRefLabels(schema);
 
   // Leaving a form or switching collections must clear stale server errors.
   useEffect(() => {
@@ -186,6 +215,17 @@ export default function AdminDataPage() {
         )}
       </div>
 
+      {refError && (
+        <Card className="border-red-200 dark:border-red-900/40">
+          <CardContent className="p-4">
+            <p className="text-sm font-semibold text-red-600 dark:text-red-400">{refError}</p>
+            <p className="text-xs text-muted-foreground mt-1">
+              Linked records could not be loaded, so reference dropdowns and filters are empty. Reload the page to try again.
+            </p>
+          </CardContent>
+        </Card>
+      )}
+
       {mode.kind === 'list' && (
         <DataTable
           schema={schema}
@@ -223,10 +263,16 @@ export default function AdminDataPage() {
         <CsvImport
           schema={schema}
           onCancel={() => setMode({ kind: 'list' })}
-          onDone={(inserted) => {
+          onDone={(res) => {
             setMode({ kind: 'list' });
             setReloadKey((k) => k + 1);
-            setFlash(`Imported ${inserted} row${inserted === 1 ? '' : 's'}.`);
+            // Import upserts, so a re-import of an unchanged file is legitimately
+            // 0 added / N updated. Reporting only "inserted" would claim nothing happened.
+            const parts: string[] = [];
+            if (res.inserted) parts.push(`${res.inserted} added`);
+            if (res.updated) parts.push(`${res.updated} updated`);
+            if (res.deleted) parts.push(`${res.deleted} deleted`);
+            setFlash(parts.length ? `Imported: ${parts.join(', ')}.` : 'Nothing changed.');
           }}
         />
       )}

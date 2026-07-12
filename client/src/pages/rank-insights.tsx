@@ -169,8 +169,16 @@ export default function RankInsightsPage() {
     return list;
   }, [baseEntries, search, state, college, course, category, quota, round, rankMin, rankMax, scoreMin, scoreMax, sortBy, sortOrder]);
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
-  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+
+  // A narrowing filter can leave `page` past the end of the new result set, which
+  // renders an empty grid with no pagination control — as if the data vanished.
+  useEffect(() => {
+    if (page > totalPages) setPage(1);
+  }, [totalPages, page]);
+
+  const safePage = Math.min(page, totalPages);
+  const paginated = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const handleSort = useCallback((field: SortField) => {
     if (sortBy === field) {
@@ -387,7 +395,7 @@ export default function RankInsightsPage() {
                           type="number"
                           placeholder="0"
                           value={rankMin}
-                          onChange={(e) => setRankMin(e.target.value)}
+                          onChange={(e) => { setRankMin(e.target.value); setPage(1); }}
                           className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
                         />
                         <span className="text-slate-400 font-medium shrink-0">—</span>
@@ -395,7 +403,7 @@ export default function RankInsightsPage() {
                           type="number"
                           placeholder="5000000"
                           value={rankMax}
-                          onChange={(e) => setRankMax(e.target.value)}
+                          onChange={(e) => { setRankMax(e.target.value); setPage(1); }}
                           className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
                         />
                       </div>
@@ -418,7 +426,7 @@ export default function RankInsightsPage() {
                           type="number"
                           placeholder="113"
                           value={scoreMin}
-                          onChange={(e) => setScoreMin(e.target.value)}
+                          onChange={(e) => { setScoreMin(e.target.value); setPage(1); }}
                           className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
                         />
                         <span className="text-slate-400 font-medium shrink-0">—</span>
@@ -426,7 +434,7 @@ export default function RankInsightsPage() {
                           type="number"
                           placeholder="720"
                           value={scoreMax}
-                          onChange={(e) => setScoreMax(e.target.value)}
+                          onChange={(e) => { setScoreMax(e.target.value); setPage(1); }}
                           className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
                         />
                       </div>
@@ -440,7 +448,7 @@ export default function RankInsightsPage() {
                       <p className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-3">Rounds</p>
                       <div className="flex flex-wrap gap-2">
                         <button
-                          onClick={() => setRound('All')}
+                          onClick={() => { setRound('All'); setPage(1); }}
                           className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                             round === 'All'
                               ? 'gradient-primary text-white border-transparent shadow-md'
@@ -452,7 +460,7 @@ export default function RankInsightsPage() {
                         {filterOptions.rounds.map((r) => (
                           <button
                             key={r}
-                            onClick={() => setRound(String(r))}
+                            onClick={() => { setRound(String(r)); setPage(1); }}
                             className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                               round === String(r)
                                 ? 'gradient-primary text-white border-transparent shadow-md'
@@ -470,7 +478,7 @@ export default function RankInsightsPage() {
                       <p className="text-xs font-bold text-slate-700 dark:text-slate-300 mb-3">Category</p>
                       <div className="flex flex-wrap gap-2">
                         <button
-                          onClick={() => setCategory('All')}
+                          onClick={() => { setCategory('All'); setPage(1); }}
                           className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                             category === 'All'
                               ? 'gradient-primary text-white border-transparent shadow-md'
@@ -482,7 +490,7 @@ export default function RankInsightsPage() {
                         {filterOptions.categories.map((cat) => (
                           <button
                             key={cat}
-                            onClick={() => setCategory(String(cat))}
+                            onClick={() => { setCategory(String(cat)); setPage(1); }}
                             className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                               category === String(cat)
                                 ? 'gradient-primary text-white border-transparent shadow-md'
@@ -510,7 +518,7 @@ export default function RankInsightsPage() {
                         <label className="text-xs font-bold text-slate-700 dark:text-slate-300">State / Counselling</label>
                         <select
                           value={state}
-                          onChange={(e) => setState(e.target.value)}
+                          onChange={(e) => { setState(e.target.value); setPage(1); }}
                           className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All States</option>
@@ -523,7 +531,7 @@ export default function RankInsightsPage() {
                         <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Institute</label>
                         <select
                           value={college}
-                          onChange={(e) => setCollege(e.target.value)}
+                          onChange={(e) => { setCollege(e.target.value); setPage(1); }}
                           className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
                         >
                           <option value="All">Select Institute</option>
@@ -549,7 +557,7 @@ export default function RankInsightsPage() {
                         <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Course</label>
                         <select
                           value={course}
-                          onChange={(e) => setCourse(e.target.value)}
+                          onChange={(e) => { setCourse(e.target.value); setPage(1); }}
                           className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All Courses</option>
@@ -562,7 +570,7 @@ export default function RankInsightsPage() {
                         <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Quota</label>
                         <select
                           value={quota}
-                          onChange={(e) => setQuota(e.target.value)}
+                          onChange={(e) => { setQuota(e.target.value); setPage(1); }}
                           className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All Quotas</option>
@@ -587,7 +595,7 @@ export default function RankInsightsPage() {
                     <Input
                       placeholder="Type college name, course, category..."
                       value={search}
-                      onChange={(e) => setSearch(e.target.value)}
+                      onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                       className="pl-11 h-12 text-sm rounded-xl border-slate-200 dark:border-slate-600 focus:border-red-400 focus:shadow-lg transition-all duration-200"
                     />
                   </div>
@@ -652,16 +660,16 @@ export default function RankInsightsPage() {
       {activeFilterCount > 0 && (
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-semibold text-slate-500">Active filters:</span>
-          {state !== 'All' && <FilterTag label={`State: ${state}`} onRemove={() => setState('All')} />}
-          {college !== 'All' && <FilterTag label={`College: ${college}`} onRemove={() => setCollege('All')} />}
-          {course !== 'All' && <FilterTag label={`Course: ${course}`} onRemove={() => setCourse('All')} />}
-          {category !== 'All' && <FilterTag label={`Category: ${category}`} onRemove={() => setCategory('All')} />}
-          {quota !== 'All' && <FilterTag label={`Quota: ${quota}`} onRemove={() => setQuota('All')} />}
-          {round !== 'All' && <FilterTag label={`Round ${round}`} onRemove={() => setRound('All')} />}
-          {rankMin && <FilterTag label={`Rank >= ${rankMin}`} onRemove={() => setRankMin('')} />}
-          {rankMax && <FilterTag label={`Rank <= ${rankMax}`} onRemove={() => setRankMax('')} />}
-          {scoreMin && <FilterTag label={`Score >= ${scoreMin}`} onRemove={() => setScoreMin('')} />}
-          {scoreMax && <FilterTag label={`Score <= ${scoreMax}`} onRemove={() => setScoreMax('')} />}
+          {state !== 'All' && <FilterTag label={`State: ${state}`} onRemove={() => { setState('All'); setPage(1); }} />}
+          {college !== 'All' && <FilterTag label={`College: ${college}`} onRemove={() => { setCollege('All'); setPage(1); }} />}
+          {course !== 'All' && <FilterTag label={`Course: ${course}`} onRemove={() => { setCourse('All'); setPage(1); }} />}
+          {category !== 'All' && <FilterTag label={`Category: ${category}`} onRemove={() => { setCategory('All'); setPage(1); }} />}
+          {quota !== 'All' && <FilterTag label={`Quota: ${quota}`} onRemove={() => { setQuota('All'); setPage(1); }} />}
+          {round !== 'All' && <FilterTag label={`Round ${round}`} onRemove={() => { setRound('All'); setPage(1); }} />}
+          {rankMin && <FilterTag label={`Rank >= ${rankMin}`} onRemove={() => { setRankMin(''); setPage(1); }} />}
+          {rankMax && <FilterTag label={`Rank <= ${rankMax}`} onRemove={() => { setRankMax(''); setPage(1); }} />}
+          {scoreMin && <FilterTag label={`Score >= ${scoreMin}`} onRemove={() => { setScoreMin(''); setPage(1); }} />}
+          {scoreMax && <FilterTag label={`Score <= ${scoreMax}`} onRemove={() => { setScoreMax(''); setPage(1); }} />}
           <button onClick={handleReset} className="text-xs font-semibold text-red-600 hover:text-red-700 hover:underline transition-colors ml-1">
             Clear all
           </button>
@@ -846,7 +854,7 @@ export default function RankInsightsPage() {
       )}
 
       <Pagination
-        page={page}
+        page={safePage}
         totalPages={totalPages}
         onPageChange={setPage}
         itemCount={paginated.length}

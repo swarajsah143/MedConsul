@@ -1,5 +1,5 @@
 import { useMemo, useState, type ReactNode } from 'react';
-import { adminApi, ValidationError, type CollectionSchema, type Field } from '@/lib/admin-api';
+import { adminApi, ValidationError, type CollectionSchema, type Field, type BulkResult } from '@/lib/admin-api';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import {
@@ -229,7 +229,7 @@ function csvCell(value: string): string {
 
 export function CsvImport(props: {
   schema: CollectionSchema;
-  onDone: (inserted: number) => void;
+  onDone: (result: BulkResult) => void;
   onCancel: () => void;
 }) {
   const { schema, onDone, onCancel } = props;
@@ -278,7 +278,7 @@ export function CsvImport(props: {
     setMessage(null);
     try {
       const res = await adminApi.bulk(schema.name, parsed.rows, replace);
-      onDone(res.inserted);
+      onDone(res);
     } catch (e: any) {
       if (e instanceof ValidationError) {
         setServerErrors(e.errors as unknown as RowError[]);
@@ -494,18 +494,22 @@ export function CsvImport(props: {
             className="mt-0.5 h-4 w-4 rounded border-slate-300 dark:border-slate-600 accent-red-600 cursor-pointer"
           />
           <span>
-            <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">Replace all existing rows</span>
+            <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">
+              Make the collection match this file
+            </span>
             <span className="block text-xs text-muted-foreground mt-0.5">
-              Import as a full replacement instead of appending.
+              Rows not present in the file are deleted. Without this, the import only adds and updates.
             </span>
           </span>
         </label>
 
         {replace && (
-          <Callout tone="warning" title="This deletes everything first">
-            Every existing {schema.label.toLowerCase()} record in the <code className="font-mono">{schema.name}</code>{' '}
-            collection will be permanently deleted before the {parsed?.totalRows ?? 0} row
-            {parsed?.totalRows === 1 ? '' : 's'} below are inserted. This cannot be undone.
+          <Callout tone="warning" title="Rows missing from this file will be deleted">
+            Existing {schema.labelPlural.toLowerCase()} are matched by their natural key and{' '}
+            <strong>updated in place</strong> — their ids are preserved, so anything referencing them stays
+            intact. Any {schema.label.toLowerCase()} in the <code className="font-mono">{schema.name}</code>{' '}
+            collection that is <em>not</em> in the {parsed?.totalRows ?? 0} row
+            {parsed?.totalRows === 1 ? '' : 's'} below will be permanently deleted. This cannot be undone.
           </Callout>
         )}
 
