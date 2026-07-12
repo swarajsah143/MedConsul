@@ -45,6 +45,11 @@ export interface Field {
   searchable?: boolean;
   default?: unknown;
   help?: string;
+  /**
+   * Render this number without thousands separators. Years are numbers but not
+   * quantities: grouping turns 2025 into "2,025" and 1956 into "1,956".
+   */
+  plain?: boolean;
 }
 
 export interface CollectionSchema {

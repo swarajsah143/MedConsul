@@ -57,7 +57,7 @@ async function request<T = any>(url: string, opts: ApiOptions = {}): Promise<T> 
         return retryData;
       }
     }
-    throw { status: res.status, message: data.message || 'Request failed', errors: data.errors };
+    throw { status: res.status, message: data.message || 'Request failed', errors: data.errors, references: data.references };
   }
 
   return data;

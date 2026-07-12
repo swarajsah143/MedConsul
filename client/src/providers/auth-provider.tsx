@@ -26,21 +26,57 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Check existing session on mount
+  /**
+   * Restore the session on mount.
+   *
+   * This used to give up the moment localStorage had no accessToken — so the
+   * httpOnly refresh cookie (valid 7 days) was never used to restore a session.
+   * The access token lives 15 minutes, which meant: sit on the site for a quarter
+   * of an hour, press reload, and you were dumped on the login page despite holding
+   * a week-long valid session. "Remember me" did nothing.
+   *
+   * Now: try the access token, and fall back to the refresh cookie.
+   */
   useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    if (token) {
-      api.get('/auth/me')
-        .then((res) => {
-          if (res.success && res.data?.user) setUser(res.data.user);
-        })
-        .catch(() => {
-          localStorage.removeItem('accessToken');
-        })
-        .finally(() => setIsLoading(false));
-    } else {
-      setIsLoading(false);
-    }
+    let cancelled = false;
+
+    const restore = async () => {
+      const token = localStorage.getItem('accessToken');
+
+      if (token) {
+        try {
+          const res = await api.get('/auth/me');
+          if (res.success && res.data?.user) {
+            if (!cancelled) { setUser(res.data.user); setIsLoading(false); }
+            return;
+          }
+        } catch {
+          localStorage.removeItem('accessToken');   // expired or invalid; fall through
+        }
+      }
+
+      // No usable access token — exchange the refresh cookie for a new one.
+      try {
+        const r = await fetch('/api/auth/refresh', { method: 'POST', credentials: 'include' });
+        const data = await r.json().catch(() => null);
+        if (r.ok && data?.success && data.data?.accessToken) {
+          localStorage.setItem('accessToken', data.data.accessToken);
+          if (data.data.user) {
+            if (!cancelled) setUser(data.data.user);
+          } else {
+            const me = await api.get('/auth/me');
+            if (me.success && me.data?.user && !cancelled) setUser(me.data.user);
+          }
+        }
+      } catch {
+        /* no valid refresh cookie — stay logged out */
+      }
+
+      if (!cancelled) setIsLoading(false);
+    };
+
+    restore();
+    return () => { cancelled = true; };
   }, []);
 
   const login = useCallback(async (email: string, password: string, remember = false) => {

@@ -257,7 +257,11 @@ export default function DashboardLayout() {
   const userInitial = user?.name?.charAt(0)?.toUpperCase() || 'U';
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex">
+    // A proper app shell: the PAGE never scrolls, only <main> does. It used to be
+    // min-h-screen (body grows with content) while <main> also had overflow-y-auto —
+    // so a tall form (the colleges admin form has 27 fields) scrolled the body past
+    // the end of the app and left a large blank region below it.
+    <div className="h-screen overflow-hidden bg-slate-50 dark:bg-slate-950 flex">
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-60 h-screen sticky top-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-30">
         <Link to="/dashboard" className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">

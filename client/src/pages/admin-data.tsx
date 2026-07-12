@@ -3,7 +3,6 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { Database, Loader2, ArrowLeft } from 'lucide-react';
 import {
   adminApi,
-  emptyRecord,
   ValidationError,
   type CollectionSchema,
   type FieldError,
@@ -248,7 +247,7 @@ export default function AdminDataPage() {
             </div>
             <SchemaForm
               schema={schema}
-              initial={mode.kind === 'edit' ? mode.item : emptyRecord(schema)}
+              initial={mode.kind === 'edit' ? mode.item : undefined}
               refOptions={refOptions}
               submitting={submitting}
               errors={fieldErrors}

@@ -563,7 +563,9 @@ export function SchemaForm({
     );
   };
 
-  const isEdit = Boolean(initial);
+  // `initial` is undefined in create mode. It must NOT be an empty record — a truthy
+  // blank object made every new-record form say "Save college" instead of "Create college".
+  const isEdit = initial !== undefined;
   const openServerErrors = Object.keys(serverErrors).filter((name) => !fixedServerFields[name]);
   const hasErrors = Object.keys(clientErrors).length > 0 || openServerErrors.length > 0;
 

@@ -26,6 +26,8 @@ export interface Field {
   searchable?: boolean;
   default?: unknown;
   help?: string;
+  /** Render without thousands separators (years: 2025, not "2,025"). */
+  plain?: boolean;
 }
 
 export interface CollectionSchema {
@@ -70,8 +72,16 @@ async function call<T>(fn: () => Promise<any>): Promise<T> {
   } catch (e: any) {
     const errors = e?.body?.errors ?? e?.errors;
     if (Array.isArray(errors)) throw new ValidationError(errors, e?.message);
-    throw e;
+    throw e;   // keeps `status` and `references` (the 409 delete guard needs both)
   }
+}
+
+/** One collection that blocks a delete, and how many rows point at the record. */
+export interface Reference {
+  collection: string;
+  label: string;
+  field: string;
+  count: number;
 }
 
 const qs = (params: Record<string, any>) => {
@@ -101,8 +111,10 @@ export const adminApi = {
   update: (collection: string, id: string, body: any) =>
     call<{ item: any }>(() => api.put(`/admin/resources/${collection}/${id}`, body)).then((d) => d.item),
 
-  remove: (collection: string, id: string) =>
-    call<any>(() => api.delete(`/admin/resources/${collection}/${id}`)),
+  remove: (collection: string, id: string, cascade = false) =>
+    call<any>(() =>
+      api.delete(`/admin/resources/${collection}/${id}${cascade ? '?cascade=true' : ''}`)
+    ),
 
   /**
    * Bulk import. The server UPSERTS on each collection's natural key, so `inserted`

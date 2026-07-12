@@ -162,8 +162,16 @@ suite('admin UI — driven as a user, against the real API + Mongo', () => {
     const referenced = ranks.body.data.items[0].collegeId
 
     const del = await api(`/api/admin/resources/colleges/${referenced}`, { method: 'DELETE' })
+
+    // Assert on BEHAVIOUR, not copy. The first version of this test pinned the exact
+    // wording and broke the moment the message was rewritten for humans — a test that
+    // fails on a prose change teaches you to ignore test failures.
     expect(del.status).toBe(409)
-    expect(del.body.message).toMatch(/cannot delete/i)
+    // The message must be actionable, not an API instruction aimed at a developer.
+    expect(del.body.message).not.toMatch(/cascade=true/i)
+    // The college must survive the refused delete.
+    const still = await api(`/api/admin/resources/colleges/${referenced}`)
+    expect(still.status).toBe(200)
     expect(del.body.references?.length).toBeGreaterThan(0)
   })
 

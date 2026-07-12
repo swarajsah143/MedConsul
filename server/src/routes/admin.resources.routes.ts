@@ -169,12 +169,15 @@ router.delete('/resources/:collection/:id', async (req: AuthRequest, res: Respon
   }
 
   if (blocking.length && !cascade) {
+    // The client renders `references` into a real choice ("delete it and the N linked
+    // rows" / "keep it"). This message is the fallback for API consumers — it must not
+    // tell a human to "re-send with ?cascade=true", which means nothing to an admin.
     res.status(409).json({
       success: false,
       message:
-        `Cannot delete this ${r.schema.label.toLowerCase()} — ` +
+        `This ${r.schema.label.toLowerCase()} is still in use — ` +
         blocking.map((b) => `${b.count} ${b.label.toLowerCase()}`).join(' and ') +
-        ` reference it. Re-send with ?cascade=true to delete those too.`,
+        ` reference it, so deleting it would leave those rows pointing at nothing.`,
       references: blocking,
     });
     return;

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
-import { adminApi, type CollectionSchema, type Field, type ListResult } from '@/lib/admin-api';
+import { adminApi, type CollectionSchema, type Field, type ListResult, type Reference } from '@/lib/admin-api';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -146,7 +146,8 @@ function renderCell(field: Field, value: unknown, refLabels: RefLabels): ReactNo
     case 'number':
       return (
         <span className="tabular-nums font-semibold text-slate-800 dark:text-slate-100">
-          {Number(value).toLocaleString()}
+          {/* A year is a number but not a quantity — grouping made 2025 render as "2,025". */}
+          {field.plain ? String(value) : Number(value).toLocaleString()}
         </span>
       );
     default:
@@ -161,7 +162,7 @@ function renderCell(field: Field, value: unknown, refLabels: RefLabels): ReactNo
 /* ------------------------------------------------------------------ filters */
 
 const SELECT_CLASS =
-  'h-9 w-full min-w-[9rem] rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 text-xs text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:border-slate-300 dark:hover:border-slate-600 transition-colors cursor-pointer';
+  'h-9 w-auto min-w-[9rem] rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 text-xs text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 hover:border-slate-300 dark:hover:border-slate-600 transition-colors cursor-pointer';
 
 function FilterControl({
   field,
@@ -219,7 +220,7 @@ function FilterControl({
       value={value}
       placeholder={field.label}
       onChange={(e) => onChange(e.target.value)}
-      className="h-9 min-w-[9rem] text-xs"
+      className="h-9 w-auto min-w-[9rem] text-xs"
     />
   );
 }
@@ -248,6 +249,8 @@ export function DataTable(props: {
   const [result, setResult] = useState<ListResult | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  /** Set when the server refuses a delete because other rows reference the record. */
+  const [blocked, setBlocked] = useState<{ id: string; refs: Reference[] } | null>(null);
 
   const [page, setPage] = useState(1);
   const [sort, setSort] = useState(schema.defaultSort || '');
@@ -333,17 +336,25 @@ export function DataTable(props: {
     setPage(1);
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id: string, cascade = false) => {
     setDeletingId(id);
     setError(null);
+    setBlocked(null);
     try {
-      await adminApi.remove(schema.name, id);
+      await adminApi.remove(schema.name, id, cascade);
       setConfirmId(null);
       // Deleting the last row of the last page would strand us on an empty page.
       if (result && result.items.length === 1 && page > 1) setPage(page - 1);
       else refetch();
     } catch (e: any) {
-      setError(e?.message || 'Delete failed');
+      // The server refuses to orphan rows: it 409s with the referencing counts.
+      // Turn that into something an admin can act on, rather than telling them to
+      // "re-send with ?cascade=true", which means nothing to whoever runs this.
+      if (e?.status === 409 && Array.isArray(e?.references)) {
+        setBlocked({ id, refs: e.references });
+      } else {
+        setError(e?.message || 'Delete failed');
+      }
     } finally {
       setDeletingId(null);
     }
@@ -460,6 +471,49 @@ export function DataTable(props: {
         <div className="flex items-start gap-2 rounded-lg border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20 px-4 py-3">
           <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
           <p className="text-xs font-medium text-red-700 dark:text-red-400">{error}</p>
+        </div>
+      )}
+
+      {/* A blocked delete is a decision, not an error: say what depends on the record
+          and let the admin choose. The old message told them to "re-send with
+          ?cascade=true", which is an API detail, not something a person can act on. */}
+      {blocked && (
+        <div className="rounded-lg border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/20 px-4 py-3">
+          <div className="flex items-start gap-2">
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-semibold text-amber-800 dark:text-amber-300">
+                This {schema.label.toLowerCase()} is still in use, so it wasn't deleted.
+              </p>
+              <ul className="mt-1.5 space-y-0.5">
+                {blocked.refs.map((r) => (
+                  <li key={r.collection} className="text-xs text-amber-700 dark:text-amber-400">
+                    • {r.count.toLocaleString()} {r.label.toLowerCase()} reference it
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-1.5 text-xs text-amber-700/80 dark:text-amber-400/80">
+                Deleting it would leave those rows pointing at nothing.
+              </p>
+              <div className="mt-2.5 flex items-center gap-2">
+                <Button
+                  size="sm"
+                  variant="destructive"
+                  disabled={deletingId === blocked.id}
+                  onClick={() => handleDelete(blocked.id, true)}
+                >
+                  {deletingId === blocked.id
+                    ? 'Deleting…'
+                    : `Delete it and the ${blocked.refs.reduce((n, r) => n + r.count, 0).toLocaleString()} linked row${
+                        blocked.refs.reduce((n, r) => n + r.count, 0) === 1 ? '' : 's'
+                      }`}
+                </Button>
+                <Button size="sm" variant="ghost" onClick={() => { setBlocked(null); setConfirmId(null); }}>
+                  Keep it
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
