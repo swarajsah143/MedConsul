@@ -12,6 +12,19 @@ export interface IUser {
   role: string;
   createdAt: string;
   updatedAt: string;
+
+  /**
+   * Plan, set BY AN ADMIN. This is not billing.
+   *
+   * There is no payment gateway in this application. The previous admin dashboard
+   * invented a plan per user from `hash(email) % 3` and displayed it as if money had
+   * changed hands. These fields are the honest version: a plan an admin grants and can
+   * see, with a real expiry. If real payments are added later, they write to these
+   * same fields.
+   */
+  plan?: 'free' | 'pro' | 'premium';
+  planExpiresAt?: string | null;
+  planNote?: string;
 }
 
 export type SafeUser = Omit<IUser, 'password'>;
@@ -25,6 +38,9 @@ const userSchema = new Schema(
     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
     password: { type: String, required: true },
     role: { type: String, default: 'student' },
+    plan: { type: String, enum: ['free', 'pro', 'premium'], default: 'free', index: true },
+    planExpiresAt: { type: Date, default: null },
+    planNote: { type: String, default: '' },
   },
   { timestamps: true }
 );
@@ -42,6 +58,9 @@ function docToUser(doc: any): IUser {
     role: doc.role,
     createdAt: doc.createdAt?.toISOString?.() || doc.createdAt,
     updatedAt: doc.updatedAt?.toISOString?.() || doc.updatedAt,
+    plan: doc.plan || 'free',
+    planExpiresAt: doc.planExpiresAt?.toISOString?.() || doc.planExpiresAt || null,
+    planNote: doc.planNote || '',
   };
 }
 
@@ -121,12 +140,15 @@ export const UserModel = {
   /** Edit a user's profile/role. Password is NOT touched here — see updatePassword. */
   async update(
     id: string,
-    patch: Partial<Pick<IUser, 'name' | 'email' | 'role'>>
+    patch: Partial<Pick<IUser, 'name' | 'email' | 'role' | 'plan' | 'planExpiresAt' | 'planNote'>>
   ): Promise<SafeUser | null> {
     const clean: Record<string, any> = {};
     if (patch.name !== undefined) clean.name = patch.name;
     if (patch.email !== undefined) clean.email = patch.email.toLowerCase();
     if (patch.role !== undefined) clean.role = patch.role;
+    if (patch.plan !== undefined) clean.plan = patch.plan;
+    if (patch.planExpiresAt !== undefined) clean.planExpiresAt = patch.planExpiresAt ? new Date(patch.planExpiresAt) : null;
+    if (patch.planNote !== undefined) clean.planNote = patch.planNote;
 
     if (isMongoConnected()) {
       const doc = await UserDoc.findByIdAndUpdate(id, { $set: clean }, { new: true });

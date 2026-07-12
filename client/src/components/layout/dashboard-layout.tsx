@@ -29,6 +29,7 @@ import {
   Sparkles,
   Stethoscope,
   Users,
+  UsersRound,
   X,
   type LucideIcon,
 } from 'lucide-react';
@@ -123,6 +124,7 @@ const ADMIN_NAV: NavLeaf[] = [
   { name: 'Admin Dashboard', href: '/admin', icon: Shield },
   { name: 'Manage Data', href: '/admin/data', icon: Database },
   { name: 'Verify Documents', href: '/admin/verifications', icon: FileCheck },
+  { name: 'Students', href: '/admin/students', icon: UsersRound },
 ];
 
 function NavItem({ item, active, onClick }: { item: NavLeaf; active: boolean; onClick?: () => void }) {

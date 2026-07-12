@@ -42,6 +42,7 @@ const AbroadUniversitiesPage = lazy(() => import('@/pages/abroad-universities'))
 const AdminDashboardPage = lazy(() => import('@/pages/admin-dashboard'));
 const AdminDataPage = lazy(() => import('@/pages/admin-data'));
 const AdminVerificationsPage = lazy(() => import('@/pages/admin-verifications'));
+const AdminStudentsPage = lazy(() => import('@/pages/admin-students'));
 
 function FullPageSpinner() {
   return (
@@ -96,6 +97,7 @@ export default function AppRoutes() {
         <Route path="admin/data" element={<AdminRoute><AdminDataPage /></AdminRoute>} />
         <Route path="admin/data/:collection" element={<AdminRoute><AdminDataPage /></AdminRoute>} />
         <Route path="admin/verifications" element={<AdminRoute><AdminVerificationsPage /></AdminRoute>} />
+        <Route path="admin/students" element={<AdminRoute><AdminStudentsPage /></AdminRoute>} />
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
