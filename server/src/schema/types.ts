@@ -46,6 +46,17 @@ export interface Field {
   default?: unknown;
   help?: string;
   /**
+   * Regex source (not a literal) a string value must match end-to-end.
+   *
+   * Load-bearing for fields that are stored as strings but ordered as data —
+   * `announcements.date` is sorted with `-date`, i.e. LEXICOGRAPHICALLY, so a
+   * value like "12/03/2026" or "Mar 12" sorts to a wrong position forever.
+   * Only applied to `string` / `text` fields.
+   */
+  pattern?: string;
+  /** Human-readable message shown when `pattern` fails. */
+  patternMessage?: string;
+  /**
    * Render this number without thousands separators. Years are numbers but not
    * quantities: grouping turns 2025 into "2,025" and 1956 into "1,956".
    */
@@ -77,6 +88,16 @@ export interface CollectionSchema {
    * the same CSV twice updates rows rather than duplicating them.
    */
   naturalKey?: string[];
+
+  /**
+   * Recompute fields that are a function of other fields, on every write.
+   *
+   * `fees.totalFirstYear` advertised "Recomputed on save from the components above"
+   * and nothing recomputed it. The migrated rows happened to be consistent, so it
+   * looked fine — but the first admin to edit a tuition fee would have left the total
+   * silently wrong, and the site and chatbot would both have quoted it.
+   */
+  derive?: (row: Record<string, any>) => void;
 }
 
 /** Every field a record always carries, injected by the model layer. */

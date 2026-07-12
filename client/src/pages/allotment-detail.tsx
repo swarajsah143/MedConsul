@@ -136,17 +136,32 @@ export default function AllotmentDetailPage() {
     setScoreMin(''); setScoreMax(''); setPage(1);
   };
 
+  /**
+   * Export a file the admin CSV importer can read back.
+   *
+   * The old export could not be re-imported at all:
+   *   - it omitted `course` and `state` (both REQUIRED) and titled the institute
+   *     column "Institute", which matches no field, so `instituteName` — also
+   *     required — was missing too;
+   *   - it wrote "R1" into the numeric `round` column;
+   *   - it wrote the placeholder '-' into the numeric `stateRank` / `neetScore`
+   *     columns, and '-' has no digits, so the importer rejects the row.
+   *
+   * Every header below is a schema LABEL (the importer matches on field name or
+   * label, case-insensitively), numeric blanks are left EMPTY, and `collegeId` is
+   * carried through so a re-import keeps the college linkage instead of clearing it.
+   */
   const handleExportCsv = () => {
     const csv = toCsv(
-      ['All India Rank', 'State Rank', 'NEET Score', 'Category', 'Subcategory', 'Institute',
-       'Seat Type', 'Counselling', 'Round'],
+      ['Counselling', 'Round', 'College', 'Institute name', 'State', 'All India rank',
+       'State rank', 'NEET score', 'Category', 'Subcategory', 'Seat type', 'Course'],
       filtered.map((e) => [
-        e.allIndiaRank, e.stateRank ?? '-', e.neetScore ?? '-', e.category, e.subcategory ?? '',
-        e.instituteName, e.seatType, e.counselling, `R${e.round}`,
+        e.counselling, e.round, e.collegeId ?? '', e.instituteName, e.state, e.allIndiaRank,
+        e.stateRank ?? '', e.neetScore ?? '', e.category, e.subcategory ?? '', e.seatType, e.course,
       ])
     );
     downloadCsv(`allotment-${counselling.replace(/\s+/g, '-').toLowerCase()}.csv`, csv);
-    };
+  };
 
   const isMCC = counselling === 'All India Quota - MCC';
   const roundCount = new Set(allData.map((e) => e.round)).size;

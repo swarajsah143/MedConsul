@@ -118,32 +118,58 @@ export class DbFeeSource implements DataSource {
   keywords = ['fee', 'fees', 'cost', 'tuition', 'hostel', 'expensive', 'cheap', 'affordable', 'deposit', 'scholarship', 'payment', 'seat', 'seats', 'management', 'nri', 'budget', 'lakh', 'price'];
 
   async search(query: string, params: Record<string, string>): Promise<RetrievedChunk[]> {
+    const q = query.toLowerCase();
     const [rows, cmap] = await Promise.all([fees().all(), collegeMap()]);
-    const type = params.type || extractParam(query.toLowerCase(), [/(government|private|deemed)\s/i]);
+    const type = params.type || extractParam(q, [/(government|private|deemed)\s/i]);
+    const state = params.state || extractParam(q, [/in\s+(\w[\w\s]*?)(?:\s+state|\s*\?|$)/i]);
+
+    // "cheapest colleges in Kerala" must actually be about Kerala, and must actually
+    // be ordered by price. Both behaviours existed on the old static FeeSource and
+    // were lost in the port to Mongo.
+    const wantsCheap = /cheap|affordable|budget|lowest|low fee/.test(q);
+    const wantsExpensive = /expensive|highest|costliest/.test(q);
 
     let results = rows;
     if (type) {
       results = results.filter((f: any) => cmap.get(f.collegeId)?.type?.toLowerCase() === type.toLowerCase());
     }
-
-    return results
-      .map((f: any) => {
+    if (state) {
+      const s = state.toLowerCase();
+      // The "in <x>" pattern also fires on non-places ("what is included in mbbs fees"),
+      // so an empty result means the match was junk — keep the unfiltered set rather
+      // than handing the model no fee data at all.
+      const filtered = results.filter((f: any) => {
         const c = cmap.get(f.collegeId);
-        const name = c?.name ?? 'Unknown college';
-        return {
-          source: this.name,
-          title: `${name} — ${f.course} fees`,
-          content:
-            `${name} (${c?.type ?? '?'}) | ${f.course} | ${f.category} | ${f.quota}\n` +
-            `Tuition: ${inr(f.tuitionFee)}/yr | Hostel: ${inr(f.hostelFee)} | Misc: ${inr(f.miscCharges)} | ` +
-            `Deposit: ${inr(f.securityDeposit)} | First-year total: ${inr(f.totalFirstYear)}\n` +
-            `Seats — Govt: ${f.govtSeats ?? 0}, Management: ${f.mgmtSeats ?? 0}, NRI: ${f.nriSeats ?? 0}` +
-            `${f.scholarships?.length ? `\nScholarships: ${f.scholarships.join('; ')}` : ''}`,
-          relevance: matchScore(query, `${name} ${f.course} ${f.category} ${f.quota} fees`),
-        };
-      })
-      .sort((a, b) => b.relevance - a.relevance)
-      .slice(0, 8);
+        return c?.state?.toLowerCase().includes(s) || c?.city?.toLowerCase().includes(s);
+      });
+      if (filtered.length) results = filtered;
+    }
+
+    // A "cheapest"/"costliest" question is answered by price order, not by word overlap.
+    const price = (f: any) => Number(f.totalFirstYear ?? 0);
+    if (wantsCheap) results = [...results].sort((a: any, b: any) => price(a) - price(b));
+    else if (wantsExpensive) results = [...results].sort((a: any, b: any) => price(b) - price(a));
+
+    const chunks = results.map((f: any) => {
+      const c = cmap.get(f.collegeId);
+      const name = c?.name ?? 'Unknown college';
+      return {
+        source: this.name,
+        title: `${name} — ${f.course} fees`,
+        content:
+          `${name} (${c?.type ?? '?'}) | ${f.course} | ${f.category} | ${f.quota}\n` +
+          `Tuition: ${inr(f.tuitionFee)}/yr | Hostel: ${inr(f.hostelFee)} | Misc: ${inr(f.miscCharges)} | ` +
+          `Deposit: ${inr(f.securityDeposit)} | First-year total: ${inr(f.totalFirstYear)}\n` +
+          `Seats — Govt: ${f.govtSeats ?? 0}, Management: ${f.mgmtSeats ?? 0}, NRI: ${f.nriSeats ?? 0}` +
+          `${f.scholarships?.length ? `\nScholarships: ${f.scholarships.join('; ')}` : ''}`,
+        relevance: matchScore(query, `${name} ${f.course} ${f.category} ${f.quota} fees`),
+      };
+    });
+
+    // Only re-rank by relevance when price order wasn't asked for — sorting a
+    // "cheapest colleges" answer by word overlap throws the price order away.
+    if (!wantsCheap && !wantsExpensive) chunks.sort((a, b) => b.relevance - a.relevance);
+    return chunks.slice(0, 8);
   }
 }
 
@@ -180,8 +206,13 @@ export class DbKnowledgeBaseSource implements DataSource {
         source: this.name,
         title: k.title,
         content: k.content,
-        relevance: matchScore(query, `${k.title} ${(k.tags || []).join(' ')} ${k.content}`),
+        // Score against title + tags only, and drop the near-misses. Scoring against the
+        // full article body makes every long entry match almost any query (the words
+        // "what", "fee", "college" appear in all of them), so the top 4 became whichever
+        // articles were longest rather than whichever were on-topic.
+        relevance: matchScore(query, `${k.title} ${(k.tags || []).join(' ')}`),
       }))
+      .filter((c) => c.relevance > 0.1)
       .sort((a, b) => b.relevance - a.relevance)
       .slice(0, 4);
   }

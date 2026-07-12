@@ -22,5 +22,23 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
+
+    build: {
+      // Split the heavy libraries out of the critical path. Recharts alone is a large
+      // fraction of the bundle and is only needed on the four chart pages — the login
+      // screen was downloading it to render a password field.
+      rolldownOptions: {
+        output: {
+          advancedChunks: {
+            groups: [
+              { name: 'react', test: /node_modules[\\/](react|react-dom|react-router|react-router-dom|scheduler)[\\/]/ },
+              { name: 'charts', test: /node_modules[\\/](recharts|d3-.*|victory-.*|internmap|robust-predicates|delaunator)[\\/]/ },
+              { name: 'motion', test: /node_modules[\\/](framer-motion|motion-dom|motion-utils)[\\/]/ },
+              { name: 'icons', test: /node_modules[\\/]lucide-react[\\/]/ },
+            ],
+          },
+        },
+      },
+    },
   }
 })

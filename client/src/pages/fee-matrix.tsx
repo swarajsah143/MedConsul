@@ -121,11 +121,24 @@ export default function FeeMatrixPage() {
   // Dropdown options built from the live rows, so admin-added colleges/quotas show up automatically.
   const filterOptions = useMemo(() => ({
     states: distinct(rows, 'state'),
-    colleges: distinct(rows, 'name'),
     courses: distinct(rows, 'course'),
     categories: distinct(rows, 'category'),
     quotas: distinct(rows, 'quota'),
   }), [rows]);
+
+  // Colleges are keyed by id, never by display name: two colleges can share a name, and every
+  // orphaned row falls back to the same 'Unknown college' label.
+  const collegeOptions = useMemo(() => {
+    const seen = new Map<string, string>();
+    for (const r of rows) {
+      if (!seen.has(r.collegeId)) seen.set(r.collegeId, r.name);
+    }
+    return [...seen.entries()]
+      .map(([id, name]) => ({ id, name }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [rows]);
+
+  const collegeLabel = collegeOptions.find((c) => c.id === college)?.name ?? college;
 
   const filtered = useMemo(() => {
     let list = rows;
@@ -134,7 +147,7 @@ export default function FeeMatrixPage() {
       list = list.filter((e) => e.name.toLowerCase().includes(q) || e.city.toLowerCase().includes(q) || e.course.toLowerCase().includes(q));
     }
     if (state !== 'All') list = list.filter((e) => e.state === state);
-    if (college !== 'All') list = list.filter((e) => e.name === college);
+    if (college !== 'All') list = list.filter((e) => e.collegeId === college);
     if (course !== 'All') list = list.filter((e) => e.course === course);
     if (category !== 'All') list = list.filter((e) => e.category === category);
     if (quota !== 'All') list = list.filter((e) => e.quota === quota);
@@ -189,11 +202,15 @@ export default function FeeMatrixPage() {
     downloadCsv('fee-seat-matrix.csv', csv);
     };
 
-  // Summary stats
-  const avgTotal = filtered.length > 0 ? Math.round(filtered.reduce((s, e) => s + e.totalFirstYear, 0) / filtered.length) : 0;
-  const minTotal = filtered.length > 0 ? Math.min(...filtered.map((e) => e.totalFirstYear)) : 0;
-  const maxTotal = filtered.length > 0 ? Math.max(...filtered.map((e) => e.totalFirstYear)) : 0;
+  // Summary stats. `null` when there's nothing to summarise — formatINR(0) renders "Free",
+  // so an empty result set must never be fed through it.
+  const hasRows = filtered.length > 0;
+  const avgTotal = hasRows ? Math.round(filtered.reduce((s, e) => s + e.totalFirstYear, 0) / filtered.length) : null;
+  const minTotal = hasRows ? Math.min(...filtered.map((e) => e.totalFirstYear)) : null;
+  const maxTotal = hasRows ? Math.max(...filtered.map((e) => e.totalFirstYear)) : null;
   const totalGovtSeats = filtered.reduce((s, e) => s + e.govtSeats, 0);
+
+  const statFee = (amount: number | null) => (amount === null ? '—' : formatINR(amount));
 
   const typeColor = (t: string) =>
     t === 'Government' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400'
@@ -276,10 +293,10 @@ export default function FeeMatrixPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: 'Avg. 1st Year', value: formatINR(avgTotal), icon: Wallet, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
-          { label: 'Lowest Fee', value: formatINR(minTotal), icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
-          { label: 'Highest Fee', value: formatINR(maxTotal), icon: IndianRupee, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
-          { label: 'Govt Seats', value: totalGovtSeats.toLocaleString(), icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
+          { label: 'Avg. 1st Year', value: statFee(avgTotal), icon: Wallet, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Lowest Fee', value: statFee(minTotal), icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
+          { label: 'Highest Fee', value: statFee(maxTotal), icon: IndianRupee, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
+          { label: 'Govt Seats', value: hasRows ? totalGovtSeats.toLocaleString() : '—', icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <CardContent className="p-4 sm:p-5">
@@ -352,7 +369,7 @@ export default function FeeMatrixPage() {
                       <select value={college} onChange={(e) => { setCollege(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Colleges</option>
-                        {filterOptions.colleges.map((c) => <option key={c} value={c}>{c}</option>)}
+                        {collegeOptions.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
                       </select>
                     </div>
                   </div>
@@ -438,7 +455,7 @@ export default function FeeMatrixPage() {
           {activeFilterCount > 0 && (
             <>
               {state !== 'All' && <FilterTag label={state} onRemove={() => { setState('All'); setPage(1); }} />}
-              {college !== 'All' && <FilterTag label={college} onRemove={() => { setCollege('All'); setPage(1); }} />}
+              {college !== 'All' && <FilterTag label={collegeLabel} onRemove={() => { setCollege('All'); setPage(1); }} />}
               {course !== 'All' && <FilterTag label={course} onRemove={() => { setCourse('All'); setPage(1); }} />}
               {category !== 'All' && <FilterTag label={category} onRemove={() => { setCategory('All'); setPage(1); }} />}
               {quota !== 'All' && <FilterTag label={quota} onRemove={() => { setQuota('All'); setPage(1); }} />}

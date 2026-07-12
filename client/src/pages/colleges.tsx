@@ -19,6 +19,7 @@ import {
   Target,
   Loader2,
   AlertTriangle,
+  Database,
 } from 'lucide-react';
 
 const TYPES: Array<'Government' | 'Private' | 'Deemed'> = ['Government', 'Private', 'Deemed'];
@@ -187,8 +188,13 @@ export default function CollegesPage() {
         Showing <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length}</span> of {colleges.length} colleges
       </p>
 
-      {/* College Cards Grid */}
-      {filtered.length === 0 ? (
+      {/* College Cards Grid.
+          An EMPTY collection is not a search miss: offering "Clear Filters" there gives the
+          student a button that does nothing and blames a search they never ran. */}
+      {colleges.length === 0 ? (
+        <EmptyState icon={Database} title="No colleges yet"
+          description="No colleges have been added yet. An admin can add them under Manage Data → Colleges." />
+      ) : filtered.length === 0 ? (
         <EmptyState title="No colleges found" description="Try adjusting your search or filters."
           action={{ label: 'Clear Filters', onClick: handleReset }} />
       ) : (

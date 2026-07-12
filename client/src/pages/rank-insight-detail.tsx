@@ -32,6 +32,8 @@ import {
 } from 'lucide-react';
 
 interface HistoricalPoint {
+  /** The rank row's own id — the only value guaranteed unique. year+round is not. */
+  id: string;
   year: number;
   round: number;
   closingRank: number;
@@ -98,6 +100,7 @@ export default function RankInsightDetailPage() {
             e.quota === quota
         )
         .map((e) => ({
+          id: e.id,
           year: e.year,
           round: e.round,
           closingRank: e.closingRank ?? 0,
@@ -106,6 +109,18 @@ export default function RankInsightDetailPage() {
         .sort((a, b) => a.year - b.year || a.round - b.round),
     [data.closingRanks, collegeId, course, category, quota]
   );
+
+  // Nothing enforces uniqueness on collegeId+course+category+quota+year+round, so the same
+  // year+round can appear twice. The charts key a series point off year+round and can only
+  // plot one of them — say so instead of silently dropping the other.
+  const duplicateSlots = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const h of history) {
+      const slot = `${h.year} Round ${h.round}`;
+      counts.set(slot, (counts.get(slot) ?? 0) + 1);
+    }
+    return [...counts.entries()].filter(([, n]) => n > 1).map(([slot]) => slot);
+  }, [history]);
 
   // The rank row carries only a collegeId — join against colleges for the display info.
   const collegeInfo = useMemo(
@@ -189,11 +204,14 @@ export default function RankInsightDetailPage() {
     return row;
   });
 
+  // Gate on presence, not truthiness: a closing score of 0 is a real (if brutal) data point.
+  const hasAnyScore = history.some((h) => h.closingScore != null);
+
   const scoreChartData = years.map((yr) => {
     const row: Record<string, number | string> = { year: String(yr) };
     for (const r of rounds) {
       const pt = history.find((h) => h.year === yr && h.round === r);
-      if (pt && pt.closingScore) row[`R${r}`] = pt.closingScore;
+      if (pt && pt.closingScore != null) row[`R${r}`] = pt.closingScore;
     }
     return row;
   });
@@ -273,6 +291,18 @@ export default function RankInsightDetailPage() {
           </div>
         </div>
       </div>
+
+      {/* Duplicate year+round rows: the charts can only plot one point per slot, so say
+          which slots are ambiguous rather than silently dropping the extra rows. */}
+      {duplicateSlots.length > 0 && (
+        <div className="flex items-start gap-3 rounded-xl border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/20 px-4 py-3">
+          <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+          <p className="text-xs text-amber-800 dark:text-amber-300 leading-relaxed">
+            <span className="font-bold">Duplicate records:</span> more than one row exists for{' '}
+            {duplicateSlots.join(', ')}. The charts plot only the first record for each round.
+          </p>
+        </div>
+      )}
 
       {/* Stats Row */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -390,6 +420,7 @@ export default function RankInsightDetailPage() {
           </CardContent>
         </Card>
 
+        {hasAnyScore && (
         <Card className="group hover:shadow-lg transition-shadow duration-300">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-bold flex items-center gap-2">
@@ -444,6 +475,7 @@ export default function RankInsightDetailPage() {
             </div>
           </CardContent>
         </Card>
+        )}
       </div>
 
       {/* Round-wise Bar Chart for Latest Year */}
@@ -536,7 +568,7 @@ export default function RankInsightDetailPage() {
                   const change = prevSameRound ? prevSameRound.closingRank - h.closingRank : null;
 
                   return (
-                    <tr key={`${h.year}-${h.round}`} className="group/row hover:bg-red-50/30 dark:hover:bg-red-950/10 transition-colors duration-200">
+                    <tr key={h.id} className="group/row hover:bg-red-50/30 dark:hover:bg-red-950/10 transition-colors duration-200">
                       <td className="px-5 py-3.5 font-bold text-slate-800 dark:text-slate-200">
                         <span className="inline-flex items-center gap-2">
                           <span className="w-2 h-2 rounded-full bg-red-400 group-hover/row:scale-125 transition-transform duration-200" />

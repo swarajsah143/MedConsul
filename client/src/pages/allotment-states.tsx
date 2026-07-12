@@ -82,6 +82,10 @@ export default function AllotmentStatesPage() {
   const [rankInput, setRankInput] = useState('');
   const [rankRange, setRankRange] = useState(5000);
   const [rankResults, setRankResults] = useState<AllotmentEntry[] | null>(null);
+  // Snapshot of the rank + range the CURRENT results were computed for. The header used
+  // to re-parse `rankInput` at RENDER time, so clearing the field after a search printed
+  // "Results for Rank #NaN" over results that were still perfectly valid.
+  const [searchedRank, setSearchedRank] = useState<{ rank: number; min: number; max: number } | null>(null);
   const [rankSearching, setRankSearching] = useState(false);
   const [rankPage, setRankPage] = useState(1);
   const [rankCategory, setRankCategory] = useState('All');
@@ -108,6 +112,7 @@ export default function AllotmentStatesPage() {
       const min = Math.max(1, rank - rankRange);
       const max = rank + rankRange;
       setRankResults(byRankRange(data, min, max));
+      setSearchedRank({ rank, min, max });
       setRankSearching(false);
       setRankPage(1);
     }, 300);
@@ -397,16 +402,16 @@ export default function AllotmentStatesPage() {
           </Card>
 
           {/* Rank Results */}
-          {rankResults !== null && (
+          {rankResults !== null && searchedRank !== null && (
             <div className="space-y-4">
-              {/* Results Header */}
+              {/* Results Header — rendered from the SEARCHED snapshot, never from the live input. */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-                    Results for Rank #{parseInt(rankInput).toLocaleString()}
+                    Results for Rank #{searchedRank.rank.toLocaleString()}
                   </h3>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    Showing allotments in rank range {Math.max(1, parseInt(rankInput) - rankRange).toLocaleString()} - {(parseInt(rankInput) + rankRange).toLocaleString()}
+                    Showing allotments in rank range {searchedRank.min.toLocaleString()} - {searchedRank.max.toLocaleString()}
                   </p>
                 </div>
                 <div className="flex items-center gap-3 text-sm">

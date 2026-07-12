@@ -1,4 +1,4 @@
-import { CollectionSchema } from './types';
+import { CollectionSchema, Field } from './types';
 
 /**
  * All admin-managed collections.
@@ -104,6 +104,11 @@ export const closingRanks: CollectionSchema = {
 
 export const fees: CollectionSchema = {
   name: 'fees',
+  derive: (row) => {
+    const n = (v: unknown) => (typeof v === 'number' && Number.isFinite(v) ? v : 0);
+    row.totalFirstYear =
+      n(row.tuitionFee) + n(row.hostelFee) + n(row.miscCharges) + n(row.securityDeposit);
+  },
   naturalKey: ['collegeId', 'course', 'category', 'quota'],
   label: 'Fee entry',
   labelPlural: 'Fee & Seat Matrix',
@@ -119,7 +124,13 @@ export const fees: CollectionSchema = {
     { name: 'hostelFee', type: 'number', label: 'Hostel fee' },
     { name: 'miscCharges', type: 'number', label: 'Misc charges' },
     { name: 'securityDeposit', type: 'number', label: 'Security deposit' },
-    { name: 'totalFirstYear', type: 'number', label: 'Total first year', inList: true, help: 'Recomputed on save from the components above.' },
+    {
+      name: 'totalFirstYear', type: 'number', label: 'Total first year', inList: true,
+      // This is an entered value, not a derived one. Nothing on the server recomputes
+      // it, so the help must not claim it does — the old copy ("Recomputed on save")
+      // let it drift silently out of sync with the components above.
+      help: 'Enter this yourself — it is NOT auto-calculated. It should equal tuition + hostel + misc + deposit.',
+    },
 
     { name: 'govtSeats', type: 'number', label: 'Govt seats' },
     { name: 'mgmtSeats', type: 'number', label: 'Management seats' },
@@ -185,7 +196,11 @@ export const announcements: CollectionSchema = {
   fields: [
     {
       name: 'date', type: 'string', label: 'Date (YYYY-MM-DD)', required: true, inList: true, filterable: true,
-      help: 'The old data had only a month/day string with no year, so ordering was guesswork. This is a real date.',
+      // defaultSort '-date' sorts this string LEXICOGRAPHICALLY. That is only correct
+      // for zero-padded ISO dates, so the format is enforced rather than suggested.
+      pattern: '^\\d{4}-\\d{2}-\\d{2}$',
+      patternMessage: 'Date must be in YYYY-MM-DD format (e.g. 2026-03-12) — announcements are sorted by this string.',
+      help: 'The old data had only a month/day string with no year, so ordering was guesswork. This is a real date. Must be YYYY-MM-DD.',
     },
     { name: 'title', type: 'string', label: 'Title', required: true, inList: true, searchable: true },
     { name: 'announcementType', type: 'string', label: 'Type', required: true, inList: true, filterable: true },
@@ -318,6 +333,58 @@ export const knowledgeBase: CollectionSchema = {
   ],
 };
 
+
+/**
+ * The Counselling Conditions page used to be 600 lines of hardcoded content in the
+ * client — 13 quota rules and 4 sections of eligibility/application/domicile copy that
+ * no admin could touch. NEET rules change every year; that page would have been stale
+ * the day the first circular landed, with no way to fix it short of a redeploy.
+ */
+
+/** One heading + prose + bullet list. Shared by both collections below. */
+const CONTENT_BLOCK: Field[] = [
+  { name: 'heading', type: 'string', label: 'Heading', required: true },
+  { name: 'intro', type: 'text', label: 'Intro paragraph' },
+  { name: 'items', type: 'string[]', label: 'Bullet points' },
+  { name: 'note', type: 'text', label: 'Callout note' },
+  { name: 'ordered', type: 'boolean', label: 'Numbered list', default: false },
+];
+
+export const counsellingQuotas: CollectionSchema = {
+  name: 'counsellingQuotas',
+  naturalKey: ['label'],
+  label: 'Quota',
+  labelPlural: 'Counselling — Quotas',
+  publicRead: true,
+  defaultSort: 'group',
+  description: 'Quota types and their rules, shown on the Counselling Conditions page.',
+  fields: [
+    { name: 'label', type: 'string', label: 'Quota name', required: true, inList: true, searchable: true },
+    { name: 'group', type: 'string', label: 'Group', required: true, inList: true, filterable: true, help: 'e.g. "Central Quotas", "State Quotas" — used to group the dropdown.' },
+    { name: 'authority', type: 'text', label: 'Governing authority', required: true, searchable: true },
+    { name: 'order', type: 'number', label: 'Sort order', plain: true, default: 0 },
+    { name: 'blocks', type: 'object[]', label: 'Content blocks', of: CONTENT_BLOCK },
+  ],
+};
+
+export const counsellingSections: CollectionSchema = {
+  name: 'counsellingSections',
+  naturalKey: ['key'],
+  label: 'Counselling section',
+  labelPlural: 'Counselling — Sections',
+  publicRead: true,
+  defaultSort: 'order',
+  description: 'Eligibility / Application / Domicile / Counselling copy on the Counselling Conditions page.',
+  fields: [
+    { name: 'key', type: 'string', label: 'Key', required: true, inList: true, help: 'URL slug: eligibility, application, domicile, counselling. Changing this changes the page URL.' },
+    { name: 'label', type: 'string', label: 'Tab label', required: true, inList: true },
+    { name: 'blurb', type: 'string', label: 'Tab subtitle', inList: true },
+    { name: 'authority', type: 'text', label: 'Governing authority', searchable: true },
+    { name: 'order', type: 'number', label: 'Sort order', plain: true, default: 0, inList: true },
+    { name: 'blocks', type: 'object[]', label: 'Content blocks', of: CONTENT_BLOCK },
+  ],
+};
+
 export const COLLECTIONS: CollectionSchema[] = [
   colleges,
   closingRanks,
@@ -330,6 +397,8 @@ export const COLLECTIONS: CollectionSchema[] = [
   blogs,
   abroadUniversities,
   knowledgeBase,
+  counsellingSections,
+  counsellingQuotas,
 ];
 
 export function getSchema(name: string): CollectionSchema | undefined {

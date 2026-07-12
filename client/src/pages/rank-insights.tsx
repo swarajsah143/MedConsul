@@ -36,6 +36,8 @@ interface InsightRow extends ClosingRank {
   collegeState: string;
   collegeCity: string;
   collegeType: string;
+  /** "City, State" — empty when the college could not be resolved. */
+  collegeLocation: string;
 }
 
 const PAGE_SIZE = 12;
@@ -79,7 +81,12 @@ export default function RankInsightsPage() {
     return () => { document.body.style.overflow = ''; };
   }, [showFilters]);
 
+  // The quick-search term narrows the table exactly like the dropdowns do, so it has to
+  // be counted here — otherwise a search typed in the modal filters the results while the
+  // page shows no chip, no count and no "Clear all", and the user reads a filtered table
+  // as if it were the full data set.
   const activeFilterCount = [
+    search !== '',
     state !== 'All', college !== 'All', course !== 'All',
     category !== 'All', quota !== 'All', round !== 'All',
     rankMin !== '', rankMax !== '', scoreMin !== '', scoreMax !== '',
@@ -90,12 +97,18 @@ export default function RankInsightsPage() {
     const collegeMap = byId(data.colleges ?? []);
     return (data.closingRanks ?? []).map((r) => {
       const c = collegeMap.get(r.collegeId);
+      // A rank row can point at a college that has since been deleted. Anything derived
+      // from the join is then unknown — including the location, which must stay empty
+      // rather than render as a bare ", ".
+      const city = c?.city ?? '';
+      const state = c?.state ?? '';
       return {
         ...r,
         collegeName: c?.name ?? 'Unknown college',
-        collegeState: c?.state ?? '',
-        collegeCity: c?.city ?? '',
+        collegeState: state,
+        collegeCity: city,
         collegeType: c?.type ?? '',
+        collegeLocation: [city, state].filter(Boolean).join(', '),
       };
     });
   }, [data.colleges, data.closingRanks]);
@@ -151,8 +164,11 @@ export default function RankInsightsPage() {
     if (round !== 'All') list = list.filter((e) => e.round === Number(round));
     if (rankMin) list = list.filter((e) => e.closingRank >= Number(rankMin));
     if (rankMax) list = list.filter((e) => e.closingRank <= Number(rankMax));
-    if (scoreMin) list = list.filter((e) => (e.closingScore ?? 0) >= Number(scoreMin));
-    if (scoreMax) list = list.filter((e) => (e.closingScore ?? 0) <= Number(scoreMax));
+    // A row with no closing score cannot satisfy a score range at all. Coercing null to 0
+    // made `scoreMax` alone match every score-less row while `scoreMin` alone excluded
+    // them — the two halves of one range disagreeing about the same rows.
+    if (scoreMin) list = list.filter((e) => e.closingScore != null && e.closingScore >= Number(scoreMin));
+    if (scoreMax) list = list.filter((e) => e.closingScore != null && e.closingScore <= Number(scoreMax));
 
     list = [...list].sort((a, b) => {
       let cmp = 0;
@@ -658,6 +674,7 @@ export default function RankInsightsPage() {
       {activeFilterCount > 0 && (
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-semibold text-slate-500">Active filters:</span>
+          {search !== '' && <FilterTag label={`Search: "${search}"`} onRemove={() => { setSearch(''); setPage(1); }} />}
           {state !== 'All' && <FilterTag label={`State: ${state}`} onRemove={() => { setState('All'); setPage(1); }} />}
           {college !== 'All' && <FilterTag label={`College: ${college}`} onRemove={() => { setCollege('All'); setPage(1); }} />}
           {course !== 'All' && <FilterTag label={`Course: ${course}`} onRemove={() => { setCourse('All'); setPage(1); }} />}
@@ -723,9 +740,11 @@ export default function RankInsightsPage() {
                     <h3 className="text-sm font-bold text-white leading-snug truncate group-hover:text-red-300 transition-colors duration-200">
                       {entry.collegeName}
                     </h3>
-                    <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
-                      <MapPin className="w-3 h-3 text-slate-500" /> {entry.collegeCity}, {entry.collegeState}
-                    </p>
+                    {entry.collegeLocation && (
+                      <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
+                        <MapPin className="w-3 h-3 text-slate-500" /> {entry.collegeLocation}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -802,9 +821,14 @@ export default function RankInsightsPage() {
                   >
                     <td className="px-4 py-3.5 font-bold text-slate-800 dark:text-slate-100 max-w-[220px]">
                       <div className="truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">{entry.collegeName}</div>
+                      {(entry.collegeLocation || entry.collegeType) && (
                       <div className="text-[10px] text-muted-foreground font-normal mt-0.5 flex items-center gap-1">
-                        <MapPin className="w-2.5 h-2.5" />
-                        {entry.collegeCity}, {entry.collegeState}
+                        {entry.collegeLocation && (
+                          <>
+                            <MapPin className="w-2.5 h-2.5" />
+                            {entry.collegeLocation}
+                          </>
+                        )}
                         {entry.collegeType && (
                           <span className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[9px] font-bold ${
                             entry.collegeType === 'Government'
@@ -817,6 +841,7 @@ export default function RankInsightsPage() {
                           </span>
                         )}
                       </div>
+                      )}
                     </td>
                     <td className="px-4 py-3.5 whitespace-nowrap font-medium text-slate-700 dark:text-slate-300">
                       {entry.course}

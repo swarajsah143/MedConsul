@@ -64,7 +64,17 @@ function coerceEmpty(f: Field): any {
 function coerce(f: Field, raw: any): [boolean, any?, string?] {
   switch (f.type) {
     case 'number': {
-      const n = typeof raw === 'number' ? raw : Number(String(raw).replace(/,/g, '').trim());
+      if (typeof raw === 'number') {
+        if (!Number.isFinite(raw)) return [false, undefined, `${f.label} must be a number (got "${raw}")`];
+        return [true, raw];
+      }
+      const s = String(raw).replace(/,/g, '').trim();
+      // A value with no digits at all is not a number. Without this, ",,," (or any
+      // run of commas/whitespace) survived the empty check above, then had its commas
+      // stripped to "" — and Number("") is 0, so the field was silently stored as 0
+      // instead of being rejected.
+      if (!/\d/.test(s)) return [false, undefined, `${f.label} must be a number (got "${raw}")`];
+      const n = Number(s);
       if (!Number.isFinite(n)) return [false, undefined, `${f.label} must be a number (got "${raw}")`];
       return [true, n];
     }
@@ -133,7 +143,20 @@ function coerce(f: Field, raw: any): [boolean, any?, string?] {
       }
       return [true, s];
     }
-    default:
-      return [true, String(raw)];
+    default: {
+      // 'string' | 'text'
+      if (!f.pattern) return [true, String(raw)];
+      // A format-constrained field is trimmed first: a CSV cell of " 2026-03-12 "
+      // is a valid date with stray whitespace, not a validation error.
+      const s = String(raw).trim();
+      if (!new RegExp(f.pattern).test(s)) {
+        return [
+          false,
+          undefined,
+          f.patternMessage || `${f.label} has an invalid format (got "${s}")`,
+        ];
+      }
+      return [true, s];
+    }
   }
 }

@@ -22,6 +22,7 @@ import {
   Layers,
   Loader2,
   AlertTriangle,
+  Database,
 } from 'lucide-react';
 
 type SectionKey = 'university' | 'courses' | 'blogs';
@@ -229,17 +230,40 @@ function UniversityCard({ u }: { u: University }) {
   );
 }
 
-function EmptyResults({ message, hint }: { message: string; hint: string }) {
+function EmptyResults({
+  message,
+  hint,
+  icon: Icon = Search,
+}: {
+  message: string;
+  hint: string;
+  icon?: typeof Search;
+}) {
   return (
     <Card className="bg-slate-50 dark:bg-slate-800/50 border-dashed">
       <CardContent className="p-10 text-center">
         <div className="w-16 h-16 rounded-2xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center mx-auto mb-4">
-          <Search className="w-8 h-8 text-slate-400" />
+          <Icon className="w-8 h-8 text-slate-400" />
         </div>
         <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">{message}</p>
         <p className="text-xs text-muted-foreground mt-1">{hint}</p>
       </CardContent>
     </Card>
+  );
+}
+
+/**
+ * The collection itself is EMPTY — nothing has been added yet. Distinct from "your
+ * filters matched nothing": telling a student to change a search they never ran sends
+ * them hunting for a filter that isn't there.
+ */
+function EmptyCollection({ message }: { message: string }) {
+  return (
+    <EmptyResults
+      icon={Database}
+      message={message}
+      hint="An admin can add them under Manage Data."
+    />
   );
 }
 
@@ -301,7 +325,9 @@ function UniversitySection() {
         </p>
       </div>
 
-      {results.length === 0 ? (
+      {data.length === 0 ? (
+        <EmptyCollection message="No universities have been added yet" />
+      ) : results.length === 0 ? (
         <EmptyResults message="No universities match your search" hint="Try a different name or select another state." />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -379,7 +405,9 @@ function CoursesSection() {
         </CardContent>
       </Card>
 
-      {results === null ? (
+      {data.length === 0 ? (
+        <EmptyCollection message="No universities have been added yet" />
+      ) : results === null ? (
         <Card className="bg-slate-50 dark:bg-slate-800/50 border-dashed">
           <CardContent className="p-10 text-center">
             <div className="w-16 h-16 rounded-2xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center mx-auto mb-4">
@@ -559,7 +587,9 @@ function BlogsSection() {
         <span className="font-bold text-slate-800 dark:text-slate-200">{results.length}</span> blog{results.length !== 1 ? 's' : ''} found
       </p>
 
-      {results.length === 0 ? (
+      {data.length === 0 ? (
+        <EmptyCollection message="No blogs have been added yet" />
+      ) : results.length === 0 ? (
         <EmptyResults message="No blogs match your search" hint="Try a different keyword or category." />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

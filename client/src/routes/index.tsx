@@ -1,33 +1,47 @@
+import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
 import { Loader2 } from 'lucide-react';
-
-// Auth pages
-import LoginPage from '@/pages/login';
-import SignupPage from '@/pages/signup';
-import ForgotPasswordPage from '@/pages/forgot-password';
-import ResetPasswordPage from '@/pages/reset-password';
-
-// App pages
-import DashboardPage from '@/pages/dashboard';
-import RankInsightsPage from '@/pages/rank-insights';
-import RankInsightDetailPage from '@/pages/rank-insight-detail';
-import FeeMatrixPage from '@/pages/fee-matrix';
-import FeeDetailPage from '@/pages/fee-detail';
-import CollegesPage from '@/pages/colleges';
-import CollegeDetailPage from '@/pages/college-detail';
-import DocChecklistPage from '@/pages/doc-checklist';
-import AiAssistantPage from '@/pages/ai-assistant';
-import AnnouncementsPage from '@/pages/announcements';
-import AllotmentStatesPage from '@/pages/allotment-states';
-import AllotmentDetailPage from '@/pages/allotment-detail';
-import CounsellingConditionsPage from '@/pages/counselling-conditions';
-import ExplorePage from '@/pages/explore';
-import AbroadUniversitiesPage from '@/pages/abroad-universities';
-import AdminDashboardPage from '@/pages/admin-dashboard';
-import AdminDataPage from '@/pages/admin-data';
-import AdminVerificationsPage from '@/pages/admin-verifications';
 import DashboardLayout from '@/components/layout/dashboard-layout';
+
+/**
+ * Every page is code-split.
+ *
+ * The whole app used to ship as one 1.66MB chunk, so the LOGIN page downloaded
+ * Recharts and framer-motion before it could render a password field. The audience
+ * is students on Indian mobile data; that is the difference between usable and not.
+ *
+ * Login/signup are lazy too — they are tiny, and keeping them out of the initial
+ * chunk means the shell loads before anything else is parsed.
+ */
+
+// Auth
+const LoginPage = lazy(() => import('@/pages/login'));
+const SignupPage = lazy(() => import('@/pages/signup'));
+const ForgotPasswordPage = lazy(() => import('@/pages/forgot-password'));
+const ResetPasswordPage = lazy(() => import('@/pages/reset-password'));
+
+// App
+const DashboardPage = lazy(() => import('@/pages/dashboard'));
+const RankInsightsPage = lazy(() => import('@/pages/rank-insights'));
+const RankInsightDetailPage = lazy(() => import('@/pages/rank-insight-detail'));
+const FeeMatrixPage = lazy(() => import('@/pages/fee-matrix'));
+const FeeDetailPage = lazy(() => import('@/pages/fee-detail'));
+const CollegesPage = lazy(() => import('@/pages/colleges'));
+const CollegeDetailPage = lazy(() => import('@/pages/college-detail'));
+const DocChecklistPage = lazy(() => import('@/pages/doc-checklist'));
+const AiAssistantPage = lazy(() => import('@/pages/ai-assistant'));
+const AnnouncementsPage = lazy(() => import('@/pages/announcements'));
+const AllotmentStatesPage = lazy(() => import('@/pages/allotment-states'));
+const AllotmentDetailPage = lazy(() => import('@/pages/allotment-detail'));
+const CounsellingConditionsPage = lazy(() => import('@/pages/counselling-conditions'));
+const ExplorePage = lazy(() => import('@/pages/explore'));
+const AbroadUniversitiesPage = lazy(() => import('@/pages/abroad-universities'));
+
+// Admin — a student never downloads any of this.
+const AdminDashboardPage = lazy(() => import('@/pages/admin-dashboard'));
+const AdminDataPage = lazy(() => import('@/pages/admin-data'));
+const AdminVerificationsPage = lazy(() => import('@/pages/admin-verifications'));
 
 function FullPageSpinner() {
   return (
@@ -60,6 +74,7 @@ function AdminRoute({ children }: { children: React.ReactNode }) {
 
 export default function AppRoutes() {
   return (
+    <Suspense fallback={<FullPageSpinner />}>
     <Routes>
       {/* Auth routes */}
       <Route path="/login" element={<PublicRoute><LoginPage /></PublicRoute>} />
@@ -103,5 +118,6 @@ export default function AppRoutes() {
       {/* Fallback */}
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
+    </Suspense>
   );
 }

@@ -127,6 +127,7 @@ router.post('/resources/:collection', async (req: AuthRequest, res: Response) =>
     return;
   }
 
+  r.schema.derive?.(value);
   const item = await r.create(value);
   res.status(201).json({ success: true, data: { item } });
 });
@@ -141,6 +142,20 @@ router.put('/resources/:collection/:id', async (req: AuthRequest, res: Response)
   if (refErrors.length) {
     res.status(400).json({ success: false, message: 'Validation failed', errors: refErrors.map(({ field, message }) => ({ field, message })) });
     return;
+  }
+
+  // Derived fields must be recomputed from the MERGED record: a PATCH that changes
+  // only tuitionFee still has to update totalFirstYear, and `value` alone lacks the
+  // other components.
+  if (r.schema.derive) {
+    const current = await r.get(String(req.params.id));
+    if (current) {
+      const merged = { ...current, ...value };
+      r.schema.derive(merged);
+      for (const f of r.schema.fields) {
+        if (merged[f.name] !== current[f.name]) value[f.name] = merged[f.name];
+      }
+    }
   }
 
   const item = await r.update(String(req.params.id), value);
@@ -246,6 +261,8 @@ router.post('/resources/:collection/bulk', async (req: AuthRequest, res: Respons
   // rows and 65 fee rows, and the site rendered "Unknown college" everywhere.
   // `replace` now means "make the collection match this file", not "wipe it first".
   const replace = req.body?.replace === true;
+  if (r.schema.derive) clean.forEach((row) => r.schema.derive!(row));
+
   const { created, updated, deleted } = await r.importMany(clean, { replace });
 
   res.json({

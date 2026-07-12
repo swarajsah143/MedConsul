@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { randomUUID } from 'crypto';
 import { env } from '../config/env';
 
 export interface JwtPayload {
@@ -13,9 +14,21 @@ export function signAccessToken(payload: JwtPayload): string {
   } as jwt.SignOptions);
 }
 
+/**
+ * Refresh tokens carry a random jti.
+ *
+ * Without it, the payload is {userId, email, role} + `iat`, and `iat` has ONE-SECOND
+ * resolution — so two logins by the same user inside the same second produce a
+ * byte-identical token. The refreshTokens collection has a unique index on `token`,
+ * so the second one died with E11000 and the user got a 500.
+ *
+ * That is not a rare race: it fires on a double-clicked "Sign In", on two tabs
+ * authenticating together, and on any script that logs in twice in quick succession.
+ */
 export function signRefreshToken(payload: JwtPayload): string {
   return jwt.sign(payload, env.jwt.refreshSecret, {
     expiresIn: env.jwt.refreshExpiresIn,
+    jwtid: randomUUID(),
   } as jwt.SignOptions);
 }
 

@@ -160,6 +160,64 @@ async function main() {
   const kb = await api('/api/data/knowledgeBase');
   check('knowledgeBase is not exposed publicly', kb.status === 404, `got ${kb.status}`);
 
+
+  // ── 7. concurrent logins must not collide ───────────────────────────
+  // The refresh-token payload is {userId,email,role} + `iat`, and iat has ONE-SECOND
+  // resolution — so two logins by the same user inside the same second used to produce
+  // a byte-identical JWT, which hit the unique index on refreshTokens.token and 500'd.
+  // A double-clicked "Sign In" was enough to trigger it.
+  const burst = await Promise.all(
+    Array.from({ length: 5 }, () =>
+      api('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify({ email: 'demo@medcounsel.ai', password: '***REDACTED***' }),
+      })
+    )
+  );
+  check(
+    'five simultaneous logins all succeed (no duplicate-refresh-token 500)',
+    burst.every((r) => r.status === 200),
+    `statuses: ${burst.map((r) => r.status).join(', ')}`
+  );
+  // NOTE: the ACCESS tokens may legitimately be identical — same user, same claims, same
+  // second, and nothing indexes them. It is the REFRESH token that must be unique, because
+  // refreshTokens.token has a unique index. That is what the jti fixes, so that is what we assert.
+  const refreshCookies = await Promise.all(
+    Array.from({ length: 5 }, async () => {
+      const res = await fetch(`${API}/api/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: 'demo@medcounsel.ai', password: '***REDACTED***' }),
+      });
+      return res.headers.get('set-cookie') ?? '';
+    })
+  );
+  const distinctRefresh = new Set(refreshCookies.filter(Boolean));
+  check(
+    'each concurrent login issues a DISTINCT refresh token (the one with the unique index)',
+    distinctRefresh.size === refreshCookies.length,
+    `${distinctRefresh.size} distinct of ${refreshCookies.length}`
+  );
+
+  // ── 8. derived fields are recomputed on write ───────────────────────
+  const feeRow = (await api('/api/admin/resources/fees?limit=1')).body.data.items[0];
+  const patched = await api(`/api/admin/resources/fees/${feeRow.id}`, {
+    method: 'PUT',
+    body: JSON.stringify({ tuitionFee: 123456 }),
+  });
+  const f = patched.body?.data?.item;
+  const sum = (f?.tuitionFee ?? 0) + (f?.hostelFee ?? 0) + (f?.miscCharges ?? 0) + (f?.securityDeposit ?? 0);
+  check(
+    'editing only the tuition fee recomputes totalFirstYear',
+    f?.totalFirstYear === sum,
+    `totalFirstYear=${f?.totalFirstYear} but components sum to ${sum}`
+  );
+  // put it back
+  await api(`/api/admin/resources/fees/${feeRow.id}`, {
+    method: 'PUT',
+    body: JSON.stringify({ tuitionFee: feeRow.tuitionFee }),
+  });
+
   console.log(failures ? `\n${failures} FAILED\n` : '\nall integrity checks passed\n');
   process.exit(failures ? 1 : 0);
 }

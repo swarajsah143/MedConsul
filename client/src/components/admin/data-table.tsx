@@ -241,8 +241,12 @@ export function DataTable(props: {
   const columns = useMemo(() => schema.fields.filter((f) => f.inList), [schema]);
   const filterFields = useMemo(() => schema.fields.filter((f) => f.filterable), [schema]);
   const hasSearch = useMemo(() => schema.fields.some((f) => f.searchable), [schema]);
+  // A `ref` column DISPLAYS the joined label (e.g. the college name) but the server
+  // can only sort by the stored value — the raw ObjectId — so a "sort" on it looks
+  // random to the user. Offer no sort affordance rather than a lying one.
   const sortable = useCallback(
-    (f: Field) => f.type !== 'string[]' && f.type !== 'enum[]' && f.type !== 'object[]',
+    (f: Field) =>
+      f.type !== 'string[]' && f.type !== 'enum[]' && f.type !== 'object[]' && f.type !== 'ref',
     []
   );
 

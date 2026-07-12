@@ -881,13 +881,13 @@ export default function DocChecklistPage() {
         </button>
       </div>
 
-      {/* Section Header (for print) */}
-      <div className="hidden print:block">
-        <h3 className="text-lg font-bold text-slate-800 mb-2">Section 1: Online Registration Documents</h3>
-      </div>
-
-      {/* Document Cards */}
-      <div className="space-y-3">
+      {/* Document Cards — the ACTIVE TAB, on screen only.
+          This list used to print as-is under a hardcoded "Section 1: Online Registration
+          Documents" heading, so printing from the Physical tab filed every physical
+          document under "Online", printed them twice, and omitted the online ones
+          entirely. Printing now goes through the print-only block below, which always
+          renders BOTH sections under their correct headings. */}
+      <div className="space-y-3 print:hidden">
         {currentDocs.length === 0 ? (
           <Card className="p-10 text-center">
             <CheckCircle2 className="w-10 h-10 mx-auto text-slate-300 dark:text-slate-700 mb-3" />
@@ -908,7 +908,24 @@ export default function DocChecklistPage() {
         )}
       </div>
 
-      {/* Print-only: Physical section */}
+      {/* Print-only: Section 1 — Online, regardless of the active tab. */}
+      <div className="hidden print:block">
+        <h3 className="text-lg font-bold text-slate-800 mb-4">Section 1: Online Registration Documents</h3>
+        <div className="space-y-3">
+          {onlineDocs.map((doc) => (
+            <DocCard
+              key={doc.id}
+              doc={doc}
+              isChecked={checked.has(doc.id)}
+              onToggle={() => toggleCheck(doc.id)}
+              submission={submissions[doc.id]}
+              onSubmissionChange={handleSubmissionChange}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Print-only: Section 2 — Physical, regardless of the active tab. */}
       <div className="hidden print:block print:break-before-page">
         <h3 className="text-lg font-bold text-slate-800 mb-4 mt-8">Section 2: Physical Reporting Documents</h3>
         <div className="space-y-3">

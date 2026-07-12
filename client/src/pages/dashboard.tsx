@@ -52,11 +52,29 @@ function loadCheckedIds(): string[] {
   return [];
 }
 
-/** 'YYYY-MM-DD' -> '25 Jun 2026'. Empty when the date is missing/unparseable. */
+/**
+ * Announcement dates are admin-entered and only *usually* 'YYYY-MM-DD' — the server accepts
+ * any string. Parse as local midnight first (matching announcements.tsx), then fall back to a
+ * loose parse; `null` when there's nothing usable.
+ */
+function parseAnnouncementDate(date?: string): Date | null {
+  const raw = date?.trim();
+  if (!raw) return null;
+  const midnight = new Date(`${raw}T00:00:00`);
+  if (!Number.isNaN(midnight.getTime())) return midnight;
+  const loose = new Date(raw);
+  return Number.isNaN(loose.getTime()) ? null : loose;
+}
+
+/** Epoch ms for sorting; 0 (i.e. oldest) when the date is missing/unparseable. */
+function announcementTs(date?: string): number {
+  return parseAnnouncementDate(date)?.getTime() ?? 0;
+}
+
+/** 'YYYY-MM-DD' -> '25 Jun 2026'. Falls back to the raw string, then to empty. */
 function formatAnnouncementDate(date?: string): string {
-  if (!date) return '';
-  const d = new Date(`${date}T00:00:00`);
-  if (Number.isNaN(d.getTime())) return date;
+  const d = parseAnnouncementDate(date);
+  if (!d) return date?.trim() ?? '';
   return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
@@ -103,11 +121,13 @@ export default function DashboardPage() {
   const announcements = useCollection<DashAnnouncement>('announcements');
   const checklistDocs = useCollection<DashChecklistDoc>('checklistDocs');
 
-  // Newest first by real date, top 4.
+  // Newest first by real (parsed) date, top 4 — same ordering as the announcements page.
+  // A raw string compare mis-orders any non-ISO date the server let through.
   const recentAnnouncements = useMemo(
     () =>
-      [...announcements.data]
-        .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
+      announcements.data
+        .map((a) => ({ ...a, ts: announcementTs(a.date) }))
+        .sort((a, b) => b.ts - a.ts)
         .slice(0, 4),
     [announcements.data],
   );

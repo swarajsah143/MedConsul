@@ -16,6 +16,16 @@ import {
 
 const PIE_COLORS = ['#dc2626', '#2563eb', '#d97706', '#f43f5e', '#8b5cf6', '#06b6d4', '#84cc16'];
 
+/**
+ * Optional free-text fields are persisted as an empty string (not `undefined`) when the admin
+ * leaves them blank, so `??` never fires and the row renders with no value. Treat blank/
+ * whitespace-only text as missing.
+ */
+function optionalText(value?: string): string | undefined {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
+}
+
 export default function FeeDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -72,7 +82,12 @@ export default function FeeDetailPage() {
   const mgmtSeats = entry.mgmtSeats ?? 0;
   const nriSeats = entry.nriSeats ?? 0;
   const yearWiseFees = entry.yearWiseFees ?? [];
-  const scholarships = entry.scholarships ?? [];
+  const scholarships = (entry.scholarships ?? [])
+    .map((s) => optionalText(s))
+    .filter((s): s is string => s !== undefined);
+  const paymentSchedule = optionalText(entry.paymentSchedule);
+  const refundPolicy = optionalText(entry.refundPolicy);
+  const bondDetails = optionalText(entry.bondDetails);
 
   // Fall back to the component fees when no explicit breakdown was entered.
   const feeBreakdown = entry.feeBreakdown?.length
@@ -338,9 +353,9 @@ export default function FeeDetailPage() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-0">
-              <InfoRow icon={CalendarClock} label="Payment Schedule" value={entry.paymentSchedule ?? 'Not specified'} />
-              <InfoRow icon={RefreshCw} label="Refund Policy" value={entry.refundPolicy ?? 'Not specified'} />
-              {entry.bondDetails && <InfoRow icon={Link2} label="Service Bond" value={entry.bondDetails} />}
+              <InfoRow icon={CalendarClock} label="Payment Schedule" value={paymentSchedule ?? 'Not specified'} />
+              <InfoRow icon={RefreshCw} label="Refund Policy" value={refundPolicy ?? 'Not specified'} />
+              {bondDetails && <InfoRow icon={Link2} label="Service Bond" value={bondDetails} />}
             </CardContent>
           </Card>
 

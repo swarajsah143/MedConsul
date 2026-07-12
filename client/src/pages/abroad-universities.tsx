@@ -17,6 +17,7 @@ import {
   ExternalLink,
   Loader2,
   AlertTriangle,
+  Database,
 } from 'lucide-react';
 
 /** Admin-managed abroad university. Only `id` is guaranteed. */
@@ -39,19 +40,52 @@ interface AbroadUniversity {
 
 const money = (n: number) => `$${n.toLocaleString()}`;
 
-const totalCostOf = (x: AbroadUniversity) => (x.tuitionPerYearUSD ?? 0) + (x.livingCostPerYearUSD ?? 0);
+/**
+ * MISSING COST DATA IS NOT ZERO COST.
+ *
+ * These fields used to be coerced with `?? 0`, so a university whose tuition and
+ * living cost an admin simply hadn't recorded scored as the cheapest in the list,
+ * won the value ranking, and got RECOMMENDED to a student *because* its data was
+ * missing. A cost is only known when BOTH components are recorded; anything else
+ * is un-priced and must not be ranked or recommended as if it were free.
+ */
+function isPriced(x: AbroadUniversity): boolean {
+  return typeof x.tuitionPerYearUSD === 'number' && typeof x.livingCostPerYearUSD === 'number';
+}
+
+/** Total annual cost, or `undefined` when the university has no cost data recorded. */
+function totalCostOf(x: AbroadUniversity): number | undefined {
+  return isPriced(x) ? x.tuitionPerYearUSD! + x.livingCostPerYearUSD! : undefined;
+}
 
 /**
  * A "value" score favouring good rating AND low total annual cost — used to
  * surface affordable-yet-good universities as recommendations.
  * (Same formula as the old lib/abroad-data.ts helper.)
+ *
+ * Only defined for PRICED universities — see `isPriced`.
  */
 function valueScore(x: AbroadUniversity): number {
-  return (x.rating ?? 0) - (totalCostOf(x) / 25000) * 2.5;
+  return (x.rating ?? 0) - ((totalCostOf(x) ?? 0) / 25000) * 2.5;
 }
 
+/** Cheap + well rated. An un-priced or unrated university can never qualify. */
 function isRecommended(x: AbroadUniversity): boolean {
-  return (x.tuitionPerYearUSD ?? 0) <= 6000 && (x.rating ?? 0) >= 4.2;
+  return (
+    isPriced(x) &&
+    x.tuitionPerYearUSD! <= 6000 &&
+    typeof x.rating === 'number' &&
+    x.rating >= 4.2
+  );
+}
+
+/** Value-rank the priced universities; un-priced ones keep their place at the end. */
+function byValue(a: AbroadUniversity, b: AbroadUniversity): number {
+  const aPriced = isPriced(a);
+  const bPriced = isPriced(b);
+  if (aPriced !== bPriced) return aPriced ? -1 : 1;
+  if (!aPriced) return 0;
+  return valueScore(b) - valueScore(a);
 }
 
 function searchAbroad(rows: AbroadUniversity[], query: string, country: string): AbroadUniversity[] {
@@ -66,14 +100,14 @@ function searchAbroad(rows: AbroadUniversity[], query: string, country: string):
       const matchCountry = country === 'All Countries' || x.country === country;
       return matchQuery && matchCountry;
     })
-    .sort((a, b) => valueScore(b) - valueScore(a));
+    .sort(byValue);
 }
 
 /** Top affordable + good recommendations (used when no search is active). */
 function recommendedAbroad(rows: AbroadUniversity[], limit = 6): AbroadUniversity[] {
   return rows
     .filter(isRecommended)
-    .sort((a, b) => valueScore(b) - valueScore(a))
+    .sort(byValue)
     .slice(0, limit);
 }
 
@@ -134,19 +168,25 @@ function AbroadCard({ x }: { x: AbroadUniversity }) {
 
         <p className="text-xs text-muted-foreground mt-3 leading-relaxed line-clamp-2">{x.highlight ?? ''}</p>
 
-        {/* Cost */}
+        {/* Cost — an unrecorded cost reads as "—", never as $0. */}
         <div className="grid grid-cols-3 gap-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-2.5 mt-3">
           <div className="text-center">
             <p className="text-[9px] font-semibold text-muted-foreground uppercase">Tuition/yr</p>
-            <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{money(x.tuitionPerYearUSD ?? 0)}</p>
+            <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">
+              {x.tuitionPerYearUSD !== undefined ? money(x.tuitionPerYearUSD) : '—'}
+            </p>
           </div>
           <div className="text-center border-x border-slate-200 dark:border-slate-700">
             <p className="text-[9px] font-semibold text-muted-foreground uppercase">Living/yr</p>
-            <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{money(x.livingCostPerYearUSD ?? 0)}</p>
+            <p className="text-sm font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">
+              {x.livingCostPerYearUSD !== undefined ? money(x.livingCostPerYearUSD) : '—'}
+            </p>
           </div>
           <div className="text-center">
             <p className="text-[9px] font-semibold text-muted-foreground uppercase">Total/yr</p>
-            <p className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400 tabular-nums">{money(total)}</p>
+            <p className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400 tabular-nums">
+              {total !== undefined ? money(total) : '—'}
+            </p>
           </div>
         </div>
 
@@ -220,6 +260,21 @@ export default function AbroadUniversitiesPage() {
           title="Could not load abroad universities"
           description={error}
           action={{ label: 'Retry', onClick: reload }}
+        />
+      </div>
+    );
+  }
+
+  // The collection is EMPTY — nothing has been added yet. That is not a search miss,
+  // so don't hand the student a search box and blame a filter they never set.
+  if (data.length === 0) {
+    return (
+      <div className="space-y-6 pb-10 page-enter">
+        {hero}
+        <EmptyState
+          icon={Database}
+          title="No universities yet"
+          description="No abroad universities have been added yet. An admin can add them under Manage Data → Abroad Universities."
         />
       </div>
     );

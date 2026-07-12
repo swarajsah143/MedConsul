@@ -24,6 +24,17 @@ import {
 
 /* ------------------------------------------------------------------- parser */
 
+export interface CsvRecord {
+  cells: string[];
+  /**
+   * 1-based PHYSICAL line of the user's file on which this record starts. Not the
+   * record's index: blank lines are kept in the count, and a quoted value with an
+   * embedded newline advances it by more than one. Every "CSV line N" we show an
+   * admin comes from here, so it has to be the line they'd jump to in their editor.
+   */
+  line: number;
+}
+
 /**
  * RFC-4180 CSV parser.
  *
@@ -32,16 +43,21 @@ import {
  * - Row separators: \r\n, \n and a bare \r are all accepted, but only OUTSIDE
  *   quotes; inside quotes they are literal characters of the value.
  * - A trailing newline does not produce a phantom empty row.
+ * - Blank lines are returned, NOT dropped: dropping them here shifted every
+ *   reported line number by the number of blank lines above it. Callers skip
+ *   blank records themselves (see buildRows) and keep the true line.
  */
-export function parseCsv(text: string): string[][] {
+export function parseCsv(text: string): CsvRecord[] {
   // Strip a UTF-8 BOM — Excel writes one and it would corrupt the first header.
   const src = text.charCodeAt(0) === 0xfeff ? text.slice(1) : text;
 
-  const rows: string[][] = [];
+  const records: CsvRecord[] = [];
   let row: string[] = [];
   let field = '';
   let inQuotes = false;
   let i = 0;
+  let line = 1;     // physical line the cursor is on
+  let rowLine = 1;  // physical line the record being built started on
 
   const endField = () => {
     row.push(field);
@@ -49,7 +65,7 @@ export function parseCsv(text: string): string[][] {
   };
   const endRow = () => {
     endField();
-    rows.push(row);
+    records.push({ cells: row, line: rowLine });
     row = [];
   };
 
@@ -67,7 +83,26 @@ export function parseCsv(text: string): string[][] {
         i += 1;
         continue;
       }
-      field += c; // commas / CR / LF inside quotes are literal
+      // Commas / CR / LF inside quotes are literal characters of the value, but a
+      // newline still moves the file's line counter on.
+      if (c === '\r') {
+        field += c;
+        if (src[i + 1] === '\n') {
+          field += '\n';
+          i += 2;
+        } else {
+          i += 1;
+        }
+        line += 1;
+        continue;
+      }
+      if (c === '\n') {
+        field += c;
+        line += 1;
+        i += 1;
+        continue;
+      }
+      field += c;
       i += 1;
       continue;
     }
@@ -86,11 +121,15 @@ export function parseCsv(text: string): string[][] {
       // CRLF or lone CR both terminate the row.
       endRow();
       i += src[i + 1] === '\n' ? 2 : 1;
+      line += 1;
+      rowLine = line;
       continue;
     }
     if (c === '\n') {
       endRow();
       i += 1;
+      line += 1;
+      rowLine = line;
       continue;
     }
 
@@ -101,8 +140,12 @@ export function parseCsv(text: string): string[][] {
   // Flush the last field/row unless the file ended exactly on a newline.
   if (field !== '' || row.length > 0 || inQuotes) endRow();
 
-  // Drop rows that are entirely empty (e.g. a blank line in the middle).
-  return rows.filter((r) => r.some((v) => v.trim() !== ''));
+  return records;
+}
+
+/** A record with nothing but whitespace in every cell — a blank line in the file. */
+function isBlank(rec: CsvRecord): boolean {
+  return !rec.cells.some((v) => v.trim() !== '');
 }
 
 /* ------------------------------------------------------------------ mapping */
@@ -119,6 +162,8 @@ interface Parsed {
   sourceLines: number[];
   columns: Field[];
   unknownHeaders: string[];
+  /** Labels of fields the header row names more than once — ambiguous, so blocking. */
+  duplicateHeaders: string[];
   missingRequired: string[];
   errors: RowError[];
   totalRows: number;
@@ -138,18 +183,35 @@ function buildRows(text: string, schema: CollectionSchema): Parsed {
     sourceLines: [],
     columns: [],
     unknownHeaders: [],
+    duplicateHeaders: [],
     missingRequired: [],
     errors: [],
     totalRows: 0,
   };
 
   const table = parseCsv(text);
-  if (!table.length) return empty;
+  // Blank lines are kept by the parser now, so the header is the first line that
+  // actually has content — a file that opens with an empty line still works.
+  const headerIdx = table.findIndex((rec) => !isBlank(rec));
+  if (headerIdx === -1) return empty;
 
-  const header = table[0];
+  const header = table[headerIdx].cells;
   const mapped = header.map((h) => matchField(h, schema.fields));
   const unknownHeaders = header.filter((h, idx) => !mapped[idx] && h.trim() !== '');
-  const columns = mapped.filter((f): f is Field => !!f);
+
+  // Two header cells can resolve to the SAME field (a repeated column, or the field
+  // name in one cell and its label in another). Which one wins is arbitrary, so the
+  // file is ambiguous: take the column once and refuse the import.
+  const columns: Field[] = [];
+  const duplicateHeaders: string[] = [];
+  for (const f of mapped) {
+    if (!f) continue;
+    if (columns.some((c) => c.name === f.name)) {
+      if (!duplicateHeaders.includes(f.label)) duplicateHeaders.push(f.label);
+    } else {
+      columns.push(f);
+    }
+  }
 
   const missingRequired = schema.fields
     .filter((f) => f.required && !columns.some((c) => c.name === f.name))
@@ -159,9 +221,11 @@ function buildRows(text: string, schema: CollectionSchema): Parsed {
   const sourceLines: number[] = [];
   const errors: RowError[] = [];
 
-  for (let r = 1; r < table.length; r++) {
-    const cells = table[r];
-    const rowNo = r; // 1-based data-row number, same numbering the server uses
+  for (let r = headerIdx + 1; r < table.length; r++) {
+    const record = table[r];
+    if (isBlank(record)) continue; // a blank line is not a data row — but it still cost a line
+    const cells = record.cells;
+    const rowNo = rows.length + 1; // 1-based data-row number, same numbering the server uses
     const out: Record<string, any> = {};
 
     mapped.forEach((f, idx) => {
@@ -205,7 +269,7 @@ function buildRows(text: string, schema: CollectionSchema): Parsed {
     });
 
     rows.push(out);
-    sourceLines.push(r + 1); // +1: CSV lines are 1-based and line 1 is the header
+    sourceLines.push(record.line); // the TRUE line in the user's file
   }
 
   return {
@@ -213,6 +277,7 @@ function buildRows(text: string, schema: CollectionSchema): Parsed {
     sourceLines,
     columns,
     unknownHeaders,
+    duplicateHeaders,
     missingRequired,
     errors,
     totalRows: rows.length,
