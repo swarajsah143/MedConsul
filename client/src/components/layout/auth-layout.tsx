@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Stethoscope } from 'lucide-react';
 
 interface AuthLayoutProps {
@@ -37,22 +38,16 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
               and document preparation — all in one platform.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 pt-4">
-              {[
-                { label: 'Colleges Tracked', value: '600+' },
-                { label: 'Cutoff Records', value: '50K+' },
-                { label: 'Students Helped', value: '10K+' },
-                { label: 'States Covered', value: '36' },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-3.5 border border-white/10"
-                >
-                  <p className="text-xl font-bold">{stat.value}</p>
-                  <p className="text-red-200 text-xs font-medium mt-0.5">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+            {/*
+              These are read from the live database, not typed in.
+
+              They used to be hardcoded: "600+ Colleges Tracked", "50K+ Cutoff Records",
+              "10K+ Students Helped". The real figures were 29, 279 and 3. Inventing
+              numbers on the page a student sees before they trust you with their
+              Aadhaar is not marketing, it is a lie — and the moment the data is real,
+              these will be right without anyone editing them.
+            */}
+            <PlatformStats />
           </div>
         </div>
       </div>
@@ -76,6 +71,55 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
           {children}
         </div>
       </div>
+    </div>
+  );
+}
+
+/**
+ * Live platform figures. Renders nothing until they load — an honest blank beats a
+ * confident placeholder that turns out to be wrong.
+ */
+function PlatformStats() {
+  const [stats, setStats] = useState<{ label: string; value: string }[] | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const count = async (collection: string): Promise<number | null> => {
+      try {
+        const r = await fetch(`/api/data/${collection}`);
+        const b = await r.json();
+        return b?.success ? (b.data.total as number) : null;
+      } catch {
+        return null;
+      }
+    };
+
+    Promise.all([count('colleges'), count('closingRanks'), count('fees'), count('universities')]).then(
+      ([colleges, ranks, fees, universities]) => {
+        if (cancelled) return;
+        const rows: { label: string; value: string }[] = [];
+        if (colleges !== null) rows.push({ label: 'Colleges Tracked', value: String(colleges) });
+        if (ranks !== null) rows.push({ label: 'Closing Rank Records', value: String(ranks) });
+        if (fees !== null) rows.push({ label: 'Fee Records', value: String(fees) });
+        if (universities !== null) rows.push({ label: 'Universities Listed', value: String(universities) });
+        setStats(rows);
+      }
+    );
+
+    return () => { cancelled = true; };
+  }, []);
+
+  if (!stats?.length) return null;
+
+  return (
+    <div className="grid grid-cols-2 gap-3 pt-4">
+      {stats.map((stat) => (
+        <div key={stat.label} className="bg-white/10 backdrop-blur-sm rounded-xl p-3.5 border border-white/10">
+          <p className="text-xl font-bold">{stat.value}</p>
+          <p className="text-red-200 text-xs font-medium mt-0.5">{stat.label}</p>
+        </div>
+      ))}
     </div>
   );
 }

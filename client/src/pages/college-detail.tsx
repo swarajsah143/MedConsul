@@ -7,10 +7,33 @@ import { EmptyState } from '@/components/ui/empty-state';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/ui/motion';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowLeft, MapPin, Building2, Globe, GraduationCap, Users, BookOpen,
-  Stethoscope, Activity, HeartPulse, Home, Smile, ThumbsUp, ThumbsDown,
-  Image, Play, ExternalLink, Calendar, IndianRupee, Award, AlertTriangle,
-  X, ChevronRight, Sparkles, Loader2, type LucideIcon,
+  Activity,
+  AlertTriangle,
+  ArrowLeft,
+  Award,
+  BookOpen,
+  Building2,
+  Calendar,
+  ChevronRight,
+  ExternalLink,
+  Globe,
+  GraduationCap,
+  HeartPulse,
+  Home,
+  Image,
+  IndianRupee,
+  Loader2,
+  MapPin,
+  Maximize2,
+  Play,
+  Smile,
+  Sparkles,
+  Stethoscope,
+  ThumbsDown,
+  ThumbsUp,
+  Users,
+  X,
+  type LucideIcon,
 } from 'lucide-react';
 
 type Tab = 'overview' | 'academics' | 'campus' | 'gallery';
@@ -123,7 +146,13 @@ function PatientLoadCard({ data }: { data?: string }) {
 
 // ── Tinder-style Photo Stack ───────────────────────────────
 
-function PhotoStack({ images }: { images: Array<{ url: string; caption: string }> }) {
+function PhotoStack({
+  images,
+  onExpand,
+}: {
+  images: Array<{ url: string; caption: string }>;
+  onExpand?: (index: number) => void;
+}) {
   const [order, setOrder] = useState(() => images.map((_, i) => i));
 
   const sendToBack = useCallback(() => {
@@ -205,10 +234,24 @@ function PhotoStack({ images }: { images: Array<{ url: string; caption: string }
                     <div className="absolute bottom-0 inset-x-0 p-4">
                       <p className="text-white text-sm font-bold drop-shadow leading-snug">{img.caption}</p>
                       <p className="text-white/60 text-[10px] mt-1 font-medium">
-                        {order.indexOf(imgIdx) + 1} / {images.length}
+                        {/* Was order.indexOf(imgIdx) + 1 — but the top card is always
+                            at index 0, so this read "1 / N" forever. */}
+                        {imgIdx + 1} / {images.length}
                       </p>
                     </div>
                   </>
+                )}
+                {/* The lightbox had close/prev/next but nothing that OPENED it —
+                    clicking a photo only cycled the stack. This is the way in. */}
+                {isTop && onExpand && (
+                  <button
+                    type="button"
+                    onClick={(e) => { e.stopPropagation(); onExpand(imgIdx); }}
+                    className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/45 hover:bg-black/70 backdrop-blur-sm flex items-center justify-center text-white transition-colors z-10"
+                    aria-label="View full size"
+                  >
+                    <Maximize2 className="w-4 h-4" />
+                  </button>
                 )}
                 {/* Shadow overlay on stacked cards */}
                 {!isTop && (
@@ -552,7 +595,7 @@ export default function CollegeDetailPage() {
                         <p className="text-[11px] text-muted-foreground">Click to shuffle photos</p>
                       </div>
                     </div>
-                    <PhotoStack images={gallery} />
+                    <PhotoStack images={gallery} onExpand={setLightboxIdx} />
                   </motion.div>
                   )}
 

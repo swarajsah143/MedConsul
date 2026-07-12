@@ -1,3 +1,4 @@
+import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCollections, byId, distinct, type College, type FeeEntry } from '@/lib/data-api';
@@ -176,18 +177,17 @@ export default function FeeMatrixPage() {
   };
 
   const handleExportCsv = () => {
-    const header = 'College,State,City,Type,Course,Category,Quota,Tuition,Hostel,Misc,Deposit,Total 1st Yr,Govt Seats,Mgmt Seats,NRI Seats\n';
-    const csvRows = filtered.map((e) =>
-      `"${e.name}","${e.state}","${e.city}","${e.type}","${e.course}","${e.category}","${e.quota}",${e.tuitionFee},${e.hostelFee},${e.miscCharges},${e.securityDeposit},${e.totalFirstYear},${e.govtSeats},${e.mgmtSeats},${e.nriSeats}`
-    ).join('\n');
-    const blob = new Blob([header + csvRows], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'fee-seat-matrix.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+    const csv = toCsv(
+      ['College', 'State', 'City', 'Type', 'Course', 'Category', 'Quota', 'Tuition', 'Hostel', 'Misc',
+       'Deposit', 'Total 1st Yr', 'Govt Seats', 'Mgmt Seats', 'NRI Seats'],
+      filtered.map((e) => [
+        e.name, e.state, e.city, e.type, e.course, e.category, e.quota,
+        e.tuitionFee, e.hostelFee, e.miscCharges, e.securityDeposit, e.totalFirstYear,
+        e.govtSeats, e.mgmtSeats, e.nriSeats,
+      ])
+    );
+    downloadCsv('fee-seat-matrix.csv', csv);
+    };
 
   // Summary stats
   const avgTotal = filtered.length > 0 ? Math.round(filtered.reduce((s, e) => s + e.totalFirstYear, 0) / filtered.length) : 0;

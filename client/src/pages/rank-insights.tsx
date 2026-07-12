@@ -1,3 +1,4 @@
+import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCollections, byId, distinct, type College, type ClosingRank } from '@/lib/data-api';
@@ -214,18 +215,15 @@ export default function RankInsightsPage() {
   };
 
   const handleExportCsv = () => {
-    const header = 'College,State,Course,Category,Quota,Year,Round,Closing Rank,Closing Score\n';
-    const csvRows = filtered.map((e) =>
-      `"${e.collegeName}","${e.collegeState}","${e.course}","${e.category}","${e.quota}",${e.year},${e.round},${e.closingRank},${e.closingScore ?? 'N/A'}`
-    ).join('\n');
-    const blob = new Blob([header + csvRows], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'closing-rank-insights.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+    const csv = toCsv(
+      ['College', 'State', 'Course', 'Category', 'Quota', 'Year', 'Round', 'Closing Rank', 'Closing Score'],
+      filtered.map((e) => [
+        e.collegeName, e.collegeState, e.course, e.category, e.quota,
+        e.year, e.round, e.closingRank, e.closingScore ?? 'N/A',
+      ])
+    );
+    downloadCsv('closing-rank-insights.csv', csv);
+    };
 
   function SortHeader({ field, children, className }: { field: SortField; children: React.ReactNode; className?: string }) {
     const active = sortBy === field;

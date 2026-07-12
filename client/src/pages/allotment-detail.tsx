@@ -1,3 +1,4 @@
+import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAllotments, forCounselling } from '@/lib/allotment-data';
@@ -136,18 +137,16 @@ export default function AllotmentDetailPage() {
   };
 
   const handleExportCsv = () => {
-    const header = 'All India Rank,State Rank,NEET Score,Category,Subcategory,Institute,Seat Type,Counselling,Round\n';
-    const rows = filtered.map((e) =>
-      `${e.allIndiaRank},${e.stateRank ?? '-'},${e.neetScore ?? '-'},"${e.category}","${e.subcategory ?? ''}","${e.instituteName}","${e.seatType}","${e.counselling}",R${e.round}`
-    ).join('\n');
-    const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `allotment-${counselling.replace(/\s+/g, '-').toLowerCase()}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+    const csv = toCsv(
+      ['All India Rank', 'State Rank', 'NEET Score', 'Category', 'Subcategory', 'Institute',
+       'Seat Type', 'Counselling', 'Round'],
+      filtered.map((e) => [
+        e.allIndiaRank, e.stateRank ?? '-', e.neetScore ?? '-', e.category, e.subcategory ?? '',
+        e.instituteName, e.seatType, e.counselling, `R${e.round}`,
+      ])
+    );
+    downloadCsv(`allotment-${counselling.replace(/\s+/g, '-').toLowerCase()}.csv`, csv);
+    };
 
   const isMCC = counselling === 'All India Quota - MCC';
   const roundCount = new Set(allData.map((e) => e.round)).size;
