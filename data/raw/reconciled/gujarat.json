@@ -1,0 +1,266 @@
+{
+ "state": "Gujarat",
+ "pairings": [
+  {
+   "ourName": "AIIMS Rajkot",
+   "nmcName": "All India Institute of Medical Sciences, Rajkot",
+   "evidence": "Same institution, expanded acronym. NMC row is the only AIIMS in Gujarat (Statutory Autonomous, AIIMS (Rajkot), 50 UG seats); our record's city is Rajkot."
+  },
+  {
+   "ourName": "Government Medical College, Vadodara (Baroda)",
+   "nmcName": "Medical College, Baroda",
+   "evidence": "Vadodara = Baroda. NMC row: MS University of Baroda, est. 1949, address 'Vinoba Bhave Road, Anand Pura, Vadodara 390001' - the state government medical college of Vadodara, which is exactly what our record names. Only one govt MBBS college of this name in the city (GMERS Gotri, Vadodara is a separate NMC row and is separately matched)."
+  },
+  {
+   "ourName": "Shri M. P. Shah Government Medical College, Jamnagar",
+   "nmcName": "MP Shah Medical College,Jamnagar",
+   "evidence": "NMC address literally reads 'M.P. Shah Government Medical College, Indradeep Society, Jamnagar 361008'. Same college, Govt., Saurashtra University."
+  },
+  {
+   "ourName": "Smt. B. K. Shah Medical Institute & Research Centre (Sumandeep Vidyapeeth), Piparia, Vadodara",
+   "nmcName": "SBKS Medical Instt. & Research Centre, Vadodra",
+   "evidence": "SBKS = Smt. B. K. Shah. NMC address 'Sumandeep Vidyapeeth Campus, At. & Post. Piparia, Tal. Waghodia, Distt. Vadodara' matches our record exactly. Type kept as Deemed (Sumandeep Vidyapeeth is a deemed-to-be university; NMC records it as 'Trust')."
+  },
+  {
+   "ourName": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
+   "nmcName": "Dr.Kiran C.Patel Medical College and Research Institute",
+   "evidence": "Cross-packet pair: this base record sits in packets/unknown.json (statelessInSource) but its NMC row is an unclaimed Gujarat row. NMC row: Veer Narmad South Gujarat University, est. 2020, 200 seats; official site kmcri.ac.in (redirect from bharuchmedical.org) confirms the college is in Bharuch, Gujarat. Paired here instead of emitted as a new college so the site does not end up with two records for it. NOT the same as 'Kiran Medical College, Surat' (separate NMC row, Olpad/Surat, est. 2023, already matched)."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "AIIMS Rajkot",
+   "state": "Gujarat",
+   "city": "Rajkot",
+   "type": "Government",
+   "totalSeats": 50,
+   "affiliation": "Statutory Autonomous, AIIMS (Rajkot)",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json)"
+  },
+  {
+   "name": "Government Medical College, Vadodara (Baroda)",
+   "state": "Gujarat",
+   "city": "Vadodara",
+   "type": "Government",
+   "established": 1949,
+   "totalSeats": 250,
+   "affiliation": "MS University of Baroda",
+   "website": "http://www.medicalcollegebaroda.edu.in",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json)"
+  },
+  {
+   "name": "Shri M. P. Shah Government Medical College, Jamnagar",
+   "state": "Gujarat",
+   "city": "Jamnagar",
+   "type": "Government",
+   "established": 1955,
+   "totalSeats": 250,
+   "affiliation": "Saurashtra University",
+   "website": "http://www.mpsmc.in",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json)"
+  },
+  {
+   "name": "Smt. B. K. Shah Medical Institute & Research Centre (Sumandeep Vidyapeeth), Piparia, Vadodara",
+   "state": "Gujarat",
+   "city": "Vadodara",
+   "type": "Deemed",
+   "established": 2002,
+   "totalSeats": 250,
+   "affiliation": "Sumandeep Vidyapeeth (Deemed to be University), Vadodara",
+   "website": "https://sumandeepvidyapeethdu.edu.in",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json) for established/seats; deemed status: https://sumandeepvidyapeethdu.edu.in/ and https://admission.sumandeepvidyapeethdu.edu.in/department-of-medical.php (Deemed University u/s 3 of UGC Act since 17 Jan 2007; MBBS admissions 100% via MCC deemed counselling)"
+  },
+  {
+   "name": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
+   "state": "Gujarat",
+   "city": "Bharuch",
+   "type": "Private",
+   "established": 2020,
+   "totalSeats": 200,
+   "affiliation": "Veer Narmad South Gujarat University",
+   "website": "https://kmcri.ac.in",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json); city/management confirmed at https://kmcri.ac.in/about-institute/ (self-financed college run by Rudraksh Academy Pvt Ltd at New Civil Hospital Campus, Bharuch, Gujarat)"
+  },
+  {
+   "name": "ESIC Medical College, Naroda-Bapunagar, Ahmedabad",
+   "state": "Gujarat",
+   "city": "Ahmedabad",
+   "type": "Government",
+   "established": 2025,
+   "totalSeats": 100,
+   "source": "https://medicaldialogues.in/news/education/medical-colleges/gujarat-gets-nmc-nod-for-its-41st-medical-college-with-100-mbbs-seats-142523 (NMC LoP for 100 MBBS seats from AY 2025-26 at the ESIC Hospital, Naroda-Bapunagar, Ahmedabad - Gujarat's 41st medical college; run by ESIC, Ministry of Labour & Employment, Govt. of India). Post-dates the 2023 NMC registry, hence no NMC row."
+  },
+  {
+   "name": "Government Dental College and Hospital, Ahmedabad",
+   "state": "Gujarat",
+   "city": "Ahmedabad",
+   "type": "Government",
+   "established": 1963,
+   "totalSeats": 125,
+   "affiliation": "Gujarat University",
+   "website": "https://www.gdchahmd.org",
+   "source": "https://www.gdchahmd.org/ (official site: established 1963, government, Ahmedabad) and https://civilhospitalahd.gujarat.gov.in/dental-college.htm (Gujarat govt., Civil Hospital Asarwa campus); BDS intake 125 + Gujarat University affiliation per https://www.careers360.com/colleges/government-dental-college-and-hospital-ahmedabad. BDS college - deliberately NOT paired to any MBBS row (NMC UG registry is MBBS-only)."
+  },
+  {
+   "name": "Government Dental College and Hospital, Jamnagar",
+   "state": "Gujarat",
+   "city": "Jamnagar",
+   "type": "Government",
+   "established": 1991,
+   "totalSeats": 125,
+   "affiliation": "Saurashtra University",
+   "website": "https://gdchjam.org",
+   "source": "https://gdchjam.org/ (official site) and https://medicalneetug.com/college/government-dental-college-jamnagar (Government, est. 1991, 125 BDS seats, Saurashtra University, Jamnagar). BDS college - deliberately NOT paired to any MBBS row."
+  },
+  {
+   "name": "Matushri Prabhaben Khodabhai Boghara Medical College & Research Centre, Atkot, Rajkot",
+   "state": "Gujarat",
+   "city": "Rajkot",
+   "type": "Private",
+   "established": 2024,
+   "totalSeats": 150,
+   "affiliation": "Saurashtra University, Rajkot",
+   "website": "https://mpkbmedicalcollege.com",
+   "source": "http://mpkbmedicalcollege.com/wp-content/uploads/2025/05/NMC_UPD.pdf (college's mandatory NMC pro-forma: year of inception 2024, first LoP for 150 MBBS seats, Saurashtra University Rajkot, address Rajkot-Bhavnagar Highway, Atkot-360040, Ta. Jasdan, Dist. Rajkot) and https://mpkbmedicalcollege.com/ (run by Shree Patel Seva Samaj, Atkot -> Private). Founded after the 2023 NMC snapshot, hence no NMC row."
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "B.J. Medical College, Ahmedabad",
+   "aliases": [
+    "BJ Medical College, Ahmedabad"
+   ],
+   "reason": "Punctuation-only spelling variants of one college; both already resolve deterministically to the same NMC row 'B J Medical College, Ahmedabad' (Govt., Ahmedabad, est. 1946, 250 seats). Canonical keeps the fuller punctuated form, which already carries the NMC enrichment."
+  },
+  {
+   "canonical": "Government Medical College, Vadodara (Baroda)",
+   "aliases": [
+    "Medical College, Baroda (Government Medical College, Vadodara)"
+   ],
+   "reason": "Both records name the same institution - each one spells out the other's name in its own parentheses - and both resolve to the single NMC row 'Medical College, Baroda'. The alias record's city was corrupted to 'Vadodara)' by the display-name parser; the survivor has a clean city 'Vadodara'."
+  }
+ ],
+ "newColleges": [
+  {
+   "name": "Ananya College of Medicine & Research",
+   "state": "Gujarat",
+   "city": "Ahmedabad",
+   "type": "Private",
+   "established": 2023,
+   "totalSeats": 150,
+   "affiliation": "Gujarat University",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address '1050 G Block, KIRC Education Campus, Ahmedabad')"
+  },
+  {
+   "name": "Banas Medical College and Research Institute, Palanpur, Gujarat",
+   "state": "Gujarat",
+   "city": "Palanpur",
+   "type": "Private",
+   "established": 2018,
+   "totalSeats": 200,
+   "affiliation": "Hemchandracharya North Gujarat University, Patan",
+   "website": "http://www.bmcri.co.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address 'Moriya, Taluka and District Palanpur, Banaskantha, Palanpur - 385001')"
+  },
+  {
+   "name": "CU Shah Medical College, Surendra Nagar",
+   "state": "Gujarat",
+   "city": "Surendranagar",
+   "type": "Private",
+   "established": 2000,
+   "totalSeats": 100,
+   "affiliation": "Saurashtra University",
+   "website": "http://www.cusmc.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address 'Dudhrej Road, Surendranagar-363001')"
+  },
+  {
+   "name": "Government Medical College, Morbi",
+   "state": "Gujarat",
+   "city": "Morbi",
+   "type": "Government",
+   "established": 2022,
+   "totalSeats": 100,
+   "affiliation": "Saurashtra University, Rajkot",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address 'Civil Hospital Campus Sardar Nagar, Morbi-363641')"
+  },
+  {
+   "name": "Government Medical College, Panchmahal Godhra",
+   "state": "Gujarat",
+   "city": "Godhra",
+   "type": "Government",
+   "established": 2022,
+   "totalSeats": 100,
+   "affiliation": "Shri Govind Guru University, Godhara",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address 'General Hospital Godhra, Cuba Masjid Road, Shahwali Wad, Godhra, Panchmahal-389120')"
+  },
+  {
+   "name": "Government Medical College, Porbandar",
+   "state": "Gujarat",
+   "city": "Porbandar",
+   "type": "Government",
+   "established": 2022,
+   "totalSeats": 100,
+   "affiliation": "Bhakta Kavi Narsing Mehta University",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address '1, Behind ITI, Porbandar-360575')"
+  },
+  {
+   "name": "Nootan Medical College and Research Centre, Mehsana",
+   "state": "Gujarat",
+   "city": "Visnagar",
+   "type": "Private",
+   "established": 2019,
+   "totalSeats": 150,
+   "affiliation": "Sankalchand Patel University",
+   "website": "http://mbbs.spu.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address 'Sankalchand Patel Vidhyadham, Gandhinagar-Ambaji State Highway, Distt. Mehsana, Visnagar - 384315'. The registry's own city field reads 'Gujarat', which is not a city; city taken from the address line.)"
+  },
+  {
+   "name": "Pramukhswami Medical College, Karmsad",
+   "state": "Gujarat",
+   "city": "Karamsad",
+   "type": "Private",
+   "established": 1987,
+   "totalSeats": 150,
+   "affiliation": "Bhaikaka University",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address 'Pramukhswami Medical College, Karamsad-388325'. Website omitted: the registry's URL is truncated mid-path and does not resolve.)"
+  },
+  {
+   "name": "Swaminayaran Institute of Medical Sciences & Research",
+   "state": "Gujarat",
+   "city": "Gandhinagar",
+   "type": "Private",
+   "established": 2023,
+   "totalSeats": 150,
+   "affiliation": "Swaminayaran University",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json; address 'Shree Swaminayaran Vishvamangal Gurukul, At & PO Saij, Tal. Kalol, Gandhinagar-382725')"
+  }
+ ],
+ "unresolved": []
+}

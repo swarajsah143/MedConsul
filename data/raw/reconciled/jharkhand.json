@@ -1,0 +1,134 @@
+{
+  "state": "Jharkhand",
+  "pairings": [
+    {
+      "ourName": "AIIMS Deoghar",
+      "nmcName": "All India Institute of Medical Sciences, Deoghar",
+      "evidence": "Acronym expansion of the same institution; NMC address 'All India Institute of Medical Sciences, Deoghar, Jharkhand' matches our city Deoghar. Only AIIMS in Jharkhand."
+    },
+    {
+      "ourName": "Dumka Medical College",
+      "nmcName": "Dumka Medical College, Dighi Dumka",
+      "evidence": "Identical name plus NMC campus locality suffix (Dighi, Dumka). Only Dumka medical college in the NMC Jharkhand list."
+    },
+    {
+      "ourName": "Hazaribagh Medical College",
+      "nmcName": "Hazaribagh Medical College, Hazaribagh",
+      "evidence": "Identical name plus city suffix; NMC address 'Hazaribag Medical College, Hazaribag, PIN 825319, Jharkhand'. Unique match."
+    },
+    {
+      "ourName": "Mahatma Gandhi Memorial (MGM) Medical College, Jamshedpur",
+      "nmcName": "M G M Medical College, Jamshedpur",
+      "evidence": "NMC address spells the acronym out: 'Mahatma Gandhi Memorial Medical College, Dimna Road, Mango, East Singhbhum, Jamshedpur - 831020'. Same city, same institution. Distinct from Manipal Tata Medical College, the other Jamshedpur college (rule 4 checked)."
+    },
+    {
+      "ourName": "Palamu Medical College (Medininirai Medical College)",
+      "nmcName": "Palamu Medical College, Palamu",
+      "evidence": "NMC address 'Palamu Medical College, Pokhraha Khurd Shiv Nagar, Medininagar Palamu - 822101' matches both names our record carries (Palamu / Medini Rai, Medininagar)."
+    },
+    {
+      "ourName": "Patliputra Medical College (PMCH), Dhanbad",
+      "nmcName": "Shahed Nirmal Mahto Medical College & Hospital, Dhanbad",
+      "evidence": "Renamed institution, not a different one: the NMC row's own address reads 'Patliputra Medical College & Hospital, B.C.C.L. Township, Koyla Nagar, Dhanbad - 826005' and its website is http://www.patliputramedicaldhn.com/. Same college under its new name (Shaheed Nirmal Mahto). It is the only Dhanbad government medical college in the NMC list."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Deoghar",
+      "state": "Jharkhand",
+      "city": "Deoghar",
+      "type": "Government",
+      "established": 2019,
+      "totalSeats": 100,
+      "affiliation": "Statutory Autonomous, AIIMS (New Delhi)",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 5136)"
+    },
+    {
+      "name": "Dumka Medical College",
+      "state": "Jharkhand",
+      "city": "Dumka",
+      "type": "Government",
+      "established": 2019,
+      "totalSeats": 100,
+      "affiliation": "Sidho Kanhu Murmu University",
+      "website": "http://dumkamedicalcollege.org/",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 920)"
+    },
+    {
+      "name": "Hazaribagh Medical College",
+      "state": "Jharkhand",
+      "city": "Hazaribagh",
+      "type": "Government",
+      "established": 2019,
+      "totalSeats": 100,
+      "affiliation": "Binod Bihari Mahto Koyalanchal University, Dhanbad",
+      "website": "http://www.hazaribagmedicalcollege.org",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 913)"
+    },
+    {
+      "name": "Mahatma Gandhi Memorial (MGM) Medical College, Jamshedpur",
+      "state": "Jharkhand",
+      "city": "Jamshedpur",
+      "type": "Government",
+      "established": 1961,
+      "totalSeats": 50,
+      "affiliation": "Kolhan University, Chaibasa",
+      "website": "http://www.mgmmedicalcollege.org",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 89)"
+    },
+    {
+      "name": "Palamu Medical College (Medininirai Medical College)",
+      "state": "Jharkhand",
+      "city": "Medininagar",
+      "type": "Government",
+      "established": 2019,
+      "totalSeats": 100,
+      "affiliation": "Nilamber-Pitamber University",
+      "website": "http://www.pmchpalamu.org",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 911)"
+    },
+    {
+      "name": "Patliputra Medical College (PMCH), Dhanbad",
+      "state": "Jharkhand",
+      "city": "Dhanbad",
+      "type": "Government",
+      "established": 1969,
+      "totalSeats": 100,
+      "affiliation": "Binod Bihari Mahto Koyalanchal University, Dhanbad",
+      "website": "http://www.patliputramedicaldhn.com/",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 200)"
+    }
+  ],
+  "merges": [],
+  "newColleges": [
+    {
+      "name": "Manipal Tata Medical College, Jamshedpur",
+      "state": "Jharkhand",
+      "city": "Jamshedpur",
+      "type": "Deemed",
+      "established": 2020,
+      "totalSeats": 150,
+      "affiliation": "Manipal Academy of Higher Education (MAHE), Manipal",
+      "website": "https://manipal.edu/mtmc-jamshedpur.html",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 621) for established/seats; type=Deemed and affiliation per the college's own site https://manipal.edu/mtmc-jamshedpur.html which states it is the off-campus institute of MAHE, an Institution of Eminence deemed-to-be university (NMC lists it as 'Trust' because NMC has no Deemed value)"
+    },
+    {
+      "name": "Laxmi Chandravansi Medical College & Hospital",
+      "state": "Jharkhand",
+      "city": "Bishrampur",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 100,
+      "affiliation": "Ramchandra Chandravansi University, Bishrampur, Palamu",
+      "website": "http://www.lcmch.in",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 5199); city confirmed as Bishrampur, Palamu, Jharkhand from the NMC address field and the college's own site http://www.lcmch.in ('PO & PS: Bishrampur, Palamau-822132, Jharkhand') - the NMC city column wrongly reads 'bihar'"
+    }
+  ],
+  "unresolved": []
+}

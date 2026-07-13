@@ -1,0 +1,162 @@
+{
+ "state": "Chhattisgarh",
+ "pairings": [
+  {
+   "ourName": "AIIMS Raipur",
+   "nmcName": "All India Institute of Medical Sciences, Raipur",
+   "evidence": "AIIMS is the standard acronym expansion of 'All India Institute of Medical Sciences'. NMC row city=Raipur, address 'Great Eastern Road, AIIMS Campus, Tatibandh, Raipur-492099' matches our city=Raipur. Only AIIMS in the state, so no risk of the rule-4 same-city collision."
+  },
+  {
+   "ourName": "Pt Jawahar Lal Nehru Memorial Medical College, Raipur",
+   "nmcName": "Pt. J N M Medical College, Raipur",
+   "evidence": "'Pt. J N M' is the initialism of 'Pandit Jawahar Lal Nehru Memorial'; NMC website www.ptjnmcraipur.in spells out ptjnmc = Pt. Jawahar Lal Nehru Memorial College. Both Raipur, est. 1963, the state's oldest govt medical college."
+  },
+  {
+   "ourName": "Shri Balaji Institute of Medical Science, Raipur",
+   "nmcName": "Shri Balaji Institute of Medical Science",
+   "evidence": "Identical college name; NMC's city field is junk ('Chattisgarh'), but its address 'Shri balaji hospital campus, Mawa Raipur' confirms Raipur, matching our city=Raipur."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "AIIMS Raipur",
+   "state": "Chhattisgarh",
+   "city": "Raipur",
+   "type": "Government",
+   "established": 2012,
+   "totalSeats": 125,
+   "affiliation": "Statutory Autonomous, AIIMS(Raipur)",
+   "website": "http://www.aiimsraipur.edu.in",
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Pt Jawahar Lal Nehru Memorial Medical College, Raipur",
+   "state": "Chhattisgarh",
+   "city": "Raipur",
+   "type": "Government",
+   "established": 1963,
+   "totalSeats": 230,
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "website": "http://www.ptjnmcraipur.in",
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shri Balaji Institute of Medical Science, Raipur",
+   "state": "Chhattisgarh",
+   "city": "Raipur",
+   "type": "Private",
+   "established": 2021,
+   "totalSeats": 150,
+   "affiliation": "Pandit Deendayal Upadhyay Memorial Health Science & Ayush University of Chattisgarh",
+   "website": "http://www.shribalajimedicalcollege.com",
+   "source": "nmc-ug-registry (managementupdate='Society' -> Private; city taken from NMC address 'Mawa Raipur', NMC city field was 'Chattisgarh')"
+  },
+  {
+   "name": "Government Dental College, Raipur",
+   "state": "Chhattisgarh",
+   "city": "Raipur",
+   "type": "Government",
+   "established": 2003,
+   "totalSeats": 100,
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "website": "https://www.govtdentalcollegeraipur.in/",
+   "source": "https://www.govtdentalcollegeraipur.in/history.aspx (founded 26/5/2003, intake 100/year); https://raipur.gov.in/en/public-utility/govt-dental-college-raipur/ (Rajbandha Maidan, Raipur 492001; official website)"
+  },
+  {
+   "name": "Rungta College of Dental Sciences and Research, Bhilai",
+   "state": "Chhattisgarh",
+   "city": "Bhilai",
+   "type": "Private",
+   "established": 2005,
+   "totalSeats": 100,
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University of Chhattisgarh",
+   "website": "https://www.rungtacolleges.com/RCDSR.php",
+   "source": "https://www.rungtacolleges.com/RCDSR.php (college's own site: private, Bhilai, est. 2005, BDS intake 100, DCI-recognised)"
+  }
+ ],
+ "merges": [],
+ "newColleges": [
+  {
+   "name": "Late Shri Baliram Kashyap Memorial NDMC Govt. Medical College, Jagdalpur",
+   "state": "Chhattisgarh",
+   "city": "Jagdalpur",
+   "type": "Government",
+   "established": 2006,
+   "totalSeats": 125,
+   "affiliation": "Pt.Ravishankar Shukla University (Prev. Ravishankar University),Raipur",
+   "website": "http://www.gmcjagdalpur.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Late Shri Lakhi Ram Agrawal Memorial Govt. Medical College, Raigarh",
+   "state": "Chhattisgarh",
+   "city": "Raigarh",
+   "type": "Government",
+   "established": 2013,
+   "totalSeats": 100,
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "website": "http://www.gmcraigarh.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (city from NMC address 'T.V. Tower Road, Bendrachuwa, Raigarh - 496001'; NMC city field blank)"
+  },
+  {
+   "name": "Raipur Institute of Medical Sciences (RIMS), Raipur",
+   "state": "Chhattisgarh",
+   "city": "Raipur",
+   "type": "Private",
+   "established": 2016,
+   "totalSeats": 150,
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "website": "http://www.rimsindia.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (managementupdate='Society' -> Private)"
+  },
+  {
+   "name": "Shri Shankaracharya Institute of Medical Sciences, Bhilai",
+   "state": "Chhattisgarh",
+   "city": "Bhilai",
+   "type": "Private",
+   "established": 2016,
+   "totalSeats": 150,
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "website": "http://www.ssimsb.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (managementupdate='Society' -> Private; city from NMC address 'Ward No.1, Junwani, Bhilai-490020' and college name; NMC city field held the district 'Durg')"
+  },
+  {
+   "name": "Government Medical College, Mahasamund",
+   "state": "Chhattisgarh",
+   "city": "Mahasamund",
+   "type": "Government",
+   "established": 2022,
+   "totalSeats": 125,
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (city from NMC address '28, Kharora, Mahasamund-493445'; NMC city field blank; no website in registry)"
+  },
+  {
+   "name": "Government Medical College, Korba",
+   "state": "Chhattisgarh",
+   "city": "Korba",
+   "type": "Government",
+   "totalSeats": 125,
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (city from NMC address 'Balco - Urga Road, Village - Jhagarha, Korba- 495683'; NMC city field blank; yearOfInc blank in registry so `established` omitted rather than guessed)"
+  }
+ ],
+ "unresolved": []
+}

@@ -1,0 +1,77 @@
+{
+ "state": "Jammu & Kashmir",
+ "pairings": [
+  {
+   "ourName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
+   "nmcName": "All India Institute of Medical Sciences, Vijaypur",
+   "evidence": "Same institution: AIIMS Jammu at Vijaypur, Samba district. NMC row (collegeId 5214, email info@aiimsjammu.edu.in, Statutory Autonomous AIIMS (Vijaypur), 62 UG seats) is the only AIIMS in J&K. Our 'AIIMS Jammu (Vijaypur)' and 'AIIMS Vijaypur' are the same record under different spellings and are merged into this canonical name."
+  },
+  {
+   "ourName": "Government Medical College, Doda",
+   "nmcName": "Govt. Medical College, Doda, Kashmir",
+   "evidence": "Same institution: the only medical college in Doda district (NMC collegeId 5145, est. 2020, 100 UG seats, Kashmir University, principalgmcdoda@gmail.com). Name drift only ('Govt.' vs 'Government', trailing ', Kashmir')."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
+   "state": "Jammu & Kashmir",
+   "city": "Vijaypur",
+   "type": "Government",
+   "established": 2020,
+   "totalSeats": 62,
+   "affiliation": "Statutory Autonomous, AIIMS (Vijaypur)",
+   "website": "https://www.aiimsjammu.edu.in",
+   "source": "nmc-ug-registry (collegeId 5214: Govt., 62 UG seats, Statutory Autonomous AIIMS (Vijaypur)) + https://en.wikipedia.org/wiki/All_India_Institute_of_Medical_Sciences,_Vijaypur (Vijaypur, Samba district; MBBS from 2020, 62 seats from 2021-22) + https://www.aiimsjammu.edu.in/"
+  },
+  {
+   "name": "Government Medical College, Doda",
+   "state": "Jammu & Kashmir",
+   "city": "Doda",
+   "type": "Government",
+   "established": 2020,
+   "totalSeats": 100,
+   "affiliation": "Kashmir University",
+   "source": "nmc-ug-registry (collegeId 5145 'Govt. Medical College, Doda, Kashmir': Govt., yearOfInc 2020, 100 UG seats, Kashmir University)"
+  },
+  {
+   "name": "Sher-i-Kashmir Institute of Medical Sciences (SKIMS) Medical College, Bemina/Srinagar",
+   "state": "Jammu & Kashmir",
+   "city": "Srinagar",
+   "type": "Government",
+   "website": "https://www.skimsmc.edu.in",
+   "source": "https://www.skimsmc.edu.in/ (SKIMS Medical College & Hospital, Bemina, Srinagar; a Government college taken over by the Govt. of J&K in 1998) + https://en.wikipedia.org/wiki/Sher-e-Kashmir_Institute_of_Medical_Sciences"
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "Government Medical College and Associated Hospital, Rajouri",
+   "aliases": [
+    "Government Medical College, Rajouri"
+   ],
+   "reason": "One institution (NMC 'Government Medical College, Rajouri, J&K', collegeId 5143, Kheora Mehra, Rajouri). 'and Associated Hospital' is the official suffix used by the college; the shorter spelling is the same college."
+  },
+  {
+   "canonical": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
+   "aliases": [
+    "AIIMS Jammu (Vijaypur)",
+    "AIIMS Vijaypur"
+   ],
+   "reason": "Three spellings of the single AIIMS in Jammu & Kashmir, located at Vijaypur (Samba district) and commonly called AIIMS Jammu. Only one AIIMS exists in the state (NMC collegeId 5214)."
+  },
+  {
+   "canonical": "Sher-i-Kashmir Institute of Medical Sciences (SKIMS) Medical College, Bemina/Srinagar",
+   "aliases": [
+    "SKIMS Medical College, Bemina, Srinagar"
+   ],
+   "reason": "Same institution: SKIMS Medical College & Hospital, Bemina, Srinagar (the MBBS college run under SKIMS). Both records name Bemina explicitly, so this is a spelling variant, not the separate SKIMS Soura campus."
+  }
+ ],
+ "newColleges": [],
+ "unresolved": [
+  {
+   "name": "Government Medical Colleges, J&K (State Quota, all govt. colleges combined - aggregate last closing rank)",
+   "why": "Not a real institution - this is an aggregate pseudo-row from the source CSV representing the combined state-quota closing rank across all J&K government medical colleges. Its 'city' field ('all govt. colleges combined - aggregate last closing rank)') is parsing debris. It has no NMC row, no campus, no seats, and must not be imported as a college."
+  }
+ ]
+}

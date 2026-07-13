@@ -1,0 +1,25 @@
+{
+  "state": "Nagaland",
+  "pairings": [
+    {
+      "ourName": "Nagaland Institute of Medical Sciences and Research, Kohima",
+      "nmcName": "Nagaland Institute of Medical Sciences & Research",
+      "evidence": "Same institution under trivial name drift: 'and' vs '&', and our name carries a trailing city suffix. NMC row (collegeId 5289, address 'Phirebagie, Kohima, Nagaland Pin : 797001') is in the same city (Kohima) and offers MBBS, matching our record's course list. NIMSR is the only MBBS college in Nagaland in the NMC 2023 UG registry, so there is no same-city or cross-discipline college it could be confused with."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "Nagaland Institute of Medical Sciences and Research, Kohima",
+      "state": "Nagaland",
+      "city": "Kohima",
+      "type": "Government",
+      "established": 2023,
+      "totalSeats": 100,
+      "affiliation": "Nagaland University",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 5289; managementupdate 'Govt.' -> Government)"
+    }
+  ],
+  "merges": [],
+  "newColleges": [],
+  "unresolved": []
+}

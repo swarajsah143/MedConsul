@@ -1,0 +1,228 @@
+{
+ "state": "Madhya Pradesh",
+ "pairings": [
+  {
+   "ourName": "AIIMS Bhopal",
+   "nmcName": "All India Institute of Medical Sciences, Bhopal",
+   "evidence": "Same institution, acronym vs expansion. NMC row city Bhopal, affiliation 'Statutory Autonomous, AIIMS(Bhopal)', website aiimsbhopal.edu.in. Not paired with Gandhi Medical College, Bhopal (a separate Bhopal college that keeps its own NMC row)."
+  },
+  {
+   "ourName": "Atal Bihari Vajpayee Government Medical College, Vidisha",
+   "nmcName": "Government Medical College, Vidisha, MP",
+   "evidence": "GMC Vidisha's official name is Atal Bihari Vajpayee Government Medical College. NMC address 'Sagar Road, NH-86, In front of Govt. Khel Parisar, Vidisha - 454001'; website gmcvidisha.org. Only one government medical college exists in Vidisha."
+  },
+  {
+   "ourName": "Chhindwara Institute of Medical Sciences, Chhindwara",
+   "nmcName": "Government Medical College, Chhindwara, MP",
+   "evidence": "CIMS Chhindwara is the government medical college of Chhindwara. NMC address 'Govt. Medical College, Mandhata, Shivam Sundram Colony ... Chhindwara - 480001'; website govtmedicalcollegechhindwara.com. Only one government medical college in Chhindwara."
+  },
+  {
+   "ourName": "Government Medical College, Datia",
+   "nmcName": "Government Medical College, Datia, MP",
+   "evidence": "NMC address 'Govt. Medical College, Near 29 Batallion, NH-75, Distt. Datia- 475661 (M.P.)' and website datiamedicalcollege.com both confirm Datia. NOTE: this NMC row's city FIELD wrongly reads 'Ratlam' (bad data in the registry) — city taken from the row's own address instead. Government Medical College, Ratlam is a separate NMC row with its own Ratlam address (Gram Banjali, Sailana Road) and 180 seats; the two are different colleges and were not conflated."
+  },
+  {
+   "ourName": "Mahatma Gandhi Memorial Medical College, Indore",
+   "nmcName": "M G M Medical College, Indore",
+   "evidence": "M.G.M. = Mahatma Gandhi Memorial; same Indore government college, established 1948, 250 seats. Not paired with any Indore dental college (see rule 3)."
+  },
+  {
+   "ourName": "Nandkumar Singh Chouhan Government Medical College, Khandwa",
+   "nmcName": "Government Medical College, Khandwa, MP",
+   "evidence": "GMC Khandwa was renamed after Nandkumar Singh Chouhan. NMC address 'Luvkush Nagar Mundi Road, Tehsil Khandwa, District. Khandwa - 450001'; website gmckhandwa.org. Only one government medical college in Khandwa."
+  },
+  {
+   "ourName": "RD Gardi Medical College, Ujjain",
+   "nmcName": "Ruxmaniben Deepchand Gardi Medical College, Ujjain",
+   "evidence": "R.D. = Ruxmaniben Deepchand. Same Ujjain private college, affiliated to Vikram University, Ujjain; website rdgmc.edu.in."
+  },
+  {
+   "ourName": "RKDF Medical College Hospital and Research Centre, Bhopal",
+   "nmcName": "RKDF Medical College Hospital & Research Centre, Jatkhedi, Bhopal",
+   "evidence": "Same college; Jatkhedi is the Bhopal locality of the campus. Website rkdfmedicalcollege.org. Distinct from 'Ram Krishna College Hospital & Research Centre, Bhopal', which retains its own NMC row."
+  },
+  {
+   "ourName": "Shrimant Rajmata Vijayaraje Scindia Medical College, Shivpuri",
+   "nmcName": "Government Medical College, Shivpuri, MP",
+   "evidence": "GMC Shivpuri's official name is Shrimant Rajmata Vijayaraje Scindia Medical College. NMC address 'Govt. Medical College, Main Gwalior Highway, Near Katha Mill, Shivpuri-473551 (M.P.)'; website shivpurimedicalcollege.com. Only one government medical college in Shivpuri."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "AIIMS Bhopal",
+   "state": "Madhya Pradesh",
+   "city": "Bhopal",
+   "type": "Government",
+   "established": 2012,
+   "totalSeats": 125,
+   "affiliation": "Statutory Autonomous, AIIMS(Bhopal)",
+   "website": "http://www.aiimsbhopal.edu.in",
+   "source": "NMC UG registry snapshot 2023-08-31 (data/raw/nmc_ug_2023.json; https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'All India Institute of Medical Sciences, Bhopal', management Govt. -> Government"
+  },
+  {
+   "name": "Atal Bihari Vajpayee Government Medical College, Vidisha",
+   "state": "Madhya Pradesh",
+   "city": "Vidisha",
+   "type": "Government",
+   "established": 2018,
+   "totalSeats": 180,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "http://www.gmcvidisha.org",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Government Medical College, Vidisha, MP', address 'Sagar Road, NH-86 ... Vidisha - 454001', management Govt. -> Government"
+  },
+  {
+   "name": "Chhindwara Institute of Medical Sciences, Chhindwara",
+   "state": "Madhya Pradesh",
+   "city": "Chhindwara",
+   "type": "Government",
+   "established": 2019,
+   "totalSeats": 100,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "http://govtmedicalcollegechhindwara.com",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Government Medical College, Chhindwara, MP', address 'Mandhata, Shivam Sundram Colony, Chhindwara - 480001', management Govt. -> Government"
+  },
+  {
+   "name": "Government Medical College, Datia",
+   "state": "Madhya Pradesh",
+   "city": "Datia",
+   "type": "Government",
+   "established": 2018,
+   "totalSeats": 120,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "http://www.datiamedicalcollege.com",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Government Medical College, Datia, MP', address 'Near 29 Batallion, NH-75, Distt. Datia- 475661 (M.P.)', management Govt. -> Government. City taken from the row's address (and website datiamedicalcollege.com); the row's city field is corrupt and reads 'Ratlam', which belongs to the separate 'Government Medical College, Ratlam' row."
+  },
+  {
+   "name": "Government Medical College, Seoni",
+   "state": "Madhya Pradesh",
+   "city": "Seoni",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "https://www.gmcseoni.org/",
+   "source": "Not in the NMC 2023 registry (post-2023 college). Seats + government status: MP DME (state counselling authority) NEET-UG 2025 seat chart, 'GOVT. AUTONOMOUS MEDICAL & DENTAL COLLEGE' table, row '16- Government Medical college, Seoni  100' — https://www.dme.mponline.gov.in/ql_dme/DMECounselling_Public/DMEUG/2025/Seat%20chart%20MBBS%20BDS%202025_18.pdf . Established 2024: absent from the NMC registry as of 2023-08-31 and listed as a UG NEW college in NMC's 2024-25 UG seat matrix — https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf . Official site: https://www.gmcseoni.org/"
+  },
+  {
+   "name": "Government College of Dentistry, Indore",
+   "state": "Madhya Pradesh",
+   "city": "Indore",
+   "type": "Government",
+   "established": 1961,
+   "totalSeats": 63,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "https://www.gdcindore.com/",
+   "source": "BDS college — not in the NMC registry, which is MBBS-only. Official site https://www.gdcindore.com/ : 'Government Autonomous College of Dentistry, Indore (M.P.)', 'started in 1961', admits '63 undergraduate students', 'a maiden and Government Dental Institute of Madhya Pradesh', approved by the Dental Council of India and affiliated to Madhya Pradesh Medical Science University, Jabalpur. Seats corroborated by the MP DME NEET-UG 2025 seat chart, row '18- Government Dental College Indore  63' — https://www.dme.mponline.gov.in/ql_dme/DMECounselling_Public/DMEUG/2025/Seat%20chart%20MBBS%20BDS%202025_18.pdf . NOT the same institution as M G M Medical College, Indore (MBBS), which is a separate college."
+  },
+  {
+   "name": "Mahatma Gandhi Memorial Medical College, Indore",
+   "state": "Madhya Pradesh",
+   "city": "Indore",
+   "type": "Government",
+   "established": 1948,
+   "totalSeats": 250,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "http://www.mgmmcindore.in",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'M G M Medical College, Indore', management Govt. -> Government"
+  },
+  {
+   "name": "Nandkumar Singh Chouhan Government Medical College, Khandwa",
+   "state": "Madhya Pradesh",
+   "city": "Khandwa",
+   "type": "Government",
+   "established": 2018,
+   "totalSeats": 120,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "http://www.gmckhandwa.org",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Government Medical College, Khandwa, MP', address 'Luvkush Nagar Mundi Road, Tehsil Khandwa, District. Khandwa - 450001', management Govt. -> Government"
+  },
+  {
+   "name": "RD Gardi Medical College, Ujjain",
+   "state": "Madhya Pradesh",
+   "city": "Ujjain",
+   "type": "Private",
+   "established": 2001,
+   "totalSeats": 150,
+   "affiliation": "Vikram University, Ujjain",
+   "website": "http://www.rdgmc.edu.in",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Ruxmaniben Deepchand Gardi Medical College, Ujjain', management Trust -> Private"
+  },
+  {
+   "name": "RKDF Medical College Hospital and Research Centre, Bhopal",
+   "state": "Madhya Pradesh",
+   "city": "Bhopal",
+   "type": "Private",
+   "established": 2014,
+   "totalSeats": 150,
+   "affiliation": "Barkatullah University",
+   "website": "http://www.rkdfmedicalcollege.org",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'RKDF Medical College Hospital & Research Centre, Jatkhedi, Bhopal', management Trust -> Private"
+  },
+  {
+   "name": "Shrimant Rajmata Vijayaraje Scindia Medical College, Shivpuri",
+   "state": "Madhya Pradesh",
+   "city": "Shivpuri",
+   "type": "Government",
+   "established": 2019,
+   "totalSeats": 100,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "http://www.shivpurimedicalcollege.com",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Government Medical College, Shivpuri, MP', address 'Main Gwalior Highway, Near Katha Mill, Shivpuri-473551 (M.P.)', management Govt. -> Government"
+  },
+  {
+   "name": "Sunderlal Patwa Government Medical College, Mandsaur",
+   "state": "Madhya Pradesh",
+   "city": "Mandsaur",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "https://spgmcmandsaur.edu.in/",
+   "source": "Not in the NMC 2023 registry (post-2023 college). Seats + government status: MP DME (state counselling authority) NEET-UG 2025 seat chart, 'GOVT. AUTONOMOUS MEDICAL & DENTAL COLLEGE' table, row '15- Sunderlal Patwa Government Medical college, Mandsaur  100' — https://www.dme.mponline.gov.in/ql_dme/DMECounselling_Public/DMEUG/2025/Seat%20chart%20MBBS%20BDS%202025_18.pdf . Established 2024: absent from the NMC registry as of 2023-08-31 and listed as a UG NEW college in NMC's 2024-25 UG seat matrix — https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf . Official site: https://spgmcmandsaur.edu.in/"
+  }
+ ],
+ "merges": [],
+ "newColleges": [
+  {
+   "name": "LNCT Medical College & Sewakunj Hospital, Indore",
+   "state": "Madhya Pradesh",
+   "city": "Indore",
+   "type": "Private",
+   "established": 2021,
+   "totalSeats": 150,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "website": "http://indorelnmc.com/deanmessage",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — management Trust -> Private. City normalised from the row's 'indore' to 'Indore'."
+  },
+  {
+   "name": "Mahaveer Institute of Medical Sciences & Research, Bhopal",
+   "state": "Madhya Pradesh",
+   "city": "Bhopal",
+   "type": "Private",
+   "established": 2020,
+   "totalSeats": 150,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — management Trust -> Private. No website in the registry, so the field is omitted."
+  },
+  {
+   "name": "Sukh Sagar Medical College & Hospital, Jabalpur",
+   "state": "Madhya Pradesh",
+   "city": "Jabalpur",
+   "type": "Private",
+   "established": 2021,
+   "totalSeats": 150,
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — management Trust -> Private. City taken from the row's address 'Mouza Chargawan ... Revenue Circle Bargi Tehsil & Dist. Jabalpur, M.P.' because the row's city field wrongly repeats the state ('Madhya Pradesh'). No website in the registry, so the field is omitted."
+  }
+ ],
+ "unresolved": []
+}

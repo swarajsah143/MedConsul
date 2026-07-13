@@ -1,0 +1,25 @@
+{
+  "state": "Mizoram",
+  "pairings": [
+    {
+      "ourName": "Zoram Medical College, Falkawn",
+      "nmcName": "Zoram Medical College, Mizoram",
+      "evidence": "Same institution, name drift only: our record carries the campus town ('Falkawn'), the NMC row carries the state ('Mizoram'). The NMC row's own address confirms the town — 'State Referral Hospital, Falkawn-796005 (Mizoram)' — and its city field is literally 'Falkawn', matching our city character-for-character. Both are MBBS (rule 3 satisfied). This is also the ONLY MBBS college in Mizoram in the NMC 2023 UG registry, so there is no second Mizoram college it could be confused with (rule 4 is not in play). NMC row: managementupdate 'Govt.' -> Government, est. 2018, 100 UG seats, affiliated to Mizoram University."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "Zoram Medical College, Falkawn",
+      "state": "Mizoram",
+      "city": "Falkawn",
+      "type": "Government",
+      "established": 2018,
+      "totalSeats": 100,
+      "affiliation": "Mizoram University",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    }
+  ],
+  "merges": [],
+  "newColleges": [],
+  "unresolved": []
+}

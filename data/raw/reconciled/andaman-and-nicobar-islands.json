@@ -1,0 +1,23 @@
+{
+  "state": "Andaman Nicobar Islands",
+  "pairings": [],
+  "enrichment": [],
+  "merges": [],
+  "newColleges": [
+    {
+      "name": "Andaman & Nicobar Islands Institute of Medical Sciences, Port Blair",
+      "state": "Andaman Nicobar Islands",
+      "city": "Port Blair",
+      "type": "Government",
+      "established": 2015,
+      "totalSeats": 114,
+      "affiliation": "Pondicherry University",
+      "website": "https://aniims.andamannicobar.gov.in/",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 825: managementupdate 'Govt.' -> Government, yearOfInc 2015, ugApproved 114, universityName 'Pondicherry University'). Website field REPLACED: NMC's stored http://www.aniims.org is a lapsed domain now serving an unrelated gambling site, so the official verified site https://aniims.andamannicobar.gov.in/ is used instead. Establishment/type/seats corroborated at https://aniims.andamannicobar.gov.in/ and https://collegedunia.com/college/59214-andaman-and-nicobar-islands-institute-of-medical-sciences-aniims-port-blair. Affiliation kept as Pondicherry University: the announced move to NSCBIHL was put on hold and current students still receive Pondicherry University degrees - https://news.careers360.com/7-andaman-colleges-pondicherry-university-ncsbihl-deemed-uni-student-protest-2-months-fees-syllabus-st-quota-degree-value-fears"
+    }
+  ],
+  "unresolved": []
+}

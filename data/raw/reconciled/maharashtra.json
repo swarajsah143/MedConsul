@@ -1,0 +1,673 @@
+{
+ "state": "Maharashtra",
+ "pairings": [
+  {
+   "ourName": "AIIMS Nagpur",
+   "nmcName": "All India Institute of Medical Sciences, Nagpur",
+   "evidence": "Same institution: AIIMS Nagpur is the NMC row 'All India Institute of Medical Sciences, Nagpur' (est. 2018, 125 seats, website aiimsnagpur.edu.in). NMC's city cell reads 'Maharashtra' (bad data); city Nagpur kept from our own record and confirmed by the college website."
+  },
+  {
+   "ourName": "Ashwini Rural Medical College Hospital and Research Centre, Kumbhari",
+   "nmcName": "Ashwini Rural Medical College, Hospital & Research Centre, Solapur",
+   "evidence": "Same institution, spelling drift. Kumbhari is the village of the CPR/Ashwini campus in Solapur district; NMC lists the same college (est. 2012, 100 seats, armch.org) under the district name Solapur."
+  },
+  {
+   "ourName": "Dr NY Tasgaonkar Institute of Medical Sciences, Karjat",
+   "nmcName": "Dr. N Y Tasgaonkar Institute of Medical Science",
+   "evidence": "Same institution (NMC row is the only Tasgaonkar medical college in India: est. 2021, 100 seats, raigadhospital.com — Bhivpuri Road, Karjat, Raigad). NMC's city cell reads 'maharashtra' (bad data); city Karjat kept from our own record."
+  },
+  {
+   "ourName": "MGM Medical College, Navi Mumbai",
+   "nmcName": "Mahatma Gandhi Missions Medical College, Navi Mumbai",
+   "evidence": "Same institution: MGM = Mahatma Gandhi Missions, Kamothe/Navi Mumbai campus, est. 1989, 200 seats. Deliberately NOT paired with 'Mahatma Gandhi Mission Medical College, Vashi' (est. 2023, 100 seats) — a different, newer MGM college in the same city (rule 4)."
+  },
+  {
+   "ourName": "MGM Medical College, Aurangabad — Management/Paid seats",
+   "nmcName": "Mahatma Gandhi Missions Medical College, Aurangabad",
+   "evidence": "Same institution (MGM Aurangabad, est. 1989, 200 seats). Our only two records for this college are seat-category shards ('— Management/Paid seats' / '— NRI seats'); the Management shard is kept as survivor and the NRI shard merged into it."
+  },
+  {
+   "ourName": "NKP Salve Institute of Medical Sciences and Research Centre, Nagpur",
+   "nmcName": "N. K. P. Salve Instt. of Medical Sciences and Research Centre and Lata Mangeshkar Hospital, Nagpur",
+   "evidence": "Same institution, abbreviation drift (NKP Salve Institute + Lata Mangeshkar Hospital, Nagpur; est. 1990, 200 seats)."
+  },
+  {
+   "ourName": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — Management/Paid seats",
+   "nmcName": "Rural Medical College, Loni",
+   "evidence": "Same institution: Rural Medical College, Loni is the MBBS college of Pravara Institute of Medical Sciences (Deemed University), est. 1984, 200 seats. Our only records for it are seat-category shards; the Management shard is the survivor."
+  },
+  {
+   "ourName": "SMBT Institute of Medical Sciences and Research Center, Nashik",
+   "nmcName": "SMBT Institute of Medical Sciences & Research Centre, Nandihills, Nashik",
+   "evidence": "Same institution, spelling drift (Nandihills, Nashik; est. 2014, 150 seats, smbt.edu.in)."
+  },
+  {
+   "ourName": "Smt Kashibai Navale Medical College, Ambegaon (Sinhgad Technical Education Society)",
+   "nmcName": "Smt. Kashibai Navale Medical College and General Hospital,Pune",
+   "evidence": "Same institution: the Sinhgad/STES college at Narhe-Ambegaon is inside Pune city; NMC lists it as Pune (est. 2007, 150 seats, sknmcgh.org)."
+  },
+  {
+   "ourName": "Swami Ramanand Tirth Rural Government Medical College, Ambajogai",
+   "nmcName": "SRTR Medical College, Ambajogai",
+   "evidence": "Same institution: SRTR = Swami Ramanand Tirth Rural, Ambajogai (Govt., est. 1974, 150 seats)."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "AIIMS Nagpur",
+   "state": "Maharashtra",
+   "city": "Nagpur",
+   "type": "Government",
+   "established": 2018,
+   "totalSeats": 125,
+   "affiliation": "Statutory Autonomous, AIIMS (New Delhi)",
+   "website": "https://aiimsnagpur.edu.in/",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — city taken from our own record (NMC city cell reads 'Maharashtra') and confirmed at https://aiimsnagpur.edu.in/"
+  },
+  {
+   "name": "Ashwini Rural Medical College Hospital and Research Centre, Kumbhari",
+   "state": "Maharashtra",
+   "city": "Solapur",
+   "type": "Private",
+   "established": 2012,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.armch.org",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Dr NY Tasgaonkar Institute of Medical Sciences, Karjat",
+   "state": "Maharashtra",
+   "city": "Karjat",
+   "type": "Private",
+   "established": 2021,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.raigadhospital.com",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — city taken from our own record (NMC city cell reads 'maharashtra')"
+  },
+  {
+   "name": "MGM Medical College, Navi Mumbai",
+   "state": "Maharashtra",
+   "city": "Navi Mumbai",
+   "type": "Deemed",
+   "established": 1989,
+   "totalSeats": 200,
+   "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+   "website": "http://www.mgmmcnm.edu.in",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName 'MGM Institute of Health Sciences (Deemed University)'"
+  },
+  {
+   "name": "MGM Medical College, Aurangabad — Management/Paid seats",
+   "state": "Maharashtra",
+   "city": "Aurangabad",
+   "type": "Deemed",
+   "established": 1989,
+   "totalSeats": 200,
+   "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+   "website": "http://www.themgmgroup.com",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName 'MGM Institute of Health Sciences (Deemed University)'"
+  },
+  {
+   "name": "NKP Salve Institute of Medical Sciences and Research Centre, Nagpur",
+   "state": "Maharashtra",
+   "city": "Nagpur",
+   "type": "Private",
+   "established": 1990,
+   "totalSeats": 200,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.nkpsims.edu.in",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — Management/Paid seats",
+   "state": "Maharashtra",
+   "city": "Loni",
+   "type": "Deemed",
+   "established": 1984,
+   "totalSeats": 200,
+   "affiliation": "Pravara Institute of Medical Sciences (Deemed University), Ahmednagar",
+   "website": "http://www.pravara.com",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName 'Pravara Institute of Medical Sciences (Deemed University)'"
+  },
+  {
+   "name": "SMBT Institute of Medical Sciences and Research Center, Nashik",
+   "state": "Maharashtra",
+   "city": "Nashik",
+   "type": "Private",
+   "established": 2014,
+   "totalSeats": 150,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://smbt.edu.in",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Smt Kashibai Navale Medical College, Ambegaon (Sinhgad Technical Education Society)",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Private",
+   "established": 2007,
+   "totalSeats": 150,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.sknmcgh.org",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Swami Ramanand Tirth Rural Government Medical College, Ambajogai",
+   "state": "Maharashtra",
+   "city": "Ambajogai",
+   "type": "Government",
+   "established": 1974,
+   "totalSeats": 150,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.srtrmca.org",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Government",
+   "established": 1964,
+   "totalSeats": 250,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.bjmcpune.org",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Bharati Vidyapeeth Medical College, Pune",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Deemed",
+   "established": 1989,
+   "totalSeats": 150,
+   "affiliation": "Bharati Vidyapeeth (Deemed to be University), Pune",
+   "website": "http://www.mcpune.bharatividyapeeth.edu",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName 'Bharati Vidyapeeth University (Deemed), Pune'"
+  },
+  {
+   "name": "Dr D Y Patil Medical College, Kolhapur",
+   "state": "Maharashtra",
+   "city": "Kolhapur",
+   "type": "Deemed",
+   "established": 1989,
+   "totalSeats": 150,
+   "affiliation": "D. Y. Patil Education Society (Deemed University), Kolhapur",
+   "website": "http://www.dypatilunikop.org",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName"
+  },
+  {
+   "name": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
+   "state": "Maharashtra",
+   "city": "Navi Mumbai",
+   "type": "Deemed",
+   "established": 1989,
+   "totalSeats": 250,
+   "affiliation": "Padmashree Dr. D. Y. Patil University (Deemed), Navi Mumbai",
+   "website": "http://www.dypatil.edu",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName"
+  },
+  {
+   "name": "Dr D Y Patil Medical College, Pimpri, Pune",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Deemed",
+   "established": 1995,
+   "totalSeats": 250,
+   "affiliation": "Dr. D. Y. Patil Vidyapeeth (Deemed University), Pimpri, Pune",
+   "website": "http://www.medical.dpu.edu.in",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName"
+  },
+  {
+   "name": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+   "state": "Maharashtra",
+   "city": "Mumbai",
+   "type": "Government",
+   "established": 1845,
+   "totalSeats": 250,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.grantmedicalcollege-jjhospital.org",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "HBT Medical College and Dr RN Cooper Municipal Medical College, Mumbai",
+   "state": "Maharashtra",
+   "city": "Mumbai",
+   "type": "Government",
+   "established": 2015,
+   "totalSeats": 200,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.hbtmc.edu.in",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Indira Gandhi Government Medical College and Hospital, Nagpur",
+   "state": "Maharashtra",
+   "city": "Nagpur",
+   "type": "Government",
+   "established": 1968,
+   "totalSeats": 200,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) (NMC website cell 'www.igmcnnagpur' is malformed, so no website recorded)"
+  },
+  {
+   "name": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
+   "state": "Maharashtra",
+   "city": "Wardha",
+   "type": "Deemed",
+   "established": 1990,
+   "totalSeats": 250,
+   "affiliation": "Datta Meghe Institute of Higher Education & Research (Deemed to be University), Sawangi (Meghe), Wardha",
+   "website": "http://www.dmimsu.edu.in",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName"
+  },
+  {
+   "name": "Krishna Institute of Medical Sciences, Karad",
+   "state": "Maharashtra",
+   "city": "Karad",
+   "type": "Deemed",
+   "established": 1984,
+   "totalSeats": 250,
+   "affiliation": "Krishna Vishwa Vidyapeeth (Deemed to be University), Karad",
+   "website": "http://www.kimskarad.in",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — type Deemed retained from our record and confirmed by NMC universityName 'Krishna Vishwa Vidyapeeth, Karad'"
+  },
+  {
+   "name": "Lokmanya Tilak Municipal Medical College (LTMMC), Sion, Mumbai",
+   "state": "Maharashtra",
+   "city": "Mumbai",
+   "type": "Government",
+   "established": 1964,
+   "totalSeats": 200,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.ltmgh.com",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Terna Medical College, Nerul, Navi Mumbai",
+   "state": "Maharashtra",
+   "city": "Navi Mumbai",
+   "type": "Private",
+   "established": 1991,
+   "totalSeats": 150,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.ternamedical.org",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Maharashtra Institute of Medical Education and Research (MIMER), Talegaon, Pune",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Private",
+   "established": 1994,
+   "totalSeats": 150,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.mitmimer.com",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Rajiv Gandhi Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane",
+   "state": "Maharashtra",
+   "city": "Thane",
+   "type": "Government",
+   "established": 1992,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.rgmc.thanecity.gov.in",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — city Thane kept from our own record and the college's own domain (rgmc.thanecity.gov.in); NMC's city cell says 'Mumbai', which is wrong (the college is in Kalwa, Thane)"
+  },
+  {
+   "name": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
+   "state": "Maharashtra",
+   "city": "Mumbai",
+   "type": "Government",
+   "established": 1925,
+   "totalSeats": 250,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.kem.edu",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
+   "state": "Maharashtra",
+   "city": "Mumbai",
+   "type": "Government",
+   "established": 1964,
+   "totalSeats": 150,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.tnmcnair.com",
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Government Medical College and Hospital, Bhandara",
+   "state": "Maharashtra",
+   "city": "Bhandara",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 336: Government Medical College, Bhandara — Govt., 2024, 100 seats, MUHS Nashik)"
+  },
+  {
+   "name": "Government Medical College and Hospital, Washim",
+   "state": "Maharashtra",
+   "city": "Washim",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 338: Government Medical College, Washim — Govt., 2024, 100 seats, MUHS Nashik)"
+  },
+  {
+   "name": "Government Medical College, Ambernath",
+   "state": "Maharashtra",
+   "city": "Ambernath",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 339: Government Medical College, Ambernath — Govt., 2024, 100 seats, MUHS Nashik)"
+  },
+  {
+   "name": "Government Medical College, Amravati",
+   "state": "Maharashtra",
+   "city": "Amravati",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 340: Government Medical College, Amravati — Govt., 2024, 100 seats, MUHS Nashik). Distinct from Dr. Panjabrao Deshmukh Memorial Medical College and Dr. Rajendra Gode Medical College, the two older private colleges in Amravati."
+  },
+  {
+   "name": "Government Medical College, Gadchiroli",
+   "state": "Maharashtra",
+   "city": "Gadchiroli",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 334: Government Medical College, Gadchiroli — Govt., 2024, 100 seats, MUHS Nashik)"
+  },
+  {
+   "name": "Government Medical College, Hingoli",
+   "state": "Maharashtra",
+   "city": "Hingoli",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 337: Government Medical College, Hingoli — Govt., 2024, 100 seats, MUHS Nashik)"
+  },
+  {
+   "name": "Government Medical College, Jalna",
+   "state": "Maharashtra",
+   "city": "Jalna",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 333: Government Medical College, Jalna — Govt., 2024, 100 seats, MUHS Nashik). Distinct from Indian Institute of Medical Science & Research, Jalna (private, 2013)."
+  },
+  {
+   "name": "Government Medical College, Nashik",
+   "state": "Maharashtra",
+   "city": "Nashik",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 50,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 330: Government Medical College, Nashik — Govt., 2024, 50 seats, MUHS Nashik)"
+  },
+  {
+   "name": "Shri Ramachandra Institute of Medical Sciences, Aurangabad",
+   "state": "Maharashtra",
+   "city": "Aurangabad",
+   "type": "Private",
+   "established": 2024,
+   "totalSeats": 50,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf (row 332: Shri Ramchandra Institute of Medical Sciences, Aurangabad — Private, 2024, 50 seats, MUHS Nashik). A new Chhatrapati Sambhajinagar college (R. K. Damani Medical College / Dr. Hedgewar Hospital); unrelated to Sri Ramachandra, Chennai."
+  },
+  {
+   "name": "Government Dental College and Hospital, Mumbai",
+   "state": "Maharashtra",
+   "city": "Mumbai",
+   "type": "Government",
+   "established": 1928,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "https://gdcmumbai.edu.in/",
+   "source": "https://gdcmumbai.edu.in/ (official site: Government Dental College & Hospital, Mumbai, established 1928, affiliated to MUHS Nashik). BDS intake not stated on the site, so totalSeats is omitted."
+  },
+  {
+   "name": "Bharati Vidyapeeth Dental College and Hospital, Sangli",
+   "state": "Maharashtra",
+   "city": "Sangli",
+   "type": "Deemed",
+   "established": 2007,
+   "affiliation": "Bharati Vidyapeeth (Deemed to be University), Pune",
+   "website": "https://bvp.bharatividyapeeth.edu/index.php/dental-college-and-hospital-sangli",
+   "source": "https://bvp.bharatividyapeeth.edu/index.php/dental-college-and-hospital-sangli (official: constituent unit of Bharati Vidyapeeth since 2007, Wanlesswadi, Sangli). BDS intake not stated, so totalSeats is omitted. Separate institution from Bharati Vidyapeeth Deemed University Medical College, Sangli (rule 3)."
+  },
+  {
+   "name": "DY Patil University School of Dentistry, Navi Mumbai",
+   "state": "Maharashtra",
+   "city": "Navi Mumbai",
+   "type": "Deemed",
+   "affiliation": "D. Y. Patil Deemed to be University, Navi Mumbai",
+   "website": "https://dypatil.edu/schools/school-of-dentistry",
+   "source": "https://dypatil.edu/schools/school-of-dentistry (official: School of Dentistry, Sector 7 Nerul, Navi Mumbai, a school of D Y Patil Deemed to be University). Establishment year and BDS intake are not stated there, so both are omitted."
+  },
+  {
+   "name": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Deemed",
+   "established": 2000,
+   "totalSeats": 100,
+   "affiliation": "Dr. D. Y. Patil Vidyapeeth (Deemed to be University), Pimpri, Pune",
+   "website": "https://dental.dpu.edu.in/",
+   "source": "https://www.shiksha.com/college/dr-d-y-patil-dental-college-and-hospital-pimpri-pune-52656 (inception 2000, ~100 BDS seats per year; official site https://dental.dpu.edu.in/ blocks automated fetches). Separate institution from Dr D Y Patil Medical College, Pimpri, Pune (rule 3)."
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
+   "aliases": [
+    "B.J. Government Medical College, Pune",
+    "BJ Government Medical College, Pune",
+    "BJ Medical College, Pune",
+    "Byramjee Jeejeebhoy Government Medical College, Pune"
+   ],
+   "reason": "All five spellings are B. J. Government Medical College & Sassoon General Hospital, Pune (NMC: 'B. J.  Govt. Medical College, Pune', Govt., est. 1964, 250 seats). Survivor is the full official name."
+  },
+  {
+   "canonical": "Bharati Vidyapeeth Medical College, Pune",
+   "aliases": [
+    "Bharati Vidyapeeth Deemed University Medical College, Pune — NRI seats",
+    "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats"
+   ],
+   "reason": "One college (NMC: 'Bharati Vidyapeeth University Medical College, Pune', est. 1989, 150 seats) split into seat-category shards. NOT merged with Bharati Vidyapeeth Sangli (a separate college) or with the Sangli dental college."
+  },
+  {
+   "canonical": "Dr D Y Patil Medical College, Kolhapur",
+   "aliases": [
+    "Dr D Y Patil Medical College, Kolhapur — NRI seats",
+    "Dr D Y Patil Medical College, Kolhapur — General category",
+    "Dr D Y Patil Medical College, Kolhapur — Management/Paid seats",
+    "Dr DY Patil Education Society Deemed University, Kolhapur"
+   ],
+   "reason": "One college: NMC 'Dr. D Y Patil Medical College, Kolhapur' (est. 1989, 150 seats), whose parent is D.Y. Patil Education Society (Deemed University), Kolhapur — the society's MBBS entry and the three seat-category shards are the same MBBS college."
+  },
+  {
+   "canonical": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
+   "aliases": [
+    "Dr D Y Patil Medical College, Navi Mumbai",
+    "Dr D Y Patil Medical College, Navi Mumbai — General category",
+    "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
+    "Dr D Y Patil Medical College, Navi Mumbai — NRI seats",
+    "Dr D Y Patil Medical College, Nerul, Navi Mumbai",
+    "Dr DY Patil Medical College, Navi Mumbai"
+   ],
+   "reason": "All are the Nerul/Navi Mumbai college (NMC: 'Padmashree Dr. D.Y.Patil Medical College, Navi Mumbai', est. 1989, 250 seats). NOTE: the packet's duplicate cluster wrongly put 'Dr D Y Patil Medical College, Navi Mumbai — General category' under H.B.T./Cooper, Mumbai — that is a matcher error and it is placed here instead."
+  },
+  {
+   "canonical": "Dr D Y Patil Medical College, Pimpri, Pune",
+   "aliases": [
+    "Dr. D Y Patil Medical College, Pune",
+    "Dr D Y Patil Medical College Hospital and Research Centre, Pune — Management/Paid seats",
+    "Dr D Y Patil Medical College Hospital and Research Centre, Pune — NRI seats"
+   ],
+   "reason": "One college: NMC 'Dr. D Y Patil Medical College, Hospital and Research Centre, Pimpri, Pune' (Dr. D Y Patil Vidyapeeth Deemed University, est. 1995, 250 seats). Kept separate from the Kolhapur and Navi Mumbai D Y Patil colleges (rule 4)."
+  },
+  {
+   "canonical": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+   "aliases": [
+    "Grant Medical College, Mumbai",
+    "Grant Medical College & Sir JJ Hospital, Mumbai",
+    "Grant Government Medical College, Mumbai"
+   ],
+   "reason": "All four are Grant Government Medical College & Sir J.J. Group of Hospitals, Mumbai (NMC: 'Grant Medical College, Mumbai', Govt., est. 1845, 250 seats)."
+  },
+  {
+   "canonical": "HBT Medical College and Dr RN Cooper Municipal Medical College, Mumbai",
+   "aliases": [
+    "HBT Medical College & Dr. R.N. Cooper Hospital, Mumbai",
+    "HBT Medical College and Dr RN Cooper Medical College, Mumbai"
+   ],
+   "reason": "All three are H.B.T. Medical College & Dr. R. N. Cooper Municipal General Hospital, Juhu, Mumbai (Govt./municipal, est. 2015, 200 seats)."
+  },
+  {
+   "canonical": "Indira Gandhi Government Medical College and Hospital, Nagpur",
+   "aliases": [
+    "Indira Gandhi Medical College, Nagpur"
+   ],
+   "reason": "One college (NMC: 'Indira Gandhi Medical College & Hospital, Nagpur', Govt., est. 1968, 200 seats). Not to be confused with IGMC Shimla."
+  },
+  {
+   "canonical": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
+   "aliases": [
+    "Jawaharlal Nehru Medical College, DMIMS, Wardha",
+    "Datta Meghe Institute of Higher Education and Research (DMIMS), Jawaharlal Nehru Medical College, Wardha",
+    "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — Management/Paid seats",
+    "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — NRI seats"
+   ],
+   "reason": "All are JNMC Sawangi (Meghe), Wardha, of Datta Meghe Institute of Higher Education & Research (Deemed), est. 1990, 250 seats. Deliberately NOT merged with 'Datta Meghe Medical College, Nagpur' — a different college of the same trust in another city (rule 4)."
+  },
+  {
+   "canonical": "Krishna Institute of Medical Sciences, Karad",
+   "aliases": [
+    "Krishna Institute of Medical Sciences (KIMS), Karad — NRI seats",
+    "Krishna Institute of Medical Sciences (KIMS), Karad — Management/Paid seats",
+    "Krishna Vishwa Vidyapeeth, Karad"
+   ],
+   "reason": "One college: KIMS Karad (est. 1984, 250 seats). Its parent deemed university was renamed Krishna Vishwa Vidyapeeth (NMC universityName: 'Krishna Vishwa Vidyapeeth, Karad, Maharashtra'), which is the same MBBS institution under the university's name."
+  },
+  {
+   "canonical": "Lokmanya Tilak Municipal Medical College (LTMMC), Sion, Mumbai",
+   "aliases": [
+    "Lokmanya Tilak Municipal Medical College, Mumbai"
+   ],
+   "reason": "One college (NMC: 'Lokmanya Tilak Municipal Medical College, Sion, Mumbai', Govt./municipal, est. 1964, 200 seats)."
+  },
+  {
+   "canonical": "Terna Medical College, Nerul, Navi Mumbai",
+   "aliases": [
+    "Terna Medical College, Navi Mumbai"
+   ],
+   "reason": "One college (NMC: 'Terna Medical College, Navi Mumbai' at Nerul, est. 1991, 150 seats)."
+  },
+  {
+   "canonical": "MGM Medical College, Navi Mumbai",
+   "aliases": [
+    "MGM Medical College and Hospital, Navi Mumbai — Management/Paid seats",
+    "MGM Medical College and Hospital, Navi Mumbai — NRI seats"
+   ],
+   "reason": "Seat-category shards of MGM (Mahatma Gandhi Missions) Medical College, Navi Mumbai (Kamothe, est. 1989, 200 seats). Not merged with MGM Vashi, a separate 2023 college."
+  },
+  {
+   "canonical": "MGM Medical College, Aurangabad — Management/Paid seats",
+   "aliases": [
+    "MGM Medical College, Aurangabad — NRI seats"
+   ],
+   "reason": "Both records are seat-category shards of the single MGM Medical College, Aurangabad (est. 1989, 200 seats). No clean-named base record exists, so the Management shard survives; its city is corrected to Aurangabad by enrichment."
+  },
+  {
+   "canonical": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — Management/Paid seats",
+   "aliases": [
+    "Rural Medical College and Pravara Institute of Medical Sciences, Loni — NRI seats"
+   ],
+   "reason": "Both records are seat-category shards of Rural Medical College, Loni (Pravara Institute of Medical Sciences Deemed University, est. 1984, 200 seats). No clean-named base record exists, so the Management shard survives; its city is corrected to Loni by enrichment."
+  },
+  {
+   "canonical": "Maharashtra Institute of Medical Education and Research (MIMER), Talegaon, Pune",
+   "aliases": [
+    "MIMER Medical College, Talegaon, Pune"
+   ],
+   "reason": "MIMER is the acronym of Maharashtra Institute of Medical Education & Research, Talegaon, Pune (NMC, est. 1994, 150 seats) — one college, two spellings."
+  },
+  {
+   "canonical": "Rajiv Gandhi Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane",
+   "aliases": [
+    "Rajiv Gandhi Medical College, Thane"
+   ],
+   "reason": "One college (NMC: 'Rajiv Gandhi Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane', Govt./municipal, Kalwa-Thane, est. 1992, 100 seats)."
+  },
+  {
+   "canonical": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
+   "aliases": [
+    "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+    "Seth GS Medical College Mumbai"
+   ],
+   "reason": "All three are Seth G.S. Medical College & KEM Hospital, Mumbai (NMC: 'Seth GS Medical College, and KEM Hospital, Mumbai', Govt., est. 1925, 250 seats). Survivor also fixes 'Seth GS Medical College Mumbai', whose base record has an empty city."
+  },
+  {
+   "canonical": "Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
+   "aliases": [
+    "Topiwala National Medical College, Mumbai"
+   ],
+   "reason": "One college (NMC: 'Topiwala National Medical College, Mumbai' — TNMC & B.Y.L. Nair Ch. Hospital, Govt./municipal, est. 1964, 150 seats)."
+  },
+  {
+   "canonical": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
+   "aliases": [
+    "Dr DY Patil Dental College, Pune"
+   ],
+   "reason": "Both records are the single BDS college of Dr. D. Y. Patil Vidyapeeth at Pimpri, Pune. Kept strictly separate from the MBBS college on the same campus (rule 3)."
+  }
+ ],
+ "newColleges": [
+  {
+   "name": "Armed Forces Medical College, Pune",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Government",
+   "established": 1962,
+   "totalSeats": 150,
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "website": "http://www.afmc.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31)"
+  },
+  {
+   "name": "Mahatma Gandhi Mission Medical College, Vashi",
+   "state": "Maharashtra",
+   "city": "Navi Mumbai",
+   "type": "Deemed",
+   "established": 2023,
+   "totalSeats": 100,
+   "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (nmc_ug_2023.json, official NMC UG registry snapshot 2023-08-31) — city 'Vashi, Navi Mumbai' in the registry; type Deemed from the registry's own universityName 'MGM Institute of Health Sciences (Deemed University)' and consistent with our other MGM records. A separate, newer college from MGM Navi Mumbai (Kamothe, 1989)."
+  }
+ ],
+ "unresolved": [
+  {
+   "name": "DY Patil University School of Medicine, Pune",
+   "why": "Cannot be safely resolved. 'School of Medicine' is D Y Patil deemed-university branding used by TWO different campuses: the Nerul/Navi Mumbai school (https://dypatil.edu/schools/school-of-medicine) and a new Ambi/Maval, Pune school (https://dypatil.edu/schools/school-of-medicine-ambi, est. 2024, ~50 MBBS seats) — while Dr. D. Y. Patil Vidyapeeth's Pune college is branded 'Dr. D. Y. Patil Medical College, Pimpri'. Merging it into the Pimpri cluster or into the Navi Mumbai cluster could both be wrong, and it is absent from the 2023 NMC registry, so it is left as its own record. It already has state/city/type (Maharashtra/Pune/Deemed) in our base, so it still imports; no enrichment applied."
+  }
+ ]
+}

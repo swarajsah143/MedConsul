@@ -1,0 +1,549 @@
+{
+ "state": "Uttar Pradesh",
+ "pairings": [
+  {
+   "ourName": "AIIMS Gorakhpur",
+   "nmcName": "All India Institute of Medical Sciences, Gorakhpur",
+   "evidence": "Acronym expansion; both AIIMS Gorakhpur, est 2019, 125 seats. Only AIIMS in Gorakhpur."
+  },
+  {
+   "ourName": "AIIMS Rae Bareli",
+   "nmcName": "All India Institute of Medical Sciences, Rae Bareli",
+   "evidence": "Acronym expansion; both AIIMS Rae Bareli, est 2019, 100 seats."
+  },
+  {
+   "ourName": "Autonomous State Medical College, Firozabad",
+   "nmcName": "Government Medical College, Firozabad",
+   "evidence": "Sole government medical college in Firozabad; UP runs it under the Autonomous State Medical College scheme, NMC lists the same institution as 'Government Medical College' (est 2019, 100 seats)."
+  },
+  {
+   "ourName": "Autonomous State Medical College, Shahjahanpur",
+   "nmcName": "Government Medical College, Shahjahanpur, UP",
+   "evidence": "Sole government medical college in Shahjahanpur (the other Shahjahanpur college, Varun Arjun, is private and already matched separately); est 2019, 100 seats. This NMC row was previously mis-claimed by our 'Government Medical College, Saharanpur' record - different city, rule 4."
+  },
+  {
+   "ourName": "Autonomous State Medical College, Siddharth Nagar",
+   "nmcName": "Autonomous State Medical College, Siddharthnagar",
+   "evidence": "Same name, spacing variant of the district name."
+  },
+  {
+   "ourName": "Baba Raghav Das Medical College, Gorakhpur",
+   "nmcName": "BRD Medical College, Gorakhpur",
+   "evidence": "BRD = Baba Raghav Das; both Gorakhpur, est 1972, 150 seats."
+  },
+  {
+   "ourName": "G S Medical College & Hospital, Hapur",
+   "nmcName": "G.S. Medical College & Hospital, Hapur, UP",
+   "evidence": "Same name (punctuation only); NMC row name itself says Hapur."
+  },
+  {
+   "ourName": "Ganesh Shankar Vidyarthi Memorial (GSVM) Medical College, Kanpur",
+   "nmcName": "GSVM Medical College, Kanpur",
+   "evidence": "GSVM = Ganesh Shankar Vidyarthi Memorial; both Kanpur, est 1955, 250 seats."
+  },
+  {
+   "ourName": "Government Medical College, Ambedkar Nagar",
+   "nmcName": "Mahamaya Rajkiya Allopathic Medical College, Ambedkarnagar",
+   "evidence": "Mahamaya Rajkiya (=Government) Allopathic Medical College is the sole government medical college of Ambedkar Nagar district; NMC row name says Ambedkarnagar (its city field 'Faizabad' contradicts its own name and is not used)."
+  },
+  {
+   "ourName": "Government Medical College, Ayodhya (Faizabad)",
+   "nmcName": "Government Medical College, Faizabad",
+   "evidence": "Faizabad was renamed Ayodhya in 2018; our record carries both names. Distinct from the Ambedkar Nagar college above (that one is est 2011, this one est 2019)."
+  },
+  {
+   "ourName": "Government Medical College, Azamgarh",
+   "nmcName": "Government Medical College & Super facility Hospital, Azamgarh",
+   "evidence": "Same college, NMC name includes the attached super-facility hospital; both Azamgarh."
+  },
+  {
+   "ourName": "Government Medical College, Bahraich",
+   "nmcName": "Rajkiya Allopathic Medical College, Bahraich, UP",
+   "evidence": "Rajkiya = Government (Hindi); sole government medical college in Bahraich."
+  },
+  {
+   "ourName": "Government Medical College, Banda (Rani Durgavati Medical College)",
+   "nmcName": "Government Allopathic Medical College, Banda, UP",
+   "evidence": "Same college (now Rani Durgavati Medical College); sole government medical college in Banda."
+  },
+  {
+   "ourName": "Government Medical College, Jalaun",
+   "nmcName": "Rajkiya Medical College Jalaun, Orai, Uttar Pradesh",
+   "evidence": "Rajkiya = Government; same district (Jalaun), NMC row names the city Orai."
+  },
+  {
+   "ourName": "JNMC AMU Aligarh",
+   "nmcName": "Jawaharlal Nehru Medical College, Aligarh",
+   "evidence": "JNMC = Jawaharlal Nehru Medical College, AMU = Aligarh Muslim University (its affiliating body)."
+  },
+  {
+   "ourName": "Kanti Devi Medical College, Hospital & Research Centre, Mathura",
+   "nmcName": "K.D. Medical College Hospital & Research Centre, Mathura",
+   "evidence": "K.D. = Kanti Devi; both Mathura, est 2015, 150 seats."
+  },
+  {
+   "ourName": "Lala Lajpat Rai Memorial (LLRM) Medical College, Meerut",
+   "nmcName": "LLRM Medical College, Meerut",
+   "evidence": "LLRM = Lala Lajpat Rai Memorial; both Meerut, est 1966."
+  },
+  {
+   "ourName": "Moti Lal Nehru Medical College, Prayagraj (Allahabad)",
+   "nmcName": "Moti Lal Nehru Medical College, Allahabad",
+   "evidence": "Identical name; Allahabad was renamed Prayagraj in 2018."
+  },
+  {
+   "ourName": "Naraina Medical College & Research Center, Kanpur",
+   "nmcName": "Naraina Medical College & Research Centre",
+   "evidence": "Same name (Center/Centre); NMC city 'Panki' is a locality of Kanpur."
+  },
+  {
+   "ourName": "SKS Hospital Medical College & Research Center, Mathura",
+   "nmcName": "SKS Hospital Medical College & Research Centre",
+   "evidence": "Same name (Center/Centre); NMC city Mathura."
+  },
+  {
+   "ourName": "School of Medical Sciences & Research (SMSR), Sharda University, Greater Noida",
+   "nmcName": "School of Medical Sciences & Research,Greater Noida",
+   "evidence": "Same name; NMC affiliation is Sharda University, Greater Noida, which our name states."
+  },
+  {
+   "ourName": "United Institute of Medical Sciences, Prayagraj",
+   "nmcName": "United Institute of Medical Sciences, Allahabad",
+   "evidence": "Identical name; Allahabad = Prayagraj."
+  },
+  {
+   "ourName": "Venkateswara Institute of Medical Sciences, Gajraula, Amroha",
+   "nmcName": "Venkateshwara Institute of Medical Sciences, Gajraula",
+   "evidence": "Same name (Venkateswara/Venkateshwara); Gajraula is the town, Amroha the district."
+  },
+  {
+   "ourName": "Sarojini Naidu Medical College, Agra",
+   "nmcName": "S N Medical College, Agra",
+   "evidence": "S N = Sarojini Naidu; both Agra, government, est 1939, 128 seats. This NMC row had been mis-claimed by our private 'F.H. Medical College & Hospital, Agra' record."
+  },
+  {
+   "ourName": "F.H. Medical College & Hospital, Agra",
+   "nmcName": "F.H. Medical College & Hospital, Etamdapur, Agra",
+   "evidence": "Identical name; Etamdapur is its locality in Agra. Corrects a bad match: this record had been given S N Medical College's government/1939/128 data."
+  },
+  {
+   "ourName": "Government Medical College, Saharanpur",
+   "nmcName": "Shaikh-UL-Hind Maulana Mahmood Hasan Medical College, Saharanpur",
+   "evidence": "Sole government medical college in Saharanpur, est 2015. Corrects a bad match: this record had been paired with 'Government Medical College, Shahjahanpur' - a different city (rule 4)."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "AIIMS Gorakhpur",
+   "state": "Uttar Pradesh",
+   "city": "Gorakhpur",
+   "type": "Government",
+   "established": 2019,
+   "totalSeats": 125,
+   "affiliation": "Statutory Autonomous, AIIMS (New Delhi)",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "AIIMS Rae Bareli",
+   "state": "Uttar Pradesh",
+   "city": "Rae Bareli",
+   "type": "Government",
+   "established": 2019,
+   "totalSeats": 100,
+   "affiliation": "Statutory Autonomous, AIIMS (New Delhi)",
+   "website": "http://aiimsrbl.edu.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Autonomous State Medical College, Firozabad",
+   "state": "Uttar Pradesh",
+   "city": "Firozabad",
+   "type": "Government",
+   "established": 2019,
+   "totalSeats": 100,
+   "affiliation": "King George’s Medical University, Lucknow",
+   "website": "http://www.gmcfirozabad.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Autonomous State Medical College, Shahjahanpur",
+   "state": "Uttar Pradesh",
+   "city": "Shahjahanpur",
+   "type": "Government",
+   "established": 2019,
+   "totalSeats": 100,
+   "affiliation": "King George’s Medical University, Lucknow",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Autonomous State Medical College, Siddharth Nagar",
+   "state": "Uttar Pradesh",
+   "city": "Siddharthnagar",
+   "type": "Government",
+   "established": 2021,
+   "totalSeats": 100,
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow",
+   "website": "http://www.asmcsiddharthnagar.ac.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Baba Raghav Das Medical College, Gorakhpur",
+   "state": "Uttar Pradesh",
+   "city": "Gorakhpur",
+   "type": "Government",
+   "established": 1972,
+   "totalSeats": 150,
+   "affiliation": "Deen Dayal Upadhyay Gorakhpur University, Gorakhpur",
+   "website": "http://www.brdmc.org",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "G S Medical College & Hospital, Hapur",
+   "state": "Uttar Pradesh",
+   "city": "Hapur",
+   "type": "Private",
+   "established": 2017,
+   "totalSeats": 150,
+   "affiliation": "Ch. Charan Singh University, Meerut",
+   "website": "http://www.gsmedicalcollege.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Ganesh Shankar Vidyarthi Memorial (GSVM) Medical College, Kanpur",
+   "state": "Uttar Pradesh",
+   "city": "Kanpur",
+   "type": "Government",
+   "established": 1955,
+   "totalSeats": 250,
+   "affiliation": "C.S.J.M. University, Kanpur",
+   "website": "http://www.gsvmmedicalcollege.com",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Government Medical College, Ambedkar Nagar",
+   "state": "Uttar Pradesh",
+   "city": "Ambedkar Nagar",
+   "type": "Government",
+   "established": 2011,
+   "totalSeats": 100,
+   "affiliation": "Dr. Ram Manohar Lohia Avadh University, Ayodhya",
+   "website": "http://www.mramc.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Government Medical College, Ayodhya (Faizabad)",
+   "state": "Uttar Pradesh",
+   "city": "Ayodhya",
+   "type": "Government",
+   "established": 2019,
+   "totalSeats": 100,
+   "affiliation": "King George’s Medical University, Lucknow",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Government Medical College, Azamgarh",
+   "state": "Uttar Pradesh",
+   "city": "Azamgarh",
+   "type": "Government",
+   "established": 2013,
+   "totalSeats": 100,
+   "affiliation": "King George’s Medical University, Lucknow",
+   "website": "http://www.gmcazamgarh.com",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Government Medical College, Bahraich",
+   "state": "Uttar Pradesh",
+   "city": "Bahraich",
+   "type": "Government",
+   "established": 2019,
+   "totalSeats": 100,
+   "affiliation": "King George’s Medical University, Lucknow",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Government Medical College, Banda (Rani Durgavati Medical College)",
+   "state": "Uttar Pradesh",
+   "city": "Banda",
+   "type": "Government",
+   "established": 2016,
+   "totalSeats": 100,
+   "affiliation": "King George’s Medical University, Lucknow",
+   "website": "http://gmcbanda.ac.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Government Medical College, Jalaun",
+   "state": "Uttar Pradesh",
+   "city": "Orai",
+   "type": "Government",
+   "totalSeats": 100,
+   "affiliation": "King George’s Medical University, Lucknow",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "JNMC AMU Aligarh",
+   "state": "Uttar Pradesh",
+   "city": "Aligarh",
+   "type": "Government",
+   "established": 1961,
+   "totalSeats": 150,
+   "affiliation": "Aligarh Muslim University",
+   "website": "https://www.amu.ac.in/principal.jsp?did=10146",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Kanti Devi Medical College, Hospital & Research Centre, Mathura",
+   "state": "Uttar Pradesh",
+   "city": "Mathura",
+   "type": "Private",
+   "established": 2015,
+   "totalSeats": 150,
+   "affiliation": "Dr B R Ambedkar University, Agra",
+   "website": "http://www.kdmch.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Lala Lajpat Rai Memorial (LLRM) Medical College, Meerut",
+   "state": "Uttar Pradesh",
+   "city": "Meerut",
+   "type": "Government",
+   "established": 1966,
+   "totalSeats": 100,
+   "affiliation": "Ch. Charan Singh University, Meerut",
+   "website": "http://llrmmedicalcollege.nic.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Moti Lal Nehru Medical College, Prayagraj (Allahabad)",
+   "state": "Uttar Pradesh",
+   "city": "Prayagraj",
+   "type": "Government",
+   "established": 1961,
+   "totalSeats": 200,
+   "affiliation": "King George’s Medical University, Lucknow",
+   "website": "http://www.mlnmc.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Naraina Medical College & Research Center, Kanpur",
+   "state": "Uttar Pradesh",
+   "city": "Kanpur",
+   "type": "Private",
+   "established": 2021,
+   "totalSeats": 150,
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow",
+   "website": "http://www.narainamedicalcollege.com",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "SKS Hospital Medical College & Research Center, Mathura",
+   "state": "Uttar Pradesh",
+   "city": "Mathura",
+   "type": "Private",
+   "established": 2023,
+   "totalSeats": 150,
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "School of Medical Sciences & Research (SMSR), Sharda University, Greater Noida",
+   "state": "Uttar Pradesh",
+   "city": "Greater Noida",
+   "type": "Private",
+   "established": 2009,
+   "totalSeats": 250,
+   "affiliation": "Sharda University, Greater Noida",
+   "website": "http://www.sharda.ac.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "United Institute of Medical Sciences, Prayagraj",
+   "state": "Uttar Pradesh",
+   "city": "Prayagraj",
+   "type": "Private",
+   "established": 2020,
+   "totalSeats": 150,
+   "affiliation": "Prof. Rajendra Singh (Rajju Bhaiya) University, Prayagraj",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Venkateswara Institute of Medical Sciences, Gajraula, Amroha",
+   "state": "Uttar Pradesh",
+   "city": "Gajraula",
+   "type": "Private",
+   "established": 2016,
+   "totalSeats": 250,
+   "affiliation": "Shri Venkateshwara University, Gajraula",
+   "website": "http://www.vimshospital.edu.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Sarojini Naidu Medical College, Agra",
+   "state": "Uttar Pradesh",
+   "city": "Agra",
+   "type": "Government",
+   "established": 1939,
+   "totalSeats": 128,
+   "affiliation": "Dr B R Ambedkar University, Agra",
+   "website": "http://www.snmcagra.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "F.H. Medical College & Hospital, Agra",
+   "state": "Uttar Pradesh",
+   "city": "Agra",
+   "type": "Private",
+   "established": 2014,
+   "totalSeats": 150,
+   "affiliation": "Dr B R Ambedkar University, Agra",
+   "website": "http://www.fhmc.co.in",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Government Medical College, Saharanpur",
+   "state": "Uttar Pradesh",
+   "city": "Saharanpur",
+   "type": "Government",
+   "established": 2015,
+   "totalSeats": 100,
+   "affiliation": "Ch. Charan Singh University, Meerut",
+   "website": "http://www.smmhmedicalcollege.com",
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Ajay Sangaal Institute of Medical Science & Research, Shamli",
+   "state": "Uttar Pradesh",
+   "city": "Shamli",
+   "type": "Private",
+   "website": "http://asimsr.com",
+   "source": "http://asimsr.com/about.php (run by Gyan Chetna Educational Society, Shamli - a registered society, Regn. No. 483; society => Private)"
+  },
+  {
+   "name": "Dr. B.S. Kushwah Institute of Medical College, Kanpur",
+   "state": "Uttar Pradesh",
+   "city": "Kanpur",
+   "type": "Private",
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow",
+   "website": "https://bskims.com",
+   "source": "https://bskims.com/ (official site: private self-financed college at Lakhanpur, Kanpur; affiliation page lists Atal Bihari Vajpayee Medical University)"
+  },
+  {
+   "name": "Faculty of Dental Sciences, King George's Medical University, Lucknow",
+   "state": "Uttar Pradesh",
+   "city": "Lucknow",
+   "type": "Government",
+   "established": 1951,
+   "affiliation": "King George's Medical University, Lucknow (self-affiliated)",
+   "website": "https://www.kgmu.org",
+   "source": "https://dciindia.gov.in/CollegeSearch.aspx?ColName=&CourseId=1&SplId=0&StateId=&Hospital=&Type=0&Status=--Select-- (DCI/NDC college list: 'Faculty of Dental Sciences, Lucknow' - Government, est 1951-52)"
+  },
+  {
+   "name": "ITS Centre for Dental Studies and Research, Muradnagar, Ghaziabad",
+   "state": "Uttar Pradesh",
+   "city": "Ghaziabad",
+   "type": "Private",
+   "established": 2000,
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow",
+   "website": "https://itsdentalcollege.com",
+   "source": "https://dciindia.gov.in/CollegeSearch.aspx?ColName=&CourseId=1&SplId=0&StateId=&Hospital=&Type=0&Status=--Select-- (DCI/NDC: 'I.T.S. Centre for Dental Studies & Research, Ghaziabad' - Private, est 2000-01); https://itsdentalcollege.com/ (Muradnagar, Ghaziabad; run by Durga Charitable Society)"
+  },
+  {
+   "name": "KMC Medical College & Hospital, Maharajganj",
+   "state": "Uttar Pradesh",
+   "city": "Maharajganj",
+   "type": "Private",
+   "totalSeats": 150,
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow",
+   "website": "https://kmcmedicalcollege.com",
+   "source": "https://kmcmedicalcollege.com/affiliation (a unit of Shanti Foundation, run in PPP mode with the Govt of UP; NMC permission for 150 MBBS seats from session 2024-25; affiliated to Atal Bihari Vajpayee Medical University, Lucknow)"
+  },
+  {
+   "name": "Shri Gorakshnath Medical College, Hospital & Research Center, Gorakhpur",
+   "state": "Uttar Pradesh",
+   "city": "Gorakhpur",
+   "type": "Private",
+   "established": 2024,
+   "totalSeats": 150,
+   "affiliation": "Mahayogi Gorakhnath University, Gorakhpur",
+   "website": "https://sgmchrc.mgug.ac.in",
+   "source": "https://sgmchrc.mgug.ac.in/nmc_page.php (NMC mandatory disclosure: established 2024, LOP for 150 MBBS seats, affiliated to Mahayogi Gorakhnath University); https://www.ugc.gov.in/universitydetails/Private_university_other?id=1123 (UGC: MGUG is a private university, so its constituent medical college is Private)"
+  },
+  {
+   "name": "Shri Siddhi Vinayak Medical College & Hospital, Sambhal",
+   "state": "Uttar Pradesh",
+   "city": "Sambhal",
+   "type": "Private",
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow",
+   "website": "http://ssvmc.com",
+   "source": "http://ssvmc.com/ (official site: run by Shri Siddhi Vinayak Trust - a private trust; affiliated to Atal Bihari Vajpayee Medical University, Lucknow)"
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "King George's Medical University, Lucknow",
+   "aliases": [
+    "KGMU Lucknow"
+   ],
+   "reason": "KGMU is the acronym of King George's Medical University; both records are the same Lucknow institution (the alias record has no city). Canonical is the fuller name and is the record already matched to the NMC row 'King George Medical University, Lucknow'."
+  },
+  {
+   "canonical": "BHU Varanasi (IMS)",
+   "aliases": [
+    "BHU Institute of Medical Sciences"
+   ],
+   "reason": "Both records are the Institute of Medical Sciences, Banaras Hindu University, Varanasi - the only MBBS college of BHU. Canonical is the record already matched to the NMC row 'Institute of Medical Sciences, BHU, Varansi' and the only one carrying the city (Varanasi)."
+  },
+  {
+   "canonical": "ITS Centre for Dental Studies and Research, Muradnagar, Ghaziabad",
+   "aliases": [
+    "ITS Centre for Dental Studies and Research, Ghaziabad"
+   ],
+   "reason": "One BDS college: the DCI/NDC register lists a single 'I.T.S. Centre for Dental Studies & Research, Ghaziabad', located at Delhi-Meerut Road, Muradnagar, Ghaziabad. (The group's other dental college, I.T.S Dental College Greater Noida, is a different institution and neither of these two records refers to it.) Canonical is the fuller name."
+  }
+ ],
+ "newColleges": [
+  {
+   "name": "Autonomous State Medical College Society, Fatehpur",
+   "state": "Uttar Pradesh",
+   "city": "Fatehpur",
+   "type": "Government",
+   "established": 2021,
+   "totalSeats": 100,
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow",
+   "website": "https://asmcfatehpur.com/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "National Capital Region Institute of Medical Sciences, Meerut",
+   "state": "Uttar Pradesh",
+   "city": "Meerut",
+   "type": "Private",
+   "established": 2018,
+   "totalSeats": 150,
+   "affiliation": "Ch. Charan Singh University, Meerut",
+   "website": "http://www.mulayamsinghyadavmedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Major S D Singh Medical College and Hospital, Fathehgarh, Farrukhabad",
+   "state": "Uttar Pradesh",
+   "city": "Farrukhabad",
+   "type": "Private",
+   "established": 2011,
+   "affiliation": "C.S.J.M. University, Kanpur",
+   "website": "http://www.majorsdsmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "https://web.archive.org/web/20230831101916/https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (ugApproved is 0 in the 2023 registry - the college was not admitting that year - so totalSeats is deliberately omitted rather than written as 0)"
+  }
+ ],
+ "unresolved": []
+}

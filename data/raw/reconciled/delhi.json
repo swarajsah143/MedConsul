@@ -1,0 +1,295 @@
+{
+ "state": "Delhi",
+ "pairings": [
+  {
+   "ourName": "AIIMS New Delhi",
+   "nmcName": "All India Institute of Medical Sciences, New Delhi",
+   "evidence": "AIIMS is the standard acronym for All India Institute of Medical Sciences; NMC row is the New Delhi (Ansari Nagar) institute, the only AIIMS in the Delhi state list. Our record's city (New Delhi) matches the NMC row's city."
+  },
+  {
+   "ourName": "University College of Medical Sciences, Delhi",
+   "nmcName": "University College of Medical Sciences & GTB Hospital, New Delhi",
+   "evidence": "UCMS (University of Delhi) is attached to Guru Teg Bahadur Hospital; the NMC row just carries the teaching hospital in the name. It is the ONLY college named 'University College of Medical Sciences' in the whole 706-row NMC registry, so the pairing is unambiguous."
+  },
+  {
+   "ourName": "Maulana Azad Medical College (MAMC)",
+   "nmcName": "Maulana Azad Medical College, New Delhi",
+   "evidence": "MAMC is the college's own acronym. Same NMC row already claimed by our sibling record 'Maulana Azad Medical College New Delhi' (score 1.0), so this record is a duplicate spelling of the same college — see merges."
+  },
+  {
+   "ourName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+   "nmcName": "North Delhi Muncipal Corporation Medical College, Delhi",
+   "evidence": "NDMC here expands to North Delhi Municipal Corporation (the NMC row is spelt 'Muncipal'); Hindu Rao Hospital is that college's teaching hospital and there is exactly one Hindu Rao medical college. Same NMC row already claimed by our sibling record 'North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)'."
+  },
+  {
+   "ourName": "VMMC & Safdarjung Hospital New Delhi",
+   "nmcName": "Vardhman Mahavir Medical College & Safdarjung Hospital, Delhi",
+   "evidence": "VMMC is the standard acronym for Vardhman Mahavir Medical College, which is attached to Safdarjung Hospital. Same college as the VMMC duplicate cluster in this packet."
+  },
+  {
+   "ourName": "Hamdard Institute of Medical Sciences and Research (HIMSR)",
+   "nmcName": "Hamdard Institute of Medical Sciences & Research, New Delhi",
+   "evidence": "HIMSR is the college's own acronym; only Hamdard medical college in the NMC registry. Third spelling of the Hamdard cluster in this packet (our record carries no city, which is why the matcher skipped it). Type stays Deemed: it is a constituent college of Jamia Hamdard (deemed university) and NMC has no 'Deemed' value (it reads 'Society')."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "AIIMS New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 1956,
+   "totalSeats": 132,
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "website": "http://www.aiims.edu",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "University College of Medical Sciences, Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 1971,
+   "totalSeats": 170,
+   "affiliation": "Delhi University",
+   "website": "http://www.ucms.ac.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "University College of Medical Sciences (UCMS)",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 1971,
+   "totalSeats": 170,
+   "affiliation": "Delhi University",
+   "website": "http://www.ucms.ac.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Maulana Azad Medical College New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 1958,
+   "totalSeats": 250,
+   "affiliation": "Delhi University",
+   "website": "http://www.mamc.ac.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Maulana Azad Medical College (MAMC)",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 1958,
+   "totalSeats": 250,
+   "affiliation": "Delhi University",
+   "website": "http://www.mamc.ac.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
+   "state": "Delhi",
+   "city": "Delhi",
+   "type": "Government",
+   "established": 2013,
+   "totalSeats": 60,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "http://www.northmcd.com/medicalcollege",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+   "state": "Delhi",
+   "city": "Delhi",
+   "type": "Government",
+   "established": 2013,
+   "totalSeats": 60,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "http://www.northmcd.com/medicalcollege",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
+   "state": "Delhi",
+   "city": "Delhi",
+   "type": "Government",
+   "established": 2002,
+   "totalSeats": 170,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "http://www.vmmc-sjh.nic.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "VMMC & Safdarjung Hospital New Delhi",
+   "state": "Delhi",
+   "city": "Delhi",
+   "type": "Government",
+   "established": 2002,
+   "totalSeats": 170,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "http://www.vmmc-sjh.nic.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Lady Hardinge Medical College (LHMC), New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 1916,
+   "totalSeats": 240,
+   "affiliation": "Delhi University",
+   "website": "http://www.lhmc-hosp.gov.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 2008,
+   "totalSeats": 100,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "http://www.rmlh.nic.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Hamdard Institute of Medical Sciences and Research, New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Deemed",
+   "established": 2012,
+   "totalSeats": 150,
+   "affiliation": "University of Jamia Hamdard (Hamdard University)",
+   "website": "http://www.himsr.org",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (type kept as Deemed from our own record: HIMSR is a constituent college of Jamia Hamdard, a deemed-to-be-university; NMC records it as 'Society' because its registry has no Deemed value)"
+  },
+  {
+   "name": "Hamdard Institute of Medical Sciences and Research (HIMSR)",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Deemed",
+   "established": 2012,
+   "totalSeats": 150,
+   "affiliation": "University of Jamia Hamdard (Hamdard University)",
+   "website": "http://www.himsr.org",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (type kept as Deemed from our own record; NMC has no Deemed value)"
+  },
+  {
+   "name": "ESIC Medical College and Hospital, Basaidarapur, New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 2025,
+   "totalSeats": 50,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "https://mcbasaidarapur.esic.gov.in",
+   "source": "https://mcbasaidarapur.esic.gov.in/medical-about-us (official college site: 'located in New Delhi', run by ESIC, Ministry of Labour & Employment; 'affiliated to GGSIP University, New Delhi'; 'accorded a letter of permission by NMC for admitting first batch of 50 MBBS students in 2025'); MCC UG Counselling 2025 Round-3 added-seats notice dated 04.10.2025 lists 'ESIC MEDICAL COLLEGE AND HOSPITAL,BASAIDARAPUR, NEW DELHI (904361)' under StateName 'Delhi (NCT)' with MBBS seats: https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/10/202510041601988740.pdf"
+  },
+  {
+   "name": "ESIC Medical College, Basaidarapur",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "established": 2025,
+   "totalSeats": 50,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "https://mcbasaidarapur.esic.gov.in",
+   "source": "https://mcbasaidarapur.esic.gov.in/medical-about-us (Basaidarapur is a locality of New Delhi, not a city — our record's city 'Basaidarapur' is corrected here); MCC UG 2025 notice 04.10.2025: https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/10/202510041601988740.pdf"
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
+   "aliases": [
+    "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+    "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi"
+   ],
+   "reason": "All three spellings resolve to NMC row 'Atal Bihari Vajpayee Institute of Medical Sciences and Dr. RML Hospital, New Delhi'. RML = Dr Ram Manohar Lohia; ABVIMS is the acronym. One institute, one teaching hospital. Canonical is the fully expanded name."
+  },
+  {
+   "canonical": "Lady Hardinge Medical College (LHMC), New Delhi",
+   "aliases": [
+    "Lady Hardinge Medical College (LHMC)",
+    "Lady Hardinge Medical College for Women, New Delhi"
+   ],
+   "reason": "All three resolve to NMC row 'Lady Hardinge Medical College, New Delhi'; LHMC is its acronym and it is a women's college, so 'for Women' is a descriptor of the same institution. Only one Lady Hardinge college exists."
+  },
+  {
+   "canonical": "Hamdard Institute of Medical Sciences and Research, New Delhi",
+   "aliases": [
+    "Hamdard Institute of Medical Sciences and Research (HIMSR), Delhi",
+    "Hamdard Institute of Medical Sciences and Research (HIMSR)"
+   ],
+   "reason": "All three resolve to NMC row 'Hamdard Institute of Medical Sciences & Research, New Delhi' (HIMSR). Type stays Deemed on the survivor (Jamia Hamdard is a deemed university)."
+  },
+  {
+   "canonical": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
+   "aliases": [
+    "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
+    "VMMC & Safdarjung Hospital New Delhi"
+   ],
+   "reason": "All three resolve to NMC row 'Vardhman Mahavir Medical College & Safdarjung Hospital, Delhi'. VMMC is the acronym of Vardhman Mahavir Medical College; Safdarjung is its teaching hospital."
+  },
+  {
+   "canonical": "Maulana Azad Medical College New Delhi",
+   "aliases": [
+    "Maulana Azad Medical College (MAMC)"
+   ],
+   "reason": "MAMC is the acronym of Maulana Azad Medical College; both records resolve to NMC row 'Maulana Azad Medical College, New Delhi'. Canonical is the record NMC already matched at score 1.0."
+  },
+  {
+   "canonical": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
+   "aliases": [
+    "NDMC Medical College & Hindu Rao Hospital, Delhi"
+   ],
+   "reason": "Same institution: NDMC = North Delhi Municipal Corporation, whose medical college's teaching hospital is Hindu Rao Hospital. Both records name Hindu Rao Hospital and both resolve to NMC row 'North Delhi Muncipal Corporation Medical College, Delhi'."
+  },
+  {
+   "canonical": "University College of Medical Sciences, Delhi",
+   "aliases": [
+    "University College of Medical Sciences (UCMS)"
+   ],
+   "reason": "UCMS is the acronym of University College of Medical Sciences, and the NMC registry contains exactly one college by that name (UCMS & GTB Hospital, New Delhi). NOTE: the automated matcher wrongly enriched 'University College of Medical Sciences (UCMS)' with 'G R Medical College Hospital & Research Centre' in KARNATAKA (score 1.0) — that would have moved a Delhi college to Karnataka. The enrichment rows above override it, and this merge removes the record."
+  },
+  {
+   "canonical": "ESIC Medical College and Hospital, Basaidarapur, New Delhi",
+   "aliases": [
+    "ESIC Medical College, Basaidarapur"
+   ],
+   "reason": "One ESIC medical college exists at Basaidarapur, New Delhi (first MBBS batch 2025, 50 seats). Basaidarapur is a locality of New Delhi, not a separate city, so the two records are the same institution under two spellings. Source: https://mcbasaidarapur.esic.gov.in/medical-about-us"
+  }
+ ],
+ "newColleges": [
+  {
+   "name": "Army College of Medical Sciences, New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Private",
+   "established": 2008,
+   "totalSeats": 100,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "http://www.theacms.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC row 'Army College of Medical Sciences, New Delhi', management 'Trust' -> Private; NMC city field is blank, city taken from the NMC row's own name and address 'Near Base Hospital, Delhi Cantt-110010')"
+  },
+  {
+   "name": "Dr. Baba Saheb Ambedkar Medical College, Rohini, Delhi",
+   "state": "Delhi",
+   "city": "Delhi",
+   "type": "Government",
+   "established": 2016,
+   "totalSeats": 125,
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "website": "http://www.bsamch.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC row, management 'Govt.', address 'Sector-6, Bhagwan Mahavir Marg, Rohini, Delhi-110085')"
+  }
+ ],
+ "unresolved": []
+}

@@ -1,0 +1,159 @@
+{
+ "state": "Puducherry",
+ "pairings": [
+  {
+   "ourName": "Aarupadai Veedu Medical College and Hospital",
+   "nmcName": "Aarupadai Veedu Medical College, Pondicherry",
+   "evidence": "Only Aarupadai Veedu medical college in the UT; NMC row (collegeId 87) address 'Cuddalore Main Road, Kirumampakkam, Bahour Commune Panchayat, Pondicherry-607403', affiliated to Vinayaka Missions University (Deemed), Salem. Name drift is only the ', Pondicherry' / ' and Hospital' suffix. Our record already says Deemed (constituent college of VMRF deemed university), so type stays Deemed per rule 2 rather than NMC's 'Trust'->Private."
+  },
+  {
+   "ourName": "JIPMER Puducherry",
+   "nmcName": "Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry",
+   "evidence": "Same institute, acronym vs expansion. NMC row (collegeId 322), Dhanvantri Nagar, Puducherry-605006, Govt., 200 UG seats. NOT paired with the separate JIPMER Karaikal campus (rule 4)."
+  },
+  {
+   "ourName": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
+   "nmcName": "Mahatma Gandhi Medical College & Research Institute, Pondicherry",
+   "evidence": "CORRECTION of a bad automated match: raw/enriched_nmc.json had matched this record to 'Indira Gandhi Medical College & Research Institute, Puducherry' (score 0.776) - a different, Government college. The real MGMCRI NMC row (collegeId 119) sits on the 'Sri Balaji Vidyapeeth Campus, Pillaiyarkuppam, Pondicherry-607402', which is exactly the SBV campus named in our duplicate spelling 'Mahatma Gandhi Medical College & Research Institute, SBV Puducherry' (merged into this record). Type stays Deemed (SBV is a deemed university)."
+  },
+  {
+   "ourName": "Pondicherry Institute of Medical Sciences",
+   "nmcName": "Pondicherry Institute of Medical Sciences & Research, Pondicherry",
+   "evidence": "Same college; NMC row (collegeId 123) 'Ganapathichettikulam, Kalapet, Puducherry-605014', affiliated to Pondicherry University, website pimsmmm.com. Only PIMS in the UT."
+  },
+  {
+   "ourName": "Vinayaka Mission's Medical College, Karaikal",
+   "nmcName": "Vinayaka Missions Medical College, Karaikal, Pondicherry",
+   "evidence": "Same college; NMC row (collegeId 108) 'Keezhakasakudymedu, Kottucherry (Post), Karaikal-609609 Puducherry (U.T.)', est. 1997, 150 seats. NMC's city field says 'Pondicherry' (it repeats the UT), but the NMC collegeName and address both say Karaikal, so city = Karaikal."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "Aarupadai Veedu Medical College and Hospital",
+   "state": "Puducherry",
+   "city": "Puducherry",
+   "type": "Deemed",
+   "established": 1999,
+   "totalSeats": 150,
+   "affiliation": "Vinayaka Missions University (Deemed), Salem",
+   "website": "http://www.avmc.edu.in",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 87)"
+  },
+  {
+   "name": "JIPMER Karaikal Campus",
+   "state": "Puducherry",
+   "city": "Karaikal",
+   "type": "Government",
+   "established": 2016,
+   "totalSeats": 62,
+   "affiliation": "Statutory Autonomous (Institute of National Importance), JIPMER",
+   "website": "https://jipmer.edu.in/JIPMER-Karaikal",
+   "source": "https://en.wikipedia.org/wiki/Jawaharlal_Institute_of_Postgraduate_Medical_Education_and_Research (Karaikal campus started 2016, 62 of JIPMER's 249 MBBS seats); https://jipmer.edu.in/JIPMER-Karaikal/academics"
+  },
+  {
+   "name": "JIPMER Puducherry",
+   "state": "Puducherry",
+   "city": "Puducherry",
+   "type": "Government",
+   "established": 1956,
+   "totalSeats": 200,
+   "affiliation": "Statutory Autonomous, Puducherry",
+   "website": "http://www.jipmer.puducherry.gov.in",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 322)"
+  },
+  {
+   "name": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
+   "state": "Puducherry",
+   "city": "Puducherry",
+   "type": "Deemed",
+   "established": 2002,
+   "totalSeats": 250,
+   "affiliation": "Sri Balaji Vidyapeeth (Deemed University), Pondicherry",
+   "website": "http://www.mgmcri.ac.in",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 119) - overrides the wrong IGMCRI data currently in raw/enriched_nmc.json"
+  },
+  {
+   "name": "Pondicherry Institute of Medical Sciences",
+   "state": "Puducherry",
+   "city": "Puducherry",
+   "type": "Deemed",
+   "established": 2000,
+   "totalSeats": 150,
+   "affiliation": "Pondicherry University",
+   "website": "http://www.pimsmmm.com",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 123); type left as our existing 'Deemed' per rule 2 (not downgraded)"
+  },
+  {
+   "name": "Vinayaka Mission's Medical College, Karaikal",
+   "state": "Puducherry",
+   "city": "Karaikal",
+   "type": "Deemed",
+   "established": 1997,
+   "totalSeats": 150,
+   "affiliation": "Vinayaka Missions University (Deemed), Salem",
+   "website": "http://www.vmmckkl.com",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 108)"
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
+   "aliases": [
+    "Mahatma Gandhi Medical College & Research Institute, SBV Puducherry"
+   ],
+   "reason": "One institution: MGMCRI on the Sri Balaji Vidyapeeth (SBV) campus, Pillaiyarkuppam, Puducherry. The 'SBV Puducherry' spelling parsed the sponsoring deemed university into the city field ('SBV Puducherry' is not a city). Both map to NMC collegeId 119. Canonical keeps the fuller name and the correct city."
+  },
+  {
+   "canonical": "Vinayaka Mission's Medical College, Karaikal",
+   "aliases": [
+    "Vinayaka Missions Medical College, Karaikal"
+   ],
+   "reason": "Same college (NMC collegeId 108, Kottucherry, Karaikal); the two records differ only by the apostrophe in Mission's."
+  }
+ ],
+ "newColleges": [
+  {
+   "name": "Indira Gandhi Medical College & Research Institute, Puducherry",
+   "state": "Puducherry",
+   "city": "Puducherry",
+   "type": "Government",
+   "established": 2010,
+   "totalSeats": 180,
+   "affiliation": "Pondicherry University",
+   "website": "http://www.igmcri.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 520; Vazhudavur Road, Kathirkamam, Puducherry-605009; managementupdate 'Govt.')"
+  },
+  {
+   "name": "Sri Lakshmi Narayana Institute of Medical Sciences, Pondicherry",
+   "state": "Puducherry",
+   "city": "Puducherry",
+   "type": "Private",
+   "established": 2006,
+   "totalSeats": 250,
+   "affiliation": "Bharath Institute of Higher Education & Research (Deemed Univ.), Chennai",
+   "website": "http://www.slims.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 245; managementupdate 'Trust' -> Private)"
+  },
+  {
+   "name": "Sri Manakula Vinayagar Medical College & Hospital, Pondicherry",
+   "state": "Puducherry",
+   "city": "Puducherry",
+   "type": "Private",
+   "established": 2006,
+   "totalSeats": 250,
+   "affiliation": "Pondicherry University",
+   "website": "http://www.smvmch.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 243; Kalitheerthalkuppam, Madagadipet, Puducherry-605107)"
+  }
+ ],
+ "unresolved": []
+}

@@ -1,0 +1,118 @@
+{
+ "state": "Uttarakhand",
+ "pairings": [
+  {
+   "ourName": "AIIMS Rishikesh",
+   "nmcName": "All India Institute of Medical Sciences, Rishikesh",
+   "evidence": "Same institution: NMC address reads 'All India Institute of Medical Sciences, Rishikesh-249201 (Uttarakhand)', website aiimsrishikesh.edu.in. NOTE: the NMC row's city field says 'Haridwar', which is a data-entry error contradicted by its own address, name and website; city kept as Rishikesh. Deliberately NOT paired with our separate 'Government Medical College, Haridwar' record (rule 4)."
+  },
+  {
+   "ourName": "Government Doon Medical College, Dehradun",
+   "nmcName": "Doon Medical College, Dehradun, Uttarakhand",
+   "evidence": "Name drift only: NMC address reads 'Govt. Doon Medical College, Patel Nagar, Dehradun-248001 (Uttarakhand)' — our name prefixes 'Government', NMC suffixes the state. Same city, same govt college, only Doon Medical College in Dehradun."
+  },
+  {
+   "ourName": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
+   "nmcName": "Himalayan Institute of Medical Sciences, Dehradun",
+   "evidence": "Our record spells out the university that NMC lists in its universityName field ('Swami Rama Himalayan University, Dehradun'). Same institution as our '(HIMS), SRHU' record, which already claimed this NMC row — resolved as a merge, not a second college."
+  },
+  {
+   "ourName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
+   "nmcName": "Veer Chandra Singh Garhwali Govt. Medical Sc. & Research Instt, Srinagar, Pauri Garhwal",
+   "evidence": "Our record is the spelled-out form of NMC's abbreviated 'Veer Chandra Singh Garhwali Govt. Medical Sc. & Research Instt, Srinagar, Pauri Garhwal' (address: Srikot Ganganali, Srinagar, Pauri Garhwal-246174). Same institution as our '(VCSG), Srinagar Garhwal' record, which already claimed this NMC row — resolved as a merge."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "AIIMS Rishikesh",
+   "state": "Uttarakhand",
+   "city": "Rishikesh",
+   "type": "Government",
+   "established": 2012,
+   "totalSeats": 125,
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "website": "http://www.aiimsrishikesh.edu.in",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC UG registry row 'All India Institute of Medical Sciences, Rishikesh'; city taken from that row's address 'Rishikesh-249201', not from its erroneous city field 'Haridwar')"
+  },
+  {
+   "name": "Government Doon Medical College, Dehradun",
+   "state": "Uttarakhand",
+   "city": "Dehradun",
+   "type": "Government",
+   "established": 2016,
+   "totalSeats": 175,
+   "affiliation": "Hemwati Nandan Bahuguna Uttarakhand Medical Education University, Dehradun",
+   "website": "http://www.doonmedical.org",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
+   "state": "Uttarakhand",
+   "city": "Dehradun",
+   "type": "Deemed",
+   "established": 1995,
+   "totalSeats": 150,
+   "affiliation": "Swami Rama Himalayan University, Dehradun",
+   "website": "http://www.hihtindia.org",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC row 'Himalayan Institute of Medical Sciences, Dehradun'; type kept as Deemed from our existing record — NMC has no Deemed value and lists it as 'Trust')"
+  },
+  {
+   "name": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
+   "state": "Uttarakhand",
+   "city": "Srinagar",
+   "type": "Government",
+   "established": 2008,
+   "totalSeats": 175,
+   "affiliation": "Hemwati Nandan Bahuguna Uttarakhand Medical Education University",
+   "website": "http://www.vcsgsrinagar.org",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC row for Srinagar, Pauri Garhwal; its city field is blank, so city taken from the row's address 'Srikot Ganganali, Srinagar, Pauri Garhwal-246174')"
+  },
+  {
+   "name": "Soban Singh Jeena Government Institute of Medical Science & Research (SSJGIMS&R), Almora",
+   "state": "Uttarakhand",
+   "city": "Almora",
+   "type": "Government",
+   "established": 2021,
+   "totalSeats": 100,
+   "affiliation": "HNB Uttarakhand Medical Education University, Dehradun",
+   "website": "http://ssjgimsralmora.org/",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+  },
+  {
+   "name": "Government Medical College, Haridwar",
+   "state": "Uttarakhand",
+   "city": "Haridwar",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Hemwati Nandan Bahuguna Uttarakhand Medical Education University, Dehradun",
+   "website": "https://www.gmcharidwar.com/",
+   "source": "https://www.gmcharidwar.com/ (official site: govt college at Haridwar, Uttarakhand, one of four new colleges under the Centrally Sponsored Scheme) + https://www.pioneeredge.in/85-mbbs-seats-of-govt-medical-college-haridwar-included-in-the-state-counselling/ (NMC approved 100 MBBS seats for session 2024-25; affiliated to HNB Uttarakhand Medical Education University) — absent from the 2023 NMC registry because it postdates the snapshot"
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
+   "aliases": [
+    "Himalayan Institute of Medical Sciences (HIMS), SRHU, Dehradun"
+   ],
+   "reason": "Same institution, two spellings of the same Jolly Grant, Dehradun college: HIMS = Himalayan Institute of Medical Sciences and SRHU = Swami Rama Himalayan University, which NMC lists as its affiliating university. Both resolve to the single NMC row 'Himalayan Institute of Medical Sciences, Dehradun'. Type stays Deemed."
+  },
+  {
+   "canonical": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
+   "aliases": [
+    "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal"
+   ],
+   "reason": "Same institution: 'Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)' and its abbreviated '(VCSG), Srinagar Garhwal' spelling. Both resolve to the single NMC row at Srikot Ganganali, Srinagar, Pauri Garhwal. Srinagar (Garhwal), Uttarakhand — not Srinagar, J&K, which is a separate record."
+  },
+  {
+   "canonical": "Soban Singh Jeena Government Institute of Medical Science & Research (SSJGIMS&R), Almora",
+   "aliases": [
+    "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora"
+   ],
+   "reason": "Same institution: 'Government' vs 'Govt.' and 'SSJGIMS&R' vs 'SSJ GIMSR'. Both already matched the single NMC row 'Soban Singh Jeena Government Institute of Medical Science & Research, Almora' at score 1.0; there is only one medical college in Almora."
+  }
+ ],
+ "newColleges": [],
+ "unresolved": []
+}

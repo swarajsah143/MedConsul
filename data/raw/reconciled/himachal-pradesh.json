@@ -1,0 +1,76 @@
+{
+  "state": "Himachal Pradesh",
+  "pairings": [
+    {
+      "ourName": "AIIMS Bilaspur",
+      "nmcName": "All India Institute of Medical Sciences, Bilaspur",
+      "evidence": "Same institution, expanded acronym. NMC row (collegeId 5213, MBBS, Himachal Pradesh) is 'All India Institute of Medical Sciences, Bilaspur' with university 'Statutory Autonomous, AIIMS (Bilaspur)' and email ddaaiimsbilaspur@gmail.com. Only one AIIMS exists in Himachal Pradesh, so no cross-institution risk."
+    },
+    {
+      "ourName": "Dr Yashwant Singh Parmar Government Medical College, Nahan",
+      "nmcName": "Government Medical College, Nahan, Sirmour H.P.",
+      "evidence": "NMC row (collegeId 685) address is 'Nahan District Sirmour-173001 (Himachal Pradesh)' and its listed website is www.yspgmc.org — i.e. Yashwant Singh Parmar GMC. NMC lists the district (Sirmour) in its city column while our record uses the town (Nahan); both refer to the single government medical college at Nahan. No other MBBS college in Sirmour district appears in the NMC registry."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Bilaspur",
+      "state": "Himachal Pradesh",
+      "city": "Bilaspur",
+      "type": "Government",
+      "established": 2020,
+      "totalSeats": 50,
+      "affiliation": "Statutory Autonomous, AIIMS (Bilaspur)",
+      "website": "https://www.aiimsbilaspur.edu.in",
+      "source": "NMC UG registry 2023 snapshot (collegeId 5213: ugApproved 50, managementupdate 'Govt.', universityName 'Statutory Autonomous, AIIMS (Bilaspur)'); established year + website from https://en.wikipedia.org/wiki/All_India_Institute_of_Medical_Sciences,_Bilaspur (institute became operational with its first batch of 50 MBBS students in 2020-21) and https://www.aiimsbilaspur.edu.in/"
+    },
+    {
+      "name": "Dr Yashwant Singh Parmar Government Medical College, Nahan",
+      "state": "Himachal Pradesh",
+      "city": "Nahan",
+      "type": "Government",
+      "established": 2016,
+      "totalSeats": 120,
+      "affiliation": "Himachal Pradesh University",
+      "website": "http://www.yspgmc.org",
+      "source": "NMC UG registry 2023 snapshot (collegeId 685: yearOfInc 2016, ugApproved 120, managementupdate 'Govt.', universityName 'Himachal Pradesh University', website www.yspgmc.org, address 'Nahan District Sirmour-173001')"
+    },
+    {
+      "name": "Himachal Pradesh Government Dental College and Hospital, Shimla",
+      "state": "Himachal Pradesh",
+      "city": "Shimla",
+      "type": "Government",
+      "established": 1994,
+      "totalSeats": 60,
+      "affiliation": "Atal Medical and Research University, Himachal Pradesh",
+      "website": "https://www.hpgdcshimla.org",
+      "source": "https://www.hpgdcshimla.org/ (college's own site: 'The Himachal Pradesh Govt. Dental College & Hospital came in existence in the year 1994 with the intake capacity of 20 students per year to the BDS course', intake raised to 60 admissions from 2007-08); affiliation from the university's own listing https://amruhp.ac.in/hpgdcshimla/ and https://amruhp.ac.in/dental-colleges/. BDS-only institution, so it correctly has no NMC UG (MBBS) row; deliberately NOT paired with Indira Gandhi Medical College, Shimla."
+    }
+  ],
+  "merges": [
+    {
+      "canonical": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
+      "aliases": [
+        "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi"
+      ],
+      "reason": "One institution. NMC registry (collegeId 829) lists a single 'Shri Lal Bahadur Shastri Government Medical College, Mandi, HP' whose address is 'Shri Lal Bahadur Shastri Govt. Medical College & Hospital, Nerchowk, P.O. Bhangrotu, Teh. Balh, Distt Mandi-175008' — Nerchowk is the campus locality inside Mandi district, not a second college. Canonical name chosen to match the NMC official name; the Nerchowk/SLBS variant is kept as an alias."
+    }
+  ],
+  "newColleges": [
+    {
+      "name": "Maharishi Markandeshwar Medical College & Hospital, Solan",
+      "state": "Himachal Pradesh",
+      "city": "Solan",
+      "type": "Private",
+      "established": 2013,
+      "totalSeats": 150,
+      "affiliation": "Maharishi Markandeshwar University, Kumarhatti, Solan",
+      "website": "http://mmusolan.org",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "NMC UG registry 2023 snapshot (collegeId 670: yearOfInc 2013, ugApproved 150, managementupdate 'Trust' -> Private, universityName 'Maharishi Marakandeshwar University, Kumarhatti, Solan', address 'Sultanpur Road, Kumarhatti Solan-173229', website mmusolan.org). Not claimed by any of our records."
+    }
+  ],
+  "unresolved": []
+}
