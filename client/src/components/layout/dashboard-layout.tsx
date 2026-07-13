@@ -3,6 +3,7 @@ import { useAuth } from '@/providers/auth-provider';
 import { useCollection } from '@/lib/data-api';
 import {
   BarChart3,
+  Target,
   BookOpen,
   Building2,
   ChevronDown,

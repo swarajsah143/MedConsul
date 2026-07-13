@@ -1,0 +1,31 @@
+{
+ "state": "Goa",
+ "unmatched": [
+  {
+   "name": "Goa Medical College, Bambolim (Panaji)",
+   "city": "Bambolim",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "Goa Medical College, Panaji",
+   "state": "Goa",
+   "city": "Panaji",
+   "type": "Government",
+   "affiliation": "Goa University",
+   "established": 1963,
+   "totalSeats": 180,
+   "website": "http://www.gmcmec.gov.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

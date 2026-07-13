@@ -1,0 +1,628 @@
+{
+ "state": "Tamil Nadu",
+ "unmatched": [
+  {
+   "name": "AIIMS Madurai",
+   "city": "Madurai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Bhaarath Medical College and Hospital, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
+   "city": "Kelambakkam",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Chettinad Hospital and Research Institute, Kelambakkam",
+   "city": "Kelambakkam",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College and Hospital, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College and PGIMSR, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Krishnagiri",
+   "city": "Krishnagiri",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Tirunelveli",
+   "city": "Tirunelveli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "IRT Perundurai Medical College, Perundurai",
+   "city": "Perundurai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "J R Medical College and Hospital, Tamil Nadu",
+   "city": "Tamil Nadu",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "KAP Viswanatham Government Medical College, Tiruchirappalli",
+   "city": "Tiruchirappalli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Karpaga Vinayaga Institute of Medical Sciences, Palayanoor",
+   "city": "Palayanoor",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Melmaruvathur Adhiparasakthi Institute of Medical Sciences and Research, Kancheepuram",
+   "city": "Kancheepuram",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "PSG Institute of Medical Sciences and Research, Peelamedu",
+   "city": "Peelamedu",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Panimalar Medical College Hospital and Research Institute, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SRM Dental College, Ramapuram, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SRM Medical College Hospital & Research Centre, Kanchipuram",
+   "city": "Kanchipuram",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SRM Medical College and Hospital, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SRM Medical College, Kattankulathur",
+   "city": "Kattankulathur",
+   "courses": [
+    "BDS",
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Saveetha Medical College, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "BDS",
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shri Sathya Sai Medical College and Research Institute, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sree Mookambika Institute / Kanyakumari Medical Mission Research Centre, Kulasekharam",
+   "city": "Kulasekharam",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sree Mookambika Institute of Medical Sciences, Kulasekharam",
+   "city": "Kulasekharam",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sri Lalithambigai Medical College and Hospital, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sri Ramachandra Dental College and Hospital, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "BDS",
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Srinivasan Medical College and Hospital, Tiruchirappalli",
+   "city": "Tiruchirappalli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "St Peter's Medical College Hospital and Research Institute, Hosur",
+   "city": "Hosur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Tamil Nadu Government Dental College and Hospital, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Thiruvannamalai Medical College, Thiruvannamalai",
+   "city": "Thiruvannamalai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Trichy SRM Medical College Hospital and Research Centre, Irungalur",
+   "city": "Irungalur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "VELS Medical College and Hospital, Tiruvallur",
+   "city": "Tiruvallur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "VMKV Medical College and Hospital, Salem",
+   "city": "Salem",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Vels Medical College and Hospital, Chennai",
+   "city": "Chennai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Madurai",
+   "state": "Tamil Nadu",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS (Madurai)",
+   "totalSeats": 50,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Annapoorna Medical College & Hospital, Salem",
+   "state": "Tamil Nadu",
+   "city": "Salem",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2011,
+   "totalSeats": 150,
+   "website": "http://www.amch.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Arunai Medical College And Hospital",
+   "state": "Tamil Nadu",
+   "city": "Tiruvannamalai",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://www.amctvm.org/about.php",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Bhaarat Medical College & Hospital",
+   "state": "Tamil Nadu",
+   "type": "Private",
+   "affiliation": "Bharath Institute of Higher Education & Research (Deemed Univ.), Chennai",
+   "established": 2020,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dhanalakshmi Srinivasan Institute of Medical Sciences and Hospital,",
+   "state": "Tamil Nadu",
+   "city": "Perambalur",
+   "type": "Private",
+   "affiliation": "Dhanalakshmi Srinivasan University, a state private University of Tamil Nadu",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "E.S.I.C. Medical College & Hospital, K.K. Nagar, Chennai earlier known as ESIC Medical College & PGIMSR, K.K Nagar, Chennai",
+   "state": "Tamil Nadu",
+   "city": "Chennai",
+   "type": "Government",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2013,
+   "totalSeats": 150,
+   "website": "http://www.esic.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Faculty of Medicine , Sri Lalithambigai Medical College and Hospital",
+   "state": "Tamil Nadu",
+   "city": "Maduravoyal",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://www.slmch.drmgrdu.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Erode Medical College & Hospital, Perundurai (Formerly IRT Perundurai Medical College)",
+   "state": "Tamil Nadu",
+   "city": "Perundurai Sanatorium",
+   "type": "Government",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 1992,
+   "totalSeats": 100,
+   "website": "http://www.irtpmc.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College Krishnagiri",
+   "state": "Tamil Nadu",
+   "city": "Tamil Nadu",
+   "type": "Government",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://www.gmchkrishnagiri.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Thiruvannamalai Medical College, Thiruvannamalai",
+   "state": "Tamil Nadu",
+   "city": "Thiruvannamalai",
+   "type": "Government",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2013,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Indira Medical College & Hospitals, Thiruvallur",
+   "state": "Tamil Nadu",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2020,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "K A P Viswanathan Government Medical College, Trichy",
+   "state": "Tamil Nadu",
+   "city": "Trichy",
+   "type": "Government",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 1998,
+   "totalSeats": 150,
+   "website": "http://www.kapvgmc.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Karpaga Vinayaga Institute of Medical Sciences,Maduranthagam",
+   "state": "Tamil Nadu",
+   "city": "Kanchipuram",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2009,
+   "totalSeats": 150,
+   "website": "http://www.kims.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Madha Medical College and Hospital, Thandalam, Chennai",
+   "state": "Tamil Nadu",
+   "city": "Chennai",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2011,
+   "totalSeats": 150,
+   "website": "http://www.mmcri.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Melmaruvathur Adiparasakthi Instt. Medical Sciences  and Research",
+   "state": "Tamil Nadu",
+   "city": "Melmaruvathur",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2008,
+   "totalSeats": 150,
+   "website": "http://www.mapims.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Nandha Medical College & Hospital Erode",
+   "state": "Tamil Nadu",
+   "city": "Erode",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Panimalar Medical College Hospital & Research Institute, Chennai,Tamil Nadu",
+   "state": "Tamil Nadu",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2020,
+   "totalSeats": 150,
+   "website": "http://www.pmchri.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "PSG Institute of Medical Sciences, Coimbatore",
+   "state": "Tamil Nadu",
+   "city": "Coimbatore",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 1985,
+   "totalSeats": 250,
+   "website": "http://www.psgimsr.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "PSP Medical College Hospital and Research Institute",
+   "state": "Tamil Nadu",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sree Mookambika Institute of Medical Sciences, Kanyakumari",
+   "state": "Tamil Nadu",
+   "city": "Kanyakumari",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2006,
+   "totalSeats": 150,
+   "website": "http://www.sreemookambikainstitute.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Srinivasan Medical College and Hospital",
+   "state": "Tamil Nadu",
+   "city": "Tiruchirappalli",
+   "type": "Private",
+   "affiliation": "Dhanalakshmi Srinivasan University, a state private University of Tamil Nadu",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://www.srinivasanmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "SRM Medical College Hospital & Research Centre, Chengalpattu",
+   "state": "Tamil Nadu",
+   "city": "Kancheepuram",
+   "type": "Private",
+   "affiliation": "SRM Institute  of Science & Technology (Formerly SRM University)",
+   "established": 2005,
+   "totalSeats": 250,
+   "website": "http://www.srmist.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "ST Peters Medical College, Hospital & Research Institute",
+   "state": "Tamil Nadu",
+   "city": "Krishnagiri",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://spmch.ac.in/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Trichy SRM Medical College Hospital & Research Centre, Trichy",
+   "state": "Tamil Nadu",
+   "city": "Trichy",
+   "type": "Private",
+   "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+   "established": 2009,
+   "totalSeats": 250,
+   "website": "http://www.cmchrc.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "VELS Medical College & Hospital",
+   "state": "Tamil Nadu",
+   "city": "Tiruvallur",
+   "type": "Private",
+   "affiliation": "Vels Institute Of Science, Technology & Advanced Studies( VISTAS) ( Deemed to be University)",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "https://velsmedicalcollege.com/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "Chettinad Hospital & Research Institute, Kanchipuram",
+   "candidates": [
+    "Chettinad Hospital & Research Institute, Kanchipuram",
+    "Chettinad Hospital and Research Institute, Kancheepuram"
+   ]
+  },
+  {
+   "nmcName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
+   "candidates": [
+    "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+    "Vinayaka Missions Kirupananda Variyar Medical College, Salem"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

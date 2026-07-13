@@ -1,0 +1,30 @@
+{
+ "state": "Nagaland",
+ "unmatched": [
+  {
+   "name": "Nagaland Institute of Medical Sciences and Research, Kohima",
+   "city": "Kohima",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "Nagaland Institute of Medical Sciences & Research",
+   "state": "Nagaland",
+   "city": "Kohima",
+   "type": "Government",
+   "affiliation": "Nagaland University",
+   "established": 2023,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

@@ -1,0 +1,244 @@
+{
+ "state": "Haryana",
+ "unmatched": [
+  {
+   "name": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+   "city": "Khanpur Kalan",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College, Faridabad",
+   "city": "Faridabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "JN Kapoor DAV Centenary Dental College, Yamuna Nagar",
+   "city": "Yamuna Nagar",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
+   "city": "Mullana",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Maharishi Chyawan Medical College, Koriawas (Rewari)",
+   "city": "Koriawas",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana",
+   "city": "Mullana",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Manav Rachna Dental College, Faridabad",
+   "city": "Faridabad",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "N.C. Medical College & Hospital, Israna, Panipat",
+   "city": "Panipat",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "NC Medical College & Hospital, Israna (Panipat)",
+   "city": "Israna",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "NC Medical College & Hospital, Israna, Panipat",
+   "city": "Panipat",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Pandit Neki Ram Sharma Government Medical College, Bhiwani",
+   "city": "Bhiwani",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Post Graduate Institute of Dental Sciences, Rohtak",
+   "city": "Rohtak",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
+   "city": "Rohtak",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
+   "city": "Rohtak",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Pt. Neki Ram Sharma Government Medical College, Bhiwani",
+   "city": "Bhiwani",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SGT Medical College, Gurugram",
+   "city": "Gurugram",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SGT University Faculty of Medicine & Health Sciences, Gurugram",
+   "city": "Gurugram",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sudha Rustagi College of Dental Sciences and Research, Faridabad",
+   "city": "Faridabad",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "World College of Medical Sciences & Research, Jhajjar",
+   "city": "Jhajjar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "Adesh Medical College and Hospital, Shahabad, Kurukshetra, Haryana",
+   "state": "Haryana",
+   "city": "Kurukshetra",
+   "type": "Private",
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "established": 2017,
+   "totalSeats": 150,
+   "website": "http://www.amch.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Employees State Insurance Corporation Medical College, Faridabad",
+   "state": "Haryana",
+   "city": "Faridabad",
+   "type": "Government",
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "established": 2015,
+   "totalSeats": 125,
+   "website": "http://www.esicmcfbd.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Faculty of Medicine and Health Sciences, Gurgaon (Formarly SGGST Medical College & R Centre,Gurgaon)",
+   "state": "Haryana",
+   "city": "Gurgaon",
+   "type": "Private",
+   "affiliation": "SGT University, Gurugram",
+   "established": 2010,
+   "totalSeats": 150,
+   "website": "http://sgtmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Maharishi Markandeshwar College of Medical Sciences & Research, Sadopur",
+   "state": "Haryana",
+   "city": "Sadopur, Ambala",
+   "type": "Private",
+   "affiliation": "Maharishi Marakandeshwar University (Deemed), Ambala",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "N.C. Medical College & Hospital, Panipat",
+   "state": "Haryana",
+   "city": "Panipat",
+   "type": "Private",
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.ncmedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "World College of Medical Sciences & Researc, Jhajjar, Haryana",
+   "state": "Haryana",
+   "city": "Jhajjar",
+   "type": "Private",
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.wcmsrh.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

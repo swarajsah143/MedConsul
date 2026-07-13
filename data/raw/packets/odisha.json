@@ -1,0 +1,179 @@
+{
+ "state": "Odisha",
+ "unmatched": [
+  {
+   "name": "AIIMS Bhubaneswar",
+   "city": "Bhubaneswar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Bhima Bhoi Medical College and Hospital, Balangir",
+   "city": "Balangir",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Fakir Mohan Medical College and Hospital, Balasore",
+   "city": "Balasore",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Maharaja Jajati Keshari Medical College and Hospital, Jajpur",
+   "city": "Jajpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SLN Medical College and Hospital, Koraput",
+   "city": "Koraput",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Saheed Rendo Majhi Medical College and Hospital (GMC Bhawanipatna), Kalahandi",
+   "city": "Kalahandi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
+   "city": "Bhawanipatna",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences & Research), Burla",
+   "city": "Burla",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Bhubaneswar",
+   "state": "Odisha",
+   "city": "Bhubaneswar",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2012,
+   "totalSeats": 125,
+   "website": "http://www.aiimsbhubaneswar.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dharanidhar Medical College & Hospital (DDMCH), Keonjhar,",
+   "state": "Odisha",
+   "type": "Government",
+   "affiliation": "MSCBD University, Baripada",
+   "established": 2022,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "DRIEMS Institute of Health Sciences and Hospital, Kairapari",
+   "state": "Odisha",
+   "city": "Cuttak",
+   "type": "Private",
+   "affiliation": "Utkal University",
+   "established": 2023,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College Bhawanipatna",
+   "state": "Odisha",
+   "city": "Bhagwanipatna, Kalahandi",
+   "type": "Government",
+   "affiliation": "The Kalahandi university",
+   "established": 2023,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College & Hospital (Renamed as Bhima Bhoi Medical College & Hospital), Balangir",
+   "state": "Odisha",
+   "type": "Government",
+   "affiliation": "Sambalpur University",
+   "established": 2018,
+   "totalSeats": 100,
+   "website": "http://www.gmchbalangir.infocreatives.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College & Hospital (Renamed as Fakir Mohan Medical College & Hospital), Balasore",
+   "state": "Odisha",
+   "type": "Government",
+   "affiliation": "Fakir Mohan Univeristy, Balasore",
+   "established": 2018,
+   "totalSeats": 100,
+   "website": "http://gmchbalasore.infocreatives.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Saheed Laxman Nayak Medical College & Hospital, Koraput",
+   "state": "Odisha",
+   "city": "Koraput",
+   "type": "Government",
+   "affiliation": "Berhampur University",
+   "established": 2017,
+   "totalSeats": 125,
+   "website": "http://www.sinmch.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Veer Surendra Sai Institute of Medical Sciences and Research, Burla",
+   "state": "Odisha",
+   "city": "Sambalpur",
+   "type": "Government",
+   "affiliation": "Sambalpur University",
+   "established": 1959,
+   "totalSeats": 200,
+   "website": "http://www.vimsar.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

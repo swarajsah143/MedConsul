@@ -1,0 +1,3742 @@
+[
+ {
+  "name": "Andaman & Nicobar Islands Institute of Medical Sciences, Port Blair",
+  "state": "Andaman Nicobar Islands",
+  "city": "Port Blair",
+  "type": "Government",
+  "affiliation": "Pondicherry University",
+  "established": 2015,
+  "totalSeats": 114,
+  "website": "http://www.aniims.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Mangalagiri, Vijayawada",
+  "state": "Andhra Pradesh",
+  "city": "Andhra Pradesh",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2018,
+  "totalSeats": 125,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr. P.S.I. Medical College , Chinoutpalli",
+  "state": "Andhra Pradesh",
+  "city": "Krishna Dist.",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2002,
+  "totalSeats": 150,
+  "website": "http://www.drpsimsrf.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Kadapa",
+  "state": "Andhra Pradesh",
+  "city": "Kadapa",
+  "type": "Government",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2006,
+  "totalSeats": 175,
+  "website": "http://www.rimsmedicalcollegekadapa.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Ongole (Previously known as Rajiv Gandhi Institute of Medical Sciences, Ongole,)",
+  "state": "Andhra Pradesh",
+  "city": "Ongole",
+  "type": "Government",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2011,
+  "totalSeats": 120,
+  "website": "http://www.rimsongole.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Maharajah Institute of Medical Sciences, Vizianagaram",
+  "state": "Andhra Pradesh",
+  "city": "Vizianagaram",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2002,
+  "totalSeats": 200,
+  "website": "http://www.mimsvzm.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Nimra Institute of Medical Sciences, Krishna Dist., A.P.",
+  "state": "Andhra Pradesh",
+  "city": "Krishna Dist.",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.nims.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "NRI Medical College, Guntur",
+  "state": "Andhra Pradesh",
+  "city": "Guntur",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2003,
+  "totalSeats": 200,
+  "website": "http://www.nrias.net",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "P E S Institute Of Medical Sciences and Research, Kuppam",
+  "state": "Andhra Pradesh",
+  "city": "Kuppam",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2001,
+  "totalSeats": 150,
+  "website": "http://pesimsr.pes.edu",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Rajiv Gandhi Institute of Medical Sciences, Srikakulam",
+  "state": "Andhra Pradesh",
+  "city": "Srikakulam",
+  "type": "Government",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2008,
+  "totalSeats": 150,
+  "website": "http://www.rimssrikakulam.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Santhiram Medical College, Nandyal",
+  "state": "Andhra Pradesh",
+  "city": "Kurnool",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2005,
+  "totalSeats": 150,
+  "website": "http://www.santhirammedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sri Balaji Medical College, Hospital and Research Institute, Chittoor",
+  "state": "Andhra Pradesh",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "S V Medical College, Tirupati",
+  "state": "Andhra Pradesh",
+  "city": "Tirupati",
+  "type": "Government",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 1960,
+  "totalSeats": 240,
+  "website": "http://www.svmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Guwahati",
+  "state": "Assam",
+  "city": "Assam",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS (Guwahati)",
+  "totalSeats": 50,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dhubri Medical College, Dhubri",
+  "state": "Assam",
+  "type": "Government",
+  "affiliation": "Srimanta Shankardeva University of Health Sciences",
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Diphu Medical College & Hospital, Diphu, Assam",
+  "state": "Assam",
+  "type": "Government",
+  "affiliation": "Srimanta Shankardeva University of Health Sciences",
+  "established": 2020,
+  "totalSeats": 100,
+  "website": "http://www.dmch.assam.gov.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Jorhat Medical College & Hospital , Jorhat",
+  "state": "Assam",
+  "city": "Jorhat",
+  "type": "Government",
+  "affiliation": "Srimanta Shankardeva University of Health Sciences",
+  "established": 2010,
+  "totalSeats": 125,
+  "website": "http://www.jorhatmedicalcollege.in/jmch/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Nalbari Medical College, Nalbari",
+  "state": "Assam",
+  "city": "Nalbari",
+  "type": "Government",
+  "affiliation": "Srimanta Shankardeva University of Health Sciences",
+  "established": 2023,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Silchar Medical College, Silchar",
+  "state": "Assam",
+  "city": "Silchar",
+  "type": "Government",
+  "affiliation": "Srimanta Shankardeva University of Health Sciences",
+  "established": 1968,
+  "totalSeats": 125,
+  "website": "http://www.smcassam.gov.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Tezpur Medical College & Hospital, Tezpur",
+  "state": "Assam",
+  "city": "Tezpur",
+  "type": "Government",
+  "affiliation": "Srimanta Shankardeva University of Health Sciences",
+  "established": 2014,
+  "totalSeats": 125,
+  "website": "http://www.tmcassam.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2012,
+  "totalSeats": 125,
+  "website": "http://www.aiimspatna.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Employees State Insurance Corporation Medical College,Patna",
+  "state": "Bihar",
+  "city": "Bihta",
+  "type": "Government",
+  "affiliation": "Aryabhatta Knowledge University, Patna",
+  "established": 2021,
+  "totalSeats": 100,
+  "website": "https://www.esic.nic.in/medical-institution",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Indira Gandhi Institute of Medical Sciences,Sheikhpura, Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "type": "Government",
+  "affiliation": "Indira Gandhi Instt of Medical Sciences (Deemed University), Patna",
+  "established": 2011,
+  "totalSeats": 120,
+  "website": "http://www.igims.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Jannayak Karpoori Thakur Medical College & Hospital, Madhepura, Bihar",
+  "state": "Bihar",
+  "type": "Government",
+  "affiliation": "Aryabhatta Knowledge University, Patna",
+  "established": 2020,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Patna Medical College, Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "type": "Government",
+  "affiliation": "Aryabhatta Knowledge University, Patna",
+  "established": 1925,
+  "totalSeats": 200,
+  "website": "http://www.patnamedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Radha Devi Jageshwari Memorial Medical College and Hospital",
+  "state": "Bihar",
+  "city": "Muzaffarpur",
+  "type": "Private",
+  "affiliation": "Aryabhatta Knowledge University, Patna",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.rdjmmch.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shree Narayan Medical Institute and Hospital",
+  "state": "Bihar",
+  "city": "saharsa",
+  "type": "Private",
+  "affiliation": "Bhupendra Narayan Mandal University, Madhepura",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.snmih.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Raipur",
+  "state": "Chattisgarh",
+  "city": "Raipur",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(Raipur)",
+  "established": 2012,
+  "totalSeats": 125,
+  "website": "http://www.aiimsraipur.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Korba",
+  "state": "Chattisgarh",
+  "type": "Government",
+  "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "totalSeats": 125,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Mahasamund",
+  "state": "Chattisgarh",
+  "type": "Government",
+  "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "established": 2022,
+  "totalSeats": 125,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Late Shri Baliram Kashyap Memorial NDMC Govt. Medical College, Jagdalpur",
+  "state": "Chattisgarh",
+  "city": "Jagdalpur",
+  "type": "Government",
+  "affiliation": "Pt.Ravishankar Shukla University (Prev. Ravishankar University),Raipur",
+  "established": 2006,
+  "totalSeats": 125,
+  "website": "http://www.gmcjagdalpur.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Late Shri Lakhi Ram Agrawal Memorial Govt. Medical College, Raigarh",
+  "state": "Chattisgarh",
+  "type": "Government",
+  "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "established": 2013,
+  "totalSeats": 100,
+  "website": "http://www.gmcraigarh.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Pt. J N M Medical College, Raipur",
+  "state": "Chattisgarh",
+  "city": "Raipur",
+  "type": "Government",
+  "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "established": 1963,
+  "totalSeats": 230,
+  "website": "http://www.ptjnmcraipur.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Raipur Institute of Medical Sciences (RIMS), Raipur",
+  "state": "Chattisgarh",
+  "city": "Raipur",
+  "type": "Private",
+  "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.rimsindia.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shri Balaji Institute of Medical Science",
+  "state": "Chattisgarh",
+  "city": "Chattisgarh",
+  "type": "Private",
+  "affiliation": "Pandit Deendayal Upadhyay Memorial Health Science & Ayush University of Chattisgarh",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.shribalajimedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shri Shankaracharya Institute of Medical Sciences, Bhilai",
+  "state": "Chattisgarh",
+  "city": "Durg",
+  "type": "Private",
+  "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.ssimsb.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 1956,
+  "totalSeats": 132,
+  "website": "http://www.aiims.edu",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Army College of Medical Sciences, New Delhi",
+  "state": "Delhi",
+  "type": "Private",
+  "affiliation": "Guru Gobind Singh Indraprastha University",
+  "established": 2008,
+  "totalSeats": 100,
+  "website": "http://www.theacms.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr. Baba Saheb Ambedkar Medical College, Rohini, Delhi",
+  "state": "Delhi",
+  "city": "Delhi",
+  "type": "Government",
+  "affiliation": "Guru Gobind Singh Indraprastha University",
+  "established": 2016,
+  "totalSeats": 125,
+  "website": "http://www.bsamch.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "University College of Medical Sciences & GTB Hospital, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "type": "Government",
+  "affiliation": "Delhi University",
+  "established": 1971,
+  "totalSeats": 170,
+  "website": "http://www.ucms.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Goa Medical College, Panaji",
+  "state": "Goa",
+  "city": "Panaji",
+  "type": "Government",
+  "affiliation": "Goa University",
+  "established": 1963,
+  "totalSeats": 180,
+  "website": "http://www.gmcmec.gov.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Rajkot",
+  "state": "Gujarat",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS (Rajkot)",
+  "totalSeats": 50,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Ananya College of Medicine & Research",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "type": "Private",
+  "affiliation": "Gujarat University",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Banas Medical College and Research Institute, Palanpur, Gujarat",
+  "state": "Gujarat",
+  "type": "Private",
+  "affiliation": "Hemchandracharya North Gujarat University,Patan",
+  "established": 2018,
+  "totalSeats": 200,
+  "website": "http://www.bmcri.co.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "CU Shah Medical College, Surendra Nagar",
+  "state": "Gujarat",
+  "city": "Surendra Nagar",
+  "type": "Private",
+  "affiliation": "Saurashtra University",
+  "established": 2000,
+  "totalSeats": 100,
+  "website": "http://www.cusmc.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr.Kiran C.Patel Medical College and Research Institute",
+  "state": "Gujarat",
+  "type": "Private",
+  "affiliation": "Veer Narmad South Gujarat University",
+  "established": 2020,
+  "totalSeats": 200,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Morbi",
+  "state": "Gujarat",
+  "type": "Government",
+  "affiliation": "Saurashtra University, Rajkot",
+  "established": 2022,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Panchmahal Godhra",
+  "state": "Gujarat",
+  "type": "Government",
+  "affiliation": "Shri Govind Guru University, Godhara",
+  "established": 2022,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Porbandar",
+  "state": "Gujarat",
+  "type": "Government",
+  "affiliation": "Bhakta Kavi Narsing Mehta University, Bikha Roa, Khadia",
+  "established": 2022,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Medical College, Baroda",
+  "state": "Gujarat",
+  "city": "Baroda",
+  "type": "Government",
+  "affiliation": "MS University of Baroda",
+  "established": 1949,
+  "totalSeats": 250,
+  "website": "http://www.medicalcollegebaroda.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "MP Shah Medical College,Jamnagar",
+  "state": "Gujarat",
+  "city": "Jamnagar",
+  "type": "Government",
+  "affiliation": "Saurashtra University",
+  "established": 1955,
+  "totalSeats": 250,
+  "website": "http://www.mpsmc.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Nootan Medical College and Research Centre, Mehsana",
+  "state": "Gujarat",
+  "city": "Gujarat",
+  "type": "Private",
+  "affiliation": "Sankalchand Patel University",
+  "established": 2019,
+  "totalSeats": 150,
+  "website": "http://mbbs.spu.ac.in/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Pramukhswami Medical College, Karmsad",
+  "state": "Gujarat",
+  "city": "Karmsad",
+  "type": "Private",
+  "affiliation": "Bhaikaka University",
+  "established": 1987,
+  "totalSeats": 150,
+  "website": "http://www.charutarhealth.org/institute/pramukhswami-medi",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "SBKS Medical Instt. & Research Centre, Vadodra",
+  "state": "Gujarat",
+  "city": "Vadodra",
+  "type": "Private",
+  "affiliation": "Sumandeep Vidyapeeth University (Deemed), Vadodra",
+  "established": 2002,
+  "totalSeats": 250,
+  "website": "http://www.sumandeepvidyapeethdu.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Swaminayaran Institute of Medical Sciences & Research",
+  "state": "Gujarat",
+  "city": "Gandhinagar",
+  "type": "Private",
+  "affiliation": "Swaminayaran University",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Adesh Medical College and Hospital, Shahabad, Kurukshetra, Haryana",
+  "state": "Haryana",
+  "city": "Kurukshetra",
+  "type": "Private",
+  "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+  "established": 2017,
+  "totalSeats": 150,
+  "website": "http://www.amch.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Employees State Insurance Corporation Medical College, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "type": "Government",
+  "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+  "established": 2015,
+  "totalSeats": 125,
+  "website": "http://www.esicmcfbd.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Faculty of Medicine and Health Sciences, Gurgaon (Formarly SGGST Medical College & R Centre,Gurgaon)",
+  "state": "Haryana",
+  "city": "Gurgaon",
+  "type": "Private",
+  "affiliation": "SGT University, Gurugram",
+  "established": 2010,
+  "totalSeats": 150,
+  "website": "http://sgtmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Maharishi Markandeshwar College of Medical Sciences & Research, Sadopur",
+  "state": "Haryana",
+  "city": "Sadopur, Ambala",
+  "type": "Private",
+  "affiliation": "Maharishi Marakandeshwar University (Deemed), Ambala",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "N.C. Medical College & Hospital, Panipat",
+  "state": "Haryana",
+  "city": "Panipat",
+  "type": "Private",
+  "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.ncmedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "World College of Medical Sciences & Researc, Jhajjar, Haryana",
+  "state": "Haryana",
+  "city": "Jhajjar",
+  "type": "Private",
+  "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.wcmsrh.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bilaspur",
+  "state": "Himachal Pradesh",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS (Bilaspur)",
+  "totalSeats": 50,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Nahan, Sirmour H.P.",
+  "state": "Himachal Pradesh",
+  "city": "Sirmour",
+  "type": "Government",
+  "affiliation": "Himachal Pradesh University",
+  "established": 2016,
+  "totalSeats": 120,
+  "website": "http://www.yspgmc.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Maharishi Markandeshwar Medical College & Hospital, Solan",
+  "state": "Himachal Pradesh",
+  "city": "Solan",
+  "type": "Private",
+  "affiliation": "Maharishi Marakandeshwar University, Kumarhatti, Solan",
+  "established": 2013,
+  "totalSeats": 150,
+  "website": "http://mmusolan.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Vijaypur",
+  "state": "Jammu & Kashmir",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS (Vijaypur)",
+  "totalSeats": 62,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Govt. Medical College, Doda, Kashmir",
+  "state": "Jammu & Kashmir",
+  "type": "Government",
+  "affiliation": "Kashmir University",
+  "established": 2020,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Deoghar",
+  "state": "Jharkhand",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2019,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dumka Medical College, Dighi Dumka",
+  "state": "Jharkhand",
+  "type": "Government",
+  "affiliation": "Sidho Kanhu Murmu University",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://dumkamedicalcollege.org/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Hazaribagh Medical College, Hazaribagh",
+  "state": "Jharkhand",
+  "type": "Government",
+  "affiliation": "Binod Bihati Mahto Koyalanchal University, Dhanbad",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://www.hazaribagmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Laxmi Chandravansi Medical College & Hospital",
+  "state": "Jharkhand",
+  "city": "bihar",
+  "type": "Private",
+  "affiliation": "Ramchandra Chandravansi University, Bishrampur, Palamu",
+  "established": 2021,
+  "totalSeats": 100,
+  "website": "http://www.lcmch.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Manipal Tata Medical College,Baridih Jameshedpur",
+  "state": "Jharkhand",
+  "city": "Jamshedpur",
+  "type": "Private",
+  "affiliation": "Manipal University, Manipal",
+  "established": 2020,
+  "totalSeats": 150,
+  "website": "https://manipal.edu/mtmc-jamshedpur.html",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "M G M Medical College, Jamshedpur",
+  "state": "Jharkhand",
+  "city": "Jamshedpur",
+  "type": "Government",
+  "affiliation": "Kolhan University, Chaibasa",
+  "established": 1961,
+  "totalSeats": 50,
+  "website": "http://www.mgmmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Palamu Medical College, Palamu",
+  "state": "Jharkhand",
+  "type": "Government",
+  "affiliation": "Nilamber-Pitamber University",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://www.pmchpalamu.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shahed Nirmal Mahto Medical College & Hospital, Dhanbad",
+  "state": "Jharkhand",
+  "city": "Dhanbad",
+  "type": "Government",
+  "affiliation": "Binod Bihati Mahto Koyalanchal University, Dhanbad",
+  "established": 1969,
+  "totalSeats": 100,
+  "website": "http://www.patliputramedicaldhn.com/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Adichunchanagiri Institute of Medical Sciences Bellur",
+  "state": "Karnataka",
+  "city": "Bellur",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 1985,
+  "totalSeats": 250,
+  "website": "http://www.bgsaims.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "A J Institute of Medical Sciences & Research Centre, Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2002,
+  "totalSeats": 150,
+  "website": "http://www.ajims.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Akash Institute of Medical Sciences & Research Centre, Devanhalli, Bangalore, Karnataka",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.aimsrc.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Al-Ameen Medical College,Bijapur",
+  "state": "Karnataka",
+  "city": "Bijapur",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 1984,
+  "totalSeats": 150,
+  "website": "http://www.alameenmedical.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Bangalore Medical College and Research Institute, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 1955,
+  "totalSeats": 250,
+  "website": "http://www.bmcri.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Basaveswara Medical College and Hospital, Chitradurga",
+  "state": "Karnataka",
+  "city": "Chitradurga",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 1999,
+  "totalSeats": 150,
+  "website": "http://www.bmchchitradurga.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Belagavi Institute of Medical Sciences, Belagavi",
+  "state": "Karnataka",
+  "city": "Belagavi",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2006,
+  "totalSeats": 150,
+  "website": "http://www.bimsbelgaum.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Chamrajanagar Institute of Medical Sciences, Karnataka",
+  "state": "Karnataka",
+  "city": "Chamarajanagar",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.cimscrnagara.kar.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Chikkaballapura Institute of Medical Sciences",
+  "state": "Karnataka",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2021,
+  "totalSeats": 100,
+  "website": "http://cimschikkaballapura.karnataka.gov.in/english",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Chitradurga Medical College and Research Institute",
+  "state": "Karnataka",
+  "city": "Chitradurga",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr. Chandramma Dayananda Sagar Instt. of Medical Education & Research, Harohalli, Hubli",
+  "state": "Karnataka",
+  "type": "Private",
+  "affiliation": "Dayananda Sagar University, Bangalore",
+  "established": 2020,
+  "totalSeats": 150,
+  "website": "https://www.dsu.edu.in/academics/schools/cdsimer",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "East Point College of Medical Sciences & Research Centre, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2017,
+  "totalSeats": 150,
+  "website": "http://www.epcms.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Employees State Insurance Corporation Medical College, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2012,
+  "totalSeats": 150,
+  "website": "http://www.esipgirnr.kar.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Employees State Insurance Corporation Medical College, Gulbarga",
+  "state": "Karnataka",
+  "city": "Gulbarga",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2013,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Gadag Institute of Medical Sciences, Mallasamudra, Mulgund Road, Gadag",
+  "state": "Karnataka",
+  "city": "Gadag",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2015,
+  "totalSeats": 150,
+  "website": "http://www.karnataka.gov.in/gimsgadag/Pages/home.aspx",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Gulbarga Institute of Medical Sciences, Gulbarga",
+  "state": "Karnataka",
+  "city": "Gulbarga",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2015,
+  "totalSeats": 150,
+  "website": "http://www.gims-gulbarga.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Jagadguru Gangadhar Mahaswamigalu Moorusavirmath Medical College JGMMMC",
+  "state": "Karnataka",
+  "city": "Hubballi",
+  "type": "Private",
+  "affiliation": "KLE Academy of Higher Education & Research (Deemed), Belgaum",
+  "established": 2021,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Belgaum",
+  "state": "Karnataka",
+  "city": "Belgaum",
+  "type": "Private",
+  "affiliation": "KLE Academy of Higher Education & Research (Deemed), Belgaum",
+  "established": 1963,
+  "totalSeats": 200,
+  "website": "http://www.jnmc.edu",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Kanachur Institute of Medical Sciences, Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.kanachurims.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Khaja Bandanawaz University - Faculty of Medical Sciences, Gulbarga",
+  "state": "Karnataka",
+  "city": "Gulbarga",
+  "type": "Private",
+  "affiliation": "Khaja Bandanawaz University",
+  "established": 2000,
+  "totalSeats": 150,
+  "website": "http://www.kbnims.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Kodagu Institute of Medical Sciences, Kodagu",
+  "state": "Karnataka",
+  "city": "Kodagu",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://kimskodagu.kar.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "K V G Medical College, Sullia",
+  "state": "Karnataka",
+  "city": "Sullia",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 1999,
+  "totalSeats": 100,
+  "website": "http://www.kvgmch.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mahadevappa Rampure Medical College, Kalaburagi, Gulbarga",
+  "state": "Karnataka",
+  "city": "Gulbarga",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 1963,
+  "totalSeats": 150,
+  "website": "http://mrmc.hkes.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mysore Medical College and Research Instt. (Prev.name Government Medical College), Mysore",
+  "state": "Karnataka",
+  "city": "Mysore",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 1924,
+  "totalSeats": 150,
+  "website": "http://www.mysoremedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Navodaya Medical College, Raichur",
+  "state": "Karnataka",
+  "city": "Raichur",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2002,
+  "totalSeats": 200,
+  "website": "http://www.navodaya.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Rajarajeswari Medical College & Hospital, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2005,
+  "totalSeats": 250,
+  "website": "http://www.rrmch.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sambharam Institute of Medical Sciences & Research, Kolar",
+  "state": "Karnataka",
+  "city": "Kolar Dist.",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2016,
+  "totalSeats": 0,
+  "website": "http://www.sambhrammedical.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shridevi Institute of Medical Sciences & Research Hospital, Tumkur",
+  "state": "Karnataka",
+  "city": "Tumkur",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2013,
+  "totalSeats": 150,
+  "website": "http://www.shridevimedical.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Siddaganga Medical College and Research Institute, Tumakuru",
+  "state": "Karnataka",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "S. Nijalingappa Medical College & HSK Hospital & Research Centre, Bagalkot",
+  "state": "Karnataka",
+  "city": "Bagalkot",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2002,
+  "totalSeats": 250,
+  "website": "http://www.snmcbgk.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sri Chamundeshwari Medical College Hospital & Research Institute",
+  "state": "Karnataka",
+  "city": "Bangalore Mysore NH 257",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sri Devaraj URS Medical College, Kolar",
+  "state": "Karnataka",
+  "city": "Kolar",
+  "type": "Private",
+  "affiliation": "Sri Devaraj Urs Academy of Higher Education and Research (Deemed University), Kolar",
+  "established": 1986,
+  "totalSeats": 150,
+  "website": "http://www.sdumu.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sri Madhusudan Sai Institute of Medical Sciences and Research",
+  "state": "Karnataka",
+  "city": "Chikballapur",
+  "type": "Private",
+  "affiliation": "Sri Sathya Sai University for Human Excellence",
+  "established": 2023,
+  "totalSeats": 50,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Srinivas Institute of Medical Research Centre, Srinivasnagar, mangalore",
+  "state": "Karnataka",
+  "city": "Surathkal",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2011,
+  "totalSeats": 150,
+  "website": "http://www.srinivasgroup.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sri siddhartha Institute of Medical Sciences & Research Centre, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Private",
+  "affiliation": "Sri Siddhartha Academy of Higher Education, Tumkur",
+  "established": 2019,
+  "totalSeats": 150,
+  "website": "http://www.ssimrc.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "S S Institute of Medical Sciences& Research Centre, Davangere",
+  "state": "Karnataka",
+  "city": "Davangere",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2006,
+  "totalSeats": 200,
+  "website": "http://www.ssimsrc.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Subbaiah Institute of Medical Sciences, Shimoga, Karnataka",
+  "state": "Karnataka",
+  "city": "Shimoga",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2012,
+  "totalSeats": 200,
+  "website": "http://www.smcshimoga.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "The Oxford Medical College, Hospital & Research Centre, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Private",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2014,
+  "totalSeats": 150,
+  "website": "http://www.theoxfordmedical.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Yadgiri Institute of Medical Sciences,  Yadgiri",
+  "state": "Karnataka",
+  "type": "Government",
+  "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+  "established": 2022,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Al-Azhar Medical College and Super Speciality Hospital, Thodupuzha",
+  "state": "Kerala",
+  "city": "Thodupuzha",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2014,
+  "totalSeats": 150,
+  "website": "http://www.aamc.org.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Amala Institute of Medical Sciences, Thrissur",
+  "state": "Kerala",
+  "city": "Thrissur",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2002,
+  "totalSeats": 100,
+  "website": "http://www.amalaims.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Azeezia Instt of Medical Science,Meeyannoor,Kollam",
+  "state": "Kerala",
+  "city": "Kollam",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2008,
+  "totalSeats": 100,
+  "website": "http://www.azeezia.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr. Moopen s Medical College, Wayanad, Kerala",
+  "state": "Kerala",
+  "city": "Wayanad",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2013,
+  "totalSeats": 150,
+  "website": "http://www.dmwims.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr. Somervel Memorial CSI Hospital & Medical College, Karakonam, Thiruvananthapuram",
+  "state": "Kerala",
+  "city": "Thiruvananthapuram",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2001,
+  "totalSeats": 150,
+  "website": "http://www.smcsimch.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Kozhikode, Calicut",
+  "state": "Kerala",
+  "city": "Calicut",
+  "type": "Government",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 1957,
+  "totalSeats": 250,
+  "website": "http://www.govtmedicalcollegekozhikode.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Manjeri, Malapuram Dist.",
+  "state": "Kerala",
+  "city": "Malappuram Dist.",
+  "type": "Government",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2013,
+  "totalSeats": 110,
+  "website": "http://gmc-manjeri.weebly.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Thrissur",
+  "state": "Kerala",
+  "city": "Trissur",
+  "type": "Government",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 1981,
+  "totalSeats": 175,
+  "website": "http://www.gmeter.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)",
+  "state": "Kerala",
+  "city": "Kannur",
+  "type": "Government",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 1995,
+  "totalSeats": 100,
+  "website": "http://www.mcpariyaram.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Kannur Medical College, Kannur",
+  "state": "Kerala",
+  "city": "Kannur",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2006,
+  "totalSeats": 150,
+  "website": "http://www.kannurmedicalcollege.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Malabar Medical College, Kozhikode,Calicut",
+  "state": "Kerala",
+  "city": "Calicut",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2010,
+  "totalSeats": 200,
+  "website": "http://www.mmccalicut.org,  www.mmchospital.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Malankara Orthodox Syrian Church Medical College, Kolenchery",
+  "state": "Kerala",
+  "city": "Kolenchery",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2001,
+  "totalSeats": 100,
+  "website": "http://www.moscmm.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Medical College, Thiruvananthapuram",
+  "state": "Kerala",
+  "city": "Thiruvananthapuram",
+  "type": "Government",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 1951,
+  "totalSeats": 250,
+  "website": "http://www.tmc.kerala.gov.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "M E S Medical College , Perintalmanna Malappuram Distt.Kerala",
+  "state": "Kerala",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2002,
+  "totalSeats": 150,
+  "website": "http://www.mesams.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mount Zion Medical College, Chayalode, Ezhamkulam Adoor, Pathanamthitta",
+  "state": "Kerala",
+  "city": "Pathanamthitta",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2014,
+  "totalSeats": 150,
+  "website": "http://www.mountzionmedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "P K Das Institute of Medical Sciences, Palakkad, Kerala",
+  "state": "Kerala",
+  "city": "Palakkad",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2014,
+  "totalSeats": 200,
+  "website": "http://www.pkdims.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Pushpagiri Institute Of Medical Sciences and Research Centre, Tiruvalla",
+  "state": "Kerala",
+  "city": "Thiruvalla",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2002,
+  "totalSeats": 100,
+  "website": "http://www.pimsrc.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sree Gokulam Medical College  Trust & Research Foundation, Trivandrum",
+  "state": "Kerala",
+  "city": "Trivandrum",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2005,
+  "totalSeats": 150,
+  "website": "http://www.sgmc.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sree Narayana Instt. of Medical Sciences, Chalakka,Ernakulam",
+  "state": "Kerala",
+  "city": "Ernakulam",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2009,
+  "totalSeats": 150,
+  "website": "http://www.snims.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sree Uthradom Thiurnal Academy of Medical Sciences,Trivandrum",
+  "state": "Kerala",
+  "city": "Trivandrum",
+  "type": "Private",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 2006,
+  "totalSeats": 150,
+  "website": "http://sutams.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "T D Medical College, Alleppey (Allappuzha)",
+  "state": "Kerala",
+  "city": "Alappuzha (alleppy)",
+  "type": "Government",
+  "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+  "established": 1963,
+  "totalSeats": 175,
+  "website": "http://tdmcalappuzha.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(Bhopal)",
+  "established": 2012,
+  "totalSeats": 125,
+  "website": "http://www.aiimsbhopal.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Chhindwara, MP",
+  "state": "Madhya Pradesh",
+  "city": "Chhindwara",
+  "type": "Government",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://govtmedicalcollegechhindwara.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Datia, MP",
+  "state": "Madhya Pradesh",
+  "city": "Ratlam",
+  "type": "Government",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 2018,
+  "totalSeats": 120,
+  "website": "http://www.datiamedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Khandwa, MP",
+  "state": "Madhya Pradesh",
+  "city": "Khandwa",
+  "type": "Government",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 2018,
+  "totalSeats": 120,
+  "website": "http://www.gmckhandwa.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Shivpuri, MP",
+  "state": "Madhya Pradesh",
+  "city": "Shivpuri",
+  "type": "Government",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://www.shivpurimedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Vidisha, MP",
+  "state": "Madhya Pradesh",
+  "city": "Vidisha",
+  "type": "Government",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 2018,
+  "totalSeats": 180,
+  "website": "http://www.gmcvidisha.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "LNCT Medical College & Sewakunj Hospital, Indore",
+  "state": "Madhya Pradesh",
+  "city": "indore",
+  "type": "Private",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://indorelnmc.com/deanmessage",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mahaveer Institute of Medical Sciences & Research, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "type": "Private",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 2020,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "M G M Medical College, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "type": "Government",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 1948,
+  "totalSeats": 250,
+  "website": "http://www.mgmmcindore.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "RKDF Medical College Hospital & Research Centre, Jatkhedi, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "type": "Private",
+  "affiliation": "Barkatullah University",
+  "established": 2014,
+  "totalSeats": 150,
+  "website": "http://www.rkdfmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Ruxmaniben Deepchand Gardi Medical College, Ujjain",
+  "state": "Madhya Pradesh",
+  "city": "Ujjain",
+  "type": "Private",
+  "affiliation": "Vikram University, Ujjain",
+  "established": 2001,
+  "totalSeats": 150,
+  "website": "http://www.rdgmc.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sukh Sagar Medical College & Hospital, Jabalpur",
+  "state": "Madhya Pradesh",
+  "city": "Madhya Pradesh",
+  "type": "Private",
+  "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+  "established": 2021,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Nagpur",
+  "state": "Maharashtra",
+  "city": "Maharashtra",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2018,
+  "totalSeats": 125,
+  "website": "https://aiimsnagpur.edu.in/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Armed Forces Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "type": "Government",
+  "affiliation": "Maharashtra University of Health Sciences, Nashik",
+  "established": 1962,
+  "totalSeats": 150,
+  "website": "http://www.afmc.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Ashwini Rural Medical College, Hospital & Research Centre, Solapur",
+  "state": "Maharashtra",
+  "city": "Solapur",
+  "type": "Private",
+  "affiliation": "Maharashtra University of Health Sciences, Nashik",
+  "established": 2012,
+  "totalSeats": 100,
+  "website": "http://www.armch.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr. N Y Tasgaonkar Institute of Medical Science",
+  "state": "Maharashtra",
+  "city": "maharashtra",
+  "type": "Private",
+  "affiliation": "Maharashtra University of Health Sciences, Nashik",
+  "established": 2021,
+  "totalSeats": 100,
+  "website": "http://www.raigadhospital.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mahatma Gandhi Mission Medical College, Vashi",
+  "state": "Maharashtra",
+  "city": "Vashi, Navi Mumbai",
+  "type": "Private",
+  "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+  "established": 2023,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mahatma Gandhi Missions Medical College, Aurangabad",
+  "state": "Maharashtra",
+  "city": "Aurangabad",
+  "type": "Private",
+  "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+  "established": 1989,
+  "totalSeats": 200,
+  "website": "http://www.themgmgroup.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mahatma Gandhi Missions Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "type": "Private",
+  "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+  "established": 1989,
+  "totalSeats": 200,
+  "website": "http://www.mgmmcnm.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "N. K. P. Salve Instt. of Medical Sciences and Research Centre and Lata Mangeshkar Hospital, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "type": "Private",
+  "affiliation": "Maharashtra University of Health Sciences, Nashik",
+  "established": 1990,
+  "totalSeats": 200,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Rural Medical College, Loni",
+  "state": "Maharashtra",
+  "city": "Loni",
+  "type": "Private",
+  "affiliation": "Pravara Institute of Medical Sciences (Deemed University), Ahmednagar",
+  "established": 1984,
+  "totalSeats": 200,
+  "website": "http://www.pravara.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "SMBT Institute of Medical Sciences & Research Centre, Nandihills, Nashik",
+  "state": "Maharashtra",
+  "city": "Nashik",
+  "type": "Private",
+  "affiliation": "Maharashtra University of Health Sciences, Nashik",
+  "established": 2014,
+  "totalSeats": 150,
+  "website": "http://smbt.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Smt. Kashibai Navale Medical College and General Hospital,Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "type": "Private",
+  "affiliation": "Maharashtra University of Health Sciences, Nashik",
+  "established": 2007,
+  "totalSeats": 150,
+  "website": "http://www.sknmcgh.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "SRTR Medical College, Ambajogai",
+  "state": "Maharashtra",
+  "city": "Ambajogai",
+  "type": "Government",
+  "affiliation": "Maharashtra University of Health Sciences, Nashik",
+  "established": 1974,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shija Academy of Health Sciences",
+  "state": "Manipur",
+  "city": "Imphal",
+  "type": "Private",
+  "affiliation": "Manipur University",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.shijahospitals.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Zoram Medical College, Mizoram",
+  "state": "Mizoram",
+  "city": "Falkawn",
+  "type": "Government",
+  "affiliation": "Mizoram University",
+  "established": 2018,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Nagaland Institute of Medical Sciences & Research",
+  "state": "Nagaland",
+  "city": "Kohima",
+  "type": "Government",
+  "affiliation": "Nagaland University",
+  "established": 2023,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2012,
+  "totalSeats": 125,
+  "website": "http://www.aiimsbhubaneswar.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dharanidhar Medical College & Hospital (DDMCH), Keonjhar,",
+  "state": "Odisha",
+  "type": "Government",
+  "affiliation": "MSCBD University, Baripada",
+  "established": 2022,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "DRIEMS Institute of Health Sciences and Hospital, Kairapari",
+  "state": "Odisha",
+  "city": "Cuttak",
+  "type": "Private",
+  "affiliation": "Utkal University",
+  "established": 2023,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College Bhawanipatna",
+  "state": "Odisha",
+  "city": "Bhagwanipatna, Kalahandi",
+  "type": "Government",
+  "affiliation": "The Kalahandi university",
+  "established": 2023,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College & Hospital (Renamed as Bhima Bhoi Medical College & Hospital), Balangir",
+  "state": "Odisha",
+  "type": "Government",
+  "affiliation": "Sambalpur University",
+  "established": 2018,
+  "totalSeats": 100,
+  "website": "http://www.gmchbalangir.infocreatives.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College & Hospital (Renamed as Fakir Mohan Medical College & Hospital), Balasore",
+  "state": "Odisha",
+  "type": "Government",
+  "affiliation": "Fakir Mohan Univeristy, Balasore",
+  "established": 2018,
+  "totalSeats": 100,
+  "website": "http://gmchbalasore.infocreatives.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Saheed Laxman Nayak Medical College & Hospital, Koraput",
+  "state": "Odisha",
+  "city": "Koraput",
+  "type": "Government",
+  "affiliation": "Berhampur University",
+  "established": 2017,
+  "totalSeats": 125,
+  "website": "http://www.sinmch.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Veer Surendra Sai Institute of Medical Sciences and Research, Burla",
+  "state": "Odisha",
+  "city": "Sambalpur",
+  "type": "Government",
+  "affiliation": "Sambalpur University",
+  "established": 1959,
+  "totalSeats": 200,
+  "website": "http://www.vimsar.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Aarupadai Veedu Medical College, Pondicherry",
+  "state": "Puducherry",
+  "city": "Pondicherry",
+  "type": "Private",
+  "affiliation": "Vinayaka Missions University (Deemed), Salem",
+  "established": 1999,
+  "totalSeats": 150,
+  "website": "http://www.avmc.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry",
+  "state": "Puducherry",
+  "city": "Puducherry",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, Puducherry",
+  "established": 1956,
+  "totalSeats": 200,
+  "website": "http://www.jipmer.puducherry.gov.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mahatma Gandhi Medical College & Research Institute, Pondicherry",
+  "state": "Puducherry",
+  "city": "Pondicherry",
+  "type": "Private",
+  "affiliation": "Sri Balaji Vidyapeeth (Deemed University), Pondicherry",
+  "established": 2002,
+  "totalSeats": 250,
+  "website": "http://www.mgmcri.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Pondicherry Institute of Medical Sciences & Research, Pondicherry",
+  "state": "Puducherry",
+  "city": "Pondicherry",
+  "type": "Private",
+  "affiliation": "Pondicherry University",
+  "established": 2000,
+  "totalSeats": 150,
+  "website": "http://www.pimsmmm.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sri Lakshmi Narayana Institute of Medical Sciences, Pondicherry",
+  "state": "Puducherry",
+  "city": "Pondicherry",
+  "type": "Private",
+  "affiliation": "Bharath Institute of Higher Education & Research (Deemed Univ.), Chennai",
+  "established": 2006,
+  "totalSeats": 250,
+  "website": "http://www.slims.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sri Manakula Vinayagar Medical College & Hospital, Pondicherry",
+  "state": "Puducherry",
+  "city": "Pondicherry",
+  "type": "Private",
+  "affiliation": "Pondicherry University",
+  "established": 2006,
+  "totalSeats": 250,
+  "website": "http://www.smvmch.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Vinayaka Missions Medical College, Karaikal, Pondicherry",
+  "state": "Puducherry",
+  "city": "Pondicherry",
+  "type": "Private",
+  "affiliation": "Vinayaka Missions University (Deemed), Salem",
+  "established": 1997,
+  "totalSeats": 150,
+  "website": "http://www.vmmckkl.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Chintpurni Medical College, Pathankot, Gurdaspur",
+  "state": "Punjab",
+  "city": "Gurdaspur",
+  "type": "Private",
+  "affiliation": "Baba Farid University of Health Sciences,Faridkot",
+  "established": 2011,
+  "totalSeats": 150,
+  "website": "http://www.cmch.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Gian Sagar Medical College & Hospital, Patiala",
+  "state": "Punjab",
+  "city": "Patiala",
+  "type": "Private",
+  "affiliation": "Baba Farid University of Health Sciences,Faridkot",
+  "established": 2020,
+  "totalSeats": 150,
+  "website": "http://www.giansagar.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Jodhpur",
+  "state": "Rajasthan",
+  "city": "Jodhpur",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2012,
+  "totalSeats": 125,
+  "website": "http://www.aiimsjodhpur.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr S S Tantia Medical College Hospital & Research Centre",
+  "state": "Rajasthan",
+  "city": "Ganganagar",
+  "type": "Private",
+  "affiliation": "Tantia University",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://drsstantiamch.org/about/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Employees State Insurance Corporation Medical College,Alwar",
+  "state": "Rajasthan",
+  "city": "Alwar",
+  "type": "Government",
+  "affiliation": "Rajasthan University of Health Sciences",
+  "established": 2021,
+  "totalSeats": 100,
+  "website": "https://www.esic.nic.in/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Bhilwara, Rajasthan",
+  "state": "Rajasthan",
+  "city": "Bhilwara",
+  "type": "Government",
+  "affiliation": "Rajasthan University of Health Sciences",
+  "established": 2018,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Churu",
+  "state": "Rajasthan",
+  "type": "Government",
+  "affiliation": "Rajasthan University of Health Sciences",
+  "established": 2018,
+  "totalSeats": 150,
+  "website": "http://www.education.rajasthan.gov.in/mcchuru",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Jaipur National University Institute of Medical Sciences and Resarch Centre, Jagatpura, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "type": "Private",
+  "affiliation": "Jaipur National University (Private Univ.)",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.jnujaipur.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Pacific Medical College & Hospital, Bhilo Ka Bedla, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "type": "Private",
+  "affiliation": "Rajasthan University of Health Sciences",
+  "established": 2014,
+  "totalSeats": 150,
+  "website": "http://www.pacificmedical.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "R N T Medical College,  Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "type": "Government",
+  "affiliation": "Rajasthan University of Health Sciences",
+  "established": 1961,
+  "totalSeats": 250,
+  "website": "http://www.education.rajasthan.gov.in/rntmcudaipur",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shri Kalyan Govt. Medical College, Sikar, Rajasthan",
+  "state": "Rajasthan",
+  "type": "Government",
+  "affiliation": "Rajasthan University of Health Sciences",
+  "established": 2020,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sikkim Manipal Institute of Medical Sciences, Gangtok",
+  "state": "Sikkim",
+  "city": "Gangtok",
+  "type": "Private",
+  "affiliation": "Sikkim Manipal Univ. of Health,Medical & Tech. Scs",
+  "established": 2000,
+  "totalSeats": 150,
+  "website": "http://www.smims.smu.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Madurai",
+  "state": "Tamil Nadu",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS (Madurai)",
+  "totalSeats": 50,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Annapoorna Medical College & Hospital, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2011,
+  "totalSeats": 150,
+  "website": "http://www.amch.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Arunai Medical College And Hospital",
+  "state": "Tamil Nadu",
+  "city": "Tiruvannamalai",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.amctvm.org/about.php",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Bhaarat Medical College & Hospital",
+  "state": "Tamil Nadu",
+  "type": "Private",
+  "affiliation": "Bharath Institute of Higher Education & Research (Deemed Univ.), Chennai",
+  "established": 2020,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dhanalakshmi Srinivasan Institute of Medical Sciences and Hospital,",
+  "state": "Tamil Nadu",
+  "city": "Perambalur",
+  "type": "Private",
+  "affiliation": "Dhanalakshmi Srinivasan University, a state private University of Tamil Nadu",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "E.S.I.C. Medical College & Hospital, K.K. Nagar, Chennai earlier known as ESIC Medical College & PGIMSR, K.K Nagar, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "type": "Government",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2013,
+  "totalSeats": 150,
+  "website": "http://www.esic.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Faculty of Medicine , Sri Lalithambigai Medical College and Hospital",
+  "state": "Tamil Nadu",
+  "city": "Maduravoyal",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.slmch.drmgrdu.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Erode Medical College & Hospital, Perundurai (Formerly IRT Perundurai Medical College)",
+  "state": "Tamil Nadu",
+  "city": "Perundurai Sanatorium",
+  "type": "Government",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 1992,
+  "totalSeats": 100,
+  "website": "http://www.irtpmc.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College Krishnagiri",
+  "state": "Tamil Nadu",
+  "city": "Tamil Nadu",
+  "type": "Government",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.gmchkrishnagiri.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Thiruvannamalai Medical College, Thiruvannamalai",
+  "state": "Tamil Nadu",
+  "city": "Thiruvannamalai",
+  "type": "Government",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2013,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Indira Medical College & Hospitals, Thiruvallur",
+  "state": "Tamil Nadu",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2020,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "K A P Viswanathan Government Medical College, Trichy",
+  "state": "Tamil Nadu",
+  "city": "Trichy",
+  "type": "Government",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 1998,
+  "totalSeats": 150,
+  "website": "http://www.kapvgmc.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Karpaga Vinayaga Institute of Medical Sciences,Maduranthagam",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2009,
+  "totalSeats": 150,
+  "website": "http://www.kims.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Madha Medical College and Hospital, Thandalam, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2011,
+  "totalSeats": 150,
+  "website": "http://www.mmcri.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Melmaruvathur Adiparasakthi Instt. Medical Sciences  and Research",
+  "state": "Tamil Nadu",
+  "city": "Melmaruvathur",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2008,
+  "totalSeats": 150,
+  "website": "http://www.mapims.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Nandha Medical College & Hospital Erode",
+  "state": "Tamil Nadu",
+  "city": "Erode",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Panimalar Medical College Hospital & Research Institute, Chennai,Tamil Nadu",
+  "state": "Tamil Nadu",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2020,
+  "totalSeats": 150,
+  "website": "http://www.pmchri.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "PSG Institute of Medical Sciences, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 1985,
+  "totalSeats": 250,
+  "website": "http://www.psgimsr.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "PSP Medical College Hospital and Research Institute",
+  "state": "Tamil Nadu",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sree Mookambika Institute of Medical Sciences, Kanyakumari",
+  "state": "Tamil Nadu",
+  "city": "Kanyakumari",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2006,
+  "totalSeats": 150,
+  "website": "http://www.sreemookambikainstitute.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Srinivasan Medical College and Hospital",
+  "state": "Tamil Nadu",
+  "city": "Tiruchirappalli",
+  "type": "Private",
+  "affiliation": "Dhanalakshmi Srinivasan University, a state private University of Tamil Nadu",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.srinivasanmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "SRM Medical College Hospital & Research Centre, Chengalpattu",
+  "state": "Tamil Nadu",
+  "city": "Kancheepuram",
+  "type": "Private",
+  "affiliation": "SRM Institute  of Science & Technology (Formerly SRM University)",
+  "established": 2005,
+  "totalSeats": 250,
+  "website": "http://www.srmist.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "ST Peters Medical College, Hospital & Research Institute",
+  "state": "Tamil Nadu",
+  "city": "Krishnagiri",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://spmch.ac.in/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Trichy SRM Medical College Hospital & Research Centre, Trichy",
+  "state": "Tamil Nadu",
+  "city": "Trichy",
+  "type": "Private",
+  "affiliation": "The Tamilnadu Dr. MGR Medical University,Chennai",
+  "established": 2009,
+  "totalSeats": 250,
+  "website": "http://www.cmchrc.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "VELS Medical College & Hospital",
+  "state": "Tamil Nadu",
+  "city": "Tiruvallur",
+  "type": "Private",
+  "affiliation": "Vels Institute Of Science, Technology & Advanced Studies( VISTAS) ( Deemed to be University)",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "https://velsmedicalcollege.com/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bibinagar",
+  "state": "Telangana",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2019,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Arundathi Institute of Medical Sciences",
+  "state": "Telangana",
+  "type": "Private",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Ayaan Institute of Medical Sciences, Teaching Hospital & Research Centre, Kanaka Mamidi, R.R. Dist",
+  "state": "Telangana",
+  "city": "R.R. District",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2018,
+  "totalSeats": 150,
+  "website": "http://www.aimshyd.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Bhaskar Medical College, Yenkapally",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "type": "Private",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 2005,
+  "totalSeats": 150,
+  "website": "http://www.bhaskarmedicalcollege.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "CMR Institute of Medical Sciences",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "type": "Private",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr. Patnam Mahender Reddy Institute of Medical Sciences, Chevella, Rangareddy",
+  "state": "Telangana",
+  "city": "Telangana",
+  "type": "Private",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 2019,
+  "totalSeats": 150,
+  "website": "http://www.pmrims.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Dr. VRK Womens Medical College, Aziznagar",
+  "state": "Telangana",
+  "city": "R.R. District,",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2010,
+  "totalSeats": 100,
+  "website": "http://www.drvrkwmc.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Employees State Insurance Coporation Medical College, Sanath Nagar, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "type": "Government",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 2016,
+  "totalSeats": 100,
+  "website": "http://www.esicmchyd.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mahavir Institute of Medical Sciences, Vikarabad, Telengana",
+  "state": "Telangana",
+  "city": "Ranga Reddy",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.mahavirmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Maheshwara Medical College, Chitkul, Patancheru, Medak",
+  "state": "Telangana",
+  "city": "Medak",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2016,
+  "totalSeats": 150,
+  "website": "http://www.maheshwarmedical.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mediciti Institute Of Medical Sciences, Ghanpur",
+  "state": "Telangana",
+  "city": "Ghanpur",
+  "type": "Private",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 2002,
+  "totalSeats": 150,
+  "website": "http://mims.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Neelima Institute of Medical Sciences, Medchal",
+  "state": "Telangana",
+  "city": "Medchal- Malkjigiri, District",
+  "type": "Private",
+  "affiliation": "Anurag University",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Prathima Relief Institue of Medical Sciences",
+  "state": "Telangana",
+  "type": "Private",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 2022,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "R.V.M. Institute of Medical Sciences and Research Centre, Siddipet",
+  "state": "Telangana",
+  "type": "Private",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 2016,
+  "totalSeats": 250,
+  "website": "http://www.rvmims.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shadan Institute of Medical Sciences,Research Centre and Teaching Hospital, Peerancheru",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "type": "Private",
+  "affiliation": "Dr. YSR University of Health Sciences",
+  "established": 2005,
+  "totalSeats": 150,
+  "website": "http://www.shadan.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "S V S Medical College, Mehboobnagar",
+  "state": "Telangana",
+  "city": "Mahboobnagar",
+  "type": "Private",
+  "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+  "established": 1999,
+  "totalSeats": 150,
+  "website": "http://www.svsmch.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Tripura Medical College and Dr. B R A M Teaching Hospital, Agartala",
+  "state": "Tripura",
+  "city": "Agartala",
+  "type": "Private",
+  "affiliation": "Tripura University",
+  "established": 2006,
+  "totalSeats": 100,
+  "website": "http://www.tmc.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Rishikesh",
+  "state": "Uttarakhand",
+  "city": "Haridwar",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2012,
+  "totalSeats": 125,
+  "website": "http://www.aiimsrishikesh.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Doon Medical College, Dehradun, Uttarakhand",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "type": "Government",
+  "affiliation": "Hemwati Nandan Bahuguna Uttarakhand Medical Education University, Dehradun",
+  "established": 2016,
+  "totalSeats": 175,
+  "website": "http://www.doonmedical.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Gorakhpur",
+  "state": "Uttar Pradesh",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2019,
+  "totalSeats": 125,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Rae Bareli",
+  "state": "Uttar Pradesh",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://aiimsrbl.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Autonomous State Medical College, Siddharthnagar",
+  "state": "Uttar Pradesh",
+  "city": "Siddharthnagar",
+  "type": "Government",
+  "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
+  "established": 2021,
+  "totalSeats": 100,
+  "website": "http://www.asmcsiddharthnagar.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Autonomous State Medical College Society, Fatehpur",
+  "state": "Uttar Pradesh",
+  "city": "Fatehpur",
+  "type": "Government",
+  "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
+  "established": 2021,
+  "totalSeats": 100,
+  "website": "https://asmcfatehpur.com/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "BRD Medical College, Gorakhpur",
+  "state": "Uttar Pradesh",
+  "city": "Gorakhpur",
+  "type": "Government",
+  "affiliation": "Deen Dayal Upadhyay Gorakhpur University, Gorakhpur",
+  "established": 1972,
+  "totalSeats": 150,
+  "website": "http://www.brdmc.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "F.H. Medical College & Hospital, Etamdapur, Agra",
+  "state": "Uttar Pradesh",
+  "city": "Agra",
+  "type": "Private",
+  "affiliation": "Dr B R Ambedkar University,Agra, U.P.",
+  "established": 2014,
+  "totalSeats": 150,
+  "website": "http://www.fhmc.co.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Allopathic Medical College, Banda, UP",
+  "state": "Uttar Pradesh",
+  "type": "Government",
+  "affiliation": "King Georges Medical University,Lucknow",
+  "established": 2016,
+  "totalSeats": 100,
+  "website": "http://gmcbanda.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Faizabad",
+  "state": "Uttar Pradesh",
+  "city": "Faizabad",
+  "type": "Government",
+  "affiliation": "King Georges Medical University,Lucknow",
+  "established": 2019,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College, Firozabad",
+  "state": "Uttar Pradesh",
+  "city": "Firozabad",
+  "type": "Government",
+  "affiliation": "King Georges Medical University,Lucknow",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://www.gmcfirozabad.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Government Medical College & Super facility Hospital, Azamgarh",
+  "state": "Uttar Pradesh",
+  "city": "Azamgarh",
+  "type": "Government",
+  "affiliation": "King Georges Medical University,Lucknow",
+  "established": 2013,
+  "totalSeats": 100,
+  "website": "http://www.gmcazamgarh.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "G.S. Medical College & Hospital, Hapur, UP",
+  "state": "Uttar Pradesh",
+  "city": "Ghaziabad",
+  "type": "Private",
+  "affiliation": "Ch. Charan Singh Universitiy, Meerut",
+  "established": 2017,
+  "totalSeats": 150,
+  "website": "http://www.gsmedicalcollege.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "GSVM Medical College, Kanpur",
+  "state": "Uttar Pradesh",
+  "city": "Kanpur",
+  "type": "Government",
+  "affiliation": "C.S.J.M. University, Kanpur",
+  "established": 1955,
+  "totalSeats": 250,
+  "website": "http://www.gsvmmedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Aligarh",
+  "state": "Uttar Pradesh",
+  "city": "Aligarh",
+  "type": "Government",
+  "affiliation": "Aligarh Muslim University",
+  "established": 1961,
+  "totalSeats": 150,
+  "website": "https://www.amu.ac.in/principal.jsp?did=10146",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "K.D. Medical College Hospital & Research Centre, Mathura",
+  "state": "Uttar Pradesh",
+  "city": "Mathura",
+  "type": "Private",
+  "affiliation": "Dr B R Ambedkar University,Agra, U.P.",
+  "established": 2015,
+  "totalSeats": 150,
+  "website": "http://www.kdmch.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "LLRM Medical College, Meerut",
+  "state": "Uttar Pradesh",
+  "city": "Meerut",
+  "type": "Government",
+  "affiliation": "Ch. Charan Singh Universitiy, Meerut",
+  "established": 1966,
+  "totalSeats": 100,
+  "website": "http://llrmmedicalcollege.nic.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Mahamaya Rajkiya Allopathic Medical College, Ambedkarnagar",
+  "state": "Uttar Pradesh",
+  "city": "Faizabad",
+  "type": "Government",
+  "affiliation": "Dr. Ram Manohar Lohia Avadh University, Faizabad",
+  "established": 2011,
+  "totalSeats": 100,
+  "website": "http://www.mramc.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Major S D Singh Medical College and Hospital, Fathehgarh, Farrukhabad",
+  "state": "Uttar Pradesh",
+  "city": "Farrukhabad",
+  "type": "Private",
+  "affiliation": "C.S.J.M. University, Kanpur",
+  "established": 2011,
+  "totalSeats": 0,
+  "website": "http://www.majorsdsmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Moti Lal Nehru Medical College, Allahabad",
+  "state": "Uttar Pradesh",
+  "city": "Allahabad",
+  "type": "Government",
+  "affiliation": "King Georges Medical University,Lucknow",
+  "established": 1961,
+  "totalSeats": 200,
+  "website": "http://www.mlnmc.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Naraina Medical College & Research Centre",
+  "state": "Uttar Pradesh",
+  "city": "Panki",
+  "type": "Private",
+  "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "http://www.narainamedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "National Capital Region Institute of Medical Sciences, Meerut",
+  "state": "Uttar Pradesh",
+  "city": "Meerut",
+  "type": "Private",
+  "affiliation": "Ch. Charan Singh Universitiy, Meerut",
+  "established": 2018,
+  "totalSeats": 150,
+  "website": "http://www.mulayamsinghyadavmedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Rajkiya Allopathic Medical College, Bahraich, UP",
+  "state": "Uttar Pradesh",
+  "city": "Bahraich",
+  "type": "Government",
+  "affiliation": "King Georges Medical University,Lucknow",
+  "established": 2019,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Rajkiya Medical College Jalaun, Orai, Uttar Pradesh",
+  "state": "Uttar Pradesh",
+  "city": "oria",
+  "type": "Government",
+  "affiliation": "King Georges Medical University,Lucknow",
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "School of Medical Sciences & Research,Greater Noida",
+  "state": "Uttar Pradesh",
+  "city": "Noida",
+  "type": "Private",
+  "affiliation": "Sharda University, Greater Noida",
+  "established": 2009,
+  "totalSeats": 250,
+  "website": "http://www.sharda.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Shaikh-UL-Hind Maulana Mahmood Hasan Medical College, Saharanpur",
+  "state": "Uttar Pradesh",
+  "city": "Saharanpur",
+  "type": "Government",
+  "affiliation": "Ch. Charan Singh Universitiy, Meerut",
+  "established": 2015,
+  "totalSeats": 100,
+  "website": "http://www.smmhmedicalcollege.com",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "SKS Hospital Medical College & Research Centre",
+  "state": "Uttar Pradesh",
+  "city": "Mathura",
+  "type": "Private",
+  "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "United Institute of Medical Sciences, Allahabad",
+  "state": "Uttar Pradesh",
+  "type": "Private",
+  "affiliation": "Prof. Rajendra Singh (Rajju Bhaiya) University, Prayagraj",
+  "established": 2020,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Venkateshwara Institute of Medical Sciences, Gajraula",
+  "state": "Uttar Pradesh",
+  "city": "Gajroula",
+  "type": "Private",
+  "affiliation": "Shri Venkateshwara University, Gajraula",
+  "established": 2016,
+  "totalSeats": 250,
+  "website": "http://www.vimshospital.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Kalyani, Nadia",
+  "state": "West Bengal",
+  "type": "Government",
+  "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+  "established": 2019,
+  "totalSeats": 125,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Barasat Government Medical College & Hospital",
+  "state": "West Bengal",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2022,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "College of Medicine and JNM Hospital,Kalyani,Nadia",
+  "state": "West Bengal",
+  "city": "Nadia",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2010,
+  "totalSeats": 125,
+  "website": "http://comjnmh.ac.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Coochbehar Government Medical College & Hospital, Coochbehar, WB",
+  "state": "West Bengal",
+  "city": "Coochbehar",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://www.coochbehargmch.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Diamond Harbour Government Medical College and Hospital, West Bengal",
+  "state": "West Bengal",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2019,
+  "totalSeats": 100,
+  "website": "http://www.dhgmc.edu.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Employees State Insurance Corporation Medical College, Joka, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2013,
+  "totalSeats": 100,
+  "website": "http://www.esi-pgimsrkolkata.org.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Govt. Medical College, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "totalSeats": 250,
+  "website": "http://www.medicalcollegekolkata.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "ICARE Institute of Medical Sciences & Research, Haldia, Purba Midanpore",
+  "state": "West Bengal",
+  "city": "Haldia",
+  "type": "Private",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2011,
+  "totalSeats": 150,
+  "website": "http://www.icaremedicalcollege.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Institute of Postgraduate Medical Education & Research, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 1957,
+  "totalSeats": 200,
+  "website": "http://www.ipgmer.gov.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "IQ-City Medical College, Burdwan",
+  "state": "West Bengal",
+  "city": "Burdwan",
+  "type": "Private",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2013,
+  "totalSeats": 200,
+  "website": "http://www.iqcitymedicalcollege.in",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Jhargram Government Medical College & Hospital",
+  "state": "West Bengal",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2022,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "JMN Medical College, Nadia",
+  "state": "West Bengal",
+  "city": "Nadia",
+  "type": "Private",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2023,
+  "totalSeats": 150,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "KPC Medical College,Jadavpur,Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "type": "Private",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2008,
+  "totalSeats": 150,
+  "website": "http://www.kpcmedicalcollege.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Murshidabad Medical College & Hospitals, Murshidabad",
+  "state": "West Bengal",
+  "city": "Murshidabad",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2012,
+  "totalSeats": 125,
+  "website": "http://www.msdmch.org",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Purulia Government Medical College & Hospital",
+  "state": "West Bengal",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2020,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Santiniketan�Medical�College, Bolpur, West Bengal",
+  "state": "West Bengal",
+  "city": "Bolpur",
+  "type": "Private",
+  "affiliation": "The West Bengal University of Health Sciences",
+  "established": 2021,
+  "totalSeats": 150,
+  "website": "https://www.smcbangla.com/",
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ },
+ {
+  "name": "Sarat Chandra Chattopadhyay Government Medical College & Hospital",
+  "state": "West Bengal",
+  "type": "Government",
+  "affiliation": "West Bengal University of Health Sciences,Kolkata",
+  "established": 2022,
+  "totalSeats": 100,
+  "coursesOffered": [
+   "MBBS"
+  ],
+  "source": "nmc-ug-registry"
+ }
+]

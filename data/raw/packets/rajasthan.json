@@ -1,0 +1,291 @@
+{
+ "state": "Rajasthan",
+ "unmatched": [
+  {
+   "name": "AIIMS Jodhpur",
+   "city": "Jodhpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr SS Tantia Medical College Hospital and Research Centre, Sri Ganganagar",
+   "city": "Sri Ganganagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College and Hospital, Alwar",
+   "city": "Alwar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College and Hospital, Jaipur",
+   "city": "Jaipur",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Banswara",
+   "city": "Banswara",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Baran",
+   "city": "Baran",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Jaisalmer",
+   "city": "Jaisalmer",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Jhunjhunu",
+   "city": "Jhunjhunu",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Nagaur",
+   "city": "Nagaur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Sawai Madhopur",
+   "city": "Sawai Madhopur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Tonk",
+   "city": "Tonk",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "NIMS University, Jaipur",
+   "city": "Jaipur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Pandit Deendayal Upadhyaya Medical College, Churu",
+   "city": "Churu",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
+   "city": "Udaipur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Rabindra Nath Tagore Medical College, Udaipur",
+   "city": "Udaipur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Rajmata Vijaya Raje Scindia Medical College, Bhilwara",
+   "city": "Bhilwara",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sawai Man Singh Medical College, Jaipur",
+   "city": "Jaipur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shri Kalyan Government Medical College, Sikar",
+   "city": "Sikar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sudha Medical College and Hospital, Kota",
+   "city": "Kota",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Vyas Medical College and Hospital, Jodhpur",
+   "city": "Jodhpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Jodhpur",
+   "state": "Rajasthan",
+   "city": "Jodhpur",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2012,
+   "totalSeats": 125,
+   "website": "http://www.aiimsjodhpur.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dr S S Tantia Medical College Hospital & Research Centre",
+   "state": "Rajasthan",
+   "city": "Ganganagar",
+   "type": "Private",
+   "affiliation": "Tantia University",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://drsstantiamch.org/about/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Employees State Insurance Corporation Medical College,Alwar",
+   "state": "Rajasthan",
+   "city": "Alwar",
+   "type": "Government",
+   "affiliation": "Rajasthan University of Health Sciences",
+   "established": 2021,
+   "totalSeats": 100,
+   "website": "https://www.esic.nic.in/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Bhilwara, Rajasthan",
+   "state": "Rajasthan",
+   "city": "Bhilwara",
+   "type": "Government",
+   "affiliation": "Rajasthan University of Health Sciences",
+   "established": 2018,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Churu",
+   "state": "Rajasthan",
+   "type": "Government",
+   "affiliation": "Rajasthan University of Health Sciences",
+   "established": 2018,
+   "totalSeats": 150,
+   "website": "http://www.education.rajasthan.gov.in/mcchuru",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Jaipur National University Institute of Medical Sciences and Resarch Centre, Jagatpura, Jaipur",
+   "state": "Rajasthan",
+   "city": "Jaipur",
+   "type": "Private",
+   "affiliation": "Jaipur National University (Private Univ.)",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.jnujaipur.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Pacific Medical College & Hospital, Bhilo Ka Bedla, Udaipur",
+   "state": "Rajasthan",
+   "city": "Udaipur",
+   "type": "Private",
+   "affiliation": "Rajasthan University of Health Sciences",
+   "established": 2014,
+   "totalSeats": 150,
+   "website": "http://www.pacificmedical.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "R N T Medical College,  Udaipur",
+   "state": "Rajasthan",
+   "city": "Udaipur",
+   "type": "Government",
+   "affiliation": "Rajasthan University of Health Sciences",
+   "established": 1961,
+   "totalSeats": 250,
+   "website": "http://www.education.rajasthan.gov.in/rntmcudaipur",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shri Kalyan Govt. Medical College, Sikar, Rajasthan",
+   "state": "Rajasthan",
+   "type": "Government",
+   "affiliation": "Rajasthan University of Health Sciences",
+   "established": 2020,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

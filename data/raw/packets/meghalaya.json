@@ -1,0 +1,16 @@
+{
+ "state": "Meghalaya",
+ "unmatched": [
+  {
+   "name": "Shillong Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [],
+ "duplicates": [],
+ "ambiguous": []
+}

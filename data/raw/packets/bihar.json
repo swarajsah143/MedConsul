@@ -1,0 +1,167 @@
+{
+ "state": "Bihar",
+ "unmatched": [
+  {
+   "name": "AIIMS Patna",
+   "city": "Patna",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College & Hospital, Bihta, Patna",
+   "city": "Patna",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Jananayak Karpoori Thakur Medical College & Hospital, Madhepura (JKTMCH)",
+   "city": "Madhepura",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Patna Dental College and Hospital, Patna",
+   "city": "Patna",
+   "courses": [
+    "BDS",
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "RDJM Medical College & Hospital, Turki, Muzaffarpur",
+   "city": "Muzaffarpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shri Narayan Medical Institute & Hospital, Saharsa",
+   "city": "Saharsa",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Patna",
+   "state": "Bihar",
+   "city": "Patna",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2012,
+   "totalSeats": 125,
+   "website": "http://www.aiimspatna.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Employees State Insurance Corporation Medical College,Patna",
+   "state": "Bihar",
+   "city": "Bihta",
+   "type": "Government",
+   "affiliation": "Aryabhatta Knowledge University, Patna",
+   "established": 2021,
+   "totalSeats": 100,
+   "website": "https://www.esic.nic.in/medical-institution",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Indira Gandhi Institute of Medical Sciences,Sheikhpura, Patna",
+   "state": "Bihar",
+   "city": "Patna",
+   "type": "Government",
+   "affiliation": "Indira Gandhi Instt of Medical Sciences (Deemed University), Patna",
+   "established": 2011,
+   "totalSeats": 120,
+   "website": "http://www.igims.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Jannayak Karpoori Thakur Medical College & Hospital, Madhepura, Bihar",
+   "state": "Bihar",
+   "type": "Government",
+   "affiliation": "Aryabhatta Knowledge University, Patna",
+   "established": 2020,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Patna Medical College, Patna",
+   "state": "Bihar",
+   "city": "Patna",
+   "type": "Government",
+   "affiliation": "Aryabhatta Knowledge University, Patna",
+   "established": 1925,
+   "totalSeats": 200,
+   "website": "http://www.patnamedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Radha Devi Jageshwari Memorial Medical College and Hospital",
+   "state": "Bihar",
+   "city": "Muzaffarpur",
+   "type": "Private",
+   "affiliation": "Aryabhatta Knowledge University, Patna",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://www.rdjmmch.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shree Narayan Medical Institute and Hospital",
+   "state": "Bihar",
+   "city": "saharsa",
+   "type": "Private",
+   "affiliation": "Bhupendra Narayan Mandal University, Madhepura",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://www.snmih.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": [
+  {
+   "name": "Indira Gandhi Institute of Medical Sciences (IGIMS), Patna",
+   "state": "Bihar",
+   "city": "Patna",
+   "courses": [
+    "MBBS"
+   ],
+   "candidates": [
+    "Indira Gandhi Institute of Medical Sciences,Sheikhpura, Patna",
+    "All India Institute of Medical Sciences, Patna"
+   ]
+  }
+ ]
+}

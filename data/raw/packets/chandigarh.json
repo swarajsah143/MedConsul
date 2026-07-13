@@ -1,0 +1,16 @@
+{
+ "state": "Chandigarh",
+ "unmatched": [
+  {
+   "name": "GMCH Chandigarh",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [],
+ "duplicates": [],
+ "ambiguous": []
+}

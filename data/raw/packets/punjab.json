@@ -1,0 +1,117 @@
+{
+ "state": "Punjab",
+ "unmatched": [
+  {
+   "name": "AIIMS Bathinda",
+   "city": "Bathinda",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "CMC Ludhiana",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "DMC Ludhiana",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "GGS Faridkot",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "GMC Amritsar",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "GMC Patiala",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "PIMS Jalandhar",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Punjab Government Dental College and Hospital, Amritsar",
+   "city": "Amritsar",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SGRD Amritsar",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "Chintpurni Medical College, Pathankot, Gurdaspur",
+   "state": "Punjab",
+   "city": "Gurdaspur",
+   "type": "Private",
+   "affiliation": "Baba Farid University of Health Sciences,Faridkot",
+   "established": 2011,
+   "totalSeats": 150,
+   "website": "http://www.cmch.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Gian Sagar Medical College & Hospital, Patiala",
+   "state": "Punjab",
+   "city": "Patiala",
+   "type": "Private",
+   "affiliation": "Baba Farid University of Health Sciences,Faridkot",
+   "established": 2020,
+   "totalSeats": 150,
+   "website": "http://www.giansagar.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "Dr B R Ambedkar State Institute of Medical Sciences, SAS Nagar , Mohali",
+   "candidates": [
+    "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
+    "Dr BR Ambedkar SIMS, Mohali"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

@@ -1,0 +1,39 @@
+{
+ "state": "Tripura",
+ "unmatched": [
+  {
+   "name": "Agartala Government Dental College and IGM Hospital, Agartala",
+   "city": "Agartala",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Tripura Medical College & Dr. BRAM Teaching Hospital, Hapania",
+   "city": "Hapania",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "Tripura Medical College and Dr. B R A M Teaching Hospital, Agartala",
+   "state": "Tripura",
+   "city": "Agartala",
+   "type": "Private",
+   "affiliation": "Tripura University",
+   "established": 2006,
+   "totalSeats": 100,
+   "website": "http://www.tmc.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

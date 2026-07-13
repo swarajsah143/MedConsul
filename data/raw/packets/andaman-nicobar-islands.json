@@ -1,0 +1,22 @@
+{
+ "state": "Andaman Nicobar Islands",
+ "unmatched": [],
+ "nmcPool": [
+  {
+   "name": "Andaman & Nicobar Islands Institute of Medical Sciences, Port Blair",
+   "state": "Andaman Nicobar Islands",
+   "city": "Port Blair",
+   "type": "Government",
+   "affiliation": "Pondicherry University",
+   "established": 2015,
+   "totalSeats": 114,
+   "website": "http://www.aniims.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

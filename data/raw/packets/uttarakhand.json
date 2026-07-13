@@ -1,0 +1,85 @@
+{
+ "state": "Uttarakhand",
+ "unmatched": [
+  {
+   "name": "AIIMS Rishikesh",
+   "city": "Rishikesh",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Doon Medical College, Dehradun",
+   "city": "Dehradun",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Haridwar",
+   "city": "Haridwar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
+   "city": "Dehradun",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
+   "city": "Srinagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Rishikesh",
+   "state": "Uttarakhand",
+   "city": "Haridwar",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2012,
+   "totalSeats": 125,
+   "website": "http://www.aiimsrishikesh.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Doon Medical College, Dehradun, Uttarakhand",
+   "state": "Uttarakhand",
+   "city": "Dehradun",
+   "type": "Government",
+   "affiliation": "Hemwati Nandan Bahuguna Uttarakhand Medical Education University, Dehradun",
+   "established": 2016,
+   "totalSeats": 175,
+   "website": "http://www.doonmedical.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "Soban Singh Jeena Government Institute of Medical Science & Research, Almora",
+   "candidates": [
+    "Soban Singh Jeena Government Institute of Medical Science & Research (SSJGIMS&R), Almora",
+    "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

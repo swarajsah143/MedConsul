@@ -1,0 +1,80 @@
+{
+ "state": "Himachal Pradesh",
+ "unmatched": [
+  {
+   "name": "AIIMS Bilaspur",
+   "city": "Bilaspur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr Yashwant Singh Parmar Government Medical College, Nahan",
+   "city": "Nahan",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Himachal Pradesh Government Dental College and Hospital, Shimla",
+   "city": "Shimla",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Bilaspur",
+   "state": "Himachal Pradesh",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS (Bilaspur)",
+   "totalSeats": 50,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Nahan, Sirmour H.P.",
+   "state": "Himachal Pradesh",
+   "city": "Sirmour",
+   "type": "Government",
+   "affiliation": "Himachal Pradesh University",
+   "established": 2016,
+   "totalSeats": 120,
+   "website": "http://www.yspgmc.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Maharishi Markandeshwar Medical College & Hospital, Solan",
+   "state": "Himachal Pradesh",
+   "city": "Solan",
+   "type": "Private",
+   "affiliation": "Maharishi Marakandeshwar University, Kumarhatti, Solan",
+   "established": 2013,
+   "totalSeats": 150,
+   "website": "http://mmusolan.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "Shri Lal Bahadur Shastri Government Medical College, Mandi, HP",
+   "candidates": [
+    "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+    "Shri Lal Bahadur Shastri Government Medical College, Mandi"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

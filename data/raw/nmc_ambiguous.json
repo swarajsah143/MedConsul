@@ -1,0 +1,26 @@
+[
+ {
+  "name": "Government Medical College, Paderu",
+  "state": "",
+  "city": "Paderu",
+  "courses": [
+   "MBBS"
+  ],
+  "candidates": [
+   "Purulia Government Medical College & Hospital",
+   "Government Medical College, Rajouri, J&K"
+  ]
+ },
+ {
+  "name": "Indira Gandhi Institute of Medical Sciences (IGIMS), Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "courses": [
+   "MBBS"
+  ],
+  "candidates": [
+   "Indira Gandhi Institute of Medical Sciences,Sheikhpura, Patna",
+   "All India Institute of Medical Sciences, Patna"
+  ]
+ }
+]

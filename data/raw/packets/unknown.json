@@ -1,0 +1,173 @@
+{
+ "state": "UNKNOWN",
+ "unmatched": [
+  {
+   "name": "Ananya College of Medicine & Research, Kalol, Gandhinagar",
+   "city": "Gandhinagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Banas Medical College & Research Institute, Palanpur",
+   "city": "Palanpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Bhagyoday Medical College, Kadi, Mehsana",
+   "city": "Mehsana",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "C. U. Shah Medical College, Surendranagar",
+   "city": "Surendranagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Dr Pinnamaneni Siddhartha Institute of Medical Sciences, Chinoutpalli",
+   "city": "Chinoutpalli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
+   "city": "Bharuch",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "GMERS Medical College, Godhra",
+   "city": "Godhra",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "GMERS Medical College, Morbi",
+   "city": "Morbi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "GMERS Medical College, Porbandar",
+   "city": "Porbandar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Government Medical College, Srikakulam",
+   "city": "Srikakulam",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Maharajahs Institute of Medical Sciences, Nellimarla",
+   "city": "Nellimarla",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "NRI Medical College, Chinakakani",
+   "city": "Chinakakani",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Narayana Medical College and Hospital, Chinthareddypalem",
+   "city": "Chinthareddypalem",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Nootan Medical College & Research Centre, Visnagar",
+   "city": "Visnagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "PES Institute of Medical Science and Research, Kuppam",
+   "city": "Kuppam",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Pramukhswami Medical College, Karamsad",
+   "city": "Karamsad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Santhiram Medical College and General Hospital, Nandyal",
+   "city": "Nandyal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Sri Balaji Medical College, Hospital and Research Institute, Renigunta",
+   "city": "Renigunta",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  },
+  {
+   "name": "Swaminarayan Institute of Medical Sciences & Research, Kalol, Gandhinagar",
+   "city": "Gandhinagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": true
+  }
+ ],
+ "nmcPool": [],
+ "duplicates": [],
+ "ambiguous": [
+  {
+   "name": "Government Medical College, Paderu",
+   "state": "",
+   "city": "Paderu",
+   "courses": [
+    "MBBS"
+   ],
+   "candidates": [
+    "Purulia Government Medical College & Hospital",
+    "Government Medical College, Rajouri, J&K"
+   ]
+  }
+ ]
+}

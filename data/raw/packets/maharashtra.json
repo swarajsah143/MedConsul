@@ -1,0 +1,687 @@
+{
+ "state": "Maharashtra",
+ "unmatched": [
+  {
+   "name": "AIIMS Nagpur",
+   "city": "Nagpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Ashwini Rural Medical College Hospital and Research Centre, Kumbhari",
+   "city": "Kumbhari",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "BJ Medical College, Pune",
+   "city": "Pune",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
+   "city": "Pune — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Bharati Vidyapeeth Dental College and Hospital, Sangli",
+   "city": "Sangli",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
+   "city": "Pune",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Byramjee Jeejeebhoy Government Medical College, Pune",
+   "city": "Pune",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "DY Patil University School of Dentistry, Navi Mumbai",
+   "city": "Navi Mumbai",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "DY Patil University School of Medicine, Pune",
+   "city": "Pune",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Datta Meghe Institute of Higher Education and Research (DMIMS), Jawaharlal Nehru Medical College, Wardha",
+   "city": "Wardha",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — Management/Paid seats",
+   "city": "Pune — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — NRI seats",
+   "city": "Pune — NRI seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr D Y Patil Medical College, Kolhapur — General category",
+   "city": "Kolhapur — General category",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr D Y Patil Medical College, Kolhapur — Management/Paid seats",
+   "city": "Kolhapur — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
+   "city": "Navi Mumbai — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
+   "city": "Pune",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr DY Patil Dental College, Pune",
+   "city": "Pune",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr DY Patil Education Society Deemed University, Kolhapur",
+   "city": "Kolhapur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr NY Tasgaonkar Institute of Medical Sciences, Karjat",
+   "city": "Karjat",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College and Hospital, Mumbai",
+   "city": "Mumbai",
+   "courses": [
+    "BDS",
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College and Hospital, Bhandara",
+   "city": "Bhandara",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College and Hospital, Washim",
+   "city": "Washim",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Ambernath",
+   "city": "Ambernath",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Amravati",
+   "city": "Amravati",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Gadchiroli",
+   "city": "Gadchiroli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Hingoli",
+   "city": "Hingoli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Jalna",
+   "city": "Jalna",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Nashik",
+   "city": "Nashik",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Grant Government Medical College, Mumbai",
+   "city": "Mumbai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+   "city": "Mumbai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "HBT Medical College & Dr. R.N. Cooper Hospital, Mumbai",
+   "city": "Mumbai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "HBT Medical College and Dr RN Cooper Medical College, Mumbai",
+   "city": "Mumbai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — Management/Paid seats",
+   "city": "Wardha — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — NRI seats",
+   "city": "Wardha — NRI seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Krishna Institute of Medical Sciences (KIMS), Karad — Management/Paid seats",
+   "city": "Karad — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Krishna Vishwa Vidyapeeth, Karad",
+   "city": "Karad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "MGM Medical College and Hospital, Navi Mumbai — Management/Paid seats",
+   "city": "Navi Mumbai — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "MGM Medical College and Hospital, Navi Mumbai — NRI seats",
+   "city": "Navi Mumbai — NRI seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "MGM Medical College, Aurangabad — Management/Paid seats",
+   "city": "Aurangabad — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "MGM Medical College, Aurangabad — NRI seats",
+   "city": "Aurangabad — NRI seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "MGM Medical College, Navi Mumbai",
+   "city": "Navi Mumbai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "MIMER Medical College, Talegaon, Pune",
+   "city": "Pune",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "NKP Salve Institute of Medical Sciences and Research Centre, Nagpur",
+   "city": "Nagpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Rajiv Gandhi Medical College, Thane",
+   "city": "Thane",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — Management/Paid seats",
+   "city": "Loni — Management/Paid seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — NRI seats",
+   "city": "Loni — NRI seats",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SMBT Institute of Medical Sciences and Research Center, Nashik",
+   "city": "Nashik",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
+   "city": "Mumbai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+   "city": "Mumbai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shri Ramachandra Institute of Medical Sciences, Aurangabad",
+   "city": "Aurangabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Smt Kashibai Navale Medical College, Ambegaon (Sinhgad Technical Education Society)",
+   "city": "Ambegaon",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Swami Ramanand Tirth Rural Government Medical College, Ambajogai",
+   "city": "Ambajogai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
+   "city": "Mumbai",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Nagpur",
+   "state": "Maharashtra",
+   "city": "Maharashtra",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2018,
+   "totalSeats": 125,
+   "website": "https://aiimsnagpur.edu.in/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Armed Forces Medical College, Pune",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Government",
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "established": 1962,
+   "totalSeats": 150,
+   "website": "http://www.afmc.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Ashwini Rural Medical College, Hospital & Research Centre, Solapur",
+   "state": "Maharashtra",
+   "city": "Solapur",
+   "type": "Private",
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "established": 2012,
+   "totalSeats": 100,
+   "website": "http://www.armch.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dr. N Y Tasgaonkar Institute of Medical Science",
+   "state": "Maharashtra",
+   "city": "maharashtra",
+   "type": "Private",
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "established": 2021,
+   "totalSeats": 100,
+   "website": "http://www.raigadhospital.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mahatma Gandhi Mission Medical College, Vashi",
+   "state": "Maharashtra",
+   "city": "Vashi, Navi Mumbai",
+   "type": "Private",
+   "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+   "established": 2023,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mahatma Gandhi Missions Medical College, Aurangabad",
+   "state": "Maharashtra",
+   "city": "Aurangabad",
+   "type": "Private",
+   "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+   "established": 1989,
+   "totalSeats": 200,
+   "website": "http://www.themgmgroup.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mahatma Gandhi Missions Medical College, Navi Mumbai",
+   "state": "Maharashtra",
+   "city": "Navi Mumbai",
+   "type": "Private",
+   "affiliation": "MGM Institute of Health Sciences (Deemed University), Navi Mumbai",
+   "established": 1989,
+   "totalSeats": 200,
+   "website": "http://www.mgmmcnm.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "N. K. P. Salve Instt. of Medical Sciences and Research Centre and Lata Mangeshkar Hospital, Nagpur",
+   "state": "Maharashtra",
+   "city": "Nagpur",
+   "type": "Private",
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "established": 1990,
+   "totalSeats": 200,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Rural Medical College, Loni",
+   "state": "Maharashtra",
+   "city": "Loni",
+   "type": "Private",
+   "affiliation": "Pravara Institute of Medical Sciences (Deemed University), Ahmednagar",
+   "established": 1984,
+   "totalSeats": 200,
+   "website": "http://www.pravara.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "SMBT Institute of Medical Sciences & Research Centre, Nandihills, Nashik",
+   "state": "Maharashtra",
+   "city": "Nashik",
+   "type": "Private",
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "established": 2014,
+   "totalSeats": 150,
+   "website": "http://smbt.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Smt. Kashibai Navale Medical College and General Hospital,Pune",
+   "state": "Maharashtra",
+   "city": "Pune",
+   "type": "Private",
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "established": 2007,
+   "totalSeats": 150,
+   "website": "http://www.sknmcgh.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "SRTR Medical College, Ambajogai",
+   "state": "Maharashtra",
+   "city": "Ambajogai",
+   "type": "Government",
+   "affiliation": "Maharashtra University of Health Sciences, Nashik",
+   "established": 1974,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "Padmashree Dr. D.Y.Patil Medical College, Navi Mumbai",
+   "candidates": [
+    "Dr D Y Patil Medical College, Navi Mumbai",
+    "Dr D Y Patil Medical College, Navi Mumbai — NRI seats",
+    "Dr D Y Patil Medical College, Nerul, Navi Mumbai",
+    "Dr DY Patil Medical College, Navi Mumbai",
+    "Padmashree Dr D Y Patil Medical College, Navi Mumbai"
+   ]
+  },
+  {
+   "nmcName": "B. J.  Govt. Medical College, Pune",
+   "candidates": [
+    "B.J. Government Medical College, Pune",
+    "BJ Government Medical College, Pune"
+   ]
+  },
+  {
+   "nmcName": "Bharati Vidyapeeth University Medical College, Pune",
+   "candidates": [
+    "Bharati Vidyapeeth Deemed University Medical College, Pune — NRI seats",
+    "Bharati Vidyapeeth Medical College, Pune"
+   ]
+  },
+  {
+   "nmcName": "Dr. D Y Patil Medical College, Kolhapur",
+   "candidates": [
+    "Dr D Y Patil Medical College, Kolhapur",
+    "Dr D Y Patil Medical College, Kolhapur — NRI seats"
+   ]
+  },
+  {
+   "nmcName": "H.B.T. Medical College & Dr. R.N. Cooper Municipal General Hospital, Juhu, Mumbai",
+   "candidates": [
+    "Dr D Y Patil Medical College, Navi Mumbai — General category",
+    "HBT Medical College and Dr RN Cooper Municipal Medical College, Mumbai"
+   ]
+  },
+  {
+   "nmcName": "Dr. D Y Patil Medical College, Hospital and Research Centre, Pimpri, Pune",
+   "candidates": [
+    "Dr D Y Patil Medical College, Pimpri, Pune",
+    "Dr. D Y Patil Medical College, Pune"
+   ]
+  },
+  {
+   "nmcName": "Grant Medical College, Mumbai",
+   "candidates": [
+    "Grant Medical College & Sir JJ Hospital, Mumbai",
+    "Grant Medical College, Mumbai"
+   ]
+  },
+  {
+   "nmcName": "Indira Gandhi Medical College & Hospital, Nagpur",
+   "candidates": [
+    "Indira Gandhi Government Medical College and Hospital, Nagpur",
+    "Indira Gandhi Medical College, Nagpur"
+   ]
+  },
+  {
+   "nmcName": "Jawaharlal Nehru Medical College, Sawangi (Meghe), Wardha",
+   "candidates": [
+    "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
+    "Jawaharlal Nehru Medical College, DMIMS, Wardha"
+   ]
+  },
+  {
+   "nmcName": "Krishna Institute of Medical Sciences, Karad",
+   "candidates": [
+    "Krishna Institute of Medical Sciences (KIMS), Karad — NRI seats",
+    "Krishna Institute of Medical Sciences, Karad"
+   ]
+  },
+  {
+   "nmcName": "Lokmanya Tilak Municipal Medical College, Sion, Mumbai",
+   "candidates": [
+    "Lokmanya Tilak Municipal Medical College (LTMMC), Sion, Mumbai",
+    "Lokmanya Tilak Municipal Medical College, Mumbai"
+   ]
+  },
+  {
+   "nmcName": "Terna Medical College, Navi Mumbai",
+   "candidates": [
+    "Terna Medical College, Navi Mumbai",
+    "Terna Medical College, Nerul, Navi Mumbai"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

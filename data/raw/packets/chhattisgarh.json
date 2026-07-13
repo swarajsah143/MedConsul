@@ -1,0 +1,48 @@
+{
+ "state": "Chhattisgarh",
+ "unmatched": [
+  {
+   "name": "AIIMS Raipur",
+   "city": "Raipur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College, Raipur",
+   "city": "Raipur",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Pt Jawahar Lal Nehru Memorial Medical College, Raipur",
+   "city": "Raipur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Rungta College of Dental Sciences and Research, Bhilai",
+   "city": "Bhilai",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shri Balaji Institute of Medical Science, Raipur",
+   "city": "Raipur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [],
+ "duplicates": [],
+ "ambiguous": []
+}

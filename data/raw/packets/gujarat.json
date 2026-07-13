@@ -1,0 +1,271 @@
+{
+ "state": "Gujarat",
+ "unmatched": [
+  {
+   "name": "AIIMS Rajkot",
+   "city": "Rajkot",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College, Naroda-Bapunagar, Ahmedabad",
+   "city": "Ahmedabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College and Hospital, Ahmedabad",
+   "city": "Ahmedabad",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College and Hospital, Jamnagar",
+   "city": "Jamnagar",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Vadodara (Baroda)",
+   "city": "Vadodara",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Matushri Prabhaben Khodabhai Boghara Medical College & Research Centre, Atkot, Rajkot",
+   "city": "Rajkot",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Medical College, Baroda (Government Medical College, Vadodara)",
+   "city": "Vadodara)",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shri M. P. Shah Government Medical College, Jamnagar",
+   "city": "Jamnagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Smt. B. K. Shah Medical Institute & Research Centre (Sumandeep Vidyapeeth), Piparia, Vadodara",
+   "city": "Vadodara",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Rajkot",
+   "state": "Gujarat",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS (Rajkot)",
+   "totalSeats": 50,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Ananya College of Medicine & Research",
+   "state": "Gujarat",
+   "city": "Ahmedabad",
+   "type": "Private",
+   "affiliation": "Gujarat University",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Banas Medical College and Research Institute, Palanpur, Gujarat",
+   "state": "Gujarat",
+   "type": "Private",
+   "affiliation": "Hemchandracharya North Gujarat University,Patan",
+   "established": 2018,
+   "totalSeats": 200,
+   "website": "http://www.bmcri.co.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "CU Shah Medical College, Surendra Nagar",
+   "state": "Gujarat",
+   "city": "Surendra Nagar",
+   "type": "Private",
+   "affiliation": "Saurashtra University",
+   "established": 2000,
+   "totalSeats": 100,
+   "website": "http://www.cusmc.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dr.Kiran C.Patel Medical College and Research Institute",
+   "state": "Gujarat",
+   "type": "Private",
+   "affiliation": "Veer Narmad South Gujarat University",
+   "established": 2020,
+   "totalSeats": 200,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Morbi",
+   "state": "Gujarat",
+   "type": "Government",
+   "affiliation": "Saurashtra University, Rajkot",
+   "established": 2022,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Panchmahal Godhra",
+   "state": "Gujarat",
+   "type": "Government",
+   "affiliation": "Shri Govind Guru University, Godhara",
+   "established": 2022,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Porbandar",
+   "state": "Gujarat",
+   "type": "Government",
+   "affiliation": "Bhakta Kavi Narsing Mehta University, Bikha Roa, Khadia",
+   "established": 2022,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Medical College, Baroda",
+   "state": "Gujarat",
+   "city": "Baroda",
+   "type": "Government",
+   "affiliation": "MS University of Baroda",
+   "established": 1949,
+   "totalSeats": 250,
+   "website": "http://www.medicalcollegebaroda.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "MP Shah Medical College,Jamnagar",
+   "state": "Gujarat",
+   "city": "Jamnagar",
+   "type": "Government",
+   "affiliation": "Saurashtra University",
+   "established": 1955,
+   "totalSeats": 250,
+   "website": "http://www.mpsmc.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Nootan Medical College and Research Centre, Mehsana",
+   "state": "Gujarat",
+   "city": "Gujarat",
+   "type": "Private",
+   "affiliation": "Sankalchand Patel University",
+   "established": 2019,
+   "totalSeats": 150,
+   "website": "http://mbbs.spu.ac.in/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Pramukhswami Medical College, Karmsad",
+   "state": "Gujarat",
+   "city": "Karmsad",
+   "type": "Private",
+   "affiliation": "Bhaikaka University",
+   "established": 1987,
+   "totalSeats": 150,
+   "website": "http://www.charutarhealth.org/institute/pramukhswami-medi",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "SBKS Medical Instt. & Research Centre, Vadodra",
+   "state": "Gujarat",
+   "city": "Vadodra",
+   "type": "Private",
+   "affiliation": "Sumandeep Vidyapeeth University (Deemed), Vadodra",
+   "established": 2002,
+   "totalSeats": 250,
+   "website": "http://www.sumandeepvidyapeethdu.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Swaminayaran Institute of Medical Sciences & Research",
+   "state": "Gujarat",
+   "city": "Gandhinagar",
+   "type": "Private",
+   "affiliation": "Swaminayaran University",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "B J Medical College, Ahmedabad",
+   "candidates": [
+    "B.J. Medical College, Ahmedabad",
+    "BJ Medical College, Ahmedabad"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

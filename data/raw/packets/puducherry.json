@@ -1,0 +1,163 @@
+{
+ "state": "Puducherry",
+ "unmatched": [
+  {
+   "name": "Aarupadai Veedu Medical College and Hospital",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "JIPMER Karaikal Campus",
+   "city": "Karaikal Campus",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "JIPMER Puducherry",
+   "city": "Puducherry",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Mahatma Gandhi Medical College & Research Institute, SBV Puducherry",
+   "city": "SBV Puducherry",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Pondicherry Institute of Medical Sciences",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Vinayaka Mission's Medical College, Karaikal",
+   "city": "Karaikal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Vinayaka Missions Medical College, Karaikal",
+   "city": "Karaikal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "Aarupadai Veedu Medical College, Pondicherry",
+   "state": "Puducherry",
+   "city": "Pondicherry",
+   "type": "Private",
+   "affiliation": "Vinayaka Missions University (Deemed), Salem",
+   "established": 1999,
+   "totalSeats": 150,
+   "website": "http://www.avmc.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Jawaharlal Institute of Postgraduate Medical Education & Research, Puducherry",
+   "state": "Puducherry",
+   "city": "Puducherry",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, Puducherry",
+   "established": 1956,
+   "totalSeats": 200,
+   "website": "http://www.jipmer.puducherry.gov.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mahatma Gandhi Medical College & Research Institute, Pondicherry",
+   "state": "Puducherry",
+   "city": "Pondicherry",
+   "type": "Private",
+   "affiliation": "Sri Balaji Vidyapeeth (Deemed University), Pondicherry",
+   "established": 2002,
+   "totalSeats": 250,
+   "website": "http://www.mgmcri.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Pondicherry Institute of Medical Sciences & Research, Pondicherry",
+   "state": "Puducherry",
+   "city": "Pondicherry",
+   "type": "Private",
+   "affiliation": "Pondicherry University",
+   "established": 2000,
+   "totalSeats": 150,
+   "website": "http://www.pimsmmm.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sri Lakshmi Narayana Institute of Medical Sciences, Pondicherry",
+   "state": "Puducherry",
+   "city": "Pondicherry",
+   "type": "Private",
+   "affiliation": "Bharath Institute of Higher Education & Research (Deemed Univ.), Chennai",
+   "established": 2006,
+   "totalSeats": 250,
+   "website": "http://www.slims.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sri Manakula Vinayagar Medical College & Hospital, Pondicherry",
+   "state": "Puducherry",
+   "city": "Pondicherry",
+   "type": "Private",
+   "affiliation": "Pondicherry University",
+   "established": 2006,
+   "totalSeats": 250,
+   "website": "http://www.smvmch.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Vinayaka Missions Medical College, Karaikal, Pondicherry",
+   "state": "Puducherry",
+   "city": "Pondicherry",
+   "type": "Private",
+   "affiliation": "Vinayaka Missions University (Deemed), Salem",
+   "established": 1997,
+   "totalSeats": 150,
+   "website": "http://www.vmmckkl.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}
