@@ -175,8 +175,15 @@ def parse_pdf(path, meta):
                         dropped['no-institute-name'] += 1
                         continue
 
+                    # The `allotments` schema has NO year field, and its naturalKey is
+                    # (counselling, round, category, course, allIndiaRank, instituteName).
+                    # Import two cycles without a year anywhere in that key and 2025's
+                    # Round 1 silently OVERWRITES 2024's, row for row. The year has to live
+                    # in `counselling` — which is also what /allotment/:counselling groups by,
+                    # so "MCC UG 2025" is the natural value rather than a hack.
                     row = {
-                        'counselling': meta.get('counselling') or 'MCC UG',
+                        'counselling': f"MCC UG {meta['year']}" if meta.get('year')
+                                       else (meta.get('counselling') or 'MCC UG'),
                         'round': int(meta['round']),
                         'instituteName': name,
                         'collegeName': name,           # -> collegeId at import, if it resolves

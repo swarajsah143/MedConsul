@@ -2394,7 +2394,7 @@
   "closingRank": 112717
  },
  {
-  "collegeName": "Azeezia Medical College, Meeyannoor",
+  "collegeName": "Azeezia Medical College, Kollam",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -2403,7 +2403,7 @@
   "closingRank": 4044
  },
  {
-  "collegeName": "Azeezia Medical College, Meeyannoor",
+  "collegeName": "Azeezia Medical College, Kollam",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -2412,7 +2412,7 @@
   "closingRank": 11517
  },
  {
-  "collegeName": "Azeezia Medical College, Meeyannoor",
+  "collegeName": "Azeezia Medical College, Kollam",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -11259,7 +11259,7 @@
   "closingRank": 434517
  },
  {
-  "collegeName": "Amrita Institute of Medical Sciences, Kochi",
+  "collegeName": "Amrita School of Medicine, Kochi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -11268,7 +11268,7 @@
   "closingRank": 269974
  },
  {
-  "collegeName": "Amrita Institute of Medical Sciences, Kochi",
+  "collegeName": "Amrita School of Medicine, Kochi",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -11284,15 +11284,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 286837
- },
- {
-  "collegeName": "Amrita School of Medicine, Kochi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 269974
  },
  {
   "collegeName": "Apollo Institute of Medical Sciences and Research, Hyderabad",
@@ -39897,22 +39888,13 @@
   "closingRank": 661803
  },
  {
-  "collegeName": "Amrita Institute of Medical Sciences, Kochi",
+  "collegeName": "Amrita School of Medicine, Kochi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 1099672
- },
- {
-  "collegeName": "Amrita Institute of Medical Sciences, Kochi",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 290052
  },
  {
   "collegeName": "Amrita School of Medicine, Kochi",
@@ -40275,7 +40257,7 @@
   "closingRank": 494727
  },
  {
-  "collegeName": "DM Wayanad Institute of Medical Sciences",
+  "collegeName": "DM Wayanad Institute of Medical Sciences, Meppadi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -42822,15 +42804,6 @@
   "closingRank": 9978
  },
  {
-  "collegeName": "Azeezia Medical College, Meeyannoor",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Kerala State Quota",
-  "closingRank": 6608
- },
- {
   "collegeName": "B.J. Medical College, Ahmedabad",
   "year": 2025,
   "round": 1,
@@ -43632,22 +43605,13 @@
   "closingRank": 54689
  },
  {
-  "collegeName": "DM Wayanad Institute of Medical Sciences",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Kerala State Quota",
-  "closingRank": 92788
- },
- {
   "collegeName": "DM Wayanad Institute of Medical Sciences, Meppadi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Kerala State Quota",
-  "closingRank": 9422
+  "closingRank": 92788
  },
  {
   "collegeName": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
@@ -49005,15 +48969,6 @@
   "closingRank": 87430
  },
  {
-  "collegeName": "KMCT Medical College, Manassery",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Kerala State Quota",
-  "closingRank": 8167
- },
- {
   "collegeName": "Kokrajhar Medical College",
   "year": 2025,
   "round": 1,
@@ -51792,7 +51747,7 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Kerala State Quota",
-  "closingRank": 3930
+  "closingRank": 9805
  },
  {
   "collegeName": "Sree Gokulam Medical College and Research Foundation, Venjaramoodu",
@@ -51802,15 +51757,6 @@
   "category": "SC",
   "quota": "Kerala State Quota",
   "closingRank": 15708
- },
- {
-  "collegeName": "Sree Gokulam Medical College, Thiruvananthapuram",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Kerala State Quota",
-  "closingRank": 9805
  },
  {
   "collegeName": "Sree Mookambika Institute / Kanyakumari Medical Mission Research Centre, Kulasekharam",
@@ -51837,7 +51783,7 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Kerala State Quota",
-  "closingRank": 5859
+  "closingRank": 9562
  },
  {
   "collegeName": "Sri Balaji Medical College, Hospital and Research Institute, Renigunta",
@@ -52099,15 +52045,6 @@
   "category": "ST",
   "quota": "Gujarat State Quota",
   "closingRank": 453120
- },
- {
-  "collegeName": "SUT Academy of Medical Sciences, Thiruvananthapuram",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Kerala State Quota",
-  "closingRank": 9562
  },
  {
   "collegeName": "SVS Medical College, Mahabubnagar",

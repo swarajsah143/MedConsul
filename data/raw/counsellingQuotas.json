@@ -1,0 +1,668 @@
+[
+  {
+    "label": "All India Quota (AIQ)",
+    "group": "Central Quotas",
+    "authority": "Medical Counselling Committee (MCC), Directorate General of Health Services (DGHS), Ministry of Health & Family Welfare",
+    "order": 1,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "blocks": [
+      {
+        "heading": "What the 15% AIQ actually covers",
+        "intro": "AIQ is domicile-free: your home state is irrelevant. Alongside the 15% of seats surrendered by state government colleges, MCC counts several other pools as 'open' seats in the same AIQ process.",
+        "items": [
+          "15% of the MBBS/BDS seats of state government medical and dental colleges",
+          "100% of MBBS/BDS seats at BHU (open)",
+          "100% of MBBS seats at all AIIMS across India (open)",
+          "JIPMER open seats (Puducherry and Karaikal)",
+          "AMU open seats",
+          "15% AIQ seats of Delhi University and the I.P. University institutes (VMMC & SJH, ABVIMS & RML, ESIC Dental)",
+          "Jamia Millia Islamia open seats — Faculty of Dentistry",
+          "15% AIQ seats of ESIC colleges"
+        ]
+      },
+      {
+        "heading": "Who is eligible",
+        "items": [
+          "Must have qualified NEET-UG for the relevant year",
+          "Domicile-free — no state residence requirement",
+          "Must meet NMC norms",
+          "OCI cardholders are treated at par with Indian citizens and are eligible for UR (General) seats as well as NRI seats, following the Supreme Court order of 03.02.2023 in Anushka Rengunthwar v. Union of India"
+        ]
+      },
+      {
+        "heading": "Reservation applied on AIQ seats",
+        "intro": "The Central Government reservation policy applies, with the roster applied by MCC as per DoPT/MoHFW norms.",
+        "items": [
+          "SC — 15%",
+          "ST — 7.5%",
+          "OBC (Non-Creamy Layer, Central OBC list only) — 27%",
+          "EWS — 10%",
+          "PwD — 5% horizontal, as per NMC norms"
+        ],
+        "note": "The OBC-NCL certificate must be against the CENTRAL list. A state OBC certificate that is not on the central list will not get you an OBC seat in AIQ."
+      },
+      {
+        "heading": "How seats are allotted",
+        "intro": "Four online rounds, as approved by the Supreme Court in SLP (C) No. 10487 of 2021 (Nihila P.P. v. MCC).",
+        "items": [
+          "Round 1",
+          "Round 2",
+          "Round 3 (this is what used to be called the Mop-Up round)",
+          "Stray Vacancy Round"
+        ],
+        "ordered": true,
+        "note": "Because there are now four AIQ rounds, seats are NOT reverted back to the participating states after Round 2 — an old rule students still repeat. Upgradation is allowed up to Round 3."
+      },
+      {
+        "heading": "The rules students get wrong",
+        "items": [
+          "Round 1 is a free exit — you do not have to report or join, and you lose nothing. But if you want to KEEP the Round 1 seat and still upgrade in Round 2, you must physically join the college and record your upgradation willingness at the time of admission",
+          "From Round 2 onwards, being allotted a seat and not joining forfeits your security deposit; you can only re-enter Round 3 with fresh payment",
+          "If you are allotted a Round 3 seat and do not report, you exit with forfeiture AND are eliminated from all further rounds",
+          "Once you join a Round 3 seat you cannot resign or vacate it, and you cannot participate in any counselling after joining",
+          "Candidates upgraded in Round 3 have no claim on the Round 2 seat",
+          "Locked choices cannot be unlocked or edited — not even by MCC",
+          "Submitting more than one registration form gets you debarred and your candidature cancelled",
+          "All resignations must be done online; no offline resignation of a seat is permitted",
+          "MCC never allots a seat on a nomination basis or manually"
+        ]
+      },
+      {
+        "heading": "Fee character",
+        "intro": "Paid to MCC at registration for the AIQ / Central University / AFMC / ESIC / AIIMS / JIPMER / B.Sc Nursing stream.",
+        "items": [
+          "Non-refundable registration fee: Rs 1,000 (UR/EWS) or Rs 500 (SC/ST/OBC/PwD)",
+          "Refundable security deposit: Rs 10,000 (UR/EWS) or Rs 5,000 (SC/ST/OBC/PwD)",
+          "Security is refunded only after all rounds are complete, and only to the account it was paid from"
+        ],
+        "note": "Tuition is the college's own government-seat fee and is paid to the college, not to MCC."
+      },
+      {
+        "heading": "Legal basis",
+        "items": [
+          "Modified Scheme approved by the Supreme Court on 07.06.2012 in W.P. (C) 443 of 1992, Sharwan Kumar v. DGHS",
+          "MCI gazette notification of 27 June 2017 designating DGHS as the counselling authority for 15% AIQ seats"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Deemed University Quota",
+    "group": "Central Quotas",
+    "authority": "Medical Counselling Committee (MCC), DGHS — 100% of seats",
+    "order": 2,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "blocks": [
+      {
+        "heading": "What it is",
+        "intro": "MCC counsels 100% of the seats of participating deemed universities — not a slice of them. This follows the Supreme Court order of 12.12.2022 in Dar-Us-Slam Educational Trust v. Medical Council of India, which directed four rounds of common counselling plus an online stray vacancy round conducted by MCC.",
+        "items": [
+          "Four rounds: Round 1, Round 2, Round 3, and an online Stray Vacancy Round — all run by MCC",
+          "The seat matrix for deemed university seats is prepared by MCC",
+          "Deemed universities cannot admit you directly — the seat has to come through MCC"
+        ]
+      },
+      {
+        "heading": "Who is eligible",
+        "items": [
+          "Must have qualified NEET-UG",
+          "Domicile-free",
+          "Candidates from the Union Territory of J&K are eligible",
+          "OCI cardholders are treated at par with Indian citizens and are eligible for UR seats as well as NRI seats"
+        ]
+      },
+      {
+        "heading": "The single biggest misconception: there is no reservation here",
+        "intro": "This is the rule students get wrong most often and it costs them money.",
+        "items": [
+          "There is NO reservation for OBC, SC, ST, PwD or EWS candidates in deemed universities",
+          "Your category does not lower the fee and does not get you a category seat",
+          "Some deemed universities do carry Jain Minority or Muslim Minority seats — verify your eligibility for those before applying under that category"
+        ],
+        "note": "Deemed university seats are effectively open-merit seats at private-college fees, whatever your category."
+      },
+      {
+        "heading": "Seat conversion at Round 3",
+        "intro": "NRI, Jain Minority and Muslim Minority seats still vacant during Round 3 are converted so that they are not wasted.",
+        "items": [
+          "NRI / Jain Minority / Muslim Minority seats → converted to UR (private deemed) seats",
+          "Conversion happens only after all eligible candidates in that category have been exhausted"
+        ]
+      },
+      {
+        "heading": "Fee character — the expensive stream",
+        "items": [
+          "Non-refundable registration fee: Rs 5,000 (same for every candidate, no category concession)",
+          "Refundable security deposit: Rs 2,00,000",
+          "If you are applying for both government and deemed seats you pay only the higher fee — i.e. the deemed fee of Rs 5,000 + Rs 2,00,000"
+        ],
+        "note": "The Rs 2,00,000 security deposit is refundable, but it is forfeited if you are allotted a seat in Round 2 or later and do not join, or if your admission is cancelled for wrong information or missing documents. Tuition at deemed universities is set by the university and is far above government-seat fees."
+      }
+    ]
+  },
+  {
+    "label": "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+    "group": "Central Quotas",
+    "authority": "Medical Counselling Committee (MCC), DGHS — conducts both the 15% AIQ and the 85% institutional/internal quota",
+    "order": 3,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "blocks": [
+      {
+        "heading": "What MCC runs here",
+        "intro": "For the central universities MCC conducts counselling for 100% of the seats — both the 15% All India Quota portion and the 85% state/institutional/internal quota portion. Four rounds: Round 1, Round 2, Round 3 and Stray Vacancy.",
+        "items": [
+          "Delhi University — LHMC, UCMS, MAMC, MAIDS",
+          "Aligarh Muslim University (AMU)",
+          "Banaras Hindu University — IMS (medical) and IDS (dental)",
+          "Jamia Millia Islamia — Faculty of Dentistry"
+        ]
+      },
+      {
+        "heading": "Delhi University",
+        "items": [
+          "15% of DU seats are contributed to the All India Quota and are domicile-free",
+          "For the remaining 85% state quota, only candidates who studied classes 11 and 12 in NCT of Delhi are eligible",
+          "Central reservation applies: SC 15%, ST 7.5%, OBC-NCL (central list) 27%, EWS 10%, PwD 5% horizontal",
+          "CW (Children of Widows/Wards of Defence personnel) reservation exists on state quota seats only, and the eligible list is verified by the competent authority"
+        ]
+      },
+      {
+        "heading": "Aligarh Muslim University",
+        "items": [
+          "AMU seats split into open seats (plus NRI and self-financing dental seats) and AMU internal seats",
+          "There is no reservation on AMU open seats except the 5% PwD horizontal reservation",
+          "AMU internal seats are all classified UR because they are reserved solely for AMU's own internal candidates",
+          "MCC sends the list of registered internal-quota candidates to AMU; AMU verifies and returns the eligible list"
+        ]
+      },
+      {
+        "heading": "Banaras Hindu University",
+        "items": [
+          "100% of BHU seats are open and domicile-free — every NEET-qualified candidate in India can apply",
+          "Central reservation applies: SC 15%, ST 7.5%, OBC-NCL 27%, EWS 10%, PwD 5% horizontal",
+          "At Round 3, unfilled category seats convert (ST→SC, SC→UR, EWS→UR, and PwD sub-categories back to their parent category) once eligible candidates are exhausted"
+        ]
+      },
+      {
+        "heading": "Jamia Millia Islamia (Faculty of Dentistry)",
+        "items": [
+          "Jamia has its own ordinance, reservation policy and internal-candidate eligibility rules",
+          "'Internal students of Jamia' means students who passed the qualifying examination from Jamia schools as REGULAR students",
+          "Students who appeared as private or distance-mode candidates are NOT eligible under the internal category",
+          "MCC allots purely on the roster/seat matrix supplied by Jamia and has no role in setting eligibility"
+        ]
+      },
+      {
+        "heading": "The rule students get wrong",
+        "intro": "MCC does not write the eligibility conditions for the 85% state/internal quota of central universities — the institutions do.",
+        "items": [
+          "Read the institution's own eligibility conditions before you claim an internal or state quota seat",
+          "If at any stage you are found to have given incorrect information about your eligibility, your candidature is cancelled for further rounds AND your security deposit is forfeited"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "AIIMS (All India Institutes of Medical Sciences)",
+    "group": "Central Quotas",
+    "authority": "Medical Counselling Committee (MCC), DGHS — 100% of AIIMS seats",
+    "order": 4,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "blocks": [
+      {
+        "heading": "What it is",
+        "items": [
+          "MCC conducts counselling for 100% of the MBBS seats of every AIIMS across the country",
+          "Four rounds: Round 1, Round 2, Round 3 and Stray Vacancy",
+          "Admission is on NEET-UG rank — there is no separate AIIMS entrance exam any more",
+          "MCC applies the roster on 100% of AIIMS seats"
+        ]
+      },
+      {
+        "heading": "Who is eligible",
+        "items": [
+          "Must have qualified NEET-UG",
+          "Domicile-free",
+          "AIIMS's own eligibility conditions also apply on top of NEET qualification"
+        ]
+      },
+      {
+        "heading": "Reservation",
+        "items": [
+          "SC — 15%",
+          "ST — 7.5%",
+          "OBC-NCL (Central list) — 27%",
+          "EWS — 10%",
+          "PwD — 5% horizontal per NMC norms",
+          "Foreign National seats — only OCI / PIO / Foreign National candidates are eligible; the fee for these seats is set by AIIMS"
+        ],
+        "note": "Reservation is applied only on the seats AIIMS contributes to MCC."
+      },
+      {
+        "heading": "Round 3 conversion",
+        "intro": "Unfilled category seats convert only after eligible candidates in that category are exhausted.",
+        "items": [
+          "ST (PwD) → ST, SC (PwD) → SC, UR (PwD) → UR, OBC (PwD) → OBC",
+          "ST → SC, SC → UR, EWS → UR",
+          "Foreign Nationals → UR"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "JIPMER (Puducherry & Karaikal)",
+    "group": "Central Quotas",
+    "authority": "Medical Counselling Committee (MCC), DGHS — with the Puducherry domicile list supplied by DME, Puducherry",
+    "order": 5,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "blocks": [
+      {
+        "heading": "What it is",
+        "items": [
+          "JIPMER seats are split into All India open seats and state quota seats",
+          "MCC conducts four rounds — Round 1, Round 2, Round 3 and an online Stray Vacancy Round — for both",
+          "Every NEET-UG qualified candidate can apply for the open seats"
+        ]
+      },
+      {
+        "heading": "State quota seats",
+        "items": [
+          "JIPMER's state quota seats are allotted to domicile candidates using the list provided by the Directorate of Medical Education, Puducherry",
+          "MCC has NO role in determining domicile status — disputes must be taken to the Puducherry state authorities",
+          "JIPMER sets its own eligibility and admission policy for its state quota seats; read the JIPMER information bulletin before applying"
+        ]
+      },
+      {
+        "heading": "Reservation",
+        "intro": "Central Government reservation is applied on the seats JIPMER contributes as OPEN seats.",
+        "items": [
+          "SC — 15%",
+          "ST — 7.5%",
+          "OBC-NCL (Central list) — 27%",
+          "EWS — 10%",
+          "PwD — 5% horizontal"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "ESIC — Insured Persons (IP) Quota",
+    "group": "Central Quotas",
+    "authority": "Medical Counselling Committee (MCC), DGHS — conducted as per ESIC norms; eligible IP wards list supplied by ESIC",
+    "order": 6,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "blocks": [
+      {
+        "heading": "What it is",
+        "items": [
+          "A percentage of the state quota seats in ESIC colleges is earmarked for wards of Insured Persons",
+          "The IP quota is domicile-free, and MCC conducts the counselling as per ESIC norms",
+          "Four rounds: Round 1, Round 2, Round 3 and an online Stray Vacancy Round",
+          "Separately, the 15% AIQ seats of ESIC colleges are filled through the normal All India Quota process"
+        ]
+      },
+      {
+        "heading": "Who is eligible",
+        "items": [
+          "You must hold a Ward of Insured Person certificate carrying a distinct number",
+          "Only the list of eligible IP wards supplied by ESIC is used by MCC for allotment — if you are not on that list you will not be allotted an IP seat",
+          "Must have qualified NEET-UG for the relevant year",
+          "Domicile-free"
+        ],
+        "note": "Check the ESIC eligibility conditions well in advance; MCC allots only against the list ESIC provides."
+      },
+      {
+        "heading": "Reservation",
+        "items": [
+          "SC — 15%",
+          "ST — 7.5%",
+          "OBC-NCL (Central list) — 27%",
+          "EWS — 10%",
+          "PwD — 5% horizontal"
+        ],
+        "note": "The roster on Insured Persons quota seats is applied by MCC/DGHS."
+      }
+    ]
+  },
+  {
+    "label": "AFMS / AFMC Pune",
+    "group": "Central Quotas",
+    "authority": "Armed Forces Medical College (AFMC), Pune — MCC handles registration only",
+    "order": 7,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "blocks": [
+      {
+        "heading": "How it works — MCC only registers you",
+        "intro": "AFMC is the one pool in the MCC process where MCC does not allot the seat. Its role is limited to registration.",
+        "items": [
+          "You must register for AFMC counselling on the MCC portal, mcc.nic.in",
+          "MCC sends the list of registered candidates to the AFMC authorities",
+          "AFMC then conducts its own counselling and selection at its own end, under its own rules and regulations",
+          "MCC is not responsible for any allotment made by AFMC and will not entertain any query or grievance about AFMC counselling"
+        ]
+      },
+      {
+        "heading": "The rule students get wrong",
+        "items": [
+          "AFMC has medical eligibility conditions over and above NEET qualification, and admissions HAVE been cancelled for failing to meet them",
+          "Verify the medical and other eligibility conditions on the AFMC website before you apply — MCC will not help you here",
+          "Registering through MCC does not mean MCC will allot you an AFMC seat"
+        ]
+      },
+      {
+        "heading": "Fee character",
+        "items": [
+          "AFMC registration sits in the same MCC fee band as AIQ and the central universities: Rs 1,000 (UR/EWS) or Rs 500 (SC/ST/OBC/PwD) non-refundable registration, plus Rs 10,000 (UR/EWS) or Rs 5,000 (SC/ST/OBC/PwD) refundable security"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Central Institutes under I.P. University (VMMC & SJH, ABVIMS & RML, ESIC Dental)",
+    "group": "Central Quotas",
+    "authority": "Medical Counselling Committee (MCC), DGHS — both the 15% AIQ and the 85% institutional quota",
+    "order": 8,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "blocks": [
+      {
+        "heading": "What it is",
+        "intro": "Three Delhi central institutes affiliated to I.P. University, counselled entirely by MCC across four rounds.",
+        "items": [
+          "VMMC & Safdarjung Hospital",
+          "ABVIMS & Dr. RML Hospital",
+          "ESIC Dental, Delhi",
+          "15% of their seats go to the All India Quota (domicile-free); the remaining 85% is a Delhi state quota"
+        ]
+      },
+      {
+        "heading": "Who gets the 85% state quota",
+        "items": [
+          "Candidates who studied classes 11 and 12 in recognised schools/colleges in Delhi AND passed the qualifying examination from a school/college located in NCT of Delhi",
+          "It is the LOCATION OF THE SCHOOL that decides your region — not where you live and not your parents' address"
+        ],
+        "note": "This is a common trap: living in Delhi is not enough if you did your 11th and 12th outside NCT of Delhi."
+      },
+      {
+        "heading": "Reservation",
+        "items": [
+          "SC — 15%",
+          "ST — 7.5%",
+          "OBC-NCL (Central list) — 27%",
+          "EWS — 10%",
+          "PwD — 5% horizontal",
+          "CW candidates — 5% horizontal, on STATE QUOTA seats only, as per eligibility decided by the competent authority"
+        ],
+        "note": "MCC applies the roster on both the 15% AIQ seats and the 85% internal quota seats."
+      }
+    ]
+  },
+  {
+    "label": "State Quota (85%)",
+    "group": "State Quotas",
+    "authority": "The respective State/UT counselling authority or Directorate of Medical Education — NOT MCC",
+    "order": 9,
+    "source": "https://wbmcc.nic.in/",
+    "blocks": [
+      {
+        "heading": "What it is",
+        "intro": "The 85% of seats in state government medical and dental colleges that a state keeps for its own candidates, after surrendering 15% to the All India Quota. It is counselled at state level, by the state's own authority.",
+        "items": [
+          "West Bengal: the West Bengal Medical Counselling Committee (WBMCC), formed by the Department of Health & Family Welfare under the Director of Medical Education, allots 85% state quota MBBS/BDS seats through online counselling",
+          "WBMCC's counselling covers government medical and dental colleges (state quota) and private medical and dental colleges (state quota, management quota and NRI quota)",
+          "Karnataka: the Karnataka Examinations Authority (KEA) runs a common counselling for government seats, government-quota seats in private and minority colleges, and all seats in private colleges",
+          "Jammu & Kashmir: JKBOPEE. Puducherry: CENTAC"
+        ]
+      },
+      {
+        "heading": "MCC will not help you with state quota",
+        "intro": "Stated plainly in the MCC Information Bulletin: for state quota and for private medical/dental colleges under state authority, candidates must approach the state government / admission authority / Directorate of Medical Education. MCC cannot guide candidates on this.",
+        "items": [
+          "Registering with MCC does not register you for your state's counselling — these are two separate registrations, with separate fees and separate deadlines",
+          "You will usually need to run both processes in parallel"
+        ],
+        "note": "Missing the state registration window because you were watching only mcc.nic.in is one of the most common and most expensive mistakes in the whole cycle."
+      },
+      {
+        "heading": "Domicile and eligibility differ by state",
+        "items": [
+          "Every state sets its own domicile/residence rules, its own reserved categories and its own certificate formats — there is no single national state-quota rule",
+          "Some states key eligibility to where you studied classes 11 and 12, others to a residence/domicile certificate, others to parental domicile",
+          "State reservation lists (state SC/ST/OBC lists) are used here, not the central OBC list used in AIQ",
+          "Read the current-year brochure of your own state authority before assuming you qualify"
+        ]
+      },
+      {
+        "heading": "Data sharing between Centre and States",
+        "items": [
+          "Under the Supreme Court's order of 22.07.2022 all states and counselling authorities follow a uniform MCC-developed software pattern",
+          "Allotment data is shared between the Centre and the states — if your name appears in an allotted list on either side, it is removed from the All India Stray Vacancy Round",
+          "You cannot quietly hold a state seat and a central seat at the same time"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Management / Institutional Quota",
+    "group": "Institutional Quotas",
+    "authority": "The respective State/UT counselling authority (private colleges are counselled by the state, not by the college)",
+    "order": 10,
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/ugneet_Guidelinesenglish.pdf",
+    "blocks": [
+      {
+        "heading": "What it is",
+        "intro": "The non-government share of seats in private (and minority) medical and dental colleges. The crucial point is that these seats are still filled through centralised state counselling on NEET merit — the college does not sell or hand them out directly.",
+        "items": [
+          "Karnataka: KEA conducts common counselling for admission to government seats, government-quota seats in private and minority colleges, and ALL seats in private medical and dental colleges (KPCF, KRLMPCA, AMPCK)",
+          "Admissions in Karnataka are governed by the Karnataka Selection of Candidates for Admission to Government Seats in Professional Educational Institutions Rules, 2006",
+          "West Bengal: WBMCC's online counselling explicitly covers the management quota of private medical and dental colleges"
+        ]
+      },
+      {
+        "heading": "The rules students get wrong",
+        "items": [
+          "A management seat is NOT a way around NEET — you still need a qualifying NEET-UG score and you are still allotted on merit through the state's counselling",
+          "Anyone offering you a private/management seat outside the official counselling process, for a fee, is running a scam",
+          "You must register with the state authority and complete document verification to be considered for these seats"
+        ]
+      },
+      {
+        "heading": "Fee character",
+        "items": [
+          "Management/institutional seats carry substantially higher tuition than government seats, set under the state's fee-fixation mechanism and notified with the seat matrix",
+          "Fees vary by state and by college — always check the current-year fee notification published by your state authority alongside the seat matrix, not last year's figures"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "NRI Quota",
+    "group": "Institutional Quotas",
+    "authority": "MCC (for deemed universities) and the State counselling authorities (for private colleges)",
+    "order": 11,
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/05/2026052710250622.pdf",
+    "blocks": [
+      {
+        "heading": "Eligibility for 2026-27 — MCC notice dated 27.05.2026",
+        "intro": "MCC has issued a notice specifically for candidates claiming NRI/OCI status in the 2026-27 UG/PG counselling. Eligibility follows the Supreme Court's criteria in W.P. No. 13393 of 2007 (Anshul Tomar v. State of M.P.).",
+        "items": [
+          "If the mother or father of the student is an NRI ordinarily residing abroad, the student is eligible",
+          "If a first-degree relation of the student is an NRI ordinarily residing abroad, the student is eligible — this includes a real brother or sister, in addition to the mother and father"
+        ]
+      },
+      {
+        "heading": "The guardian / ward (palya) route — and why it fails",
+        "intro": "A student can be treated as the ward of an NRI relative, but only if every one of the following conditions is met. This is where most NRI claims collapse.",
+        "items": [
+          "The sponsor must be the nearest relation, and must be a blood relation from this list: real uncle and real aunt (father's real brother/sister), real maternal uncle and maternal aunt (mother's real brother/sister), grandfather and grandmother, maternal grandfather and maternal grandmother, or first-degree paternal and maternal cousins",
+          "That person must themselves be an NRI",
+          "That person must ordinarily be residing abroad",
+          "That person must have actually looked after the student as the student's guardian, and evidence of this must be produced",
+          "There must be an affidavit to that effect"
+        ],
+        "note": "MCC has said it will seek evidential proof and legal documents during counselling showing that the sponsor is genuinely the bona fide legal guardian of the candidate under the Guardians and Wards Act, 1890. A distant uncle who simply agrees to sponsor the fee is not enough."
+      },
+      {
+        "heading": "OCI cardholders",
+        "items": [
+          "Following the Supreme Court order of 03.02.2023 in Anushka Rengunthwar v. Union of India, OCI cardholders are treated at par with Indian citizens",
+          "They are eligible for UR (General) category seats as well as NRI seats in MCC counselling"
+        ]
+      },
+      {
+        "heading": "Where NRI seats exist and what happens to unfilled ones",
+        "items": [
+          "Deemed universities: NRI seats are counselled by MCC. NRI seats still vacant during Round 3 are converted to UR (private deemed) seats once all eligible NRI candidates are exhausted",
+          "Private colleges: the NRI quota is counselled by the state authority. In Karnataka, the NRI quota is 15% of the total seats in KPCF, KRLMPCA and AMPCK private colleges",
+          "West Bengal: WBMCC counsels the NRI quota of private medical colleges"
+        ],
+        "note": "NRI seats carry the highest fees in the system. A conversion of unfilled NRI seats to UR at Round 3 also means UR candidates can pick them up — at the private/deemed fee."
+      }
+    ]
+  },
+  {
+    "label": "Minority Quota",
+    "group": "Institutional Quotas",
+    "authority": "The State counselling authority (minority institutions) and MCC (Jain/Muslim minority seats in deemed universities)",
+    "order": 12,
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/ugneet_Guidelinesenglish.pdf",
+    "blocks": [
+      {
+        "heading": "Minority institutions in the states",
+        "items": [
+          "Karnataka: KEA's common counselling covers government-quota seats in minority medical and dental colleges as well as private colleges",
+          "In Karnataka's minority institutions, 66% of the notified seats are filled by candidates of the relevant religious or linguistic minority",
+          "Eligibility is checked as a distinct claim — KEA lists Linguistic Minority, Religious Minority and NRI/NRI-Ward among the claims a candidate must verify before registering",
+          "Religious minority eligibility (e.g. Christian minority) is defined for both Karnataka and non-Karnataka candidates and requires supporting certificates"
+        ],
+        "note": "Minority status is claimed at registration and verified at document verification. If you cannot produce the certificate, the claim — and the seat — goes."
+      },
+      {
+        "heading": "Minority seats in deemed universities",
+        "intro": "Per the MCC UG Information Bulletin (https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf):",
+        "items": [
+          "Certain deemed universities carry Jain Minority or Muslim Minority seats; MCC asks candidates to verify their eligibility before applying under that category",
+          "Jain Minority and Muslim Minority seats left vacant during Round 3 are converted to UR (private deemed) seats, once all eligible minority candidates are exhausted",
+          "Otherwise there is no OBC/SC/ST/PwD/EWS reservation at deemed universities"
+        ]
+      },
+      {
+        "heading": "The rule students get wrong",
+        "items": [
+          "A minority seat is still a NEET-merit seat filled through official counselling — it is not a discretionary admission",
+          "Minority quota rules are institution- and state-specific; there is no national minority quota in the 15% AIQ"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "PwD / PwBD (5% Horizontal Reservation)",
+    "group": "Reservations",
+    "authority": "NMC norms, applied by MCC in central counselling and by the State authorities in state counselling",
+    "order": 13,
+    "source": "https://mcc.nic.in/about-ug-medical/",
+    "blocks": [
+      {
+        "heading": "What it is",
+        "items": [
+          "Reservation of seats under the PwD/PH category has been increased from 3% to 5%, and now covers the 21 benchmark disabilities",
+          "It is a HORIZONTAL reservation — the 5% cuts across UR, SC, ST, OBC and EWS rather than being a separate vertical block of seats",
+          "MCC applies it at 5% on AIQ seats, and it also applies at AIIMS, ESIC, BHU, JIPMER, DU and the I.P. University central institutes"
+        ],
+        "note": "Horizontal means a UR-PwD candidate is counted against UR, an SC-PwD candidate against SC, and so on."
+      },
+      {
+        "heading": "Where PwD reservation does NOT apply",
+        "items": [
+          "Deemed universities — the MCC bulletin states there is no reservation for OBC, SC, ST, PwD or EWS candidates at deemed universities",
+          "AMU open seats carry no reservation except the 5% PwD horizontal reservation"
+        ]
+      },
+      {
+        "heading": "Qualifying marks concession",
+        "intro": "Per the NMC and DCI regulations quoted in the MCC Information Bulletin:",
+        "items": [
+          "For PwBD candidates the minimum qualifying marks in Physics, Chemistry and Biology/Biotechnology taken together in the qualifying examination is 40% instead of 50% for Unreserved/General-EWS candidates"
+        ]
+      },
+      {
+        "heading": "Certificate and allotment rules",
+        "items": [
+          "The disability certificate must be issued by a designated centre — the MCC bulletin carries the list of centres issuing disability certificates as Annexure-1",
+          "At Round 3, unfilled PwD seats convert back to the parent category once eligible PwD candidates are exhausted: UR (PwD) → UR, SC (PwD) → SC, ST (PwD) → ST, OBC (PwD) → OBC",
+          "PwD candidates pay the lower MCC fee band in the non-deemed stream: Rs 500 registration + Rs 5,000 security deposit"
+        ],
+        "note": "Facts in this block are drawn from the MCC UG Information Bulletin & Counselling Scheme: https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+      }
+    ]
+  },
+  {
+    "label": "Jammu & Kashmir",
+    "group": "State Quotas",
+    "authority": "J&K Board of Professional Entrance Examinations (JKBOPEE) for state seats; MCC for central/deemed seats",
+    "order": 14,
+    "source": "https://www.jkbopee.gov.in/html/InstructionsMBBS1.html",
+    "blocks": [
+      {
+        "heading": "Who runs J&K counselling",
+        "items": [
+          "JKBOPEE runs the counselling for admission to MBBS and BDS (and DDH, BUMS, BAMS, BPT) in J&K's state medical and dental institutions and private colleges",
+          "Allotment is done through an online preference form: candidates who have qualified NEET-UG register, fill and lock their preferences for disciplines and institutions, and are allotted seats on merit",
+          "JKBOPEE provides a mock/rehearsal exercise before the live preference window, and preferences must be locked before the deadline"
+        ]
+      },
+      {
+        "heading": "Central and deemed seats for J&K candidates",
+        "intro": "Per the MCC UG Information Bulletin (https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf):",
+        "items": [
+          "Candidates from the Union Territory of J&K are expressly named as eligible for MCC's Deemed University counselling",
+          "They are likewise eligible for the B.Sc Nursing counselling of central institutes conducted by MCC"
+        ],
+        "note": "J&K's participation in the 15% All India Quota has changed over the years and is widely misreported by coaching and aggregator sites. Before you plan around it, confirm the current position for this cycle on mcc.nic.in and on jkbopee.gov.in — do not rely on last year's article."
+      },
+      {
+        "heading": "What students get wrong",
+        "items": [
+          "JKBOPEE registration is separate from MCC registration — doing one does not do the other",
+          "Once preferences are locked in the JKBOPEE portal they cannot be changed"
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Puducherry (CENTAC)",
+    "group": "State Quotas",
+    "authority": "Centralised Admission Committee (CENTAC), Government of Puducherry; JIPMER's Puducherry state seats are allotted by MCC on the DME Puducherry domicile list",
+    "order": 15,
+    "source": "https://centacpuducherry.in/UgNeet_2025/",
+    "blocks": [
+      {
+        "heading": "Who runs Puducherry counselling",
+        "items": [
+          "CENTAC, the Centralised Admission Committee of the Government of Puducherry, conducts the NEET-based UG admissions for MBBS, BDS, BAMS and B.V.Sc & A.H. in the UT",
+          "CENTAC publishes a UG NEET Information Brochure each cycle setting out the seat matrix, categories and process",
+          "Admission is online through the CENTAC portal"
+        ]
+      },
+      {
+        "heading": "Categories CENTAC handles",
+        "items": [
+          "Government quota",
+          "Internal — Puducherry UT domicile quota",
+          "Management quota",
+          "NRI quota",
+          "National Self-Supporting (SS) category"
+        ]
+      },
+      {
+        "heading": "JIPMER is NOT CENTAC",
+        "intro": "The single most common Puducherry mistake.",
+        "items": [
+          "JIPMER Puducherry and JIPMER Karaikal are counselled by MCC, not by CENTAC — including JIPMER's state quota seats",
+          "For JIPMER's state quota, MCC allots to domicile candidates using the list supplied by the Directorate of Medical Education, Puducherry; MCC itself plays no role in deciding domicile",
+          "So a Puducherry candidate who wants both JIPMER and the state's other colleges has to register with MCC and with CENTAC separately"
+        ],
+        "note": "Cross-reference: MCC UG Information Bulletin, Chapter 10 — https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+      }
+    ]
+  }
+]
