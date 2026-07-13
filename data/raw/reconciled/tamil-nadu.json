@@ -1,0 +1,514 @@
+{
+  "state": "Tamil Nadu",
+  "pairings": [
+    {
+      "ourName": "AIIMS Madurai",
+      "nmcName": "All India Institute of Medical Sciences, Madurai",
+      "evidence": "Only AIIMS in Tamil Nadu; NMC row management Govt., 50 UG seats, university cell 'Statutory Autonomous, AIIMS (Madurai)'. Distinct from Madurai Medical College (Govt., 1954, 250 seats), which is already matched separately."
+    },
+    {
+      "ourName": "Bhaarath Medical College and Hospital, Chennai",
+      "nmcName": "Bhaarat Medical College & Hospital",
+      "evidence": "Spelling variant (Bhaarat/Bhaarath). NMC row: est. 2020, 150 seats, affiliated to 'Bharath Institute of Higher Education & Research (Deemed Univ.), Chennai'. Distinct from Sree Balaji Medical College, Chennai, which is the other college under the same deemed university and is already matched."
+    },
+    {
+      "ourName": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
+      "nmcName": "Chettinad Hospital & Research Institute, Kanchipuram",
+      "evidence": "NMC address 'Rajiv Gandhi Salai, Kelambakkam - 603103, Kanchipuram District', university 'Chettinad Academy of Research and Education (Deemed University)'. Kelambakkam is the campus town inside Kanchipuram district — same institution. Merged as an alias of our Kanchipuram record."
+    },
+    {
+      "ourName": "Chettinad Hospital and Research Institute, Kelambakkam",
+      "nmcName": "Chettinad Hospital & Research Institute, Kanchipuram",
+      "evidence": "Same NMC row (address Kelambakkam, Kanchipuram District). Merged as an alias of our Kanchipuram record."
+    },
+    {
+      "ourName": "ESIC Medical College and Hospital, Chennai",
+      "nmcName": "E.S.I.C. Medical College & Hospital, K.K. Nagar, Chennai earlier known as ESIC Medical College & PGIMSR, K.K Nagar, Chennai",
+      "evidence": "NMC row name itself records the rename; address 'Ashok Pillar Road, K.K. Nagar, Chennai - 600078', Govt., est. 2013, 150 seats. Distinct from Government Medical College & ESIC Hospital, Coimbatore (already matched)."
+    },
+    {
+      "ourName": "ESIC Medical College and PGIMSR, Chennai",
+      "nmcName": "E.S.I.C. Medical College & Hospital, K.K. Nagar, Chennai earlier known as ESIC Medical College & PGIMSR, K.K Nagar, Chennai",
+      "evidence": "The former name of the same college, per the NMC row name ('earlier known as ESIC Medical College & PGIMSR, K.K Nagar, Chennai'). Merged as an alias."
+    },
+    {
+      "ourName": "Government Medical College, Krishnagiri",
+      "nmcName": "Government Medical College Krishnagiri",
+      "evidence": "Same name; NMC address 'Block No. 1, Polupalli, Krishnagiri, Tamil Nadu - 635115', Govt., est. 2021, 150 seats. NMC's city cell holds the junk value 'Tamil Nadu', so the city Krishnagiri is taken from the NMC address. Distinct from St Peters Medical College (private, Hosur, Krishnagiri district)."
+    },
+    {
+      "ourName": "IRT Perundurai Medical College, Perundurai",
+      "nmcName": "Government Erode Medical College & Hospital, Perundurai (Formerly IRT Perundurai Medical College)",
+      "evidence": "NMC row name explicitly carries the former name (IRT Perundurai Medical College); Govt., est. 1992, 100 seats, website irtpmc.ac.in. City Perundurai from the NMC address ('Erode District, Perundurai Sanatorium')."
+    },
+    {
+      "ourName": "KAP Viswanatham Government Medical College, Tiruchirappalli",
+      "nmcName": "K A P Viswanathan Government Medical College, Trichy",
+      "evidence": "Spelling variant of the same college; NMC address 'K.A.P. Viswanatham Government Medical College, Periyamilaguparai, Tiruchirappalli-620001'. Govt., est. 1998, 150 seats. Trichy = Tiruchirappalli."
+    },
+    {
+      "ourName": "Karpaga Vinayaga Institute of Medical Sciences, Palayanoor",
+      "nmcName": "Karpaga Vinayaga Institute of Medical Sciences,Maduranthagam",
+      "evidence": "NMC address 'GST Road, Chinna Kolambakkam, Palayanoor (P.O), Madhuranthagam Taluk, Kanchipuram District-603308' — Palayanoor is the campus PO inside Maduranthagam taluk. Trust -> Private, est. 2009, 150 seats, website kims.edu.in."
+    },
+    {
+      "ourName": "Melmaruvathur Adhiparasakthi Institute of Medical Sciences and Research, Kancheepuram",
+      "nmcName": "Melmaruvathur Adiparasakthi Instt. Medical Sciences  and Research",
+      "evidence": "Abbreviated spelling of the same college; NMC address 'Melmaruvathur, Cheyyur Taluk, Kancheepuram District - 603319', website mapims.org. Trust -> Private, est. 2008, 150 seats."
+    },
+    {
+      "ourName": "PSG Institute of Medical Sciences and Research, Peelamedu",
+      "nmcName": "PSG Institute of Medical Sciences, Coimbatore",
+      "evidence": "NMC address 'PSG Institute of Medical Sciences & Research, Avinashi Road, Peelamedu, Coimbatore-641004' — Peelamedu is the Coimbatore locality of the campus. Trust -> Private, est. 1985, 250 seats, website psgimsr.ac.in."
+    },
+    {
+      "ourName": "Panimalar Medical College Hospital and Research Institute, Chennai",
+      "nmcName": "Panimalar Medical College Hospital & Research Institute, Chennai,Tamil Nadu",
+      "evidence": "Same name (& vs and); NMC address 'Varadharapuram, Poonamallee, Chennai', website pmchri.ac.in. Trust -> Private, est. 2020, 150 seats."
+    },
+    {
+      "ourName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
+      "nmcName": "SRM Medical College Hospital & Research Centre, Chengalpattu",
+      "evidence": "Identical name; NMC address 'SRM Nagar, Potheri, Kattankulathur, Chengalpattu (Dist.) - 603203' (the campus moved from Kancheepuram district into the new Chengalpattu district). Est. 2005, 250 seats, SRM Institute of Science & Technology (deemed). Distinct from Trichy SRM Medical College, Irungalur, which is a separate college."
+    },
+    {
+      "ourName": "SRM Medical College and Hospital, Chennai",
+      "nmcName": "SRM Medical College Hospital & Research Centre, Chengalpattu",
+      "evidence": "Same NMC row — SRM has only one medical college in the Chennai/Chengalpattu area (Kattankulathur campus). Merged as an alias of our Kanchipuram record. NOT the same as SRM Dental College, Ramapuram (BDS), which is kept separate."
+    },
+    {
+      "ourName": "SRM Medical College, Kattankulathur",
+      "nmcName": "SRM Medical College Hospital & Research Centre, Chengalpattu",
+      "evidence": "Kattankulathur is the campus named in the NMC address of the same row. Merged as an alias of our Kanchipuram record."
+    },
+    {
+      "ourName": "Sree Mookambika Institute of Medical Sciences, Kulasekharam",
+      "nmcName": "Sree Mookambika Institute of Medical Sciences, Kanyakumari",
+      "evidence": "NMC address 'V.P.M. Hospital Complex, Padanilam, Kulasekharam P.O, Kanyakumari District -629161' — Kulasekharam is the town, Kanyakumari the district. Trust -> Private, est. 2006, 150 seats. Distinct from Kanyakumari Government Medical College, Asaripallam (already matched)."
+    },
+    {
+      "ourName": "Sree Mookambika Institute / Kanyakumari Medical Mission Research Centre, Kulasekharam",
+      "nmcName": "Sree Mookambika Institute of Medical Sciences, Kanyakumari",
+      "evidence": "Same NMC row; 'Kanyakumari Medical Mission' is the trust that runs Sree Mookambika at Kulasekharam. Merged as an alias."
+    },
+    {
+      "ourName": "Sri Lalithambigai Medical College and Hospital, Chennai",
+      "nmcName": "Faculty of Medicine , Sri Lalithambigai Medical College and Hospital",
+      "evidence": "Same college; NMC address 'Adayalampattu, Maduravoyal, Chennai-600095', website slmch.drmgrdu.ac.in (Dr. MGR Educational & Research Institute deemed university). Est. 2021, 150 seats. Maduravoyal is a Chennai neighbourhood, so city stays Chennai."
+    },
+    {
+      "ourName": "Srinivasan Medical College and Hospital, Tiruchirappalli",
+      "nmcName": "Srinivasan Medical College and Hospital",
+      "evidence": "NMC city cell Tiruchirappalli; address 'NH-45, Samayapuram, Tiruchirappalli - 621112'. Trust -> Private, est. 2021, 150 seats. Distinct from Dhanalakshmi Srinivasan Medical College, Perambalur (same trust group, different college and district)."
+    },
+    {
+      "ourName": "St Peter's Medical College Hospital and Research Institute, Hosur",
+      "nmcName": "ST Peters Medical College, Hospital & Research Institute",
+      "evidence": "NMC address 'St. Peters Medical College, Hospital and Research Institute, 278, Moranapalli Village, Hosur, Krishnagiri' — the NMC city cell holds the district (Krishnagiri); the college itself sits in Hosur. Trust -> Private, est. 2021, 150 seats, website spmch.ac.in. Distinct from Government Medical College Krishnagiri."
+    },
+    {
+      "ourName": "Thiruvannamalai Medical College, Thiruvannamalai",
+      "nmcName": "Government Thiruvannamalai Medical College, Thiruvannamalai",
+      "evidence": "Same college, Govt., est. 2013, 100 seats, NMC address 'Distt- Collectorate Complex, Thiruvannamalai-606601'. Deliberately NOT paired with Arunai Medical College And Hospital, which is a separate private (2021) college in the same town and is emitted as a new college."
+    },
+    {
+      "ourName": "Trichy SRM Medical College Hospital and Research Centre, Irungalur",
+      "nmcName": "Trichy SRM Medical College Hospital & Research Centre, Trichy",
+      "evidence": "NMC address 'Research Centre, Irungalur, Mannachannalur Taluk, Trichy-621105'. Trust -> Private, est. 2009, 250 seats, website cmchrc.ac.in. A separate institution from SRM Medical College Hospital & Research Centre, Kattankulathur."
+    },
+    {
+      "ourName": "VELS Medical College and Hospital, Tiruvallur",
+      "nmcName": "VELS Medical College & Hospital",
+      "evidence": "NMC city cell Tiruvallur; address 'Velan Nagar, Periyapalayam Road, Manjankaranai Village, Uthukkottai Taluk' (Tiruvallur district); university 'Vels Institute of Science, Technology & Advanced Studies (VISTAS) (Deemed to be University)'. Est. 2021, 150 seats."
+    },
+    {
+      "ourName": "Vels Medical College and Hospital, Chennai",
+      "nmcName": "VELS Medical College & Hospital",
+      "evidence": "Same NMC row — Vels/VISTAS runs only one medical college (Tiruvallur district, near Chennai). Merged as an alias of our Tiruvallur record."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Madurai",
+      "state": "Tamil Nadu",
+      "city": "Madurai",
+      "type": "Government",
+      "established": 2020,
+      "totalSeats": 50,
+      "affiliation": "Statutory Autonomous, AIIMS (Madurai)",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'All India Institute of Medical Sciences, Madurai' (management Govt., 50 UG seats); year of establishment 2020 from https://en.wikipedia.org/wiki/All_India_Institute_of_Medical_Sciences,_Madurai (NMC yearOfInc cell is empty)"
+    },
+    {
+      "name": "Bhaarath Medical College and Hospital, Chennai",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "type": "Deemed",
+      "established": 2020,
+      "totalSeats": 150,
+      "affiliation": "Bharath Institute of Higher Education & Research (Deemed Univ.), Chennai",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Bhaarat Medical College & Hospital' (est. 2020, 150 seats, deemed university 'Bharath Institute of Higher Education & Research'). Type kept as Deemed per our existing record — NMC records every deemed university as management 'Trust'."
+    },
+    {
+      "name": "ESIC Medical College and Hospital, Chennai",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "type": "Government",
+      "established": 2013,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.esic.nic.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'E.S.I.C. Medical College & Hospital, K.K. Nagar, Chennai earlier known as ESIC Medical College & PGIMSR, K.K Nagar, Chennai' (Govt. -> Government)"
+    },
+    {
+      "name": "Government Medical College, Krishnagiri",
+      "state": "Tamil Nadu",
+      "city": "Krishnagiri",
+      "type": "Government",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.gmchkrishnagiri.com",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Government Medical College Krishnagiri'; city taken from the NMC address ('Polupalli, Krishnagiri - 635115') because the NMC city cell contains 'Tamil Nadu'"
+    },
+    {
+      "name": "IRT Perundurai Medical College, Perundurai",
+      "state": "Tamil Nadu",
+      "city": "Perundurai",
+      "type": "Government",
+      "established": 1992,
+      "totalSeats": 100,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.irtpmc.ac.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Government Erode Medical College & Hospital, Perundurai (Formerly IRT Perundurai Medical College)' (Govt. -> Government)"
+    },
+    {
+      "name": "J R Medical College and Hospital, Tamil Nadu",
+      "state": "Tamil Nadu",
+      "city": "Villupuram",
+      "type": "Deemed",
+      "affiliation": "Bharath Institute of Higher Education and Research, Chennai",
+      "website": "https://jrmch.ac.in",
+      "source": "Official college site https://jrmch.ac.in/contact.php — address 'Avanampattu, Kiledaiyalam Village, Tindivanam Taluk, Villupuram District, Tamil Nadu 604302', affiliation 'Bharath Institute of Higher Education and Research'; confirmed by https://www.careers360.com/colleges/jr-medical-college-and-hospital-villupuram. Not in the NMC 2023 registry (opened after the snapshot). Our record's city cell held the junk value 'Tamil Nadu'. established omitted: sources disagree (2023 vs 2024). Type stays Deemed (constituent of a deemed university)."
+    },
+    {
+      "name": "KAP Viswanatham Government Medical College, Tiruchirappalli",
+      "state": "Tamil Nadu",
+      "city": "Tiruchirappalli",
+      "type": "Government",
+      "established": 1998,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.kapvgmc.ac.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'K A P Viswanathan Government Medical College, Trichy' (address: Periyamilaguparai, Tiruchirappalli-620001)"
+    },
+    {
+      "name": "Karpaga Vinayaga Institute of Medical Sciences, Palayanoor",
+      "state": "Tamil Nadu",
+      "city": "Palayanoor",
+      "type": "Private",
+      "established": 2009,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.kims.edu.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Karpaga Vinayaga Institute of Medical Sciences,Maduranthagam' (managementupdate=Trust -> Private); city Palayanoor from the NMC address, the NMC city cell holds the district (Kanchipuram)"
+    },
+    {
+      "name": "Melmaruvathur Adhiparasakthi Institute of Medical Sciences and Research, Kancheepuram",
+      "state": "Tamil Nadu",
+      "city": "Melmaruvathur",
+      "type": "Private",
+      "established": 2008,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.mapims.org",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Melmaruvathur Adiparasakthi Instt. Medical Sciences  and Research' (managementupdate=Trust -> Private); NMC city cell = Melmaruvathur (our record carried the district, Kancheepuram)"
+    },
+    {
+      "name": "PSG Institute of Medical Sciences and Research, Peelamedu",
+      "state": "Tamil Nadu",
+      "city": "Coimbatore",
+      "type": "Private",
+      "established": 1985,
+      "totalSeats": 250,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.psgimsr.ac.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'PSG Institute of Medical Sciences, Coimbatore' (managementupdate=Trust -> Private); Peelamedu is the Coimbatore locality in the NMC address"
+    },
+    {
+      "name": "Panimalar Medical College Hospital and Research Institute, Chennai",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "type": "Private",
+      "established": 2020,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.pmchri.ac.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Panimalar Medical College Hospital & Research Institute, Chennai,Tamil Nadu' (managementupdate=Trust -> Private); city Chennai from the NMC address (Varadharapuram, Poonamallee, Chennai), NMC city cell empty"
+    },
+    {
+      "name": "SRM Dental College, Ramapuram, Chennai",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "type": "Deemed",
+      "established": 1996,
+      "totalSeats": 100,
+      "affiliation": "SRM Institute of Science and Technology (Deemed to be University), Chennai",
+      "website": "https://srmdentalcollege.ac.in",
+      "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Est. 1996, BDS intake 100, constituent college of SRMIST: https://collegedunia.com/college/7744-srm-dental-college-ramapuram-chennai and https://www.shiksha.com/college/srm-dental-college-ramapuram-campus-chennai-ramapuram-155545. Kept separate from SRM Medical College Hospital & Research Centre (different discipline)."
+    },
+    {
+      "name": "SRM Medical College Hospital & Research Centre, Kanchipuram",
+      "state": "Tamil Nadu",
+      "city": "Kattankulathur",
+      "type": "Deemed",
+      "established": 2005,
+      "totalSeats": 250,
+      "affiliation": "SRM Institute of Science & Technology (Formerly SRM University)",
+      "website": "http://www.srmist.edu.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'SRM Medical College Hospital & Research Centre, Chengalpattu' (address: SRM Nagar, Potheri, Kattankulathur). Type kept Deemed per our record (SRMIST is a deemed university; NMC lists it as 'Trust')."
+    },
+    {
+      "name": "Sree Mookambika Institute of Medical Sciences, Kulasekharam",
+      "state": "Tamil Nadu",
+      "city": "Kulasekharam",
+      "type": "Private",
+      "established": 2006,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.sreemookambikainstitute.com",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Sree Mookambika Institute of Medical Sciences, Kanyakumari' (managementupdate=Trust -> Private); city Kulasekharam from the NMC address, the NMC city cell holds the district (Kanyakumari)"
+    },
+    {
+      "name": "Sri Lalithambigai Medical College and Hospital, Chennai",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "type": "Deemed",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.slmch.drmgrdu.ac.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Faculty of Medicine , Sri Lalithambigai Medical College and Hospital' (address Adayalampattu, Maduravoyal, Chennai-600095; est. 2021; 150 seats). Type kept Deemed per our record — the college is the Faculty of Medicine of Dr. MGR Educational and Research Institute (deemed), per its NMC website slmch.drmgrdu.ac.in."
+    },
+    {
+      "name": "Sri Ramachandra Dental College and Hospital, Chennai",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "type": "Deemed",
+      "established": 1995,
+      "affiliation": "Sri Ramachandra Institute of Higher Education and Research (Deemed to be University), Chennai",
+      "website": "https://www.sriramachandra.edu.in",
+      "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Est. 1995, Porur campus, constituent of SRIHER: https://www.careers360.com/colleges/sri-ramachandra-dental-college-and-hospital-chennai. Deliberately NOT paired with the NMC row 'Sri Ramachandra Medical College & Research Institute, Chennai' — different institution sharing the campus and name (that row is already matched to our SRIHER record). totalSeats omitted: our record carries both BDS and MBBS course tags, so a BDS-only intake figure would be misleading."
+    },
+    {
+      "name": "Srinivasan Medical College and Hospital, Tiruchirappalli",
+      "state": "Tamil Nadu",
+      "city": "Tiruchirappalli",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "Dhanalakshmi Srinivasan University, a state private University of Tamil Nadu",
+      "website": "http://www.srinivasanmedicalcollege.org",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Srinivasan Medical College and Hospital' (managementupdate=Trust -> Private; address Samayapuram, Tiruchirappalli)"
+    },
+    {
+      "name": "St Peter's Medical College Hospital and Research Institute, Hosur",
+      "state": "Tamil Nadu",
+      "city": "Hosur",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://spmch.ac.in/",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'ST Peters Medical College, Hospital & Research Institute' (managementupdate=Trust -> Private); city Hosur from the NMC address, the NMC city cell holds the district (Krishnagiri)"
+    },
+    {
+      "name": "Tamil Nadu Government Dental College and Hospital, Chennai",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "type": "Government",
+      "established": 1953,
+      "affiliation": "The Tamil Nadu Dr. M.G.R. Medical University, Chennai",
+      "website": "https://www.tamilnadudentalcollege.com",
+      "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Government dental college established 1953, affiliated to TN Dr. MGR Medical University: https://en.wikipedia.org/wiki/Government_Dental_Hospital_and_College,_Chennai and the official site https://www.tamilnadudentalcollege.com/. totalSeats omitted — no reliable BDS intake figure found."
+    },
+    {
+      "name": "Thiruvannamalai Medical College, Thiruvannamalai",
+      "state": "Tamil Nadu",
+      "city": "Thiruvannamalai",
+      "type": "Government",
+      "established": 2013,
+      "totalSeats": 100,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Government Thiruvannamalai Medical College, Thiruvannamalai' (Govt. -> Government; NMC website cell empty)"
+    },
+    {
+      "name": "Trichy SRM Medical College Hospital and Research Centre, Irungalur",
+      "state": "Tamil Nadu",
+      "city": "Irungalur",
+      "type": "Private",
+      "established": 2009,
+      "totalSeats": 250,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.cmchrc.ac.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Trichy SRM Medical College Hospital & Research Centre, Trichy' (managementupdate=Trust -> Private; address Irungalur, Mannachannalur Taluk, Trichy)"
+    },
+    {
+      "name": "VELS Medical College and Hospital, Tiruvallur",
+      "state": "Tamil Nadu",
+      "city": "Tiruvallur",
+      "type": "Deemed",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "Vels Institute of Science, Technology & Advanced Studies (VISTAS) (Deemed to be University)",
+      "website": "https://velsmedicalcollege.com/",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'VELS Medical College & Hospital' (city Tiruvallur; est. 2021; 150 seats). Type kept Deemed per our record — VISTAS is a deemed university; NMC lists the management as 'Trust'."
+    }
+  ],
+  "merges": [
+    {
+      "canonical": "Chettinad Hospital & Research Institute, Kanchipuram",
+      "aliases": [
+        "Chettinad Hospital and Research Institute, Kancheepuram",
+        "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
+        "Chettinad Hospital and Research Institute, Kelambakkam"
+      ],
+      "reason": "One institution: Chettinad Hospital & Research Institute, Rajiv Gandhi Salai, Kelambakkam, Kanchipuram district — the medical college of Chettinad Academy of Research and Education (deemed university). Kelambakkam/Kanchipuram/Kancheepuram are the town, district and its spelling variant; the 'Chettinad Academy of Research and Education' spelling is the parent university's name. Canonical name matches the NMC row."
+    },
+    {
+      "canonical": "ESIC Medical College and Hospital, Chennai",
+      "aliases": [
+        "ESIC Medical College and PGIMSR, Chennai"
+      ],
+      "reason": "The NMC row name states it outright: 'E.S.I.C. Medical College & Hospital, K.K. Nagar, Chennai earlier known as ESIC Medical College & PGIMSR, K.K Nagar, Chennai'. One college, renamed. (Government Medical College & ESIC Hospital, Coimbatore is a different college and is untouched.)"
+    },
+    {
+      "canonical": "SRM Medical College Hospital & Research Centre, Kanchipuram",
+      "aliases": [
+        "SRM Medical College and Hospital, Chennai",
+        "SRM Medical College, Kattankulathur"
+      ],
+      "reason": "SRM runs exactly one MBBS college in this region — SRM Medical College Hospital & Research Centre, SRM Nagar, Potheri, Kattankulathur (Chengalpattu district, formerly Kancheepuram district), per the NMC row. Chennai/Kattankulathur/Kanchipuram are three spellings of its location. Trichy SRM Medical College (Irungalur) is a different college and is NOT merged; SRM Dental College, Ramapuram (BDS) is also kept separate."
+    },
+    {
+      "canonical": "Saveetha Medical College & Hospital, Kanchipuram",
+      "aliases": [
+        "Saveetha Medical College, Chennai"
+      ],
+      "reason": "One college: Saveetha Medical College and Hospital, Saveetha Nagar, Thandalam, Chennai-602105 (NMC row 'Saveetha Medical College and Hospital, Kanchipuram', which the canonical record is already matched to). The campus sits on the Chennai/Kancheepuram district boundary, which produced the two spellings."
+    },
+    {
+      "canonical": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram",
+      "aliases": [
+        "Shri Sathya Sai Medical College and Research Institute, Chennai"
+      ],
+      "reason": "One college: Ammapettai Village, Nellikuppam, Tiruporur Taluk, Kancheepuram district (NMC row, deemed university Sri Balaji Vidyapeeth). Only the city string differs."
+    },
+    {
+      "canonical": "Sree Mookambika Institute of Medical Sciences, Kulasekharam",
+      "aliases": [
+        "Sree Mookambika Institute / Kanyakumari Medical Mission Research Centre, Kulasekharam"
+      ],
+      "reason": "Same institution, same town (Kulasekharam, Kanyakumari district); 'Kanyakumari Medical Mission' is the trust that runs Sree Mookambika. Both resolve to the single NMC row 'Sree Mookambika Institute of Medical Sciences, Kanyakumari'."
+    },
+    {
+      "canonical": "Tirunelveli Medical College, Tirunelveli",
+      "aliases": [
+        "Government Medical College, Tirunelveli"
+      ],
+      "reason": "Tirunelveli Medical College (est. 1965, 250 MBBS seats) is the only government medical college in Tirunelveli — NMC row 'Tirunelveli Medical College,Tirunelveli' (Govt.), confirmed by https://en.wikipedia.org/wiki/Tirunelveli_Medical_College. There is no second, separately-founded 'Government Medical College, Tirunelveli'; it is a generic re-spelling of the same college."
+    },
+    {
+      "canonical": "VELS Medical College and Hospital, Tiruvallur",
+      "aliases": [
+        "Vels Medical College and Hospital, Chennai"
+      ],
+      "reason": "Vels/VISTAS runs a single medical college — VELS Medical College & Hospital, Manjankaranai Village, Uthukkottai Taluk, Tiruvallur district (NMC row, est. 2021). The 'Chennai' spelling is the same college listed by its nearest metro."
+    },
+    {
+      "canonical": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
+      "aliases": [
+        "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+        "VMKV Medical College and Hospital, Salem"
+      ],
+      "reason": "VMKV is the standard abbreviation of Vinayaka Mission's Kirupananda Variyar Medical College, Sankari Main Road, Seeragapadi, Salem (NMC row, deemed - Vinayaka Missions University, est. 1996). Apostrophe/abbreviation variants of one college. Vinayaka Mission's Medical College, Karaikal (Puducherry) is a different college and is untouched."
+    }
+  ],
+  "newColleges": [
+    {
+      "name": "Annapoorna Medical College & Hospital, Salem",
+      "state": "Tamil Nadu",
+      "city": "Salem",
+      "type": "Private",
+      "established": 2011,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.amch.in",
+      "coursesOffered": ["MBBS"],
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Annapoorna Medical College & Hospital, Salem' (address Sankari Main Road, Veerapandi Union, Salem-636308; managementupdate=Trust -> Private). No record of this college on the site."
+    },
+    {
+      "name": "Arunai Medical College And Hospital, Tiruvannamalai",
+      "state": "Tamil Nadu",
+      "city": "Tiruvannamalai",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.amctvm.org/about.php",
+      "coursesOffered": ["MBBS"],
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Arunai Medical College And Hospital' (city Tiruvannamalai; managementupdate=Trust -> Private). A separate private college from Government Thiruvannamalai Medical College in the same town."
+    },
+    {
+      "name": "Indira Medical College & Hospitals, Thiruvallur",
+      "state": "Tamil Nadu",
+      "city": "Thiruvallur",
+      "type": "Private",
+      "established": 2020,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "coursesOffered": ["MBBS"],
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Indira Medical College & Hospitals, Thiruvallur' (managementupdate=Private). City taken from the NMC college name — the NMC city and address cells are empty. Distinct from Government Medical College, Thiruvallur and from VELS Medical College (also Tiruvallur district)."
+    },
+    {
+      "name": "Madha Medical College and Hospital, Thandalam, Chennai",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "type": "Private",
+      "established": 2011,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "http://www.mmcri.in",
+      "coursesOffered": ["MBBS"],
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Madha Medical College and Hospital, Thandalam, Chennai' (managementupdate=Trust -> Private). Not on the site at all."
+    },
+    {
+      "name": "Nandha Medical College & Hospital, Erode",
+      "state": "Tamil Nadu",
+      "city": "Erode",
+      "type": "Private",
+      "established": 2023,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "coursesOffered": ["MBBS"],
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Nandha Medical College & Hospital Erode' (address Erode to Perundurai Main Road, Pitchandampalayam, Erode 638052; managementupdate=Trust -> Private)"
+    },
+    {
+      "name": "PSP Medical College Hospital and Research Institute, Kancheepuram",
+      "state": "Tamil Nadu",
+      "city": "Kancheepuram",
+      "type": "Private",
+      "established": 2023,
+      "totalSeats": 150,
+      "affiliation": "The Tamilnadu Dr. MGR Medical University, Chennai",
+      "website": "https://www.pspmchri.ac.in",
+      "coursesOffered": ["MBBS"],
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'PSP Medical College Hospital and Research Institute' (est. 2023, 150 seats, managementupdate=Trust -> Private; NMC city cell empty and its address is the T. Nagar registered office). Campus location from the official site https://www.pspmchri.ac.in/ — 'Tambaram-Kanchipuram Main Road, Oragadam, Panruti, Sriperumbudur Taluk, Kancheepuram District, Tamil Nadu - 631604'."
+    }
+  ],
+  "unresolved": [
+    {
+      "name": "Dhanalakshmi Srinivasan Institute of Medical Sciences and Hospital, Perambalur",
+      "why": "Perambalur has TWO Dhanalakshmi Srinivasan colleges in the NMC registry: 'Dhanalakshmi Srinivasan Medical College and Hospital,Perambalur' (Siruvachur, est. 2011, 250 seats, dsmedicalcollege.org) and 'Dhanalakshmi Srinivasan Institute of Medical Sciences and Hospital,' (Thuraiyur Road, est. 2023, 150 seats) — the latter is still unclaimed in nmcPool. We hold only ONE record, and the deterministic matcher already bound it (raw/enriched_nmc.json, score 1.0) to the 2011 Medical College row, so it currently carries that college's est/seats while its name is the 2023 Institute's. I cannot tell from the packet which of the two institutions our closingRank rows actually belong to, and adding the NMC row as a new college would create two near-identically named records that the importer could not tell apart. Left for a human: decide which college our existing record (and its rank rows) is, rename it, and add the other as a new college."
+    }
+  ]
+}
