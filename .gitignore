@@ -26,3 +26,9 @@ npm-debug.log*
 
 # Coverage
 coverage/
+
+# Student identity documents (Aadhaar, marksheets) — never commit these
+uploads/
+
+# Production database dumps — contain real user data
+backups/

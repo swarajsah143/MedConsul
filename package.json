@@ -8,7 +8,8 @@
     "dev:server": "npm --prefix server run dev",
     "seed": "npm --prefix server run seed",
     "test": "npm --prefix client run test && npm --prefix server run test",
-    "open": "node scripts/open.mjs"
+    "open": "node scripts/open.mjs",
+    "pull:prod": "./scripts/pull-prod.sh"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
