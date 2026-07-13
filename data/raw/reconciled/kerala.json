@@ -1,0 +1,406 @@
+{
+  "state": "Kerala",
+  "pairings": [
+    {
+      "ourName": "Azeezia Medical College, Kollam",
+      "nmcName": "Azeezia Instt of Medical Science,Meeyannoor,Kollam",
+      "evidence": "NMC address 'Azeezia Institute of Medical Sciences and Research, Meeyannoor P.O., Kollam District-691537' — same college; Meeyannoor is the campus PO inside Kollam district. Our 'Azeezia Medical College, Meeyannoor' is the same record (merged as alias)."
+    },
+    {
+      "ourName": "DM Wayanad Institute of Medical Sciences, Meppadi",
+      "nmcName": "Dr. Moopen s Medical College, Wayanad, Kerala",
+      "evidence": "NMC address 'DM WIMS Medical College, Wayanad, Naseera Nagar, Meppadi (PO), Wayanad-673577' and website www.dmwims.com — DM WIMS is the current name of Dr. Moopen's Medical College. Private; distinct from the separate Government Medical College, Wayanad."
+    },
+    {
+      "ourName": "Government Medical College, Manjeri",
+      "nmcName": "Government Medical College, Manjeri, Malapuram Dist.",
+      "evidence": "Same name and town; NMC address 'Manjeri (P.O.), Malappuram (Dist) -676121'. City taken from the NMC address (Manjeri) rather than the NMC city cell, which holds the district string 'Malappuram Dist.'"
+    },
+    {
+      "ourName": "Government Medical College, Thiruvananthapuram",
+      "nmcName": "Medical College, Thiruvananthapuram",
+      "evidence": "NMC address 'Govt. Medical College, Thiruvananthapuram, Medical College P.O, Thiruvananthapuram -695011', management Govt., est. 1951, website tmc.kerala.gov.in — the state's oldest government medical college. Distinct from SUT and Somervel (both private, same district)."
+    },
+    {
+      "ourName": "MES Medical College, Perinthalmanna",
+      "nmcName": "M E S Medical College , Perintalmanna Malappuram Distt.Kerala",
+      "evidence": "Spelling variant of the same college; NMC address 'MES Medical College, Perinthalmanna Palachode (PO), Kolathur (VIA), Malappuram (Distt)-679338'. NMC city cell is empty, so city Perinthalmanna is taken from the NMC address."
+    },
+    {
+      "ourName": "Sree Gokulam Medical College and Research Foundation, Venjaramoodu",
+      "nmcName": "Sree Gokulam Medical College  Trust & Research Foundation, Trivandrum",
+      "evidence": "NMC address 'Foundation, Venjaramoodu, Trivandrum-695607', website www.sgmc.in — same institution. Our 'Sree Gokulam Medical College, Thiruvananthapuram' is the same record (merged as alias)."
+    },
+    {
+      "ourName": "Sree Uthradom Thirunal Academy of Medical Sciences, Vencode",
+      "nmcName": "Sree Uthradom Thiurnal Academy of Medical Sciences,Trivandrum",
+      "evidence": "NMC misspells 'Thiurnal'; address 'Vencode, Vattappara P.O., Trivandrum-695028', website sutams.edu.in — matches our Vencode record. Our 'SUT Academy of Medical Sciences, Thiruvananthapuram' (SUT = Sree Uthradom Thirunal) is the same record (merged as alias)."
+    },
+    {
+      "ourName": "T D Medical College, Alappuzha",
+      "nmcName": "T D Medical College, Alleppey (Allappuzha)",
+      "evidence": "Alleppey is the old name of Alappuzha; NMC address 'T.D. Medical College, Vandanam, Alappuzzha 688001', Govt., est. 1963."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "Azeezia Medical College, Kollam",
+      "state": "Kerala",
+      "city": "Kollam",
+      "type": "Private",
+      "established": 2008,
+      "totalSeats": 100,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.azeezia.com",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "DM Wayanad Institute of Medical Sciences, Meppadi",
+      "state": "Kerala",
+      "city": "Wayanad",
+      "type": "Private",
+      "established": 2013,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.dmwims.com",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Government Medical College, Manjeri",
+      "state": "Kerala",
+      "city": "Manjeri",
+      "type": "Government",
+      "established": 2013,
+      "totalSeats": 110,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://gmc-manjeri.weebly.com",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Government Medical College, Thiruvananthapuram",
+      "state": "Kerala",
+      "city": "Thiruvananthapuram",
+      "type": "Government",
+      "established": 1951,
+      "totalSeats": 250,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.tmc.kerala.gov.in",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "MES Medical College, Perinthalmanna",
+      "state": "Kerala",
+      "city": "Perinthalmanna",
+      "type": "Private",
+      "established": 2002,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.mesams.com",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Sree Gokulam Medical College and Research Foundation, Venjaramoodu",
+      "state": "Kerala",
+      "city": "Thiruvananthapuram",
+      "type": "Private",
+      "established": 2005,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.sgmc.in",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Sree Uthradom Thirunal Academy of Medical Sciences, Vencode",
+      "state": "Kerala",
+      "city": "Thiruvananthapuram",
+      "type": "Private",
+      "established": 2006,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://sutams.edu.in",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "T D Medical College, Alappuzha",
+      "state": "Kerala",
+      "city": "Alappuzha",
+      "type": "Government",
+      "established": 1963,
+      "totalSeats": 175,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://tdmcalappuzha.org",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Government Dental College, Kozhikode",
+      "state": "Kerala",
+      "city": "Kozhikode",
+      "type": "Government",
+      "established": 1982,
+      "totalSeats": 50,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "https://www.gdckozhikode.in/",
+      "source": "https://www.gdckozhikode.in/ (own site: govt dental college, Calicut Medical College PO, Kozhikode-673008, BDS started 1982); https://dme.kerala.gov.in/seat-matrix/ (DME Kerala BDS seat matrix: Govt Dental College Kozhikode = 50 BDS seats); https://dme.kerala.gov.in/2025/12/30/government-dental-colleges/ (listed as a Kerala government dental college). BDS college — deliberately NOT paired with the NMC MBBS row 'Government Medical College, Kozhikode, Calicut'."
+    },
+    {
+      "name": "Government Dental College, Thrissur",
+      "state": "Kerala",
+      "city": "Thrissur",
+      "type": "Government",
+      "established": 2015,
+      "totalSeats": 50,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "https://www.gdcthrissur.org/",
+      "source": "https://www.gdcthrissur.org/gdc-thrissur.htm (own site: established 2015, Medical College P.O, Thrissur-680596, annual intake 50, affiliated to KUHS, recognised by DCI); https://dme.kerala.gov.in/seat-matrix/ (DME Kerala BDS seat matrix: Govt Dental College Thrissur = 50 BDS seats). BDS college — deliberately NOT paired with the NMC MBBS row 'Government Medical College, Thrissur'."
+    },
+    {
+      "name": "Government Medical College, Kasaragod",
+      "state": "Kerala",
+      "city": "Kasaragod",
+      "type": "Government",
+      "established": 2025,
+      "totalSeats": 50,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "source": "https://www.onmanorama.com/news/kerala/2025/09/02/kasaragod-wayanad-medical-college-approval.html (NMC approved the Kasaragod government medical college at Ukkinadka, Badiadka panchayat, Kasaragod district, with 50 MBBS seats; first admissions in the 2025 Kerala MBBS counselling); https://rmgoe.org/study-india/government-medical-college-kasaragod (government, affiliated to KUHS Thrissur). Post-dates the 2023 NMC registry snapshot, hence no NMC row."
+    },
+    {
+      "name": "Government Medical College, Wayanad",
+      "state": "Kerala",
+      "city": "Mananthavady",
+      "type": "Government",
+      "established": 2025,
+      "totalSeats": 50,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "source": "https://www.onmanorama.com/news/kerala/2025/09/02/kasaragod-wayanad-medical-college-approval.html (NMC nod, 50 MBBS seats, admissions from 2025); https://wayanad.gov.in/en/public-utility/wayanad-government-medical-college-mananthavady/ (official Wayanad district site: Wayanad Government Medical College, Mananthavady, Wayanad-670645); https://www.careers360.com/colleges/government-medical-college-wayanad (affiliated to KUHS). Post-dates the 2023 NMC registry snapshot; distinct institution from the private DM Wayanad Institute of Medical Sciences (Meppadi)."
+    }
+  ],
+  "merges": [
+    {
+      "canonical": "Azeezia Medical College, Kollam",
+      "aliases": [
+        "Azeezia Medical College, Meeyannoor"
+      ],
+      "reason": "One college. NMC row 'Azeezia Instt of Medical Science,Meeyannoor,Kollam', address 'Meeyannoor P.O., Kollam District-691537' — Meeyannoor is the campus PO within Kollam district, so both our records are the same institution."
+    },
+    {
+      "canonical": "DM Wayanad Institute of Medical Sciences, Meppadi",
+      "aliases": [
+        "DM Wayanad Institute of Medical Sciences"
+      ],
+      "reason": "Same college; the second record is the same name without the town suffix and had no city at all. NMC address 'DM WIMS Medical College, Wayanad, Naseera Nagar, Meppadi (PO)'."
+    },
+    {
+      "canonical": "Sree Gokulam Medical College and Research Foundation, Venjaramoodu",
+      "aliases": [
+        "Sree Gokulam Medical College, Thiruvananthapuram"
+      ],
+      "reason": "One college — NMC 'Sree Gokulam Medical College Trust & Research Foundation, Trivandrum', address 'Venjaramoodu, Trivandrum-695607', website sgmc.in. Venjaramoodu is the town inside Thiruvananthapuram district; there is only one Sree Gokulam medical college in Kerala."
+    },
+    {
+      "canonical": "Sree Uthradom Thirunal Academy of Medical Sciences, Vencode",
+      "aliases": [
+        "SUT Academy of Medical Sciences, Thiruvananthapuram"
+      ],
+      "reason": "SUT is the acronym of Sree Uthradom Thirunal. NMC 'Sree Uthradom Thiurnal Academy of Medical Sciences,Trivandrum', address 'Vencode, Vattappara P.O., Trivandrum-695028', website sutams.edu.in — a single institution recorded twice under its acronym and its full name."
+    },
+    {
+      "canonical": "Amrita School of Medicine, Kochi",
+      "aliases": [
+        "Amrita Institute of Medical Sciences, Kochi"
+      ],
+      "reason": "Same institution: the NMC row 'Amrita School of Medicine, Elamkara, Kochi' carries the address 'AIMS, Ponnekara P.O., Kochi-682041' — Amrita Institute of Medical Sciences (AIMS) is the hospital/campus and Amrita School of Medicine is its MBBS college. The canonical record is our already-NMC-matched one and stays type Deemed (Amrita Vishwa Vidyapeetham)."
+    },
+    {
+      "canonical": "KMCT Medical College, Kozhikode",
+      "aliases": [
+        "KMCT Medical College, Manassery"
+      ],
+      "reason": "Same institution: NMC row 'KMCT Medical College,Kozhikode, Calicut' has address 'Manassery- PO, Mukkom, Kozhikode-673602'. Manassery is the campus PO; the canonical record is our already-NMC-matched Kozhikode one."
+    }
+  ],
+  "newColleges": [
+    {
+      "name": "Al-Azhar Medical College and Super Speciality Hospital, Thodupuzha",
+      "state": "Kerala",
+      "city": "Thodupuzha",
+      "type": "Private",
+      "established": 2014,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.aamc.org.in",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Amala Institute of Medical Sciences, Thrissur",
+      "state": "Kerala",
+      "city": "Thrissur",
+      "type": "Private",
+      "established": 2002,
+      "totalSeats": 100,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.amalaims.org",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Dr. Somervel Memorial CSI Hospital & Medical College, Karakonam, Thiruvananthapuram",
+      "state": "Kerala",
+      "city": "Thiruvananthapuram",
+      "type": "Private",
+      "established": 2001,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.smcsimch.ac.in",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Government Medical College, Kozhikode",
+      "state": "Kerala",
+      "city": "Kozhikode",
+      "type": "Government",
+      "established": 1957,
+      "totalSeats": 250,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.govtmedicalcollegekozhikode.ac.in",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC row 'Government Medical College, Kozhikode, Calicut'; Calicut is the former name of Kozhikode)"
+    },
+    {
+      "name": "Government Medical College, Thrissur",
+      "state": "Kerala",
+      "city": "Thrissur",
+      "type": "Government",
+      "established": 1981,
+      "totalSeats": 175,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.gmeter.org",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (city from NMC address 'Govt. Medical College Thrissur, P.O. Medical College, Thrissur (Dist) -680596'; the NMC city cell has the typo 'Trissur')"
+    },
+    {
+      "name": "Govt. Medical College, Pariyaram, Kannur",
+      "state": "Kerala",
+      "city": "Kannur",
+      "type": "Government",
+      "established": 1995,
+      "totalSeats": 100,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.mcpariyaram.com",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC row 'Govt. Medical College,Pariyaram, Kannur (Prev. Known as Academy of Medical Sciences)'; distinct from the private Kannur Medical College, Anjarakandy)"
+    },
+    {
+      "name": "Kannur Medical College, Kannur",
+      "state": "Kerala",
+      "city": "Kannur",
+      "type": "Private",
+      "established": 2006,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.kannurmedicalcollege.ac.in",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Malabar Medical College, Kozhikode",
+      "state": "Kerala",
+      "city": "Kozhikode",
+      "type": "Private",
+      "established": 2010,
+      "totalSeats": 200,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.mmccalicut.org",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC row 'Malabar Medical College, Kozhikode,Calicut', address Modakkallur (PO), Ulliyeri (Via), Kozhikode)"
+    },
+    {
+      "name": "Malankara Orthodox Syrian Church Medical College, Kolenchery",
+      "state": "Kerala",
+      "city": "Kolenchery",
+      "type": "Private",
+      "established": 2001,
+      "totalSeats": 100,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.moscmm.org",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Mount Zion Medical College, Chayalode, Adoor, Pathanamthitta",
+      "state": "Kerala",
+      "city": "Pathanamthitta",
+      "type": "Private",
+      "established": 2014,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.mountzionmedicalcollege.com",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges (NMC management 'Society' -> Private)"
+    },
+    {
+      "name": "P K Das Institute of Medical Sciences, Palakkad",
+      "state": "Kerala",
+      "city": "Palakkad",
+      "type": "Private",
+      "established": 2014,
+      "totalSeats": 200,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.pkdims.org",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Pushpagiri Institute of Medical Sciences and Research Centre, Thiruvalla",
+      "state": "Kerala",
+      "city": "Thiruvalla",
+      "type": "Private",
+      "established": 2002,
+      "totalSeats": 100,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.pimsrc.edu.in",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam",
+      "state": "Kerala",
+      "city": "Ernakulam",
+      "type": "Private",
+      "established": 2009,
+      "totalSeats": 150,
+      "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+      "website": "http://www.snims.org",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    }
+  ],
+  "unresolved": []
+}
