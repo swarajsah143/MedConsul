@@ -158,6 +158,18 @@ async function main() {
     `got ${past.status}`
   );
 
+  // A slipped keystroke in a date input turns 2027 into 12027. It is in the future, so a
+  // "not in the past" check waves it through — and grants an effectively permanent plan.
+  const absurd = await call(admin, `/api/admin/students/${demo.id}/plan`, {
+    method: 'PUT',
+    body: JSON.stringify({ plan: 'pro', planExpiresAt: '12020-03-31' }),
+  });
+  check(
+    'an absurd expiry year (12020) is rejected, not silently granted forever',
+    absurd.status === 400,
+    `got ${absurd.status} — a typo'd year grants a permanent plan`
+  );
+
   const granted = await call(admin, `/api/admin/students/${demo.id}/plan`, {
     method: 'PUT',
     body: JSON.stringify({ plan: 'premium', planExpiresAt: '2030-06-30', planNote: 'test grant' }),

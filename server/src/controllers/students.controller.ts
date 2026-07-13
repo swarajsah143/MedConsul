@@ -198,6 +198,17 @@ export const studentsController = {
         res.status(400).json({ success: false, message: 'That expiry date is already in the past.' });
         return;
       }
+      // ...and neither is the year 12020. A date input lets a slipped keystroke produce
+      // an absurd year, which sails through a "not in the past" check and grants an
+      // effectively permanent plan. Bound it.
+      const TEN_YEARS = 10 * 365 * 24 * 60 * 60 * 1000;
+      if (d.getTime() > Date.now() + TEN_YEARS) {
+        res.status(400).json({
+          success: false,
+          message: `That expiry date is more than 10 years away (${d.getFullYear()}). Check the year.`,
+        });
+        return;
+      }
     }
 
     const target = await UserModel.findById(id);
