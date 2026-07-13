@@ -23,6 +23,7 @@ const ResetPasswordPage = lazy(() => import('@/pages/reset-password'));
 
 // App
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
+const ProfilePage = lazy(() => import('@/pages/profile'));
 const RankInsightsPage = lazy(() => import('@/pages/rank-insights'));
 const RankInsightDetailPage = lazy(() => import('@/pages/rank-insight-detail'));
 const FeeMatrixPage = lazy(() => import('@/pages/fee-matrix'));
@@ -99,6 +100,7 @@ export default function AppRoutes() {
         <Route path="admin/verifications" element={<AdminRoute><AdminVerificationsPage /></AdminRoute>} />
         <Route path="admin/students" element={<AdminRoute><AdminStudentsPage /></AdminRoute>} />
         <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="profile" element={<ProfilePage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
         <Route path="allotment/:counselling" element={<AllotmentDetailPage />} />

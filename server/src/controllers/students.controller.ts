@@ -33,6 +33,10 @@ export interface StudentRow {
   /** Derived, not stored — a plan with a past expiry is expired no matter what it says. */
   planActive: boolean;
 
+  /** The two things a counsellor scans a list of students FOR. Not the whole profile. */
+  neetRank: number | null;
+  category: string;
+
   docsTotal: number;
   docsVerified: number;
   docsPending: number;
@@ -88,6 +92,9 @@ export const studentsController = {
           planExpiresAt,
           planNote: u.planNote ?? '',
           planActive: planActive(plan, planExpiresAt),
+
+          neetRank: u.neetRank ?? null,
+          category: u.category ?? '',
 
           docsTotal,
           docsVerified: verified,
@@ -170,6 +177,20 @@ export const studentsController = {
           planExpiresAt,
           planNote: (user as any).planNote ?? '',
           planActive: planActive(plan, planExpiresAt),
+
+          // The counselling details. The admin sees everything, including their own
+          // private notes — this endpoint is admin-only.
+          phone: (user as any).phone ?? '',
+          dateOfBirth: (user as any).dateOfBirth ?? '',
+          neetRollNo: (user as any).neetRollNo ?? '',
+          neetRank: (user as any).neetRank ?? null,
+          neetScore: (user as any).neetScore ?? null,
+          category: (user as any).category ?? '',
+          domicileState: (user as any).domicileState ?? '',
+          coursePreference: (user as any).coursePreference ?? '',
+          guardianName: (user as any).guardianName ?? '',
+          guardianPhone: (user as any).guardianPhone ?? '',
+          adminNotes: (user as any).adminNotes ?? '',
         },
         documents,
         chatSessions: aiService.getUserSessions(id).length,

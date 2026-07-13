@@ -2,7 +2,7 @@ import { Response } from 'express';
 import bcrypt from 'bcryptjs';
 import fs from 'fs';
 import { AuthRequest } from '../middlewares/auth.middleware';
-import { UserModel } from '../models/user.model';
+import { UserModel, PROFILE_FIELDS } from '../models/user.model';
 import { SubmissionModel } from '../models/submission.model';
 import { resolveStored } from '../config/uploads';
 
@@ -23,6 +23,33 @@ function passwordProblem(pw: string): string | null {
   if (!/[A-Z]/.test(pw)) return 'Password must contain an uppercase letter';
   if (!/[a-z]/.test(pw)) return 'Password must contain a lowercase letter';
   if (!/[0-9]/.test(pw)) return 'Password must contain a number';
+  return null;
+}
+
+const CATEGORIES = ['General', 'OBC', 'SC', 'ST', 'EWS', 'PwD'];
+
+/**
+ * Validate the counselling details. Shared by create and update so an admin cannot
+ * sneak a bad value in through whichever door they happen to use.
+ */
+export function profileProblem(p: Record<string, any>): string | null {
+  if (p.category && !CATEGORIES.includes(p.category)) {
+    return `Category must be one of: ${CATEGORIES.join(', ')}`;
+  }
+  for (const [field, label] of [['neetRank', 'NEET rank'], ['neetScore', 'NEET score']] as const) {
+    if (p[field] === null || p[field] === undefined || p[field] === '') continue;
+    const n = Number(p[field]);
+    if (!Number.isFinite(n) || n < 0) return `${label} must be a positive number`;
+    // NEET UG is scored out of 720. A "score" of 7200 is a typo, not a prodigy.
+    if (field === 'neetScore' && n > 720) return 'NEET score cannot exceed 720';
+    p[field] = n;
+  }
+  if (p.phone && !/^[+\d][\d\s-]{6,19}$/.test(String(p.phone))) {
+    return 'Phone number looks invalid';
+  }
+  if (p.dateOfBirth && !/^\d{4}-\d{2}-\d{2}$/.test(String(p.dateOfBirth))) {
+    return 'Date of birth must be YYYY-MM-DD';
+  }
   return null;
 }
 
@@ -57,7 +84,18 @@ export const adminController = {
       return;
     }
 
-    const user = await UserModel.create(String(name).trim(), email, await bcrypt.hash(password, 12), role);
+    // An admin registering a walk-in student should be able to record their details in
+    // one go, not create an empty shell and then edit it.
+    const profile: Record<string, any> = {};
+    for (const f of PROFILE_FIELDS) {
+      if (req.body[f] !== undefined) profile[f] = req.body[f];
+    }
+    if (req.body.adminNotes !== undefined) profile.adminNotes = String(req.body.adminNotes).slice(0, 2000);
+
+    const problem = profileProblem(profile);
+    if (problem) { res.status(400).json({ success: false, message: problem }); return; }
+
+    const user = await UserModel.create(String(name).trim(), email, await bcrypt.hash(password, 12), role, profile);
     res.status(201).json({ success: true, data: { user } });
   },
 
@@ -93,10 +131,20 @@ export const adminController = {
       }
     }
 
+    const profile: Record<string, any> = {};
+    for (const f of PROFILE_FIELDS) {
+      if (req.body[f] !== undefined) profile[f] = req.body[f];
+    }
+    if (req.body.adminNotes !== undefined) profile.adminNotes = String(req.body.adminNotes).slice(0, 2000);
+
+    const problem = profileProblem(profile);
+    if (problem) { res.status(400).json({ success: false, message: problem }); return; }
+
     const updated = await UserModel.update(id, {
       name: name !== undefined ? String(name).trim() : undefined,
       email,
       role,
+      ...profile,
     });
     res.json({ success: true, data: { user: updated } });
   },

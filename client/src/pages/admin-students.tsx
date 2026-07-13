@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
+import { Fragment, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import {
   AlertCircle,
@@ -11,11 +11,14 @@ import {
   GraduationCap,
   Inbox,
   Loader2,
+  Lock,
   MessageSquare,
+  Pencil,
   Search,
   Shield,
   ShieldCheck,
   Sparkles,
+  UserPlus,
   UsersRound,
   X,
 } from 'lucide-react';
@@ -50,12 +53,92 @@ const PLAN_DISCLOSURE =
 
 type DocStatus = 'verified' | 'pending' | 'rejected' | 'not_uploaded';
 
+const ROLES = ['student', 'admin'] as const;
+type Role = (typeof ROLES)[number];
+
+/** The server rejects anything outside this list with a 400. */
+const CATEGORIES = ['General', 'OBC', 'SC', 'ST', 'EWS', 'PwD'] as const;
+const COURSES = ['MBBS', 'BDS', 'BAMS', 'BHMS', 'BUMS', 'BSMS', 'BNYS', 'BVSc'] as const;
+
+/**
+ * The counselling details, as the FORM holds them: every value is a string, including
+ * the two numbers. Numbers stay strings here so a half-typed "6" or an outright typo
+ * survives a failed round-trip intact instead of being coerced to NaN behind the
+ * admin's back — the server does the coercing, and the server does the complaining.
+ */
+interface Counselling {
+  phone: string;
+  dateOfBirth: string;
+  neetRollNo: string;
+  neetRank: string;
+  neetScore: string;
+  category: string;
+  domicileState: string;
+  coursePreference: string;
+  guardianName: string;
+  guardianPhone: string;
+  adminNotes: string;
+}
+
+const NUMERIC_FIELDS: readonly (keyof Counselling)[] = ['neetRank', 'neetScore'];
+
+const EMPTY_COUNSELLING: Counselling = {
+  phone: '',
+  dateOfBirth: '',
+  neetRollNo: '',
+  neetRank: '',
+  neetScore: '',
+  category: '',
+  domicileState: '',
+  coursePreference: '',
+  guardianName: '',
+  guardianPhone: '',
+  adminNotes: '',
+};
+
+/**
+ * CREATE: send only what was actually filled in. A blank field is a field the admin
+ * has not got round to, not an instruction to store an empty string.
+ */
+function createPayload(c: Counselling): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const [k, v] of Object.entries(c)) {
+    const t = v.trim();
+    if (t) out[k] = t;
+  }
+  return out;
+}
+
+/**
+ * UPDATE: send every field, because here a blank field IS an instruction — "clear
+ * this". Cleared numbers go as null (not ''), which is what the model stores for
+ * "unknown rank"; '' would be coerced into a 0-ish number by Mongoose.
+ */
+function updatePayload(c: Counselling): Record<string, string | null> {
+  const out: Record<string, string | null> = {};
+  for (const [k, v] of Object.entries(c)) {
+    const t = v.trim();
+    out[k] = !t && NUMERIC_FIELDS.includes(k as keyof Counselling) ? null : t;
+  }
+  return out;
+}
+
 interface StudentRow {
   id: string;
   name: string;
   email: string;
   role: string;
   joinedAt: string;
+
+  /**
+   * Optional on purpose. GET /admin/students does not send the counselling fields
+   * today — only GET /admin/students/:id does. The rank/category sub-line below
+   * therefore renders per-row only when the value is actually there, so the table
+   * shows no column of em dashes now and needs no change if the list starts
+   * sending them.
+   */
+  neetRank?: number | null;
+  category?: string;
 
   plan: Plan;
   planExpiresAt: string | null;
@@ -96,20 +179,53 @@ interface StudentDoc {
   reviewedAt: string | null;
 }
 
+interface DetailStudent {
+  id: string;
+  name: string;
+  email: string;
+  role: string;
+  joinedAt: string;
+  plan: Plan;
+  planExpiresAt: string | null;
+  planNote: string;
+  planActive: boolean;
+
+  // The counselling details. This endpoint is admin-only, so it also carries the
+  // counsellor's private notes — see the InternalNotes block, which says so out loud.
+  phone: string;
+  dateOfBirth: string;
+  neetRollNo: string;
+  neetRank: number | null;
+  neetScore: number | null;
+  category: string;
+  domicileState: string;
+  coursePreference: string;
+  guardianName: string;
+  guardianPhone: string;
+  adminNotes: string;
+}
+
 interface Detail {
-  student: {
-    id: string;
-    name: string;
-    email: string;
-    role: string;
-    joinedAt: string;
-    plan: Plan;
-    planExpiresAt: string | null;
-    planNote: string;
-    planActive: boolean;
-  };
+  student: DetailStudent;
   documents: StudentDoc[];
   chatSessions: number;
+}
+
+/** The saved student → the strings the form edits. */
+function toCounselling(s: DetailStudent): Counselling {
+  return {
+    phone: s.phone ?? '',
+    dateOfBirth: toDobInput(s.dateOfBirth ?? ''),
+    neetRollNo: s.neetRollNo ?? '',
+    neetRank: s.neetRank == null ? '' : String(s.neetRank),
+    neetScore: s.neetScore == null ? '' : String(s.neetScore),
+    category: s.category ?? '',
+    domicileState: s.domicileState ?? '',
+    coursePreference: s.coursePreference ?? '',
+    guardianName: s.guardianName ?? '',
+    guardianPhone: s.guardianPhone ?? '',
+    adminNotes: s.adminNotes ?? '',
+  };
 }
 
 type PlanFilter = Plan | 'all';
@@ -167,6 +283,26 @@ function toDateInput(iso: string | null): string {
   if (Number.isNaN(d.getTime())) return '';
   const pad = (n: number) => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+const YMD = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * The date of birth is stored as a plain YYYY-MM-DD string, which is already exactly
+ * what <input type="date"> wants — pass it straight through rather than round-tripping
+ * it through a Date, which would shift it a day for anyone west of UTC.
+ */
+function toDobInput(v: string): string {
+  if (!v) return '';
+  return YMD.test(v) ? v : toDateInput(v);
+}
+
+/** A stored YYYY-MM-DD, shown the way a human reads a birthday. */
+function fmtDob(v: string): string {
+  if (!v) return '—';
+  if (!YMD.test(v)) return fmtDate(v);
+  const [y, m, d] = v.split('-').map(Number);
+  return fmtDate(new Date(y, m - 1, d).toISOString());
 }
 
 // ── small pieces ─────────────────────────────────────────────────────────────
@@ -318,9 +454,437 @@ function DocStatusBadge({ status }: { status: DocStatus }) {
 
 function FormError({ message }: { message: string }) {
   return (
-    <p className="flex items-start gap-2 text-sm font-medium text-red-600 dark:text-red-400">
+    <p className="flex items-start gap-2 text-sm font-medium text-red-600 dark:text-red-400" role="alert">
       <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" /> {message}
     </p>
+  );
+}
+
+// ── counselling details: the shared fieldset ─────────────────────────────────
+
+const LABEL_CLASS = 'block text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1.5';
+
+/** The exact words the plan note already uses. Said the same way in every place. */
+const PRIVATE_NOTE = 'Internal only — the student never sees this.';
+
+function Field({
+  id,
+  label,
+  hint,
+  children,
+}: {
+  id: string;
+  label: string;
+  hint?: string;
+  children: ReactNode;
+}) {
+  return (
+    <div>
+      <label htmlFor={id} className={LABEL_CLASS}>
+        {label}
+      </label>
+      {children}
+      {hint && <p className="text-[11px] text-muted-foreground mt-1.5">{hint}</p>}
+    </div>
+  );
+}
+
+function FormSection({ title, hint, children }: { title: string; hint?: string; children: ReactNode }) {
+  return (
+    <section className="space-y-3">
+      <div>
+        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{title}</h4>
+        {hint && <p className="text-[11px] text-muted-foreground mt-0.5">{hint}</p>}
+      </div>
+      {children}
+    </section>
+  );
+}
+
+/**
+ * Everything a counsellor knows about a student, in one fieldset — shared verbatim by
+ * "Add student" and by the detail modal's "Edit details", so the two can never drift.
+ *
+ * Note what is deliberately NOT here: `max={720}` on the score, `min` on the rank. The
+ * browser would block the submit and swallow the server's own words ("NEET score cannot
+ * exceed 720"), which is the message the admin actually needs to see. The server is the
+ * rule; this form is only the typing surface.
+ */
+function CounsellingFields({
+  idPrefix,
+  v,
+  set,
+  disabled,
+}: {
+  idPrefix: string;
+  v: Counselling;
+  set: (patch: Partial<Counselling>) => void;
+  disabled: boolean;
+}) {
+  const id = (f: string) => `${idPrefix}-${f}`;
+
+  return (
+    <>
+      <FormSection title="Counselling details" hint="All optional — fill in whatever the student has to hand.">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <Field id={id('phone')} label="Phone">
+            <Input
+              id={id('phone')}
+              type="tel"
+              value={v.phone}
+              disabled={disabled}
+              onChange={(e) => set({ phone: e.target.value })}
+              placeholder="+91 98765 43210"
+            />
+          </Field>
+
+          <Field id={id('dob')} label="Date of birth">
+            <Input
+              id={id('dob')}
+              type="date"
+              value={v.dateOfBirth}
+              disabled={disabled}
+              onChange={(e) => set({ dateOfBirth: e.target.value })}
+            />
+          </Field>
+
+          <Field id={id('rollNo')} label="NEET roll no.">
+            <Input
+              id={id('rollNo')}
+              value={v.neetRollNo}
+              disabled={disabled}
+              onChange={(e) => set({ neetRollNo: e.target.value })}
+              placeholder="e.g. 2401234567"
+            />
+          </Field>
+
+          <Field id={id('rank')} label="NEET rank" hint="All India Rank.">
+            <Input
+              id={id('rank')}
+              type="number"
+              inputMode="numeric"
+              value={v.neetRank}
+              disabled={disabled}
+              onChange={(e) => set({ neetRank: e.target.value })}
+              placeholder="e.g. 12345"
+            />
+          </Field>
+
+          <Field id={id('score')} label="NEET score" hint="Out of 720.">
+            <Input
+              id={id('score')}
+              type="number"
+              inputMode="numeric"
+              value={v.neetScore}
+              disabled={disabled}
+              onChange={(e) => set({ neetScore: e.target.value })}
+              placeholder="e.g. 650"
+            />
+          </Field>
+
+          <Field id={id('category')} label="Category">
+            <select
+              id={id('category')}
+              className={SELECT_CLASS}
+              value={v.category}
+              disabled={disabled}
+              onChange={(e) => set({ category: e.target.value })}
+            >
+              <option value="">Not set</option>
+              {CATEGORIES.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </Field>
+
+          <Field id={id('domicile')} label="Domicile state">
+            <Input
+              id={id('domicile')}
+              value={v.domicileState}
+              disabled={disabled}
+              onChange={(e) => set({ domicileState: e.target.value })}
+              placeholder="e.g. Maharashtra"
+            />
+          </Field>
+
+          <Field id={id('course')} label="Course preference">
+            <select
+              id={id('course')}
+              className={SELECT_CLASS}
+              value={v.coursePreference}
+              disabled={disabled}
+              onChange={(e) => set({ coursePreference: e.target.value })}
+            >
+              <option value="">Not set</option>
+              {COURSES.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </Field>
+        </div>
+      </FormSection>
+
+      <FormSection title="Guardian" hint="Who we call if the student cannot be reached.">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Field id={id('guardianName')} label="Guardian name">
+            <Input
+              id={id('guardianName')}
+              value={v.guardianName}
+              disabled={disabled}
+              onChange={(e) => set({ guardianName: e.target.value })}
+              placeholder="Parent or guardian"
+            />
+          </Field>
+
+          <Field id={id('guardianPhone')} label="Guardian phone">
+            <Input
+              id={id('guardianPhone')}
+              type="tel"
+              value={v.guardianPhone}
+              disabled={disabled}
+              onChange={(e) => set({ guardianPhone: e.target.value })}
+              placeholder="+91 98765 43210"
+            />
+          </Field>
+        </div>
+      </FormSection>
+
+      {/* Private. Marked as such on the field, and again on the box that displays it. */}
+      <FormSection title="Internal notes" hint={`${PRIVATE_NOTE} It is never sent to them and never shown in their profile.`}>
+        <label htmlFor={id('adminNotes')} className="sr-only">
+          Internal notes — the student never sees this
+        </label>
+        <textarea
+          id={id('adminNotes')}
+          className={`${SELECT_CLASS} h-24 py-2 resize-y`}
+          value={v.adminNotes}
+          disabled={disabled}
+          maxLength={2000}
+          onChange={(e) => set({ adminNotes: e.target.value })}
+          placeholder="Anything the counsellor needs to remember — walk-in context, documents promised, follow-ups."
+        />
+        <p className="flex items-center gap-1.5 text-[11px] font-semibold text-amber-700 dark:text-amber-500">
+          <Lock className="w-3 h-3 shrink-0" /> Admins only — the student never sees this.
+        </p>
+      </FormSection>
+    </>
+  );
+}
+
+// ── add student ──────────────────────────────────────────────────────────────
+
+/**
+ * A walk-in student, registered by the counsellor in one pass: account + counselling
+ * details + guardian + private notes, all in a single POST. Only the account fields are
+ * required; everything else can be filled in now or later from the detail modal.
+ *
+ * Password strength, email shape, the category list and the 720 ceiling are all the
+ * server's calls. Whatever it refuses comes back as a `message` and lands verbatim
+ * above the buttons, with every value still in place.
+ */
+function AddStudentForm({
+  busy,
+  error,
+  onSubmit,
+  onCancel,
+}: {
+  busy: boolean;
+  error: string | null;
+  onSubmit: (v: { name: string; email: string; password: string; role: Role; details: Counselling }) => void;
+  onCancel: () => void;
+}) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState<Role>('student');
+  const [details, setDetails] = useState<Counselling>(EMPTY_COUNSELLING);
+
+  const set = useCallback((patch: Partial<Counselling>) => setDetails((d) => ({ ...d, ...patch })), []);
+
+  return (
+    <Card className="border-red-200 dark:border-red-900/40">
+      <CardContent className="p-5">
+        <form
+          className="space-y-6"
+          onSubmit={(e) => {
+            e.preventDefault();
+            onSubmit({ name: name.trim(), email: email.trim(), password, role, details });
+          }}
+        >
+          <FormSection title="Account" hint="The only required part. The student signs in with this email and password.">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <Field id="new-name" label="Name *">
+                <Input
+                  id="new-name"
+                  value={name}
+                  required
+                  disabled={busy}
+                  autoFocus
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Full name"
+                />
+              </Field>
+
+              <Field id="new-email" label="Email *">
+                <Input
+                  id="new-email"
+                  type="email"
+                  value={email}
+                  required
+                  disabled={busy}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="student@example.com"
+                />
+              </Field>
+
+              <Field
+                id="new-password"
+                label="Password *"
+                hint="At least 8 characters, with an uppercase, a lowercase and a number."
+              >
+                <Input
+                  id="new-password"
+                  type="password"
+                  value={password}
+                  required
+                  disabled={busy}
+                  autoComplete="new-password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Set an initial password"
+                />
+              </Field>
+
+              <Field id="new-role" label="Role">
+                <select
+                  id="new-role"
+                  className={SELECT_CLASS}
+                  value={role}
+                  disabled={busy}
+                  onChange={(e) => setRole(e.target.value as Role)}
+                >
+                  {ROLES.map((r) => (
+                    <option key={r} value={r}>
+                      {r.charAt(0).toUpperCase() + r.slice(1)}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+            </div>
+          </FormSection>
+
+          <div className="border-t border-slate-200 dark:border-slate-800 pt-5 space-y-6">
+            <CounsellingFields idPrefix="new" v={details} set={set} disabled={busy} />
+          </div>
+
+          {/* Every 400 and the 409 (duplicate email) land here, in the server's words. */}
+          {error && <FormError message={error} />}
+
+          <div className="flex items-center gap-2 border-t border-slate-200 dark:border-slate-800 pt-5">
+            <Button type="submit" disabled={busy}>
+              {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <UserPlus className="w-4 h-4" />} Create student
+            </Button>
+            <Button type="button" variant="ghost" onClick={onCancel} disabled={busy}>
+              Cancel
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
+  );
+}
+
+// ── edit details (inside the modal) ──────────────────────────────────────────
+
+function EditDetailsForm({
+  student,
+  busy,
+  error,
+  onSubmit,
+  onCancel,
+}: {
+  student: DetailStudent;
+  busy: boolean;
+  error: string | null;
+  onSubmit: (v: Counselling) => void;
+  onCancel: () => void;
+}) {
+  const [v, setV] = useState<Counselling>(() => toCounselling(student));
+  const set = useCallback((patch: Partial<Counselling>) => setV((d) => ({ ...d, ...patch })), []);
+
+  return (
+    <form
+      className="space-y-6"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit(v);
+      }}
+    >
+      <CounsellingFields idPrefix={`edit-${student.id}`} v={v} set={set} disabled={busy} />
+
+      {error && <FormError message={error} />}
+
+      <div className="flex items-center gap-2">
+        <Button type="submit" size="sm" disabled={busy}>
+          {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <CheckCircle2 className="w-4 h-4" />} Save details
+        </Button>
+        <Button type="button" size="sm" variant="ghost" onClick={onCancel} disabled={busy}>
+          Cancel
+        </Button>
+      </div>
+    </form>
+  );
+}
+
+// ── read-only details (inside the modal) ─────────────────────────────────────
+
+/** Unset is an em dash. Never a blank cell, never a zero. */
+function ReadField({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="min-w-0">
+      <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">{label}</p>
+      <p className="text-sm text-slate-800 dark:text-slate-200 mt-0.5 break-words">{value || '—'}</p>
+    </div>
+  );
+}
+
+function CounsellingSummary({ s }: { s: DetailStudent }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ReadField label="Phone" value={s.phone} />
+      <ReadField label="Date of birth" value={fmtDob(s.dateOfBirth)} />
+      <ReadField label="NEET roll no." value={s.neetRollNo} />
+      <ReadField label="NEET rank" value={s.neetRank == null ? '' : String(s.neetRank)} />
+      <ReadField label="NEET score" value={s.neetScore == null ? '' : `${s.neetScore} / 720`} />
+      <ReadField label="Category" value={s.category} />
+      <ReadField label="Domicile state" value={s.domicileState} />
+      <ReadField label="Course preference" value={s.coursePreference} />
+      <ReadField label="Guardian" value={s.guardianName} />
+      <ReadField label="Guardian phone" value={s.guardianPhone} />
+    </div>
+  );
+}
+
+/**
+ * The counsellor's private notes. Kept visually distinct from every other block on the
+ * page — a bordered amber panel with a padlock — because the one thing that must never
+ * happen is an admin mistaking this for something the student can read and writing
+ * accordingly. The API never sends adminNotes to a student; the label says so.
+ */
+function InternalNotes({ notes }: { notes: string }) {
+  return (
+    <div className="rounded-lg border border-amber-200 dark:border-amber-900/40 bg-amber-50/60 dark:bg-amber-950/20 p-4">
+      <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-500">
+        <Lock className="w-3 h-3 shrink-0" /> Internal notes · private
+      </p>
+      <p className="text-sm text-slate-800 dark:text-slate-200 mt-2 whitespace-pre-wrap break-words">
+        {notes || '—'}
+      </p>
+      <p className="text-[11px] text-amber-700/80 dark:text-amber-500/80 mt-2">{PRIVATE_NOTE}</p>
+    </div>
   );
 }
 
@@ -435,13 +999,24 @@ function DetailModal({
   detail,
   loading,
   error,
+  saving,
+  saveError,
+  onSave,
+  onEditToggle,
   onClose,
 }: {
   detail: Detail | null;
   loading: boolean;
   error: string | null;
+  saving: boolean;
+  saveError: string | null;
+  /** Resolves true when the PUT succeeded — only then does the form close. */
+  onSave: (v: Counselling) => Promise<boolean>;
+  onEditToggle: () => void;
   onClose: () => void;
 }) {
+  const [editing, setEditing] = useState(false);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -533,6 +1108,51 @@ function DetailModal({
                 </p>
               </div>
 
+              {/*
+                The counselling details. Read-only by default — this modal is opened to
+                look something up far more often than to change it, and a page of live
+                inputs invites an accidental edit.
+              */}
+              <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4 space-y-4">
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">Counselling details</h3>
+                  {!editing && (
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => {
+                        onEditToggle();
+                        setEditing(true);
+                      }}
+                    >
+                      <Pencil className="w-4 h-4" /> Edit details
+                    </Button>
+                  )}
+                </div>
+
+                {editing ? (
+                  <EditDetailsForm
+                    student={detail.student}
+                    busy={saving}
+                    error={saveError}
+                    onSubmit={async (v) => {
+                      // Only a genuine 2xx closes the form. On a 400 it stays open with
+                      // every value the admin typed still in it.
+                      if (await onSave(v)) setEditing(false);
+                    }}
+                    onCancel={() => {
+                      setEditing(false);
+                      onEditToggle();
+                    }}
+                  />
+                ) : (
+                  <>
+                    <CounsellingSummary s={detail.student} />
+                    <InternalNotes notes={detail.student.adminNotes} />
+                  </>
+                )}
+              </div>
+
               {total === 0 && (
                 <p className="text-sm text-muted-foreground text-center py-8">
                   There are no checklist documents configured yet.
@@ -622,10 +1242,18 @@ export default function AdminStudentsPage() {
   const [saving, setSaving] = useState(false);
   const [planError, setPlanError] = useState<string | null>(null);
 
+  // Add student: an inline panel under the header, in the same idiom as Set plan.
+  const [adding, setAdding] = useState(false);
+  const [creating, setCreating] = useState(false);
+  const [createError, setCreateError] = useState<string | null>(null);
+
   const [detailOpen, setDetailOpen] = useState(false);
+  const [detailId, setDetailId] = useState<string | null>(null);
   const [detail, setDetail] = useState<Detail | null>(null);
   const [detailLoading, setDetailLoading] = useState(false);
   const [detailError, setDetailError] = useState<string | null>(null);
+  const [detailSaving, setDetailSaving] = useState(false);
+  const [detailSaveError, setDetailSaveError] = useState<string | null>(null);
 
   const refresh = useCallback(() => setReloadKey((k) => k + 1), []);
 
@@ -662,8 +1290,10 @@ export default function AdminStudentsPage() {
 
   const openDetail = useCallback(async (id: string) => {
     setDetailOpen(true);
+    setDetailId(id);
     setDetail(null);
     setDetailError(null);
+    setDetailSaveError(null);
     setDetailLoading(true);
     try {
       const res = await api.get(`/admin/students/${id}`);
@@ -677,9 +1307,71 @@ export default function AdminStudentsPage() {
 
   const closeDetail = useCallback(() => {
     setDetailOpen(false);
+    setDetailId(null);
     setDetail(null);
     setDetailError(null);
+    setDetailSaveError(null);
   }, []);
+
+  /**
+   * The whole student in one POST — account, counselling details, guardian, notes.
+   *
+   * Every rule here is the server's: password strength, the email shape, the category
+   * list, the 720 ceiling on the score, and the 409 when the email is taken. Its
+   * `message` is rendered as-is and the panel stays open with everything still typed in,
+   * because the alternative — a cleared form and a generic "failed" — is how a
+   * counsellor loses a walk-in student's details twice.
+   */
+  const createStudent = useCallback(
+    async (v: { name: string; email: string; password: string; role: Role; details: Counselling }) => {
+      setCreating(true);
+      setCreateError(null);
+      try {
+        await api.post('/admin/users', {
+          name: v.name,
+          email: v.email,
+          password: v.password,
+          role: v.role,
+          ...createPayload(v.details),
+        });
+        setAdding(false);
+        setFlash(`${v.name} has been added.`);
+        refresh();
+      } catch (e: any) {
+        setCreateError(e?.message || 'Could not create this student.');
+      } finally {
+        setCreating(false);
+      }
+    },
+    [refresh]
+  );
+
+  /** Edit the counselling details of an existing student. Returns true only on success. */
+  const saveDetails = useCallback(
+    async (v: Counselling): Promise<boolean> => {
+      if (!detailId) return false;
+      setDetailSaving(true);
+      setDetailSaveError(null);
+      try {
+        await api.put(`/admin/users/${detailId}`, updatePayload(v));
+
+        // Refetch rather than trust what we sent — the server is what stored it. The
+        // existing detail stays on screen while it reloads, so the modal does not blink
+        // back to a spinner under the admin.
+        const res = await api.get(`/admin/students/${detailId}`);
+        setDetail(res?.data ?? null);
+        setFlash(`${detail?.student.name ?? 'Student'}’s details have been updated.`);
+        refresh();
+        return true;
+      } catch (e: any) {
+        setDetailSaveError(e?.message || 'Could not save these details.');
+        return false;
+      } finally {
+        setDetailSaving(false);
+      }
+    },
+    [detailId, detail, refresh]
+  );
 
   /**
    * The server owns the plan rules — an unknown plan, an unparseable date, and an
@@ -731,7 +1423,30 @@ export default function AdminStudentsPage() {
             <CheckCircle2 className="w-4 h-4" /> {flash}
           </span>
         )}
+        <Button
+          variant={adding ? 'outline' : 'default'}
+          onClick={() => {
+            setCreateError(null);
+            setAdding((a) => !a);
+          }}
+          aria-expanded={adding}
+        >
+          {adding ? <X className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
+          {adding ? 'Close' : 'Add student'}
+        </Button>
       </PageHeader>
+
+      {adding && (
+        <AddStudentForm
+          busy={creating}
+          error={createError}
+          onSubmit={createStudent}
+          onCancel={() => {
+            setAdding(false);
+            setCreateError(null);
+          }}
+        />
+      )}
 
       {/* Tiles. "Awaiting review" is the only actionable one — it links to the queue. */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
@@ -890,6 +1605,21 @@ export default function AdminStudentsPage() {
                                 )}
                               </p>
                               <p className="text-xs text-muted-foreground truncate">{s.email}</p>
+
+                              {/*
+                                The line a counsellor actually scans for. A sub-line, not
+                                a column: it only appears for a student who has a rank or
+                                a category, so nobody has to read a column of em dashes.
+                              */}
+                              {(s.neetRank != null || s.category) && (
+                                <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                                  {s.neetRank != null && (
+                                    <span className="tabular-nums">AIR {s.neetRank.toLocaleString('en-IN')}</span>
+                                  )}
+                                  {s.neetRank != null && s.category && <span className="mx-1">·</span>}
+                                  {s.category}
+                                </p>
+                              )}
                             </div>
                           </div>
                         </td>
@@ -984,7 +1714,16 @@ export default function AdminStudentsPage() {
       )}
 
       {detailOpen && (
-        <DetailModal detail={detail} loading={detailLoading} error={detailError} onClose={closeDetail} />
+        <DetailModal
+          detail={detail}
+          loading={detailLoading}
+          error={detailError}
+          saving={detailSaving}
+          saveError={detailSaveError}
+          onSave={saveDetails}
+          onEditToggle={() => setDetailSaveError(null)}
+          onClose={closeDetail}
+        />
       )}
     </div>
   );

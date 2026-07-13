@@ -4,6 +4,7 @@ import chatRoutes from './chat.routes';
 import adminRoutes from './admin.routes';
 import dataRoutes from './data.routes';
 import documentRoutes from './documents.routes';
+import profileRoutes from './profile.routes';
 
 const router = Router();
 
@@ -16,5 +17,6 @@ router.use('/chat', chatRoutes);
 router.use('/admin', adminRoutes);
 router.use('/data', dataRoutes);   // public read-only domain data
 router.use('/documents', documentRoutes);   // student uploads + admin verification
+router.use('/profile', profileRoutes);      // a student's own counselling details
 
 export default router;

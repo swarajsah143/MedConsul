@@ -28,6 +28,7 @@ import {
   ShieldCheck,
   Sparkles,
   Stethoscope,
+  UserCircle,
   Users,
   UsersRound,
   X,
@@ -76,6 +77,7 @@ function buildNavSections(announcementBadge?: string, docsBadge?: string): NavSe
       items: [
         { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
         { name: 'Announcements', href: '/announcements', icon: Megaphone, badge: announcementBadge },
+        { name: 'My Profile', href: '/profile', icon: UserCircle },
       ],
     },
     {
