@@ -1,0 +1,848 @@
+[
+ {
+  "name": "ACS Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "AIIMS Madurai",
+  "state": "Tamil Nadu",
+  "city": "Madurai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Bhaarath Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chengalpattu Medical College, Chengalpattu",
+  "state": "Tamil Nadu",
+  "city": "Chengalpattu",
+  "knownType": null
+ },
+ {
+  "name": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
+  "state": "Tamil Nadu",
+  "city": "Kelambakkam",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chettinad Hospital & Research Institute, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chettinad Hospital and Research Institute, Kancheepuram",
+  "state": "Tamil Nadu",
+  "city": "Kancheepuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chettinad Hospital and Research Institute, Kelambakkam",
+  "state": "Tamil Nadu",
+  "city": "Kelambakkam",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Christian Medical College, Vellore",
+  "state": "Tamil Nadu",
+  "city": "Vellore",
+  "knownType": null
+ },
+ {
+  "name": "Coimbatore Medical College, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "knownType": null
+ },
+ {
+  "name": "Dhanalakshmi Srinivasan Institute of Medical Sciences and Hospital, Perambalur",
+  "state": "Tamil Nadu",
+  "city": "Perambalur",
+  "knownType": null
+ },
+ {
+  "name": "ESIC Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College and PGIMSR, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dharmapuri Medical College, Dharmapuri",
+  "state": "Tamil Nadu",
+  "city": "Dharmapuri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Kilpauk Medical College, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and ESIC Hospital, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ariyalur",
+  "state": "Tamil Nadu",
+  "city": "Ariyalur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Dindigul",
+  "state": "Tamil Nadu",
+  "city": "Dindigul",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kallakurichi",
+  "state": "Tamil Nadu",
+  "city": "Kallakurichi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Karur",
+  "state": "Tamil Nadu",
+  "city": "Karur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Krishnagiri",
+  "state": "Tamil Nadu",
+  "city": "Krishnagiri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nagapattinam",
+  "state": "Tamil Nadu",
+  "city": "Nagapattinam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Namakkal",
+  "state": "Tamil Nadu",
+  "city": "Namakkal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nilgiris",
+  "state": "Tamil Nadu",
+  "city": "Nilgiris",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Omandurar, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ramanathapuram",
+  "state": "Tamil Nadu",
+  "city": "Ramanathapuram",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Thiruvallur",
+  "state": "Tamil Nadu",
+  "city": "Thiruvallur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Tirunelveli",
+  "state": "Tamil Nadu",
+  "city": "Tirunelveli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Tiruppur",
+  "state": "Tamil Nadu",
+  "city": "Tiruppur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Virudhunagar",
+  "state": "Tamil Nadu",
+  "city": "Virudhunagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Mohan Kumaramangalam Medical College, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Pudukkottai Medical College, Pudukkottai",
+  "state": "Tamil Nadu",
+  "city": "Pudukkottai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Sivagangai Medical College, Sivagangai",
+  "state": "Tamil Nadu",
+  "city": "Sivagangai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Thiruvarur Medical College, Thiruvarur",
+  "state": "Tamil Nadu",
+  "city": "Thiruvarur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Vellore Medical College, Vellore",
+  "state": "Tamil Nadu",
+  "city": "Vellore",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Villupuram Medical College, Villupuram",
+  "state": "Tamil Nadu",
+  "city": "Villupuram",
+  "knownType": "Government"
+ },
+ {
+  "name": "IRT Perundurai Medical College, Perundurai",
+  "state": "Tamil Nadu",
+  "city": "Perundurai",
+  "knownType": null
+ },
+ {
+  "name": "J R Medical College and Hospital, Tamil Nadu",
+  "state": "Tamil Nadu",
+  "city": "Tamil Nadu",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "KAP Viswanatham Government Medical College, Tiruchirappalli",
+  "state": "Tamil Nadu",
+  "city": "Tiruchirappalli",
+  "knownType": "Government"
+ },
+ {
+  "name": "KMCH Institute of Health Sciences and Research, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "knownType": null
+ },
+ {
+  "name": "Kanyakumari Government Medical College, Asaripallam",
+  "state": "Tamil Nadu",
+  "city": "Asaripallam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Karpaga Vinayaga Institute of Medical Sciences, Palayanoor",
+  "state": "Tamil Nadu",
+  "city": "Palayanoor",
+  "knownType": null
+ },
+ {
+  "name": "Karpagam Faculty of Medical Sciences, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "knownType": null
+ },
+ {
+  "name": "Madras Medical College Chennai",
+  "state": "Tamil Nadu",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Madurai Medical College, Madurai",
+  "state": "Tamil Nadu",
+  "city": "Madurai",
+  "knownType": null
+ },
+ {
+  "name": "Meenakshi Medical College & Research Institute, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Melmaruvathur Adhiparasakthi Institute of Medical Sciences and Research, Kancheepuram",
+  "state": "Tamil Nadu",
+  "city": "Kancheepuram",
+  "knownType": null
+ },
+ {
+  "name": "PSG Institute of Medical Sciences and Research, Peelamedu",
+  "state": "Tamil Nadu",
+  "city": "Peelamedu",
+  "knownType": null
+ },
+ {
+  "name": "Panimalar Medical College Hospital and Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Rajah Muthiah Medical College, Annamalainagar",
+  "state": "Tamil Nadu",
+  "city": "Annamalainagar",
+  "knownType": null
+ },
+ {
+  "name": "SRM Dental College, Ramapuram, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SRM Medical College Hospital & Research Centre, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SRM Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SRM Medical College, Kattankulathur",
+  "state": "Tamil Nadu",
+  "city": "Kattankulathur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Saveetha Medical College & Hospital, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Saveetha Medical College, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Shri Sathya Sai Medical College and Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram",
+  "state": "Tamil Nadu",
+  "city": "Kancheepuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sree Balaji Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sree Mookambika Institute / Kanyakumari Medical Mission Research Centre, Kulasekharam",
+  "state": "Tamil Nadu",
+  "city": "Kulasekharam",
+  "knownType": null
+ },
+ {
+  "name": "Sree Mookambika Institute of Medical Sciences, Kulasekharam",
+  "state": "Tamil Nadu",
+  "city": "Kulasekharam",
+  "knownType": null
+ },
+ {
+  "name": "Sri Lalithambigai Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sri Muthukumaran Medical College Hospital and Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Sri Ramachandra Dental College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sri Ramachandra Institute of Higher Education and Research (SRIHER), Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sri Venkateswaraa Medical College Hospital and Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Srinivasan Medical College and Hospital, Tiruchirappalli",
+  "state": "Tamil Nadu",
+  "city": "Tiruchirappalli",
+  "knownType": null
+ },
+ {
+  "name": "St Peter's Medical College Hospital and Research Institute, Hosur",
+  "state": "Tamil Nadu",
+  "city": "Hosur",
+  "knownType": null
+ },
+ {
+  "name": "Stanley Medical College, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Swamy Vivekanandha Medical College Hospital and Research Institute, Namakkal",
+  "state": "Tamil Nadu",
+  "city": "Namakkal",
+  "knownType": null
+ },
+ {
+  "name": "Tagore Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Tamil Nadu Government Dental College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Thanjavur Medical College, Thanjavur",
+  "state": "Tamil Nadu",
+  "city": "Thanjavur",
+  "knownType": null
+ },
+ {
+  "name": "Theni Government Medical College, Theni",
+  "state": "Tamil Nadu",
+  "city": "Theni",
+  "knownType": "Government"
+ },
+ {
+  "name": "Thiruvannamalai Medical College, Thiruvannamalai",
+  "state": "Tamil Nadu",
+  "city": "Thiruvannamalai",
+  "knownType": null
+ },
+ {
+  "name": "Thoothukudi Medical College, Thoothukudi",
+  "state": "Tamil Nadu",
+  "city": "Thoothukudi",
+  "knownType": null
+ },
+ {
+  "name": "Tirunelveli Medical College, Tirunelveli",
+  "state": "Tamil Nadu",
+  "city": "Tirunelveli",
+  "knownType": null
+ },
+ {
+  "name": "Trichy SRM Medical College Hospital and Research Centre, Irungalur",
+  "state": "Tamil Nadu",
+  "city": "Irungalur",
+  "knownType": null
+ },
+ {
+  "name": "VELS Medical College and Hospital, Tiruvallur",
+  "state": "Tamil Nadu",
+  "city": "Tiruvallur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "VMKV Medical College and Hospital, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Velammal Medical College Hospital and Research Institute, Madurai",
+  "state": "Tamil Nadu",
+  "city": "Madurai",
+  "knownType": null
+ },
+ {
+  "name": "Vels Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Al-Falah School of Medical Sciences & Research Centre, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Amrita School of Medicine, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "state": "Haryana",
+  "city": "Khanpur Kalan",
+  "knownType": "Government"
+ },
+ {
+  "name": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "state": "Haryana",
+  "city": "Sonepat",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "JN Kapoor DAV Centenary Dental College, Yamuna Nagar",
+  "state": "Haryana",
+  "city": "Yamuna Nagar",
+  "knownType": null
+ },
+ {
+  "name": "Kalpana Chawla Government Medical College, Karnal",
+  "state": "Haryana",
+  "city": "Karnal",
+  "knownType": "Government"
+ },
+ {
+  "name": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
+  "state": "Haryana",
+  "city": "Mullana",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Maharaja Agrasen Medical College, Agroha (Hisar)",
+  "state": "Haryana",
+  "city": "Agroha",
+  "knownType": null
+ },
+ {
+  "name": "Maharishi Chyawan Medical College, Koriawas (Rewari)",
+  "state": "Haryana",
+  "city": "Koriawas",
+  "knownType": null
+ },
+ {
+  "name": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana",
+  "state": "Haryana",
+  "city": "Mullana",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana, Ambala",
+  "state": "Haryana",
+  "city": "Ambala",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Manav Rachna Dental College, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "N.C. Medical College & Hospital, Israna, Panipat",
+  "state": "Haryana",
+  "city": "Panipat",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "NC Medical College & Hospital, Israna (Panipat)",
+  "state": "Haryana",
+  "city": "Israna",
+  "knownType": null
+ },
+ {
+  "name": "NC Medical College & Hospital, Israna, Panipat",
+  "state": "Haryana",
+  "city": "Panipat",
+  "knownType": null
+ },
+ {
+  "name": "Pandit Neki Ram Sharma Government Medical College, Bhiwani",
+  "state": "Haryana",
+  "city": "Bhiwani",
+  "knownType": "Government"
+ },
+ {
+  "name": "Post Graduate Institute of Dental Sciences, Rohtak",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "knownType": null
+ },
+ {
+  "name": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "knownType": null
+ },
+ {
+  "name": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "knownType": null
+ },
+ {
+  "name": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "knownType": null
+ },
+ {
+  "name": "Pt. Neki Ram Sharma Government Medical College, Bhiwani",
+  "state": "Haryana",
+  "city": "Bhiwani",
+  "knownType": "Government"
+ },
+ {
+  "name": "SGT Medical College, Gurugram",
+  "state": "Haryana",
+  "city": "Gurugram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SGT University Faculty of Medicine & Health Sciences, Gurugram",
+  "state": "Haryana",
+  "city": "Gurugram",
+  "knownType": null
+ },
+ {
+  "name": "Shaheed Hasan Khan Mewati Government Medical College, Nalhar",
+  "state": "Haryana",
+  "city": "Nalhar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Atal Bihari Vajpayee Government Medical College, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Sudha Rustagi College of Dental Sciences and Research, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": null
+ },
+ {
+  "name": "World College of Medical Sciences & Research, Jhajjar",
+  "state": "Haryana",
+  "city": "Jhajjar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "AIIMS Bathinda",
+  "state": "Punjab",
+  "city": "Bathinda",
+  "knownType": "Government"
+ },
+ {
+  "name": "Adesh Institute, Bathinda",
+  "state": "Punjab",
+  "city": "Bathinda",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bathinda",
+  "state": "Punjab",
+  "city": "Bathinda",
+  "knownType": null
+ },
+ {
+  "name": "CMC Ludhiana",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Christian Medical College, Ludhiana",
+  "state": "Punjab",
+  "city": "Ludhiana",
+  "knownType": null
+ },
+ {
+  "name": "DMC Ludhiana",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Dayanand Medical College & Hospital, Ludhiana",
+  "state": "Punjab",
+  "city": "Ludhiana",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
+  "state": "Punjab",
+  "city": "Mohali",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr BR Ambedkar SIMS, Mohali",
+  "state": "Punjab",
+  "city": "Mohali",
+  "knownType": null
+ },
+ {
+  "name": "GGS Faridkot",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "GMC Amritsar",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "GMC Patiala",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Government Medical College, Amritsar",
+  "state": "Punjab",
+  "city": "Amritsar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Patiala",
+  "state": "Punjab",
+  "city": "Patiala",
+  "knownType": "Government"
+ },
+ {
+  "name": "Guru Gobind Singh Medical College & Hospital, Faridkot",
+  "state": "Punjab",
+  "city": "Faridkot",
+  "knownType": null
+ },
+ {
+  "name": "PIMS Jalandhar",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Punjab Government Dental College and Hospital, Amritsar",
+  "state": "Punjab",
+  "city": "Amritsar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Punjab Institute of Medical Sciences, Jalandhar",
+  "state": "Punjab",
+  "city": "Jalandhar",
+  "knownType": null
+ },
+ {
+  "name": "SGRD Amritsar",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
+  "state": "Punjab",
+  "city": "Amritsar",
+  "knownType": null
+ },
+ {
+  "name": "AIIMS Bilaspur",
+  "state": "Himachal Pradesh",
+  "city": "Bilaspur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Radhakrishnan Government Medical College, Hamirpur",
+  "state": "Himachal Pradesh",
+  "city": "Hamirpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Rajendra Prasad Government Medical College (RPGMC), Tanda",
+  "state": "Himachal Pradesh",
+  "city": "Tanda",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Yashwant Singh Parmar Government Medical College, Nahan",
+  "state": "Himachal Pradesh",
+  "city": "Nahan",
+  "knownType": "Government"
+ },
+ {
+  "name": "Himachal Pradesh Government Dental College and Hospital, Shimla",
+  "state": "Himachal Pradesh",
+  "city": "Shimla",
+  "knownType": "Government"
+ },
+ {
+  "name": "Indira Gandhi Medical College (IGMC), Shimla",
+  "state": "Himachal Pradesh",
+  "city": "Shimla",
+  "knownType": null
+ },
+ {
+  "name": "Pt Jawahar Lal Nehru Government Medical College, Chamba",
+  "state": "Himachal Pradesh",
+  "city": "Chamba",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "state": "Himachal Pradesh",
+  "city": "Nerchowk Mandi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
+  "state": "Himachal Pradesh",
+  "city": "Mandi",
+  "knownType": "Government"
+ }
+]

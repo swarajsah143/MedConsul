@@ -1,0 +1,848 @@
+[
+ {
+  "name": "AIIMS Jodhpur",
+  "state": "Rajasthan",
+  "city": "Jodhpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "American International Institute of Medical Sciences, Bedwas",
+  "state": "Rajasthan",
+  "city": "Bedwas",
+  "knownType": null
+ },
+ {
+  "name": "Ananta Institute of Medical Science and Research Centre, Rajsamand",
+  "state": "Rajasthan",
+  "city": "Rajsamand",
+  "knownType": null
+ },
+ {
+  "name": "Dr SS Tantia Medical College Hospital and Research Centre, Sri Ganganagar",
+  "state": "Rajasthan",
+  "city": "Sri Ganganagar",
+  "knownType": null
+ },
+ {
+  "name": "Dr Sampurnanand Medical College, Jodhpur",
+  "state": "Rajasthan",
+  "city": "Jodhpur",
+  "knownType": null
+ },
+ {
+  "name": "ESIC Medical College and Hospital, Alwar",
+  "state": "Rajasthan",
+  "city": "Alwar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Geetanjali Medical College and Hospital, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Government Dental College and Hospital, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Alwar",
+  "state": "Rajasthan",
+  "city": "Alwar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Banswara",
+  "state": "Rajasthan",
+  "city": "Banswara",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Baran",
+  "state": "Rajasthan",
+  "city": "Baran",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Barmer",
+  "state": "Rajasthan",
+  "city": "Barmer",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Bharatpur",
+  "state": "Rajasthan",
+  "city": "Bharatpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Bundi",
+  "state": "Rajasthan",
+  "city": "Bundi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Chittorgarh",
+  "state": "Rajasthan",
+  "city": "Chittorgarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Dausa",
+  "state": "Rajasthan",
+  "city": "Dausa",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Dholpur",
+  "state": "Rajasthan",
+  "city": "Dholpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Dungarpur",
+  "state": "Rajasthan",
+  "city": "Dungarpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Hanumangarh",
+  "state": "Rajasthan",
+  "city": "Hanumangarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jaisalmer",
+  "state": "Rajasthan",
+  "city": "Jaisalmer",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jhunjhunu",
+  "state": "Rajasthan",
+  "city": "Jhunjhunu",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Karauli",
+  "state": "Rajasthan",
+  "city": "Karauli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kota",
+  "state": "Rajasthan",
+  "city": "Kota",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nagaur",
+  "state": "Rajasthan",
+  "city": "Nagaur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Pali",
+  "state": "Rajasthan",
+  "city": "Pali",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sawai Madhopur",
+  "state": "Rajasthan",
+  "city": "Sawai Madhopur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sirohi",
+  "state": "Rajasthan",
+  "city": "Sirohi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sri Ganganagar",
+  "state": "Rajasthan",
+  "city": "Sri Ganganagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Tonk",
+  "state": "Rajasthan",
+  "city": "Tonk",
+  "knownType": "Government"
+ },
+ {
+  "name": "Jaipur National University Institute for Medical Sciences and Research Centre, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": null
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Ajmer",
+  "state": "Rajasthan",
+  "city": "Ajmer",
+  "knownType": null
+ },
+ {
+  "name": "Jhalawar Hospital & Medical College, Jhalawar",
+  "state": "Rajasthan",
+  "city": "Jhalawar",
+  "knownType": null
+ },
+ {
+  "name": "Mahatma Gandhi Medical College and Hospital, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "NIMS University, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Pacific Institute of Medical Sciences, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "knownType": null
+ },
+ {
+  "name": "Pandit Deendayal Upadhyaya Medical College, Churu",
+  "state": "Rajasthan",
+  "city": "Churu",
+  "knownType": null
+ },
+ {
+  "name": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "knownType": null
+ },
+ {
+  "name": "RUHS College of Medical Sciences, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": null
+ },
+ {
+  "name": "Rabindra Nath Tagore Medical College, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "knownType": null
+ },
+ {
+  "name": "Rajmata Vijaya Raje Scindia Medical College, Bhilwara",
+  "state": "Rajasthan",
+  "city": "Bhilwara",
+  "knownType": null
+ },
+ {
+  "name": "SMS Medical College, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": null
+ },
+ {
+  "name": "Sardar Patel Medical College, Bikaner",
+  "state": "Rajasthan",
+  "city": "Bikaner",
+  "knownType": null
+ },
+ {
+  "name": "Sawai Man Singh Medical College, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": null
+ },
+ {
+  "name": "Shri Kalyan Government Medical College, Sikar",
+  "state": "Rajasthan",
+  "city": "Sikar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Sudha Medical College and Hospital, Kota",
+  "state": "Rajasthan",
+  "city": "Kota",
+  "knownType": null
+ },
+ {
+  "name": "Vyas Medical College and Hospital, Jodhpur",
+  "state": "Rajasthan",
+  "city": "Jodhpur",
+  "knownType": null
+ },
+ {
+  "name": "Alluri Sitaramaraju Academy of Medical Sciences, Eluru",
+  "state": "",
+  "city": "Eluru",
+  "knownType": null
+ },
+ {
+  "name": "Ananya College of Medicine & Research, Kalol, Gandhinagar",
+  "state": "",
+  "city": "Gandhinagar",
+  "knownType": null
+ },
+ {
+  "name": "Banas Medical College & Research Institute, Palanpur",
+  "state": "",
+  "city": "Palanpur",
+  "knownType": null
+ },
+ {
+  "name": "Bhagyoday Medical College, Kadi, Mehsana",
+  "state": "",
+  "city": "Mehsana",
+  "knownType": null
+ },
+ {
+  "name": "C. U. Shah Medical College, Surendranagar",
+  "state": "",
+  "city": "Surendranagar",
+  "knownType": null
+ },
+ {
+  "name": "Dr Pinnamaneni Siddhartha Institute of Medical Sciences, Chinoutpalli",
+  "state": "",
+  "city": "Chinoutpalli",
+  "knownType": null
+ },
+ {
+  "name": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
+  "state": "",
+  "city": "Bharuch",
+  "knownType": null
+ },
+ {
+  "name": "Dr. N. D. Desai Faculty of Medical Science and Research, Nadiad",
+  "state": "",
+  "city": "Nadiad",
+  "knownType": null
+ },
+ {
+  "name": "Fathima Institute of Medical Sciences, Kadapa",
+  "state": "",
+  "city": "Kadapa",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Dharpur, Patan",
+  "state": "",
+  "city": "Patan",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Gandhinagar",
+  "state": "",
+  "city": "Gandhinagar",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Godhra",
+  "state": "",
+  "city": "Godhra",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Himmatnagar",
+  "state": "",
+  "city": "Himmatnagar",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Junagadh",
+  "state": "",
+  "city": "Junagadh",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Morbi",
+  "state": "",
+  "city": "Morbi",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Navsari",
+  "state": "",
+  "city": "Navsari",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Porbandar",
+  "state": "",
+  "city": "Porbandar",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Rajpipla",
+  "state": "",
+  "city": "Rajpipla",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Vadnagar",
+  "state": "",
+  "city": "Vadnagar",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Valsad",
+  "state": "",
+  "city": "Valsad",
+  "knownType": null
+ },
+ {
+  "name": "GSL Medical College and General Hospital, Rajahmundry",
+  "state": "",
+  "city": "Rajahmundry",
+  "knownType": null
+ },
+ {
+  "name": "Government Medical College, Machilipatnam",
+  "state": "",
+  "city": "Machilipatnam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nandyal",
+  "state": "",
+  "city": "Nandyal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Paderu",
+  "state": "",
+  "city": "Paderu",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Srikakulam",
+  "state": "",
+  "city": "Srikakulam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Great Eastern Medical School and Hospital, Srikakulam",
+  "state": "",
+  "city": "Srikakulam",
+  "knownType": null
+ },
+ {
+  "name": "Gujarat Adani Institute of Medical Sciences, Bhuj",
+  "state": "",
+  "city": "Bhuj",
+  "knownType": null
+ },
+ {
+  "name": "Konaseema Institute of Medical Sciences and Research Foundation, Amalapuram",
+  "state": "",
+  "city": "Amalapuram",
+  "knownType": null
+ },
+ {
+  "name": "Maharajahs Institute of Medical Sciences, Nellimarla",
+  "state": "",
+  "city": "Nellimarla",
+  "knownType": null
+ },
+ {
+  "name": "NRI Medical College, Chinakakani",
+  "state": "",
+  "city": "Chinakakani",
+  "knownType": null
+ },
+ {
+  "name": "Narayana Medical College and Hospital, Chinthareddypalem",
+  "state": "",
+  "city": "Chinthareddypalem",
+  "knownType": null
+ },
+ {
+  "name": "Nootan Medical College & Research Centre, Visnagar",
+  "state": "",
+  "city": "Visnagar",
+  "knownType": null
+ },
+ {
+  "name": "PES Institute of Medical Science and Research, Kuppam",
+  "state": "",
+  "city": "Kuppam",
+  "knownType": null
+ },
+ {
+  "name": "Pramukhswami Medical College, Karamsad",
+  "state": "",
+  "city": "Karamsad",
+  "knownType": null
+ },
+ {
+  "name": "Santhiram Medical College and General Hospital, Nandyal",
+  "state": "",
+  "city": "Nandyal",
+  "knownType": null
+ },
+ {
+  "name": "Shantabaa Medical College, Amreli",
+  "state": "",
+  "city": "Amreli",
+  "knownType": null
+ },
+ {
+  "name": "Sri Balaji Medical College, Hospital and Research Institute, Renigunta",
+  "state": "",
+  "city": "Renigunta",
+  "knownType": null
+ },
+ {
+  "name": "Swaminarayan Institute of Medical Sciences & Research, Kalol, Gandhinagar",
+  "state": "",
+  "city": "Gandhinagar",
+  "knownType": null
+ },
+ {
+  "name": "Zydus Medical College and Hospital, Dahod",
+  "state": "",
+  "city": "Dahod",
+  "knownType": null
+ },
+ {
+  "name": "AIIMS Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Amaltas Institute of Medical Sciences, Dewas",
+  "state": "Madhya Pradesh",
+  "city": "Dewas",
+  "knownType": null
+ },
+ {
+  "name": "Atal Bihari Vajpayee Government Medical College, Vidisha",
+  "state": "Madhya Pradesh",
+  "city": "Vidisha",
+  "knownType": "Government"
+ },
+ {
+  "name": "Birsa Munda Government Medical College, Shahdol",
+  "state": "Madhya Pradesh",
+  "city": "Shahdol",
+  "knownType": "Government"
+ },
+ {
+  "name": "Bundelkhand Medical College, Sagar",
+  "state": "Madhya Pradesh",
+  "city": "Sagar",
+  "knownType": null
+ },
+ {
+  "name": "Chhindwara Institute of Medical Sciences, Chhindwara",
+  "state": "Madhya Pradesh",
+  "city": "Chhindwara",
+  "knownType": null
+ },
+ {
+  "name": "Chirayu Medical College and Hospital, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Gajra Raja Medical College, Gwalior",
+  "state": "Madhya Pradesh",
+  "city": "Gwalior",
+  "knownType": null
+ },
+ {
+  "name": "Gandhi Medical College, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": null
+ },
+ {
+  "name": "Government College of Dentistry, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Datia",
+  "state": "Madhya Pradesh",
+  "city": "Datia",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ratlam",
+  "state": "Madhya Pradesh",
+  "city": "Ratlam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Satna",
+  "state": "Madhya Pradesh",
+  "city": "Satna",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Seoni",
+  "state": "Madhya Pradesh",
+  "city": "Seoni",
+  "knownType": "Government"
+ },
+ {
+  "name": "Index Medical College Hospital and Research Center, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "LN Medical College, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Mahatma Gandhi Memorial Medical College, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "knownType": null
+ },
+ {
+  "name": "Nandkumar Singh Chouhan Government Medical College, Khandwa",
+  "state": "Madhya Pradesh",
+  "city": "Khandwa",
+  "knownType": "Government"
+ },
+ {
+  "name": "Netaji Subhash Chandra Bose Medical College, Jabalpur",
+  "state": "Madhya Pradesh",
+  "city": "Jabalpur",
+  "knownType": null
+ },
+ {
+  "name": "Peoples College of Medical Science, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "RD Gardi Medical College, Ujjain",
+  "state": "Madhya Pradesh",
+  "city": "Ujjain",
+  "knownType": null
+ },
+ {
+  "name": "RKDF Medical College Hospital and Research Centre, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": null
+ },
+ {
+  "name": "Ram Krishna Medical College Hospital and Research Centre, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": null
+ },
+ {
+  "name": "Shrimant Rajmata Vijayaraje Scindia Medical College, Shivpuri",
+  "state": "Madhya Pradesh",
+  "city": "Shivpuri",
+  "knownType": null
+ },
+ {
+  "name": "Shyam Shah Medical College, Rewa",
+  "state": "Madhya Pradesh",
+  "city": "Rewa",
+  "knownType": null
+ },
+ {
+  "name": "Sri Aurobindo Institute of Medical Science, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "knownType": null
+ },
+ {
+  "name": "Sunderlal Patwa Government Medical College, Mandsaur",
+  "state": "Madhya Pradesh",
+  "city": "Mandsaur",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Bhima Bhoi Medical College and Hospital, Balangir",
+  "state": "Odisha",
+  "city": "Balangir",
+  "knownType": null
+ },
+ {
+  "name": "Fakir Mohan Medical College and Hospital, Balasore",
+  "state": "Odisha",
+  "city": "Balasore",
+  "knownType": null
+ },
+ {
+  "name": "Government Medical College and Hospital, Sundargarh",
+  "state": "Odisha",
+  "city": "Sundargarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Hi-Tech Medical College and Hospital, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Hi-Tech Medical College and Hospital, Rourkela",
+  "state": "Odisha",
+  "city": "Rourkela",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Institute of Medical Sciences and SUM Hospital, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Kalinga Institute of Medical Sciences, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MKCG Medical College, Berhampur",
+  "state": "Odisha",
+  "city": "Berhampur",
+  "knownType": null
+ },
+ {
+  "name": "Maharaja Jajati Keshari Medical College and Hospital, Jajpur",
+  "state": "Odisha",
+  "city": "Jajpur",
+  "knownType": null
+ },
+ {
+  "name": "Pandit Raghunath Murmu Medical College and Hospital, Baripada",
+  "state": "Odisha",
+  "city": "Baripada",
+  "knownType": null
+ },
+ {
+  "name": "SCB Medical College, Cuttack",
+  "state": "Odisha",
+  "city": "Cuttack",
+  "knownType": null
+ },
+ {
+  "name": "SLN Medical College and Hospital, Koraput",
+  "state": "Odisha",
+  "city": "Koraput",
+  "knownType": null
+ },
+ {
+  "name": "Saheed Rendo Majhi Medical College and Hospital (GMC Bhawanipatna), Kalahandi",
+  "state": "Odisha",
+  "city": "Kalahandi",
+  "knownType": null
+ },
+ {
+  "name": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
+  "state": "Odisha",
+  "city": "Bhawanipatna",
+  "knownType": null
+ },
+ {
+  "name": "Shri Jagannath Medical College and Hospital, Puri",
+  "state": "Odisha",
+  "city": "Puri",
+  "knownType": null
+ },
+ {
+  "name": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences & Research), Burla",
+  "state": "Odisha",
+  "city": "Burla",
+  "knownType": null
+ },
+ {
+  "name": "AIIMS Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Chandulal Chandrakar Memorial Medical College, Durg",
+  "state": "Chhattisgarh",
+  "city": "Durg",
+  "knownType": null
+ },
+ {
+  "name": "Chhattisgarh Institute of Medical Sciences (CIMS), Bilaspur",
+  "state": "Chhattisgarh",
+  "city": "Bilaspur",
+  "knownType": null
+ },
+ {
+  "name": "Government Dental College, Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kanker (Late Smt. Indira Gandhi Memorial GMC)",
+  "state": "Chhattisgarh",
+  "city": "Kanker",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Rajnandgaon (Bharat Ratna A.B. Vajpayee Memorial GMC)",
+  "state": "Chhattisgarh",
+  "city": "Rajnandgaon",
+  "knownType": "Government"
+ },
+ {
+  "name": "Pt Jawahar Lal Nehru Memorial Medical College, Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "knownType": null
+ },
+ {
+  "name": "Rajmata Shrimati Devendra Kumari Singhdeo Government Medical College, Ambikapur",
+  "state": "Chhattisgarh",
+  "city": "Ambikapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Rungta College of Dental Sciences and Research, Bhilai",
+  "state": "Chhattisgarh",
+  "city": "Bhilai",
+  "knownType": null
+ },
+ {
+  "name": "Shri Balaji Institute of Medical Science, Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Goa Medical College, Bambolim (Panaji)",
+  "state": "Goa",
+  "city": "Bambolim",
+  "knownType": null
+ },
+ {
+  "name": "Tomo Riba Institute of Health & Medical Sciences (TRIHMS), Naharlagun",
+  "state": "Arunachal Pradesh",
+  "city": "Naharlagun",
+  "knownType": null
+ }
+]

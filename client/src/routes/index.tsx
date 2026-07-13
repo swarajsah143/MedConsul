@@ -24,6 +24,7 @@ const ResetPasswordPage = lazy(() => import('@/pages/reset-password'));
 // App
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
 const ProfilePage = lazy(() => import('@/pages/profile'));
+const RankPredictorPage = lazy(() => import('@/pages/rank-predictor'));
 const RankInsightsPage = lazy(() => import('@/pages/rank-insights'));
 const RankInsightDetailPage = lazy(() => import('@/pages/rank-insight-detail'));
 const FeeMatrixPage = lazy(() => import('@/pages/fee-matrix'));
@@ -104,6 +105,7 @@ export default function AppRoutes() {
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
         <Route path="allotment/:counselling" element={<AllotmentDetailPage />} />
+        <Route path="rank-predictor" element={<RankPredictorPage />} />
         <Route path="rank-insights" element={<RankInsightsPage />} />
         <Route path="rank-insights/detail" element={<RankInsightDetailPage />} />
         <Route path="fee-matrix" element={<FeeMatrixPage />} />

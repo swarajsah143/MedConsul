@@ -1,0 +1,854 @@
+[
+ {
+  "name": "ACPM Medical College, Dhule",
+  "state": "Maharashtra",
+  "city": "Dhule",
+  "knownType": null
+ },
+ {
+  "name": "AIIMS Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Ashwini Rural Medical College Hospital and Research Centre, Kumbhari",
+  "state": "Maharashtra",
+  "city": "Kumbhari",
+  "knownType": null
+ },
+ {
+  "name": "B.J. Government Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Government"
+ },
+ {
+  "name": "BJ Government Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Government"
+ },
+ {
+  "name": "BJ Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": null
+ },
+ {
+  "name": "BKL Walawalkar Rural Medical College, Ratnagiri",
+  "state": "Maharashtra",
+  "city": "Ratnagiri",
+  "knownType": null
+ },
+ {
+  "name": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Pune — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharati Vidyapeeth Deemed University Medical College, Pune — NRI seats",
+  "state": "Maharashtra",
+  "city": "Pune — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharati Vidyapeeth Deemed University Medical College, Sangli",
+  "state": "Maharashtra",
+  "city": "Sangli",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharati Vidyapeeth Dental College and Hospital, Sangli",
+  "state": "Maharashtra",
+  "city": "Sangli",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharati Vidyapeeth Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharatratna Atal Bihari Vajpayee Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": null
+ },
+ {
+  "name": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Government"
+ },
+ {
+  "name": "Byramjee Jeejeebhoy Government Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Government"
+ },
+ {
+  "name": "DY Patil University School of Dentistry, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "DY Patil University School of Medicine, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Datta Meghe Institute of Higher Education and Research (DMIMS), Jawaharlal Nehru Medical College, Wardha",
+  "state": "Maharashtra",
+  "city": "Wardha",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Datta Meghe Medical College, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Pune — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — NRI seats",
+  "state": "Maharashtra",
+  "city": "Pune — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Kolhapur",
+  "state": "Maharashtra",
+  "city": "Kolhapur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Kolhapur — General category",
+  "state": "Maharashtra",
+  "city": "Kolhapur — General category",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Kolhapur — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Kolhapur — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Kolhapur — NRI seats",
+  "state": "Maharashtra",
+  "city": "Kolhapur — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Navi Mumbai — General category",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — General category",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Navi Mumbai — NRI seats",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Nerul, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Pimpri, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr DY Patil Dental College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr DY Patil Education Society Deemed University, Kolhapur",
+  "state": "Maharashtra",
+  "city": "Kolhapur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr DY Patil Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr NY Tasgaonkar Institute of Medical Sciences, Karjat",
+  "state": "Maharashtra",
+  "city": "Karjat",
+  "knownType": null
+ },
+ {
+  "name": "Dr Panjabrao Deshmukh Memorial Medical College, Amravati",
+  "state": "Maharashtra",
+  "city": "Amravati",
+  "knownType": null
+ },
+ {
+  "name": "Dr Rajendra Gode Medical College, Amravati",
+  "state": "Maharashtra",
+  "city": "Amravati",
+  "knownType": null
+ },
+ {
+  "name": "Dr Shankarrao Chavan Government Medical College, Nanded",
+  "state": "Maharashtra",
+  "city": "Nanded",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Ulhas Patil Medical College and General Hospital, Jalgaon",
+  "state": "Maharashtra",
+  "city": "Jalgaon",
+  "knownType": null
+ },
+ {
+  "name": "Dr Vaishampayan Memorial Government Medical College, Solapur",
+  "state": "Maharashtra",
+  "city": "Solapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Vasantrao Pawar Medical College Hospital and Research Center, Adgaon, Nashik",
+  "state": "Maharashtra",
+  "city": "Nashik",
+  "knownType": null
+ },
+ {
+  "name": "Dr Vitthalrao Vikhe Patil Foundation's Medical College and Hospital, Ahmednagar",
+  "state": "Maharashtra",
+  "city": "Ahmednagar",
+  "knownType": null
+ },
+ {
+  "name": "Dr. D Y Patil Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Government Dental College and Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and District Hospital, Ratnagiri",
+  "state": "Maharashtra",
+  "city": "Ratnagiri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and Hospital, Bhandara",
+  "state": "Maharashtra",
+  "city": "Bhandara",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and Hospital, Jalgaon",
+  "state": "Maharashtra",
+  "city": "Jalgaon",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and Hospital, Washim",
+  "state": "Maharashtra",
+  "city": "Washim",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Akola",
+  "state": "Maharashtra",
+  "city": "Akola",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Alibag",
+  "state": "Maharashtra",
+  "city": "Alibag",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ambernath",
+  "state": "Maharashtra",
+  "city": "Ambernath",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Amravati",
+  "state": "Maharashtra",
+  "city": "Amravati",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Aurangabad",
+  "state": "Maharashtra",
+  "city": "Aurangabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Baramati",
+  "state": "Maharashtra",
+  "city": "Baramati",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Chandrapur",
+  "state": "Maharashtra",
+  "city": "Chandrapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Gadchiroli",
+  "state": "Maharashtra",
+  "city": "Gadchiroli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Gondia",
+  "state": "Maharashtra",
+  "city": "Gondia",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Hingoli",
+  "state": "Maharashtra",
+  "city": "Hingoli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jalna",
+  "state": "Maharashtra",
+  "city": "Jalna",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Latur",
+  "state": "Maharashtra",
+  "city": "Latur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Miraj",
+  "state": "Maharashtra",
+  "city": "Miraj",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nandurbar",
+  "state": "Maharashtra",
+  "city": "Nandurbar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nashik",
+  "state": "Maharashtra",
+  "city": "Nashik",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Osmanabad",
+  "state": "Maharashtra",
+  "city": "Osmanabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Parbhani",
+  "state": "Maharashtra",
+  "city": "Parbhani",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Satara",
+  "state": "Maharashtra",
+  "city": "Satara",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sindhudurg",
+  "state": "Maharashtra",
+  "city": "Sindhudurg",
+  "knownType": "Government"
+ },
+ {
+  "name": "Grant Government Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Grant Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "HBT Medical College & Dr. R.N. Cooper Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "HBT Medical College and Dr RN Cooper Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "HBT Medical College and Dr RN Cooper Municipal Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Indian Institute of Medical Science and Research, Jalna",
+  "state": "Maharashtra",
+  "city": "Jalna",
+  "knownType": null
+ },
+ {
+  "name": "Indira Gandhi Government Medical College and Hospital, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Indira Gandhi Medical College, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": null
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
+  "state": "Maharashtra",
+  "city": "Wardha",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
+  "state": "Maharashtra",
+  "city": "Wardha",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Wardha — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — NRI seats",
+  "state": "Maharashtra",
+  "city": "Wardha — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "KJ Somaiya Medical College and Research Centre, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Kasturba Health Society's Mahatma Gandhi Institute of Medical Sciences, Sevagram",
+  "state": "Maharashtra",
+  "city": "Sevagram",
+  "knownType": null
+ },
+ {
+  "name": "Krishna Institute of Medical Sciences (KIMS), Karad — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Karad — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Krishna Institute of Medical Sciences (KIMS), Karad — NRI seats",
+  "state": "Maharashtra",
+  "city": "Karad — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Krishna Institute of Medical Sciences, Karad",
+  "state": "Maharashtra",
+  "city": "Karad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Krishna Vishwa Vidyapeeth, Karad",
+  "state": "Maharashtra",
+  "city": "Karad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Lokmanya Tilak Municipal Medical College (LTMMC), Sion, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Lokmanya Tilak Municipal Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "MGM Medical College and Hospital, Navi Mumbai — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MGM Medical College and Hospital, Navi Mumbai — NRI seats",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MGM Medical College, Aurangabad — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Aurangabad — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MGM Medical College, Aurangabad — NRI seats",
+  "state": "Maharashtra",
+  "city": "Aurangabad — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MGM Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MIMER Medical College, Talegaon, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": null
+ },
+ {
+  "name": "Maharashtra Institute of Medical Education and Research (MIMER), Talegaon, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": null
+ },
+ {
+  "name": "Maharashtra Institute of Medical Sciences and Research, Latur",
+  "state": "Maharashtra",
+  "city": "Latur",
+  "knownType": null
+ },
+ {
+  "name": "NKP Salve Institute of Medical Sciences and Research Centre, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": null
+ },
+ {
+  "name": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Parbhani Medical College, Parbhani",
+  "state": "Maharashtra",
+  "city": "Parbhani",
+  "knownType": null
+ },
+ {
+  "name": "Prakash Institute of Medical Sciences and Research, Sangli",
+  "state": "Maharashtra",
+  "city": "Sangli",
+  "knownType": null
+ },
+ {
+  "name": "Rajarshee Chhatrapati Shahu Maharaj Government Medical College, Kolhapur",
+  "state": "Maharashtra",
+  "city": "Kolhapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Rajiv Gandhi Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane",
+  "state": "Maharashtra",
+  "city": "Thane",
+  "knownType": null
+ },
+ {
+  "name": "Rajiv Gandhi Medical College, Thane",
+  "state": "Maharashtra",
+  "city": "Thane",
+  "knownType": null
+ },
+ {
+  "name": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Loni — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — NRI seats",
+  "state": "Maharashtra",
+  "city": "Loni — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SMBT Institute of Medical Sciences and Research Center, Nashik",
+  "state": "Maharashtra",
+  "city": "Nashik",
+  "knownType": null
+ },
+ {
+  "name": "Seth GS Medical College Mumbai",
+  "state": "Maharashtra",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Shri Bhausaheb Hire Government Medical College and Hospital, Dhule",
+  "state": "Maharashtra",
+  "city": "Dhule",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Ramachandra Institute of Medical Sciences, Aurangabad",
+  "state": "Maharashtra",
+  "city": "Aurangabad",
+  "knownType": null
+ },
+ {
+  "name": "Shri Vasant Rao Naik Government Medical College, Yavatmal",
+  "state": "Maharashtra",
+  "city": "Yavatmal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Sindhudurg Shikshan Prasarak Mandal Medical College, Sindhudurg",
+  "state": "Maharashtra",
+  "city": "Sindhudurg",
+  "knownType": null
+ },
+ {
+  "name": "Smt Kashibai Navale Medical College, Ambegaon (Sinhgad Technical Education Society)",
+  "state": "Maharashtra",
+  "city": "Ambegaon",
+  "knownType": null
+ },
+ {
+  "name": "Swami Ramanand Tirth Rural Government Medical College, Ambajogai",
+  "state": "Maharashtra",
+  "city": "Ambajogai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Symbiosis Medical College for Women, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Terna Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Terna Medical College, Nerul, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Topiwala National Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Vedantaa Institute of Medical Science, Palghar",
+  "state": "Maharashtra",
+  "city": "Palghar",
+  "knownType": null
+ },
+ {
+  "name": "AIIMS Rishikesh",
+  "state": "Uttarakhand",
+  "city": "Rishikesh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Gautam Buddha Chikitsa Mahavidyalaya, Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": null
+ },
+ {
+  "name": "Government Doon Medical College, Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Haldwani",
+  "state": "Uttarakhand",
+  "city": "Haldwani",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Haridwar",
+  "state": "Uttarakhand",
+  "city": "Haridwar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Himalayan Institute of Medical Sciences (HIMS), SRHU, Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": null
+ },
+ {
+  "name": "Shri Guru Ram Rai Institute of Medical & Health Sciences (SGRR), Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Soban Singh Jeena Government Institute of Medical Science & Research (SSJGIMS&R), Almora",
+  "state": "Uttarakhand",
+  "city": "Almora",
+  "knownType": "Government"
+ },
+ {
+  "name": "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora",
+  "state": "Uttarakhand",
+  "city": "Almora",
+  "knownType": "Government"
+ },
+ {
+  "name": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
+  "state": "Uttarakhand",
+  "city": "Srinagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal",
+  "state": "Uttarakhand",
+  "city": "Srinagar Garhwal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Churachandpur",
+  "state": "Manipur",
+  "city": "Churachandpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Jawaharlal Nehru Institute of Medical Sciences (JNIMS), Imphal",
+  "state": "Manipur",
+  "city": "Imphal",
+  "knownType": null
+ },
+ {
+  "name": "Regional Institute of Medical Sciences (RIMS), Imphal",
+  "state": "Manipur",
+  "city": "Imphal",
+  "knownType": null
+ },
+ {
+  "name": "North Eastern Indira Gandhi Regional Institute of Health & Medical Sciences (NEIGRIHMS), Shillong",
+  "state": "Meghalaya",
+  "city": "Shillong",
+  "knownType": null
+ },
+ {
+  "name": "Shillong Medical College",
+  "state": "Meghalaya",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Zoram Medical College, Falkawn",
+  "state": "Mizoram",
+  "city": "Falkawn",
+  "knownType": null
+ }
+]

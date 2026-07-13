@@ -38,13 +38,20 @@ export const colleges: CollectionSchema = {
       help: 'Other names this college is known by (e.g. "AIIMS, New Delhi"). Used to match imported CSV rows to this record.',
     },
     { name: 'state', type: 'string', label: 'State', required: true, inList: true, filterable: true, searchable: true },
-    { name: 'city', type: 'string', label: 'City', required: true, inList: true, searchable: true },
+    {
+      name: 'city', type: 'string', label: 'City', inList: true, searchable: true,
+      help: 'A bulk-imported college may not carry one. Leaving it blank is honest; a guessed city silently corrupts the importer, which uses the city to tell apart the dozen different "Government Medical College"s.',
+    },
     { name: 'type', type: 'enum', label: 'Type', required: true, options: COLLEGE_TYPES, inList: true, filterable: true },
     { name: 'established', type: 'number', label: 'Established', plain: true },
     { name: 'totalSeats', type: 'number', label: 'Total seats', inList: true },
     { name: 'affiliation', type: 'string', label: 'Affiliation' },
     { name: 'website', type: 'url', label: 'Website' },
     { name: 'isActive', type: 'boolean', label: 'Active', default: true, filterable: true },
+    {
+      name: 'source', type: 'string', label: 'Source', filterable: true,
+      help: 'Where this record came from. Blank means hand-curated (the original 29, with review prose). Bulk imports stamp themselves here, so the importer can tell a reviewed record from one of its own.',
+    },
 
     {
       name: 'coursesOffered', type: 'string[]', label: 'Courses offered',
@@ -385,9 +392,58 @@ export const counsellingSections: CollectionSchema = {
   ],
 };
 
+/**
+ * The two tables behind the Rank Predictor.
+ *
+ * These are the curves, not the code. NEET difficulty swings hard year to year — 2025's
+ * topper scored 686 where 2024's scored 720 — so the same score maps to a very different
+ * rank depending on the year, and a band table is the only honest way to express that.
+ * Putting them in Mongo rather than in a constant means a counsellor can correct the
+ * curve the week NTA publishes new data, without a deploy.
+ *
+ * Never blend years. Estimate against ONE year's curve; see estimateAIR().
+ */
+export const rankBands: CollectionSchema = {
+  name: 'rankBands',
+  naturalKey: ['year', 'marksMin'],
+  label: 'Rank band',
+  labelPlural: 'Predictor — Marks to Rank',
+  publicRead: false,
+  defaultSort: '-year',
+  description:
+    'Score → All India Rank bands, one row per year × score band. The predictor interpolates within the band a score falls into.',
+  fields: [
+    { name: 'year', type: 'number', label: 'Year', required: true, inList: true, filterable: true, plain: true },
+    { name: 'marksMin', type: 'number', label: 'Marks from', required: true, inList: true, plain: true },
+    { name: 'marksMax', type: 'number', label: 'Marks to', required: true, inList: true, plain: true },
+    { name: 'rankMin', type: 'number', label: 'Best rank', required: true, inList: true, help: 'The rank at the TOP of this score band (i.e. at "Marks to").' },
+    { name: 'rankMax', type: 'number', label: 'Worst rank', required: true, inList: true, help: 'The rank at the BOTTOM of this score band (i.e. at "Marks from").' },
+  ],
+};
+
+export const categoryFactors: CollectionSchema = {
+  name: 'categoryFactors',
+  naturalKey: ['category'],
+  label: 'Category factor',
+  labelPlural: 'Predictor — Category Factors',
+  publicRead: false,
+  defaultSort: 'category',
+  description:
+    'Category rank ≈ All India Rank × factor. Roughly the share of candidates above you who belong to your category.',
+  fields: [
+    { name: 'category', type: 'enum', label: 'Category', required: true, options: CATEGORIES, inList: true },
+    {
+      name: 'factor', type: 'number', label: 'Factor', required: true, inList: true, plain: true,
+      help: 'Between 0 and 1. e.g. 0.55 for OBC means an AIR of 10,000 is roughly an OBC rank of 5,500.',
+    },
+  ],
+};
+
 export const COLLECTIONS: CollectionSchema[] = [
   colleges,
   closingRanks,
+  rankBands,
+  categoryFactors,
   fees,
   allotments,
   announcements,

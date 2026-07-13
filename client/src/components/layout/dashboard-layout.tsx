@@ -83,6 +83,7 @@ function buildNavSections(announcementBadge?: string, docsBadge?: string): NavSe
     {
       label: 'Research',
       items: [
+        { name: 'Rank Predictor', href: '/rank-predictor', icon: Target },
         { name: 'College Reviews', href: '/colleges', icon: GraduationCap },
         { name: 'Rank Insights', href: '/rank-insights', icon: BarChart3 },
         { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
