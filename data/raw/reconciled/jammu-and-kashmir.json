@@ -33,14 +33,6 @@
    "totalSeats": 100,
    "affiliation": "Kashmir University",
    "source": "nmc-ug-registry (collegeId 5145 'Govt. Medical College, Doda, Kashmir': Govt., yearOfInc 2020, 100 UG seats, Kashmir University)"
-  },
-  {
-   "name": "Sher-i-Kashmir Institute of Medical Sciences (SKIMS) Medical College, Bemina/Srinagar",
-   "state": "Jammu & Kashmir",
-   "city": "Srinagar",
-   "type": "Government",
-   "website": "https://www.skimsmc.edu.in",
-   "source": "https://www.skimsmc.edu.in/ (SKIMS Medical College & Hospital, Bemina, Srinagar; a Government college taken over by the Govt. of J&K in 1998) + https://en.wikipedia.org/wiki/Sher-e-Kashmir_Institute_of_Medical_Sciences"
   }
  ],
  "merges": [
@@ -58,13 +50,6 @@
     "AIIMS Vijaypur"
    ],
    "reason": "Three spellings of the single AIIMS in Jammu & Kashmir, located at Vijaypur (Samba district) and commonly called AIIMS Jammu. Only one AIIMS exists in the state (NMC collegeId 5214)."
-  },
-  {
-   "canonical": "Sher-i-Kashmir Institute of Medical Sciences (SKIMS) Medical College, Bemina/Srinagar",
-   "aliases": [
-    "SKIMS Medical College, Bemina, Srinagar"
-   ],
-   "reason": "Same institution: SKIMS Medical College & Hospital, Bemina, Srinagar (the MBBS college run under SKIMS). Both records name Bemina explicitly, so this is a spelling variant, not the separate SKIMS Soura campus."
   }
  ],
  "newColleges": [],

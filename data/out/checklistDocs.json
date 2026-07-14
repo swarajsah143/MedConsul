@@ -1,0 +1,572 @@
+[
+ {
+  "name": "NEET (UG) application form printout (kept for MCC registration)",
+  "section": "online",
+  "mandatory": false,
+  "format": "Printout or PDF of your NTA application — nothing is uploaded to MCC",
+  "notes": "MCC's Information Bulletin is explicit that no certificate is uploaded when you register for All India Quota / Deemed / Central University counselling. You only re-key particulars you already gave NTA, exactly as you filled them, and then pay the fee. Keep the NTA application printout beside you so the spellings and numbers match, and never share the MCC password/OTP with anyone — the bulletin warns that whoever holds it can hijack your choice filling.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "Photograph, signature and left-hand thumb impression (Karnataka KEA portal)",
+  "section": "online",
+  "mandatory": true,
+  "format": "JPG / JPEG — three separate uploads",
+  "notes": "Unlike MCC, the Karnataka Examinations Authority does make you upload images at registration. KEA's UGNEET guidelines say to upload a scanned recent passport-size colour photograph, your signature and your left-hand thumb impression separately, each in JPG/JPEG. KEA's guidelines do not print a KB limit — the portal enforces one at upload time, so scan at a modest resolution.",
+  "states": [
+   "Karnataka"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "NEET score card + Class 10 + Class 12 marks cards as ONE combined PDF (Karnataka, non-Karnataka candidates)",
+  "section": "online",
+  "mandatory": true,
+  "format": "PDF — all three scanned into a single file",
+  "notes": "Candidates who are not Karnataka-domiciled do not attend KEA's physical verification at all. Instead they register online, enter Class 12 marks, and upload the NEET score card, the Class 10 marks card and the Class 12 marks card scanned together as one single PDF. OCI/PIO/NRI/foreign nationals, NRI-ward claimants, religious-minority claimants and St. John's Category 2-8 claimants are the exception — they must still appear in person with originals.",
+  "states": [
+   "Karnataka"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "Colour scans of all original documents (Maharashtra CET Cell portal)",
+  "section": "online",
+  "mandatory": true,
+  "format": "Coloured scanned copies of the originals, uploaded on the CAP portal",
+  "notes": "Maharashtra's CAP process has a distinct third stage after registration and fee payment: a document-upload window. Notice No. 01 for NEET-UG 2025 gave candidates roughly a week to upload coloured scanned copies of the original requisite documents, and states that uploading everything is solely the candidate's responsibility. Miss the window and you are not on the merit list.",
+  "states": [
+   "Maharashtra"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "Online PwD certificate from a designated board (Maharashtra)",
+  "section": "online",
+  "mandatory": true,
+  "format": "Online certificate issued by one of the 16 designated boards",
+  "notes": "Maharashtra will only honour a PwD claim that was already made to NTA at NEET application stage — you cannot add the claim later at CAP. The certificate itself must be the online PwD certificate issued by one of the sixteen designated boards.",
+  "states": [
+   "Maharashtra"
+  ],
+  "categories": [
+   "PwD"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "PwD / PwBD (5% Horizontal Reservation)"
+  ]
+ },
+ {
+  "name": "NRI registration on the Foreign Candidate Registration Portal (Maharashtra)",
+  "section": "online",
+  "mandatory": true,
+  "format": "Separate online registration for eligibility verification",
+  "notes": "NRI candidates in Maharashtra must register on a separate Foreign Candidate Registration Portal, ahead of the normal CAP registration deadline, so that their eligibility can be verified — in 2025 that cut-off fell before the main registration closed. Note the ceiling: Maharashtra NRI candidates are eligible only for the 15% Institute Quota, on merit.",
+  "states": [
+   "Maharashtra"
+  ],
+  "counsellingTypes": [
+   "NRI Quota"
+  ]
+ },
+ {
+  "name": "Passport-size photograph and left thumb impression (Tamil Nadu online application)",
+  "section": "online",
+  "mandatory": true,
+  "format": "Scanned images uploaded in the application form",
+  "notes": "Tamil Nadu requires the SAME passport-size photograph you uploaded for the NEET (UG) examination — not a fresh one — and the prospectus adds that the same photograph must be produced again at the allotted medical/dental college at admission, so keep spare prints of exactly that image. Separately, you must put your LEFT thumb impression on white paper in blue ink, scan it, and upload that too.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "Signature in running handwriting (Tamil Nadu online application)",
+  "section": "online",
+  "mandatory": true,
+  "format": "Scanned signature image",
+  "fileSize": "4 KB to 20 KB",
+  "notes": "The Tamil Nadu prospectus fixes the signature upload at 4 KB to 20 KB and is unusually strict about what counts as a signature: initials are not accepted, and writing your full name in capital letters is not accepted either — either mistake gets the application rejected outright.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "NEET (UG) admit card (Tamil Nadu upload)",
+  "section": "online",
+  "mandatory": true,
+  "format": "PDF",
+  "notes": "Tamil Nadu's rule is blanket: every certificate attached to the online application must be uploaded in PDF format. The NEET (UG) admit card for the current year heads the list of certificates to upload, and the Selection Committee's April 2026 notification tells candidates to have it ready before counselling opens.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota",
+   "NRI Quota"
+  ]
+ },
+ {
+  "name": "Class X, Class XI and HSC mark sheets — both sides (Tamil Nadu upload)",
+  "section": "online",
+  "mandatory": true,
+  "format": "PDF",
+  "notes": "Tamil Nadu is one of the few states that asks for the Class XI mark sheet as well as Class X and HSC (Class XII). For all three, BOTH SIDES of the certificate must be scanned — a one-sided scan is an incomplete upload. An equivalent qualifying examination mark sheet is accepted in place of HSC.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota",
+   "NRI Quota"
+  ]
+ },
+ {
+  "name": "Transfer certificate issued after HSC (Tamil Nadu upload)",
+  "section": "online",
+  "mandatory": true,
+  "format": "PDF",
+  "notes": "The transfer certificate obtained after completing HSC or the equivalent course must be uploaded with the online application.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota",
+   "NRI Quota"
+  ]
+ },
+ {
+  "name": "Proof of study from Class VI to Class XII in Tamil Nadu",
+  "section": "online",
+  "mandatory": false,
+  "format": "PDF",
+  "notes": "Required from candidates who studied entirely in Tamil Nadu. The Selection Committee's 2026-27 notification frames this as the route for candidates who are NOT natives of Tamil Nadu but completed their schooling in the state — it is the study-based path to Tamil Nadu eligibility, as against the nativity path.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "Nativity certificate (Tamil Nadu)",
+  "section": "online",
+  "mandatory": false,
+  "format": "PDF",
+  "notes": "Uploaded where applicable to establish Tamil Nadu nativity. It is the alternative to the Class VI-to-XII proof-of-study route.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "Community certificate — candidate's, plus a parent's (Tamil Nadu)",
+  "section": "online",
+  "mandatory": false,
+  "format": "PDF",
+  "notes": "Upload your own community certificate if you are claiming communal reservation. If you are claiming Tamil Nadu as your native state for that reservation, you must ALSO upload the community certificate of one parent, issued by the competent Revenue Authority in Tamil Nadu — candidates routinely lose the claim by uploading only their own.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "categories": [
+   "OBC",
+   "SC",
+   "ST"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "Eligibility certificate from Tamil Nadu Dr. M.G.R. Medical University",
+  "section": "online",
+  "mandatory": false,
+  "format": "PDF",
+  "notes": "Needed only if your qualifying exam was from a board or university other than the Tamil Nadu State Board, CBSE or ICSE. It is issued by the Tamil Nadu Dr. M.G.R. Medical University, Guindy, Chennai, and takes time to obtain — start it before counselling opens rather than during it.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "Bonafide certificate for the 7.5% Government School quota (Tamil Nadu)",
+  "section": "online",
+  "mandatory": false,
+  "format": "PDF — certificate from the District Chief Educational Officer",
+  "notes": "For Tamil Nadu's 7.5% special preferential reservation for government-school students. Only candidates who completed Higher Secondary BEFORE the 2022-23 batch need the CEO's bonafide certificate for having studied Class 6 to 12 in government schools. From the 2022-23 batch onwards the Selection Committee verifies the claim through the EMIS portal instead, so no certificate is required.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "Special Category Form — PwBD, eminent sportsperson, ex-servicemen (Tamil Nadu)",
+  "section": "online",
+  "mandatory": false,
+  "format": "Annexure V form + supporting certificates, uploaded with the application",
+  "notes": "A separate Special Category Form (Annexure V of the prospectus) must be uploaded alongside the relevant certificates and medical certificate. The prospectus warns that if the form or its certificates are not uploaded, the application is simply processed under the General category. For PwD specifically, the July 2026 notification says the certificate must ultimately come from a Regional Medical Centre / Designated Disability Centre, and those centres only begin issuing once MCC/DGHS opens its process — you may apply now with a disability certificate in another format, but you must produce the Regional Medical Centre certificate before the special-category offline counselling.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "PwD / PwBD (5% Horizontal Reservation)"
+  ]
+ },
+ {
+  "name": "NRI-quota documents for Tamil Nadu management seats",
+  "section": "online",
+  "mandatory": true,
+  "format": "PDF uploads with the online application",
+  "notes": "For management-quota NRI seats Tamil Nadu wants four things: (1) the NRI status of the financial supporter certified by the Indian Embassy of the respective country under its seal, or an OCI card obtained before 04.03.2021; (2) a certificate of relationship between the NRI financial supporter and the candidate, issued by the competent Revenue authority; (3) the supporter's valid Indian passport; and (4) the supporter's NRE (Non-Resident External) bank account passbook.",
+  "states": [
+   "Tamil Nadu"
+  ],
+  "counsellingTypes": [
+   "NRI Quota",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "Provisional allotment letter issued by MCC",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original printout + attested photocopy",
+  "notes": "Download it from the MCC portal after your round's result and carry the printout — without it the allotted college has nothing to admit you against. Reporting is physical: MCC's bulletin says you must report in person with the original documents, and nobody else may take admission on your behalf.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "NEET (UG) admit card and result / rank letter issued by NTA",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original + attested photocopy",
+  "notes": "MCC lists the NTA admit card and the NTA result / rank letter as two separate mandatory items in its joining-documents list — carry both. The college matches them against your allotment letter and photo identity proof.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "State Quota (85%)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "Class 10 and Class 10+2 certificates and mark sheets",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original + attested photocopy",
+  "notes": "MCC's joining list itemises the Class 10th certificate, the Class 10+2 certificate AND the Class 10+2 mark sheet separately — carry all three, not just the mark sheet. It also requires a separate date-of-birth certificate for candidates whose matriculation certificate does not bear the DOB; check yours now, not on reporting day.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "State Quota (85%)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "Eight passport-size photographs",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Eight printed passport-size photographs",
+  "notes": "MCC specifies eight, and they must be the same photograph as the one affixed on your application form — not a newer or different picture.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "Photo identity proof (Aadhaar / PAN / Driving Licence / Passport)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original + attested photocopy",
+  "notes": "Any one of Aadhaar, PAN card, driving licence or passport satisfies MCC's proof-of-identity requirement at reporting.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "State Quota (85%)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "Attested photocopies of every original document",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Attested photocopy set, carried alongside the originals",
+  "notes": "MCC's joining list is for originals ALONG WITH attested photocopies. Two hard rules from the bulletin: candidates without original certificates are not allowed to take admission, and a letter stating that your originals are deposited with some other institute/college/university will NOT be accepted in their place.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "State Quota (85%)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "SC / ST certificate in the prescribed proforma",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original in MCC's standard proforma (Annexure-3 of the bulletin)",
+  "notes": "Must be issued by the competent authority in the standard proforma printed in the bulletin, and must be in English or Hindi. The sub-caste has to be clearly stated. If your certificate is in a regional language, carry an attested translated copy in English or Hindi along with the original — several states insist on the English version.",
+  "categories": [
+   "SC",
+   "ST"
+  ],
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "OBC-NCL certificate as per the Central List",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original in MCC's standard proforma (Annexure-4 of the bulletin)",
+  "notes": "For AIQ and central institutes the caste must appear in the CENTRAL List of OBCs, not merely a state list, and your sub-caste must tally with it. You must not belong to the creamy layer. The proforma carries a dated income rule: the parents' annual income/status is judged on the financial year ending 31 March immediately before the counselling year (the 2025 bulletin printed 31 March 2025), so an older certificate gets rejected — have it re-issued for the current year. Note that Deemed universities carry no OBC/SC/ST/PwD/EWS reservation at all.",
+  "categories": [
+   "OBC"
+  ],
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "EWS certificate in the prescribed proforma",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original in MCC's prescribed proforma (Annexure-5 of the bulletin)",
+  "notes": "MCC accepts the EWS certificate only in the prescribed format reproduced in its Information Bulletin. A certificate on a state's own EWS format that does not match the proforma is a common reason for the claim being knocked back at verification.",
+  "categories": [
+   "EWS"
+  ],
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "Disability certificate from an MCC-designated centre (with UDID card, self-certification form and affidavits)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Certificate generated by the designated centre, after you submit the UDID card, NMC self-certification form (Appendix-A) and disability-specific affidavit (Appendix-B to F) and appear before the Medical Board",
+  "notes": "A disability certificate from your local hospital is NOT enough for an AIQ PwBD claim. Following the Supreme Court's directions in Om Rathod vs Union of India, NMC issued interim guidelines under which candidates with benchmark disabilities holding a valid UDID card issued by DEPwD (Yellow or above; visual disabilities excepted) and meeting NEET eligibility are considered for MBBS under PwBD. You must attend one of MCC's designated disability centres in person (16 at the time of the July 2025 notice, with more colleges onboarded mid-cycle) and submit there: your NEET (UG) result showing MBBS eligibility, the UDID card, the NMC self-certification form in the Appendix-A format, and the affidavit specific to your disability category from Appendices B to F. The Medical Board then verifies those self-certified affidavits, and the centre generates the certificate from your UDID details, the affidavit and the Board's assessment of functional competencies. MCC opens only a time-boxed PwD portal for this — the Stray Round window in 2025 closed at 5:00 p.m. on 12.11.2025 — so make it the first thing you do in counselling, not the last.",
+  "categories": [
+   "PwD"
+  ],
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "PwD / PwBD (5% Horizontal Reservation)"
+  ]
+ },
+ {
+  "name": "Attested translation or affidavit to fix a certificate mismatch",
+  "section": "physical",
+  "mandatory": false,
+  "format": "Certified (attested) translated copy carried with the original; affidavit where names differ",
+  "notes": "Two mismatches routinely sink candidates at the verification desk, and both have a paper fix that must be arranged BEFORE you travel. (1) Language: certificates should be in English or Hindi and some states accept English only, so if yours is in another language carry an attested English/Hindi translation together with the original. (2) Name: if your name is spelt differently across your certificates and your application form, MCC's remedy is an affidavit proving the documents belong to the same person.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "Citizenship certificate / card documents for OCI, PIO and foreign nationals",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original citizenship certificate / OCI or PIO card + attested photocopy",
+  "notes": "Mandatory at reporting for OCI/PIO/foreign-national candidates. Be aware of the ceiling that comes with it: as a matter of MoHFW policy, an NRI/OCI/PIO/foreign-national candidate is not shown seats reserved for other categories during choice filling.",
+  "counsellingTypes": [
+   "Deemed University Quota",
+   "NRI Quota",
+   "All India Quota (AIQ)"
+  ]
+ },
+ {
+  "name": "Proof that the NRI sponsor is your bona fide legal guardian, plus affidavit",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Evidential / legal documents under the Guardians and Wards Act, 1890 + affidavit",
+  "notes": "MCC's notice of 27.05.2026 hardens the NRI rules for 2026-27. Eligibility follows the Supreme Court's criteria in the Anshul Tomar line of cases: the NRI must be a parent, or a first-degree relation (real brother/sister), or a near blood relation acting as guardian — real paternal/maternal uncle or aunt, grandparents, or first-degree cousins — ordinarily residing abroad. Where the claim runs through such a guardian, MCC states it will seek evidential proof and legal documents during counselling showing the sponsor is genuinely your legal guardian under the Guardians and Wards Act, 1890, backed by an affidavit. A bare sponsorship letter will not survive this.",
+  "counsellingTypes": [
+   "NRI Quota",
+   "Deemed University Quota"
+  ]
+ },
+ {
+  "name": "Ward of Insured Person certificate with distinct number (ESIC IP quota)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original certificate bearing the distinct IP number",
+  "notes": "The eligibility gate for ESIC's Insured Persons quota. The certificate must carry a distinct number, and MCC allots against the list of eligible Wards of Insured Persons supplied by ESIC — if you are not on that list, the certificate alone will not get you the seat. The IP quota is domicile-free, but you must have qualified NEET (UG) for the relevant year.",
+  "counsellingTypes": [
+   "ESIC — Insured Persons (IP) Quota"
+  ]
+ },
+ {
+  "name": "Any additional document the allotted college itself demands",
+  "section": "physical",
+  "mandatory": false,
+  "format": "As specified by the allotted college",
+  "notes": "MCC tells candidates to read the allotted college's own information for any further document it requires, and notes that stipend, fee structure, course duration, bond amount and rural/tribal service conditions vary from state to state and institute to institute. Call the college as soon as your allotment is out: the bulletin warns that some colleges need 2-3 days to complete admission formalities and that the joining date cannot be extended by MCC under any circumstances.",
+  "counsellingTypes": [
+   "All India Quota (AIQ)",
+   "Deemed University Quota",
+   "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "Candidate profile letter and online payment receipt (West Bengal)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Printout generated after successful online payment",
+  "notes": "West Bengal verifies originals together with self-attested photocopies, and the candidate profile letter generated after successful payment heads its list for both state-quota and management-quota candidates. WBMCC also states that generating the profile letter is itself a precondition for physical document verification.",
+  "states": [
+   "West Bengal"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "Domicile certificate, with parent's ID proof where domicile runs through a parent (West Bengal)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original domicile certificate in a prescribed proforma, or a valid e-district domicile certificate",
+  "notes": "West Bengal accepts its prescribed domicile proformas (a1, a2, b) or a valid domicile certificate from the e-district portal. If domicile is established through a parent's West Bengal address, you must also produce that parent's original ID showing the address — any TWO of voter ID card, Aadhaar card and passport. WBMCC warns that failing to provide a valid domicile certificate at verification defeats the state-quota claim.",
+  "states": [
+   "West Bengal"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "Medical certificate from a Registered Medical Practitioner (West Bengal)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Original certificate from an RMP, in the state's proforma",
+  "notes": "West Bengal asks for a medical certificate from a Registered Medical Practitioner at document verification, for both state-quota and management-quota candidates. WBMCC publishes the proforma on its own site — use that form rather than a generic hospital letter. The state also checks age proof at the same desk (you must be 17 by 31 December of the admission year).",
+  "states": [
+   "West Bengal"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "PwD certificate issued/verified via the MCC link from IPGMER Kolkata (West Bengal)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Certificate issued or verified through the online link provided by MCC, DGHS",
+  "notes": "West Bengal does not accept just any disability certificate: for a PwD claim it wants the certificate issued or verified through MCC/DGHS's online link, from IPGMER Kolkata — the designated centre for the state. For management-quota candidates it is needed only to establish cut-off eligibility.",
+  "states": [
+   "West Bengal"
+  ],
+  "categories": [
+   "PwD"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "PwD / PwBD (5% Horizontal Reservation)"
+  ]
+ },
+ {
+  "name": "Original documents for KEA verification, including the BEO/DDPI-countersigned study certificate (Karnataka)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Originals + final A4 printout of the KEA online application + two recent passport-size photographs",
+  "notes": "Karnataka's mandatory originals for general-merit seats are: the final A4 printout of the KEA online application form, the NEET admission ticket, the NEET score card, the SSLC/Class 10 marks card, the 2nd PUC/Class 12 marks card, a study certificate countersigned by the BEO/DDPI, and two recent passport-size photographs. A plain school letter will not do — the study certificate MUST be countersigned by the concerned BEO or DDPI. Two further claims carry their own certificates, both in KEA's prescribed format and both countersigned by the BEO: the Kannada-medium certificate (10 full academic years in Kannada medium, Class 1 to 10), and the rural study certificate (10 full academic years in a rural area, Class 1 to 10). General-merit candidates claiming the rural quota must additionally produce a Non-Creamy Layer Certificate from the concerned Tahsildar.",
+  "states": [
+   "Karnataka"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "General affidavit on Rs. 20 bond paper (Karnataka, Annexure-1)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Affidavit on Rs. 20 bond paper (KEA Annexure-1), deposited after seat allotment with the other originals",
+  "notes": "KEA's Annexure-1 affidavit is sworn on Rs. 20 bond paper and deposited after allotment along with the originals. In it you declare that you have not taken an MBBS/BDS admission through any other allotting body this year, have not surrendered a seat in past entrance exams, will surrender any seat only through KEA rather than at institute level, and will not produce fake documents — with forfeiture of the seat and criminal liability if any of it proves false.",
+  "states": [
+   "Karnataka"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)"
+  ]
+ },
+ {
+  "name": "NRI-ward documents for Karnataka seats",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Originals produced at KEA document verification",
+  "notes": "Karnataka's NRI-ward list, set under the High Court order in WP Nos. 17999-18002/2017, is strict about who signs what: a ward certificate in the Annexure-6 format; a family tree signed by the TAHSILDAR (a family tree signed by a notary, or an affidavit of relationship, is expressly not accepted); an embassy certificate for the sponsor signed by the Indian Consulate General with the embassy seal and issued within the last 6 months (an embassy certificate signed by a notary is not accepted); the sponsor's NRI/OCI bank passbook, passport and visa/resident visa; plus the NEET score card, NEET hall ticket, the final KEA application copy, and the Class 10 and Class 12 marks cards.",
+  "states": [
+   "Karnataka"
+  ],
+  "counsellingTypes": [
+   "NRI Quota",
+   "Management / Institutional Quota"
+  ]
+ },
+ {
+  "name": "Requisite fees by demand draft or cheque at physical joining (Maharashtra)",
+  "section": "physical",
+  "mandatory": true,
+  "format": "Demand draft or cheque, presented with the originals at joining",
+  "notes": "Maharashtra's CAP schedule pairs physical joining with the status-retention form: you report at the allotted institute with ALL original documents AND the requisite fees by DD/cheque inside the joining window. Arriving with your documents but no draft is a wasted trip.",
+  "states": [
+   "Maharashtra"
+  ],
+  "counsellingTypes": [
+   "State Quota (85%)",
+   "Management / Institutional Quota"
+  ]
+ }
+]

@@ -56,28 +56,6 @@
    "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
   },
   {
-   "name": "University College of Medical Sciences (UCMS)",
-   "state": "Delhi",
-   "city": "New Delhi",
-   "type": "Government",
-   "established": 1971,
-   "totalSeats": 170,
-   "affiliation": "Delhi University",
-   "website": "http://www.ucms.ac.in",
-   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
-  },
-  {
-   "name": "Maulana Azad Medical College New Delhi",
-   "state": "Delhi",
-   "city": "New Delhi",
-   "type": "Government",
-   "established": 1958,
-   "totalSeats": 250,
-   "affiliation": "Delhi University",
-   "website": "http://www.mamc.ac.in",
-   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
-  },
-  {
    "name": "Maulana Azad Medical College (MAMC)",
    "state": "Delhi",
    "city": "New Delhi",
@@ -86,17 +64,6 @@
    "totalSeats": 250,
    "affiliation": "Delhi University",
    "website": "http://www.mamc.ac.in",
-   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
-  },
-  {
-   "name": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
-   "state": "Delhi",
-   "city": "Delhi",
-   "type": "Government",
-   "established": 2013,
-   "totalSeats": 60,
-   "affiliation": "Guru Gobind Singh Indraprastha University",
-   "website": "http://www.northmcd.com/medicalcollege",
    "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
   },
   {

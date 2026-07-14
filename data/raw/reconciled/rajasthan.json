@@ -252,34 +252,6 @@
       "reason": "SMS = Sawai Man Singh. NMC lists it as 'SMS Medical College, Jaipur' with the address 'Sawai Man Singh Medical College, Jawahar Lal Nehru Marg, Jaipur - 302004' (Govt., est. 1947, 250 seats) — one college, two records on our side. Canonical is the full official name; the abbreviation survives as an alias."
     }
   ],
-  "newColleges": [
-    {
-      "name": "Pacific Medical College & Hospital, Bhilo Ka Bedla, Udaipur",
-      "state": "Rajasthan",
-      "city": "Udaipur",
-      "type": "Private",
-      "established": 2014,
-      "totalSeats": 150,
-      "affiliation": "Pacific Medical University, Udaipur",
-      "website": "http://www.pacificmedical.ac.in",
-      "coursesOffered": [
-        "MBBS"
-      ],
-      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges + https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf"
-    },
-    {
-      "name": "JIET Medical College and Hospital, Jodhpur",
-      "state": "Rajasthan",
-      "city": "Jodhpur",
-      "type": "Private",
-      "established": 2024,
-      "totalSeats": 150,
-      "affiliation": "Rajasthan University of Health Sciences, Jaipur",
-      "coursesOffered": [
-        "MBBS"
-      ],
-      "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf + https://www.nmc.org.in/wp-content/uploads/2025/12/UG%20Seat%20Matrix%2003-12-2025.pdf"
-    }
-  ],
+  "newColleges": [],
   "unresolved": []
 }

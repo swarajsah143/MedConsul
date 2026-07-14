@@ -1,0 +1,717 @@
+[
+ {
+  "name": "All India Institute of Medical Sciences, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "type": "AIIMS",
+  "established": 1956,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiims.edu"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "type": "AIIMS",
+  "established": 2012,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimspatna.edu.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Aiimspatnamain.png"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "type": "AIIMS",
+  "established": 2012,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsraipur.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "type": "AIIMS",
+  "established": 2012,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsbhopal.edu.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/AIIMS_Bhopal_Building_Front_%286%29.jpg"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "type": "AIIMS",
+  "established": 2012,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsbhubaneswar.nic.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/AIIMS_Bhubaneswar%2C_Odisha.jpg"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Jodhpur",
+  "state": "Rajasthan",
+  "city": "Jodhpur",
+  "type": "AIIMS",
+  "established": 2012,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsjodhpur.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Rishikesh",
+  "state": "Uttarakhand",
+  "city": "Haridwar",
+  "type": "AIIMS",
+  "established": 2012,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsrishikesh.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "type": "AIIMS",
+  "established": 2018,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://aiimsnagpur.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bathinda",
+  "state": "Punjab",
+  "city": "Bathinda",
+  "type": "AIIMS",
+  "established": 2019,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsbathinda.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Deoghar",
+  "state": "Jharkhand",
+  "city": "Deoghar",
+  "type": "AIIMS",
+  "established": 2019,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsdeoghar.edu.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/4a/AIIMS_Deoghar_Campus.jpg"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bibinagar",
+  "state": "Telangana",
+  "city": "Bibinagar",
+  "type": "AIIMS",
+  "established": 2019,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://aiimsbibinagar.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Gorakhpur",
+  "state": "Uttar Pradesh",
+  "city": "Gorakhpur",
+  "type": "AIIMS",
+  "established": 2019,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://aiimsgorakhpur.edu.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/15/AIIMS_Gorakhpur_In_Nutshell.jpg"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Rae Bareli",
+  "state": "Uttar Pradesh",
+  "city": "Raebareli",
+  "type": "AIIMS",
+  "established": 2019,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsrbl.edu.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/AIIMS_RBL_Medical_College.jpg"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Kalyani, Nadia",
+  "state": "West Bengal",
+  "city": "Kalyani",
+  "type": "AIIMS",
+  "established": 2019,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimskalyani.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Rajkot",
+  "state": "Gujarat",
+  "city": "Rajkot",
+  "type": "AIIMS",
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsrajkot.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bilaspur",
+  "state": "Himachal Pradesh",
+  "city": "Bilaspur",
+  "type": "AIIMS",
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://aiimsbilaspur.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Vijaypur",
+  "state": "Jammu & Kashmir",
+  "city": "Vijaypur",
+  "type": "AIIMS",
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.aiimsjammu.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Madurai",
+  "state": "Tamil Nadu",
+  "city": "Madurai",
+  "type": "AIIMS",
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://aiimsmadurai.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Mangalagiri",
+  "state": "Andhra Pradesh",
+  "city": "Mangalagiri",
+  "type": "AIIMS",
+  "established": 2018,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://aiimsmangalagiri.edu.in"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Guwahati",
+  "state": "Assam",
+  "city": "Guwahati",
+  "type": "AIIMS",
+  "established": 2017,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://aiimsguwahati.ac.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/2/2e/All_India_Institute_of_Medical_Sciences%2C_Guwahati.jpg"
+ },
+ {
+  "name": "Jawaharlal Institute of Postgraduate Medical Education & Research (JIPMER)",
+  "state": "Puducherry",
+  "city": "Puducherry",
+  "type": "Central",
+  "established": 1956,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://jipmer.edu.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/JIPMER.jpg"
+ },
+ {
+  "name": "Postgraduate Institute of Medical Education and Research (PGIMER)",
+  "state": "Chandigarh",
+  "city": "Chandigarh",
+  "type": "Central",
+  "established": 1962,
+  "courses": [
+   "MD/MS",
+   "DM/MCh",
+   "MDS",
+   "PhD",
+   "Nursing",
+   "Paramedical"
+  ],
+  "website": "https://www.pgimer.edu.in"
+ },
+ {
+  "name": "National Institute of Mental Health and Neuro Sciences (NIMHANS)",
+  "state": "Karnataka",
+  "city": "Bengaluru",
+  "type": "Central",
+  "established": 1974,
+  "website": "https://nimhans.ac.in"
+ },
+ {
+  "name": "North Eastern Indira Gandhi Regional Institute of Health and Medical Sciences (NEIGRIHMS)",
+  "state": "Meghalaya",
+  "city": "Shillong",
+  "type": "Central",
+  "established": 1987,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.neigrihms.gov.in"
+ },
+ {
+  "name": "Banaras Hindu University",
+  "state": "Uttar Pradesh",
+  "city": "Varanasi",
+  "type": "Central",
+  "established": 1916,
+  "website": "https://www.bhu.ac.in"
+ },
+ {
+  "name": "Institute of Medical Sciences, Banaras Hindu University",
+  "state": "Uttar Pradesh",
+  "city": "Varanasi",
+  "type": "Central",
+  "established": 1960,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.bhu.ac.in/ims"
+ },
+ {
+  "name": "Aligarh Muslim University",
+  "state": "Uttar Pradesh",
+  "city": "Aligarh",
+  "type": "Central",
+  "established": 1920,
+  "website": "https://www.amu.ac.in"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Aligarh Muslim University",
+  "state": "Uttar Pradesh",
+  "city": "Aligarh",
+  "type": "Central",
+  "established": 1961,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.amu.ac.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/ALMU-logo.jpg"
+ },
+ {
+  "name": "University of Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "type": "Central",
+  "established": 1922,
+  "website": "https://www.du.ac.in"
+ },
+ {
+  "name": "Maulana Azad Medical College, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "type": "Government",
+  "established": 1958,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.mamc.ac.in"
+ },
+ {
+  "name": "Armed Forces Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "type": "Government",
+  "established": 1962,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://afmc.nic.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/1/1a/AFMC_Main_Building.jpg"
+ },
+ {
+  "name": "Seth G.S. Medical College & KEM Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "type": "Government",
+  "established": 1925,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.kem.edu"
+ },
+ {
+  "name": "Madras Medical College, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "type": "Government",
+  "established": 1835,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.mmc.ac.in/mmc",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Mmc-new.jpg"
+ },
+ {
+  "name": "Bangalore Medical College and Research Institute, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Government",
+  "established": 1955,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.bmcri.org",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Bangalore_Medical_College_and_Research_Institute.jpg"
+ },
+ {
+  "name": "King George's Medical University",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "type": "Government",
+  "established": 1911,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.kgmu.org"
+ },
+ {
+  "name": "Sanjay Gandhi Postgraduate Institute of Medical Sciences (SGPGIMS)",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "type": "Government",
+  "established": 1983,
+  "website": "https://www.sgpgims.org.in"
+ },
+ {
+  "name": "Rajiv Gandhi University of Health Sciences",
+  "state": "Karnataka",
+  "city": "Bengaluru",
+  "type": "Government",
+  "established": 1994,
+  "website": "https://www.rguhs.ac.in"
+ },
+ {
+  "name": "Maharashtra University of Health Sciences",
+  "state": "Maharashtra",
+  "city": "Nashik",
+  "type": "Government",
+  "established": 2000,
+  "website": "https://www.muhs.ac.in"
+ },
+ {
+  "name": "The Tamil Nadu Dr. M.G.R. Medical University",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "type": "Government",
+  "established": 1989,
+  "website": "https://www.tnmgrmu.ac.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/0/0f/The_Vice_President%2C_Shri_M._Venkaiah_Naidu_at_the_30th_Convocation_of_Tamil_Nadu_Dr._M.G.R._Medical_University%2C_in_Chennai.JPG"
+ },
+ {
+  "name": "Kerala University of Health Sciences",
+  "state": "Kerala",
+  "city": "Thrissur",
+  "type": "Government",
+  "established": 2011,
+  "website": "https://kuhs.ac.in"
+ },
+ {
+  "name": "Dr. N.T.R. University of Health Sciences",
+  "state": "Andhra Pradesh",
+  "city": "Vijayawada",
+  "type": "Government",
+  "established": 1986,
+  "website": "https://untruhs.in"
+ },
+ {
+  "name": "Kaloji Narayana Rao University of Health Sciences",
+  "state": "Telangana",
+  "city": "Warangal",
+  "type": "Government",
+  "established": 2017,
+  "website": "https://knruhs.telangana.gov.in"
+ },
+ {
+  "name": "Rajasthan University of Health Sciences",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "type": "Government",
+  "established": 2005,
+  "website": "https://ruhsraj.org"
+ },
+ {
+  "name": "Baba Farid University of Health Sciences",
+  "state": "Punjab",
+  "city": "Faridkot",
+  "type": "Government",
+  "established": 2002,
+  "website": "https://www.bfuhs.ac.in"
+ },
+ {
+  "name": "Pt. Bhagwat Dayal Sharma University of Health Sciences",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "type": "Government",
+  "established": 2008,
+  "website": "https://uhsr.ac.in"
+ },
+ {
+  "name": "The West Bengal University of Health Sciences",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "type": "Government",
+  "established": 2002,
+  "website": "https://www.wbuhs.ac.in"
+ },
+ {
+  "name": "Srimanta Sankaradeva University of Health Sciences",
+  "state": "Assam",
+  "city": "Guwahati",
+  "type": "Government",
+  "established": 2007,
+  "website": "https://ssuhs.ac.in"
+ },
+ {
+  "name": "Ayush and Health Sciences University of Chhattisgarh",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "type": "Government",
+  "established": 2008,
+  "website": "https://cghealthuniv.com"
+ },
+ {
+  "name": "Atal Bihari Vajpayee Medical University",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "type": "Government",
+  "established": 2020,
+  "website": "https://abvmuup.edu.in"
+ },
+ {
+  "name": "Bihar University of Health Sciences",
+  "state": "Bihar",
+  "city": "Patna",
+  "type": "Government",
+  "established": 2022,
+  "website": "https://buhs.ac.in"
+ },
+ {
+  "name": "Odisha University of Health Sciences",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "type": "Government",
+  "established": 2023,
+  "website": "https://ouhs.ac.in"
+ },
+ {
+  "name": "Manipal Academy of Higher Education (MAHE)",
+  "state": "Karnataka",
+  "city": "Manipal",
+  "type": "Deemed",
+  "established": 1953,
+  "website": "https://manipal.edu"
+ },
+ {
+  "name": "JSS Academy of Higher Education and Research",
+  "state": "Karnataka",
+  "city": "Mysuru",
+  "type": "Deemed",
+  "established": 2008,
+  "website": "https://jssuni.edu.in"
+ },
+ {
+  "name": "SRM Institute of Science and Technology",
+  "state": "Tamil Nadu",
+  "city": "Kattankulathur",
+  "type": "Deemed",
+  "established": 1985,
+  "website": "https://www.srmist.edu.in"
+ },
+ {
+  "name": "Dr. D. Y. Patil Vidyapeeth, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "type": "Deemed",
+  "established": 2003,
+  "website": "https://dpu.edu.in"
+ },
+ {
+  "name": "Kasturba Medical College, Manipal",
+  "state": "Karnataka",
+  "city": "Manipal",
+  "type": "Deemed",
+  "established": 1953,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://manipal.edu/mu.html"
+ },
+ {
+  "name": "Kasturba Medical College, Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "type": "Deemed",
+  "established": 1955,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.manipal.edu"
+ },
+ {
+  "name": "JSS Medical College, Mysuru",
+  "state": "Karnataka",
+  "city": "Mysore",
+  "type": "Deemed",
+  "established": 1984,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.jssuni.edu.in"
+ },
+ {
+  "name": "SRM Medical College Hospital & Research Centre, Kancheepuram",
+  "state": "Tamil Nadu",
+  "city": "Kancheepuram",
+  "type": "Deemed",
+  "established": 2005,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.srmist.edu.in"
+ },
+ {
+  "name": "Amrita School of Medicine, Kochi",
+  "state": "Kerala",
+  "city": "Kochi",
+  "type": "Deemed",
+  "established": 2000,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.amrita.edu",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Amrita_Hospital_Kochi.jpg"
+ },
+ {
+  "name": "Sri Ramachandra Medical College & Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "type": "Deemed",
+  "established": 1985,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.sriramachandra.edu.in"
+ },
+ {
+  "name": "Saveetha Medical College and Hospital, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "type": "Deemed",
+  "established": 2008,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.saveethamedicalcollege.com"
+ },
+ {
+  "name": "Krishna Institute of Medical Sciences, Karad",
+  "state": "Maharashtra",
+  "city": "Karad",
+  "type": "Deemed",
+  "established": 1984,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.kimskarad.in"
+ },
+ {
+  "name": "Kalinga Institute of Medical Sciences, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "type": "Deemed",
+  "established": 2007,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://kims.kiit.ac.in"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Belagavi",
+  "state": "Karnataka",
+  "city": "Belgaum",
+  "type": "Deemed",
+  "established": 1963,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.jnmc.edu"
+ },
+ {
+  "name": "Shri B. M. Patil Medical College, Hospital & Research Centre, Vijayapura",
+  "state": "Karnataka",
+  "city": "Vijayapura",
+  "type": "Deemed",
+  "established": 1986,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://bldedu.ac.in"
+ },
+ {
+  "name": "Christian Medical College, Vellore",
+  "state": "Tamil Nadu",
+  "city": "Vellore",
+  "type": "Private",
+  "established": 1942,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.cmch-vellore.edu",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/CMCH_Vellore.JPG"
+ },
+ {
+  "name": "Christian Medical College, Ludhiana",
+  "state": "Punjab",
+  "city": "Ludhiana",
+  "type": "Private",
+  "established": 1953,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.cmcludhiana.in",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Lady_Willingdon_CMC_Ludhiana_from_lawns.jpg"
+ },
+ {
+  "name": "St. John's Medical College, Bengaluru",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Private",
+  "established": 1963,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.stjohns.in"
+ },
+ {
+  "name": "Kempegowda Institute of Medical Sciences, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "type": "Private",
+  "established": 1980,
+  "courses": [
+   "MBBS"
+  ],
+  "website": "https://www.kimsbangalore.edu.in"
+ }
+]

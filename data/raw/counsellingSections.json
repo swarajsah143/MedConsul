@@ -2,18 +2,19 @@
   {
     "key": "eligibility",
     "label": "Eligibility",
-    "blurb": "Who may sit NEET (UG) 2026 and who may actually be admitted to MBBS/BDS: age, qualifying examination and subjects, the marks and percentile bars, and the rules for NRI, OCI and foreign-national candidates.",
-    "authority": "National Testing Agency — Information Bulletin, NEET (UG) 2026 (Chapters 6, 7 and 8)",
+    "blurb": "Who may sit NEET (UG) 2026 and who may actually be admitted to MBBS/BDS: age, the qualifying examination and its subjects, the percentile bar by category, and the rules for NRI, OCI and foreign-national candidates.",
+    "authority": "National Testing Agency — Information Bulletin, NEET (UG) 2026 (Chapters 6 and 8)",
     "order": 1,
     "source": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/02/20260208939209382.pdf",
     "blocks": [
       {
         "heading": "Age",
-        "intro": "The bulletin applies the minimum-age rule notified in the Graduate Medical Education Regulations amendment of 16 June 2023.",
+        "intro": "Chapter 6 of the bulletin applies the minimum-age rule notified in the Graduate Medical Education Regulations (Amendment) of 16 June 2023.",
         "items": [
           "You must have completed 17 years of age on or before 31 December of the year in which you sit the exam.",
-          "For NEET (UG) 2026 that means a date of birth on or before 31 December 2009. The bulletin sets the same lower age limit for General/UR, General-EWS, SC, ST, OBC-NCL and PwBD/PwD candidates alike — there is no relaxation by category.",
-          "There is no upper age limit. The bulletin records this citing NMC (UGMEB) letter no. U-11022/2/2022-UGMEB dated 9 March 2022."
+          "For NEET (UG) 2026 the bulletin fixes the lower age limit as a date of birth on or before 31 December 2009 — and it sets the same limit for General/UR, General-EWS, SC, ST, OBC-NCL and PwBD/PwD candidates. There is no age relaxation by category.",
+          "There is no upper age limit. The bulletin records this citing NMC (UGMEB) letter no. U-11022/2/2022-UGMEB dated 9 March 2022.",
+          "Indian citizens and OCI cardholders who intend to study medicine or dentistry at a foreign institute must also qualify NEET (UG)."
         ]
       },
       {
@@ -21,213 +22,251 @@
         "intro": "The bulletin lists seven qualifying-examination codes (01 to 07). Codes 01 and 02 cover the overwhelming majority of Indian candidates.",
         "items": [
           "The core requirement is Physics, Chemistry, Biology or Biotechnology, and English, with practical tests in the science subjects, at 10+2 or an equivalent level.",
-          "Code 01 — result awaited: if your Class 12 result has not been declared you may still apply and sit the test, but you will not be eligible for admission unless you have passed the qualifying examination by the time of the first round of counselling.",
-          "The additional-subject route is open. Candidates who took Physics, Chemistry, Biology/Biotechnology and English as additional subjects after already passing Class 12, from a board recognised by the concerned government, may appear in NEET-UG and may be granted an Eligibility Certificate — the bulletin cites the NMC Public Notice dated 22 November 2023, decided in light of the flexibility the NEP allows in Class 12. Candidature is confirmed only on producing documentary evidence of the pass.",
-          "A degree route exists (Code 06): a B.Sc. of an Indian university with at least two of Physics, Chemistry, Biology (Botany, Zoology)/Biotechnology, provided you had earlier passed 10+2 with Physics, Chemistry, Biology and English.",
-          "If an Indian or foreign university examination is being claimed as equivalent to Class 12, an equivalence certificate from the concerned Indian University or the Association of Indian Universities is required. Candidates from foreign or international boards should check their qualification against Code 07."
+          "Code 01 — result awaited: if your Class 12 result has not been declared you may still apply and sit the test, but you are not eligible for admission unless you have passed the qualifying examination by the time of the first round of counselling.",
+          "The additional-subject route is open. Candidates who took Physics, Chemistry, Biology/Biotechnology and English as additional subjects after already passing Class 12, from a board recognised by the concerned government, may appear in NEET-UG and may be granted an Eligibility Certificate — the bulletin cites the NMC Public Notice dated 22 November 2023, a decision taken in light of the flexibility the NEP allows in Class 12 subject choice. Candidature is confirmed only on producing documentary evidence of the pass.",
+          "Code 06 is the B.Sc. route: a B.Sc. from an Indian University with at least two of Physics, Chemistry, Biology (Botany/Zoology) or Biotechnology, provided you had already passed the earlier qualifying examination with Physics, Chemistry, Biology and English.",
+          "Code 07 covers any examination equivalent in scope and standard to the Indian intermediate science examination — the last two years of study must comprise Physics, Chemistry and Biology/Biotechnology with practicals. Candidates from foreign or international boards should satisfy themselves that their qualification meets Code 07.",
+          "If a foreign or Indian university examination has to be treated as equivalent to Class 12, you must produce an equivalence certificate from the concerned Indian university or the Association of Indian Universities."
         ]
       },
       {
-        "heading": "Minimum marks in the qualifying examination",
-        "intro": "Separate from, and additional to, the NEET percentile bar. The condition below is the NTA eligibility rule as reproduced in MCC's UG counselling bulletin (https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf) for the immediately preceding cycle.",
+        "heading": "The percentile bar for admission",
+        "intro": "Chapter 8 sets the minimum NEET score needed to be admissible. The percentile is computed against the highest marks in the All India common merit list — so it moves every year and is not a fixed mark.",
         "items": [
-          "You must have passed Physics, Chemistry, Biology/Biotechnology and English individually at the qualifying examination.",
-          "Unreserved and General-EWS: at least 50% marks in Physics, Chemistry and Biology/Biotechnology taken together.",
-          "SC, ST and OBC (Non-Creamy Layer): 40% instead of 50%.",
-          "PwBD: 40% instead of 50%, as per NMC and DCI regulations."
-        ],
-        "note": "MCC re-issues its bulletin every cycle. Re-check this wording in the MCC NEET-UG 2026 bulletin once it is published."
-      },
-      {
-        "heading": "Qualifying percentile in NEET (UG) 2026",
-        "intro": "The percentile is calculated against the highest marks in the All India common merit list, so the cut-off in marks moves every year. Only the percentile is fixed.",
-        "items": [
-          "General / UR and General-EWS: 50th percentile.",
+          "General (UR) and General-EWS: 50th percentile.",
           "SC, ST and OBC: 40th percentile.",
-          "PwBD candidates in the Unreserved and General-EWS categories: 45th percentile.",
-          "PwBD candidates in the SC, ST and OBC-NCL categories: 40th percentile.",
-          "If too few candidates in a category clear the bar in a given year, the Central Government — in consultation with NMC, DCI and the other regulators — may lower the minimum marks. Any such reduction applies to that academic year only."
-        ]
+          "Persons with Benchmark Disabilities under the RPwD Act, 2016: 45th percentile if UR or GEN-EWS, and 40th percentile if SC/ST/OBC-NCL.",
+          "The same minimum-qualifying-marks criteria apply to the Institutes of National Importance.",
+          "If too few candidates in a category clear the bar, the Central Government — in consultation with NMC, DCI, NCISM, NCH and any other regulator — may lower the minimum for that category. A lowered cut-off applies only to that academic year, so last year's relaxation is not a promise for this year."
+        ],
+        "note": "Clearing the percentile bar is not the same as securing a seat. MCC's own bulletin states that registering for counselling confers no automatic right to an undergraduate seat."
+      },
+      {
+        "heading": "Class 12 marks in PCB",
+        "intro": "The percentile bar above is about your NEET score. There is a separate bar on your Class 12 marks.",
+        "items": [
+          "Unreserved and General-EWS: 50% in Physics, Chemistry and Biology/Biotechnology taken together, and a pass in each of Physics, Chemistry, Biology/Biotechnology and English individually.",
+          "SC, ST and OBC-NCL: 40% in Physics, Chemistry and Biology/Biotechnology taken together.",
+          "PwBD candidates: 40% in Physics, Chemistry and Biology (or Botany and Zoology)/Biotechnology taken together."
+        ],
+        "note": "This aggregate rule is set out in the MCC counselling bulletin (https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf), which attributes it to the NMC and DCI regulations. The NEET (UG) 2026 Information Bulletin states the percentile bar in Chapter 8 and does not restate this Class 12 aggregate — re-check the MCC bulletin for the 2026 cycle when it is published."
       },
       {
         "heading": "NRI, OCI and foreign nationals",
         "items": [
-          "NRIs, OCI cardholders and foreign nationals are eligible for admission to medical and dental colleges, but subject to the rules of the respective State Government, the institution and the Government of India — qualifying NEET alone creates no entitlement.",
-          "NRI and OCI candidates must upload a certificate from the Indian diplomatic mission in their country of residence along with the NEET application, and keep the original for counselling and admission.",
-          "A foreign national must upload documentary proof of citizenship — the relevant pages of a valid passport, or a certificate from the competent authority of the country of nationality.",
-          "OCI cardholders are entitled to the rights and privileges they held before the notification of 4 March 2021, in compliance with the Supreme Court order dated 3 February 2023 in W.P. No. 891 of 2021.",
-          "Indian citizens and OCI cardholders who intend to study medicine abroad must also qualify NEET (UG).",
-          "MCC's counselling for Deemed Universities covers 100% of their seats, including the 15% NRI quota."
+          "NRIs, OCI cardholders and foreign nationals are eligible for admission to medical and dental colleges, but subject to the rules of the respective State Government, the institution and the Government of India — eligibility is decided by those authorities, not by NTA.",
+          "NRI and OCI candidates must upload a certificate from the Indian diplomatic mission in their country of residence along with the NEET application (format at Appendix VI) and keep the original for counselling and admission.",
+          "A foreign applicant must upload documentary proof of nationality — the relevant pages of a valid passport, or a citizenship certificate from the competent authority of their country (format at Appendix VII).",
+          "On OCI rights, the bulletin records the Supreme Court order dated 3 February 2023 in WP No. 891 of 2021: OCI cardholders are entitled to the rights and privileges they held before the notification dated 4 March 2021.",
+          "Foreign nationals are advised to confirm their eligibility directly with the competent state and counselling authorities before applying.",
+          "Deemed University counselling under MCC includes the 15% NRI seats, so NRI candidates who want those seats register with MCC like everyone else."
         ]
       },
       {
-        "heading": "Reservation (All India Quota and central institutions)",
-        "intro": "Applies to the 15% AIQ and to the AIIMS, JIPMER, ESIC and central university (DU, BHU, AMU) seats counselled by MCC.",
+        "heading": "How ties are broken",
+        "intro": "Two candidates on the same marks are separated in this order (Chapter 8).",
+        "ordered": true,
         "items": [
-          "SC 15%; ST 7.5%; OBC-NCL 27%; General-EWS 10%; PwBD 5% as horizontal reservation across each of the GEN, GEN-EWS, OBC-NCL, SC and ST pools.",
-          "OBC-NCL counts only if your community is on the current central list at ncbc.nic.in. A community on a state OBC list but not on the central list cannot claim OBC reservation here, and creamy-layer candidates are treated as Unreserved.",
-          "For seats filled by state authorities, the reservation policy of that state applies instead — not this table.",
-          "At counselling a PwBD candidate must produce a valid UDID card and the self-certified affidavits prescribed under the interim guidelines dated 19 July 2025, and appear before the designated medical board for verification."
-        ]
+          "Higher marks or percentile score in Biology (Botany and Zoology).",
+          "Higher marks or percentile score in Chemistry.",
+          "Higher marks or percentile score in Physics.",
+          "Lower proportion of incorrect to correct attempted answers across all subjects.",
+          "Lower proportion of incorrect to correct attempted answers in Biology, then in Chemistry, then in Physics.",
+          "If a tie still survives, it is resolved by a random process under the guidance of an independent expert committee."
+        ],
+        "note": "The pre-2023 practice of breaking ties by age is gone. Nothing about your date of birth helps or hurts you in the merit list."
       }
     ]
   },
   {
     "key": "application",
     "label": "Application",
-    "blurb": "The two applications that matter — the NTA exam form and the MCC counselling registration — and the money behind them: exam fee, non-refundable registration fee, refundable security deposit, choice filling and locking.",
-    "authority": "MCC — Information Bulletin & Counselling Scheme, NEET-UG (MBBS/BDS/B.Sc. Nursing) Counselling; NTA — Information Bulletin, NEET (UG) 2026",
+    "blurb": "Two separate applications, not one: the NEET (UG) form with NTA, and then a fresh registration with whichever authority runs the seats you want. This is the MCC registration, fee, security-deposit and choice-locking flow — and the NTA window that preceded it.",
+    "authority": "Medical Counselling Committee (DGHS) — NEET-UG Information Bulletin & Counselling Scheme; and NTA Information Bulletin, NEET (UG) 2026",
     "order": 2,
     "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
     "blocks": [
       {
-        "heading": "Step 1 — the NEET (UG) 2026 exam form (NTA)",
-        "intro": "Dates and fees below are from the NEET (UG) 2026 Information Bulletin (https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/02/20260208939209382.pdf).",
-        "ordered": true,
+        "heading": "Step 1 — the NEET (UG) 2026 application (NTA)",
+        "intro": "The exam application closed months before counselling opens. These are the dates and fees NTA published for the 2026 cycle.",
         "items": [
-          "Application window: 8 February 2026 to 8 March 2026, up to 9:00 PM.",
-          "Last date for a successful fee transaction by card, net banking or UPI: 8 March 2026, up to 11:50 PM.",
-          "Correction window: 10 March 2026 to 12 March 2026, and only in the fields NTA permits.",
-          "Examination: 3 May 2026 (Sunday), 2:00 PM to 5:00 PM IST — 180 minutes, 180 questions, 720 marks.",
-          "Fee: ₹1,700 General; ₹1,600 General-EWS / OBC-NCL; ₹1,000 SC / ST / PwBD / PwD / Third Gender; ₹9,500 for centres outside India. Gateway charges and GST are extra.",
-          "Your form is submitted only when the Confirmation Page is generated — money leaving your bank account is not proof of payment. The exam fee is never refunded and is not carried forward to a future exam."
-        ]
-      },
-      {
-        "heading": "Step 2 — MCC counselling registration",
-        "intro": "Qualifying NEET does not register you for counselling. After the result you register separately on mcc.nic.in for the seats MCC controls.",
-        "items": [
-          "MCC counsels: the 15% All India Quota MBBS/BDS seats of the states; 100% of Deemed University seats (including their 15% NRI quota); AIIMS; JIPMER; central universities (DU, BHU, AMU, Jamia Millia Islamia); ESIC including the Insured Persons quota; and selected central B.Sc. Nursing institutes. For AFMC, MCC only does the registration and forwards the data — AFMC itself runs the selection.",
-          "The 85% state quota is not part of this. That is a separate registration on your state authority's portal.",
-          "One candidate, one registration form. MCC's scheme states that anyone found to have submitted more than one registration form is debarred from the allotment process and their candidature cancelled.",
-          "Your personal data is carried over from the NTA record. MCC will not edit your name, date of birth, category, caste or contact details at any stage — mistakes must be fixed on the NTA form, not later.",
-          "There is a one-time reset option at the registration page if you selected the wrong quota (for example Deemed when you wanted AIQ), but using it means registering again and paying the full fees again."
-        ]
-      },
-      {
-        "heading": "The money at MCC registration",
-        "intro": "Two separate payments: a non-refundable registration fee and a refundable security deposit.",
-        "items": [
-          "AIQ / central universities / AFMC / ESIC / AIIMS / JIPMER / B.Sc. Nursing — registration fee ₹1,000 (UR/EWS) or ₹500 (SC/ST/OBC/PwD); security deposit ₹10,000 (UR/EWS) or ₹5,000 (SC/ST/OBC/PwD). A UR candidate therefore pays ₹11,000 in all; a reserved-category candidate ₹5,500.",
-          "Deemed Universities — registration fee ₹5,000, the same for every category; security deposit ₹2,00,000.",
-          "Registering for both government and Deemed seats does not mean paying twice: you pay only the higher set, i.e. the Deemed one — ₹5,000 plus ₹2,00,000.",
-          "The security deposit is refunded only after all rounds of counselling are complete and MCC notifies completion on its portal; the financial custodian then begins refunds within 15 days and completes them within 30 days of that notification.",
-          "The refund returns only to the exact card or bank account the payment came from, so keep that account open until it lands. MCC will not redirect a refund to another account, cannot refund to an NRI account under RBI rules, and pays no interest on the deposit."
-        ]
-      },
-      {
-        "heading": "Choice filling and locking",
-        "items": [
-          "Every round has its own fresh choice filling. The choices you filled for the previous round are treated as null and void — nothing carries forward.",
-          "Once locked, choices cannot be modified, changed or unlocked — not even by MCC, and not even if you locked a mistake.",
-          "If you are eligible for a round but do not submit fresh choices during its choice-filling window, you will not be considered for allotment in that round and will simply keep the seat you have already joined, if any."
+          "Online application window: 8 February 2026 to 8 March 2026, up to 9:00 PM.",
+          "Last date for a successful fee transaction by credit or debit card, net banking or UPI: 8 March 2026, up to 11:50 PM.",
+          "Correction in particulars: 10 March 2026 to 12 March 2026.",
+          "Examination: 3 May 2026 (Sunday), 2:00 PM to 5:00 PM IST, 180 minutes.",
+          "Fee payable in India: ₹1,700 for General, ₹1,600 for General-EWS and OBC-NCL, ₹1,000 for SC/ST/PwBD/PwD/Third Gender. Candidates at centres outside India pay ₹9,500."
         ],
-        "note": "As of mid-July 2026 MCC had not published the NEET-UG 2026 counselling schedule or bulletin — its latest UG notices still concerned security-deposit refunds for the 2025 cycle. Treat the fees and flow above as the standing scheme and confirm every date against the 2026 notification on mcc.nic.in when it appears."
+        "note": "Source for this block: NTA Information Bulletin, NEET (UG) 2026 — https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/02/20260208939209382.pdf"
+      },
+      {
+        "heading": "Step 2 — register with the right counselling authority",
+        "intro": "Qualifying NEET enrols you in nothing. You must register again, with whichever body runs the seats you actually want.",
+        "items": [
+          "MCC (DGHS) runs counselling for the 15% All India Quota seats of state colleges, 100% of the seats of AIIMS, JIPMER and Deemed Universities (including their 15% NRI seats), Central Universities (DU, BHU, AMU, Jamia Millia Islamia), ESIC, the internal and domicile quotas of VMMC, ABVIMS and IP University, and B.Sc. Nursing at selected central institutes. Registration is at mcc.nic.in.",
+          "For AFMC Pune, MCC does the registration only and forwards the data; the screening test and the allotment are done by AFMC itself.",
+          "The 85% state quota, and the state, management and NRI quotas of private colleges, are handled entirely by your state's counselling authority, on its own portal and its own schedule.",
+          "Central Pool nomination seats are maintained by the Ministry of Defence, the Ministry of External Affairs and other ministries. MCC plays no part in them.",
+          "You may submit only one MCC counselling registration form. A candidate found to have submitted more than one is debarred from the allotment process and has their candidature cancelled.",
+          "Your details are pre-populated into the MCC form from what you entered on the NTA portal. MCC will not change your name, date of birth, category, nationality or contact details afterwards under any circumstances — an error made at the NTA stage follows you into counselling.",
+          "Fill the form yourself. MCC explicitly advises candidates not to use an agent or third party."
+        ]
+      },
+      {
+        "heading": "Step 3 — the registration fee and the security deposit",
+        "intro": "Two different payments at registration. The registration fee is gone for good; the security deposit is refundable, but only if you stay inside the scheme's rules.",
+        "items": [
+          "Deemed Universities: ₹5,000 non-refundable registration fee, the same for every category, plus a ₹2,00,000 refundable security deposit — ₹2,05,000 payable at registration.",
+          "15% All India Quota, Central Universities (DU, AMU, BHU, Jamia Millia Islamia), AFMC, ESIC, all AIIMS, JIPMER and B.Sc. Nursing: ₹1,000 registration fee plus ₹10,000 refundable security for UR/EWS, so ₹11,000 in total; ₹500 plus ₹5,000 for SC/ST/OBC/PwD candidates, so ₹5,500 in total.",
+          "If you want both government and Deemed seats you do not pay twice — you pay only the higher fee, that is the Deemed University ₹5,000 plus ₹2,00,000.",
+          "The security deposit is refunded only after all rounds of counselling are complete and MCC notifies that completion on its portal. The refund is initiated within 15 days of that notification and completed within 30 days of it.",
+          "The refund goes back only to the card or bank account the money was paid from, so keep that account open until it arrives. MCC pays no interest on the security deposit."
+        ]
+      },
+      {
+        "heading": "Step 4 — choice filling and locking",
+        "intro": "Choices are per round, and locking is where most of the avoidable damage is done.",
+        "items": [
+          "There is no cap on how many choices you may fill. Order them by genuine preference — allotment runs on merit and choice order.",
+          "A filled choice can be modified freely until you lock it. Once locked it cannot be modified, and MCC will not entertain any request to alter locked choices.",
+          "If you never lock, your choices are locked automatically at the end of the schedule — in whatever order they happen to be in at that moment.",
+          "Choices do not carry over between rounds. Each round needs fresh choice filling, and the previous round's choices are treated as null and void.",
+          "Registration opens before each of Round 1, Round 2, Round 3 and the Stray Vacancy Round.",
+          "MCC does not stand behind college-level fees, bonds, stipends, course duration or rural-service conditions — that information comes from the colleges. Confirm a Deemed University's fee structure with the college before you make it a choice; MCC will not entertain complaints about it later."
+        ]
+      },
+      {
+        "heading": "Before you rely on any of the numbers above",
+        "items": [
+          "The MCC fees, deposits and flow described here come from the most recent MCC UG Information Bulletin and Counselling Scheme published on mcc.nic.in. As of mid-July 2026 the MCC UG page was still showing the previous cycle's rounds and the NEET-UG 2026 counselling schedule and bulletin had not yet been posted.",
+          "MCC reserves the absolute right to alter, amend or modify any instruction in its bulletin, and in case of ambiguity its interpretation is final and binding. Re-read the 2026 bulletin at https://mcc.nic.in/ug-medical-counselling/ on the day it appears.",
+          "MCC never contacts candidates individually. Nothing arrives by post or by phone — watching the website is your job."
+        ]
       }
     ]
   },
   {
     "key": "domicile",
     "label": "Domicile",
-    "blurb": "The 15% All India Quota is domicile-free; the 85% state quota is not. Each state writes its own definition of who belongs to it — and those definitions do not agree with one another.",
-    "authority": "MCC counselling scheme; NTA Information Bulletin NEET (UG) 2026, Chapter 7; state counselling authorities (KEA, WB DME)",
+    "blurb": "The 85% state quota holds most of the MBBS seats in the country, and every state decides for itself who belongs to it. Some count where you studied, some count where you have lived, some count your parents. This is the most expensive thing to get wrong.",
+    "authority": "State counselling authorities (WBMCC, KEA); NTA Information Bulletin NEET (UG) 2026, Chapter 7; MCC Counselling Scheme",
     "order": 3,
-    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
+    "source": "https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/07/2025073198.pdf",
     "blocks": [
       {
-        "heading": "The 15 / 85 split",
+        "heading": "What the 85% state quota is, and who decides it",
         "items": [
-          "In a state government medical or dental college, 15% of the seats go to the All India Quota, counselled by MCC. MCC's scheme states plainly that counselling for the 15% AIQ is domicile-free — where you live is irrelevant to it.",
-          "The other 85% is the state quota, counselled by the state's own authority. Under the NEET bulletin, admission to those seats is subject to the eligibility criteria and reservation policy prevailing in that State or UT, as notified by it from time to time.",
-          "The consequence: your NEET rank is national, but your access to the 85% is decided by a state-written eligibility clause that neither NTA nor MCC controls.",
-          "Some central institutions counselled by MCC also carry internal or domicile quotas of their own — JIPMER, and the 85% internal quota seats of DU and IP University, for example. MCC does not set those conditions; the institution does. MCC's own advice is to confirm your eligibility or domicile status for institutional-quota seats before you register and fill those choices."
+          "Seats in state government medical colleges split two ways: 15% go to the All India Quota that MCC runs, and the remaining 85% stay with the state.",
+          "The MCC counselling scheme says in terms that counselling for the 15% All India Quota is domicile free. Where you live is irrelevant to an AIQ seat; only your All India Rank matters.",
+          "For the 85%, the NEET (UG) 2026 bulletin (Chapter 7) says admission is subject to the reservation policy and the eligibility criteria prevailing in the State or UT concerned, as notified by that State from time to time. NTA sets none of it.",
+          "MCC says the same about the institutional and state quotas it merely administers for central institutions: those eligibility conditions are laid down by the institutes, and MCC has no role in determining them.",
+          "So there is no single national definition of domicile for medical admission. There are as many definitions as there are counselling authorities, and each is re-notified every year."
         ]
       },
       {
-        "heading": "Every state defines it differently",
-        "intro": "Two real examples, taken from the states' own counselling documents, show how far apart the tests sit.",
+        "heading": "The trap: 'studied in' is not 'born in', and neither is 'lives in'",
+        "intro": "Two real state rules, side by side, show how differently the same idea is built. Both are taken from those states' own published counselling documents.",
         "items": [
-          "Karnataka (KEA, UGNEET-2025 guidelines — https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/ugneet_Guidelineskannada.pdf): the main route, Clause (a), is a study test rather than a residence test — you must have studied and passed in government or government-recognised institutions in Karnataka for at least SEVEN academic years between Class 1 and Class 12, and have passed either SSLC/10th or 2nd PUC/12th from Karnataka. Clause (b) accepts 11th and 12th in Karnataka provided one parent studied in Karnataka for at least seven years. A separate route exists for candidates whose mother tongue is Kannada, Tulu, Kodava or Beary and who live outside the state — but it requires clearing KEA's Kannada language test.",
-          "West Bengal (Directorate of Medical Education, NEET UG 2025 counselling notice dated 31 July 2025 — https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/07/2025073198.pdf): a residence test. Proforma A1 needs continuous residence in West Bengal for at least the last 10 years; Proforma A2 covers candidates who passed 10+2 from West Bengal in the current year with the same residence history; Proforma B covers candidates whose parents are permanent residents of West Bengal even where the candidate studied outside the state.",
-          "The same candidate, on the same facts, can therefore clear one state's test and fail another's."
-        ]
-      },
-      {
-        "heading": "The traps",
-        "items": [
-          "Studied-in-state, lived-in-state and parent-domicile are three different tests. Karnataka's main clause asks where you studied and for how long; West Bengal's asks where you have lived for ten years; a parent's residence or schooling can be the deciding fact in either.",
-          "A domicile or residence certificate on its own is frequently not enough. States demand the specific proof their clause names — a school study certificate countersigned by the education officer, a certificate in the state's own proforma, a parent's study certificate.",
-          "Failing the domicile test does not always shut you out of the state completely: in West Bengal, candidates who are not domiciled and are not taking the NRI route remain eligible for management-quota seats in private colleges — but not for the 85% state quota.",
-          "The 15% AIQ is the one route that asks none of this. If your state-quota claim is weak, that route is still fully open to you."
+          "Karnataka (KEA) runs on where you STUDIED. Its principal clause for government seats requires that you studied and passed in government or government-recognised institutions in Karnataka for a minimum of SEVEN academic years between Class 1 and Class 12 / 2nd PUC, reckoned as on 1 July of the year of the entrance test, and that you passed either your SSLC/Class 10 or your 2nd PUC/Class 12 from Karnataka. A repeated year counts once. The proof is a study certificate from the head of the institution, countersigned by the Block Education Officer or the DDPU.",
+          "Karnataka keeps alternative routes open: passing both Class 11 and Class 12 in Karnataka where either parent studied in Karnataka for at least seven years; or, for a candidate whose mother tongue is Kannada, Tulu, Kodava or Beary with a parent formerly domiciled in Karnataka but now living outside the state — and that route additionally requires passing a Kannada language test conducted by KEA.",
+          "West Bengal (WBMCC) runs on RESIDENCE. Either the candidate or the candidate's parent must be domiciled in West Bengal. The standard proforma requires continuous residence in the state for at least the last 10 years — reckoned as on 31 December of the year before the counselling cycle — plus Class 10 and Class 12 passed from West Bengal.",
+          "West Bengal also has a parent-based route: a candidate who passed Class 10 or Class 12 outside the state can still claim the state quota if a parent is a permanent resident with a home address in West Bengal and has lived there continuously for at least 10 years. A valid domicile certificate from the West Bengal e-district portal is accepted as proof.",
+          "Put those two next to each other and the trap is plain. A student born in Bengaluru who spent Classes 9 to 12 coaching in Kota can fail Karnataka's seven-year study clause. A student who has lived in Kolkata their whole life but did Class 12 in Delhi needs the parent-based proforma, not the ordinary one. Being born in a state, on its own, buys you nothing in either state."
         ],
-        "note": "Never act on a summary — including this one — for a state-quota claim. Open the current-year information bulletin of the state authority you are claiming under, and read its eligibility clause and document list yourself."
+        "note": "The Karnataka clauses are KEA's eligibility clauses under Rule 5(1) of the CET-2006 admission rules for government seats (https://cetonline.karnataka.gov.in/keawebentry456/ugcet2025/eligibility_clauses_engenglish.pdf). The West Bengal proformas are from the WBMCC UG counselling bulletin linked at https://wbmcc.nic.in/ug-medical-dental-counselling/. Both are from the most recently published cycle, and the cut-off dates inside them are re-dated each year — always read the current year's document."
+      },
+      {
+        "heading": "What actually gets checked, and what happens if it fails",
+        "items": [
+          "The domicile claim is verified against ORIGINAL documents at the college, not on the portal. WBMCC considers a candidate for state-quota choice filling and allotment only after that certificate has been successfully verified.",
+          "The certificate must be in the state's own proforma and signed by an officer the state authorises. WBMCC lists exactly who may sign, and a domicile certificate issued by a people's representative such as a municipal councillor is not a substitute for the prescribed authority.",
+          "Fail verification and you are treated as a non-domicile candidate — you lose the state-quota claim itself, not merely a document.",
+          "A false document is far worse than a missing one. Karnataka's rules provide that if any document submitted in support of the clause you claimed is found false or incorrect, the seat is cancelled at any stage and the entire fee paid is forfeited. MCC likewise forfeits the security deposit where an admission is cancelled because wrong information was furnished.",
+          "Reservation certificates travel with domicile. West Bengal will not honour an SC/ST/OBC/EWS certificate issued by another state for its state-quota reserved seats — which catches families who have moved recently."
+        ]
+      },
+      {
+        "heading": "How to use this",
+        "items": [
+          "Settle your domicile question before you fill a single choice, not after an allotment.",
+          "Find the current-year information bulletin of your own state's counselling authority and read its eligibility clause in full. The two states above are illustrations of how differently the rules are built — they are not a substitute for your state's text.",
+          "Get the certificate in the exact proforma, from the exact authority, before the verification window opens. In some districts these take weeks.",
+          "If you cannot satisfy any state's clause, the 15% All India Quota remains fully open to you: it is domicile free."
+        ]
       }
     ]
   },
   {
     "key": "counselling",
-    "label": "Counselling",
-    "blurb": "Round 1, Round 2, Round 3 (the old mop-up) and the stray vacancy round — where you can walk away for free, where it costs you your deposit, and where you are locked in for good.",
-    "authority": "MCC — Information Bulletin & Counselling Scheme, NEET-UG (MBBS/BDS/B.Sc. Nursing) Counselling",
+    "label": "Counselling rounds",
+    "blurb": "Four rounds, and the rules harden as you go. Round 1 lets you walk away for free, Round 2 costs you your deposit, Round 3 is a one-way door. This is the MCC scheme for All India Quota, Deemed and central seats.",
+    "authority": "Medical Counselling Committee (DGHS) — NEET-UG Information Bulletin & Counselling Scheme",
     "order": 4,
     "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf",
     "blocks": [
       {
-        "heading": "The rounds",
-        "intro": "MCC's scheme records that the Supreme Court, by order dated 16 December 2021 in Nihila P.P. v. MCC, approved four online rounds of AIQ counselling.",
+        "heading": "The four rounds",
+        "intro": "MCC counselling runs online in four rounds — a structure approved by the Supreme Court by order dated 16 December 2021 in SLP (C) No. 10487 of 2021, Nihila P.P. v. MCC.",
         "ordered": true,
         "items": [
-          "Round 1 — registration, fees, choice filling, locking, allotment, physical reporting with original documents.",
-          "Round 2 — fresh registration for newcomers and fresh choices for everyone; no seats revert to the states after this round.",
-          "Round 3 — this is the old Mop-Up round, renamed. Upgradation is permitted up to this round.",
-          "Stray Vacancy Round — fresh registration and fresh choice filling; the last chance at an MCC seat."
-        ]
-      },
-      {
-        "heading": "Round 1 — the free exit",
-        "items": [
-          "Allotted a Round 1 seat and you simply do not report: you exit free. No forfeiture, and you continue into Round 2.",
-          "To KEEP the Round 1 seat while still trying to improve on it, you must physically report at the allotted college with your original documents and record a willingness to upgrade at the time of admission. Nobody may report on your behalf.",
-          "If you registered for Round 1 and were not allotted anything, you do not register again — you go straight to Round 2 choice filling.",
-          "If you are upgraded in Round 2 you must take relieving from the Round 1 college and join the Round 2 college; you retain no claim on the Round 1 seat."
-        ]
-      },
-      {
-        "heading": "Round 2 — the deposit starts to bite",
-        "items": [
-          "Allotted a Round 2 seat and you do not join it: your security deposit is forfeited.",
-          "You may still enter Round 3 afterwards — but only with a fresh registration and full payment of the fees again.",
-          "You may join the Round 2 seat and still upgrade: give the willingness to upgrade at the time of Round 2 reporting, and if you are upgraded in Round 3, vacate the Round 2 seat and join the new one. Candidates upgraded in Round 3 have no claim on the Round 2 seat."
-        ]
-      },
-      {
-        "heading": "Round 3 — the point of no return",
-        "items": [
-          "Once you JOIN a Round 3 seat you cannot resign it, surrender it or upgrade out of it. MCC's own scheme tells candidates to take a calculated decision before continuing into Round 3.",
-          "Allotted a Round 3 seat and you do not report: you exit with forfeiture of the security deposit and are eliminated from all further rounds, the stray round included.",
-          "Joining a Round 3 AIQ seat also bars you from participating in any counselling after it."
-        ]
-      },
-      {
-        "heading": "Stray vacancy round",
-        "items": [
-          "Fresh registration and fresh choice filling are required; nothing carries over from earlier rounds.",
-          "You are NOT eligible for the stray round if you did not register for it, if you are already holding or have joined a seat, or if you were allotted a Round 3 MCC seat and did not report.",
-          "MCC shares allotment data with the states after Round 3: if your name appears on a state's allotted list you are removed from the All India stray vacancy round. You cannot sit on a state seat and chase an AIQ stray seat at the same time.",
-          "Allotted a stray-round seat and you do not join: the security deposit is forfeited and you are out of any further rounds. Once you join, you cannot resign."
-        ]
-      },
-      {
-        "heading": "Forfeiture — the short version",
-        "items": [
-          "Round 1, not reported — free exit, deposit safe.",
-          "Round 2, allotted but not joined — deposit forfeited; Round 3 only on fresh payment.",
-          "Round 3, allotted but not reported — deposit forfeited and eliminated from further rounds.",
-          "Round 3, joined — no resignation, no upgrade, no further counselling.",
-          "Stray round, allotted but not joined — deposit forfeited, no further rounds.",
-          "Incorrect information about your eligibility, found at any stage — candidature cancelled for the remaining rounds and security deposit forfeited."
+          "Round 1.",
+          "Round 2.",
+          "Round 3 — what used to be called the Mop-Up round. MCC now calls it Round 3.",
+          "Stray Vacancy Round — the final round, held on the seats still vacant after Round 3 together with vacant Deemed University seats. MCC conducts the Deemed stray round itself, following the Supreme Court order dated 12 December 2022 in I.A. No. 132614/2022 in W.P. (C) No. 267/2017."
         ],
-        "note": "Four rounds are the scheme's baseline, but MCC has added rounds by notice in past cycles — in the 2025 cycle it ran a further round for BDS and B.Sc. Nursing seats and a special stray round (see the notices at https://mcc.nic.in/ug-medical-counselling/). The NEET-UG 2026 counselling schedule had not been published as of mid-July 2026; watch mcc.nic.in for it."
+        "note": "Because there are four AIQ rounds, no All India Quota seats are reverted to the participating states after Round 2. Upgradation is permitted up to Round 3."
+      },
+      {
+        "heading": "Round 1 — the free exit round",
+        "intro": "Round 1 is the only round you can walk out of without paying for it. Be precise about what free exit does and does not cover.",
+        "items": [
+          "Allotted a Round 1 seat and you do not want it? You need not report and need not join. That is the free exit: your security deposit is not forfeited and you can register afresh for Round 2.",
+          "Want to KEEP the Round 1 seat while still trying to improve on it? Then you must physically report at the allotted college with your original documents, join, and record your willingness to upgrade to Round 2 at the time of admission. There is no way to hold a seat without joining it.",
+          "Reporting is in person. No one else may submit your documents on your behalf.",
+          "Registered for Round 1 but allotted nothing? You do not register again — you go straight into Round 2 and simply fill fresh choices.",
+          "If you took the free exit, you re-register for Round 2 with fresh payment of the fees."
+        ]
+      },
+      {
+        "heading": "Round 2 — forfeiture starts here",
+        "items": [
+          "Allotted a seat in Round 2 and you do not join it? Your security deposit is forfeited. There is no free exit from Round 2 onwards.",
+          "You are not out of the process: after forfeiting you may still take part in Round 3, but only with fresh payment of the registration fee and the security deposit.",
+          "Upgraded from Round 1 to Round 2? You must take a relieving letter from the Round 1 college — generated online through the MCC software and issued by the college — before you join the Round 2 college. Without it you will not be permitted to join the upgraded seat.",
+          "Once upgraded in Round 2 you have NO claim on the Round 1 seat. An upgrade is not a trial you can reverse.",
+          "This holds even for an upgrade within the same college: if your seat changes only by category, you still need an online relieving letter for the old seat and a fresh admission letter for the new one, or the seat is cancelled and given to another candidate.",
+          "Fresh choice filling is compulsory. Round 1 choices are null and void."
+        ]
+      },
+      {
+        "heading": "Round 3 — the one-way door",
+        "intro": "MCC's bulletin advises candidates to take a calculated decision before continuing into Round 3. This is why.",
+        "items": [
+          "Join a Round 3 seat and you cannot resign it, cannot vacate it and cannot upgrade from it. You are also not allowed to take part in any counselling after joining in Round 3 — and MCC and the states share allotment data, so a state seat cannot be kept alive on the side.",
+          "Allotted a Round 3 seat and you do not report? That is exit with forfeiture AND elimination: the security deposit goes and you are out of every further round of counselling, the stray round included.",
+          "Upgraded into Round 3? Take relieving from the Round 2 seat and join the Round 3 seat. You have no claim on the Round 2 seat afterwards.",
+          "Fresh choice filling again, and Round 2 choices are null and void. Candidates who never registered, or who resigned or did not report in Rounds 1 or 2, register afresh with full payment.",
+          "Freshly registered in Round 3 and allotted nothing? You remain eligible for the stray round."
+        ]
+      },
+      {
+        "heading": "Stray Vacancy Round — last call, no exits",
+        "items": [
+          "Fresh registration is required for the stray round. Nothing carries over.",
+          "Allotted a stray seat and you do not join? Security deposit forfeited, and you are not eligible for any further round. Once you join, you cannot resign.",
+          "After Round 3, MCC and the state authorities exchange their lists of allotted candidates. If your name appears as allotted on either list you are eliminated from the All India Stray Vacancy Round — this is the anti-seat-blocking mechanism, and holding a state seat 'just in case' will cost you the stray round.",
+          "Not eligible for the stray round: anyone who did not register for it, anyone already holding or joined on a seat, and anyone allotted a seat in MCC Round 3 who did not report."
+        ]
+      },
+      {
+        "heading": "Resignation, forfeiture and getting your deposit back",
+        "items": [
+          "All admissions and resignations are online. No offline resignation of a seat is permitted, and the allotment letter must be downloaded from the MCC website.",
+          "Exit with forfeiture means this: allotted in Round 2 or any later round, you may still decline the seat, but you lose the security deposit you paid.",
+          "The deposit is also forfeited if your admission is cancelled for any reason — for example if you gave wrong information at registration and the seat is cancelled at reporting, or if you fail to produce the required documents within the stipulated time.",
+          "The deposit is refunded only after all rounds are complete, to the same card or account it came from, and without interest.",
+          "Seat-blocking is what the whole structure is aimed at. Regulation 5A(4) of the Regulations on Graduate Medical Education, 1997 is the provision that renders candidates ineligible for later rounds on account of seats allotted to them in earlier ones."
+        ],
+        "note": "Round numbering, forfeiture and eligibility for later rounds are set out in the MCC UG Information Bulletin and Counselling Scheme. As of mid-July 2026 MCC had not yet published the NEET-UG 2026 counselling schedule — confirm the current cycle's rules at https://mcc.nic.in/ug-medical-counselling/ before acting on any of this. Your state's counselling authority publishes its own round structure and its own forfeiture rules, and they are not identical to MCC's."
       }
     ]
   }

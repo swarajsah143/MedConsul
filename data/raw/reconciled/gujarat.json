@@ -20,11 +20,6 @@
    "ourName": "Smt. B. K. Shah Medical Institute & Research Centre (Sumandeep Vidyapeeth), Piparia, Vadodara",
    "nmcName": "SBKS Medical Instt. & Research Centre, Vadodra",
    "evidence": "SBKS = Smt. B. K. Shah. NMC address 'Sumandeep Vidyapeeth Campus, At. & Post. Piparia, Tal. Waghodia, Distt. Vadodara' matches our record exactly. Type kept as Deemed (Sumandeep Vidyapeeth is a deemed-to-be university; NMC records it as 'Trust')."
-  },
-  {
-   "ourName": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
-   "nmcName": "Dr.Kiran C.Patel Medical College and Research Institute",
-   "evidence": "Cross-packet pair: this base record sits in packets/unknown.json (statelessInSource) but its NMC row is an unclaimed Gujarat row. NMC row: Veer Narmad South Gujarat University, est. 2020, 200 seats; official site kmcri.ac.in (redirect from bharuchmedical.org) confirms the college is in Bharuch, Gujarat. Paired here instead of emitted as a new college so the site does not end up with two records for it. NOT the same as 'Kiran Medical College, Surat' (separate NMC row, Olpad/Surat, est. 2023, already matched)."
   }
  ],
  "enrichment": [
@@ -71,17 +66,6 @@
    "source": "nmc-ug-registry (raw/nmc_ug_2023.json) for established/seats; deemed status: https://sumandeepvidyapeethdu.edu.in/ and https://admission.sumandeepvidyapeethdu.edu.in/department-of-medical.php (Deemed University u/s 3 of UGC Act since 17 Jan 2007; MBBS admissions 100% via MCC deemed counselling)"
   },
   {
-   "name": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
-   "state": "Gujarat",
-   "city": "Bharuch",
-   "type": "Private",
-   "established": 2020,
-   "totalSeats": 200,
-   "affiliation": "Veer Narmad South Gujarat University",
-   "website": "https://kmcri.ac.in",
-   "source": "nmc-ug-registry (raw/nmc_ug_2023.json); city/management confirmed at https://kmcri.ac.in/about-institute/ (self-financed college run by Rudraksh Academy Pvt Ltd at New Civil Hospital Campus, Bharuch, Gujarat)"
-  },
-  {
    "name": "ESIC Medical College, Naroda-Bapunagar, Ahmedabad",
    "state": "Gujarat",
    "city": "Ahmedabad",
@@ -107,9 +91,8 @@
    "city": "Jamnagar",
    "type": "Government",
    "established": 1991,
-   "totalSeats": 125,
    "affiliation": "Saurashtra University",
-   "source": "https://medicalneetug.com/college/government-dental-college-jamnagar (Government, est. 1991, 125 BDS seats, Saurashtra University, Jamnagar). BDS college - deliberately NOT paired to any MBBS row. (website dropped: gdchjam.org is a parked domain, not the college's site.)"
+   "source": "https://medicalneetug.com/college/government-dental-college-jamnagar (Government, est. 1991, Saurashtra University, Jamnagar). BDS college - deliberately NOT paired to any MBBS row. (totalSeats dropped: the cited page gives 100 BDS UG seats, not the 125 previously claimed; no reliable source, so left unset rather than guessed. website dropped: gdchjam.org is a parked domain, not the college's site.)"
   },
   {
    "name": "Matushri Prabhaben Khodabhai Boghara Medical College & Research Centre, Atkot, Rajkot",
