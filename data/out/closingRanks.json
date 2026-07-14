@@ -1197,7 +1197,7 @@
   "closingRank": 54515
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -1206,7 +1206,7 @@
   "closingRank": 3787
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -1215,7 +1215,7 @@
   "closingRank": 3772
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -1224,7 +1224,7 @@
   "closingRank": 2804
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -1233,7 +1233,7 @@
   "closingRank": 5197
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -1242,7 +1242,7 @@
   "closingRank": 4567
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -1251,7 +1251,7 @@
   "closingRank": 30320
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -1809,114 +1809,6 @@
   "closingRank": 19156
  },
  {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3787
- },
- {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5197
- },
- {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4567
- },
- {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 30320
- },
- {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 40302
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3787
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3772
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2804
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5197
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4567
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 30320
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 40302
- },
- {
   "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2024,
   "round": 2,
@@ -2097,96 +1989,6 @@
   "closingRank": 20421
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 203
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 555
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 582
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2671
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13662
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 203
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 555
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 582
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2671
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13662
- },
- {
   "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2024,
   "round": 1,
@@ -2194,6 +1996,42 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 203
+ },
+ {
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "EWS",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 555
+ },
+ {
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "OBC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 582
+ },
+ {
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "SC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 2671
+ },
+ {
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "ST",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 13662
  },
  {
   "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
@@ -2203,42 +2041,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 203
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 555
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 582
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2671
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13662
  },
  {
   "collegeName": "Autonomous State Medical College, Firozabad",
@@ -7776,58 +7578,13 @@
   "closingRank": 130648
  },
  {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 826
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 770
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1470
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 71340
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 190010
- },
- {
   "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "All India Quota (AIQ)",
-  "closingRank": 818
+  "closingRank": 826
  },
  {
   "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
@@ -7845,64 +7602,10 @@
   "course": "MBBS",
   "category": "OBC",
   "quota": "All India Quota (AIQ)",
-  "closingRank": 1466
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13242
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 28885
- },
- {
-  "collegeName": "Lady Hardinge Medical College for Women, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 826
- },
- {
-  "collegeName": "Lady Hardinge Medical College for Women, New Delhi",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 826
- },
- {
-  "collegeName": "Lady Hardinge Medical College for Women, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 770
- },
- {
-  "collegeName": "Lady Hardinge Medical College for Women, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
   "closingRank": 1470
  },
  {
-  "collegeName": "Lady Hardinge Medical College for Women, New Delhi",
+  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -7911,13 +7614,22 @@
   "closingRank": 71340
  },
  {
-  "collegeName": "Lady Hardinge Medical College for Women, New Delhi",
+  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 190010
+ },
+ {
+  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
+  "year": 2024,
+  "round": 2,
+  "course": "MBBS",
+  "category": "General",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 826
  },
  {
   "collegeName": "Lakhimpur Medical College",
@@ -8271,63 +7983,9 @@
   "closingRank": 105480
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 145
- },
- {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 336
- },
- {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 329
- },
- {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2097
- },
- {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4268
- },
- {
   "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2024,
   "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 151
- },
- {
-  "collegeName": "Maulana Azad Medical College New Delhi",
-  "year": 2024,
-  "round": 2,
   "course": "MBBS",
   "category": "General",
   "quota": "All India Quota (AIQ)",
@@ -8368,6 +8026,15 @@
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 4268
+ },
+ {
+  "collegeName": "Maulana Azad Medical College New Delhi",
+  "year": 2024,
+  "round": 2,
+  "course": "MBBS",
+  "category": "General",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 151
  },
  {
   "collegeName": "Government Medical College, Vadodara (Baroda)",
@@ -8730,7 +8397,7 @@
   "closingRank": 23564
  },
  {
-  "collegeName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -8739,7 +8406,7 @@
   "closingRank": 1752
  },
  {
-  "collegeName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -8748,7 +8415,7 @@
   "closingRank": 3780
  },
  {
-  "collegeName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -8757,7 +8424,7 @@
   "closingRank": 3451
  },
  {
-  "collegeName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -8809,15 +8476,6 @@
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 108576
- },
- {
-  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1419
  },
  {
   "collegeName": "North Eastern Indira Gandhi Regional Institute of Health & Medical Sciences (NEIGRIHMS), Shillong",
@@ -10134,15 +9792,6 @@
   "closingRank": 10713
  },
  {
-  "collegeName": "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 10713
- },
- {
   "collegeName": "Sri Krishna Medical College & Hospital (SKMCH), Muzaffarpur",
   "year": 2024,
   "round": 1,
@@ -10440,60 +10089,6 @@
   "closingRank": 3022
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 390
- },
- {
-  "collegeName": "University College of Medical Sciences (UCMS)",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 331
- },
- {
-  "collegeName": "University College of Medical Sciences (UCMS)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 581
- },
- {
-  "collegeName": "University College of Medical Sciences (UCMS)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 787
- },
- {
-  "collegeName": "University College of Medical Sciences (UCMS)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3853
- },
- {
-  "collegeName": "University College of Medical Sciences (UCMS)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 11941
- },
- {
   "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2024,
   "round": 1,
@@ -10620,7 +10215,7 @@
   "closingRank": 101873
  },
  {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10629,7 +10224,7 @@
   "closingRank": 141
  },
  {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10638,7 +10233,7 @@
   "closingRank": 432
  },
  {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10647,7 +10242,7 @@
   "closingRank": 327
  },
  {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10656,22 +10251,13 @@
   "closingRank": 1749
  },
  {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 8852
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 141
  },
  {
   "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
@@ -10683,52 +10269,7 @@
   "closingRank": 141
  },
  {
-  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 432
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 327
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1749
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 8852
- },
- {
   "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 10007
- },
- {
-  "collegeName": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10789,33 +10330,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 16758
- },
- {
-  "collegeName": "VMMC & Safdarjung Hospital New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 141
- },
- {
-  "collegeName": "VMMC & Safdarjung Hospital New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1749
- },
- {
-  "collegeName": "VMMC & Safdarjung Hospital New Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 8852
  },
  {
   "collegeName": "Vyas Medical College and Hospital, Jodhpur",
@@ -11412,51 +10926,6 @@
   "closingRank": 874883
  },
  {
-  "collegeName": "Hamdard Institute of Medical Sciences and Research (HIMSR)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 53650
- },
- {
-  "collegeName": "Hamdard Institute of Medical Sciences and Research (HIMSR)",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 54747
- },
- {
-  "collegeName": "Hamdard Institute of Medical Sciences and Research (HIMSR)",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 44566
- },
- {
-  "collegeName": "Hamdard Institute of Medical Sciences and Research (HIMSR), Delhi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 53650
- },
- {
-  "collegeName": "Hamdard Institute of Medical Sciences and Research (HIMSR), Delhi",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 87651
- },
- {
   "collegeName": "Hamdard Institute of Medical Sciences and Research, New Delhi",
   "year": 2024,
   "round": 1,
@@ -11547,7 +11016,7 @@
   "closingRank": 516212
  },
  {
-  "collegeName": "Himalayan Institute of Medical Sciences (HIMS), SRHU, Dehradun",
+  "collegeName": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -12825,7 +12294,7 @@
   "closingRank": 340876
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -12834,7 +12303,7 @@
   "closingRank": 2227
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -12843,7 +12312,7 @@
   "closingRank": 5971
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -12852,7 +12321,7 @@
   "closingRank": 7152
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -12861,7 +12330,7 @@
   "closingRank": 49180
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15381,7 +14850,7 @@
   "closingRank": 36232
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15390,7 +14859,7 @@
   "closingRank": 606
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15399,7 +14868,7 @@
   "closingRank": 3294
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15408,7 +14877,7 @@
   "closingRank": 2202
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15417,7 +14886,7 @@
   "closingRank": 2440
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -16011,7 +15480,7 @@
   "closingRank": 15131
  },
  {
-  "collegeName": "Himalayan Institute of Medical Sciences (HIMS), SRHU, Dehradun",
+  "collegeName": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -16785,49 +16254,13 @@
   "closingRank": 190503
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Delhi State Quota",
-  "closingRank": 1461
- },
- {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Delhi State Quota",
-  "closingRank": 5015
- },
- {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Delhi State Quota",
-  "closingRank": 45343
- },
- {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "Delhi State Quota",
-  "closingRank": 107838
- },
- {
   "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Delhi State Quota",
-  "closingRank": 1418
+  "closingRank": 1461
  },
  {
   "collegeName": "Maulana Azad Medical College New Delhi",
@@ -17127,7 +16560,7 @@
   "closingRank": 419686
  },
  {
-  "collegeName": "Narayana Medical College and Hospital, Chinthareddypalem",
+  "collegeName": "Narayana Medical College, Nellore",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18990,7 +18423,7 @@
   "closingRank": 194230
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18999,7 +18432,7 @@
   "closingRank": 3275
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -19008,7 +18441,7 @@
   "closingRank": 6859
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -19017,7 +18450,7 @@
   "closingRank": 8536
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -19026,58 +18459,13 @@
   "closingRank": 62315
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "ST",
   "quota": "Delhi State Quota",
   "closingRank": 176068
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Delhi State Quota",
-  "closingRank": 1481
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "Delhi State Quota",
-  "closingRank": 3579
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Delhi State Quota",
-  "closingRank": 5274
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Delhi State Quota",
-  "closingRank": 36379
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "Delhi State Quota",
-  "closingRank": 110112
  },
  {
   "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
@@ -21150,7 +20538,7 @@
   "closingRank": 54984
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21159,7 +20547,7 @@
   "closingRank": 3389
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -21168,7 +20556,7 @@
   "closingRank": 3898
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -21177,7 +20565,7 @@
   "closingRank": 3993
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21186,7 +20574,7 @@
   "closingRank": 4603
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21195,7 +20583,7 @@
   "closingRank": 4085
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21204,7 +20592,7 @@
   "closingRank": 32194
  },
  {
-  "collegeName": "AIIMS Jammu (Vijaypur)",
+  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21690,42 +21078,6 @@
   "closingRank": 11475
  },
  {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3389
- },
- {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4085
- },
- {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 32194
- },
- {
-  "collegeName": "AIIMS Vijaypur",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 43200
- },
- {
   "collegeName": "Al-Falah School of Medical Sciences & Research Centre, Faridabad",
   "year": 2025,
   "round": 3,
@@ -21733,42 +21085,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 447694
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3389
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3898
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3993
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4603
  },
  {
   "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
@@ -21791,15 +21107,6 @@
  {
   "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4085
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "OBC",
@@ -21818,15 +21125,6 @@
  {
   "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 32194
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "SC",
@@ -21841,15 +21139,6 @@
   "category": "SC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 51471
- },
- {
-  "collegeName": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 43200
  },
  {
   "collegeName": "All India Institute of Medical Sciences, Bathinda",
@@ -22059,7 +21348,7 @@
   "closingRank": 103958
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -22068,7 +21357,7 @@
   "closingRank": 215
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -22077,7 +21366,7 @@
   "closingRank": 1009
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -22086,7 +21375,7 @@
   "closingRank": 519
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -22095,7 +21384,7 @@
   "closingRank": 1125
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -22104,7 +21393,7 @@
   "closingRank": 7191
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -22113,52 +21402,7 @@
   "closingRank": 14191
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 14062
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 215
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1009
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1125
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 14191
- },
- {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -31770,7 +31014,7 @@
   "closingRank": 130648
  },
  {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
+  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -31779,7 +31023,7 @@
   "closingRank": 1128
  },
  {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
+  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -31788,7 +31032,7 @@
   "closingRank": 1762
  },
  {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
+  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -31797,7 +31041,7 @@
   "closingRank": 1959
  },
  {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
+  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -31806,7 +31050,7 @@
   "closingRank": 13728
  },
  {
-  "collegeName": "Lady Hardinge Medical College (LHMC)",
+  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -31822,33 +31066,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 1129
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1762
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1959
- },
- {
-  "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13728
  },
  {
   "collegeName": "Lady Hardinge Medical College (LHMC), New Delhi",
@@ -32445,7 +31662,7 @@
   "closingRank": 82535
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -32454,7 +31671,7 @@
   "closingRank": 103
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -32463,7 +31680,7 @@
   "closingRank": 2177
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -32472,7 +31689,7 @@
   "closingRank": 789
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -32481,7 +31698,7 @@
   "closingRank": 381
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -32490,7 +31707,7 @@
   "closingRank": 569098
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -32499,7 +31716,7 @@
   "closingRank": 5218
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -32508,7 +31725,7 @@
   "closingRank": 54025
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -32517,58 +31734,13 @@
   "closingRank": 5543
  },
  {
-  "collegeName": "Maulana Azad Medical College (MAMC)",
+  "collegeName": "Maulana Azad Medical College New Delhi",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 138067
- },
- {
-  "collegeName": "Maulana Azad Medical College New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 103
- },
- {
-  "collegeName": "Maulana Azad Medical College New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 789
- },
- {
-  "collegeName": "Maulana Azad Medical College New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 381
- },
- {
-  "collegeName": "Maulana Azad Medical College New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5218
- },
- {
-  "collegeName": "Maulana Azad Medical College New Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5543
  },
  {
   "collegeName": "Medical College, Kolkata",
@@ -33390,7 +32562,7 @@
   "closingRank": 148800
  },
  {
-  "collegeName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -33399,7 +32571,7 @@
   "closingRank": 2986
  },
  {
-  "collegeName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -33408,7 +32580,7 @@
   "closingRank": 5106
  },
  {
-  "collegeName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -33417,7 +32589,7 @@
   "closingRank": 4918
  },
  {
-  "collegeName": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -33518,15 +32690,6 @@
  {
   "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
   "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2986
- },
- {
-  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
-  "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "EWS",
@@ -33568,15 +32731,6 @@
   "category": "SC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 15798
- },
- {
-  "collegeName": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 22223
  },
  {
   "collegeName": "North Eastern Indira Gandhi Regional Institute of Health & Medical Sciences (NEIGRIHMS), Shillong",
@@ -36459,51 +35613,6 @@
   "closingRank": 96534
  },
  {
-  "collegeName": "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 11917
- },
- {
-  "collegeName": "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13273
- },
- {
-  "collegeName": "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 14052
- },
- {
-  "collegeName": "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 78931
- },
- {
-  "collegeName": "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 96534
- },
- {
   "collegeName": "Sri Padmavathi Medical College for Women, Tirupati",
   "year": 2025,
   "round": 1,
@@ -37296,7 +36405,7 @@
   "closingRank": 134837
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37305,7 +36414,7 @@
   "closingRank": 559
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37314,7 +36423,7 @@
   "closingRank": 1168
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -37323,7 +36432,7 @@
   "closingRank": 1595
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37332,7 +36441,7 @@
   "closingRank": 1167
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -37341,7 +36450,7 @@
   "closingRank": 1220
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -37350,7 +36459,7 @@
   "closingRank": 2106
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37359,7 +36468,7 @@
   "closingRank": 8538
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -37368,7 +36477,7 @@
   "closingRank": 7456
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -37377,58 +36486,13 @@
   "closingRank": 14605
  },
  {
-  "collegeName": "University College of Medical Sciences (UCMS)",
+  "collegeName": "University College of Medical Sciences, Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 13646
- },
- {
-  "collegeName": "University College of Medical Sciences (UCMS)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13670
- },
- {
-  "collegeName": "University College of Medical Sciences, Delhi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 559
- },
- {
-  "collegeName": "University College of Medical Sciences, Delhi",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1595
- },
- {
-  "collegeName": "University College of Medical Sciences, Delhi",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2106
- },
- {
-  "collegeName": "University College of Medical Sciences, Delhi",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 14605
  },
  {
   "collegeName": "University College of Medical Sciences, Delhi",
@@ -37557,96 +36621,6 @@
   "closingRank": 88813
  },
  {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 132
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 82610
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 693
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 94266
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 232
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 92900
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2934
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 238818
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 7556
- },
- {
-  "collegeName": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 333802
- },
- {
   "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2025,
   "round": 1,
@@ -37654,6 +36628,15 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 1221
+ },
+ {
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
+  "year": 2025,
+  "round": 2,
+  "course": "MBBS",
+  "category": "General",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 82610
  },
  {
   "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
@@ -37667,11 +36650,29 @@
  {
   "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2025,
+  "round": 2,
+  "course": "MBBS",
+  "category": "EWS",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 94266
+ },
+ {
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
+  "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "OBC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 3946
+ },
+ {
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
+  "year": 2025,
+  "round": 2,
+  "course": "MBBS",
+  "category": "OBC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 92900
  },
  {
   "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
@@ -37685,6 +36686,15 @@
  {
   "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2025,
+  "round": 2,
+  "course": "MBBS",
+  "category": "SC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 238818
+ },
+ {
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
+  "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "ST",
@@ -37692,52 +36702,16 @@
   "closingRank": 116381
  },
  {
-  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
+  "collegeName": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 9965
- },
- {
-  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 12685
- },
- {
-  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 12509
- },
- {
-  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 71513
- },
- {
-  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
-  "year": 2025,
-  "round": 1,
+  "round": 2,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
-  "closingRank": 93060
+  "closingRank": 333802
  },
  {
-  "collegeName": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal",
+  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37746,7 +36720,7 @@
   "closingRank": 9965
  },
  {
-  "collegeName": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal",
+  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37755,7 +36729,7 @@
   "closingRank": 12685
  },
  {
-  "collegeName": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal",
+  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37764,7 +36738,7 @@
   "closingRank": 12509
  },
  {
-  "collegeName": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal",
+  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37773,7 +36747,7 @@
   "closingRank": 71513
  },
  {
-  "collegeName": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal",
+  "collegeName": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -38322,7 +37296,7 @@
   "closingRank": 494727
  },
  {
-  "collegeName": "DM Wayanad Institute of Medical Sciences, Meppadi",
+  "collegeName": "DM Wayanad Institute of Medical Sciences",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -38529,7 +37503,7 @@
   "closingRank": 50409
  },
  {
-  "collegeName": "Himalayan Institute of Medical Sciences (HIMS), SRHU, Dehradun",
+  "collegeName": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -38907,7 +37881,7 @@
   "closingRank": 1095555
  },
  {
-  "collegeName": "Mahatma Gandhi Medical College & Research Institute, SBV Puducherry",
+  "collegeName": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -38916,7 +37890,7 @@
   "closingRank": 1219466
  },
  {
-  "collegeName": "Mahatma Gandhi Medical College & Research Institute, SBV Puducherry",
+  "collegeName": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -38925,7 +37899,7 @@
   "closingRank": 724279
  },
  {
-  "collegeName": "Mahatma Gandhi Medical College & Research Institute, SBV Puducherry",
+  "collegeName": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -38934,7 +37908,7 @@
   "closingRank": 814210
  },
  {
-  "collegeName": "Mahatma Gandhi Medical College & Research Institute, SBV Puducherry",
+  "collegeName": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -38950,15 +37924,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 191995
- },
- {
-  "collegeName": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1219466
  },
  {
   "collegeName": "Malla Reddy Institute of Medical Sciences, Hyderabad",
@@ -39579,46 +38544,10 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 491918
- },
- {
-  "collegeName": "Vinayaka Mission's Medical College, Karaikal",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 633931
- },
- {
-  "collegeName": "Vinayaka Mission's Medical College, Karaikal",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 693547
- },
- {
-  "collegeName": "Vinayaka Mission's Medical College, Karaikal",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 733018
- },
- {
-  "collegeName": "Vinayaka Missions Medical College, Karaikal",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
   "closingRank": 494918
  },
  {
-  "collegeName": "Vinayaka Missions Medical College, Karaikal",
+  "collegeName": "Vinayaka Mission's Medical College, Karaikal",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -39627,7 +38556,7 @@
   "closingRank": 633931
  },
  {
-  "collegeName": "Vinayaka Missions Medical College, Karaikal",
+  "collegeName": "Vinayaka Mission's Medical College, Karaikal",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -39636,7 +38565,7 @@
   "closingRank": 693547
  },
  {
-  "collegeName": "Vinayaka Missions Medical College, Karaikal",
+  "collegeName": "Vinayaka Mission's Medical College, Karaikal",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -40023,7 +38952,7 @@
   "closingRank": 25597
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -40032,7 +38961,7 @@
   "closingRank": 148
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -40041,7 +38970,7 @@
   "closingRank": 6307
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -40050,7 +38979,7 @@
   "closingRank": 6763
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -40059,7 +38988,7 @@
   "closingRank": 52344
  },
  {
-  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
+  "collegeName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -41022,13 +39951,22 @@
   "closingRank": 54689
  },
  {
-  "collegeName": "DM Wayanad Institute of Medical Sciences, Meppadi",
+  "collegeName": "DM Wayanad Institute of Medical Sciences",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Kerala State Quota",
   "closingRank": 92788
+ },
+ {
+  "collegeName": "DM Wayanad Institute of Medical Sciences, Meppadi",
+  "year": 2025,
+  "round": 1,
+  "course": "MBBS",
+  "category": "General",
+  "quota": "Kerala State Quota",
+  "closingRank": 9422
  },
  {
   "collegeName": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
@@ -41608,51 +40546,6 @@
  },
  {
   "collegeName": "ESIC Medical College and Hospital, Basaidarapur, New Delhi",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "Delhi State Quota",
-  "closingRank": 195049
- },
- {
-  "collegeName": "ESIC Medical College, Basaidarapur",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Delhi State Quota",
-  "closingRank": 6556
- },
- {
-  "collegeName": "ESIC Medical College, Basaidarapur",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "Delhi State Quota",
-  "closingRank": 11539
- },
- {
-  "collegeName": "ESIC Medical College, Basaidarapur",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Delhi State Quota",
-  "closingRank": 13370
- },
- {
-  "collegeName": "ESIC Medical College, Basaidarapur",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Delhi State Quota",
-  "closingRank": 84663
- },
- {
-  "collegeName": "ESIC Medical College, Basaidarapur",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -44685,7 +43578,7 @@
   "closingRank": 124414
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44694,7 +43587,7 @@
   "closingRank": 509
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44703,7 +43596,7 @@
   "closingRank": 4046
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44712,7 +43605,7 @@
   "closingRank": 2327
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44721,7 +43614,7 @@
   "closingRank": 2416
  },
  {
-  "collegeName": "Government Medical College, Rajouri",
+  "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -45477,7 +44370,7 @@
   "closingRank": 170864
  },
  {
-  "collegeName": "Himalayan Institute of Medical Sciences (HIMS), SRHU, Dehradun",
+  "collegeName": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -47169,7 +46062,7 @@
   "closingRank": 311448
  },
  {
-  "collegeName": "Narayana Medical College and Hospital, Chinthareddypalem",
+  "collegeName": "Narayana Medical College, Nellore",
   "year": 2025,
   "round": 1,
   "course": "MBBS",

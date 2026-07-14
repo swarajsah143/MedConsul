@@ -6,7 +6,7 @@
   "shortDescription": "NTA displays the scanned images of the OMR answer sheets and the recorded responses of candidates for NEET (UG) 2026.",
   "documentLabel": "OMR / recorded-response display notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/07/20260713497007800.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/"
  },
  {
   "date": "2026-07-07",
@@ -15,7 +15,7 @@
   "shortDescription": "NTA gives candidates another opportunity to confirm, correct or update their bank account details for the refund of the NEET (UG) 2026 examination fee.",
   "documentLabel": "Fee-refund bank details notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/07/202607071291015974.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/"
  },
  {
   "date": "2026-07-01",
@@ -54,7 +54,7 @@
   "shortDescription": "A further final opportunity from NTA to confirm, correct or update bank account details for the refund of the NEET (UG) 2026 examination fee.",
   "documentLabel": "Fee-refund bank details notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/06/202606301312738299.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/"
  },
  {
   "date": "2026-06-28",
@@ -73,7 +73,7 @@
   "shortDescription": "NTA publishes the provisional answer keys for the NEET (UG) 2026 re-examination held on 21 June 2026.",
   "documentLabel": "Provisional answer keys (NEET UG 2026 re-exam)",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/06/20260625208933797.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/"
  },
  {
   "date": "2026-06-25",
@@ -82,7 +82,7 @@
   "shortDescription": "Final opportunity for candidates of the cancelled 3 May 2026 examination to confirm, correct or update the bank account details used for the refund of the examination fee.",
   "documentLabel": "Fee-refund bank details notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/06/20260625141800406.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/"
  },
  {
   "date": "2026-06-25",
@@ -91,7 +91,7 @@
   "shortDescription": "NTA opens the paid challenge window against the provisional answer key for the NEET (UG) 2026 examination held on 21 June 2026, together with the display of OMR images and recorded responses.",
   "documentLabel": "Answer-key challenge notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/06/202606251138469985.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/"
  },
  {
   "date": "2026-06-23",
@@ -110,7 +110,7 @@
   "shortDescription": "NTA advisory for candidates entitled to compensatory time in the NEET (UG) 2026 examination.",
   "documentLabel": "Compensatory-time advisory",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/06/20260620235002385.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/"
  },
  {
   "date": "2026-06-19",
@@ -888,15 +888,6 @@
   "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/10/20251028122896423.pdf"
  },
  {
-  "date": "2025-09-03",
-  "title": "MCC UG 2025 Round 2: seat-matrix verification by participating institutes",
-  "announcementType": "Counselling Schedule",
-  "shortDescription": "Participating institutes verify the tentative Round 2 seat matrix on 3-4 September 2025.",
-  "documentLabel": "MCC UG counselling schedule 2025 (dated 23.10.2025)",
-  "documentUrl": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/10/20251028122896423.pdf",
-  "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/10/20251028122896423.pdf"
- },
- {
   "date": "2025-09-01",
   "title": "UG Counselling Schedule 2025 dated 01.09.2025",
   "announcementType": "Counselling Schedule",
@@ -978,7 +969,7 @@
   "shortDescription": "NTA declares the NEET (UG) 2025 result for the concerned candidates.",
   "documentLabel": "Result declaration notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/07/2025071435.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-07-12",
@@ -1005,7 +996,7 @@
   "shortDescription": "NTA declares the NEET (UG) 2025 result, NTA scores and All India Ranks — the scorecard on which the 2025 counselling cycle was run.",
   "documentLabel": "NEET (UG) 2025 result notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/06/2025061472.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-06-14",
@@ -1014,7 +1005,7 @@
   "shortDescription": "NTA publishes the final answer keys for NEET (UG) 2025 after processing the challenges.",
   "documentLabel": "Final answer keys (NEET UG 2025)",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/06/2025061450.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-06-03",
@@ -1023,7 +1014,7 @@
   "shortDescription": "NTA publishes the provisional answer keys for NEET (UG) 2025.",
   "documentLabel": "Provisional answer keys (NEET UG 2025)",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/06/2025060369.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-06-03",
@@ -1032,7 +1023,7 @@
   "shortDescription": "NTA opens the challenge window against the NEET (UG) 2025 provisional answer key and displays OMR sheets and recorded responses.",
   "documentLabel": "Answer-key challenge notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/06/2025060317.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-04-30",
@@ -1041,7 +1032,7 @@
   "shortDescription": "NTA releases the admit cards for NEET (UG) 2025 candidates.",
   "documentLabel": "Admit card release notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/04/2025043096.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-04-26",
@@ -1050,7 +1041,7 @@
   "shortDescription": "NTA notice on reporting suspicious claims relating to the NEET (UG) 2025 examination.",
   "documentLabel": "Notice on suspicious claims",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/04/2025042661.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-04-23",
@@ -1059,7 +1050,7 @@
   "shortDescription": "NTA issues the advance intimation of the examination city to NEET (UG) 2025 applicants.",
   "documentLabel": "Advance city intimation notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/04/2025042330.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-03-06",
@@ -1068,7 +1059,7 @@
   "shortDescription": "NTA opens the correction window for particulars submitted in the NEET (UG) 2025 application form.",
   "documentLabel": "Correction-window notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/03/2025030619.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-03-05",
@@ -1077,7 +1068,7 @@
   "shortDescription": "NTA reminder to candidates to complete their NEET (UG) 2025 registration.",
   "documentLabel": "Registration reminder",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/03/2025030596.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-03-01",
@@ -1086,7 +1077,7 @@
   "shortDescription": "NTA registration advisory for NEET (UG) 2025 applicants.",
   "documentLabel": "Registration advisory",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/03/2025030179.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-02-07",
@@ -1095,7 +1086,7 @@
   "shortDescription": "NTA opens the online application form for NEET (UG) 2025.",
   "documentLabel": "Online application notice",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/02/2025020745.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  },
  {
   "date": "2025-02-07",
@@ -1104,6 +1095,6 @@
   "shortDescription": "The official NEET (UG) 2025 Information Bulletin issued by NTA.",
   "documentLabel": "NEET (UG) 2025 Information Bulletin",
   "documentUrl": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2025/02/2025020754.pdf",
-  "source": "https://neet.nta.nic.in/public-notices/"
+  "source": "https://neet.nta.nic.in/document-category/neetug-2025-public-notices/"
  }
 ]
