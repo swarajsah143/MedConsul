@@ -22,7 +22,7 @@ import os
 import sys
 import collections
 
-from namematch import CollegeIndex
+from namematch import CollegeIndex, key, name_region, tokens
 
 D = os.path.dirname(os.path.abspath(__file__))
 RAW, OUT = f'{D}/raw', f'{D}/out'
@@ -32,7 +32,11 @@ REQUIRED = ('collegeName', 'course', 'category', 'quota', 'tuitionFee', 'source'
 # A tuition fee outside this range is a unit error, not a fee: notifications quote the annual
 # figure in rupees, but some quote it in lakhs ("15.57") and some quote the whole 4.5-year
 # course. Either way we do not silently rescale it — we drop it and say so.
-MIN_FEE, MAX_FEE = 1_000, 3_000_000
+#
+# The ceiling has to clear the genuinely eye-watering end of the market: KEA notifies NRI-quota
+# MBBS seats at ₹45 lakh A YEAR (M.S. Ramaiah), and those are real, notified, annual figures.
+# An earlier ₹30 lakh ceiling was quietly throwing 58 of them away as "implausible".
+MIN_FEE, MAX_FEE = 1_000, 7_500_000
 
 
 def main():
@@ -66,6 +70,23 @@ def main():
             continue
 
         college, _ = idx.resolve(r['collegeName'])
+
+        # A college whose whole significant name reduces to a SINGLE token — almost always a
+        # bare city, "Bangalore Medical College and Research Institute" -> {bangalore} — cannot
+        # be pinned by fuzzy COVERAGE. The score asks how much of the college's name the source
+        # cell accounts for, and a one-token name is covered 100% by any cell that merely mentions
+        # that city. That is how all four of "BGS Medical College and Hospital, Bangalore" (a
+        # different college — BGS Global Institute is its own row) got their govt/private/NRI fees
+        # filed under the *government* BMCRI, whose only token is the shared city. The town is the
+        # one thing that proves nothing on its own, so such a college may match ONLY by an exact
+        # name fingerprint — never by coverage. A missing fee beats a fee on the wrong college.
+        if college and len(tokens(college['name'])) == 1 \
+                and key(college['name']) != key(name_region(r['collegeName'])):
+            dropped['single-token-city-not-exact'] += 1
+            bad.append({**r, '_why': f'coverage-matched bare-city college {college["name"]!r} '
+                                     f'without an exact-name fingerprint — refusing to guess'})
+            continue
+
         if not college:
             dropped['unresolved-college'] += 1
             bad.append({**r, '_why': 'could not pin to a college in out/colleges.json'})

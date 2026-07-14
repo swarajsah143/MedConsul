@@ -28,6 +28,24 @@ STOP = {
 }
 ABBR = {'govt': 'government', 'st': 'saint', 'dr': 'doctor', 'smt': 'shrimati'}
 
+# Indian cities that were officially RENAMED. Two documents about the same college will each
+# use whichever name was current when they were written — KEA's fee notification says Belgaum,
+# our college table (from the NMC registry) says Belagavi — and no amount of fuzzy matching
+# bridges "belgaum"/"belagavi" (0.66 similar) or "gulbarga"/"kalaburagi" (0.32). They are not
+# spelling drift; they are different words for one place, so they need a lookup, not a
+# threshold. Both sides normalise to one form, so which side wins does not matter.
+CITY_ALIAS = {
+    'bengaluru': 'bangalore', 'belagavi': 'belgaum', 'kalaburagi': 'gulbarga',
+    'ballari': 'bellary', 'mysuru': 'mysore', 'mangaluru': 'mangalore',
+    'shivamogga': 'shimoga', 'hubballi': 'hubli', 'tumakuru': 'tumkur',
+    'vijayapura': 'bijapur', 'chikkamagaluru': 'chikmagalur', 'chamarajanagara': 'chamarajanagar',
+    'kozhikode': 'calicut', 'thiruvananthapuram': 'trivandrum', 'puducherry': 'pondicherry',
+    'vadodara': 'baroda', 'prayagraj': 'allahabad', 'varanasi': 'banaras',
+    'kanpur': 'cawnpore', 'thrissur': 'trichur', 'kollam': 'quilon',
+    'alappuzha': 'alleppey', 'kochi': 'cochin', 'ujjain': 'ujjaini',
+}
+ABBR = {**ABBR, **CITY_ALIAS}
+
 # Tokens that flip a college into a different institution entirely. If one name has one
 # of these and the other does not, they are not the same college, however similar.
 DISCIPLINE = {'dental', 'dentistry', 'ayurvedic', 'ayurveda', 'homoeopathic', 'homeopathic',
@@ -42,8 +60,32 @@ def norm(s):
     return s.strip()
 
 
+def _join_initials(words):
+    """Glue a run of single letters back into the acronym it was before normalisation.
+
+    norm() turns punctuation into spaces, so "A.C.P.M." becomes "a c p m" while the other
+    list spells the same college "ACPM" -> "acpm". Every one of those letters is then dropped
+    for being too short, and the name collapses to just its city — at which point the identity
+    veto (rightly) refuses to match on a bare town. That is why "A.C.P.M. MEDICAL COLLEGE,
+    DHULE" would not meet "ACPM Medical College, Dhule", and the same for M.I.M.S.R., B.K.L.
+    Walawalkar and Dr. N.Y. Tasgaonkar.
+    """
+    out, run = [], []
+    for w in words:
+        if len(w) == 1 and w.isalpha():
+            run.append(w)
+            continue
+        if run:
+            out.append(''.join(run) if len(run) > 1 else run[0])
+            run = []
+        out.append(w)
+    if run:
+        out.append(''.join(run) if len(run) > 1 else run[0])
+    return out
+
+
 def tokens(s):
-    t = [ABBR.get(w, w) for w in norm(s).split()]
+    t = [ABBR.get(w, w) for w in _join_initials(norm(s).split())]
     return [w for w in t if w not in STOP and len(w) > 1]
 
 
@@ -87,8 +129,19 @@ def place_clash(a, b, acity, bcity):
 
 
 def identity(s):
-    """What's left of a name once the town is removed — the part that says WHICH college."""
-    return set(tokens(s)) - place(s) - {w for w in norm(s).split() if len(w) <= 2}
+    """What's left of a name once the town is removed — the part that says WHICH college.
+
+    DISCIPLINE words are stripped too. "dental" is load-bearing as a VETO (it is the only thing
+    separating Sri Ramachandra's dental college from its medical one), but it says which FIELD
+    a college is in, never WHICH college — every dental college has it. Leaving it in identity
+    let it corroborate a match it should have had no vote in: "Y.M.T. Dental College, Navi
+    Mumbai" (a private college absent from our table) matched "Government Dental College and
+    Hospital, Mumbai" on the shared tokens {dental, mumbai}, and a private college's fees would
+    have been filed under a government one. Strip it and the identities are {ymt} vs
+    {government} — no overlap, correctly refused.
+    """
+    return (set(tokens(s)) - place(s) - DISCIPLINE
+            - {w for w in norm(s).split() if len(w) <= 2})
 
 
 def identity_clash(a, b):
@@ -202,8 +255,17 @@ class CollegeIndex:
         # 2. fuzzy. Score by how much of the COLLEGE's name the cell covers, not by Jaccard:
         #    the cell carries extra words (city, campus) that would unfairly dilute an overlap
         #    ratio. Every veto from the NMC match applies here too.
+        #
+        #    Score against the WHOLE cell, address and all — not the trimmed name. Sources do
+        #    not agree on where the town goes: MCC prints "<Name>, <City>,<address>" (town in
+        #    the second segment, kept by the trim) but KEA prints "<Name>,<address>,<CITY>"
+        #    (town at the very end, thrown away by it). Trimming first left "GOVERNMENT DENTAL
+        #    COLLEGE" with no town at all and nothing to tell Bangalore's from Bellary's. Extra
+        #    address words cannot inflate the score — coverage only asks how much of the
+        #    COLLEGE's name the cell accounts for — and identity_clash still reads the trimmed
+        #    name, so a street name cannot masquerade as a college's identity.
         elif not hits:
-            cell_toks = set(tokens(name))
+            cell_toks = set(tokens(cell))
             best, runner = None, 0.0
             for c in self._candidates(state):
                 cname = c['name']

@@ -42,13 +42,19 @@ async function login() {
  * truth and anything else in the table is the shipped demo content. `replace` upserts
  * the file and then deletes every row whose natural key is not in it.
  *
- * Deliberately NOT listed: colleges/closingRanks (replace would delete any row missing
- * from the file and orphan its FK children), and fees/blogs (no real data staged yet —
- * replacing with nothing would wipe the table).
+ * Deliberately NOT listed: colleges/closingRanks/allotments — replace would delete any row
+ * missing from the file, orphaning FK children (and allotments is chunked, so a replace could
+ * only ever see one chunk of it anyway).
+ *
+ * fees and blogs joined this list once real data existed for them. Both REPLACE rather than
+ * top up on purpose: the rows already in those tables are the shipped demo content, and their
+ * natural keys do not collide with the real rows, so an upsert would leave fabricated and
+ * sourced rows sitting side by side with no way to tell them apart.
  */
 const REPLACE = new Set([
   'announcements', 'checklistDocs', 'stateDocs', 'counsellingQuotas',
   'counsellingSections', 'universities', 'abroadUniversities', 'knowledgeBase',
+  'fees', 'blogs',
 ]);
 
 // The bulk route hard-caps a batch at 20k rows, and express.json caps the body at 25mb.
