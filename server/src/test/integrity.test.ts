@@ -74,11 +74,21 @@ async function main() {
   check('baseline has no orphans', before.orphanRanks === 0 && before.orphanFees === 0, JSON.stringify(before));
 
   // ── 1. the bug that destroyed the data ──────────────────────────────
-  const list = await api('/api/admin/resources/colleges?limit=500');
-  const rows = list.body.data.items.map((i: any) => {
-    const { id, createdAt, updatedAt, ...rest } = i;
-    return rest;
-  });
+  // Read EVERY college, not just the first page. The admin list endpoint is hard-capped at
+  // 500 rows/page, and this used to fetch a single page and re-post it with replace:true.
+  // `replace` deletes every row whose naturalKey is not in the batch — so the moment the
+  // table grew past 500 (it is 932 today), this test silently deleted the other 432 colleges
+  // and orphaned ~2,800 rank rows. It was reporting that as "the FK-destroying bug is back"
+  // when the destruction was its own. The app behaved correctly throughout.
+  const rows: any[] = [];
+  for (let page = 1; ; page++) {
+    const list = await api(`/api/admin/resources/colleges?page=${page}&limit=500`);
+    for (const i of list.body.data.items) {
+      const { id, createdAt, updatedAt, ...rest } = i;
+      rows.push(rest);
+    }
+    if (page >= list.body.data.pages) break;
+  }
 
   const imp = await api('/api/admin/resources/colleges/bulk', {
     method: 'POST',
