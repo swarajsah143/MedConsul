@@ -100,8 +100,7 @@
    "established": 2024,
    "totalSeats": 100,
    "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
-   "website": "https://www.gmcseoni.org/",
-   "source": "Not in the NMC 2023 registry (post-2023 college). Seats + government status: MP DME (state counselling authority) NEET-UG 2025 seat chart, 'GOVT. AUTONOMOUS MEDICAL & DENTAL COLLEGE' table, row '16- Government Medical college, Seoni  100' — https://www.dme.mponline.gov.in/ql_dme/DMECounselling_Public/DMEUG/2025/Seat%20chart%20MBBS%20BDS%202025_18.pdf . Established 2024: absent from the NMC registry as of 2023-08-31 and listed as a UG NEW college in NMC's 2024-25 UG seat matrix — https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf . Official site: https://www.gmcseoni.org/"
+   "source": "Not in the NMC 2023 registry (post-2023 college). Seats + government status: MP DME (state counselling authority) NEET-UG 2025 seat chart, 'GOVT. AUTONOMOUS MEDICAL & DENTAL COLLEGE' table, row '16- Government Medical college, Seoni  100' — https://www.dme.mponline.gov.in/ql_dme/DMECounselling_Public/DMEUG/2025/Seat%20chart%20MBBS%20BDS%202025_18.pdf . Established 2024 + affiliation: NMC Revised UG Seat Matrix 2024-25, row 298 'Government Medical College, Seoni | Seoni | Madhya Pradesh Medical Science University | Govt | 2024 | 100' — https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf . Website omitted: gmcseoni.org is a parked placeholder domain (114-byte page redirecting to /lander), not an official college site."
   },
   {
    "name": "Government College of Dentistry, Indore",
@@ -156,7 +155,7 @@
    "totalSeats": 150,
    "affiliation": "Barkatullah University",
    "website": "http://www.rkdfmedicalcollege.org",
-   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'RKDF Medical College Hospital & Research Centre, Jatkhedi, Bhopal', management Trust -> Private"
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'RKDF Medical College Hospital & Research Centre, Jatkhedi, Bhopal', management Society -> Private"
   },
   {
    "name": "Shrimant Rajmata Vijayaraje Scindia Medical College, Shivpuri",
@@ -195,7 +194,7 @@
    "coursesOffered": [
     "MBBS"
    ],
-   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — management Trust -> Private. City normalised from the row's 'indore' to 'Indore'."
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — management Society -> Private. City normalised from the row's 'indore' to 'Indore'."
   },
   {
    "name": "Mahaveer Institute of Medical Sciences & Research, Bhopal",
@@ -208,7 +207,7 @@
    "coursesOffered": [
     "MBBS"
    ],
-   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — management Trust -> Private. No website in the registry, so the field is omitted."
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — management Society -> Private. No website in the registry, so the field is omitted."
   },
   {
    "name": "Sukh Sagar Medical College & Hospital, Jabalpur",

@@ -519,15 +519,6 @@
   "course": "BDS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 780816
- },
- {
-  "collegeName": "Dr DY Patil Dental College, Pune",
-  "year": 2024,
-  "round": 1,
-  "course": "BDS",
-  "category": "General",
-  "quota": "Deemed Quota",
   "closingRank": 1137604
  },
  {
@@ -540,7 +531,7 @@
   "closingRank": 945199
  },
  {
-  "collegeName": "KLE VK Institute of Dental Sciences and Hospital, Belgaum",
+  "collegeName": "KLE VK Institute of Dental Sciences and Hospital, Belagavi",
   "year": 2024,
   "round": 1,
   "course": "BDS",
@@ -630,7 +621,7 @@
   "closingRank": 1191847
  },
  {
-  "collegeName": "Saveetha Medical College, Chennai",
+  "collegeName": "Saveetha Medical College & Hospital, Kanchipuram",
   "year": 2024,
   "round": 1,
   "course": "BDS",
@@ -639,7 +630,7 @@
   "closingRank": 524471
  },
  {
-  "collegeName": "Saveetha Medical College, Chennai",
+  "collegeName": "Saveetha Medical College & Hospital, Kanchipuram",
   "year": 2024,
   "round": 2,
   "course": "BDS",
@@ -648,7 +639,7 @@
   "closingRank": 547121
  },
  {
-  "collegeName": "Saveetha Medical College, Chennai",
+  "collegeName": "Saveetha Medical College & Hospital, Kanchipuram",
   "year": 2024,
   "round": 3,
   "course": "BDS",
@@ -693,7 +684,7 @@
   "closingRank": 262378
  },
  {
-  "collegeName": "SRM Medical College, Kattankulathur",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2024,
   "round": 1,
   "course": "BDS",
@@ -702,7 +693,7 @@
   "closingRank": 980273
  },
  {
-  "collegeName": "SRM Medical College, Kattankulathur",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2024,
   "round": 2,
   "course": "BDS",
@@ -711,7 +702,7 @@
   "closingRank": 338076
  },
  {
-  "collegeName": "Dr DY Patil Dental College, Pune",
+  "collegeName": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
   "year": 2024,
   "round": 1,
   "course": "BDS",
@@ -747,7 +738,7 @@
   "closingRank": 761314
  },
  {
-  "collegeName": "MS Ramaiah Medical College, Bangalore",
+  "collegeName": "M S Ramaiah Medical College, Bangalore",
   "year": 2024,
   "round": 1,
   "course": "BDS",
@@ -801,7 +792,7 @@
   "closingRank": 15460
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -810,7 +801,7 @@
   "closingRank": 1589
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -819,7 +810,7 @@
   "closingRank": 3603
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -828,7 +819,7 @@
   "closingRank": 2721
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -837,7 +828,7 @@
   "closingRank": 16961
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -1928,15 +1919,6 @@
  {
   "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1589
- },
- {
-  "collegeName": "All India Institute of Medical Sciences, Bathinda",
-  "year": 2024,
   "round": 2,
   "course": "MBBS",
   "category": "General",
@@ -2421,7 +2403,7 @@
   "closingRank": 23262
  },
  {
-  "collegeName": "B.J. Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -2430,7 +2412,7 @@
   "closingRank": 2379
  },
  {
-  "collegeName": "B.J. Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -2610,15 +2592,6 @@
   "closingRank": 15643
  },
  {
-  "collegeName": "BHU Institute of Medical Sciences",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1014
- },
- {
   "collegeName": "BHU Varanasi (IMS)",
   "year": 2024,
   "round": 1,
@@ -2673,7 +2646,7 @@
   "closingRank": 20140
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -2682,7 +2655,7 @@
   "closingRank": 18109
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -2691,7 +2664,7 @@
   "closingRank": 22654
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -2700,22 +2673,13 @@
   "closingRank": 96609
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 111428
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 8672
  },
  {
   "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
@@ -2958,15 +2922,6 @@
   "course": "MBBS",
   "category": "General",
   "quota": "All India Quota (AIQ)",
-  "closingRank": 17570
- },
- {
-  "collegeName": "CMC Ludhiana",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
   "closingRank": 46034
  },
  {
@@ -3139,15 +3094,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 9031
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3596
  },
  {
   "collegeName": "Dr Radhakrishnan Government Medical College, Hamirpur",
@@ -3393,7 +3339,7 @@
   "closingRank": 123722
  },
  {
-  "collegeName": "ESI-PGIMSR, Bangalore",
+  "collegeName": "ESIC Medical College, Bangalore",
   "year": 2024,
   "round": 4,
   "course": "MBBS",
@@ -3438,7 +3384,7 @@
   "closingRank": 5633
  },
  {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
+  "collegeName": "ESIC Medical College and Hospital, Chennai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -3447,7 +3393,7 @@
   "closingRank": 14349
  },
  {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
+  "collegeName": "ESIC Medical College and Hospital, Chennai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -3456,7 +3402,7 @@
   "closingRank": 47371
  },
  {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
+  "collegeName": "ESIC Medical College and Hospital, Chennai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -3465,7 +3411,7 @@
   "closingRank": 199983
  },
  {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
+  "collegeName": "ESIC Medical College and Hospital, Chennai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -3924,7 +3870,7 @@
   "closingRank": 982291
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -3933,7 +3879,7 @@
   "closingRank": 6049
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -3942,7 +3888,7 @@
   "closingRank": 778
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -3951,7 +3897,7 @@
   "closingRank": 1212
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -3960,7 +3906,7 @@
   "closingRank": 13589
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -4219,15 +4165,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 10663
- },
- {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 778
  },
  {
   "collegeName": "Government Medical College and Associated Hospital, Rajouri",
@@ -6570,7 +6507,7 @@
   "closingRank": 4352
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -6912,7 +6849,7 @@
   "closingRank": 162494
  },
  {
-  "collegeName": "Grant Government Medical College, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -6921,7 +6858,7 @@
   "closingRank": 2338
  },
  {
-  "collegeName": "Grant Government Medical College, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -6982,15 +6919,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 16307
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 6049
  },
  {
   "collegeName": "Hassan Institute of Medical Sciences, Hassan",
@@ -7587,33 +7515,6 @@
   "closingRank": 40258
  },
  {
-  "collegeName": "KGMU Lucknow",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1352
- },
- {
-  "collegeName": "KGMU Lucknow",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 14795
- },
- {
-  "collegeName": "KGMU Lucknow",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 27545
- },
- {
   "collegeName": "King George's Medical University, Lucknow",
   "year": 2024,
   "round": 1,
@@ -7621,6 +7522,24 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 2059
+ },
+ {
+  "collegeName": "King George's Medical University, Lucknow",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "SC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 102100
+ },
+ {
+  "collegeName": "King George's Medical University, Lucknow",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "ST",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 48044
  },
  {
   "collegeName": "King George's Medical University, Lucknow",
@@ -7657,24 +7576,6 @@
   "category": "OBC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 5268
- },
- {
-  "collegeName": "King George's Medical University, Lucknow",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 102100
- },
- {
-  "collegeName": "King George's Medical University, Lucknow",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 48044
  },
  {
   "collegeName": "Kodagu Institute of Medical Sciences, Madikeri",
@@ -8469,16 +8370,7 @@
   "closingRank": 4268
  },
  {
-  "collegeName": "Medical College, Baroda (Government Medical College, Vadodara)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2251
- },
- {
-  "collegeName": "Medical College, Baroda (Government Medical College, Vadodara)",
+  "collegeName": "Government Medical College, Vadodara (Baroda)",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -9378,25 +9270,7 @@
   "closingRank": 108120
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3843
- },
- {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4009
- },
- {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -9405,34 +9279,7 @@
   "closingRank": 4385
  },
  {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3843
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4009
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4385
- },
- {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -9441,7 +9288,7 @@
   "closingRank": 3871
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -9765,15 +9612,6 @@
   "closingRank": 7741
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 7874
- },
- {
   "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2024,
   "round": 1,
@@ -9837,24 +9675,6 @@
   "closingRank": 124137
  },
  {
-  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3871
- },
- {
-  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 6292
- },
- {
   "collegeName": "RUHS College of Medical Sciences, Jaipur",
   "year": 2024,
   "round": 1,
@@ -9862,15 +9682,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 2469
- },
- {
-  "collegeName": "Saheed Rendo Majhi Medical College and Hospital (GMC Bhawanipatna), Kalahandi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 17313
  },
  {
   "collegeName": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
@@ -10026,15 +9837,6 @@
   "closingRank": 1010
  },
  {
-  "collegeName": "Seth GS Medical College Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1010
- },
- {
   "collegeName": "Shaheed Hasan Khan Mewati Government Medical College, Nalhar",
   "year": 2024,
   "round": 1,
@@ -10152,7 +9954,7 @@
   "closingRank": 25077
  },
  {
-  "collegeName": "Shri Atal Bihari Vajpayee Medical College & Research Institute, Bangalore",
+  "collegeName": "Shri Atal Bihari Vajpayee Medical College and Research Institute (ABVMC), Bengaluru",
   "year": 2024,
   "round": 4,
   "course": "MBBS",
@@ -10188,7 +9990,7 @@
   "closingRank": 6167
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10197,7 +9999,7 @@
   "closingRank": 6026
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10206,7 +10008,7 @@
   "closingRank": 11521
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10215,7 +10017,7 @@
   "closingRank": 27112
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -10224,31 +10026,13 @@
   "closingRank": 125764
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 81075
- },
- {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 6026
- },
- {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 27112
  },
  {
   "collegeName": "Shri M. P. Shah Government Medical College, Jamnagar",
@@ -10613,15 +10397,6 @@
  {
   "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 6812
- },
- {
-  "collegeName": "Tirunelveli Medical College, Tirunelveli",
-  "year": 2024,
   "round": 2,
   "course": "MBBS",
   "category": "General",
@@ -10656,7 +10431,7 @@
   "closingRank": 23271
  },
  {
-  "collegeName": "Topiwala National Medical College, Mumbai",
+  "collegeName": "Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -11331,78 +11106,6 @@
   "closingRank": 1062838
  },
  {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 299733
- },
- {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 278324
- },
- {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 202670
- },
- {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
-  "year": 2024,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 127612
- },
- {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — NRI seats",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 941191
- },
- {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — NRI seats",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 777398
- },
- {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — NRI seats",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 710989
- },
- {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — NRI seats",
-  "year": 2024,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 969130
- },
- {
   "collegeName": "Bharati Vidyapeeth Medical College, Pune",
   "year": 2024,
   "round": 1,
@@ -11457,16 +11160,7 @@
   "closingRank": 263955
  },
  {
-  "collegeName": "BLDE (Shri B M Patil Medical College), Vijayapura",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Deemed Quota",
-  "closingRank": 263955
- },
- {
-  "collegeName": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
+  "collegeName": "Chettinad Hospital & Research Institute, Kanchipuram",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -11475,7 +11169,7 @@
   "closingRank": 825168
  },
  {
-  "collegeName": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
+  "collegeName": "Chettinad Hospital & Research Institute, Kanchipuram",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -11484,43 +11178,7 @@
   "closingRank": 629495
  },
  {
-  "collegeName": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 354338
- },
- {
-  "collegeName": "Chettinad Hospital and Research Institute, Kancheepuram",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 354338
- },
- {
-  "collegeName": "Chettinad Hospital and Research Institute, Kelambakkam",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 825168
- },
- {
-  "collegeName": "Chettinad Hospital and Research Institute, Kelambakkam",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 629495
- },
- {
-  "collegeName": "Chettinad Hospital and Research Institute, Kelambakkam",
+  "collegeName": "Chettinad Hospital & Research Institute, Kanchipuram",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -11547,7 +11205,7 @@
   "closingRank": 128156
  },
  {
-  "collegeName": "Datta Meghe Institute of Higher Education and Research (DMIMS), Jawaharlal Nehru Medical College, Wardha",
+  "collegeName": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -11601,7 +11259,7 @@
   "closingRank": 87208
  },
  {
-  "collegeName": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — Management/Paid seats",
+  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -11610,7 +11268,7 @@
   "closingRank": 568637
  },
  {
-  "collegeName": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — Management/Paid seats",
+  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -11619,25 +11277,7 @@
   "closingRank": 532578
  },
  {
-  "collegeName": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — Management/Paid seats",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 538205
- },
- {
-  "collegeName": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — Management/Paid seats",
-  "year": 2024,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 377556
- },
- {
-  "collegeName": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — NRI seats",
+  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -11646,7 +11286,7 @@
   "closingRank": 1131305
  },
  {
-  "collegeName": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — NRI seats",
+  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
   "year": 2024,
   "round": 4,
   "course": "MBBS",
@@ -11664,7 +11304,7 @@
   "closingRank": 270180
  },
  {
-  "collegeName": "Dr D Y Patil Medical College, Kolhapur — General category",
+  "collegeName": "Dr D Y Patil Medical College, Kolhapur",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -11673,16 +11313,16 @@
   "closingRank": 345660
  },
  {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai",
+  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 559321
+  "closingRank": 1263810
  },
  {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai",
+  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -11691,76 +11331,13 @@
   "closingRank": 1263810
  },
  {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — General category",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 559321
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 559321
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
+  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 424633
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 568637
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 532578
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1131305
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
-  "year": 2024,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1214759
- },
- {
-  "collegeName": "Dr DY Patil Medical College, Navi Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 559321
+  "closingRank": 677211
  },
  {
   "collegeName": "Dr Patnam Mahender Reddy Institute of Medical Sciences, Chevella",
@@ -11781,25 +11358,7 @@
   "closingRank": 170532
  },
  {
-  "collegeName": "Dr. D Y Patil Medical College, Pune",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 568637
- },
- {
-  "collegeName": "Dr. D Y Patil Medical College, Pune",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 532578
- },
- {
-  "collegeName": "Dr. D Y Patil Medical College, Pune",
+  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -12042,7 +11601,7 @@
   "closingRank": 323611
  },
  {
-  "collegeName": "J N Medical College, KLE Academy of Higher Education, Belagavi",
+  "collegeName": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -12071,59 +11630,14 @@
  {
   "collegeName": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
   "year": 2024,
-  "round": 1,
+  "round": 2,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 511535
+  "closingRank": 462312
  },
  {
   "collegeName": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 462312
- },
- {
-  "collegeName": "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — Management/Paid seats",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 510316
- },
- {
-  "collegeName": "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — NRI seats",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1033120
- },
- {
-  "collegeName": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 511535
- },
- {
-  "collegeName": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 462312
- },
- {
-  "collegeName": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -12132,7 +11646,7 @@
   "closingRank": 354641
  },
  {
-  "collegeName": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
+  "collegeName": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
   "year": 2024,
   "round": 4,
   "course": "MBBS",
@@ -12143,24 +11657,6 @@
  {
   "collegeName": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
   "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 89512
- },
- {
-  "collegeName": "Jawaharlal Nehru Medical College, KLE, Belagavi",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 138793
- },
- {
-  "collegeName": "Jawaharlal Nehru Medical College, KLE, Belagavi",
-  "year": 2024,
   "round": 2,
   "course": "MBBS",
   "category": "General",
@@ -12168,25 +11664,7 @@
   "closingRank": 133916
  },
  {
-  "collegeName": "JN Medical College (KLE), Belgaum",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 138793
- },
- {
-  "collegeName": "JN Medical College (KLE), Belgaum",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 133916
- },
- {
-  "collegeName": "JN Medical College (KLE), Belgaum",
+  "collegeName": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -12195,7 +11673,7 @@
   "closingRank": 138261
  },
  {
-  "collegeName": "JN Medical College (KLE), Belgaum",
+  "collegeName": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
   "year": 2024,
   "round": 4,
   "course": "MBBS",
@@ -12223,33 +11701,6 @@
  },
  {
   "collegeName": "JSS Medical College, Mysore",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 264436
- },
- {
-  "collegeName": "JSS Medical College, Mysuru",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 870311
- },
- {
-  "collegeName": "JSS Medical College, Mysuru",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 528896
- },
- {
-  "collegeName": "JSS Medical College, Mysuru",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -12375,34 +11826,7 @@
   "closingRank": 36053
  },
  {
-  "collegeName": "Krishna Institute of Medical Sciences (KIMS), Karad — Management/Paid seats",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 430165
- },
- {
-  "collegeName": "Krishna Institute of Medical Sciences (KIMS), Karad — Management/Paid seats",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 352305
- },
- {
-  "collegeName": "Krishna Institute of Medical Sciences (KIMS), Karad — Management/Paid seats",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 358961
- },
- {
-  "collegeName": "Krishna Institute of Medical Sciences (KIMS), Karad — NRI seats",
+  "collegeName": "Krishna Institute of Medical Sciences, Karad",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -12411,7 +11835,7 @@
   "closingRank": 1075171
  },
  {
-  "collegeName": "Krishna Institute of Medical Sciences (KIMS), Karad — NRI seats",
+  "collegeName": "Krishna Institute of Medical Sciences, Karad",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -12420,42 +11844,6 @@
   "closingRank": 689970
  },
  {
-  "collegeName": "Krishna Institute of Medical Sciences (KIMS), Karad — NRI seats",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 692931
- },
- {
-  "collegeName": "Krishna Institute of Medical Sciences (KIMS), Karad — NRI seats",
-  "year": 2024,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 716834
- },
- {
-  "collegeName": "Krishna Institute of Medical Sciences, Karad",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 430165
- },
- {
-  "collegeName": "Krishna Institute of Medical Sciences, Karad",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 352305
- },
- {
   "collegeName": "Krishna Institute of Medical Sciences, Karad",
   "year": 2024,
   "round": 3,
@@ -12474,25 +11862,7 @@
   "closingRank": 716834
  },
  {
-  "collegeName": "Krishna Vishwa Vidyapeeth, Karad",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 430165
- },
- {
-  "collegeName": "KS Hegde Medical Academy (Nitte), Mangalore",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 153008
- },
- {
-  "collegeName": "KS Hegde Medical Academy (Nitte), Mangalore",
+  "collegeName": "K S Hegde Medical Academy (KSHEMA/Nitte), Mangalore",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -12501,22 +11871,13 @@
   "closingRank": 152827
  },
  {
-  "collegeName": "KS Hegde Medical Academy (Nitte), Mangalore",
+  "collegeName": "K S Hegde Medical Academy (KSHEMA/Nitte), Mangalore",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 154283
- },
- {
-  "collegeName": "KS Hegde Medical Academy (Nitte), Mangalore",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Deemed Quota",
-  "closingRank": 927470
  },
  {
   "collegeName": "LN Medical College, Bhopal",
@@ -12526,15 +11887,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 1090848
- },
- {
-  "collegeName": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 343403
  },
  {
   "collegeName": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana, Ambala",
@@ -12672,34 +12024,7 @@
   "closingRank": 231489
  },
  {
-  "collegeName": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 343403
- },
- {
-  "collegeName": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1231308
- },
- {
-  "collegeName": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1079401
- },
- {
-  "collegeName": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
+  "collegeName": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana, Ambala",
   "year": 2024,
   "round": 4,
   "course": "MBBS",
@@ -12742,24 +12067,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 791085
- },
- {
-  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1263810
- },
- {
-  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 677211
  },
  {
   "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
@@ -12849,19 +12156,10 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 568054
- },
- {
-  "collegeName": "Saveetha Medical College, Chennai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
   "closingRank": 570175
  },
  {
-  "collegeName": "Saveetha Medical College, Chennai",
+  "collegeName": "Saveetha Medical College & Hospital, Kanchipuram",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -12915,15 +12213,6 @@
   "closingRank": 113624
  },
  {
-  "collegeName": "Shri B M Patil Medical College (BLDE), Vijayapura",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Deemed Quota",
-  "closingRank": 263955
- },
- {
   "collegeName": "Shri Balaji Institute of Medical Science, Raipur",
   "year": 2024,
   "round": 1,
@@ -12942,7 +12231,7 @@
   "closingRank": 196546
  },
  {
-  "collegeName": "Shri Sathya Sai Medical College and Research Institute, Chennai",
+  "collegeName": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13014,7 +12303,7 @@
   "closingRank": 1036198
  },
  {
-  "collegeName": "SRM Medical College and Hospital, Chennai",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13023,16 +12312,7 @@
   "closingRank": 637582
  },
  {
-  "collegeName": "SRM Medical College, Kattankulathur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 637582
- },
- {
-  "collegeName": "SRM Medical College, Kattankulathur",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -13041,7 +12321,7 @@
   "closingRank": 574531
  },
  {
-  "collegeName": "SRM Medical College, Kattankulathur",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -13050,7 +12330,7 @@
   "closingRank": 637582
  },
  {
-  "collegeName": "SRM Medical College, Kattankulathur",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2024,
   "round": 4,
   "course": "MBBS",
@@ -13104,7 +12384,7 @@
   "closingRank": 179067
  },
  {
-  "collegeName": "Vels Medical College and Hospital, Chennai",
+  "collegeName": "VELS Medical College and Hospital, Tiruvallur",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13122,7 +12402,7 @@
   "closingRank": 1175074
  },
  {
-  "collegeName": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13131,7 +12411,7 @@
   "closingRank": 1001140
  },
  {
-  "collegeName": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -13140,7 +12420,7 @@
   "closingRank": 699163
  },
  {
-  "collegeName": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
   "year": 2024,
   "round": 3,
   "course": "MBBS",
@@ -13165,42 +12445,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 654993
- },
- {
-  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1001140
- },
- {
-  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
-  "year": 2024,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 699163
- },
- {
-  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
-  "year": 2024,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 424450
- },
- {
-  "collegeName": "VMKV Medical College and Hospital, Salem",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 424450
  },
  {
   "collegeName": "World College of Medical Sciences & Research, Jhajjar",
@@ -13626,16 +12870,16 @@
   "closingRank": 168904
  },
  {
-  "collegeName": "B.J. Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Maharashtra State Quota",
-  "closingRank": 4481
+  "closingRank": 8826
  },
  {
-  "collegeName": "B.J. Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13644,7 +12888,7 @@
   "closingRank": 12545
  },
  {
-  "collegeName": "B.J. Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13653,7 +12897,7 @@
   "closingRank": 8384
  },
  {
-  "collegeName": "B.J. Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13662,7 +12906,7 @@
   "closingRank": 49960
  },
  {
-  "collegeName": "B.J. Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13860,15 +13104,6 @@
   "closingRank": 367353
  },
  {
-  "collegeName": "BJ Medical College, Pune",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 4481
- },
- {
   "collegeName": "BKL Walawalkar Rural Medical College, Ratnagiri",
   "year": 2024,
   "round": 1,
@@ -13878,7 +13113,7 @@
   "closingRank": 76269
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13887,7 +13122,7 @@
   "closingRank": 13497
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -13896,7 +13131,7 @@
   "closingRank": 13497
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13905,7 +13140,7 @@
   "closingRank": 20257
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -13914,7 +13149,7 @@
   "closingRank": 20257
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13923,7 +13158,7 @@
   "closingRank": 27075
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -13932,7 +13167,7 @@
   "closingRank": 26691
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -13941,7 +13176,7 @@
   "closingRank": 74830
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -13993,15 +13228,6 @@
   "category": "ST",
   "quota": "Madhya Pradesh State Quota",
   "closingRank": 325954
- },
- {
-  "collegeName": "Byramjee Jeejeebhoy Government Medical College, Pune",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 8826
  },
  {
   "collegeName": "Chalmeda Anand Rao Institute of Medical Sciences, Karimnagar",
@@ -14127,7 +13353,7 @@
   "course": "MBBS",
   "category": "SC",
   "quota": "Punjab State Quota",
-  "closingRank": 253876
+  "closingRank": 256015
  },
  {
   "collegeName": "Christian Medical College, Vellore",
@@ -14137,33 +13363,6 @@
   "category": "General",
   "quota": "Tamil Nadu State Quota",
   "closingRank": 84
- },
- {
-  "collegeName": "CMC Ludhiana",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 34136
- },
- {
-  "collegeName": "CMC Ludhiana",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 64514
- },
- {
-  "collegeName": "CMC Ludhiana",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 256015
  },
  {
   "collegeName": "Coimbatore Medical College, Coimbatore",
@@ -14283,40 +13482,13 @@
   "closingRank": 44848
  },
  {
-  "collegeName": "DMC Ludhiana",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 49965
- },
- {
-  "collegeName": "DMC Ludhiana",
+  "collegeName": "Dayanand Medical College & Hospital, Ludhiana",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
   "category": "General",
   "quota": "Punjab State Quota",
   "closingRank": 12819
- },
- {
-  "collegeName": "DMC Ludhiana",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 58224
- },
- {
-  "collegeName": "DMC Ludhiana",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 214995
  },
  {
   "collegeName": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
@@ -14353,33 +13525,6 @@
   "category": "General",
   "quota": "Karnataka State Quota",
   "closingRank": 45075
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 26020
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 49830
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 167812
  },
  {
   "collegeName": "Dr NY Tasgaonkar Institute of Medical Sciences, Karjat",
@@ -14931,16 +14076,16 @@
   "closingRank": 982291
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Punjab State Quota",
-  "closingRank": 24925
+  "closingRank": 36750
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -14949,7 +14094,7 @@
   "closingRank": 56376
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -14958,25 +14103,25 @@
   "closingRank": 51157
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "SC",
   "quota": "Punjab State Quota",
-  "closingRank": 183601
+  "closingRank": 188769
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Punjab State Quota",
-  "closingRank": 22174
+  "closingRank": 32397
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -14985,7 +14130,7 @@
   "closingRank": 54804
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -14994,7 +14139,7 @@
   "closingRank": 44025
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15003,16 +14148,16 @@
   "closingRank": 173828
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Punjab State Quota",
-  "closingRank": 8052
+  "closingRank": 17534
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15021,7 +14166,7 @@
   "closingRank": 33280
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15030,7 +14175,7 @@
   "closingRank": 31419
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15039,7 +14184,7 @@
   "closingRank": 127941
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15048,7 +14193,7 @@
   "closingRank": 26214
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -15199,42 +14344,6 @@
   "category": "General",
   "quota": "Rajasthan State Quota",
   "closingRank": 11397
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 32397
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "Punjab State Quota",
-  "closingRank": 54804
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 44025
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 173828
  },
  {
   "collegeName": "Government Medical College, Anantapur",
@@ -16218,42 +15327,6 @@
   "closingRank": 36286
  },
  {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 17534
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "Punjab State Quota",
-  "closingRank": 33280
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 31419
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 127941
- },
- {
   "collegeName": "Government Medical College, Purnea (GMC Purnea)",
   "year": 2024,
   "round": 2,
@@ -16677,7 +15750,7 @@
   "closingRank": 181020
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -16857,51 +15930,6 @@
   "closingRank": 1306
  },
  {
-  "collegeName": "Grant Government Medical College, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 6099
- },
- {
-  "collegeName": "Grant Government Medical College, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 16817
- },
- {
-  "collegeName": "Grant Government Medical College, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 12015
- },
- {
-  "collegeName": "Grant Government Medical College, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 41348
- },
- {
-  "collegeName": "Grant Government Medical College, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 134649
- },
- {
   "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2024,
   "round": 1,
@@ -16911,13 +15939,40 @@
   "closingRank": 10696
  },
  {
-  "collegeName": "Grant Medical College, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
-  "category": "General",
+  "category": "EWS",
   "quota": "Maharashtra State Quota",
-  "closingRank": 6099
+  "closingRank": 16817
+ },
+ {
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "OBC",
+  "quota": "Maharashtra State Quota",
+  "closingRank": 12015
+ },
+ {
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "SC",
+  "quota": "Maharashtra State Quota",
+  "closingRank": 41348
+ },
+ {
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+  "year": 2024,
+  "round": 1,
+  "course": "MBBS",
+  "category": "ST",
+  "quota": "Maharashtra State Quota",
+  "closingRank": 134649
  },
  {
   "collegeName": "Great Eastern Medical School and Hospital, Srikakulam",
@@ -16945,60 +16000,6 @@
   "category": "General",
   "quota": "Andhra Pradesh State Quota",
   "closingRank": 8601
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 36750
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "Punjab State Quota",
-  "closingRank": 56376
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 51157
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 188769
- },
- {
-  "collegeName": "HBT Medical College & Dr. R.N. Cooper Hospital, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 7472
- },
- {
-  "collegeName": "HBT Medical College and Dr RN Cooper Medical College, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 11001
  },
  {
   "collegeName": "HBT Medical College and Dr RN Cooper Municipal Medical College, Mumbai",
@@ -17125,15 +16126,6 @@
   "category": "ST",
   "quota": "Bihar State Quota",
   "closingRank": 100382
- },
- {
-  "collegeName": "Indira Gandhi Medical College, Nagpur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 15069
  },
  {
   "collegeName": "IRT Perundurai Medical College, Perundurai",
@@ -17610,15 +16602,6 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Maharashtra State Quota",
-  "closingRank": 5228
- },
- {
-  "collegeName": "Lokmanya Tilak Municipal Medical College, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
   "closingRank": 10643
  },
  {
@@ -17892,16 +16875,7 @@
   "closingRank": 3616
  },
  {
-  "collegeName": "MIMER Medical College, Talegaon, Pune",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 58154
- },
- {
-  "collegeName": "MIMER Medical College, Talegaon, Pune",
+  "collegeName": "Maharashtra Institute of Medical Education and Research (MIMER), Talegaon, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -17910,7 +16884,7 @@
   "closingRank": 59325
  },
  {
-  "collegeName": "MIMER Medical College, Talegaon, Pune",
+  "collegeName": "Maharashtra Institute of Medical Education and Research (MIMER), Talegaon, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -17919,7 +16893,7 @@
   "closingRank": 139457
  },
  {
-  "collegeName": "MIMER Medical College, Talegaon, Pune",
+  "collegeName": "Maharashtra Institute of Medical Education and Research (MIMER), Talegaon, Pune",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18486,7 +17460,7 @@
   "closingRank": 51387
  },
  {
-  "collegeName": "PIMS Jalandhar",
+  "collegeName": "Punjab Institute of Medical Sciences, Jalandhar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18495,7 +17469,7 @@
   "closingRank": 44471
  },
  {
-  "collegeName": "PIMS Jalandhar",
+  "collegeName": "Punjab Institute of Medical Sciences, Jalandhar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18504,13 +17478,13 @@
   "closingRank": 60168
  },
  {
-  "collegeName": "PIMS Jalandhar",
+  "collegeName": "Punjab Institute of Medical Sciences, Jalandhar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "SC",
   "quota": "Punjab State Quota",
-  "closingRank": 227081
+  "closingRank": 233118
  },
  {
   "collegeName": "Prakash Institute of Medical Sciences and Research, Sangli",
@@ -18612,7 +17586,7 @@
   "closingRank": 76659
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18621,7 +17595,7 @@
   "closingRank": 7529
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -18630,7 +17604,7 @@
   "closingRank": 7294
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18639,7 +17613,7 @@
   "closingRank": 10515
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -18648,7 +17622,7 @@
   "closingRank": 9900
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18657,7 +17631,7 @@
   "closingRank": 15117
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -18666,7 +17640,7 @@
   "closingRank": 13503
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18675,7 +17649,7 @@
   "closingRank": 54068
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2024,
   "round": 2,
   "course": "MBBS",
@@ -18684,34 +17658,7 @@
   "closingRank": 59924
  },
  {
-  "collegeName": "Punjab Institute of Medical Sciences, Jalandhar",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 44471
- },
- {
-  "collegeName": "Punjab Institute of Medical Sciences, Jalandhar",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 60168
- },
- {
-  "collegeName": "Punjab Institute of Medical Sciences, Jalandhar",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 233118
- },
- {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -18763,15 +17710,6 @@
   "category": "General",
   "quota": "Maharashtra State Quota",
   "closingRank": 17698
- },
- {
-  "collegeName": "Rajiv Gandhi Medical College, Thane",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 8634
  },
  {
   "collegeName": "Rajmata Vijaya Raje Scindia Medical College, Bhilwara",
@@ -18873,15 +17811,6 @@
   "closingRank": 125839
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Andhra Pradesh State Quota",
-  "closingRank": 14002
- },
- {
   "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2024,
   "round": 1,
@@ -18943,15 +17872,6 @@
   "category": "ST",
   "quota": "Madhya Pradesh State Quota",
   "closingRank": 600757
- },
- {
-  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Rajasthan State Quota",
-  "closingRank": 6355
  },
  {
   "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
@@ -19107,16 +18027,7 @@
   "closingRank": 121281
  },
  {
-  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 2191
- },
- {
-  "collegeName": "Seth GS Medical College Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -19125,16 +18036,16 @@
   "closingRank": 3801
  },
  {
-  "collegeName": "SGRD Amritsar",
+  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Punjab State Quota",
-  "closingRank": 137804
+  "closingRank": 194110
  },
  {
-  "collegeName": "SGRD Amritsar",
+  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -19143,13 +18054,13 @@
   "closingRank": 261327
  },
  {
-  "collegeName": "SGRD Amritsar",
+  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
   "category": "SC",
   "quota": "Punjab State Quota",
-  "closingRank": 366981
+  "closingRank": 694903
  },
  {
   "collegeName": "SGT Medical College, Gurugram",
@@ -19242,7 +18153,7 @@
   "closingRank": 8673
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2024,
   "round": 1,
   "course": "MBBS",
@@ -19613,15 +18524,6 @@
  {
   "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 194110
- },
- {
-  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
-  "year": 2024,
   "round": 2,
   "course": "MBBS",
   "category": "General",
@@ -19640,15 +18542,6 @@
  {
   "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 261327
- },
- {
-  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
-  "year": 2024,
   "round": 2,
   "course": "MBBS",
   "category": "OBC",
@@ -19663,15 +18556,6 @@
   "category": "OBC",
   "quota": "Punjab State Quota",
   "closingRank": 261327
- },
- {
-  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 694903
  },
  {
   "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
@@ -19989,15 +18873,6 @@
   "closingRank": 4141
  },
  {
-  "collegeName": "Terna Medical College, Navi Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 49016
- },
- {
   "collegeName": "Terna Medical College, Nerul, Navi Mumbai",
   "year": 2024,
   "round": 1,
@@ -20061,15 +18936,6 @@
   "closingRank": 1341
  },
  {
-  "collegeName": "Tirunelveli Medical College, Tirunelveli",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Tamil Nadu State Quota",
-  "closingRank": 1057
- },
- {
   "collegeName": "Tomo Riba Institute of Health & Medical Sciences (TRIHMS), Naharlagun",
   "year": 2024,
   "round": 1,
@@ -20095,15 +18961,6 @@
   "category": "General",
   "quota": "Maharashtra State Quota",
   "closingRank": 12622
- },
- {
-  "collegeName": "Topiwala National Medical College, Mumbai",
-  "year": 2024,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
-  "closingRank": 7519
  },
  {
   "collegeName": "Trichy SRM Medical College Hospital and Research Centre, Irungalur",
@@ -21348,7 +20205,7 @@
   "closingRank": 776107
  },
  {
-  "collegeName": "Dr DY Patil Dental College, Pune",
+  "collegeName": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
   "year": 2025,
   "round": 1,
   "course": "BDS",
@@ -21357,7 +20214,7 @@
   "closingRank": 1035884
  },
  {
-  "collegeName": "Dr DY Patil Dental College, Pune",
+  "collegeName": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
   "year": 2025,
   "round": 2,
   "course": "BDS",
@@ -21366,7 +20223,7 @@
   "closingRank": 1056215
  },
  {
-  "collegeName": "Dr DY Patil Dental College, Pune",
+  "collegeName": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
   "year": 2025,
   "round": 3,
   "course": "BDS",
@@ -21375,7 +20232,7 @@
   "closingRank": 1063333
  },
  {
-  "collegeName": "Dr DY Patil Dental College, Pune",
+  "collegeName": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
   "year": 2025,
   "round": 4,
   "course": "BDS",
@@ -21528,7 +20385,7 @@
   "closingRank": 151835
  },
  {
-  "collegeName": "Saveetha Medical College, Chennai",
+  "collegeName": "Saveetha Medical College & Hospital, Kanchipuram",
   "year": 2025,
   "round": 1,
   "course": "BDS",
@@ -21537,7 +20394,7 @@
   "closingRank": 1096035
  },
  {
-  "collegeName": "Saveetha Medical College, Chennai",
+  "collegeName": "Saveetha Medical College & Hospital, Kanchipuram",
   "year": 2025,
   "round": 2,
   "course": "BDS",
@@ -21546,7 +20403,7 @@
   "closingRank": 547121
  },
  {
-  "collegeName": "Saveetha Medical College, Chennai",
+  "collegeName": "Saveetha Medical College & Hospital, Kanchipuram",
   "year": 2025,
   "round": 3,
   "course": "BDS",
@@ -21591,7 +20448,7 @@
   "closingRank": 1140071
  },
  {
-  "collegeName": "SRM Medical College, Kattankulathur",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2025,
   "round": 3,
   "course": "BDS",
@@ -21645,15 +20502,6 @@
   "closingRank": 3464
  },
  {
-  "collegeName": "ITS Centre for Dental Studies and Research, Ghaziabad",
-  "year": 2025,
-  "round": 1,
-  "course": "BDS",
-  "category": "General",
-  "quota": "Uttar Pradesh State Quota",
-  "closingRank": 601405
- },
- {
   "collegeName": "ITS Centre for Dental Studies and Research, Muradnagar, Ghaziabad",
   "year": 2025,
   "round": 1,
@@ -21672,7 +20520,7 @@
   "closingRank": 322304
  },
  {
-  "collegeName": "MS Ramaiah Medical College, Bangalore",
+  "collegeName": "M S Ramaiah Medical College, Bangalore",
   "year": 2025,
   "round": 1,
   "course": "BDS",
@@ -21933,7 +20781,7 @@
   "closingRank": 161029
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21942,7 +20790,7 @@
   "closingRank": 1733
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -21951,7 +20799,7 @@
   "closingRank": 1798
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21960,7 +20808,7 @@
   "closingRank": 2999
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21969,7 +20817,7 @@
   "closingRank": 2369
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21978,7 +20826,7 @@
   "closingRank": 19176
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -21987,7 +20835,7 @@
   "closingRank": 36036
  },
  {
-  "collegeName": "AIIMS Bathinda",
+  "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -23006,47 +21854,11 @@
  {
   "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1733
- },
- {
-  "collegeName": "All India Institute of Medical Sciences, Bathinda",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1798
- },
- {
-  "collegeName": "All India Institute of Medical Sciences, Bathinda",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2999
- },
- {
-  "collegeName": "All India Institute of Medical Sciences, Bathinda",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "EWS",
   "quota": "All India Quota (AIQ)",
   "closingRank": 3066
- },
- {
-  "collegeName": "All India Institute of Medical Sciences, Bathinda",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2369
  },
  {
   "collegeName": "All India Institute of Medical Sciences, Bathinda",
@@ -23069,38 +21881,11 @@
  {
   "collegeName": "All India Institute of Medical Sciences, Bathinda",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 19176
- },
- {
-  "collegeName": "All India Institute of Medical Sciences, Bathinda",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "SC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 19371
- },
- {
-  "collegeName": "All India Institute of Medical Sciences, Bathinda",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 36036
- },
- {
-  "collegeName": "All India Institute of Medical Sciences, Bathinda",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 42487
  },
  {
   "collegeName": "Amrita School of Medicine, Kochi",
@@ -24012,7 +22797,7 @@
   "closingRank": 95045
  },
  {
-  "collegeName": "BJ Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -24021,7 +22806,7 @@
   "closingRank": 2542
  },
  {
-  "collegeName": "BJ Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -24030,7 +22815,7 @@
   "closingRank": 3236
  },
  {
-  "collegeName": "BJ Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -24039,7 +22824,7 @@
   "closingRank": 10540
  },
  {
-  "collegeName": "BJ Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -24048,7 +22833,7 @@
   "closingRank": 9284
  },
  {
-  "collegeName": "BJ Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -24057,139 +22842,13 @@
   "closingRank": 76292
  },
  {
-  "collegeName": "BJ Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 105614
- },
- {
-  "collegeName": "BJ Medical College, Ahmedabad",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 889
- },
- {
-  "collegeName": "BJ Medical College, Ahmedabad",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3714
- },
- {
-  "collegeName": "BJ Medical College, Ahmedabad",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5015
- },
- {
-  "collegeName": "BJ Medical College, Ahmedabad",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 16367
- },
- {
-  "collegeName": "BJ Medical College, Ahmedabad",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 73018
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 7449
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 11925
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 11735
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 15603
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 9940
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 14510
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 74227
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 82357
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 96928
  },
  {
   "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
@@ -24199,6 +22858,78 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 7449
+ },
+ {
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "year": 2025,
+  "round": 2,
+  "course": "MBBS",
+  "category": "General",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 11925
+ },
+ {
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "year": 2025,
+  "round": 1,
+  "course": "MBBS",
+  "category": "EWS",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 11735
+ },
+ {
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "year": 2025,
+  "round": 2,
+  "course": "MBBS",
+  "category": "EWS",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 15603
+ },
+ {
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "year": 2025,
+  "round": 1,
+  "course": "MBBS",
+  "category": "OBC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 9940
+ },
+ {
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "year": 2025,
+  "round": 2,
+  "course": "MBBS",
+  "category": "OBC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 14510
+ },
+ {
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "year": 2025,
+  "round": 1,
+  "course": "MBBS",
+  "category": "SC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 74227
+ },
+ {
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "year": 2025,
+  "round": 2,
+  "course": "MBBS",
+  "category": "SC",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 82357
+ },
+ {
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "year": 2025,
+  "round": 1,
+  "course": "MBBS",
+  "category": "ST",
+  "quota": "All India Quota (AIQ)",
+  "closingRank": 96928
  },
  {
   "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
@@ -24212,29 +22943,11 @@
  {
   "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 11735
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
-  "year": 2025,
   "round": 3,
   "course": "MBBS",
   "category": "EWS",
   "quota": "All India Quota (AIQ)",
   "closingRank": 16980
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 9940
  },
  {
   "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
@@ -24248,29 +22961,11 @@
  {
   "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 74227
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
-  "year": 2025,
   "round": 3,
   "course": "MBBS",
   "category": "SC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 94209
- },
- {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 96928
  },
  {
   "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
@@ -24561,7 +23256,7 @@
   "closingRank": 37
  },
  {
-  "collegeName": "CMC Ludhiana",
+  "collegeName": "Christian Medical College, Ludhiana",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -25056,58 +23751,13 @@
   "closingRank": 66565
  },
  {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4511
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
+  "collegeName": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 19679
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 7344
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5370
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 52619
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 70469
  },
  {
   "collegeName": "Dr Radhakrishnan Government Medical College, Hamirpur",
@@ -25683,55 +24333,10 @@
   "course": "MBBS",
   "category": "General",
   "quota": "All India Quota (AIQ)",
-  "closingRank": 11469
- },
- {
-  "collegeName": "ESIC Medical College and Hospital, Chennai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 16768
- },
- {
-  "collegeName": "ESIC Medical College and Hospital, Chennai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13186
- },
- {
-  "collegeName": "ESIC Medical College and Hospital, Chennai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 91366
- },
- {
-  "collegeName": "ESIC Medical College and Hospital, Chennai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 99078
- },
- {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
   "closingRank": 15170
  },
  {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
+  "collegeName": "ESIC Medical College and Hospital, Chennai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -25740,7 +24345,7 @@
   "closingRank": 21240
  },
  {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
+  "collegeName": "ESIC Medical College and Hospital, Chennai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -25749,7 +24354,7 @@
   "closingRank": 17335
  },
  {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
+  "collegeName": "ESIC Medical College and Hospital, Chennai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -25758,7 +24363,7 @@
   "closingRank": 102421
  },
  {
-  "collegeName": "ESIC Medical College and PGIMSR, Chennai",
+  "collegeName": "ESIC Medical College and Hospital, Chennai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26433,7 +25038,7 @@
   "closingRank": 749358
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26442,7 +25047,7 @@
   "closingRank": 6757
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -26451,7 +25056,7 @@
   "closingRank": 26167
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26460,7 +25065,7 @@
   "closingRank": 11442
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26469,7 +25074,7 @@
   "closingRank": 9590
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26478,7 +25083,7 @@
   "closingRank": 57502
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26487,7 +25092,7 @@
   "closingRank": 96892
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26496,7 +25101,7 @@
   "closingRank": 5197
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26505,7 +25110,7 @@
   "closingRank": 10304
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26514,7 +25119,7 @@
   "closingRank": 9124
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26523,7 +25128,7 @@
   "closingRank": 12988
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26532,7 +25137,7 @@
   "closingRank": 9023
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26541,7 +25146,7 @@
   "closingRank": 13682
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26550,7 +25155,7 @@
   "closingRank": 52382
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26559,7 +25164,7 @@
   "closingRank": 89593
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26568,7 +25173,7 @@
   "closingRank": 84935
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26577,7 +25182,7 @@
   "closingRank": 115572
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26586,7 +25191,7 @@
   "closingRank": 4156
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -26595,7 +25200,7 @@
   "closingRank": 5627
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26604,7 +25209,7 @@
   "closingRank": 7097
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26613,7 +25218,7 @@
   "closingRank": 9925
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26622,7 +25227,7 @@
   "closingRank": 7803
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26631,7 +25236,7 @@
   "closingRank": 11510
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26640,7 +25245,7 @@
   "closingRank": 48687
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26649,7 +25254,7 @@
   "closingRank": 82842
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26658,7 +25263,7 @@
   "closingRank": 79799
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26667,7 +25272,7 @@
   "closingRank": 111933
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26676,7 +25281,7 @@
   "closingRank": 690
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26685,7 +25290,7 @@
   "closingRank": 1933
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26694,7 +25299,7 @@
   "closingRank": 2578
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -26703,7 +25308,7 @@
   "closingRank": 2976
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -26712,7 +25317,7 @@
   "closingRank": 3556
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26721,7 +25326,7 @@
   "closingRank": 14060
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -26730,7 +25335,7 @@
   "closingRank": 26373
  },
  {
-  "collegeName": "GMCH Chandigarh",
+  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -27180,78 +25785,6 @@
   "closingRank": 119660
  },
  {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 690
- },
- {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1933
- },
- {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2578
- },
- {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 2976
- },
- {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3556
- },
- {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 14060
- },
- {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 26373
- },
- {
-  "collegeName": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 46479
- },
- {
   "collegeName": "Government Medical College and Associated Hospital, Rajouri",
   "year": 2025,
   "round": 1,
@@ -27398,38 +25931,11 @@
  {
   "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5197
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 9120
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 10304
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 9124
  },
  {
   "collegeName": "Government Medical College, Amritsar",
@@ -27443,47 +25949,11 @@
  {
   "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 12988
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 9023
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "OBC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 12607
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 13682
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 52382
  },
  {
   "collegeName": "Government Medical College, Amritsar",
@@ -27497,38 +25967,11 @@
  {
   "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 89593
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 84935
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 104956
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 115572
  },
  {
   "collegeName": "Government Medical College, Anantapur",
@@ -29855,38 +28298,11 @@
  {
   "collegeName": "Government Medical College, Patiala",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4156
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5627
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
   "round": 3,
   "course": "MBBS",
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 393
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 7097
  },
  {
   "collegeName": "Government Medical College, Patiala",
@@ -29900,47 +28316,11 @@
  {
   "collegeName": "Government Medical College, Patiala",
   "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 9925
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 7803
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "OBC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 10903
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 11510
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 48687
  },
  {
   "collegeName": "Government Medical College, Patiala",
@@ -29954,38 +28334,11 @@
  {
   "collegeName": "Government Medical College, Patiala",
   "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 82842
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 79799
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "ST",
   "quota": "All India Quota (AIQ)",
   "closingRank": 96864
- },
- {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 111933
  },
  {
   "collegeName": "Government Medical College, Ramagundam",
@@ -30789,7 +29142,7 @@
   "closingRank": 116504
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -30798,7 +29151,7 @@
   "closingRank": 5527
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -30807,7 +29160,7 @@
   "closingRank": 12754
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -30816,7 +29169,7 @@
   "closingRank": 28311
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -30825,7 +29178,7 @@
   "closingRank": 13994
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -30834,7 +29187,7 @@
   "closingRank": 108362
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -31464,7 +29817,7 @@
   "closingRank": 157282
  },
  {
-  "collegeName": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -31473,7 +29826,7 @@
   "closingRank": 2368
  },
  {
-  "collegeName": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -31482,7 +29835,7 @@
   "closingRank": 4354
  },
  {
-  "collegeName": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -31491,7 +29844,7 @@
   "closingRank": 6251
  },
  {
-  "collegeName": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -31500,7 +29853,7 @@
   "closingRank": 10798
  },
  {
-  "collegeName": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -31509,7 +29862,7 @@
   "closingRank": 7262
  },
  {
-  "collegeName": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -31518,7 +29871,7 @@
   "closingRank": 8758
  },
  {
-  "collegeName": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -31527,7 +29880,7 @@
   "closingRank": 30715
  },
  {
-  "collegeName": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "collegeName": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -31727,15 +30080,6 @@
  {
   "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 6757
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "General",
@@ -31750,15 +30094,6 @@
   "category": "General",
   "quota": "All India Quota (AIQ)",
   "closingRank": 14394
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 11442
  },
  {
   "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
@@ -31781,15 +30116,6 @@
  {
   "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 9590
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "OBC",
@@ -31808,15 +30134,6 @@
  {
   "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 57502
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "SC",
@@ -31831,15 +30148,6 @@
   "category": "SC",
   "quota": "All India Quota (AIQ)",
   "closingRank": 102180
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 96892
  },
  {
   "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
@@ -35550,7 +33858,7 @@
   "closingRank": 91685
  },
  {
-  "collegeName": "Pandit Neki Ram Sharma Government Medical College, Bhiwani",
+  "collegeName": "Pt. Neki Ram Sharma Government Medical College, Bhiwani",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35748,7 +34056,7 @@
   "closingRank": 64330
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35757,7 +34065,7 @@
   "closingRank": 3756
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -35766,7 +34074,7 @@
   "closingRank": 5139
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -35775,7 +34083,7 @@
   "closingRank": 7588
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35784,7 +34092,7 @@
   "closingRank": 5562
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35793,7 +34101,7 @@
   "closingRank": 4592
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -35802,7 +34110,7 @@
   "closingRank": 8553
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -35811,7 +34119,7 @@
   "closingRank": 9920
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35820,7 +34128,7 @@
   "closingRank": 35791
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -35829,7 +34137,7 @@
   "closingRank": 39290
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35838,7 +34146,7 @@
   "closingRank": 70969
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -35847,88 +34155,7 @@
   "closingRank": 103116
  },
  {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 3756
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5139
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "EWS",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 5562
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 4592
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 8553
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 35791
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 39290
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 70969
- },
- {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "ST",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 103116
- },
- {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35937,7 +34164,7 @@
   "closingRank": 3890
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -35946,7 +34173,7 @@
   "closingRank": 5912
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35955,7 +34182,7 @@
   "closingRank": 5007
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -35964,7 +34191,7 @@
   "closingRank": 7838
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35973,7 +34200,7 @@
   "closingRank": 4208
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -35982,7 +34209,7 @@
   "closingRank": 6323
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -35991,7 +34218,7 @@
   "closingRank": 33922
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -36000,7 +34227,7 @@
   "closingRank": 55811
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -36009,7 +34236,7 @@
   "closingRank": 45589
  },
  {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -36432,7 +34659,7 @@
   "closingRank": 24310
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -36441,7 +34668,7 @@
   "closingRank": 7601
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -36450,7 +34677,7 @@
   "closingRank": 16387
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -36459,7 +34686,7 @@
   "closingRank": 20306
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -36468,7 +34695,7 @@
   "closingRank": 11432
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -36477,7 +34704,7 @@
   "closingRank": 22309
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -36486,7 +34713,7 @@
   "closingRank": 25710
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -36495,7 +34722,7 @@
   "closingRank": 9686
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -36504,7 +34731,7 @@
   "closingRank": 20509
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -36513,7 +34740,7 @@
   "closingRank": 21840
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -36522,7 +34749,7 @@
   "closingRank": 47357
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -36531,7 +34758,7 @@
   "closingRank": 90601
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -36540,7 +34767,7 @@
   "closingRank": 95122
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -36549,7 +34776,7 @@
   "closingRank": 101082
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -36558,7 +34785,7 @@
   "closingRank": 128302
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -36747,22 +34974,13 @@
   "closingRank": 45516
  },
  {
-  "collegeName": "Saheed Rendo Majhi Medical College and Hospital (GMC Bhawanipatna), Kalahandi",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 25048
- },
- {
   "collegeName": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "All India Quota (AIQ)",
-  "closingRank": 18070
+  "closingRank": 25048
  },
  {
   "collegeName": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
@@ -37152,7 +35370,7 @@
   "closingRank": 117136
  },
  {
-  "collegeName": "Seth GS Medical College Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37161,7 +35379,7 @@
   "closingRank": 868
  },
  {
-  "collegeName": "Seth GS Medical College Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -37170,7 +35388,7 @@
   "closingRank": 1126
  },
  {
-  "collegeName": "Seth GS Medical College Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -37179,7 +35397,7 @@
   "closingRank": 5545
  },
  {
-  "collegeName": "Seth GS Medical College Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -37188,7 +35406,7 @@
   "closingRank": 3703
  },
  {
-  "collegeName": "Seth GS Medical College Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -37197,7 +35415,7 @@
   "closingRank": 18686
  },
  {
-  "collegeName": "Seth GS Medical College Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -37710,7 +35928,7 @@
   "closingRank": 79495
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37719,7 +35937,7 @@
   "closingRank": 6652
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37728,7 +35946,7 @@
   "closingRank": 9037
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37737,7 +35955,7 @@
   "closingRank": 7208
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -37746,7 +35964,7 @@
   "closingRank": 45199
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -38151,16 +36369,7 @@
   "closingRank": 144424
  },
  {
-  "collegeName": "SMS Medical College, Jaipur",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "All India Quota (AIQ)",
-  "closingRank": 1174
- },
- {
-  "collegeName": "SMS Medical College, Jaipur",
+  "collegeName": "Sawai Man Singh Medical College, Jaipur",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -38169,7 +36378,7 @@
   "closingRank": 2531
  },
  {
-  "collegeName": "SMS Medical College, Jaipur",
+  "collegeName": "Sawai Man Singh Medical College, Jaipur",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -38178,7 +36387,7 @@
   "closingRank": 1168
  },
  {
-  "collegeName": "SMS Medical College, Jaipur",
+  "collegeName": "Sawai Man Singh Medical College, Jaipur",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -38187,7 +36396,7 @@
   "closingRank": 1497
  },
  {
-  "collegeName": "SMS Medical College, Jaipur",
+  "collegeName": "Sawai Man Singh Medical College, Jaipur",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -38196,7 +36405,7 @@
   "closingRank": 32890
  },
  {
-  "collegeName": "SMS Medical College, Jaipur",
+  "collegeName": "Sawai Man Singh Medical College, Jaipur",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -39969,25 +38178,25 @@
   "closingRank": 890260
  },
  {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
+  "collegeName": "Bharati Vidyapeeth Medical College, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 374028
+  "closingRank": 1277668
  },
  {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
+  "collegeName": "Bharati Vidyapeeth Medical College, Pune",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 510405
+  "closingRank": 1277668
  },
  {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
+  "collegeName": "Bharati Vidyapeeth Medical College, Pune",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -39996,7 +38205,7 @@
   "closingRank": 606370
  },
  {
-  "collegeName": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
+  "collegeName": "Bharati Vidyapeeth Medical College, Pune",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -40023,49 +38232,13 @@
   "closingRank": 552224
  },
  {
-  "collegeName": "Bharati Vidyapeeth Medical College, Pune",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1277668
- },
- {
-  "collegeName": "Bharati Vidyapeeth Medical College, Pune",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1277668
- },
- {
-  "collegeName": "Bharati Vidyapeeth Medical College, Pune",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 606370
- },
- {
-  "collegeName": "Bharati Vidyapeeth Medical College, Pune",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 716192
- },
- {
   "collegeName": "BLDE (Deemed to be University) - Shri B M Patil Medical College, Vijayapura",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 1163222
+  "closingRank": 1259151
  },
  {
   "collegeName": "BLDE (Deemed to be University) - Shri B M Patil Medical College, Vijayapura",
@@ -40095,78 +38268,6 @@
   "closingRank": 936689
  },
  {
-  "collegeName": "BLDE (Shri B M Patil Medical College), Vijayapura",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 207742
- },
- {
-  "collegeName": "BLDE (Shri B M Patil Medical College), Vijayapura",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 267057
- },
- {
-  "collegeName": "BLDE (Shri B M Patil Medical College), Vijayapura",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 302710
- },
- {
-  "collegeName": "BLDE University Shri B M Patil Medical College, Bijapur",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1259151
- },
- {
-  "collegeName": "BLDE University Shri B M Patil Medical College, Bijapur",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 267057
- },
- {
-  "collegeName": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 600008
- },
- {
-  "collegeName": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 703700
- },
- {
-  "collegeName": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 768688
- },
- {
   "collegeName": "Chettinad Hospital & Research Institute, Kanchipuram",
   "year": 2025,
   "round": 1,
@@ -40185,43 +38286,7 @@
   "closingRank": 703700
  },
  {
-  "collegeName": "Chettinad Hospital and Research Institute, Kancheepuram",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 600008
- },
- {
-  "collegeName": "Chettinad Hospital and Research Institute, Kancheepuram",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 768688
- },
- {
-  "collegeName": "Chettinad Hospital and Research Institute, Kelambakkam",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 600008
- },
- {
-  "collegeName": "Chettinad Hospital and Research Institute, Kelambakkam",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 703700
- },
- {
-  "collegeName": "Chettinad Hospital and Research Institute, Kelambakkam",
+  "collegeName": "Chettinad Hospital & Research Institute, Kanchipuram",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -40272,7 +38337,7 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 1100237
+  "closingRank": 1272098
  },
  {
   "collegeName": "Dr D Y Patil Medical College, Kolhapur",
@@ -40302,70 +38367,7 @@
   "closingRank": 325260
  },
  {
-  "collegeName": "Dr D Y Patil Medical College, Kolhapur — Management/Paid seats",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1272098
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Kolhapur — Management/Paid seats",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 397433
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Kolhapur — Management/Paid seats",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 554134
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Kolhapur — Management/Paid seats",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 325260
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Kolhapur — NRI seats",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1100237
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Kolhapur — NRI seats",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1045281
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Kolhapur — NRI seats",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1272098
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai",
+  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -40374,7 +38376,7 @@
   "closingRank": 1241642
  },
  {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai",
+  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -40383,7 +38385,7 @@
   "closingRank": 1065885
  },
  {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai",
+  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -40392,94 +38394,13 @@
   "closingRank": 878609
  },
  {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai",
+  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 548164
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 224399
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 457967
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 535775
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 548164
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — NRI seats",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1241642
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — NRI seats",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1065885
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Navi Mumbai — NRI seats",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 878609
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Nerul, Navi Mumbai",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1241642
- },
- {
-  "collegeName": "Dr D Y Patil Medical College, Nerul, Navi Mumbai",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 457967
  },
  {
   "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
@@ -40497,64 +38418,10 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 439258
- },
- {
-  "collegeName": "Dr DY Patil Education Society Deemed University, Kolhapur",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 324266
- },
- {
-  "collegeName": "Dr DY Patil Education Society Deemed University, Kolhapur",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 397433
- },
- {
-  "collegeName": "Dr DY Patil Education Society Deemed University, Kolhapur",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 554134
- },
- {
-  "collegeName": "Dr DY Patil Education Society Deemed University, Kolhapur",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 325260
- },
- {
-  "collegeName": "Dr. D Y Patil Medical College, Pune",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 875578
- },
- {
-  "collegeName": "Dr. D Y Patil Medical College, Pune",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
   "closingRank": 1095766
  },
  {
-  "collegeName": "Dr. D Y Patil Medical College, Pune",
+  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -40563,7 +38430,7 @@
   "closingRank": 525844
  },
  {
-  "collegeName": "Dr. D Y Patil Medical College, Pune",
+  "collegeName": "Dr D Y Patil Medical College, Pimpri, Pune",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -40716,7 +38583,7 @@
   "closingRank": 1097578
  },
  {
-  "collegeName": "J N Medical College, KLE Academy of Higher Education, Belagavi",
+  "collegeName": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -40725,7 +38592,7 @@
   "closingRank": 1210774
  },
  {
-  "collegeName": "J N Medical College, KLE Academy of Higher Education, Belagavi",
+  "collegeName": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -40779,7 +38646,7 @@
   "closingRank": 185270
  },
  {
-  "collegeName": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
+  "collegeName": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -40788,7 +38655,7 @@
   "closingRank": 416757
  },
  {
-  "collegeName": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
+  "collegeName": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -40797,7 +38664,7 @@
   "closingRank": 493710
  },
  {
-  "collegeName": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
+  "collegeName": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -40806,7 +38673,7 @@
   "closingRank": 596063
  },
  {
-  "collegeName": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
+  "collegeName": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -40816,33 +38683,6 @@
  },
  {
   "collegeName": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 165197
- },
- {
-  "collegeName": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 196759
- },
- {
-  "collegeName": "JN Medical College (KLE), Belgaum",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 165197
- },
- {
-  "collegeName": "JN Medical College (KLE), Belgaum",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -40876,33 +38716,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 1044482
- },
- {
-  "collegeName": "JSS Medical College, Mysuru",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 117000
- },
- {
-  "collegeName": "JSS Medical College, Mysuru",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 163330
- },
- {
-  "collegeName": "JSS Medical College, Mysuru",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 167972
  },
  {
   "collegeName": "K S Hegde Medical Academy (KSHEMA/Nitte), Mangalore",
@@ -41067,42 +38880,6 @@
   "closingRank": 300127
  },
  {
-  "collegeName": "KS Hegde Medical Academy (Nitte), Mangalore",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 105741
- },
- {
-  "collegeName": "KS Hegde Medical Academy (Nitte), Mangalore",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 135252
- },
- {
-  "collegeName": "KS Hegde Medical Academy (Nitte), Mangalore",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 137517
- },
- {
-  "collegeName": "KS Hegde Medical Academy (Nitte), Mangalore",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 139006
- },
- {
   "collegeName": "LN Medical College, Bhopal",
   "year": 2025,
   "round": 1,
@@ -41110,24 +38887,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 921850
- },
- {
-  "collegeName": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1084838
- },
- {
-  "collegeName": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 476344
  },
  {
   "collegeName": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana, Ambala",
@@ -41247,34 +39006,7 @@
   "closingRank": 708126
  },
  {
-  "collegeName": "MGM Medical College and Hospital, Navi Mumbai — Management/Paid seats",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 224399
- },
- {
-  "collegeName": "MGM Medical College and Hospital, Navi Mumbai — Management/Paid seats",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 184377
- },
- {
-  "collegeName": "MGM Medical College and Hospital, Navi Mumbai — Management/Paid seats",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 317051
- },
- {
-  "collegeName": "MGM Medical College and Hospital, Navi Mumbai — NRI seats",
+  "collegeName": "MGM Medical College, Navi Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -41283,7 +39015,7 @@
   "closingRank": 1078205
  },
  {
-  "collegeName": "MGM Medical College and Hospital, Navi Mumbai — NRI seats",
+  "collegeName": "MGM Medical College, Navi Mumbai",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -41292,13 +39024,22 @@
   "closingRank": 1013100
  },
  {
+  "collegeName": "MGM Medical College, Navi Mumbai",
+  "year": 2025,
+  "round": 3,
+  "course": "MBBS",
+  "category": "General",
+  "quota": "Deemed Quota",
+  "closingRank": 317051
+ },
+ {
   "collegeName": "MGM Medical College, Aurangabad — Management/Paid seats",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 208996
+  "closingRank": 1095728
  },
  {
   "collegeName": "MGM Medical College, Aurangabad — Management/Paid seats",
@@ -41307,7 +39048,7 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 277135
+  "closingRank": 631193
  },
  {
   "collegeName": "MGM Medical College, Aurangabad — Management/Paid seats",
@@ -41316,7 +39057,7 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 297942
+  "closingRank": 459446
  },
  {
   "collegeName": "MGM Medical College, Aurangabad — Management/Paid seats",
@@ -41328,61 +39069,7 @@
   "closingRank": 89745
  },
  {
-  "collegeName": "MGM Medical College, Aurangabad — NRI seats",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1095728
- },
- {
-  "collegeName": "MGM Medical College, Aurangabad — NRI seats",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 631193
- },
- {
-  "collegeName": "MGM Medical College, Aurangabad — NRI seats",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 459446
- },
- {
-  "collegeName": "MGM Medical College, Navi Mumbai",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 160536
- },
- {
-  "collegeName": "MGM Medical College, Navi Mumbai",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 184377
- },
- {
-  "collegeName": "MGM Medical College, Navi Mumbai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 191102
- },
- {
-  "collegeName": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
+  "collegeName": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana, Ambala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -41391,25 +39078,7 @@
   "closingRank": 276229
  },
  {
-  "collegeName": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1084838
- },
- {
-  "collegeName": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 476344
- },
- {
-  "collegeName": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
+  "collegeName": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana, Ambala",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -41425,42 +39094,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 1239436
- },
- {
-  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 419526
- },
- {
-  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 457967
- },
- {
-  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 535775
- },
- {
-  "collegeName": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 548164
  },
  {
   "collegeName": "Peoples College of Medical Science, Bhopal",
@@ -41523,7 +39156,7 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 124946
+  "closingRank": 1295576
  },
  {
   "collegeName": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — Management/Paid seats",
@@ -41532,7 +39165,7 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 138242
+  "closingRank": 890346
  },
  {
   "collegeName": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — Management/Paid seats",
@@ -41542,24 +39175,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 139826
- },
- {
-  "collegeName": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — NRI seats",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 1295576
- },
- {
-  "collegeName": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — NRI seats",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 890346
  },
  {
   "collegeName": "Santosh Medical College, Ghaziabad",
@@ -41643,42 +39258,6 @@
   "closingRank": 729250
  },
  {
-  "collegeName": "Saveetha Medical College, Chennai",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 432358
- },
- {
-  "collegeName": "Saveetha Medical College, Chennai",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 525685
- },
- {
-  "collegeName": "Saveetha Medical College, Chennai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 510694
- },
- {
-  "collegeName": "Saveetha Medical College, Chennai",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 729250
- },
- {
   "collegeName": "SGT Medical College, Gurugram",
   "year": 2025,
   "round": 1,
@@ -41688,34 +39267,7 @@
   "closingRank": 218090
  },
  {
-  "collegeName": "Shri B M Patil Medical College (BLDE), Vijayapura",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 207742
- },
- {
-  "collegeName": "Shri B M Patil Medical College (BLDE), Vijayapura",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 267057
- },
- {
-  "collegeName": "Shri B M Patil Medical College (BLDE), Vijayapura",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 302710
- },
- {
-  "collegeName": "Shri Sathya Sai Medical College and Research Institute, Chennai",
+  "collegeName": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -41740,15 +39292,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 724488
- },
- {
-  "collegeName": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 811496
  },
  {
   "collegeName": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram",
@@ -41895,27 +39438,18 @@
   "closingRank": 880528
  },
  {
-  "collegeName": "SRM Medical College and Hospital, Chennai",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
-  "closingRank": 496509
- },
- {
-  "collegeName": "SRM Medical College and Hospital, Chennai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 704056
+  "closingRank": 902651
  },
  {
   "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2025,
-  "round": 1,
+  "round": 3,
   "course": "MBBS",
   "category": "General",
   "quota": "Deemed Quota",
@@ -41931,34 +39465,7 @@
   "closingRank": 611782
  },
  {
-  "collegeName": "SRM Medical College, Kattankulathur",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 496509
- },
- {
-  "collegeName": "SRM Medical College, Kattankulathur",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 611782
- },
- {
-  "collegeName": "SRM Medical College, Kattankulathur",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 902651
- },
- {
-  "collegeName": "SRM Medical College, Kattankulathur",
+  "collegeName": "SRM Medical College Hospital & Research Centre, Kanchipuram",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -41994,24 +39501,6 @@
   "closingRank": 42465
  },
  {
-  "collegeName": "Vels Medical College and Hospital, Chennai",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 424512
- },
- {
-  "collegeName": "Vels Medical College and Hospital, Chennai",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 610538
- },
- {
   "collegeName": "VELS Medical College and Hospital, Tiruvallur",
   "year": 2025,
   "round": 1,
@@ -42019,6 +39508,15 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 424512
+ },
+ {
+  "collegeName": "VELS Medical College and Hospital, Tiruvallur",
+  "year": 2025,
+  "round": 3,
+  "course": "MBBS",
+  "category": "General",
+  "quota": "Deemed Quota",
+  "closingRank": 610538
  },
  {
   "collegeName": "VELS Medical College and Hospital, Tiruvallur",
@@ -42032,15 +39530,6 @@
  {
   "collegeName": "VELS Medical College and Hospital, Tiruvallur",
   "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 610538
- },
- {
-  "collegeName": "VELS Medical College and Hospital, Tiruvallur",
-  "year": 2025,
   "round": 4,
   "course": "MBBS",
   "category": "General",
@@ -42048,7 +39537,7 @@
   "closingRank": 1284136
  },
  {
-  "collegeName": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -42057,7 +39546,7 @@
   "closingRank": 549662
  },
  {
-  "collegeName": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
   "year": 2025,
   "round": 2,
   "course": "MBBS",
@@ -42066,7 +39555,7 @@
   "closingRank": 636297
  },
  {
-  "collegeName": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -42075,7 +39564,7 @@
   "closingRank": 656654
  },
  {
-  "collegeName": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -42120,42 +39609,6 @@
   "closingRank": 733018
  },
  {
-  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 549662
- },
- {
-  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 636297
- },
- {
-  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 656654
- },
- {
-  "collegeName": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
-  "year": 2025,
-  "round": 4,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 735083
- },
- {
   "collegeName": "Vinayaka Missions Medical College, Karaikal",
   "year": 2025,
   "round": 1,
@@ -42190,24 +39643,6 @@
   "category": "General",
   "quota": "Deemed Quota",
   "closingRank": 733018
- },
- {
-  "collegeName": "VMKV Medical College and Hospital, Salem",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 549662
- },
- {
-  "collegeName": "VMKV Medical College and Hospital, Salem",
-  "year": 2025,
-  "round": 3,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Deemed Quota",
-  "closingRank": 656654
  },
  {
   "collegeName": "Yenepoya Medical College, Mangalore",
@@ -43110,7 +40545,7 @@
   "closingRank": 71558
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -43119,7 +40554,7 @@
   "closingRank": 15409
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -43128,7 +40563,7 @@
   "closingRank": 16266
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -43137,7 +40572,7 @@
   "closingRank": 19198
  },
  {
-  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "collegeName": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -43170,19 +40605,10 @@
   "course": "MBBS",
   "category": "General",
   "quota": "Maharashtra State Quota",
-  "closingRank": 3164
- },
- {
-  "collegeName": "Byramjee Jeejeebhoy Government Medical College, Pune",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Maharashtra State Quota",
   "closingRank": 7737
  },
  {
-  "collegeName": "Byramjee Jeejeebhoy Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -43191,7 +40617,7 @@
   "closingRank": 6421
  },
  {
-  "collegeName": "Byramjee Jeejeebhoy Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -43200,7 +40626,7 @@
   "closingRank": 7816
  },
  {
-  "collegeName": "Byramjee Jeejeebhoy Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -43209,7 +40635,7 @@
   "closingRank": 77259
  },
  {
-  "collegeName": "Byramjee Jeejeebhoy Government Medical College, Pune",
+  "collegeName": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -43405,15 +40831,6 @@
   "category": "General",
   "quota": "Tamil Nadu State Quota",
   "closingRank": 288
- },
- {
-  "collegeName": "CMC Ludhiana",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 29705
  },
  {
   "collegeName": "CMR Institute of Medical Sciences, Medchal, Hyderabad",
@@ -43632,16 +41049,7 @@
   "closingRank": 31037
  },
  {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 19662
- },
- {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
+  "collegeName": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -43650,7 +41058,7 @@
   "closingRank": 35470
  },
  {
-  "collegeName": "Dr BR Ambedkar SIMS, Mohali",
+  "collegeName": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44631,7 +42039,7 @@
   "closingRank": 749358
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44640,7 +42048,7 @@
   "closingRank": 21834
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -44649,7 +42057,7 @@
   "closingRank": 47531
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44658,7 +42066,7 @@
   "closingRank": 46315
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44667,7 +42075,7 @@
   "closingRank": 199708
  },
  {
-  "collegeName": "GGS Faridkot",
+  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -44676,7 +42084,7 @@
   "closingRank": 225221
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44685,7 +42093,7 @@
   "closingRank": 20404
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -44694,7 +42102,7 @@
   "closingRank": 37245
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44703,7 +42111,7 @@
   "closingRank": 45030
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44712,7 +42120,7 @@
   "closingRank": 177894
  },
  {
-  "collegeName": "GMC Amritsar",
+  "collegeName": "Government Medical College, Amritsar",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -44721,7 +42129,7 @@
   "closingRank": 190041
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44730,7 +42138,7 @@
   "closingRank": 9801
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -44739,7 +42147,7 @@
   "closingRank": 17605
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44748,7 +42156,7 @@
   "closingRank": 24807
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -44757,7 +42165,7 @@
   "closingRank": 33930
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -44766,7 +42174,7 @@
   "closingRank": 144058
  },
  {
-  "collegeName": "GMC Patiala",
+  "collegeName": "Government Medical College, Patiala",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -45637,15 +43045,6 @@
   "category": "General",
   "quota": "Maharashtra State Quota",
   "closingRank": 33466
- },
- {
-  "collegeName": "Government Medical College, Amritsar",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 20404
  },
  {
   "collegeName": "Government Medical College, Anantapur",
@@ -47223,15 +44622,6 @@
   "closingRank": 37122
  },
  {
-  "collegeName": "Government Medical College, Patiala",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 9801
- },
- {
   "collegeName": "Government Medical College, Purnea (GMC Purnea)",
   "year": 2025,
   "round": 2,
@@ -47664,7 +45054,7 @@
   "closingRank": 17277
  },
  {
-  "collegeName": "Government Medical College, Tirunelveli",
+  "collegeName": "Tirunelveli Medical College, Tirunelveli",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -48031,15 +45421,6 @@
   "category": "General",
   "quota": "Andhra Pradesh State Quota",
   "closingRank": 11987
- },
- {
-  "collegeName": "Guru Gobind Singh Medical College & Hospital, Faridkot",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 21834
  },
  {
   "collegeName": "HBT Medical College and Dr RN Cooper Municipal Medical College, Mumbai",
@@ -49113,7 +46494,7 @@
   "closingRank": 479953
  },
  {
-  "collegeName": "Lokmanya Tilak Municipal Medical College, Mumbai",
+  "collegeName": "Lokmanya Tilak Municipal Medical College (LTMMC), Sion, Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -49671,25 +47052,7 @@
   "closingRank": 8635
  },
  {
-  "collegeName": "MS Ramaiah Medical College, Bangalore",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Karnataka State Quota",
-  "closingRank": 6905
- },
- {
-  "collegeName": "MS Ramaiah Medical College, Bangalore",
-  "year": 2025,
-  "round": 2,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Karnataka State Quota",
-  "closingRank": 11776
- },
- {
-  "collegeName": "MS Ramaiah Medical College, Bangalore",
+  "collegeName": "M S Ramaiah Medical College, Bangalore",
   "year": 2025,
   "round": 4,
   "course": "MBBS",
@@ -49869,7 +47232,7 @@
   "closingRank": 457163
  },
  {
-  "collegeName": "NC Medical College & Hospital, Israna (Panipat)",
+  "collegeName": "N.C. Medical College & Hospital, Israna, Panipat",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -49878,7 +47241,7 @@
   "closingRank": 467495
  },
  {
-  "collegeName": "NC Medical College & Hospital, Israna (Panipat)",
+  "collegeName": "N.C. Medical College & Hospital, Israna, Panipat",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -49887,7 +47250,7 @@
   "closingRank": 746086
  },
  {
-  "collegeName": "NC Medical College & Hospital, Israna (Panipat)",
+  "collegeName": "N.C. Medical College & Hospital, Israna, Panipat",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -49896,7 +47259,7 @@
   "closingRank": 836039
  },
  {
-  "collegeName": "NC Medical College & Hospital, Israna, Panipat",
+  "collegeName": "N.C. Medical College & Hospital, Israna, Panipat",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -50247,7 +47610,7 @@
   "closingRank": 9251
  },
  {
-  "collegeName": "Pandit Neki Ram Sharma Government Medical College, Bhiwani",
+  "collegeName": "Pt. Neki Ram Sharma Government Medical College, Bhiwani",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -50427,7 +47790,7 @@
   "closingRank": 75576
  },
  {
-  "collegeName": "PIMS Jalandhar",
+  "collegeName": "Punjab Institute of Medical Sciences, Jalandhar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -50553,7 +47916,7 @@
   "closingRank": 138714
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -50562,7 +47925,7 @@
   "closingRank": 6115
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -50571,7 +47934,7 @@
   "closingRank": 9863
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -50580,7 +47943,7 @@
   "closingRank": 12090
  },
  {
-  "collegeName": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -50589,7 +47952,7 @@
   "closingRank": 90026
  },
  {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -50598,7 +47961,7 @@
   "closingRank": 8821
  },
  {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -50607,7 +47970,7 @@
   "closingRank": 10529
  },
  {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -50616,7 +47979,7 @@
   "closingRank": 13317
  },
  {
-  "collegeName": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
+  "collegeName": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -50661,16 +48024,7 @@
   "closingRank": 159460
  },
  {
-  "collegeName": "Punjab Institute of Medical Sciences, Jalandhar",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 33545
- },
- {
-  "collegeName": "Rabindra Nath Tagore Medical College, Udaipur",
+  "collegeName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -50931,7 +48285,7 @@
   "closingRank": 187338
  },
  {
-  "collegeName": "Ranga Raya Medical College, Kakinada",
+  "collegeName": "Rangaraya Medical College, Kakinada",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51111,7 +48465,7 @@
   "closingRank": 24206
  },
  {
-  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51120,7 +48474,7 @@
   "closingRank": 1010
  },
  {
-  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51129,7 +48483,7 @@
   "closingRank": 27899
  },
  {
-  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51138,7 +48492,7 @@
   "closingRank": 3890
  },
  {
-  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51147,7 +48501,7 @@
   "closingRank": 21513
  },
  {
-  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+  "collegeName": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51156,16 +48510,16 @@
   "closingRank": 66447
  },
  {
-  "collegeName": "SGRD Amritsar",
+  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Punjab State Quota",
-  "closingRank": 147775
+  "closingRank": 160702
  },
  {
-  "collegeName": "SGRD Amritsar",
+  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51174,7 +48528,7 @@
   "closingRank": 115430
  },
  {
-  "collegeName": "SGRD Amritsar",
+  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51183,7 +48537,7 @@
   "closingRank": 388666
  },
  {
-  "collegeName": "SGT University Faculty of Medicine & Health Sciences, Gurugram",
+  "collegeName": "SGT Medical College, Gurugram",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -51192,7 +48546,7 @@
   "closingRank": 522019
  },
  {
-  "collegeName": "SGT University Faculty of Medicine & Health Sciences, Gurugram",
+  "collegeName": "SGT Medical College, Gurugram",
   "year": 2025,
   "round": 3,
   "course": "MBBS",
@@ -51390,7 +48744,7 @@
   "closingRank": 7485
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51399,7 +48753,7 @@
   "closingRank": 42091
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51408,7 +48762,7 @@
   "closingRank": 64460
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51417,7 +48771,7 @@
   "closingRank": 46140
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51426,7 +48780,7 @@
   "closingRank": 100697
  },
  {
-  "collegeName": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "collegeName": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
@@ -51759,22 +49113,13 @@
   "closingRank": 15708
  },
  {
-  "collegeName": "Sree Mookambika Institute / Kanyakumari Medical Mission Research Centre, Kulasekharam",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Tamil Nadu State Quota",
-  "closingRank": 6048
- },
- {
   "collegeName": "Sree Mookambika Institute of Medical Sciences, Kulasekharam",
   "year": 2025,
   "round": 1,
   "course": "MBBS",
   "category": "General",
   "quota": "Tamil Nadu State Quota",
-  "closingRank": 3582
+  "closingRank": 6048
  },
  {
   "collegeName": "Sree Uthradom Thirunal Academy of Medical Sciences, Vencode",
@@ -51797,15 +49142,6 @@
  {
   "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "General",
-  "quota": "Punjab State Quota",
-  "closingRank": 160702
- },
- {
-  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "General",
@@ -51824,15 +49160,6 @@
  {
   "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
   "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "OBC",
-  "quota": "Punjab State Quota",
-  "closingRank": 115430
- },
- {
-  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
-  "year": 2025,
   "round": 2,
   "course": "MBBS",
   "category": "OBC",
@@ -51847,15 +49174,6 @@
   "category": "OBC",
   "quota": "Punjab State Quota",
   "closingRank": 138632
- },
- {
-  "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
-  "year": 2025,
-  "round": 1,
-  "course": "MBBS",
-  "category": "SC",
-  "quota": "Punjab State Quota",
-  "closingRank": 388666
  },
  {
   "collegeName": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
@@ -52263,7 +49581,7 @@
   "closingRank": 627920
  },
  {
-  "collegeName": "Terna Medical College, Navi Mumbai",
+  "collegeName": "Terna Medical College, Nerul, Navi Mumbai",
   "year": 2025,
   "round": 1,
   "course": "MBBS",

@@ -178,11 +178,10 @@
       "state": "West Bengal",
       "city": "Kolkata",
       "type": "Government",
-      "established": 1835,
       "totalSeats": 250,
       "affiliation": "West Bengal University of Health Sciences,Kolkata",
       "website": "http://www.medicalcollegekolkata.org",
-      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31) for type/city/seats/affiliation/website. established=1835 from https://en.wikipedia.org/wiki/Medical_College_%26_Hospital,_Kolkata and the college's own history page https://www.medicalcollegekolkata.in/main/page/about_us (founded 28 Jan 1835 as Medical College Bengal); the NMC row's yearOfInc of 1838 contradicts both, so the college's own date was used."
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31) for type/city/seats/affiliation/website. established omitted: the reconciler's 1835 contradicts the NMC registry's yearOfInc of 1838, and the registry is authoritative here — left unset rather than guessed."
     },
     {
       "name": "Murshidabad Medical College, Murshidabad",

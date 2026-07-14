@@ -87,28 +87,6 @@
       "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
     },
     {
-      "name": "NIMS University, Jaipur",
-      "state": "Rajasthan",
-      "city": "Jaipur",
-      "type": "Deemed",
-      "established": 2004,
-      "totalSeats": 250,
-      "affiliation": "NIMS University (Deemed), Jaipur",
-      "website": "http://www.nimsuniversity.org",
-      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
-    },
-    {
-      "name": "Jaipur National University Institute for Medical Sciences and Research Centre, Jaipur",
-      "state": "Rajasthan",
-      "city": "Jaipur",
-      "type": "Private",
-      "established": 2016,
-      "totalSeats": 150,
-      "affiliation": "Jaipur National University (Private Univ.)",
-      "website": "http://www.jnujaipur.ac.in",
-      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
-    },
-    {
       "name": "Pandit Deendayal Upadhyaya Medical College, Churu",
       "state": "Rajasthan",
       "city": "Churu",

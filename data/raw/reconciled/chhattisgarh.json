@@ -41,17 +41,6 @@
    "source": "nmc-ug-registry"
   },
   {
-   "name": "Shri Balaji Institute of Medical Science, Raipur",
-   "state": "Chhattisgarh",
-   "city": "Raipur",
-   "type": "Private",
-   "established": 2021,
-   "totalSeats": 150,
-   "affiliation": "Pandit Deendayal Upadhyay Memorial Health Science & Ayush University of Chattisgarh",
-   "website": "http://www.shribalajimedicalcollege.com",
-   "source": "nmc-ug-registry (managementupdate='Society' -> Private; city taken from NMC address 'Mawa Raipur', NMC city field was 'Chattisgarh')"
-  },
-  {
    "name": "Government Dental College, Raipur",
    "state": "Chhattisgarh",
    "city": "Raipur",
@@ -60,7 +49,7 @@
    "totalSeats": 100,
    "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
    "website": "https://www.govtdentalcollegeraipur.in/",
-   "source": "https://www.govtdentalcollegeraipur.in/history.aspx (founded 26/5/2003, intake 100/year); https://raipur.gov.in/en/public-utility/govt-dental-college-raipur/ (Rajbandha Maidan, Raipur 492001; official website)"
+   "source": "https://www.govtdentalcollegeraipur.in/history.aspx (verified: 'established in 26/5/2003', 'recognized centre for BDS with student intake capacity of 100 per year'); https://www.govtdentalcollegeraipur.in/ (verified affiliation: 'Recognition letter Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur, Chhattisgarh'); https://raipur.gov.in/en/public-utility/govt-dental-college-raipur/ (Rajbandha Maidan, Raipur 492001; official website)"
   },
   {
    "name": "Rungta College of Dental Sciences and Research, Bhilai",

@@ -131,23 +131,74 @@ def institute_name(cell):
     return s.split(',')[0].strip() if ',' in s else s
 
 
-HEADERS = {'sno', 's no', 'rank', 'allotted quota', 'allotted institute', 'course'}
+def header_map(cells):
+    """Map the current round's columns by NAME, never by position.
+
+    Round 1 files are 8 columns. Round 2/3 files are THIRTEEN: they print the candidate's
+    PREVIOUS-round allotment beside the new one, under a spanning "Round 1 | Round 2" header:
+
+      SNo Rank | Quota Institute Course Remarks          <- round 1 (already happened)
+               | Quota Institute Course AllotedCat CandidateCat OptionNo Remarks   <- round 2 (current)
+
+    Reading the first 7 columns therefore parses the WRONG ROUND and lands round 1's
+    "Remarks" ("Reported"/"Not Reported") in the category field. So for the repeated
+    columns we deliberately take the LAST occurrence — the current round — and we require
+    a real header before trusting any row.
+    """
+    h = [norm(c).strip() for c in cells]
+    if 'rank' not in h or not any('institute' in x for x in h):
+        return None
+    m = {'rank': h.index('rank')}
+    # repeated groups -> last occurrence is the round this file is actually about
+    for key, pat in (('quota', 'quota'), ('inst', 'institute'), ('course', 'course')):
+        hits = [i for i, x in enumerate(h) if pat in x]
+        if not hits:
+            return None
+        m[key] = hits[-1]
+    # MCC's own typo: "Alloted Category". Match loosely, but never confuse it with
+    # "candidate category" (which is the student's own category, not the seat's).
+    cat = [i for i, x in enumerate(h) if 'categor' in x and 'candidate' not in x]
+    cand = [i for i, x in enumerate(h) if 'candidate' in x and 'categor' in x]
+    if not cat:
+        return None
+    m['cat'] = cat[-1]
+    m['cand'] = cand[-1] if cand else None
+    return m
 
 
 def parse_pdf(path, meta):
     rows, dropped = [], collections.Counter()
+    hdr = None                       # persists across pages; not every page reprints it
     with pdfplumber.open(path) as pdf:
         for page in pdf.pages:
             for table in page.extract_tables() or []:
                 for r in table:
-                    if not r or len(r) < 7:
+                    if not r or len(r) < 6:
                         continue
                     cells = [re.sub(r'\s+', ' ', (c or '')).strip() for c in r]
-                    sno, rank, quota, inst, course, allot_cat, cand_cat = cells[:7]
 
-                    if not re.fullmatch(r'\d+', sno or '') or not re.fullmatch(r'\d+', rank or ''):
-                        continue                       # header / legend / spillover line
-                    if norm(sno) in HEADERS:
+                    m = header_map(cells)
+                    if m:
+                        hdr = m                        # new header -> adopt it
+                        continue
+                    if not hdr:
+                        continue                       # legend/quota-abbreviation table
+
+                    def col(k):
+                        i = hdr.get(k)
+                        return cells[i] if i is not None and i < len(cells) else ''
+
+                    rank = col('rank')
+                    if not re.fullmatch(r'\d+(\.\d+)?', rank or ''):
+                        continue                       # spillover / banner / blank line
+
+                    quota, inst, course = col('quota'), col('inst'), col('course')
+                    allot_cat, cand_cat = col('cat'), col('cand')
+
+                    # In a round-2/3 file a candidate with no NEW allotment has an empty
+                    # current-round group. There is nothing to import for them.
+                    if not (inst and course):
+                        dropped['no-allotment-this-round'] += 1
                         continue
 
                     c = clean_course(course)
@@ -188,7 +239,9 @@ def parse_pdf(path, meta):
                         'instituteName': name,
                         'collegeName': name,           # -> collegeId at import, if it resolves
                         'state': state,
-                        'allIndiaRank': int(rank),
+                        # MCC writes tie-broken ranks as "1.01", "1.02" — same AIR, split by
+                        # a tiebreaker. int() would throw; the AIR is the integer part.
+                        'allIndiaRank': int(float(rank)),
                         'category': cat,
                         'seatType': st,
                         'course': c,

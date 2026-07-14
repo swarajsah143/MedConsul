@@ -177,16 +177,6 @@
       "website": "http://www.nims.in",
       "coursesOffered": ["MBBS"],
       "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
-    },
-    {
-      "name": "Sri Balaji Medical College, Hospital and Research Institute, Chittoor",
-      "state": "Andhra Pradesh",
-      "city": "Chittoor",
-      "type": "Private",
-      "totalSeats": 150,
-      "affiliation": "Dr. YSR University of Health Sciences",
-      "coursesOffered": ["MBBS"],
-      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
     }
   ],
   "unresolved": []

@@ -1,0 +1,553 @@
+[
+  {
+    "name": "NEET (UG) application form printout / NTA registration details",
+    "section": "online",
+    "mandatory": true,
+    "format": "Printout or PDF kept for your own reference",
+    "notes": "MCC does not ask you to upload any certificate at All India Quota registration. The bulletin's FAQ on documents for online registration says you only re-enter information you already gave NTA on your NEET application form, then pay the fee. Keep a printout of the NTA application form beside you, and never share the password/OTP used for MCC registration.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+      "ESIC — Insured Persons (IP) Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Passport-size colour photograph (state portal upload)",
+    "section": "online",
+    "mandatory": true,
+    "format": "JPG / JPEG",
+    "fileSize": "Kerala (KEAM): 150x100 pixels, 1 KB to 100 KB",
+    "notes": "State portals — unlike MCC — do enforce an image upload at registration. Kerala's KEAM 2026 prospectus fixes the photograph at jpeg/jpg, 150x100, 1 KB-100 KB. Karnataka (KEA UGNEET) requires the scanned passport-size colour photograph in JPG/JPEG, uploaded separately from the signature. Check your own state's brochure before scanning; the limits differ state to state.",
+    "states": [
+      "Kerala",
+      "Karnataka"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://cee.kerala.gov.in/keam2026/pdf/Prospectus.pdf"
+  },
+  {
+    "name": "Scanned signature (state portal upload)",
+    "section": "online",
+    "mandatory": true,
+    "format": "JPG / JPEG",
+    "fileSize": "Kerala (KEAM): 150x100 pixels, 1 KB to 100 KB",
+    "notes": "Kerala's KEAM 2026 prospectus specifies the signature image at 150x100, 1 KB-100 KB, uploaded at the 'Upload Images & Certificates' step after fee payment. Karnataka's KEA UGNEET portal takes the signature in JPG/JPEG as a separate upload.",
+    "states": [
+      "Kerala",
+      "Karnataka"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://cee.kerala.gov.in/keam2026/pdf/Prospectus.pdf"
+  },
+  {
+    "name": "Left-hand thumb impression",
+    "section": "online",
+    "mandatory": true,
+    "format": "JPG / JPEG",
+    "notes": "Karnataka's KEA UGNEET registration asks for the scanned left-hand thumb impression as a third image, uploaded separately from photograph and signature. Not every state collects this — Kerala, for instance, does not.",
+    "states": [
+      "Karnataka"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/ugneet_Guidelineskannada.pdf"
+  },
+  {
+    "name": "Supporting certificates for every claim made in the application",
+    "section": "online",
+    "mandatory": true,
+    "format": "PDF — one single PDF per claim",
+    "notes": "Kerala's rule is explicit: if a single claim needs more than one document, merge them into ONE pdf and upload that. Claims for special or mandatory reservation must be made in the application itself and backed by uploads within the stipulated window — a claim made late is not entertained even if you later produce the evidence, and a reservation claim once made cannot be altered.",
+    "states": [
+      "Kerala"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)"
+    ],
+    "source": "https://cee.kerala.gov.in/keam2026/pdf/Prospectus.pdf"
+  },
+  {
+    "name": "Nativity proof, date-of-birth proof and SSLC certificate",
+    "section": "online",
+    "mandatory": true,
+    "format": "PDF",
+    "notes": "Kerala names these three as mandatory uploads at the 'Upload Images & Certificates' step — the online application is only treated as complete once all supporting documents are uploaded. Defect memos are issued through the Candidate Portal only.",
+    "states": [
+      "Kerala"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)"
+    ],
+    "source": "https://cee.kerala.gov.in/keam2026/pdf/Prospectus.pdf"
+  },
+  {
+    "name": "Income certificate (Kerala)",
+    "section": "online",
+    "mandatory": false,
+    "format": "PDF",
+    "notes": "Kerala requires every candidate EXCEPT those in the SC/ST/OEC categories to upload an income certificate while applying online. The prospectus carries a prescribed proforma and separate guidelines for the issuing authority.",
+    "states": [
+      "Kerala"
+    ],
+    "categories": [
+      "General",
+      "OBC",
+      "EWS"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)"
+    ],
+    "source": "https://cee.kerala.gov.in/keam2026/pdf/Prospectus.pdf"
+  },
+  {
+    "name": "NEET scorecard + Class 10 marks card + Class 12 marks card, merged as one PDF",
+    "section": "online",
+    "mandatory": true,
+    "format": "PDF — all three scanned into a single file",
+    "notes": "This is the KEA route for NON-Karnataka candidates: register on the KEA portal, enter Class 12 marks, and upload the UGNEET score card, 10th marks card and 12th marks card scanned together as ONE pdf. Non-Karnataka candidates who do this need NOT appear for physical document verification — unless they are OCI/PIO/NRI/foreign nationals or claiming NRI ward, religious minority or St. John's Category 2-8 seats, who must attend verification with originals.",
+    "states": [
+      "Karnataka"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/ugneet_Guidelineskannada.pdf"
+  },
+  {
+    "name": "Cancelled cheque / bank passbook / online bank statement",
+    "section": "online",
+    "mandatory": true,
+    "format": "Clear scanned image showing account details",
+    "notes": "West Bengal's candidate registration manual asks for a clear image of a cancelled cheque, bank passbook or online bank statement showing the account details — this is the account any refund is paid into.",
+    "states": [
+      "West Bengal"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/08/2025081158.pdf"
+  },
+  {
+    "name": "NRI documents emailed to MCC (for candidates who registered with NTA as 'Indian')",
+    "section": "online",
+    "mandatory": false,
+    "format": "Scanned copies emailed to ug.nri.mcc@gmail.com",
+    "notes": "If you are an NRI/OCI/PIO or the child of NRI parents but declared your nationality as 'Indian' on the NTA NEET form, MCC opens a short email window in which you send scans: NEET scorecard issued by NTA, a self-attested declaration in MCC's prescribed format, your OCI/PIO card if you have one, and the NRI Embassy Certificate of the parent or candidate. Only then can you pick NRI seats on the portal. Candidates who already declared 'NRI' to NTA need not resend. In 2025 the window was open for just 24 hours — watch MCC notices.",
+    "counsellingTypes": [
+      "NRI Quota",
+      "Deemed University Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/2025072579.pdf"
+  },
+  {
+    "name": "Provisional Allotment Letter issued by MCC",
+    "section": "physical",
+    "mandatory": true,
+    "notes": "Download it from your MCC candidate login after the round result and carry it to the allotted college. Reporting is what converts an allotment into an admission — if you do not join within the stipulated window the seat is cancelled, and MCC will not extend the joining date under any circumstances.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)",
+      "ESIC — Insured Persons (IP) Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "NEET (UG) Admit Card issued by NTA",
+    "section": "physical",
+    "mandatory": true,
+    "notes": "Listed by MCC among the originals required at joining. Carry the original plus an attested photocopy.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Management / Institutional Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "NEET (UG) Result / Rank letter (scorecard) issued by NTA",
+    "section": "physical",
+    "mandatory": true,
+    "notes": "The scorecard printed from the NTA portal. Required at college reporting in AIQ, and equally by state authorities — West Bengal, for example, lists the NEET rank card among the originals produced at physical document verification.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Management / Institutional Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Class 10 (Matriculation) certificate",
+    "section": "physical",
+    "mandatory": true,
+    "notes": "Carried both as a qualification record and as the standard proof of date of birth.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Management / Institutional Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Date of Birth certificate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Needed only if your Class 10 / matriculation certificate does not itself carry your date of birth. Age is a hard eligibility bar — West Bengal, for instance, required candidates to have turned 17 by 31 December of the admission year.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Class 12 (10+2) passing certificate",
+    "section": "physical",
+    "mandatory": true,
+    "notes": "The certificate, distinct from the marks sheet. Both are on MCC's list.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Management / Institutional Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Class 12 (10+2) marks sheet",
+    "section": "physical",
+    "mandatory": true,
+    "notes": "This is the document against which your PCB eligibility is checked. West Bengal verifies the qualifying percentage from it: 50% in Physics, Chemistry and Biology taken together for UR/EWS, 40% for SC/ST/OBC and for PwD candidates, with individual passes in Physics, Chemistry, Biology and English.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Management / Institutional Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Eight (8) passport-size photographs",
+    "section": "physical",
+    "mandatory": true,
+    "notes": "MCC specifies eight, and they must be the same photograph as the one affixed on your application form. Some state and college processes ask for their own count — Karnataka's KEA verification asks for two recent passport-size photographs identical to the one uploaded online.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Photo identity proof (Aadhaar / PAN / Driving Licence / Passport)",
+    "section": "physical",
+    "mandatory": true,
+    "notes": "Any one of these four is accepted by MCC. GMCH Chandigarh additionally accepts a Voter ID card or OCI card as the photo ID at counselling.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Management / Institutional Quota",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "SC / ST caste certificate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Must be issued by the competent authority in the standard proforma reproduced in MCC's bulletin (Annexure-3), and must be in English or Hindi with the sub-caste clearly stated. If the certificate is in a regional language, carry an attested English/Hindi translation alongside the original — several states insist on the English version. State counselling adds its own condition: West Bengal only accepts a caste certificate issued in West Bengal for its state-quota reserved seats.",
+    "categories": [
+      "SC",
+      "ST"
+    ],
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "State Quota (85%)",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "OBC-NCL certificate as per the CENTRAL list",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "For AIQ the sub-caste must appear on the CENTRAL OBC list, not merely the state list — an OBC certificate valid in your state is worthless for AIQ if the caste is not centrally listed. You must not belong to the creamy layer, and the certificate has to follow the standard proforma in MCC's bulletin (Annexure-4). Note the freshness rule states apply: West Bengal required the Non-Creamy-Layer certificate to be issued on or after 1 April of the admission year.",
+    "categories": [
+      "OBC"
+    ],
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "EWS certificate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Must be in the prescribed format reproduced in MCC's bulletin (Annexure-5) and issued by the competent authority. West Bengal warns that the EWS claim only survives if the certificate clears verification before choice filling and allotment; otherwise the candidate falls back to the unreserved pool.",
+    "categories": [
+      "EWS"
+    ],
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "State Quota (85%)",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Disability (PwD/PwBD) certificate from an MCC-designated centre",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "This is the row that most often costs students a seat. The certificate must come from one of the disability certification centres listed in MCC's bulletin (Annexure-1) and be issued to NMC norms — a certificate from any other hospital is NOT accepted for the 5% PwD horizontal reservation. Each listed centre is authorised only for certain disability categories: VMMC & Safdarjung, New Delhi, for example, covers all disabilities EXCEPT visual, intellectual and behavioural; the All India Institute of Physical Medicine, Mumbai, covers locomotor disability only. States mirror this — West Bengal routes its PwD candidates to the Medical Board at IPGME&R, Kolkata through the MCC online link, and rejects certificates from any non-designated institute.",
+    "categories": [
+      "PwD"
+    ],
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Citizenship certificate / OCI or PIO card (foreign nationals, OCI, PIO)",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "MCC makes citizenship-certificate/card-number documents mandatory for OCI, PIO and foreign-national candidates at reporting.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "NRI Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Attested English/Hindi translation of any regional-language certificate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Certificates issued by a competent authority in the standard format should be in English or Hindi. Where yours is in another language, carry a certified (attested) English copy along with the original — MCC notes that some states insist on English only.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "Affidavit for a name-spelling discrepancy",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "If your name is spelled differently across your documents and your application form, MCC's remedy is an affidavit proving the documents belong to the same person. Sort this out before you travel to report — the college is verifying, not adjudicating.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "Deemed University Quota",
+      "State Quota (85%)",
+      "Central Universities (DU, AMU, BHU, Jamia Millia Islamia)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "name": "NRI Embassy Certificate of the parent or candidate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Issued by the Indian Mission/Post abroad in line with MEA guidelines. It is the core proof of NRI status, and the original is checked at the allotted college even if you already emailed a scan to MCC. MCC's provisional NRI eligibility lists are exactly that — provisional — and the college can cancel the allotment if the originals are deficient.",
+    "counsellingTypes": [
+      "NRI Quota",
+      "Deemed University Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/2025072579.pdf"
+  },
+  {
+    "name": "Self-attested declaration of NRI / OCI / PIO status",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "MCC prints the exact wording in its NRI notice: a solemn affirmation that you are an NRI/OCI/PIO or that your father/mother is, that you hold certificates issued by Indian Missions/Posts under the latest MEA guidelines, and (where relevant) that you had declared yourself 'INDIAN' when filing the NTA NEET application.",
+    "counsellingTypes": [
+      "NRI Quota",
+      "Deemed University Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/2025072579.pdf"
+  },
+  {
+    "name": "Proof that the NRI sponsor is your bona fide legal guardian",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "For 2026-27 MCC has said in writing that it will seek evidential proof and legal documents showing the sponsor is genuinely the candidate's legal guardian under the Guardians and Wards Act, 1890. This follows the Supreme Court criteria in Anshul Tomar: the sponsoring relative must be the nearest blood relation (parents, real siblings, real uncle/aunt on either side, grandparents, first-degree cousins), must ordinarily reside abroad, must actually have looked after the student as guardian, and there must be an affidavit to that effect. Allotment gives priority to NRI candidates and children of NRIs before first- and second-degree relatives of NRI wards.",
+    "counsellingTypes": [
+      "NRI Quota",
+      "Deemed University Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2026/05/2026052710250622.pdf"
+  },
+  {
+    "name": "Certificate of relationship between the NRI sponsor and the candidate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "MCC's NRI notice tells candidates to have proof of NRI status and relationship certificates ready in original at reporting; where the deemed/private college demands it, the relationship is established through a family-tree certificate from the competent revenue authority. If the documents are deficient at reporting, the college can cancel the allotted seat.",
+    "counsellingTypes": [
+      "NRI Quota",
+      "Deemed University Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/08/2025080762.pdf"
+  },
+  {
+    "name": "Domicile / residence certificate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "The gatekeeper for the 85% state quota; AIQ, deemed and central-university seats are domicile-free and need none of this. West Bengal uses three proformas — a1 and a2 for candidates residing in the state, b for those who do not — or a valid domicile certificate from the WB e-district portal, and it must be verified BEFORE choice filling, not at the college. Karnataka accepts a domicile certificate from the revenue authorities showing the father's or mother's place of domicile in Karnataka. Management-quota seats in West Bengal need no domicile certificate at all.",
+    "states": [
+      "West Bengal",
+      "Karnataka"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/07/2025073198.pdf"
+  },
+  {
+    "name": "Parent's ID proof supporting a domicile claim",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Where the domicile certificate is in the parent's name, West Bengal asks for any TWO of the parent's Voter ID card, Aadhaar card and Passport, all showing a West Bengal residential address.",
+    "states": [
+      "West Bengal"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/07/2025073198.pdf"
+  },
+  {
+    "name": "Candidate Profile Letter and payment receipt",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "West Bengal generates a Candidate Profile Letter once the non-refundable counselling fee is paid; it carries the venue, date and time of your physical verification. Bring the hard copy of the profile letter and the payment receipt or no verification will be done at all.",
+    "states": [
+      "West Bengal"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/07/2025073198.pdf"
+  },
+  {
+    "name": "Medical / physical fitness certificate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "West Bengal treats medical fitness as an essential admission criterion: download the state's format from the counselling website and get it filled by a Registered Medical Practitioner. Kerala likewise prints a physical fitness certificate proforma in the KEAM prospectus. MCC's own AIQ list does not include it — this one comes from the state or the college.",
+    "states": [
+      "West Bengal",
+      "Kerala"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/07/2025073198.pdf"
+  },
+  {
+    "name": "Study certificate countersigned by the BEO / DDPI",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Karnataka lists this among the mandatory originals for general (Category-G) seats, alongside the KEA application printout, the NEET admission ticket and scorecard, and the SSLC and 2nd PUC marks cards. Karnataka also asks for the candidate's transfer certificate showing mother-tongue details in support of certain claims.",
+    "states": [
+      "Karnataka"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)"
+    ],
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/ugneet_Guidelineskannada.pdf"
+  },
+  {
+    "name": "Kannada medium study certificate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Only for candidates claiming Kannada-medium reservation: proof of ten full academic years of study in Kannada medium from Class 1 to Class 10, issued by the head of the institution and countersigned by the BEO or DDPI in KEA's prescribed proforma.",
+    "states": [
+      "Karnataka"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)"
+    ],
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/ugneet_Guidelineskannada.pdf"
+  },
+  {
+    "name": "Rural study certificate (with NCLC)",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "For candidates claiming a seat under Karnataka's rural category: ten full academic years of study in rural areas from Class 1, certified and countersigned by the BEO. KEA pairs it with a Non-Creamy-Layer certificate for General Merit candidates.",
+    "states": [
+      "Karnataka"
+    ],
+    "categories": [
+      "General"
+    ],
+    "counsellingTypes": [
+      "State Quota (85%)"
+    ],
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/ugneet_Guidelineskannada.pdf"
+  },
+  {
+    "name": "Character certificate",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "A college-level requirement rather than an MCC one. GMCH Chandigarh, for instance, requires a character certificate in its own prescribed specimen among the documents produced at counselling. MCC's bulletin tells candidates plainly to check the allotted college's own information for any additional document it demands.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://gmch.gov.in/sites/default/files/documents/MBBS%20BDS%20BHMS%20Prospectus%202025.pdf"
+  },
+  {
+    "name": "Anti-ragging undertaking (student and parent/guardian)",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Under UGC guidelines the student and the parent/guardian each file an anti-ragging undertaking; it can be filed online through antiragging.in and the signed copy is submitted to the college in the prescribed specimen.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://gmch.gov.in/sites/default/files/documents/MBBS%20BDS%20BHMS%20Prospectus%202025.pdf"
+  },
+  {
+    "name": "Gap-year affidavit",
+    "section": "physical",
+    "mandatory": false,
+    "notes": "Colleges commonly require an affidavit accounting for a gap between passing 10+2 and admission — GMCH Chandigarh prints a specimen affidavit for gap-year candidates in its prospectus. Bring it notarised if there is any break in your studies.",
+    "counsellingTypes": [
+      "All India Quota (AIQ)",
+      "State Quota (85%)",
+      "Management / Institutional Quota"
+    ],
+    "source": "https://gmch.gov.in/sites/default/files/documents/MBBS%20BDS%20BHMS%20Prospectus%202025.pdf"
+  }
+]

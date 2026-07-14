@@ -57,15 +57,29 @@ def absorb(rows):
 
 absorb(json.load(open(f'{RAW}/enriched_nmc.json')))
 
+# States whose adversarial verifier never ran (the run hit the account usage limit).
+# Their ENRICHMENT is still usable — a wrong field value is visible and fixable. Their
+# MERGES are not: a merge deletes college records and repoints their closing-rank rows,
+# and the verifiers that DID run rejected a Kerala merge that would have silently
+# downgraded a Deemed college to Private. An unreviewed merge is not worth that risk,
+# so we hold them back and re-run those states' verifiers instead.
+UNVERIFIED = set(json.load(open(f'{RAW}/unverified_states.json'))) \
+    if os.path.exists(f'{RAW}/unverified_states.json') else set()
+
 merges, new_colleges, unresolved_notes = [], [], {}
+held_back = 0
 for f in sorted(glob.glob(f'{RAW}/reconciled/*.json')):
+    slug = os.path.basename(f)[:-5]
     try:
         d = json.load(open(f))
     except json.JSONDecodeError as e:
         print(f'  ! {os.path.basename(f)}: bad JSON ({e}) — skipped')
         continue
     absorb(d.get('enrichment', []))
-    merges += d.get('merges', [])
+    if slug in UNVERIFIED:
+        held_back += len(d.get('merges', []))
+    else:
+        merges += d.get('merges', [])
     new_colleges += d.get('newColleges', [])
     for u in d.get('unresolved', []):
         unresolved_notes[u.get('name', '')] = u.get('why', '')
@@ -197,6 +211,8 @@ if bad_merges:
 
 print(f'  base                {len(base)}')
 print(f'  merged away         {len(alias_of)}  ({len(aliases_by_canon)} clusters -> aliases)')
+if held_back:
+    print(f'  merges HELD BACK    {held_back}  (from {len(UNVERIFIED)} states whose verifier never ran)')
 print(f'  new from NMC        {added}')
 print(f'  IMPORTABLE          {len(final)}   -> out/colleges.json')
 print(f'  unresolved          {len(unresolved)}   -> out/colleges.unresolved.json (NOT imported)')

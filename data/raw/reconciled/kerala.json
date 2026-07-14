@@ -183,13 +183,6 @@
       "reason": "One college recorded twice. NMC row 'Azeezia Instt of Medical Science,Meeyannoor,Kollam' has address 'Meeyannoor P.O., Kollam District-691537' — Meeyannoor is the campus post office within Kollam district; there is only one Azeezia medical college in Kerala."
     },
     {
-      "canonical": "DM Wayanad Institute of Medical Sciences, Meppadi",
-      "aliases": [
-        "DM Wayanad Institute of Medical Sciences"
-      ],
-      "reason": "Same name with and without the town suffix; the bare record has no city at all. NMC address 'DM WIMS Medical College, Wayanad, Naseera Nagar, Meppadi (PO), Wayanad-673577' — one college."
-    },
-    {
       "canonical": "Sree Gokulam Medical College and Research Foundation, Venjaramoodu",
       "aliases": [
         "Sree Gokulam Medical College, Thiruvananthapuram"

@@ -133,10 +133,9 @@
       "state": "Tamil Nadu",
       "city": "Madurai",
       "type": "Government",
-      "established": 2020,
       "totalSeats": 50,
       "affiliation": "Statutory Autonomous, AIIMS (Madurai)",
-      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'All India Institute of Medical Sciences, Madurai' (management Govt., 50 UG seats); year of establishment 2020 from https://en.wikipedia.org/wiki/All_India_Institute_of_Medical_Sciences,_Madurai (NMC yearOfInc cell is empty)"
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'All India Institute of Medical Sciences, Madurai' (management Govt., 50 UG seats). established omitted: the NMC yearOfInc cell is empty and the cited source https://en.wikipedia.org/wiki/All_India_Institute_of_Medical_Sciences,_Madurai gives 2021 (first MBBS batch), not 2020 — no reliable year, so the field is left off rather than guessed."
     },
     {
       "name": "Bhaarath Medical College and Hospital, Chennai",

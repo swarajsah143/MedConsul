@@ -18,7 +18,11 @@ import path from 'path';
 const API = process.env.API || 'http://localhost:5050';
 const OUT = path.join(import.meta.dirname, 'out');
 const DRY = process.argv.includes('--dry');
-const ONLY = process.argv.find((a) => !a.startsWith('--') && a !== process.argv[1])?.split(',');
+// argv[0] is the node binary and argv[1] is this script — a bare `.find()` over the whole
+// array matches the node PATH first, which made ONLY = ['/usr/local/bin/node'] and turned
+// want() false for EVERY collection. The importer then silently imported nothing and still
+// exited 0. Only the user's own args (argv[2:]) are ever a collection filter.
+const ONLY = process.argv.slice(2).find((a) => !a.startsWith('--'))?.split(',');
 
 const read = (f) => (existsSync(path.join(OUT, f)) ? JSON.parse(readFileSync(path.join(OUT, f), 'utf8')) : null);
 

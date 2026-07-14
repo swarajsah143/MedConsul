@@ -113,10 +113,9 @@
    "city": "Yamuna Nagar",
    "type": "Private",
    "established": 1987,
-   "totalSeats": 50,
    "affiliation": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
    "website": "http://www.davdentalynr.com",
-   "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Dental Council of India college list (https://dciindia.gov.in/CollegeSearch.aspx?ColName=&CourseId=1&SplId=0&StateId=&Hospital=&Type=0&Status=--Select--): 'D.A.V. Centenary Dental College, Yamuna Nagar', established 1987-88, Private (D.A.V. trust/society). Seats (50 BDS) and affiliating university from https://www.careers360.com/colleges/jn-kapoor-dav-centenary-dental-college-yamuna-nagar ; official site http://www.davdentalynr.com/ (TLS certificate expired, so it could not be fetched — website taken from the DCI/careers360 listing)."
+   "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Dental Council of India college list (https://dciindia.gov.in/CollegeSearch.aspx?ColName=&CourseId=1&SplId=0&StateId=&Hospital=&Type=0&Status=--Select--): 'D.A.V. Centenary Dental College, Yamuna Nagar', established 1987-88, Private (D.A.V. trust/society). Affiliating university from https://www.careers360.com/colleges/jn-kapoor-dav-centenary-dental-college-yamuna-nagar ; official site http://www.davdentalynr.com/ (TLS certificate expired, so it could not be fetched — website corroborated by the DCI/careers360 listings and https://yamunanagar.nic.in/public-utility/dav-dental-college/). totalSeats omitted: careers360 says 50 BDS seats but the college's own site states 40 admissions per year — the sources conflict, so no seat count is asserted."
   },
   {
    "name": "Sudha Rustagi College of Dental Sciences and Research, Faridabad",
