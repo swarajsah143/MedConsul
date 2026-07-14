@@ -120,6 +120,30 @@ def identity_clash(a, b):
 _ADDR = re.compile(r',(?=\S)')   # MCC glues the address on with a comma and NO space
 
 
+def covers(tok, cell_toks):
+    """Is this college token present in the cell, allowing for spelling drift?
+
+    MCC and the NMC registry spell the same college differently far more often than they
+    agree: "Deogarh"/"Deoghar", "Bengaluru"/"Bangalore", "Rajarajeswari"/"Raja Rajeswari".
+    Exact set-intersection scores all of those 0 and leaves ~72,000 real allotment rows with
+    no college. The drift threshold is the same 0.85 the identity veto already trusts, and it
+    is applied per token, so a near-miss on one word cannot drag an unrelated college over
+    the line by itself.
+    """
+    if tok in cell_toks:
+        return True
+    return any(difflib.SequenceMatcher(None, tok, c).ratio() >= 0.85 for c in cell_toks)
+
+
+def coverage(ctoks, cell_toks):
+    """What fraction of the COLLEGE's name the cell accounts for.
+
+    Coverage, not Jaccard: the cell carries extra words (campus, university, abbreviations)
+    that would unfairly dilute a symmetric overlap ratio.
+    """
+    return sum(1 for t in ctoks if covers(t, cell_toks)) / len(ctoks)
+
+
 def name_region(cell):
     """The '<Name>, <City>' head of an institute cell, with the postal address removed.
 
@@ -196,7 +220,7 @@ class CollegeIndex:
                 ctoks = set(tokens(cname))
                 if not ctoks:
                     continue
-                score = len(ctoks & cell_toks) / len(ctoks)
+                score = coverage(ctoks, cell_toks)
                 if best is None or score > best[0]:
                     best, runner = (score, c), (best[0] if best else 0.0)
                 elif score > runner:
