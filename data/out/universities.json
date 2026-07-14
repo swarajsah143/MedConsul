@@ -54,7 +54,7 @@
   "courses": [
    "MBBS"
   ],
-  "website": "https://www.aiimsbhubaneswar.nic.in",
+  "website": "https://aiimsbhubaneswar.nic.in",
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/AIIMS_Bhubaneswar%2C_Odisha.jpg"
  },
  {
@@ -71,7 +71,7 @@
  {
   "name": "All India Institute of Medical Sciences, Rishikesh",
   "state": "Uttarakhand",
-  "city": "Haridwar",
+  "city": "Rishikesh",
   "type": "AIIMS",
   "established": 2012,
   "courses": [
@@ -240,14 +240,6 @@
   "city": "Chandigarh",
   "type": "Central",
   "established": 1962,
-  "courses": [
-   "MD/MS",
-   "DM/MCh",
-   "MDS",
-   "PhD",
-   "Nursing",
-   "Paramedical"
-  ],
   "website": "https://www.pgimer.edu.in"
  },
  {
@@ -325,7 +317,7 @@
   "courses": [
    "MBBS"
   ],
-  "website": "https://www.mamc.ac.in"
+  "website": "https://mamc.delhi.gov.in"
  },
  {
   "name": "Armed Forces Medical College, Pune",
@@ -359,7 +351,7 @@
   "courses": [
    "MBBS"
   ],
-  "website": "https://www.mmc.ac.in/mmc",
+  "website": "https://mmc.ac.in/en/",
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Mmc-new.jpg"
  },
  {
@@ -399,7 +391,7 @@
   "city": "Bengaluru",
   "type": "Government",
   "established": 1994,
-  "website": "https://www.rguhs.ac.in"
+  "website": "http://rguhs.ac.in"
  },
  {
   "name": "Maharashtra University of Health Sciences",
@@ -424,7 +416,7 @@
   "city": "Thrissur",
   "type": "Government",
   "established": 2011,
-  "website": "https://kuhs.ac.in"
+  "website": "http://kuhs.ac.in/kuhs_new/"
  },
  {
   "name": "Dr. N.T.R. University of Health Sciences",
@@ -432,7 +424,7 @@
   "city": "Vijayawada",
   "type": "Government",
   "established": 1986,
-  "website": "https://untruhs.in"
+  "website": "https://drntr.uhsap.in"
  },
  {
   "name": "Kaloji Narayana Rao University of Health Sciences",
@@ -464,7 +456,7 @@
   "city": "Rohtak",
   "type": "Government",
   "established": 2008,
-  "website": "https://uhsr.ac.in"
+  "website": "http://uhsr.ac.in"
  },
  {
   "name": "The West Bengal University of Health Sciences",

@@ -80,23 +80,6 @@
     "source": "https://search.wdoms.org/home/SchoolDetail/F0000077"
   },
   {
-    "name": "Kazan Federal University",
-    "country": "Russia",
-    "flag": "🇷🇺",
-    "city": "Kazan",
-    "degree": "MD",
-    "durationYears": 6,
-    "medium": "English",
-    "recognitions": [
-      "WDOMS",
-      "WFME",
-      "ECFMG"
-    ],
-    "highlight": "The Institute of Fundamental Medicine and Biology runs a six-year MD listed on WDOMS and accredited by a WFME-recognised agency. A large general university rather than a standalone medical institute.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Kazan_Federal_University_building_08-2016.jpg",
-    "source": "https://search.wdoms.org/home/SchoolDetail/F0003266"
-  },
-  {
     "name": "Tbilisi State Medical University",
     "country": "Georgia",
     "flag": "🇬🇪",
@@ -208,10 +191,9 @@
     "medium": "English",
     "recognitions": [
       "WDOMS",
-      "WFME",
       "ECFMG"
     ],
-    "highlight": "Kazakhstan's oldest and largest medical university. WDOMS lists a six-year General Medicine programme taught in Russian, Kazakh and English, accredited by a WFME-recognised agency.",
+    "highlight": "Kazakhstan's oldest and largest medical university. WDOMS lists a six-year General Medicine programme taught in Russian, Kazakh and English. Note that on WDOMS the WFME-recognised accreditation is recorded against the seven-year Physician track, not the six-year one — ask admissions in writing which programme your offer is for and what its accreditation status is.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/6/63/Main_building%2C_Kazak_National_Medical_University.jpg",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0001779"
   },
@@ -241,10 +223,9 @@
     "medium": "English",
     "recognitions": [
       "WDOMS",
-      "WFME",
       "ECFMG"
     ],
-    "highlight": "Six-year General Medicine degree available in English alongside Russian and Kazakh. Accredited by a WFME-recognised agency and listed as currently operational on WDOMS.",
+    "highlight": "Six-year General Medicine degree available in English alongside Russian and Kazakh, listed as currently operational on WDOMS. The WFME-recognised accreditation shown on WDOMS attaches to the seven-year track rather than the six-year one, so confirm the accreditation of the exact programme you are offered.",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0001543"
   },
   {
@@ -262,22 +243,6 @@
     ],
     "highlight": "Medical academy in Shymkent running a six-year physician programme in Russian, Kazakh and English, with WFME-recognised accreditation.",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0000793"
-  },
-  {
-    "name": "Karaganda Medical University",
-    "country": "Kazakhstan",
-    "flag": "🇰🇿",
-    "city": "Karaganda",
-    "degree": "MD",
-    "durationYears": 6,
-    "medium": "English",
-    "recognitions": [
-      "WDOMS",
-      "WFME",
-      "ECFMG"
-    ],
-    "highlight": "Long-established state medical university in central Kazakhstan; WDOMS lists its programmes in Russian, Kazakh and English with WFME-recognised accreditation.",
-    "source": "https://search.wdoms.org/home/SchoolDetail/F0001013"
   },
   {
     "name": "Tashkent State Medical University",
@@ -305,10 +270,9 @@
     "medium": "English",
     "recognitions": [
       "WDOMS",
-      "WFME",
       "ECFMG"
     ],
-    "highlight": "Runs an explicitly English-medium five-year MBBS alongside its six-year Uzbek/Russian physician degree. Five years of study plus the required 12-month internship satisfies the NMC's 54-month minimum; confirm which programme your offer letter names.",
+    "highlight": "Runs an explicitly English-medium five-year MBBS alongside its six-year Uzbek/Russian physician degree. Five years of study plus the required 12-month internship clears the NMC's 54-month floor. WDOMS records the WFME-recognised accreditation against the six-year physician programme, not the five-year MBBS — confirm which programme your offer letter names and how it is accredited.",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0000095"
   },
   {
@@ -321,10 +285,9 @@
     "medium": "English",
     "recognitions": [
       "WDOMS",
-      "WFME",
       "ECFMG"
     ],
-    "highlight": "Kyrgyzstan's leading state medical school. WDOMS lists a five-year MD taught entirely in English (its Vrach programmes run six years in Russian/Kyrgyz), accredited by a WFME-recognised agency.",
+    "highlight": "Kyrgyzstan's leading state medical school. WDOMS lists a five-year MD taught entirely in English (its Vrach programmes run six years in Russian/Kyrgyz). WDOMS does not show a WFME-recognised accreditation against that five-year English MD, which matters for ECFMG certification — get the accreditation status of your specific programme in writing.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Logo_Kyrgyz_State_Medical_Academy.svg",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0000072"
   },
@@ -338,10 +301,9 @@
     "medium": "English",
     "recognitions": [
       "WDOMS",
-      "WFME",
       "ECFMG"
     ],
-    "highlight": "Bishkek medical school with a 5.5-year English-medium MD listed on WDOMS. Popular with Indian students; accredited by a WFME-recognised agency.",
+    "highlight": "Bishkek medical school with a 5.5-year English-medium MD listed on WDOMS; long popular with Indian students. The WFME-recognised accreditation on WDOMS is recorded against the six-year Russian/English MD rather than the 5.5-year English track, so verify which programme you are being admitted to.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/International_University_of_Kyrgyzstan.jpg",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0006555"
   },
@@ -452,7 +414,7 @@
       "WDOMS",
       "ECFMG"
     ],
-    "highlight": "Bangladesh's most competitive government medical college. Five-year English MBBS plus a one-year internship. Foreign-student admission is centrally run by the Directorate General of Health Services, not by the college.",
+    "highlight": "Bangladesh's most competitive government medical college. Five-year English MBBS plus a one-year internship. Foreign-student seats are filled centrally through the government's MBBS/BDS admission circular for foreign students, not by the college directly.",
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Dhakamedicalcollege.jpg",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0001121"
   },
@@ -468,7 +430,7 @@
       "WDOMS",
       "ECFMG"
     ],
-    "highlight": "The country's first private medical college. Five-year MBBS taught in English; seats for foreign students are allotted through the DGHS central process.",
+    "highlight": "The country's first private medical college. Five-year MBBS taught in English; foreign-student seats are allotted through the government's central foreign-student admission circular.",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0000244"
   },
   {
@@ -483,7 +445,7 @@
       "WDOMS",
       "ECFMG"
     ],
-    "highlight": "Red Crescent-run private medical college in Dhaka with an English-medium MBBS listed on WDOMS. Apply through the DGHS foreign-student circular.",
+    "highlight": "Red Crescent-run private medical college in Dhaka with a six-year English-medium MBBS listed on WDOMS. Apply through the government's foreign-student MBBS/BDS admission circular.",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0001967"
   },
   {
@@ -498,7 +460,7 @@
       "WDOMS",
       "ECFMG"
     ],
-    "highlight": "Private Dhaka medical college with a five-year English MBBS, listed and currently operational on WDOMS. Foreign-student seats are allotted centrally by DGHS.",
+    "highlight": "Private Dhaka medical college with a five-year English MBBS, listed and currently operational on WDOMS. Foreign-student seats are allotted centrally through the government admission circular.",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0002480"
   },
   {
@@ -542,10 +504,9 @@
     "medium": "English",
     "recognitions": [
       "WDOMS",
-      "WFME",
       "ECFMG"
     ],
-    "highlight": "Among the first Chinese schools authorised by China's Ministry of Education to teach MBBS in English to international students. WDOMS lists a six-year English MBBS. The NMC requires clinical training in English too — ask exactly how ward rounds and patient contact are handled, as this is where China programmes most often fall short.",
+    "highlight": "Among the first Chinese schools authorised to teach MBBS in English to international students; WDOMS lists a six-year English MBBS. Two cautions: WDOMS records the WFME-recognised accreditation against the Chinese-language programmes, not the English MBBS, and the NMC requires clinical training in English too — ask exactly how ward rounds and patient contact are handled.",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0001235"
   },
   {
@@ -558,27 +519,10 @@
     "medium": "English",
     "recognitions": [
       "WDOMS",
-      "WFME",
       "ECFMG"
     ],
-    "highlight": "Six-year English-medium MBBS listed on WDOMS, accredited by a WFME-recognised agency. Chinese-language study is still needed for clinical clerkships with local patients — clarify this before committing.",
+    "highlight": "Six-year English-medium MBBS listed on WDOMS. The WFME-recognised accreditation shown on WDOMS sits with the Chinese-language programmes rather than the English MBBS. Chinese-language study is still needed for clinical clerkships with local patients — clarify both points before committing.",
     "source": "https://search.wdoms.org/home/SchoolDetail/F0000359"
-  },
-  {
-    "name": "Jiangsu University",
-    "country": "China",
-    "flag": "🇨🇳",
-    "city": "Zhenjiang",
-    "degree": "MBBS",
-    "durationYears": 6,
-    "medium": "English",
-    "recognitions": [
-      "WDOMS",
-      "WFME",
-      "ECFMG"
-    ],
-    "highlight": "Its School of Medicine runs a six-year English-taught medical programme listed on WDOMS, accredited by a WFME-recognised agency.",
-    "source": "https://search.wdoms.org/home/SchoolDetail/F0000563"
   },
   {
     "name": "Medical University of Warsaw",

@@ -21,7 +21,7 @@ are not sure about is written to raw/nmc_unmatched.json for an agent to resolve.
 
 NMC only covers MBBS. BDS/AYUSH colleges in the base will not match here by design.
 """
-import json, re, os, unicodedata, difflib, collections
+import json, re, os, collections
 
 D = os.path.dirname(os.path.abspath(__file__))
 RAW, OUT = f'{D}/raw', f'{D}/out'
@@ -30,85 +30,12 @@ nmc = json.load(open(f'{RAW}/nmc_ug_2023.json'))['ugCollege']
 base = json.load(open(f'{OUT}/colleges.base.json'))
 
 # --- normalisation -----------------------------------------------------------------
-# Words that carry no identifying signal — every college is a "medical college" — plus
-# the corporate suffixes NMC and the CSV disagree about.
-# NOTE: 'dental' is deliberately NOT a stopword. It is the single most identifying token
-# in the whole corpus — it is the only thing separating "Sri Ramachandra Dental College"
-# from "Sri Ramachandra Medical College", which are different institutions sharing a
-# campus and a name. Stopwording it scored that pair at 1.0 and wrote MBBS seat counts
-# onto a BDS college. Same for 'homoeopathic'/'ayurvedic'.
-STOP = {
-    'medical', 'college', 'institute', 'institution', 'sciences', 'science', 'of', 'and',
-    'the', 'for', 'hospital', 'research', 'centre', 'center', 'university', 'school',
-    'studies', 'health', 'foundation', 'trust', 'society', 'academy', 'a', 'in',
-}
-ABBR = {'govt': 'government', 'st': 'saint', 'dr': 'doctor', 'smt': 'shrimati'}
-
-# Tokens that flip a college into a different institution entirely. If one name has one
-# of these and the other does not, they are not the same college, however similar.
-DISCIPLINE = {'dental', 'dentistry', 'ayurvedic', 'ayurveda', 'homoeopathic', 'homeopathic',
-              'unani', 'siddha', 'naturopathy', 'nursing', 'veterinary', 'physiotherapy'}
-
-
-def discipline_clash(a, b):
-    da = DISCIPLINE & set(norm(a).split())
-    db = DISCIPLINE & set(norm(b).split())
-    return da != db
-
-
-def place(s):
-    """The city-ish tail of a display name — the part after the last comma.
-
-    This is what tells the ~15 identically-named "Government Medical College"s apart.
-    Token-set similarity throws it away (it is one token against four generic ones), so
-    it has to be compared separately and treated as a veto.
-    """
-    s = re.sub(r'\s*[—-]\s*(nri|management|deemed).*$', '', s, flags=re.I)   # quota suffixes
-    tail = s.rsplit(',', 1)[1] if ',' in s else ''
-    return {w for w in norm(tail).split() if len(w) > 2 and w not in STOP}
-
-
-def place_clash(a, b, acity, bcity):
-    """True if the two names point at demonstrably different towns."""
-    pa = place(a) | {w for w in norm(acity).split() if len(w) > 2}
-    pb = place(b) | {w for w in norm(bcity).split() if len(w) > 2}
-    if not pa or not pb:
-        return False                      # one side is silent -> cannot contradict
-    if pa & pb:
-        return False                      # they share a town token -> agree
-    # No shared token. Allow known spelling drift (bangalore/bengaluru), else it is a clash.
-    for x in pa:
-        for y in pb:
-            if difflib.SequenceMatcher(None, x, y).ratio() >= 0.8:
-                return False
-    return True
-
-
-def norm(s):
-    s = unicodedata.normalize('NFKD', s or '').encode('ascii', 'ignore').decode()
-    s = s.lower()
-    s = re.sub(r'\(.*?\)', ' ', s)          # drop parentheticals
-    s = re.sub(r'[^a-z0-9]+', ' ', s)       # punctuation -> space; kills "A.C.P.M." vs "ACPM"
-    return s.strip()
-
-
-def tokens(s):
-    t = [ABBR.get(w, w) for w in norm(s).split()]
-    return [w for w in t if w not in STOP and len(w) > 1]
-
-
-def key(s):
-    """Order-insensitive fingerprint: sorted significant tokens."""
-    return ' '.join(sorted(tokens(s)))
-
-
-def sim(a, b):
-    ta, tb = set(tokens(a)), set(tokens(b))
-    if not ta or not tb:
-        return 0.0
-    jac = len(ta & tb) / len(ta | tb)                      # token overlap
-    seq = difflib.SequenceMatcher(None, key(a), key(b)).ratio()   # char-level, order-free
-    return max(jac, seq)
+# The matcher lives in namematch.py, shared with parse_mcc_allotments.py. It used to be
+# defined here, but a second copy in the allotment parser is exactly how the dental and
+# same-name-different-town traps get quietly reintroduced in one file after being fixed
+# in the other. The vetoes, and the bug behind each, are documented there.
+from namematch import (norm, tokens, key, sim, discipline_clash,
+                       place, place_clash, identity, identity_clash)
 
 
 STATE_FIX = {
@@ -150,28 +77,6 @@ for n in nmc:
 matched, unmatched, ambiguous = [], [], []
 used = set()
 
-def identity(s):
-    """What's left of a name once the town is removed — the part that says WHICH college.
-
-    Two colleges in one city share their place tokens, so place agreement proves nothing
-    there: "AIIMS Guwahati" and "Gauhati Medical College, Guwahati" agree on the city and
-    are still different institutions. Only the identity tokens ({aiims} vs {gauhati})
-    separate them.
-    """
-    return set(tokens(s)) - place(s) - {w for w in norm(s).split() if len(w) <= 2}
-
-
-def identity_clash(a, b):
-    ia, ib = identity(a), identity(b)
-    if not ia and not ib:
-        return False            # both are pure place names -> nothing to contradict
-    if not ia or not ib:
-        return True             # one side is generic ("Medical College, Tvm") -> can't corroborate
-    if ia & ib:
-        return False
-    # No shared identity token. Allow spelling drift (gauhati/guwahati is NOT drift here —
-    # they are different colleges — but bengaluru/bangalore is), so demand a close pair.
-    return not any(difflib.SequenceMatcher(None, x, y).ratio() >= 0.85 for x in ia for y in ib)
 
 
 def eligible(c, n, fuzzy):

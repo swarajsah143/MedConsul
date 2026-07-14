@@ -32,10 +32,17 @@ the addresses are free text and comma counts vary wildly.
 """
 import json, os, re, sys, collections
 
+from namematch import CollegeIndex
+
 try:
     import pdfplumber
 except ImportError:
     sys.exit('pip install pdfplumber')
+
+# Institutes we could not confidently pin to a college, and how many rows each cost. These
+# are reported, never silently swallowed — an unlinked institute means real allotment rows
+# with no collegeId, which is exactly the thing worth seeing.
+unlinked = collections.Counter()
 
 D = os.path.dirname(os.path.abspath(__file__))
 RAW = f'{D}/raw'
@@ -125,56 +132,30 @@ def seat_type(quota):
     return 'Government'
 
 
-def institute_name(cell):
-    """The institute cell is 'Name, <long postal address>'. Keep the name."""
-    s = re.sub(r'\s+', ' ', (cell or '')).strip()
-    return s.split(',')[0].strip() if ',' in s else s
-
-
-# ---- resolve state from OUR college table, not just the address ---------------------
-# Round-1 files print the institute with its full postal address, so find_state() can read
-# the state straight out of it. Round-2/3 files print only "AIIMS, New Delhi" — no address —
-# and 66,492 rows were being dropped for having no state in a string that never had one.
-# We already know every college's state (out/colleges.json, 820 of them, verified), so look
-# it up by name instead. That is also strictly more reliable than parsing free-text addresses.
-_STOP = {'medical', 'college', 'institute', 'institution', 'sciences', 'science', 'of', 'and',
-         'the', 'for', 'hospital', 'research', 'centre', 'center', 'university', 'school',
-         'health', 'foundation', 'trust', 'society', 'academy', 'govt', 'government'}
-
-
-def _key(s):
-    t = [w for w in re.sub(r'[^a-z0-9]+', ' ', (s or '').lower()).split()
-         if w not in _STOP and len(w) > 1]
-    return ' '.join(sorted(t))
-
-
-def load_college_states():
+# ---- resolve the institute against OUR college table --------------------------------
+# The institute cell is "<Name>, <City>,<POSTAL ADDRESS>, <State>, <PIN>" in round-1 files
+# and a bare "<Name>, <City>" in round-2/3 files:
+#
+#   AIIMS, New Delhi,AIIMS ANSARI NAGAR EAST AUROBINDO MARG NEW DELHI 110029, Delhi (NCT), 110029
+#   AIIMS, Jodhpur,BASNI PHASE - II, JODHPUR-342005, Rajasthan, 342005
+#   AIIMS, New Delhi
+#
+# This used to be `cell.split(',')[0]`, which keeps only "AIIMS" — welding all 20 AIIMS
+# campuses into ONE institute (7,881 rows), every "Government Medical College, <city>" into
+# one (6,601 rows), and collapsing 700+ colleges down to 456 distinct names. Every one of
+# those rows then resolved to a single wrong collegeId, filing AIIMS Patna's ranks under
+# AIIMS New Delhi. The city lives in the SECOND segment, so the name is matched against the
+# real college table instead of being cut at a comma.
+#
+# When the cell genuinely does not say which college it means (a bare "AIIMS"), the match is
+# declined: the row keeps its printed name and carries NO collegeId. A missing link is
+# recoverable; a wrong one silently corrupts the cutoffs students rely on.
+def load_colleges():
     path = f'{D}/out/colleges.json'
-    if not os.path.exists(path):
-        return {}
-    idx = {}
-    for c in json.load(open(path)):
-        for nm in [c['name']] + list(c.get('aliases') or []):
-            k = _key(nm)
-            if k:
-                idx.setdefault(k, c['state'])
-    return idx
+    return json.load(open(path)) if os.path.exists(path) else []
 
 
-COLLEGE_STATE = load_college_states()
-_state_cache = {}
-
-
-def resolve_state(inst_cell, name):
-    """Address first (it is explicit), then our own college table."""
-    st = find_state(inst_cell)
-    if st:
-        return st
-    if name in _state_cache:
-        return _state_cache[name]
-    st = COLLEGE_STATE.get(_key(name))
-    _state_cache[name] = st
-    return st
+INDEX = CollegeIndex(load_colleges())
 
 
 def header_map(cells):
@@ -295,15 +276,23 @@ def parse_pdf(path, meta):
                         dropped[f'seatType:{quota[:22]}'] += 1
                         continue
 
-                    name = institute_name(inst)
+                    # Address first (it is explicit), then the college we matched. Round-2/3
+                    # cells carry no address at all, so the college table is the only source
+                    # of a state for them.
+                    addr_state = find_state(inst)
+                    college, display = INDEX.resolve(inst, addr_state)
+
+                    name = college['name'] if college else display
                     if not name:
                         dropped['no-institute-name'] += 1
                         continue
 
-                    state = resolve_state(inst, name)
+                    state = addr_state or (college['state'] if college else None)
                     if not state:
                         dropped['no-state'] += 1
                         continue
+                    if not college:
+                        unlinked[name] += 1
 
                     # The `allotments` schema has NO year field, and its naturalKey is
                     # (counselling, round, category, course, allIndiaRank, instituteName).
@@ -316,7 +305,6 @@ def parse_pdf(path, meta):
                                        else (meta.get('counselling') or 'MCC UG'),
                         'round': int(meta['round']),
                         'instituteName': name,
-                        'collegeName': name,           # -> collegeId at import, if it resolves
                         'state': state,
                         # MCC writes tie-broken ranks as "1.01", "1.02" — same AIR, split by
                         # a tiebreaker. int() would throw; the AIR is the integer part.
@@ -326,6 +314,11 @@ def parse_pdf(path, meta):
                         'course': c,
                         'source': meta['url'],
                     }
+                    # Only a CONFIRMED match carries the FK. An unresolved institute keeps its
+                    # printed name and no collegeName, so the importer leaves collegeId unset
+                    # rather than guessing a college for it.
+                    if college:
+                        row['collegeName'] = college['name']
                     if sub:
                         row['subcategory'] = sub
                     elif cand_cat and cand_cat.lower() not in ('', '-'):
@@ -384,6 +377,18 @@ def main():
         print(f'  seatTypes  {dict(collections.Counter(r["seatType"] for r in deduped))}')
         print(f'  rounds     {dict(collections.Counter(r["round"] for r in deduped))}')
         print(f'  states     {len({r["state"] for r in deduped})}')
+
+        linked = sum(1 for r in deduped if r.get('collegeName'))
+        institutes = {r['instituteName'] for r in deduped}
+        print(f'\n  institutes {len(institutes)} distinct')
+        print(f'  linked     {linked} rows -> a real collegeId '
+              f'({len(deduped) - linked} rows keep their name but no FK)')
+        if unlinked:
+            print(f'  unlinked   {len(unlinked)} institutes could not be pinned to a college:')
+            for nm, n in unlinked.most_common(10):
+                print(f'      {n:>6}  {nm[:66]}')
+            json.dump(unlinked.most_common(), open(f'{RAW}/allotments.unlinked.json', 'w'),
+                      indent=1, ensure_ascii=False)
 
 
 if __name__ == '__main__':

@@ -37,11 +37,29 @@ async function login() {
   return j.data.accessToken || j.data.token;
 }
 
-async function bulk(token, collection, rows) {
+/**
+ * Collections whose entire real contents are staged in out/, so the file is the whole
+ * truth and anything else in the table is the shipped demo content. `replace` upserts
+ * the file and then deletes every row whose natural key is not in it.
+ *
+ * Deliberately NOT listed: colleges/closingRanks (replace would delete any row missing
+ * from the file and orphan its FK children), and fees/blogs (no real data staged yet —
+ * replacing with nothing would wipe the table).
+ */
+const REPLACE = new Set([
+  'announcements', 'checklistDocs', 'stateDocs', 'counsellingQuotas',
+  'counsellingSections', 'universities', 'abroadUniversities', 'knowledgeBase',
+]);
+
+// The bulk route hard-caps a batch at 20k rows, and express.json caps the body at 25mb.
+// allotments is 162k rows / 49mb, so it must go up in chunks. 5k keeps every body ~2mb.
+const CHUNK = 5000;
+
+async function post(token, collection, rows, replace) {
   const r = await fetch(`${API}/api/admin/resources/${collection}/bulk`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-    body: JSON.stringify({ rows }),
+    body: JSON.stringify({ rows, replace }),
   });
   const j = await r.json();
   if (!j.success) {
@@ -50,9 +68,32 @@ async function bulk(token, collection, rows) {
     if (j.totalErrors > 8) console.error(`      ... and ${j.totalErrors - 8} more`);
     return null;
   }
-  const { inserted, updated } = j.data;
-  console.log(`  ✓ ${collection.padEnd(20)} ${String(rows.length).padStart(6)} rows  (${inserted} new, ${updated} updated)`);
   return j.data;
+}
+
+async function bulk(token, collection, rows) {
+  // `replace` deletes whatever is not in the batch, so it may only ride on a SINGLE
+  // batch that holds the whole collection. Sending it with each chunk would make every
+  // chunk delete the one before it.
+  const replace = REPLACE.has(collection);
+  if (replace && rows.length > CHUNK) throw new Error(`${collection}: replace cannot be chunked`);
+
+  const total = { inserted: 0, updated: 0, deleted: 0 };
+  for (let i = 0; i < rows.length; i += CHUNK) {
+    const chunk = rows.slice(i, i + CHUNK);
+    const d = await post(token, collection, chunk, replace);
+    if (!d) return null;
+    total.inserted += d.inserted || 0;
+    total.updated += d.updated || 0;
+    total.deleted += d.deleted || 0;
+    if (rows.length > CHUNK) {
+      process.stdout.write(`\r  · ${collection.padEnd(20)} ${Math.min(i + CHUNK, rows.length)}/${rows.length} rows`);
+    }
+  }
+  if (rows.length > CHUNK) process.stdout.write('\r\x1b[K');
+  const purged = total.deleted ? `, ${total.deleted} demo rows purged` : '';
+  console.log(`  ✓ ${collection.padEnd(20)} ${String(rows.length).padStart(6)} rows  (${total.inserted} new, ${total.updated} updated${purged})`);
+  return total;
 }
 
 /** Paginate the admin list endpoint (hard-capped at 500/page) to map name -> _id. */
