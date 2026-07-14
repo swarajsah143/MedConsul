@@ -1,0 +1,517 @@
+[
+  {
+    "state": "Maharashtra",
+    "checklistType": "Form Filling",
+    "documents": [
+      "NEET-UG admit card (downloaded copy)",
+      "NEET-UG result / scorecard",
+      "Any government photo ID — Aadhaar, driving licence, PAN or passport",
+      "Nationality certificate from the District Magistrate / Addl. District Magistrate / Metropolitan Magistrate, OR a valid Indian passport, OR an HSC school leaving certificate that records nationality as 'Indian'",
+      "Maharashtra Domicile Certificate issued by the District Magistrate / Metropolitan Magistrate / Addl. District Magistrate or other competent authority",
+      "SSC (Class 10) certificate, school leaving certificate or birth certificate as date-of-birth proof",
+      "HSC (Class 12) statement of marks",
+      "Medical fitness certificate in the brochure's Annexure-H format",
+      "If claiming caste reservation: caste certificate, Caste Validity Certificate (CVC), and Non-Creamy Layer certificate (DT-A, NT-B, NT-C, NT-D, SEBC, OBC/SBC) valid to 31 March of the admission year",
+      "If claiming EWS: EWS eligibility certificate in the prescribed format for the current year",
+      "If claiming specified reservation: defence (Annexure-C), PwD (Annexure-D), MKB (Annexure-E), hilly area (Annexure-F), or orphan certificate from the Women & Child Welfare Department",
+      "If claiming minority status: school leaving certificate or religious-place certificate plus affidavit (Jain / Muslim / Christian / Gujarati / Sindhi / Hindi linguistic minority)",
+      "If NRI or OCI: the certificates prescribed in Annexure-Y of the brochure"
+    ],
+    "source": "https://statecetcell.s3.ap-south-1.amazonaws.com/Old+Notifications/NEET-UG25_IB.pdf"
+  },
+  {
+    "state": "Maharashtra",
+    "checklistType": "Counselling",
+    "documents": [
+      "All originals plus one set of attested photocopies — proxies are not allowed at physical verification",
+      "NEET-UG admit card",
+      "Printout of the latest online application form filled on mahacet.org",
+      "NEET-UG marksheet",
+      "Nationality certificate, valid Indian passport, or HSC leaving certificate showing nationality as 'Indian'",
+      "Maharashtra Domicile Certificate from the District Magistrate / Metropolitan Magistrate / Addl. District Magistrate or competent authority",
+      "HSC (or equivalent) marksheet",
+      "SSC (or equivalent) passing certificate as date-of-birth proof",
+      "Government photo ID (PAN, Aadhaar, passport etc.)",
+      "Medical fitness certificate (Annexure-H)",
+      "If applicable: caste certificate, caste validity certificate, and Non-Creamy Layer certificate valid to 31 March of the admission year",
+      "Defence claims (D1/D2/D3): ex-servicemen or serving certificate; D1/D2 also need the defence parent's Maharashtra domicile certificate; D3 needs the transfer order plus the parent's non-Maharashtra domicile certificate",
+      "EWS eligibility certificate for the current academic year",
+      "MKB claim: disputed-area certificate, mother-tongue certificate, and SSC/HSC from the MKB area",
+      "Hilly Area (HA) claim: parent's domicile certificate and the candidate's SSC/HSC from the hilly area",
+      "PwD candidates: medical fitness certificate from the authorised medical board",
+      "Orphan candidates: certificate from the Women and Child Welfare Department"
+    ],
+    "source": "https://statecetcell.s3.ap-south-1.amazonaws.com/Old+Notifications/NEET-UG25_IB.pdf"
+  },
+  {
+    "state": "Maharashtra",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "NRI status must be claimed in the online application form itself — it cannot be added later",
+      "NRI certificate issued by an Indian Mission or Post abroad (the brochure defines an NRI as a person 'not ordinarily resident' under section 6(6) of the Income Tax Act, 1961, who holds such a certificate, and includes his child or ward under the Guardians and Wards Act, 1890)",
+      "For OCI candidates: OCI registration under section 7A of the Citizenship Act, 1955 (existing PIO cards count as OCI)",
+      "The NRI/OCI certificates prescribed in Annexure-Y of the Information Brochure",
+      "Institutional-quota application fee paid at registration — NRI candidates may only fill preferences for institutional ('N' suffix) seats and are not permitted on state-quota ('S' suffix) seats"
+    ],
+    "source": "https://statecetcell.s3.ap-south-1.amazonaws.com/Old+Notifications/NEET-UG25_IB.pdf"
+  },
+  {
+    "state": "Karnataka",
+    "checklistType": "Counselling",
+    "documents": [
+      "Printout of the KEA online application (the same documents furnished for engineering are reused for the medical/dental/AYUSH UGNEET seat allotment)",
+      "SSLC / Class 10 marks card",
+      "Seven-year study certificate — proof of study in Karnataka for at least seven years between Class 1 and Class 12, issued by the head of the institution and COMPULSORILY countersigned by the Block Education Officer (BEO) or DDPI (countersignature is not needed for CBSE/CISCE study certificates)",
+      "Kannada medium certificate, if claimed — 10 full academic years in Kannada medium from Class 1 to 10, countersigned by the BEO/DDPI in the prescribed proforma",
+      "Rural study certificate, if claimed — 10 full academic years in a rural area from Class 1 to 10, countersigned by the BEO; general-merit candidates claiming a rural seat must also attach a Non-Creamy Layer certificate from the Tahsildar",
+      "Caste / caste-income certificate in the candidate's own name and carrying an RD number: Form D for SC/ST, Form E for Category-1, Form F for OBC 2A/2B/3A/3B, issued by the jurisdictional Tahsildar (Karnataka certificates only — central OBC or migrant certificates are not accepted)",
+      "Income certificate for Category-1/SC/ST candidates claiming fee exemption (the RD number must be entered in the application)",
+      "Linguistic minority, religious minority or NRI-ward certificates for medical/dental seats and for St. John's Medical College"
+    ],
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugcet2025/UGCET_Brochure_2025_Engenglish.pdf"
+  },
+  {
+    "state": "Karnataka",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "Ward certificate in the Annexure-6 format of the KEA e-Information Bulletin",
+      "Family tree signed by the Tahsildar — a family tree signed by a notary, or an affidavit of relationship, is NOT accepted",
+      "Embassy certificate of the sponsor signed by the Indian Consulate General with the embassy seal, issued within the last 6 months — a notarised embassy certificate is NOT accepted",
+      "Sponsor's NRI/OCI bank passbook, passport and visa / resident visa",
+      "NEET scorecard",
+      "NEET hall ticket",
+      "Final copy of the KEA UGCET/UGNEET online application form",
+      "Candidate's SSLC / Class 10 marks card",
+      "Candidate's 2nd PUC / Class 12 marks card"
+    ],
+    "source": "https://cetonline.karnataka.gov.in/keawebentry456/ugneet2025/NRI_DOCUMENTSkannada.pdf"
+  },
+  {
+    "state": "Tamil Nadu",
+    "checklistType": "Form Filling",
+    "documents": [
+      "NEET-UG admit card",
+      "Class 10 marksheet (both sides)",
+      "Class 11 marksheet (both sides)",
+      "HSC / Class 12 marksheet (both sides) or equivalent",
+      "Transfer certificate issued after completing HSC or the equivalent course",
+      "Proof of study from Class VI to XII, for candidates who studied entirely in Tamil Nadu",
+      "Nativity certificate — required for candidates who did not study Class VI–XII in Tamil Nadu",
+      "Community certificate, if applicable",
+      "For communal reservation on a Tamil Nadu nativity claim: community certificate of one parent from the competent Revenue authority in Tamil Nadu",
+      "Special category form with supporting certificates for benchmark disability, eminent sportsperson or ex-servicemen claims",
+      "Bonafide certificate from the Chief Educational Officer for the 7.5% government-school reservation (Class VI–XII in a Tamil Nadu government school)",
+      "Parent's income certificate, valid on the date of application, for candidates claiming fee exemption",
+      "Eligibility certificate from The Tamil Nadu Dr. M.G.R. Medical University for candidates from boards other than the State Board, CBSE and ICSE",
+      "Court orders and any other supporting documents, if applicable"
+    ],
+    "source": "https://tnmedicalselection.net/news/30062026003157.pdf"
+  },
+  {
+    "state": "Tamil Nadu",
+    "checklistType": "College Report",
+    "documents": [
+      "Originals plus attested photocopies must be produced at the allotted medical/dental college at the time of joining",
+      "NEET-UG admit card and scorecard",
+      "Class 10 marksheet (both sides)",
+      "Class 11 marksheet (both sides)",
+      "HSC / Class 12 marksheet (both sides) or equivalent",
+      "Transfer certificate obtained after HSC",
+      "Proof of study from Class VI to XII, for candidates who studied entirely in Tamil Nadu",
+      "Community certificate, if applicable",
+      "Nativity certificate",
+      "Community certificate of one parent from the competent Revenue authority in Tamil Nadu, for candidates claiming Tamil Nadu nativity for communal reservation",
+      "The same passport photograph uploaded to NEET, to be submitted at the college at admission"
+    ],
+    "source": "https://tnmedicalselection.net/news/30062026003157.pdf"
+  },
+  {
+    "state": "Tamil Nadu",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "NRI status of the financial supporter, issued by the Indian Embassy of the country concerned under its seal",
+      "Certificate of relationship between the NRI financial supporter and the candidate, issued by the competent Revenue authority, together with the financial supporter's valid Indian passport",
+      "Copy of the candidate's passport",
+      "Ward certificate in the prospectus's Annexure-II format",
+      "NRE (Non-Resident External) bank account passbook of the financial supporter",
+      "OCI candidates applying for NRI seats instead submit: the candidate's OCI card, the candidate's birth certificate, one parent's Indian passport or OCI card with any one of the SSLC/PUC/HSC marksheet or transfer certificate, and the Annexure-II ward certificate",
+      "Minority-seat claimants also need a Tamil Nadu nativity certificate and a permanent community certificate card"
+    ],
+    "source": "https://tnmedicalselection.net/news/28062026235144.pdf"
+  },
+  {
+    "state": "Telangana",
+    "checklistType": "Form Filling",
+    "documents": [
+      "All certificates are uploaded as PDFs (max 500 KB each unless noted); photo and signature as JPG/JPEG up to 100 KB",
+      "NEET-UG rank card (mandatory)",
+      "Birth certificate — SSC marks memo (mandatory)",
+      "Qualifying exam certificate — Intermediate marks memo or equivalent; a grade certificate is not accepted (mandatory)",
+      "Study certificates from Class IX to SSC, merged into one PDF (mandatory)",
+      "Study certificates for the two years of Intermediate or equivalent, merged into one PDF (mandatory)",
+      "Transfer certificate",
+      "Latest caste certificate bearing the father's name, if applicable",
+      "Minority certificate (Muslim only), if applicable",
+      "EWS certificate for the current year issued by the Tahsildar, Government of Telangana, if applicable",
+      "Latest parental income certificate, if applicable",
+      "NCC certificate (up to 1500 KB) / CAP certificate (up to 1000 KB) / PMC certificate / Anglo-Indian certificate, if applicable",
+      "Candidates who did not study in any educational institution must upload a residence certificate covering the four years immediately preceding the qualifying examination, with the exact period stated",
+      "Aadhaar card",
+      "Latest passport-size photograph and specimen signature (both mandatory)"
+    ],
+    "source": "https://www.knruhs.telangana.gov.in/uploads/20250715114053KNRUHS%20-%20MBBS%20BDS%20ADMISSIONS%20UNDER%20COMPETENT%20AUTHORITY%20QUOTA%20FOR%20THE%20AY%202025-26%20-%20NOTIFICATION%20FOR%20REGISTRATION.pdf"
+  },
+  {
+    "state": "Andhra Pradesh",
+    "checklistType": "Form Filling",
+    "documents": [
+      "All certificates uploaded as PDFs (500 KB each unless noted); photo and signature as JPG/JPEG up to 100 KB",
+      "NEET-UG rank card (mandatory)",
+      "Birth certificate — SSC marks memo (mandatory)",
+      "Qualifying exam certificate — Intermediate marks memo or equivalent; grade certificates are not accepted (mandatory)",
+      "Study certificates from Class 6 to Class 10, merged into a single PDF (mandatory)",
+      "Study certificates for the two years of Intermediate or equivalent, merged into a single PDF (mandatory)",
+      "Transfer certificate (Intermediate / 10+2)",
+      "Integrated community (caste) certificate issued online by the Mandal Revenue Officer / competent authority, Government of Andhra Pradesh, if applicable",
+      "Minority certificate from the Minority Welfare Officer (Muslim only), if applicable",
+      "EWS income and asset certificate valid for the current year, issued by a Tahsildar of the Government of Andhra Pradesh on or after 1 April, for candidates not covered by SC/ST/BC",
+      "Parental income certificate or white ration card, if applicable",
+      "PwBD certificate issued by a Medical Counselling Committee medical board, if applicable",
+      "NCC certificate (up to 1500 KB); CAP certificate with discharge book, ex-servicemen ID, pension payment order or serving-officer service certificate (up to 2000 KB); sports certificates with Forms 1–4 (up to 2000 KB); police martyr children, Anglo-Indian, or Bharat Scouts and Guides certificates — all if applicable",
+      "For the 15% unreserved seats: a minimum 10-year study certificate of the candidate or either parent in Andhra Pradesh, OR proof of 10 years' residence in Andhra Pradesh of either parent, OR a current employment certificate of either parent working in Andhra Pradesh",
+      "Aadhaar card",
+      "Local status certificate issued online by the MRO in Andhra Pradesh, for candidates who migrated from Telangana (per GAD G.O.s 132/171/129/161)",
+      "Latest passport-size photograph and specimen signature (both mandatory)"
+    ],
+    "source": "https://drntr.uhsap.in/index/notification/20250710164819160.pdf"
+  },
+  {
+    "state": "Kerala",
+    "checklistType": "Form Filling",
+    "documents": [
+      "Proof of nativity as specified in Clause 6.1.1 of the KEAM prospectus (mandatory)",
+      "SSLC or equivalent certificate (mandatory); if it does not show the date of birth, an equivalent certificate proving date of birth",
+      "Course certificate signed and sealed by the head of the institution, for weightage/reservation claims (e.g. Plus-Two students who took Sanskrit as second language for the Ayurveda rank list; VHSE/HSE agriculture, livestock, dairy and poultry streams)",
+      "Non-Creamy Layer certificate in the Annexure XXVII format from the Village Officer, for SEBC/OEC community-reservation claims",
+      "Community certificate from the Tahsildar in the Annexure XXIX format, for SC/ST candidates",
+      "Certificates supporting any special-reservation claim",
+      "Inter-caste marriage certificate from the Tahsildar in the Annexure XV format, if applicable",
+      "Marklists of all parts of the B.Sc. degree examination, if applicable",
+      "Minority-reservation documents in the Annexure XXVIII format, if applicable",
+      "EWS certificate from the Village Officer in the Annexure XXVI(a)/(b) format, if applicable"
+    ],
+    "source": "https://cee.kerala.gov.in/keam2026/pdf/Prospectus.pdf"
+  },
+  {
+    "state": "Kerala",
+    "checklistType": "Counselling",
+    "documents": [
+      "Keralites — upload any ONE of: the SSLC page showing the candidate's place of birth in Kerala; the SSLC page of either parent showing place of birth in Kerala plus a corroborative relationship certificate; the relevant passport page (candidate's or a parent's) showing place of birth in Kerala plus relationship proof; a birth certificate from the Panchayat/Municipality/Corporation showing the candidate's or a parent's birth in Kerala; a Village Officer/Tahsildar certificate in the Annexure XXXV format; or an Annexure XXXV(a) certificate that the parent is an All India Service officer of the Kerala cadre",
+      "Non-Keralite Category I (NK I) — upload any ONE of: a certificate from the head of the parent's employing organisation plus an Annexure XXXVI certificate of school study in Kerala for Classes XI and XII; an Annexure XXXVII residence certificate from the Village Officer/Tahsildar showing 5 years' residence in Kerala within 12 years of study; or an Annexure XXXVIII certificate of school study in Kerala from Class VIII to XII",
+      "Non-Keralite Category II (NK II) — upload the 'Certificate of Completion of Qualifying Examination' in the Annexure XXXIX format, or an Indian passport as proof of Indian citizenship"
+    ],
+    "source": "https://cee.kerala.gov.in/keam2026/pdf/Prospectus.pdf"
+  },
+  {
+    "state": "Kerala",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "Sponsor's passport copy plus visa / green card / NORKA Roots ID / OCI documents; the sponsor's job must be stated on one of these documents",
+      "The sponsor's visa must be valid up to the closing date of the application",
+      "If the sponsor's employment is not shown on those documents, an employment certificate of the sponsor attested by the embassy/consulate",
+      "Certificate from the Revenue authorities clearly establishing the sponsor's relationship to the candidate (per G.O.(MS) No.243/14/H&FWD dated 06.08.2014) — a bare 'niece/cousin/uncle/aunt' entry is rejected unless the exact relationship link is explained on the certificate itself",
+      "Visa-equivalent documents such as a Civil ID, resident permit, resident ID, IQAMA, electronic visa, employment pass or entry visa are accepted where they show visa validity",
+      "Sworn affidavit from the sponsor on Rs. 200 stamp paper, notarised, declaring that the candidate is dependent on the sponsor and that the sponsor will bear the tuition and special fees for the whole course",
+      "Where the sponsor's visa records the status as 'housewife' or 'student', a properly attested employment certificate is still accepted"
+    ],
+    "source": "https://cee.kerala.gov.in/keam2026/pdf/Prospectus.pdf"
+  },
+  {
+    "state": "West Bengal",
+    "checklistType": "Counselling",
+    "documents": [
+      "Candidate profile letter and payment receipt generated online after successful payment",
+      "Domicile certificate in Proforma a1, a2 or b, or a valid domicile certificate from the West Bengal e-district portal — Proforma a1 is for candidates resident in West Bengal for at least the last 10 years who passed Class 10 and 12 in the state; Proforma a2 is for the same 10-year residents who passed 10+2 in the current year from West Bengal; Proforma b is for candidates who did NOT reside in West Bengal for 10 years (i.e. passed Class 10 or 12 or both outside the state) but whose parents are permanent West Bengal residents living there continuously for the last 10 years",
+      "Proforma a1 or b must be signed by a competent State/Central Government authority with local jurisdiction — e.g. District Magistrate, Additional District Magistrate, Deputy Magistrate, Deputy Collector, SDO, BDO, or a Superintendent/Additional/Deputy Superintendent of Police; certificates signed by a people's representative such as a municipal councillor are not accepted",
+      "Where Proforma b or a parent's e-district domicile is used, produce any TWO of the parent's original Voter ID, Aadhaar card and passport showing a West Bengal residential address",
+      "Caste certificate as applicable, issued in West Bengal (a candidate domiciled in WB holding an SC/ST/OBC/EWS certificate of another state is treated as unreserved for state quota)",
+      "NEET-UG admit card",
+      "NEET-UG rank card",
+      "PwD certificate issued/verified through the MCC/DGHS online link from IPGMER Kolkata, if applicable",
+      "Age proof (17 years by 31 December of the admission year)",
+      "Class 10+2 marksheet for verification of marks",
+      "Medical certificate from a registered medical practitioner",
+      "Management-quota candidates need the profile letter and receipt, NEET admit and rank cards, age proof, 10+2 marksheet and medical certificate; caste and PwD certificates only for cut-off eligibility",
+      "A candidate who fails to produce a valid domicile certificate at verification is treated as non-domicile and may then only compete for private-college management-quota seats"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/07/2025073198.pdf"
+  },
+  {
+    "state": "West Bengal",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "The documents listed in the MCC (New Delhi) notices on NRI admission dated 21.07.2025 and 25.07.2025 — WBMCC adopts the MCC NRI document requirements rather than issuing its own list",
+      "NRI candidature must be declared during WBMCC online registration; candidates who state they are NRI / PIO / OCI may apply only for NRI-quota seats",
+      "Candidates who opt for NRI quota cannot also claim state-quota or management-quota seats (and vice versa)",
+      "OCI card holders may apply for NRI-quota seats",
+      "Physical document verification happens at the allotted college, not at a central centre; false or forged NRI documents lead to cancellation of candidature"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3aae8d1e00b15a30e5901227e97ffbef7/uploads/2025/07/2025073198.pdf"
+  },
+  {
+    "state": "Gujarat",
+    "checklistType": "Form Filling",
+    "documents": [
+      "Class 10 (SSC) marksheet and Class 12 (HSC) marksheet",
+      "NEET-UG marksheet of the current academic year",
+      "Proof of place of birth — school leaving certificate / transfer certificate is compulsory and must state the village/taluka/district and state; if the birthplace is not printed on it, merge and upload a birth certificate or Indian passport as well",
+      "Proof of date of birth — school leaving certificate, transfer certificate, birth certificate or Indian passport",
+      "SC or ST certificate issued by the authority empowered by the Government of Gujarat, if applicable",
+      "SEBC certificate plus a family Non-Creamy Layer certificate issued by a Gujarat authority on or after 01.04.2023 and valid for the current year, if applicable",
+      "EWS certificate issued by a Gujarat authority on or after 01.04.2023 and valid for the current year, if applicable",
+      "Disability certificate issued by the authority empowered by the Government, for PwD candidates",
+      "Local-candidate certificate from the Dean of NHL Municipal Medical College, Ahmedabad, or from the Dean of Surat Municipal Institute of Medical Education and Research, for the respective municipal quotas (issued only after the NEET-UG result)",
+      "OCI card issued by the competent authority of the Central Government, for OCI candidates",
+      "Physical fitness certificate in the prescribed ACPUGMEC form from a registered medical practitioner (MBBS/MD/MS), together with the undertaking"
+    ],
+    "source": "https://medadmgujarat.ncode.in/web/UG2025/List%20of%20Documents%20Required%20for%20Medical_Dental%20Admission%20Process%20of%20ACPUGMEC.pdf"
+  },
+  {
+    "state": "Gujarat",
+    "checklistType": "Counselling",
+    "documents": [
+      "Class 10 and Class 12 must have been passed from a school located inside Gujarat — the only exception is candidates who took Class 10 admission in a school outside Gujarat before 23 June 2017 and passed Class 10 outside the state",
+      "Candidates born outside Gujarat must produce a domicile certificate issued by the authority empowered by the Government of Gujarat",
+      "Children of defence personnel: domicile certificate of the defence parent issued by the authority empowered by the Government of Gujarat",
+      "Children of IAS/IPS/IRS personnel and government employees: details of the original posting in Gujarat plus the current transfer order",
+      "Candidates who passed Class 12 from a Jawahar Navodaya Vidyalaya outside Gujarat: passing marksheets for Classes 1 to 8 from a school located in Gujarat",
+      "Candidates who passed Class 10 and 12 from the Gujarat board in Daman & Diu or Dadra & Nagar Haveli: Gujarat board marksheets plus a domicile / birth-in-Gujarat certificate from a Gujarat authority",
+      "Reservation certificates (SC, ST, SEBC with NCL, EWS) must be issued by an authority empowered by the Government of Gujarat — certificates from other states are not valid"
+    ],
+    "source": "https://medadmgujarat.ncode.in/web/UG2025/List%20of%20Documents%20Required%20for%20Medical_Dental%20Admission%20Process%20of%20ACPUGMEC.pdf"
+  },
+  {
+    "state": "Madhya Pradesh",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "Proforma-4: notarised affidavit by the NRI/OCI candidate, for NRI-quota seats in private medical and dental colleges of Madhya Pradesh",
+      "Proof of NRI/OCI status — any one of an OCI card, an NRI/OCI status certificate issued by the embassy/consulate general in the admission year, or a copy of the NRI passport",
+      "Where the candidate is sponsored rather than an NRI personally: the sponsor's relationship to the candidate must be declared and ticked against the prescribed relationship table",
+      "Proforma-5: notarised affidavit by the guardian/sponsor, with the same NRI/OCI proof for the sponsor",
+      "Proforma-6: NRI/OCI sponsorship certificate from the sponsor, notarised in the sponsor's country of residence, to be submitted at the time of admission",
+      "NRI status must be selected in the DME MP online registration form (NRI details are captured in the registration form alongside domicile and category details)"
+    ],
+    "source": "https://dme.mponline.gov.in/ql_dme/DMECounselling_Public/DMEUG/2025/Proforma%202025_c_5.pdf"
+  },
+  {
+    "state": "Bihar",
+    "checklistType": "Counselling",
+    "documents": [
+      "Every applicable certificate must be produced in ORIGINAL at counselling/allotment on the scheduled date",
+      "NEET-UG admit card",
+      "NEET-UG scorecard",
+      "Matriculation (Class 10) passing certificate / marksheet / admit card",
+      "Intermediate (10+2) passing certificate / marksheet / admit card",
+      "Residential certificate (Bihar)",
+      "Caste certificate",
+      "All original certificates required for admission to private medical/dental colleges",
+      "Six passport-size photographs — the same photograph pasted on the NEET-UG admit card",
+      "Printout of the completed UGMAC online application form (confirmation page)",
+      "Aadhaar card",
+      "The downloaded check slip along with one copy of the Biometric Identification Report Form",
+      "Any other applicable certificate — e.g. divyang (PwD), SMQ or EWS; PwD certificates must be on the prescribed proforma from an authorised centre named in the UGMAC prospectus, and certificates from any other institute are rejected"
+    ],
+    "source": "https://bceceboard.bihar.gov.in/pdf_Pros/PROS_UGMAC25.pdf"
+  },
+  {
+    "state": "Bihar",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "'NRI' must be selected at the time of UGMAC online registration — a candidate who does not select it is not eligible for the NRI quota",
+      "NEET scorecard issued by NTA",
+      "Self-attested declaration that the candidate is an NRI / OCI / PIO or the child of an NRI parent",
+      "OCI / PIO card of the candidate, if applicable",
+      "NRI embassy certificate of the parent or of the candidate",
+      "The affidavit / declaration enclosed with the MCC notice dated 25.07.2025 (ref. U-11011/07/2025), submitted at document verification",
+      "Documentation issued by the Indian Mission or Ministry of External Affairs establishing NRI status, child-of-NRI status, or ward-of-NRI status (minor under bonafide guardianship), per the MCC notice dated 21.07.2025 reproduced in the prospectus appendices"
+    ],
+    "source": "https://bceceboard.bihar.gov.in/pdf_Pros/PROS_UGMAC25.pdf"
+  },
+  {
+    "state": "Haryana",
+    "checklistType": "Counselling",
+    "documents": [
+      "Bring originals plus TWO sets of self-attested photocopies — attested photocopies alone are not valid and the allotted seat is cancelled if originals are not produced",
+      "Matriculation / Class 10 certificate as date-of-birth proof",
+      "Class 12 / senior secondary certificate and detailed marks sheet",
+      "Character certificate from the school/institute last attended",
+      "Haryana Residence Certificate issued by the competent State Government authority, if applicable",
+      "Certificate of Bonafide Resident of Haryana issued by the competent State Government authority, if applicable (state-quota eligibility requires that the candidate or the parents hold the Haryana residence certificate)",
+      "Caste certificate from the competent State Government authority, if applicable",
+      "Benchmark-disability certificate from an NTA-notified centre, or a disability certificate from the medical board at PGIMS Rohtak",
+      "Dependent of Freedom Fighter certificate, if applicable",
+      "Ex-servicemen (ESM) certificate, if applicable",
+      "Income certificate for BC-category candidates",
+      "Income and asset certificate for EWS candidates",
+      "Affidavit for minority status",
+      "Printout of the online application form",
+      "Provisional allotment letter",
+      "Any TWO identity proofs — Aadhaar, PAN, driving licence, passport, voter ID or ration card",
+      "Four passport-size photographs on a white background, preferably the NEET photograph"
+    ],
+    "source": "https://dmer.haryana.gov.in/uploads/cand_images/PDF_document.pdf"
+  },
+  {
+    "state": "Haryana",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "All the documents required of a general candidate at verification, plus the NRI-specific documents below",
+      "Proof of NRI status — passport, and/or OCI/PIO card, and/or a letter from the Ministry of External Affairs or the Indian embassy, together with bank account details",
+      "Equivalency certificate from the Association of Indian Universities, New Delhi, if applicable",
+      "Conversion certificate converting grades to percentage of marks, if applicable",
+      "15% of the seats in the management category are earmarked for the NRI category; for the management category, candidates from all over India are eligible irrespective of domicile"
+    ],
+    "source": "https://dmer.haryana.gov.in/uploads/cand_images/PDF_document.pdf"
+  },
+  {
+    "state": "Punjab",
+    "checklistType": "Counselling",
+    "documents": [
+      "Proof of Punjab state-quota eligibility — the candidate must be an Indian citizen and must either have passed 10+1 and 10+2 from Punjab, or have been born in Punjab, or be a permanent resident of Punjab",
+      "Punjab residence certificate — 'permanent resident' covers candidates who studied 5 years in Punjab, or 2 years immediately before the qualifying exam; children/wards of Punjab Government employees (or of Government of India / state undertaking / autonomous body employees posted in Punjab or Chandigarh) with at least 3 years of service; children/wards of Punjab Government pensioners; and children/wards of persons who settled or resided in Punjab for at least 5 years before applying",
+      "SC / Backward Class certificate from the competent authority as per the latest Punjab Government instructions; the BC certificate must clearly state the family's annual income",
+      "Disability certificate for the 21 benchmark disabilities under the RPwD Act 2016, obtained from a designated centre listed on mcc.nic.in and brought in the prescribed format on the day of counselling — no separate medical board is constituted and no other disability certificate is accepted",
+      "Dependency certificate from the Deputy Commissioner / District Collector where the candidate's parents are not alive",
+      "Any undertaking, declaration or other document supporting a claim of domicile, residence or bonafide resident status"
+    ],
+    "source": "https://bfuhs.ac.in/MBBS2026/Notification%20MBBS%20BDS%202026.pdf"
+  },
+  {
+    "state": "Punjab",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "Documents establishing NRI status — a foreign passport, or green card, or permanent resident card, or a proof-of-residency certificate of the foreign country issued by the competent authority, or an OCI/PIO card issued by the Government of India",
+      "Eligibility for the NRI seat is determined by Baba Farid University of Health Sciences, Faridkot, which issues an eligibility certificate to each NRI candidate",
+      "Bank guarantee / surety bond for the balance of fee if the NRI candidate opts to pay fees in instalments",
+      "NRI seats are filled in order of Category I (NRI or children of NRIs who originally belong to Punjab) and then Category II (NRI or children of NRIs from another Indian state)",
+      "Centralised counselling for NRI-quota seats is held before the counselling for other categories"
+    ],
+    "source": "https://bfuhs.ac.in/MBBS2026/Notification%20MBBS%20BDS%202026.pdf"
+  },
+  {
+    "state": "Odisha",
+    "checklistType": "Counselling",
+    "documents": [
+      "Class 10 certificate, for verification of date of birth",
+      "Class 12 marksheet",
+      "Class 12 certificate",
+      "NEET rank card",
+      "Photograph",
+      "Nativity certificate / residence certificate proving that the candidate is a native of Odisha — mandatory for any reserved category (SC/ST/EWS) or sub-category (ES/PC/GC/SGS) claim, and it must be issued online by the appropriate State authority",
+      "Certificate supporting any reservation claim (SC / ST / GC / EWS); EWS candidates need an income-and-asset certificate from the Tahsildar or Additional Tahsildar",
+      "PwBD and ex-servicemen candidates report to their respective boards instead of uploading supporting documents; PwBD candidates who attended one of the 16 NMC-designated medical boards must submit that board's report with all affidavits",
+      "The bond, prepared and signed in the proper manner"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s36832a7b24bc06775d02b7406880b93fc/uploads/2025/07/2025073129.pdf"
+  },
+  {
+    "state": "Odisha",
+    "checklistType": "College Report",
+    "documents": [
+      "After allotment, report in person at the OJEE office, Gandamunda, Bhubaneswar on the notified date with all certificates, marksheets and other required documents in original",
+      "The duly prepared bond",
+      "Admission fee, paid online or by demand draft, according to the type of college allotted",
+      "Original college leaving certificate / school leaving certificate, which is deposited at the time of provisional admission",
+      "Freeze / float option, exercised at the time of provisional admission",
+      "After the third round, report to the allotted institution within the notified date with a copy of the provisional admission letter to complete admission at institution level"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s36832a7b24bc06775d02b7406880b93fc/uploads/2025/07/2025073129.pdf"
+  },
+  {
+    "state": "Delhi",
+    "checklistType": "Counselling",
+    "documents": [
+      "Delhi's 85% state-quota MBBS/BDS seats are counselled by the MCC, not by a separate state authority — there is no Delhi domicile certificate in the checklist",
+      "For Delhi University colleges (LHMC, UCMS, MAMC, MAIDS): eligibility for the 85% state quota rests on having studied Class 11 and Class 12 in Delhi NCT",
+      "For the IP University group (VMMC & Safdarjung, ABVIMS & RML, ESIC Dental): the location of the school from which the qualifying exam was passed decides the region — candidates who studied Classes 11 and 12 in recognised schools in Delhi and passed the qualifying exam from a school in NCT of Delhi fall under 'State Quota'",
+      "Reservation follows Central Government policy: SC 15%, ST 7.5%, OBC-NCL 27% on the Central OBC list, EWS 10%, PwD 5% horizontal",
+      "CW (Children/Widows of defence personnel) claims apply to state-quota seats only and are verified by the competent authority against its own eligible list",
+      "Class 11 and Class 12 marksheets showing the school's location in Delhi NCT are therefore the load-bearing documents for a Delhi state-quota claim"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "state": "Delhi",
+    "checklistType": "College Report",
+    "documents": [
+      "Originals plus attested photocopies — candidates without original certificates are not allowed to take admission",
+      "Allotment letter issued by MCC",
+      "NEET admit card issued by NTA",
+      "NEET result / rank letter issued by NTA",
+      "Date-of-birth certificate, if the matriculation certificate does not carry it",
+      "Class 10 certificate",
+      "Class 12 certificate and Class 12 marksheet",
+      "Eight passport-size photographs, the same as affixed on the application form",
+      "Proof of identity — Aadhaar, PAN, driving licence or passport",
+      "For OCI / PIO / foreign nationals: citizenship certificate or card documents (mandatory)",
+      "SC/ST certificate from the competent authority in the prescribed format, in English or Hindi, with the sub-caste clearly stated (carry an attested English/Hindi translation if the original is in a regional language)",
+      "OBC-NCL certificate as per the Central List, in the prescribed format, from the competent authority",
+      "EWS certificate in the prescribed format",
+      "Any additional document the allotted college specifies in its own college information"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s3e0f7a4d0ef9b84b83b693bbf3feb8e6e/uploads/2025/07/202509181307981517.pdf"
+  },
+  {
+    "state": "Chhattisgarh",
+    "checklistType": "Counselling",
+    "documents": [
+      "Physical scrutiny of documents is compulsory for every allotted seat, whether or not the candidate finally takes admission — a candidate who does not complete scrutiny within the stipulated time is eliminated from counselling",
+      "Domicile documents establishing Chhattisgarh eligibility",
+      "Caste certificate for the claimed category",
+      "EWS certificate, if applicable",
+      "Documents verifying OBC Non-Creamy Layer status, if applicable",
+      "Class 12 marksheet / certificate",
+      "Proof of date of birth",
+      "Divyang (PwD), Sainik or Freedom Fighter class certificates, if applicable",
+      "Every one of these certificates must be dated BEFORE the last date of registration for the round concerned",
+      "PwD candidates: the disability certificate must be issued by the State Medical Board constituted by CGDME — a district or any other medical board's certificate does not qualify the candidate for a Divyang-quota seat"
+    ],
+    "source": "https://cdnbbsr.s3waas.gov.in/s34b4edc2630fe75800ddc29a7b4070add/uploads/2024/08/2024081896.pdf"
+  },
+  {
+    "state": "Puducherry",
+    "checklistType": "Form Filling",
+    "documents": [
+      "Upload self-attested scanned copies; originals are produced only at the time of admission in the college",
+      "Passport-size photograph (20–50 KB) and scanned signature (20–50 KB)",
+      "Proof of birth — birth certificate, Class 10 marksheet or higher secondary marksheet (100–500 KB)",
+      "Class 10 marksheet (100–500 KB)",
+      "Class 12 marksheet (100–500 KB)",
+      "NEET-UG scorecard (100–500 KB)",
+      "HSC transfer certificate from the school last attended (100–500 KB)",
+      "Equivalence certificate from the Association of Indian Universities for foreign-board qualifications, or from Pondicherry University for candidates from the Lycée Français, Puducherry",
+      "U.T. of Puducherry candidates: residence and community certificates (Annexures 1, 3 / 4), obtained on or after 1 January of the admission year",
+      "U.T. of Puducherry candidates: affidavit in the Annexure 2 format on Rs. 20 e-stamp paper, notarised, to claim Puducherry residence",
+      "Regional claim (Annexure 6), if applicable — a regional claim needs 5 years' continuous residence in the region and 3 years' continuous study in a recognised school of that region immediately before the qualifying exam, certified by the head of institution and countersigned by the Chief Educational Officer (Karaikal/Mahe) or Regional Administrator (Yanam), plus a residence certificate from a Revenue officer not below Deputy Tahsildar",
+      "Freedom fighter / ex-serviceman / person with disabilities certificates (Annexures 7, 8, 9), if applicable",
+      "EWS certificate (Annexure 5), obtained on or after 1 April of the admission year",
+      "Government-school 10% quota: HSC transfer certificate",
+      "Other-state candidates: All India community certificate, if applicable"
+    ],
+    "source": "https://drive.google.com/uc?export=download&id=15GewexyKYSJ5QYYRFUjAfxVjlPEcZwHg"
+  },
+  {
+    "state": "Puducherry",
+    "checklistType": "NRI Assistance",
+    "documents": [
+      "All NRI/OCI certificates must be obtained on or after 1 January of the admission year",
+      "NRI candidate or parent: valid Indian passport of the candidate/parent, plus an embassy certificate of the parent issued by the Indian embassy of the country concerned under its seal (Annexure 12)",
+      "NRI sponsor (financial supporter): the sponsor's valid Indian passport; the sponsor's embassy certificate from the Indian embassy under its seal (Annexure 12); a sponsor relationship certificate from the parent related to the sponsor, attested by the Tahsildar (Annexure 13); and a sponsor relationship tree certificate from that parent, also attested by the Tahsildar (Annexure 14)",
+      "OCI candidate: the candidate's OCI card and passport",
+      "OCI sponsor: the parent/sponsor's OCI card and passport, plus the Annexure 13 relationship certificate and Annexure 14 relationship tree certificate attested by the Tahsildar",
+      "Foreign national: passport, visa, green card or citizenship card of the candidate",
+      "False NRI/OCI documents trigger cancellation of the seat and criminal action, whether or not a seat has already been allotted"
+    ],
+    "source": "https://drive.google.com/uc?export=download&id=15GewexyKYSJ5QYYRFUjAfxVjlPEcZwHg"
+  }
+]

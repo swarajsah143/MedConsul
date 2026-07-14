@@ -58,7 +58,7 @@
   "courses": [
    "MBBS"
   ],
-  "website": "https://www.aiimsbhubaneswar.nic.in",
+  "website": "https://aiimsbhubaneswar.nic.in",
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/AIIMS_Bhubaneswar%2C_Odisha.jpg",
   "source": "https://www.nmc.org.in/information-desk/for-students-to-study-in-india/list-of-college-teaching-mbbs/"
  },
@@ -77,7 +77,7 @@
  {
   "name": "All India Institute of Medical Sciences, Rishikesh",
   "state": "Uttarakhand",
-  "city": "Haridwar",
+  "city": "Rishikesh",
   "type": "AIIMS",
   "established": 2012,
   "courses": [
@@ -261,14 +261,6 @@
   "city": "Chandigarh",
   "type": "Central",
   "established": 1962,
-  "courses": [
-   "MD/MS",
-   "DM/MCh",
-   "MDS",
-   "PhD",
-   "Nursing",
-   "Paramedical"
-  ],
   "website": "https://www.pgimer.edu.in",
   "source": "https://www.pgimer.edu.in/PGIMER_PORTAL/PGIMERPORTAL/GlobalPages/JSP/content15.jsp"
  },
@@ -354,7 +346,7 @@
   "courses": [
    "MBBS"
   ],
-  "website": "https://www.mamc.ac.in",
+  "website": "https://mamc.delhi.gov.in",
   "source": "https://www.nmc.org.in/information-desk/for-students-to-study-in-india/list-of-college-teaching-mbbs/"
  },
  {
@@ -391,7 +383,7 @@
   "courses": [
    "MBBS"
   ],
-  "website": "https://www.mmc.ac.in/mmc",
+  "website": "https://mmc.ac.in/en/",
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Mmc-new.jpg",
   "source": "https://www.nmc.org.in/information-desk/for-students-to-study-in-india/list-of-college-teaching-mbbs/"
  },
@@ -435,7 +427,7 @@
   "city": "Bengaluru",
   "type": "Government",
   "established": 1994,
-  "website": "https://www.rguhs.ac.in",
+  "website": "http://rguhs.ac.in",
   "source": "https://www.ugc.gov.in/oldpdf/Consolidated_State_University_List.pdf"
  },
  {
@@ -463,7 +455,7 @@
   "city": "Thrissur",
   "type": "Government",
   "established": 2011,
-  "website": "https://kuhs.ac.in",
+  "website": "http://kuhs.ac.in/kuhs_new/",
   "source": "https://www.ugc.gov.in/oldpdf/Consolidated_State_University_List.pdf"
  },
  {
@@ -472,7 +464,7 @@
   "city": "Vijayawada",
   "type": "Government",
   "established": 1986,
-  "website": "https://untruhs.in",
+  "website": "https://drntr.uhsap.in",
   "source": "https://www.ugc.gov.in/oldpdf/Consolidated_State_University_List.pdf"
  },
  {
@@ -508,7 +500,7 @@
   "city": "Rohtak",
   "type": "Government",
   "established": 2008,
-  "website": "https://uhsr.ac.in",
+  "website": "http://uhsr.ac.in",
   "source": "https://www.ugc.gov.in/oldpdf/Consolidated_State_University_List.pdf"
  },
  {

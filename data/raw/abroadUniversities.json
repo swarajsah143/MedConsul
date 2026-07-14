@@ -1,0 +1,684 @@
+[
+  {
+    "name": "Kazan State Medical University",
+    "country": "Russia",
+    "flag": "🇷🇺",
+    "city": "Kazan",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "One of Russia's oldest medical schools (founded 1814). WDOMS lists a six-year physician (Vrach) programme taught in Russian and English; the English-medium track is the one Indian students take. Six years plus the in-course internship clears the NMC's 54-month floor, but you still sit FMGE/NExT and do a further 12-month internship in India.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/06/%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C%2C_%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BE%D1%80%D0%BF%D1%83%D1%81_%D0%9A%D0%93%D0%9C%D0%A3.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001016"
+  },
+  {
+    "name": "Bashkir State Medical University",
+    "country": "Russia",
+    "flag": "🇷🇺",
+    "city": "Ufa",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Six-year physician programme with a Russian/English medium listed on WDOMS. Its programme is accredited by an agency recognised by the World Federation for Medical Education, which matters for ECFMG certification if you later want to sit the USMLE.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001026"
+  },
+  {
+    "name": "Kursk State Medical University",
+    "country": "Russia",
+    "flag": "🇷🇺",
+    "city": "Kursk",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Long-standing destination for Indian students; WDOMS lists a six-year General Medicine programme delivered in Russian and English. Verify before you pay that your offer is for the English-medium stream, since the NMC requires the whole course, including clinical training, to be in English.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BC%D0%B5%D0%B4%D0%B8%D1%86%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D1%83%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82.JPG",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000079"
+  },
+  {
+    "name": "Volgograd State Medical University",
+    "country": "Russia",
+    "flag": "🇷🇺",
+    "city": "Volgograd",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Six-year Vrach programme listed in Russian and English. Accredited by a WFME-recognised agency. Its graduates are eligible to apply for ECFMG certification.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Volgograd_State_Medical_University.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000088"
+  },
+  {
+    "name": "Tver State Medical University",
+    "country": "Russia",
+    "flag": "🇷🇺",
+    "city": "Tver",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Six-year physician programme with an English-medium track, roughly three hours from Moscow. Listed as currently operational in the World Directory of Medical Schools.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000077"
+  },
+  {
+    "name": "Kazan Federal University",
+    "country": "Russia",
+    "flag": "🇷🇺",
+    "city": "Kazan",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "The Institute of Fundamental Medicine and Biology runs a six-year MD listed on WDOMS and accredited by a WFME-recognised agency. A large general university rather than a standalone medical institute.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Kazan_Federal_University_building_08-2016.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0003266"
+  },
+  {
+    "name": "Tbilisi State Medical University",
+    "country": "Georgia",
+    "flag": "🇬🇪",
+    "city": "Tbilisi",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "tuitionPerYearUSD": 8000,
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Georgia's flagship state medical university. The university's own admissions page prices the English-medium Medical Doctor programme at USD 8,000 a year (a separate 'American MD' track costs USD 13,500). The MD is 6 years / 360 ECTS with the internship built into the final year.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001542",
+    "sourceUrl": "https://tsmu.edu/ts/content.php?id=7&aid=135&bid=92&cid=327&did=0&eid=0&lang=en"
+  },
+  {
+    "name": "Petre Shotadze Tbilisi Medical Academy",
+    "country": "Georgia",
+    "flag": "🇬🇪",
+    "city": "Tbilisi",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "tuitionPerYearUSD": 7000,
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Private medical academy in Tbilisi. Its own programme page lists the international-student fee for the six-year English MD at USD 7,000 a year (360 ECTS, taught wholly in English).",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/%E1%83%9A%E1%83%9D%E1%83%92%E1%83%9D2.png",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000571",
+    "sourceUrl": "https://tma.edu.ge/medical-treatment-program-eng"
+  },
+  {
+    "name": "David Tvildiani Medical University",
+    "country": "Georgia",
+    "flag": "🇬🇪",
+    "city": "Tbilisi",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "AIETI Medical School; one of Georgia's better-known private medical universities, with an English-medium MD accredited by a WFME-recognised agency. The university does not publish its tuition openly, so confirm the fee in writing directly with admissions.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001012"
+  },
+  {
+    "name": "Batumi Shota Rustaveli State University",
+    "country": "Georgia",
+    "flag": "🇬🇪",
+    "city": "Batumi",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "State university on the Black Sea coast running a six-year MD in both Georgian and English. Listed and currently operational on WDOMS; accredited by a WFME-recognised agency.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Batumi_University_Fontain.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0002943"
+  },
+  {
+    "name": "New Vision University",
+    "country": "Georgia",
+    "flag": "🇬🇪",
+    "city": "Tbilisi",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Private university with a six-year English-medium MD (360 ECTS) and its own teaching hospital. Accredited by a WFME-recognised agency.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0003341"
+  },
+  {
+    "name": "Caucasus International University",
+    "country": "Georgia",
+    "flag": "🇬🇪",
+    "city": "Tbilisi",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Private Tbilisi university offering the MD in Georgian and English, listed as currently operational on WDOMS and accredited by a WFME-recognised agency.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0002693"
+  },
+  {
+    "name": "Asfendiyarov Kazakh National Medical University",
+    "country": "Kazakhstan",
+    "flag": "🇰🇿",
+    "city": "Almaty",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Kazakhstan's oldest and largest medical university. WDOMS lists a six-year General Medicine programme taught in Russian, Kazakh and English, accredited by a WFME-recognised agency.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/63/Main_building%2C_Kazak_National_Medical_University.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001779"
+  },
+  {
+    "name": "Astana Medical University",
+    "country": "Kazakhstan",
+    "flag": "🇰🇿",
+    "city": "Astana",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "State medical university in the capital, with six-year General Medicine offered in Russian, Kazakh and English and WFME-recognised accreditation.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001707"
+  },
+  {
+    "name": "Semey Medical University",
+    "country": "Kazakhstan",
+    "flag": "🇰🇿",
+    "city": "Semey",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Six-year General Medicine degree available in English alongside Russian and Kazakh. Accredited by a WFME-recognised agency and listed as currently operational on WDOMS.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001543"
+  },
+  {
+    "name": "South Kazakhstan Medical Academy",
+    "country": "Kazakhstan",
+    "flag": "🇰🇿",
+    "city": "Shymkent",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Medical academy in Shymkent running a six-year physician programme in Russian, Kazakh and English, with WFME-recognised accreditation.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000793"
+  },
+  {
+    "name": "Karaganda Medical University",
+    "country": "Kazakhstan",
+    "flag": "🇰🇿",
+    "city": "Karaganda",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Long-established state medical university in central Kazakhstan; WDOMS lists its programmes in Russian, Kazakh and English with WFME-recognised accreditation.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001013"
+  },
+  {
+    "name": "Tashkent State Medical University",
+    "country": "Uzbekistan",
+    "flag": "🇺🇿",
+    "city": "Tashkent",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Uzbekistan's largest medical university (the former Tashkent Medical Academy). WDOMS lists a six-year General Medicine programme taught in Uzbek, Russian and English, accredited by a WFME-recognised agency.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0002249"
+  },
+  {
+    "name": "Bukhara State Medical Institute",
+    "country": "Uzbekistan",
+    "flag": "🇺🇿",
+    "city": "Bukhara",
+    "degree": "MBBS",
+    "durationYears": 5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Runs an explicitly English-medium five-year MBBS alongside its six-year Uzbek/Russian physician degree. Five years of study plus the required 12-month internship satisfies the NMC's 54-month minimum; confirm which programme your offer letter names.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000095"
+  },
+  {
+    "name": "I.K. Akhunbaev Kyrgyz State Medical Academy",
+    "country": "Kyrgyzstan",
+    "flag": "🇰🇬",
+    "city": "Bishkek",
+    "degree": "MD",
+    "durationYears": 5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Kyrgyzstan's leading state medical school. WDOMS lists a five-year MD taught entirely in English (its Vrach programmes run six years in Russian/Kyrgyz), accredited by a WFME-recognised agency.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Logo_Kyrgyz_State_Medical_Academy.svg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000072"
+  },
+  {
+    "name": "International School of Medicine, International University of Kyrgyzstan",
+    "country": "Kyrgyzstan",
+    "flag": "🇰🇬",
+    "city": "Bishkek",
+    "degree": "MD",
+    "durationYears": 5.5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Bishkek medical school with a 5.5-year English-medium MD listed on WDOMS. Popular with Indian students; accredited by a WFME-recognised agency.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3f/International_University_of_Kyrgyzstan.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0006555"
+  },
+  {
+    "name": "Osh State University",
+    "country": "Kyrgyzstan",
+    "flag": "🇰🇬",
+    "city": "Osh",
+    "degree": "MD",
+    "durationYears": 5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Its medical faculty runs MD programmes in Russian and English, listed as currently operational on WDOMS with WFME-recognised accreditation.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/17/Osh_university_%281%29_%2829876390344%29.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000578"
+  },
+  {
+    "name": "Kathmandu University School of Medical Sciences",
+    "country": "Nepal",
+    "flag": "🇳🇵",
+    "city": "Dhulikhel",
+    "degree": "MBBS",
+    "durationYears": 5.5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "MBBS taught in English over 5.5 years. Admission for Indian students runs through Nepal's Medical Education Commission entrance exam (MECEE-BL) and the Commission caps the fee — treat any agent who offers a 'donation seat' as a red flag.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000705"
+  },
+  {
+    "name": "B.P. Koirala Institute of Health Sciences",
+    "country": "Nepal",
+    "flag": "🇳🇵",
+    "city": "Dharan",
+    "degree": "MBBS",
+    "durationYears": 4.5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Autonomous health-sciences university; WDOMS lists a 4.5-year English MBBS, which is 54 months — exactly the NMC minimum — followed by the compulsory internship. Entry is via Nepal's MECEE-BL entrance exam.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Entrance_BPKIHS.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000419"
+  },
+  {
+    "name": "Institute of Medicine, Tribhuvan University",
+    "country": "Nepal",
+    "flag": "🇳🇵",
+    "city": "Kathmandu",
+    "degree": "MBBS",
+    "durationYears": 5.5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Nepal's oldest medical school and the state university's medical institute. English-medium MBBS of 5.5 years; entry via the MECEE-BL entrance exam.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000764"
+  },
+  {
+    "name": "Nepal Medical College",
+    "country": "Nepal",
+    "flag": "🇳🇵",
+    "city": "Kathmandu",
+    "degree": "MBBS",
+    "durationYears": 5.5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Private medical college in Kathmandu affiliated to Kathmandu University, running a 5.5-year English MBBS. Seats and fees are regulated by the Medical Education Commission.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Nepal_Medical_College_Logo.png",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001086"
+  },
+  {
+    "name": "Manipal College of Medical Sciences",
+    "country": "Nepal",
+    "flag": "🇳🇵",
+    "city": "Pokhara",
+    "degree": "MBBS",
+    "durationYears": 5.5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Pokhara college in the Manipal group with a 5.5-year English MBBS, long popular with Indian students. Admission is through Nepal's MECEE-BL entrance exam.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Manipal_Teaching_Hospital.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000402"
+  },
+  {
+    "name": "Dhaka Medical College",
+    "country": "Bangladesh",
+    "flag": "🇧🇩",
+    "city": "Dhaka",
+    "degree": "MBBS",
+    "durationYears": 5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Bangladesh's most competitive government medical college. Five-year English MBBS plus a one-year internship. Foreign-student admission is centrally run by the Directorate General of Health Services, not by the college.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Dhakamedicalcollege.jpg",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001121"
+  },
+  {
+    "name": "Bangladesh Medical College",
+    "country": "Bangladesh",
+    "flag": "🇧🇩",
+    "city": "Dhaka",
+    "degree": "MBBS",
+    "durationYears": 5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "The country's first private medical college. Five-year MBBS taught in English; seats for foreign students are allotted through the DGHS central process.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000244"
+  },
+  {
+    "name": "Holy Family Red Crescent Medical College",
+    "country": "Bangladesh",
+    "flag": "🇧🇩",
+    "city": "Dhaka",
+    "degree": "MBBS",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Red Crescent-run private medical college in Dhaka with an English-medium MBBS listed on WDOMS. Apply through the DGHS foreign-student circular.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001967"
+  },
+  {
+    "name": "East West Medical College",
+    "country": "Bangladesh",
+    "flag": "🇧🇩",
+    "city": "Dhaka",
+    "degree": "MBBS",
+    "durationYears": 5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Private Dhaka medical college with a five-year English MBBS, listed and currently operational on WDOMS. Foreign-student seats are allotted centrally by DGHS.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0002480"
+  },
+  {
+    "name": "Enam Medical College",
+    "country": "Bangladesh",
+    "flag": "🇧🇩",
+    "city": "Savar",
+    "degree": "MBBS",
+    "durationYears": 5,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Private medical college at Savar with a five-year English MBBS and a large attached teaching hospital.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0002107"
+  },
+  {
+    "name": "Yerevan State Medical University",
+    "country": "Armenia",
+    "flag": "🇦🇲",
+    "city": "Yerevan",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Armenia's principal state medical university (named after Mkhitar Heratsi). WDOMS lists a six-year General Medicine degree taught in English and Armenian. The university quotes its international fee in Armenian dram, so get it confirmed in writing.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/%D5%80%D5%A5%D6%80%D5%A1%D6%81%D5%AB_%D5%B0%D5%A1%D5%B4%D5%A1%D5%AC%D5%BD%D5%A1%D6%80%D5%A1%D5%B6.JPG",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001540"
+  },
+  {
+    "name": "China Medical University",
+    "country": "China",
+    "flag": "🇨🇳",
+    "city": "Shenyang",
+    "degree": "MBBS",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Among the first Chinese schools authorised by China's Ministry of Education to teach MBBS in English to international students. WDOMS lists a six-year English MBBS. The NMC requires clinical training in English too — ask exactly how ward rounds and patient contact are handled, as this is where China programmes most often fall short.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001235"
+  },
+  {
+    "name": "Dalian Medical University",
+    "country": "China",
+    "flag": "🇨🇳",
+    "city": "Dalian",
+    "degree": "MBBS",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Six-year English-medium MBBS listed on WDOMS, accredited by a WFME-recognised agency. Chinese-language study is still needed for clinical clerkships with local patients — clarify this before committing.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000359"
+  },
+  {
+    "name": "Jiangsu University",
+    "country": "China",
+    "flag": "🇨🇳",
+    "city": "Zhenjiang",
+    "degree": "MBBS",
+    "durationYears": 6,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "Its School of Medicine runs a six-year English-taught medical programme listed on WDOMS, accredited by a WFME-recognised agency.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000563"
+  },
+  {
+    "name": "Medical University of Warsaw",
+    "country": "Poland",
+    "flag": "🇵🇱",
+    "city": "Warsaw",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "tuitionPerYearUSD": 21477,
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Poland's largest medical university. The Rector's Order for 2026/2027 sets the six-year English MD at EUR 18,800 a year (EUR 112,800 for the whole course) — about USD 21,500 at July 2026 ECB rates. An EU degree, and the fees are published rather than negotiated through agents.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000871",
+    "sourceUrl": "https://ed.wum.edu.pl/sites/ed.wum.edu.pl/files/2026-03/order_58_2026_of_the_muw_rector_tuition_fee.pdf"
+  },
+  {
+    "name": "Poznan University of Medical Sciences",
+    "country": "Poland",
+    "flag": "🇵🇱",
+    "city": "Poznan",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "tuitionPerYearUSD": 21358,
+    "livingCostPerYearUSD": 14400,
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Runs one of Poland's oldest English-language medical programmes. The university publishes a total of PLN 485,000 for the six-year MD for 2026/2027 (PLN 71,000 in years 1-2, PLN 85,750 in years 3-6) and estimates living costs at USD 800-1,600 a month.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000411",
+    "sourceUrl": "https://pums.edu.pl/admissions/medicine-program/tuition-costs-of-living/"
+  },
+  {
+    "name": "Jagiellonian University Medical College",
+    "country": "Poland",
+    "flag": "🇵🇱",
+    "city": "Krakow",
+    "degree": "MD",
+    "durationYears": 6,
+    "medium": "English",
+    "tuitionPerYearUSD": 18278,
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "The medical faculty of Poland's oldest university. Its School of Medicine in English publishes tuition of EUR 16,000 a year for 2026/27 admission (up from EUR 15,500 the year before) — roughly USD 18,300 at July 2026 ECB rates.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000048",
+    "sourceUrl": "https://medschool.uj.edu.pl/practical-info/tuition-fees/"
+  },
+  {
+    "name": "Davao Medical School Foundation",
+    "country": "Philippines",
+    "flag": "🇵🇭",
+    "city": "Davao",
+    "degree": "MD",
+    "durationYears": 4,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "WFME",
+      "ECFMG"
+    ],
+    "highlight": "CHED-recognised medical school with a four-year English MD. Important: the MD alone is 4 years, and you cannot enter it straight from Class 12 — you must first finish a CHED-accredited BS pre-medical degree and pass the NMAT. The Embassy of India in Manila advises checking the latest CHED and NMC guidelines against the 54-month rule before you accept an offer.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0001304",
+    "sourceUrl": "https://www.eoimanila.gov.in/edphilli"
+  },
+  {
+    "name": "Our Lady of Fatima University",
+    "country": "Philippines",
+    "flag": "🇵🇭",
+    "city": "Valenzuela",
+    "degree": "MD",
+    "durationYears": 4,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "Large private university near Manila with a four-year English MD. As with every Philippine medical school, entry requires a BS pre-med degree plus the NMAT first; the Embassy of India in Manila asks students to verify NMC compliance before confirming admission.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000217",
+    "sourceUrl": "https://www.eoimanila.gov.in/edphilli"
+  },
+  {
+    "name": "University of Perpetual Help System Dr. Jose G. Tamayo Medical University",
+    "country": "Philippines",
+    "flag": "🇵🇭",
+    "city": "Binan",
+    "degree": "MD",
+    "durationYears": 4,
+    "medium": "English",
+    "recognitions": [
+      "WDOMS",
+      "ECFMG"
+    ],
+    "highlight": "A long-standing choice for Indian students in Laguna. The four-year MD sits on top of a BS pre-med degree and the NMAT — budget for roughly six years in total, and confirm the NMC position before you commit.",
+    "source": "https://search.wdoms.org/home/SchoolDetail/F0000216",
+    "sourceUrl": "https://www.eoimanila.gov.in/edphilli"
+  }
+]

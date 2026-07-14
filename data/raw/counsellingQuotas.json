@@ -432,7 +432,6 @@
         "heading": "Round structure",
         "items": [
           "States run their own rounds and stray vacancy rounds, on their own schedules",
-          "The Supreme Court has directed that all states and counselling authorities follow a uniform counselling pattern, using software developed by DGHS",
           "The anti seat-blocking rule in Regulation 5A(4) of the Graduate Medical Education Regulations, 1997 applies to state counselling as well — an allotment in an earlier round can make you ineligible for a later one"
         ]
       }
@@ -607,46 +606,10 @@
     ]
   },
   {
-    "label": "Jammu & Kashmir",
-    "group": "State Quotas",
-    "authority": "J&K Board of Professional Entrance Examinations (JKBOPEE)",
-    "order": 14,
-    "source": "https://www.jkbopee.gov.in/CounsellingHome.aspx?id=2",
-    "blocks": [
-      {
-        "heading": "Who runs it",
-        "items": [
-          "JKBOPEE conducts the MBBS/BDS counselling for the Union Territory of Jammu & Kashmir",
-          "Allotment runs on an online preference form: you register, select and order your preferences, lock them, and pay the fee online",
-          "BOPEE publishes a seat matrix and runs multiple rounds of selection",
-          "Preferences cannot be modified once they are locked"
-        ],
-        "note": "BOPEE counsels MBBS, BDS and allied courses (including BUMS and BAMS) across the UT's government medical and dental institutions and its private colleges."
-      },
-      {
-        "heading": "The J&K special: you are in the central pool too",
-        "items": [
-          "Candidates from the Union Territory of J&K are eligible to take part in MCC's central counselling, including for Deemed University seats",
-          "So a J&K candidate can run two processes in parallel — JKBOPEE for the UT's own seats, and MCC for AIQ, Deemed and central institutes"
-        ],
-        "note": "This is a change from the pre-reorganisation position that many older guides still get wrong. Register for both if you want both."
-      },
-      {
-        "heading": "Documents",
-        "items": [
-          "A J&K domicile certificate is required for the UT's own seats",
-          "Reserved-category certificates must be uploaded wherever a category is claimed",
-          "NEET result card, plus the usual identity and qualifying-examination documents"
-        ],
-        "note": "J&K uses its own reserved categories in addition to the standard ones. Confirm the exact category list and certificate formats in the current BOPEE notification — do not assume the central category list applies."
-      }
-    ]
-  },
-  {
     "label": "Puducherry (CENTAC)",
     "group": "State Quotas",
     "authority": "Centralised Admission Committee (CENTAC), Puducherry; the JIPMER state-quota domicile list is issued by DME, Puducherry",
-    "order": 15,
+    "order": 14,
     "source": "https://centacpuducherry.in/UgNeet_2025/",
     "blocks": [
       {

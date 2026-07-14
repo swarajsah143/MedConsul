@@ -131,6 +131,52 @@ def institute_name(cell):
     return s.split(',')[0].strip() if ',' in s else s
 
 
+# ---- resolve state from OUR college table, not just the address ---------------------
+# Round-1 files print the institute with its full postal address, so find_state() can read
+# the state straight out of it. Round-2/3 files print only "AIIMS, New Delhi" — no address —
+# and 66,492 rows were being dropped for having no state in a string that never had one.
+# We already know every college's state (out/colleges.json, 820 of them, verified), so look
+# it up by name instead. That is also strictly more reliable than parsing free-text addresses.
+_STOP = {'medical', 'college', 'institute', 'institution', 'sciences', 'science', 'of', 'and',
+         'the', 'for', 'hospital', 'research', 'centre', 'center', 'university', 'school',
+         'health', 'foundation', 'trust', 'society', 'academy', 'govt', 'government'}
+
+
+def _key(s):
+    t = [w for w in re.sub(r'[^a-z0-9]+', ' ', (s or '').lower()).split()
+         if w not in _STOP and len(w) > 1]
+    return ' '.join(sorted(t))
+
+
+def load_college_states():
+    path = f'{D}/out/colleges.json'
+    if not os.path.exists(path):
+        return {}
+    idx = {}
+    for c in json.load(open(path)):
+        for nm in [c['name']] + list(c.get('aliases') or []):
+            k = _key(nm)
+            if k:
+                idx.setdefault(k, c['state'])
+    return idx
+
+
+COLLEGE_STATE = load_college_states()
+_state_cache = {}
+
+
+def resolve_state(inst_cell, name):
+    """Address first (it is explicit), then our own college table."""
+    st = find_state(inst_cell)
+    if st:
+        return st
+    if name in _state_cache:
+        return _state_cache[name]
+    st = COLLEGE_STATE.get(_key(name))
+    _state_cache[name] = st
+    return st
+
+
 def header_map(cells):
     """Map the current round's columns by NAME, never by position.
 
@@ -177,28 +223,61 @@ def parse_pdf(path, meta):
                         continue
                     cells = [re.sub(r'\s+', ' ', (c or '')).strip() for c in r]
 
-                    m = header_map(cells)
-                    if m:
-                        hdr = m                        # new header -> adopt it
-                        continue
-                    if not hdr:
-                        continue                       # legend/quota-abbreviation table
+                    if header_map(cells):
+                        continue                       # it's a header row, not data
 
-                    def col(k):
-                        i = hdr.get(k)
-                        return cells[i] if i is not None and i < len(cells) else ''
-
-                    rank = col('rank')
-                    if not re.fullmatch(r'\d+(\.\d+)?', rank or ''):
-                        continue                       # spillover / banner / blank line
-
-                    quota, inst, course = col('quota'), col('inst'), col('course')
-                    allot_cat, cand_cat = col('cat'), col('cand')
-
-                    # In a round-2/3 file a candidate with no NEW allotment has an empty
-                    # current-round group. There is nothing to import for them.
-                    if not (inst and course):
+                    # Anchor on CONTENT, not column position.
+                    #
+                    # pdfplumber does not return a stable column count across 20,000 pages:
+                    # continuation pages merge and split cells, so any index cached from a
+                    # header row eventually slides and starts reading the category column as
+                    # the course ("course-not-in-enum: Open / GN / OBC"). The cell VALUES,
+                    # though, are unambiguous — "MBBS" only ever appears in a course cell.
+                    # So we find the course cell and read outward from it:
+                    #
+                    #     ... | quota | institute | COURSE | allotted-cat | candidate-cat | ...
+                    #
+                    # In a round-2/3 row the course appears twice (previous round, then this
+                    # one). We take the LAST — that is the allotment this file is reporting.
+                    ci = None
+                    for i in range(len(cells) - 1, -1, -1):
+                        if clean_course(cells[i]):
+                            ci = i
+                            break
+                    if ci is None or ci < 2:
                         dropped['no-allotment-this-round'] += 1
+                        continue
+
+                    course = cells[ci]
+                    inst = cells[ci - 1]
+                    quota = cells[ci - 2]
+
+                    # category = the first category-looking cell to the RIGHT of the course.
+                    # (The previous-round group has no category column, only Remarks, so this
+                    # can only ever pick up the current round's.)
+                    #
+                    # A row with NO category after the course is a candidate who kept his
+                    # previous-round seat and took no new allotment ("Did not opt for
+                    # Upgradation" — his whole round-2 group reads "-"). The only course cell
+                    # left on that row is his ROUND-1 course, so importing it here would file
+                    # a round-1 allotment under round 2. Drop it: his seat is already in the
+                    # round-1 file.
+                    cats = [c for c in cells[ci + 1:] if clean_category(c)[0]]
+                    if not cats:
+                        dropped['retained-previous-round-seat'] += 1
+                        continue
+                    allot_cat = cats[0]
+                    cand_cat = cats[1] if len(cats) > 1 else ''
+
+                    # rank = the first bare number on the row after SNo. MCC prints tie-broken
+                    # ranks as "1.01", so allow a decimal.
+                    nums = [c for c in cells[:ci] if re.fullmatch(r'\d+(\.\d+)?', c or '')]
+                    rank = nums[1] if len(nums) > 1 else (nums[0] if nums else '')
+                    if not rank:
+                        continue                       # banner / spillover / blank line
+
+                    if not inst or len(inst) < 8:
+                        dropped['no-institute-name'] += 1
                         continue
 
                     c = clean_course(course)
@@ -216,14 +295,14 @@ def parse_pdf(path, meta):
                         dropped[f'seatType:{quota[:22]}'] += 1
                         continue
 
-                    state = find_state(inst)
-                    if not state:
-                        dropped['no-state-in-address'] += 1
-                        continue
-
                     name = institute_name(inst)
                     if not name:
                         dropped['no-institute-name'] += 1
+                        continue
+
+                    state = resolve_state(inst, name)
+                    if not state:
+                        dropped['no-state'] += 1
                         continue
 
                     # The `allotments` schema has NO year field, and its naturalKey is
