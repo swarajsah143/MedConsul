@@ -172,6 +172,13 @@ export const fees: CollectionSchema = {
 export const allotments: CollectionSchema = {
   name: 'allotments',
   naturalKey: ['counselling', 'round', 'category', 'course', 'allIndiaRank', 'instituteName'],
+  // allIndiaRank is a range/sort column, not an equality filter, so it gets no automatic index.
+  // The rank search (`allIndiaRank` between X and Y, sorted) and the per-counselling table
+  // (filter counselling, sort by rank) are the two hot paths — index both to turn a 222k-row
+  // COLLSCAN + in-memory sort into an index seek.
+  // {counselling, instituteName} also covers the per-counselling `distinct(instituteName)` the
+  // detail page's facets run for its "Institutes" count (100ms unindexed → covered index scan).
+  indexes: [{ allIndiaRank: 1 }, { counselling: 1, allIndiaRank: 1 }, { counselling: 1, instituteName: 1 }],
   label: 'Allotment',
   labelPlural: 'Seat Allotments',
   publicRead: true,

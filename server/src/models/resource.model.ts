@@ -74,6 +74,9 @@ function modelFor(schema: CollectionSchema): mongoose.Model<any> {
     s.index(Object.fromEntries(schema.naturalKey.map((n) => [n, 1])), { unique: true });
   }
 
+  // Hand-declared indexes for sort/range columns the auto-indexer above does not cover.
+  for (const idx of schema.indexes || []) s.index(idx);
+
   const m = mongoose.model(schema.name, s, schema.name);
   models.set(schema.name, m);
   return m;

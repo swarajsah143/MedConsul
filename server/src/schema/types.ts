@@ -98,6 +98,15 @@ export interface CollectionSchema {
    * silently wrong, and the site and chatbot would both have quoted it.
    */
   derive?: (row: Record<string, any>) => void;
+
+  /**
+   * Extra indexes beyond the automatic ones (every filterable/ref field gets a single-field
+   * index, searchable fields a text index, the natural key a unique compound). Declare compound
+   * or sort-supporting indexes here — e.g. a range/sort column like `allIndiaRank` that is not a
+   * plain equality filter. Without one, a query that sorts or ranges on it scans the whole
+   * collection and sorts in memory (222k allotment rows → a ~130ms COLLSCAN per rank search).
+   */
+  indexes?: Record<string, 1 | -1>[];
 }
 
 /** Every field a record always carries, injected by the model layer. */

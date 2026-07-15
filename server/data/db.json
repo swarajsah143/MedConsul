@@ -1213,6 +1213,23 @@
       ],
       "createdAt": "2026-07-15T09:17:07.157Z",
       "updatedAt": "2026-07-15T09:17:07.561Z"
+    },
+    "7ccb3277-65b8-4fb9-bcba-c4e6cf20b69c": {
+      "id": "7ccb3277-65b8-4fb9-bcba-c4e6cf20b69c",
+      "userId": "6a52cef8771fa4fc92637a28",
+      "title": "hi",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hi"
+        },
+        {
+          "role": "assistant",
+          "content": "## Here's What I Found\n\n### College Reviews\n\n**A J Institute of Medical Sciences & Research Centre, Mangalore** (Private) — Mangalore, Karnataka\nEstablished: 2002 | Seats: 150\n\n\n**ACPM Medical College, Dhule** (Private) — Dhule, Maharashtra\nEstablished: 1990 | Seats: 100\n\n\n**ACS Medical College and Hospital, Chennai** (Deemed) — Chennai, Tamil Nadu\nEstablished: 2008 | Seats: 150\n\n\n**ACSR Government Medical College, Nellore** (Government) — Nellore, Andhra Pradesh\nEstablished: 2014 | Seats: 175\n\n\n**AIIMS Bathinda** (Government) — Bathinda, Punjab\nEstablished: n/a | Seats: n/a\n\n\n**AIIMS Bhopal** (Government) — Bhopal, Madhya Pradesh\nEstablished: 2012 | Seats: 125\n\n\n**AIIMS Bhubaneswar** (Government) — Bhubaneswar, Odisha\nEstablished: 2012 | Seats: 125\n\n\n**AIIMS Bibinagar (Hyderabad)** (Government) — Bibinagar, Telangana\nEstablished: 2019 | Seats: 100\n\n\n### Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| Narayana Medical College, Nellore | MBBS | General |  State Quota | 2025 R1 | Closing Rank: #61,350 | Score: n/a |\n| Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun | MBBS | General | Uttarakhand State Quota | 2025 R1 | Closing Rank: #1,26,014 | Score: n/a |\n| Government Medical College and Associated Hospital, Rajouri | MBBS | ST | Jammu & Kashmir State Quota | 2025 R1 | Closing Rank: #3,327 | Score: n/a |\n| Government Medical College and Associated Hospital, Rajouri | MBBS | SC | Jammu & Kashmir State Quota | 2025 R1 | Closing Rank: #2,416 | Score: n/a |\n| Government Medical College and Associated Hospital, Rajouri | MBBS | OBC | Jammu & Kashmir State Quota | 2025 R1 | Closing Rank: #2,327 | Score: n/a |\n| Government Medical College and Associated Hospital, Rajouri | MBBS | EWS | Jammu & Kashmir State Quota | 2025 R1 | Closing Rank: #4,046 | Score: n/a |\n| Government Medical College and Associated Hospital, Rajouri | MBBS | General | Jammu & Kashmir State Quota | 2025 R1 | Closing Rank: #509 | Score: n/a |\n\n\n> *Data sourced from MedCounsel AI database. Feel free to ask follow-up questions!*"
+        }
+      ],
+      "createdAt": "2026-07-15T12:13:49.447Z",
+      "updatedAt": "2026-07-15T12:13:50.212Z"
     }
   }
 }

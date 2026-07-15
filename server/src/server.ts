@@ -2,6 +2,7 @@ import './config/load-env';
 
 import express from 'express';
 import cors from 'cors';
+import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import { env } from './config/env';
 import { connectDatabase, initializeDatabase } from './config/database';
@@ -22,8 +23,14 @@ app.use(cors({
 app.use(express.json({ limit: '25mb' }));
 app.use(cookieParser());
 
-// SSE streaming routes
+// SSE streaming routes. Mounted BEFORE compression on purpose: gzip buffers the response,
+// which would break the token-by-token chat stream. SSE requests are handled here and never
+// reach the compression middleware below.
 app.use('/api/chat', sseRoutes);
+
+// gzip the JSON API — the closingRanks (6.6k rows) and facet responses are the payloads that
+// matter for students on mobile data. ~5-8x smaller on the wire.
+app.use(compression());
 
 app.use('/api', routes);
 
