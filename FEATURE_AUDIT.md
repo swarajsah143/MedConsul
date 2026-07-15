@@ -96,6 +96,26 @@ pipeline uses.
 
 ---
 
+## 4b. Fixes applied (15 Jul 2026)
+
+All five issues below were addressed. Both `client` and `server` typecheck clean; changes were
+verified in the browser.
+
+| # | Issue | Fix | Verified |
+|---|---|---|---|
+| 🔴 | 5,000-row cap hid data | **Allotments**: full server-side pagination — added range-filters (`field_min/max`) + a `/facets` endpoint server-side, rewrote both allotment pages to page/filter/search on the server. **closingRanks** (6.6k, needs whole set for its latest-per-group collapse): raised `PUBLIC_MAX` 5000→20000. | Allotments: 45,316 rows for one counselling, rank-search 33,973 hits. rank-insights: 6,625 records (was 5,000). |
+| 🟠 | Duplicate colleges in predictor | Predictor now dedups by canonical (punctuation/abbrev-stripped) college name, not collegeId. Collapses CMC/AFMC/MMC-style clusters safely. | Reworded clusters (ABVIMS "RML" vs "Ram Manohar Lohia", Maulana Azad ±"New Delhi") still show — they need the alias-merge (deferred, by your choice). |
+| 🟠 | `fees.totalFirstYear` derive vs help | Removed the `derive` (it clobbered 58 sourced totals with the component sum). Re-imported. | KJ Somaiya total restored to ₹1,200,000; 58 authoritative totals back. |
+| 🟡 | Dashboard timeline hardcoded | `done` now computed from today's date vs the 2026 calendar — self-updating. | Typecheck clean. |
+| 🟡 | Counselling state dropdown cosmetic | Badge no longer falsely claims state-specific content ("All-India baseline"); dropdown kept as scaffold for future per-state data. | Typecheck clean. |
+| 🟡 | README stale | Updated college counts (900+), MongoDB as primary store. | — |
+| ➕ | (found in passing) `rank-predictor` CSV export called `toCsv` with 1 arg — broke `npm run build`. | Fixed to `(header, rows)` form. | Client `tsc` now clean. |
+
+**Not done (by your choice / follow-up):** the alias-merge of the ~27 duplicate college clusters
+(destructive-risk; needs per-cluster verification), and genuine per-state counselling content.
+
+---
+
 ## 5. Issues & inaccuracies found (prioritized)
 
 ### 🔴 High — the 5,000-row public cap hides most allotment & some rank data

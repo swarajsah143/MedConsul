@@ -44,6 +44,19 @@ router.get('/:collection/paged', async (req: Request, res: Response) => {
   res.json({ success: true, data: await r.list({ page, limit, sort, q, filters }) });
 });
 
+// Distinct values for filter dropdowns on the paginated pages, which no longer hold every row.
+//   GET /api/data/:collection/facets?fields=category,seatType,round&counselling=MCC%20UG%202024
+// The extra query params (beyond `fields`) filter the facet set — so "which rounds exist" can be
+// scoped to one counselling.
+router.get('/:collection/facets', async (req: Request, res: Response) => {
+  const r = publicResource(String(req.params.collection));
+  if (!r) { res.status(404).json({ success: false, message: 'Unknown collection' }); return; }
+
+  const { fields, ...filters } = req.query as Record<string, any>;
+  const names = String(fields || '').split(',').map((s) => s.trim()).filter(Boolean);
+  res.json({ success: true, data: await r.facets(names, { filters }) });
+});
+
 router.get('/:collection', async (req: Request, res: Response) => {
   const r = publicResource(String(req.params.collection));
   if (!r) { res.status(404).json({ success: false, message: 'Unknown collection' }); return; }

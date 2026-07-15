@@ -27,8 +27,17 @@ function subSchema(fields: Field[]): Schema {
   return new Schema(def, { _id: false });
 }
 
-/** Ceiling on the unpaginated public read. Pages needing more must use /paged. */
-export const PUBLIC_MAX = 5000;
+/**
+ * Ceiling on the unpaginated public read (`all()` / GET /api/data/:collection).
+ *
+ * The truly large collection — allotments (~222k rows) — no longer rides this path at all; its
+ * pages use `/paged` + `/facets`. What remains on the unpaginated path is closingRanks (~6.6k),
+ * whose rank-insights page collapses to the latest entry per college/course/category/quota — a
+ * grouping that needs the whole set, not a page. At the old 5000 ceiling that page silently lost
+ * ~24% of the ranks. 20000 clears closingRanks with headroom; if it ever outgrows this, that page
+ * needs a server-side aggregation, not a higher cap.
+ */
+export const PUBLIC_MAX = 20000;
 
 const models = new Map<string, mongoose.Model<any>>();
 
@@ -105,6 +114,21 @@ export function resource(schema: CollectionSchema) {
     const where: Record<string, any> = {};
 
     for (const [key, raw] of Object.entries(query.filters || {})) {
+      // Range filters: `<numberField>_min` / `_max` -> $gte / $lte. This is what lets the
+      // allotment + rank-insight pages ask the server for "AIR between X and Y" instead of
+      // pulling every row down and filtering in the browser (which the 5000-row public cap
+      // silently truncated). Non-numeric bounds are ignored rather than 500-ing the endpoint.
+      const range = key.match(/^(.+)_(min|max)$/);
+      if (range) {
+        const field = schema.fields.find((x) => x.name === range[1] && x.type === 'number');
+        if (!field) continue;
+        const n = Number(Array.isArray(raw) ? raw[0] : raw);
+        if (!Number.isFinite(n)) continue;
+        const op = range[2] === 'min' ? '$gte' : '$lte';
+        where[range[1]] = { ...(where[range[1]] || {}), [op]: n };
+        continue;
+      }
+
       const f = schema.fields.find((x) => x.name === key);
       if (!f) continue;                       // ignore unknown params rather than 500
 
@@ -179,6 +203,28 @@ export function resource(schema: CollectionSchema) {
         .sort(query.sort || schema.defaultSort || '-createdAt')
         .limit(PUBLIC_MAX);
       return docs.map(toPlain);
+    },
+
+    /**
+     * Distinct values of the requested fields, honouring any filters — this is how a page
+     * that no longer holds every row builds its filter dropdowns (e.g. "which categories
+     * exist in this counselling?") without downloading the collection. Unknown fields are
+     * skipped, not errored, so a stray param cannot 500 a public endpoint.
+     */
+    async facets(fields: string[], query: ListQuery = {}): Promise<Record<string, any[]>> {
+      const where = buildFilter(query);
+      const wanted = fields.filter((name) => schema.fields.some((f) => f.name === name));
+      const pairs = await Promise.all(
+        wanted.map(async (name) => {
+          const vals = (await M().distinct(name, where)) as any[];
+          const clean = vals.filter((v) => v !== null && v !== undefined && v !== '');
+          clean.sort((a, b) =>
+            typeof a === 'number' && typeof b === 'number' ? a - b : String(a).localeCompare(String(b)),
+          );
+          return [name, clean] as const;
+        }),
+      );
+      return Object.fromEntries(pairs);
     },
 
     async get(id: string): Promise<any | null> {

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAllotments, byRankRange, type AllotmentEntry } from '@/lib/allotment-data';
+import { usePaged, useFacets, type Paged } from '@/lib/data-api';
+import type { AllotmentEntry } from '@/lib/allotment-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -70,10 +71,12 @@ const SEAT_STYLES: Record<string, { bg: string; text: string }> = {
 const DEFAULT_SEAT_STYLE = { bg: 'bg-amber-50 dark:bg-amber-950/30', text: 'text-amber-700 dark:text-amber-400' };
 
 const RANK_RESULTS_PER_PAGE = 15;
+// When no rank has been searched yet, usePaged still runs (hooks can't be conditional), so feed
+// it an impossible range (min > max) that returns nothing rather than a stray page of all rows.
+const NO_SEARCH_PARAMS = { limit: 1, allIndiaRank_min: '2', allIndiaRank_max: '1' };
 
 export default function AllotmentStatesPage() {
   const navigate = useNavigate();
-  const { data, loading, error, reload, counsellings, filterOptions } = useAllotments();
 
   const [mode, setMode] = useState<ViewMode>('state');
   const [stateSearch, setStateSearch] = useState('');
@@ -81,18 +84,51 @@ export default function AllotmentStatesPage() {
   // Rank search state
   const [rankInput, setRankInput] = useState('');
   const [rankRange, setRankRange] = useState(5000);
-  const [rankResults, setRankResults] = useState<AllotmentEntry[] | null>(null);
-  // Snapshot of the rank + range the CURRENT results were computed for. The header used
-  // to re-parse `rankInput` at RENDER time, so clearing the field after a search printed
-  // "Results for Rank #NaN" over results that were still perfectly valid.
+  // Snapshot of the rank + range the CURRENT results were computed for. The header used to
+  // re-parse `rankInput` at RENDER time, so clearing the field after a search printed
+  // "Results for Rank #NaN" over results that were still perfectly valid. A non-null snapshot
+  // also means "a search has run" — the results section keys off it.
   const [searchedRank, setSearchedRank] = useState<{ rank: number; min: number; max: number } | null>(null);
-  const [rankSearching, setRankSearching] = useState(false);
   const [rankPage, setRankPage] = useState(1);
   const [rankCategory, setRankCategory] = useState('All');
   const [rankRound, setRankRound] = useState('All');
 
-  // Counselling list comes from the allotments actually loaded — a counselling with
-  // no rows is not offered, so nobody clicks through to an empty table.
+  // Counselling list (state grid) + filter-pill options come from the whole collection, on the
+  // server — no rows are shipped just to derive them. A counselling with no rows is not offered.
+  const { facets } = useFacets('allotments', ['counselling', 'category', 'round']);
+  const counsellings = (facets.counselling as string[]) ?? [];
+  const filterOptions = {
+    categories: (facets.category as string[]) ?? [],
+    rounds: (facets.round as number[]) ?? [],
+  };
+
+  // Existence / load status (also gives the error path that facets swallows).
+  const { total: anyTotal, loading: existLoading, error: existError } = usePaged('allotments', { limit: 1 });
+
+  // Rank search runs entirely on the server: the range bound, category and round filters, sort
+  // and pagination are all query params, so it searches ALL 222k rows, not a cached 5000.
+  const rankParams = useMemo(() => (searchedRank
+    ? {
+        allIndiaRank_min: String(searchedRank.min),
+        allIndiaRank_max: String(searchedRank.max),
+        ...(rankCategory !== 'All' && { category: rankCategory }),
+        ...(rankRound !== 'All' && { round: rankRound }),
+        sort: 'allIndiaRank',
+        page: rankPage,
+        limit: RANK_RESULTS_PER_PAGE,
+      }
+    : NO_SEARCH_PARAMS), [searchedRank, rankCategory, rankRound, rankPage]);
+
+  const {
+    items: paginatedRankResults,
+    total: rankTotal,
+    pages: rankTotalPages,
+    loading: rankLoading,
+  }: Paged<AllotmentEntry> = usePaged<AllotmentEntry>('allotments', rankParams);
+  const searching = rankLoading && !!searchedRank;
+
+  // Counselling list comes from the allotments actually loaded — a counselling with no rows is
+  // not offered, so nobody clicks through to an empty table.
   const filteredStates = useMemo(() => {
     if (!stateSearch) return counsellings;
     const q = stateSearch.toLowerCase();
@@ -106,34 +142,13 @@ export default function AllotmentStatesPage() {
   const handleRankSearch = () => {
     const rank = parseInt(rankInput);
     if (isNaN(rank) || rank < 1) return;
-    setRankSearching(true);
-    // Use setTimeout to show loading state briefly
-    setTimeout(() => {
-      const min = Math.max(1, rank - rankRange);
-      const max = rank + rankRange;
-      setRankResults(byRankRange(data, min, max));
-      setSearchedRank({ rank, min, max });
-      setRankSearching(false);
-      setRankPage(1);
-    }, 300);
+    const min = Math.max(1, rank - rankRange);
+    const max = rank + rankRange;
+    setSearchedRank({ rank, min, max });
+    setRankPage(1);
   };
 
-  // Filter rank results
-  const filteredRankResults = useMemo(() => {
-    if (!rankResults) return [];
-    let rows = rankResults;
-    if (rankCategory !== 'All') rows = rows.filter((e) => e.category === rankCategory);
-    if (rankRound !== 'All') rows = rows.filter((e) => e.round === Number(rankRound));
-    return rows;
-  }, [rankResults, rankCategory, rankRound]);
-
-  const rankTotalPages = Math.ceil(filteredRankResults.length / RANK_RESULTS_PER_PAGE);
-  const paginatedRankResults = filteredRankResults.slice(
-    (rankPage - 1) * RANK_RESULTS_PER_PAGE,
-    rankPage * RANK_RESULTS_PER_PAGE
-  );
-
-  if (loading) {
+  if (existLoading) {
     return (
       <div className="flex items-center justify-center py-20">
         <Loader2 className="w-6 h-6 animate-spin text-red-600" />
@@ -141,14 +156,14 @@ export default function AllotmentStatesPage() {
     );
   }
 
-  if (error) {
+  if (existError) {
     return (
       <div className="max-w-md mx-auto mt-12">
         <EmptyState
           icon={AlertTriangle}
           title="Couldn't load allotment data"
-          description={error}
-          action={{ label: 'Try Again', onClick: reload }}
+          description={existError}
+          action={{ label: 'Try Again', onClick: () => navigate(0) }}
         />
       </div>
     );
@@ -156,7 +171,7 @@ export default function AllotmentStatesPage() {
 
   // The collection is empty — no rows have been loaded yet. This is NOT the same as
   // "your filters matched nothing", and must not be dressed up as a search miss.
-  if (data.length === 0) {
+  if (anyTotal === 0) {
     return (
       <div className="space-y-6 pb-10 page-enter">
         <div className="relative rounded-2xl overflow-hidden">
@@ -359,10 +374,10 @@ export default function AllotmentStatesPage() {
                 </div>
                 <Button
                   onClick={handleRankSearch}
-                  disabled={!rankInput || rankSearching}
+                  disabled={!rankInput || searching}
                   className="h-13 px-8 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {rankSearching ? (
+                  {searching ? (
                     <span className="flex items-center gap-2">
                       <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       Searching...
@@ -402,7 +417,7 @@ export default function AllotmentStatesPage() {
           </Card>
 
           {/* Rank Results */}
-          {rankResults !== null && searchedRank !== null && (
+          {searchedRank !== null && (
             <div className="space-y-4">
               {/* Results Header — rendered from the SEARCHED snapshot, never from the live input. */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
@@ -415,7 +430,7 @@ export default function AllotmentStatesPage() {
                   </p>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <span className="font-bold text-slate-800 dark:text-slate-200">{filteredRankResults.length}</span>
+                  <span className="font-bold text-slate-800 dark:text-slate-200">{rankTotal.toLocaleString()}</span>
                   <span className="text-muted-foreground">allotments found</span>
                 </div>
               </div>
@@ -455,7 +470,7 @@ export default function AllotmentStatesPage() {
                 ))}
               </div>
 
-              {filteredRankResults.length === 0 ? (
+              {rankTotal === 0 && !rankLoading ? (
                 <Card className="bg-slate-50 dark:bg-slate-800/50">
                   <CardContent className="p-8 text-center">
                     <div className="w-16 h-16 rounded-2xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center mx-auto mb-4">
@@ -561,7 +576,7 @@ export default function AllotmentStatesPage() {
                     totalPages={rankTotalPages}
                     onPageChange={setRankPage}
                     itemCount={paginatedRankResults.length}
-                    totalItems={filteredRankResults.length}
+                    totalItems={rankTotal}
                   />
                 </>
               )}
@@ -569,7 +584,7 @@ export default function AllotmentStatesPage() {
           )}
 
           {/* Empty State before search */}
-          {rankResults === null && (
+          {searchedRank === null && (
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
               {[
                 {

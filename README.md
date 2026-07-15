@@ -5,7 +5,7 @@ A comprehensive NEET UG counseling assistant that helps medical aspirants analyz
 ## Features
 
 ### Closing Rank Insights
-- Historical closing rank and score data across 10+ top medical colleges
+- Historical closing rank and score data across 900+ medical colleges (real, sourced data)
 - Filter by state, college, course, category, quota, round, rank range, and score range
 - Sortable, paginated data table with CSV export
 - Detailed historical trend view with interactive line charts (Recharts)
@@ -19,7 +19,7 @@ A comprehensive NEET UG counseling assistant that helps medical aspirants analyz
 - CSV export support
 
 ### College Reviews
-- Browse 8 detailed medical college profiles with search and filters
+- Browse 900+ medical college profiles with search and filters
 - Filter by state and college type (Government, Private, Deemed)
 - Detailed review pages covering faculty, infrastructure, hospital facilities, clinical exposure, patient load, hostel, student life, pros/cons, gallery, and embedded review videos
 
@@ -53,7 +53,7 @@ A comprehensive NEET UG counseling assistant that helps medical aspirants analyz
 
 ### Backend
 - **Express 5** with TypeScript
-- **JSON file store** for data persistence (zero native dependencies)
+- **MongoDB** (Mongoose) for data persistence, with a JSON file-store fallback when `MONGODB_URI` is unset
 - **bcryptjs** for password hashing (12 rounds)
 - **jsonwebtoken** for JWT authentication
 - **cookie-parser** for httpOnly refresh token cookies

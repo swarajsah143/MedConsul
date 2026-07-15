@@ -364,8 +364,11 @@ export default function CounsellingConditionsPage() {
           Showing <span className="font-bold text-slate-700 dark:text-slate-200">{activeTab.label}</span>
           {isQuotaTab
             ? quotaInfo && <> for <span className="font-bold text-red-600 dark:text-red-400">{quotaInfo.label}</span></>
-            : <> conditions for <span className="font-bold text-red-600 dark:text-red-400">{selectedState}</span></>
+            : <> conditions · <span className="font-bold text-red-600 dark:text-red-400">All-India baseline</span></>
           }
+          {/* NB: these sections are the MCC/All-India baseline — the same content for every state.
+              The state picker above is scaffolding for future per-state rules; until that content
+              exists, the badge must NOT claim the rules shown are specific to the chosen state. */}
         </span>
       </div>
 

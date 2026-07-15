@@ -107,18 +107,13 @@ export default function RankPredictorPage() {
     if (!result) return;
     downloadCsv(
       `neet-${result.year}-${result.category}-air-${result.matchedOn}.csv`,
-      toCsv(result.matches.map((m) => ({
-        College: m.college,
-        City: m.city ?? '',
-        State: m.state ?? '',
-        Type: m.type ?? '',
-        Course: m.course,
-        Quota: m.quota,
-        Round: m.round,
-        Year: m.year,
-        'Closing Rank': m.closingRank,
-        Chance: m.chance,
-      })))
+      toCsv(
+        ['College', 'City', 'State', 'Type', 'Course', 'Quota', 'Round', 'Year', 'Closing Rank', 'Chance'],
+        result.matches.map((m) => [
+          m.college, m.city ?? '', m.state ?? '', m.type ?? '', m.course,
+          m.quota, m.round, m.year, m.closingRank, m.chance,
+        ])
+      )
     );
   }
 

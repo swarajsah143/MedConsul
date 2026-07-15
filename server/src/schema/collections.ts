@@ -111,11 +111,12 @@ export const closingRanks: CollectionSchema = {
 
 export const fees: CollectionSchema = {
   name: 'fees',
-  derive: (row) => {
-    const n = (v: unknown) => (typeof v === 'number' && Number.isFinite(v) ? v : 0);
-    row.totalFirstYear =
-      n(row.tuitionFee) + n(row.hostelFee) + n(row.miscCharges) + n(row.securityDeposit);
-  },
+  // NB: totalFirstYear is intentionally NOT derived. Official fee notifications (Maharashtra
+  // FRA, KEA) quote a "total first year" figure that bundles charges the row does not itemise
+  // — KJ Somaiya's tuition is ₹10.9L but its notified first-year total is ₹12.0L. A derive that
+  // recomputed it as tuition+hostel+misc+deposit silently discarded that authoritative total on
+  // every save/import (it flattened 58 of 182 sourced rows onto their component sum). The field
+  // help says "enter this yourself"; honour that and keep the sourced value.
   naturalKey: ['collegeId', 'course', 'category', 'quota'],
   label: 'Fee entry',
   labelPlural: 'Fee & Seat Matrix',

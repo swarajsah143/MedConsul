@@ -101,16 +101,29 @@ const FEATURES = [
   { title: 'Ask AI', description: 'Get instant answers to any question', icon: Bot, href: '/ai-assistant', color: 'text-cyan-600 dark:text-cyan-400', bg: 'bg-cyan-50 dark:bg-cyan-950/40' },
 ];
 
+// The 2026 NEET-UG counselling calendar. `done` is NOT hardcoded — a fixed flag silently lies
+// as the season progresses (it used to mark only May done, forever). It is derived from today's
+// date against the step's month below, so the timeline stays honest with no edits.
 const TIMELINE_STEPS = [
-  { month: 'May', event: 'NEET UG 2026 Exam', detail: 'Exam conducted by NTA across India', done: true },
-  { month: 'Jul', event: 'Result & Scorecard', detail: 'Download from nta.ac.in and check your rank', done: false },
-  { month: 'Aug', event: 'MCC Registration Opens', detail: 'Register on mcc.nic.in for AIQ counselling', done: false },
-  { month: 'Aug', event: 'State Registration', detail: 'Register on your state counselling portal', done: false },
-  { month: 'Sep', event: 'Round 1 Choice Filling', detail: 'Fill college preferences and lock before deadline', done: false },
-  { month: 'Sep', event: 'Round 1 Allotment', detail: 'Check result and report to college if allotted', done: false },
-  { month: 'Oct', event: 'Round 2 & Upgrades', detail: 'Float/upgrade options, new choice filling window', done: false },
-  { month: 'Nov', event: 'Mop-up & Stray Round', detail: 'Final rounds for remaining seats', done: false },
+  { month: 'May', event: 'NEET UG 2026 Exam', detail: 'Exam conducted by NTA across India' },
+  { month: 'Jul', event: 'Result & Scorecard', detail: 'Download from nta.ac.in and check your rank' },
+  { month: 'Aug', event: 'MCC Registration Opens', detail: 'Register on mcc.nic.in for AIQ counselling' },
+  { month: 'Aug', event: 'State Registration', detail: 'Register on your state counselling portal' },
+  { month: 'Sep', event: 'Round 1 Choice Filling', detail: 'Fill college preferences and lock before deadline' },
+  { month: 'Sep', event: 'Round 1 Allotment', detail: 'Check result and report to college if allotted' },
+  { month: 'Oct', event: 'Round 2 & Upgrades', detail: 'Float/upgrade options, new choice filling window' },
+  { month: 'Nov', event: 'Mop-up & Stray Round', detail: 'Final rounds for remaining seats' },
 ];
+
+const CAL_YEAR = 2026;
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+/** A step is done once its month has fully passed in the counselling year. */
+function stepDone(month: string): boolean {
+  const now = new Date();
+  if (now.getFullYear() > CAL_YEAR) return true;
+  if (now.getFullYear() < CAL_YEAR) return false;
+  return MONTHS.indexOf(month) < now.getMonth();
+}
 
 export default function DashboardPage() {
   const { user } = useAuth();
@@ -367,25 +380,28 @@ export default function DashboardPage() {
                 className="overflow-hidden"
               >
                 <div className="border-t border-slate-100 dark:border-slate-800">
-                  {TIMELINE_STEPS.map((step, idx) => (
+                  {TIMELINE_STEPS.map((step, idx) => {
+                    const done = stepDone(step.month);
+                    return (
                     <div key={idx} className="flex items-start gap-4 p-4 sm:px-5">
                       <span className="w-9 text-[11px] font-bold text-muted-foreground uppercase pt-0.5 shrink-0">{step.month}</span>
-                      <div className={`w-3 h-3 rounded-full mt-1 shrink-0 ${step.done ? 'bg-emerald-500' : 'bg-slate-300 dark:bg-slate-700'}`} />
+                      <div className={`w-3 h-3 rounded-full mt-1 shrink-0 ${done ? 'bg-emerald-500' : 'bg-slate-300 dark:bg-slate-700'}`} />
                       <div className="flex-1 min-w-0">
-                        <p className={`text-sm font-semibold ${step.done ? 'text-slate-400 dark:text-slate-500 line-through' : 'text-slate-900 dark:text-slate-100'}`}>
+                        <p className={`text-sm font-semibold ${done ? 'text-slate-400 dark:text-slate-500 line-through' : 'text-slate-900 dark:text-slate-100'}`}>
                           {step.event}
                         </p>
                         <p className="text-xs text-muted-foreground mt-0.5">{step.detail}</p>
                       </div>
                       <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full shrink-0 ${
-                        step.done
+                        done
                           ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30'
                           : 'text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-800/50'
                       }`}>
-                        {step.done ? 'Done' : 'Upcoming'}
+                        {done ? 'Done' : 'Upcoming'}
                       </span>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </motion.div>
             )}

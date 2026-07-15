@@ -29,6 +29,26 @@ const factorsRes = () => resource(S.categoryFactors);
 export const TOTAL_MARKS = 720;
 
 /**
+ * A stable key for "the same real college, spelled differently". The colleges table carries
+ * ~27 duplicate clusters (one institution entered 3-5 ways); without collapsing them a student
+ * sees the same college listed two or three times in one result. We key on the name with the
+ * parenthetical abbreviation and all punctuation stripped — which merges the pure-abbreviation
+ * variants ("Christian Medical College (CMC), Vellore" vs "Christian Medical College, Vellore")
+ * with zero risk, because the town stays in the key so two different colleges in one city never
+ * collapse. It deliberately does NOT try to merge reworded variants ("...Dr RML Hospital" vs
+ * "...Dr Ram Manohar Lohia Hospital") — that needs the fuzzy matcher / an aliases merge, and a
+ * wrong guess here would hide a real college from a student's shortlist.
+ */
+function canonCollegeKey(name: string): string {
+  return (name || '')
+    .toLowerCase()
+    .replace(/\(.*?\)/g, ' ')       // drop "(CMC)", "(ABVIMS-RML)", …
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .replace(/\s+/g, ' ');
+}
+
+/**
  * NEET-UG draws roughly 23-24 lakh candidates. Only used to turn a rank into a percentile
  * for display; it does not affect which colleges are matched.
  */
@@ -205,13 +225,18 @@ export async function predict(input: PredictInput): Promise<Prediction> {
     list = list.filter((x) => (x.c.state || '').toLowerCase() === s);
   }
 
-  // With no round selected the student is asking "could I have got in at all?", so collapse
-  // each college to its most lenient (largest) closing rank across the rounds — the later
-  // rounds and the stray vacancy round are where the cutoff actually loosens.
-  if (!input.round) {
+  // Collapse to one row per (college, course, quota). Two things fold in here:
+  //  - duplicate-college clusters: keyed on canonCollegeKey, not collegeId, so the same
+  //    institution spelled two ways stops appearing twice in the shortlist.
+  //  - rounds: with no round selected the student is asking "could I have got in at all?", so
+  //    we drop round from the key and keep the most LENIENT (largest) closing rank across the
+  //    rounds — later rounds and the stray-vacancy round are where the cutoff loosens. With a
+  //    round selected we keep round in the key so only the duplicate colleges merge.
+  {
     const best = new Map<string, { r: any; c: any }>();
     for (const x of list) {
-      const k = `${x.r.collegeId}|${x.r.course}|${x.r.quota}`;
+      const roundPart = input.round ? `|${x.r.round}` : '';
+      const k = `${canonCollegeKey(x.c.name)}|${x.r.course}|${x.r.quota}${roundPart}`;
       const prev = best.get(k);
       if (!prev || x.r.closingRank > prev.r.closingRank) best.set(k, x);
     }
