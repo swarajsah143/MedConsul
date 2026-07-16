@@ -589,7 +589,7 @@ export default function AiAssistantPage() {
             </div>
             <div className="flex items-center gap-1.5 mt-8 text-[10px] text-slate-400">
               <Sparkles className="w-3 h-3" />
-              <span>Powered by AI — Add your API key in server/.env for live responses</span>
+              <span>Answers are drawn from MedCounsel's verified counselling data</span>
             </div>
           </div>
         ) : (

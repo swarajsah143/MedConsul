@@ -20,6 +20,7 @@ const LoginPage = lazy(() => import('@/pages/login'));
 const SignupPage = lazy(() => import('@/pages/signup'));
 const ForgotPasswordPage = lazy(() => import('@/pages/forgot-password'));
 const ResetPasswordPage = lazy(() => import('@/pages/reset-password'));
+const LandingPage = lazy(() => import('@/pages/landing'));
 
 // App
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
@@ -75,6 +76,13 @@ function AdminRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+/** Root `/`: the public landing page for visitors, the app dashboard for signed-in users. */
+function RootGate() {
+  const { isAuthenticated, isLoading } = useAuth();
+  if (isLoading) return <FullPageSpinner />;
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <LandingPage />;
+}
+
 export default function AppRoutes() {
   return (
     <Suspense fallback={<FullPageSpinner />}>
@@ -85,16 +93,17 @@ export default function AppRoutes() {
       <Route path="/forgot-password" element={<PublicRoute><ForgotPasswordPage /></PublicRoute>} />
       <Route path="/reset-password" element={<ResetPasswordPage />} />
 
-      {/* Protected app routes */}
+      {/* Public marketing landing at root — forwards signed-in users to /dashboard */}
+      <Route path="/" element={<RootGate />} />
+
+      {/* Protected app routes — pathless layout route so `/` above stays public */}
       <Route
-        path="/"
         element={
           <ProtectedRoute>
             <DashboardLayout />
           </ProtectedRoute>
         }
       >
-        <Route index element={<Navigate to="/dashboard" replace />} />
         <Route path="admin" element={<AdminRoute><AdminDashboardPage /></AdminRoute>} />
         <Route path="admin/data" element={<AdminRoute><AdminDataPage /></AdminRoute>} />
         <Route path="admin/data/:collection" element={<AdminRoute><AdminDataPage /></AdminRoute>} />
@@ -121,8 +130,8 @@ export default function AppRoutes() {
         <Route path="ai-assistant" element={<AiAssistantPage />} />
       </Route>
 
-      {/* Fallback */}
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      {/* Fallback — unknown paths go to the landing (which forwards authed users to /dashboard) */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
     </Suspense>
   );
