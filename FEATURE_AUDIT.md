@@ -11,9 +11,9 @@ extension is not on the same network as the local dev servers, so it can't reach
 
 | Role | Email | Password |
 |---|---|---|
-| Admin | `admin@medcounsel.ai` | `***REDACTED***` |
-| Student | `swaraj@medcounsel.ai` | `***REDACTED***` |
-| Student (demo) | `demo@medcounsel.ai` | `***REDACTED***` |
+| Admin | `admin@medcounsel.ai` | _(set via `SEED_ADMIN_PASSWORD`; the old default was rotated — see PRODUCTION_READINESS.md)_ |
+| Student | `swaraj@medcounsel.ai` | _(demo account; set via `SEED_STUDENT_PASSWORD`)_ |
+| Student (demo) | `demo@medcounsel.ai` | _(demo account; set via `SEED_STUDENT_PASSWORD`)_ |
 
 Auth is JWT access token + httpOnly refresh cookie. Verified working, plus role-gating: a
 student token hitting an `/api/admin/*` route correctly returns **403**.

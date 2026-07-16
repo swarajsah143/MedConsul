@@ -1,11 +1,23 @@
 import './load-env';
 
+/**
+ * A JWT secret MUST be a real, set value — never a silent fallback. The old `|| 'fallback-secret'`
+ * meant a deploy that failed to load .env would boot happily and sign forgeable admin tokens with
+ * a public, guessable key. Now the server refuses to start instead.
+ */
+function requiredSecret(name: string, value: string | undefined): string {
+  if (!value || value.startsWith('fallback-')) {
+    throw new Error(`${name} is not set (or is the insecure fallback). Put a strong random secret in the repo-root .env before starting the server.`);
+  }
+  return value;
+}
+
 export const env = {
   port: parseInt(process.env.PORT || '5000', 10),
   clientUrl: process.env.CLIENT_URL || 'http://localhost:5173',
   jwt: {
-    secret: process.env.JWT_SECRET || 'fallback-secret',
-    refreshSecret: process.env.JWT_REFRESH_SECRET || 'fallback-refresh',
+    secret: requiredSecret('JWT_SECRET', process.env.JWT_SECRET),
+    refreshSecret: requiredSecret('JWT_REFRESH_SECRET', process.env.JWT_REFRESH_SECRET),
     expiresIn: process.env.JWT_EXPIRES_IN || '15m',
     refreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '7d',
   },

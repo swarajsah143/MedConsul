@@ -2,6 +2,7 @@ import './config/load-env';
 
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import { env } from './config/env';
@@ -9,8 +10,17 @@ import { connectDatabase, initializeDatabase } from './config/database';
 import routes from './routes';
 import { sseRoutes } from './routes/chat.sse';
 import { startScheduler } from './jobs/scheduler';
+import { apiLimiter } from './middlewares/rate-limit';
 
 const app = express();
+
+// Behind nginx — trust the first proxy so req.ip is the real client (X-Forwarded-For), which the
+// rate limiters key on. Without this every request would look like 127.0.0.1.
+app.set('trust proxy', 1);
+
+// Baseline security headers (HSTS, no-sniff, frameguard/deny, referrer-policy). CSP is disabled
+// here because this process serves only the JSON/file API — nginx serves the HTML.
+app.use(helmet({ contentSecurityPolicy: false }));
 
 app.use(cors({
   origin: env.clientUrl,
@@ -32,6 +42,10 @@ app.use('/api/chat', sseRoutes);
 // gzip the JSON API — the closingRanks (6.6k rows) and facet responses are the payloads that
 // matter for students on mobile data. ~5-8x smaller on the wire.
 app.use(compression());
+
+// Generous global abuse ceiling on the REST API (the strict per-endpoint auth limiter lives in
+// auth.routes.ts). Applied after SSE so the chat stream is unaffected.
+app.use('/api', apiLimiter);
 
 app.use('/api', routes);
 
