@@ -8,6 +8,7 @@ import { env } from './config/env';
 import { connectDatabase, initializeDatabase } from './config/database';
 import routes from './routes';
 import { sseRoutes } from './routes/chat.sse';
+import { startScheduler } from './jobs/scheduler';
 
 const app = express();
 
@@ -49,3 +50,6 @@ app.listen(env.port, () => {
 connectDatabase().catch((err) => {
   console.error('  MongoDB connection failed — auth features will not work until reconnected');
 });
+
+// Reminder scheduler (daily + boot catch-up). Idempotent and no-ops when SMTP/Mongo aren't ready.
+startScheduler();

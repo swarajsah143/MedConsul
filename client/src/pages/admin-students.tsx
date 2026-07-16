@@ -12,9 +12,11 @@ import {
   Inbox,
   Loader2,
   Lock,
+  Mail,
   MessageSquare,
   Pencil,
   Search,
+  Send,
   Shield,
   ShieldCheck,
   Sparkles,
@@ -675,6 +677,120 @@ function CounsellingFields({
   );
 }
 
+// ── email students (broadcast) ─────────────────────────────────────────────────
+
+/**
+ * Compose + send an email to students. Audience follows the page's current plan filter (all, or
+ * one plan). The live recipient count comes from the server; the send goes through the mail
+ * service, which no-ops when SMTP is unconfigured — in that case the result says so plainly.
+ */
+function BroadcastModal({
+  planFilter,
+  onClose,
+  onSent,
+}: {
+  planFilter: PlanFilter;
+  onClose: () => void;
+  onSent: (message: string) => void;
+}) {
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+  const [count, setCount] = useState<number | null>(null);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const audienceLabel = planFilter === 'all' ? 'all students' : `${planFilter} students`;
+  const planQuery = planFilter === 'all' ? '' : `?plan=${planFilter}`;
+
+  useEffect(() => {
+    let cancelled = false;
+    api.get(`/admin/students/broadcast/recipients${planQuery}`)
+      .then((res) => { if (!cancelled) setCount(res?.data?.recipientCount ?? 0); })
+      .catch(() => { if (!cancelled) setCount(null); });
+    return () => { cancelled = true; };
+  }, [planQuery]);
+
+  const send = async () => {
+    if (!subject.trim() || !message.trim()) {
+      setError('Subject and message are both required.');
+      return;
+    }
+    setSending(true);
+    setError(null);
+    try {
+      const res = await api.post('/admin/students/broadcast', {
+        subject: subject.trim(),
+        message: message.trim(),
+        audience: { plan: planFilter === 'all' ? undefined : planFilter },
+      });
+      const d = res?.data ?? {};
+      let msg: string;
+      if (!d.recipientCount) msg = 'No students matched this audience — nothing sent.';
+      else if (d.sent === 0 && d.skipped > 0) msg = `Email isn't configured yet — 0 sent. Add SMTP credentials to go live.`;
+      else if (typeof d.sent === 'number') msg = `Sent to ${d.sent} of ${d.recipientCount} student(s)${d.failed ? `, ${d.failed} failed` : ''}.`;
+      else msg = `Sending to ${d.recipientCount} student(s) in the background…`;
+      onSent(msg);
+    } catch (e: any) {
+      setError(e?.message || 'Failed to send. Please try again.');
+    } finally {
+      setSending(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-start justify-center p-4 sm:p-8 overflow-y-auto">
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
+      <Card className="relative z-10 w-full max-w-xl">
+        <CardContent className="p-6 space-y-5">
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
+                <Mail className="w-5 h-5 text-red-600 dark:text-red-400" />
+              </div>
+              <div>
+                <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Email students</h2>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  To <span className="font-semibold text-slate-700 dark:text-slate-300">{audienceLabel}</span>
+                  {count !== null && <> — <span className="font-semibold text-red-600 dark:text-red-400">{count}</span> recipient{count === 1 ? '' : 's'}</>}
+                </p>
+              </div>
+            </div>
+            <button onClick={onClose} className="w-8 h-8 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center text-slate-400">
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {error && <FormError message={error} />}
+
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Subject</label>
+            <Input value={subject} onChange={(e) => setSubject(e.target.value)} placeholder="e.g. Round 1 choice filling closes soon" maxLength={200} />
+          </div>
+          <div className="space-y-1.5">
+            <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Message</label>
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              rows={7}
+              placeholder="Write your reminder or announcement. Blank lines become paragraphs."
+              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all resize-y"
+            />
+            <p className="text-[11px] text-muted-foreground">Sent as a branded MedCounsel email with a plain-text fallback.</p>
+          </div>
+
+          <div className="flex items-center justify-end gap-3 pt-1">
+            <Button variant="outline" onClick={onClose} disabled={sending}>Cancel</Button>
+            <Button onClick={send} disabled={sending || !subject.trim() || !message.trim() || count === 0}>
+              {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+              {sending ? 'Sending…' : `Send${count ? ` to ${count}` : ''}`}
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
 // ── add student ──────────────────────────────────────────────────────────────
 
 /**
@@ -1242,6 +1358,9 @@ export default function AdminStudentsPage() {
   const [saving, setSaving] = useState(false);
   const [planError, setPlanError] = useState<string | null>(null);
 
+  // Email students: a modal composer that sends to the currently-filtered plan audience.
+  const [broadcastOpen, setBroadcastOpen] = useState(false);
+
   // Add student: an inline panel under the header, in the same idiom as Set plan.
   const [adding, setAdding] = useState(false);
   const [creating, setCreating] = useState(false);
@@ -1423,6 +1542,10 @@ export default function AdminStudentsPage() {
             <CheckCircle2 className="w-4 h-4" /> {flash}
           </span>
         )}
+        <Button variant="outline" onClick={() => setBroadcastOpen(true)}>
+          <Mail className="w-4 h-4" />
+          Email students
+        </Button>
         <Button
           variant={adding ? 'outline' : 'default'}
           onClick={() => {
@@ -1435,6 +1558,18 @@ export default function AdminStudentsPage() {
           {adding ? 'Close' : 'Add student'}
         </Button>
       </PageHeader>
+
+      {broadcastOpen && (
+        <BroadcastModal
+          planFilter={planFilter}
+          onClose={() => setBroadcastOpen(false)}
+          onSent={(msg) => {
+            setBroadcastOpen(false);
+            setFlash(msg);
+            setTimeout(() => setFlash(null), 5000);
+          }}
+        />
+      )}
 
       {adding && (
         <AddStudentForm

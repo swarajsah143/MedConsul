@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { adminController } from '../controllers/admin.controller';
 import { studentsController } from '../controllers/students.controller';
+import { broadcastController } from '../controllers/broadcast.controller';
 import { requireAuth, requireAdmin } from '../middlewares/auth.middleware';
 import resourceRoutes from './admin.resources.routes';
 
@@ -22,6 +23,11 @@ router.delete('/users/:id', adminController.deleteUser);
 // Students overview: real checklist progress (derived from admin-VERIFIED uploads,
 // not a client-side tick) plus the admin-set plan.
 router.get('/students', studentsController.list);
+// Broadcast + reminders. These 3-segment paths are declared BEFORE '/students/:id' so 'broadcast'
+// is never captured as an :id.
+router.get('/students/broadcast/recipients', broadcastController.previewRecipients);
+router.post('/students/broadcast', broadcastController.broadcast);
+router.post('/students/run-reminders', broadcastController.runReminders);
 router.get('/students/:id', studentsController.detail);
 router.put('/students/:id/plan', studentsController.setPlan);
 

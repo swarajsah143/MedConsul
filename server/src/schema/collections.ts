@@ -223,6 +223,21 @@ export const announcements: CollectionSchema = {
     { name: 'shortDescription', type: 'text', label: 'Short description', searchable: true },
     { name: 'documentLabel', type: 'string', label: 'Document label' },
     { name: 'documentUrl', type: 'url', label: 'Document URL' },
+
+    // Optional scheduled reminder. If reminderDate is set, the daily reminders job emails the
+    // chosen audience on that date (once) and flips reminderSent. Blank reminderDate = no reminder.
+    {
+      name: 'reminderDate', type: 'string', label: 'Reminder date (YYYY-MM-DD)',
+      pattern: '^\\d{4}-\\d{2}-\\d{2}$',
+      patternMessage: 'Reminder date must be YYYY-MM-DD (e.g. 2026-09-15), or left blank.',
+      help: 'Optional. Set a future date to email students a reminder about this announcement on that day.',
+    },
+    {
+      name: 'reminderAudience', type: 'enum', label: 'Reminder audience', options: ['all', 'free', 'pro', 'premium'],
+      help: 'Who the reminder goes to. Blank/all = every student; or narrow to one plan.',
+    },
+    { name: 'reminderBody', type: 'text', label: 'Reminder message', help: 'Optional email body for the reminder. Falls back to the short description.' },
+    { name: 'reminderSent', type: 'boolean', label: 'Reminder sent', help: 'Set automatically once the reminder email has gone out.' },
   ],
 };
 
