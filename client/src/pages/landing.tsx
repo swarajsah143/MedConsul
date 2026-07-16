@@ -66,6 +66,7 @@ export default function LandingPage() {
             <span className="text-lg font-extrabold tracking-tight">MedCounsel AI</span>
           </div>
           <div className="hidden sm:flex items-center gap-2">
+            <Link to="/pricing" className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-red-600 transition-colors">Pricing</Link>
             <Link to="/login" className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-red-600 transition-colors">Sign in</Link>
             <Link to="/signup" className="px-4 py-2 rounded-xl gradient-primary text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all">Get started</Link>
           </div>
@@ -75,6 +76,7 @@ export default function LandingPage() {
         </nav>
         {menuOpen && (
           <div className="sm:hidden border-t border-slate-100 dark:border-slate-800 px-4 py-3 flex flex-col gap-2">
+            <Link to="/pricing" className="py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">Pricing</Link>
             <Link to="/login" className="py-2 text-sm font-semibold text-slate-600 dark:text-slate-300">Sign in</Link>
             <Link to="/signup" className="py-2.5 rounded-xl gradient-primary text-white text-sm font-semibold text-center">Get started</Link>
           </div>
@@ -209,6 +211,7 @@ export default function LandingPage() {
             <span className="font-bold">MedCounsel AI</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-slate-500">
+            <Link to="/pricing" className="hover:text-red-600">Pricing</Link>
             <Link to="/privacy" className="hover:text-red-600">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-red-600">Terms</Link>
             <a href="mailto:services@earthlingaidtech.com" className="hover:text-red-600">Contact</a>
