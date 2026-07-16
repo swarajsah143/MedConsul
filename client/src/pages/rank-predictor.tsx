@@ -5,6 +5,8 @@ import {
   type Prediction, type PredictMatch, type Chance,
 } from '@/lib/predict-api';
 import { useAuth } from '@/providers/auth-provider';
+import { usePlan } from '@/lib/use-plan';
+import { UpgradePrompt } from '@/components/ui/upgrade-prompt';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PageHeader } from '@/components/ui/page-header';
@@ -12,7 +14,7 @@ import { EmptyState } from '@/components/ui/empty-state';
 import { toCsv, downloadCsv } from '@/lib/csv';
 import {
   Target, Loader2, AlertTriangle, Download, Sparkles, TrendingUp,
-  ChevronRight, Info, SearchX,
+  ChevronRight, Info, SearchX, Lock,
 } from 'lucide-react';
 
 /**
@@ -41,6 +43,7 @@ const fmt = (n: number) => n.toLocaleString('en-IN');
 
 export default function RankPredictorPage() {
   const { user } = useAuth();
+  const { canFullData } = usePlan();   // Pro+ unlocks the full shortlist + CSV export
   const { meta, loading: metaLoading, error: metaError } = usePredictorMeta();
 
   const [mode, setMode] = useState<'marks' | 'rank'>('marks');
@@ -143,9 +146,15 @@ export default function RankPredictorPage() {
         description={`Enter your NEET score and see which colleges you can realistically target, matched against real closing ranks from ${meta.years.slice(-1)[0]}–${meta.years[0]}.`}
       >
         {result && result.total > 0 && (
-          <Button variant="outline" size="sm" onClick={exportCsv}>
-            <Download className="w-4 h-4 mr-1.5" /> Export
-          </Button>
+          canFullData ? (
+            <Button variant="outline" size="sm" onClick={exportCsv}>
+              <Download className="w-4 h-4 mr-1.5" /> Export
+            </Button>
+          ) : (
+            <Link to="/pricing" title="Upgrade to Pro to export" className="inline-flex items-center h-9 px-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-500 hover:border-red-300 hover:text-red-600">
+              <Lock className="w-3.5 h-3.5 mr-1.5" /> Export (Pro)
+            </Link>
+          )
         )}
       </PageHeader>
 
@@ -264,11 +273,16 @@ export default function RankPredictorPage() {
 
           <MatchTable matches={shown} />
 
-          {result.matches.length < result.total && (
+          {!canFullData ? (
+            <UpgradePrompt
+              title={`See all ${fmt(result.total)} colleges you can target`}
+              description={`This free estimate shows the top ${result.matches.length}. Upgrade to Pro for your complete shortlist and CSV export.`}
+            />
+          ) : result.matches.length < result.total ? (
             <p className="text-xs text-center text-muted-foreground">
               Showing the strongest {result.matches.length} of {fmt(result.total)} matching colleges — export for the full list.
             </p>
-          )}
+          ) : null}
         </>
       )}
     </div>

@@ -2,6 +2,8 @@ import { Router, Request, Response } from 'express';
 import { COLLECTIONS, getSchema } from '../schema/collections';
 import { resource } from '../models/resource.model';
 import { isMongoConnected } from '../config/database';
+import { optionalAuth, AuthRequest } from '../middlewares/auth.middleware';
+import { isPro, FREE_ALLOTMENT_ROWS } from '../utils/plan';
 
 /**
  * Public read-only API for the app.
@@ -36,11 +38,23 @@ router.get('/', (_req: Request, res: Response) => {
   });
 });
 
-router.get('/:collection/paged', async (req: Request, res: Response) => {
-  const r = publicResource(String(req.params.collection));
+router.get('/:collection/paged', optionalAuth, async (req: AuthRequest, res: Response) => {
+  const collection = String(req.params.collection);
+  const r = publicResource(collection);
   if (!r) { res.status(404).json({ success: false, message: 'Unknown collection' }); return; }
 
   const { page, limit, sort, q, ...filters } = req.query as Record<string, any>;
+
+  // Subscription gate: seat allotments are a Pro (₹3,999+) feature. Free users get a 25-row
+  // sample of page 1 only — which also blocks CSV export, since export just pages this endpoint
+  // deeper and `pages: 1` stops the loop. Real `total` is still returned so the UI can say
+  // "25 of N — upgrade to see all".
+  if (collection === 'allotments' && !isPro(req.user?.plan)) {
+    const data = await r.list({ page: 1, limit: FREE_ALLOTMENT_ROWS, sort, q, filters });
+    res.json({ success: true, data: { ...data, page: 1, pages: 1, gated: true } });
+    return;
+  }
+
   res.json({ success: true, data: await r.list({ page, limit, sort, q, filters }) });
 });
 

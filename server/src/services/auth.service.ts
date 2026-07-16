@@ -9,6 +9,7 @@ import {
   JwtPayload,
 } from '../utils/jwt';
 import { validateEmail, validatePassword, validateName } from '../utils/validate';
+import { effectiveTier } from '../utils/plan';
 import { mailService } from './mail.service';
 import { welcomeEmail, resetEmail } from './mail.templates';
 import { env } from '../config/env';
@@ -34,7 +35,7 @@ export class AuthService {
     // no-ops (logs) when SMTP is unconfigured, so this is safe before credentials are added.
     void mailService.send({ to: user.email, ...welcomeEmail(user.name) });
 
-    const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role };
+    const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role, plan: effectiveTier(user.plan, user.planExpiresAt) };
     const accessToken = signAccessToken(payload);
     const refreshToken = signRefreshToken(payload);
 
@@ -52,7 +53,7 @@ export class AuthService {
     const valid = await comparePassword(password, user.password);
     if (!valid) throw { status: 401, message: 'Invalid email or password' };
 
-    const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role };
+    const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role, plan: effectiveTier(user.plan, user.planExpiresAt) };
     const accessToken = signAccessToken(payload);
     const refreshToken = signRefreshToken(payload);
 
@@ -85,7 +86,7 @@ export class AuthService {
 
     // Rotate refresh token
     await TokenModel.deleteRefreshToken(token);
-    const newPayload: JwtPayload = { userId: user.id, email: user.email, role: user.role };
+    const newPayload: JwtPayload = { userId: user.id, email: user.email, role: user.role, plan: effectiveTier(user.plan, user.planExpiresAt) };
     const accessToken = signAccessToken(newPayload);
     const newRefreshToken = signRefreshToken(newPayload);
     await TokenModel.createRefreshToken(user.id, newRefreshToken, getRefreshTokenExpiry());

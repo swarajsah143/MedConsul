@@ -313,6 +313,12 @@ export default function AiAssistantPage() {
         throw { message: data.message || 'Rate limit exceeded', retryAfter: data.retryAfter };
       }
 
+      // 402 = free daily AI limit reached (upgrade to Premium for unlimited).
+      if (res.status === 402) {
+        const data = await res.json().catch(() => ({}));
+        throw { message: data.message || 'Upgrade to Premium for unlimited answers.' };
+      }
+
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw { message: data.message || `Error ${res.status}` };

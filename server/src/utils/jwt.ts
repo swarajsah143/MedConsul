@@ -6,6 +6,9 @@ export interface JwtPayload {
   userId: string;
   email: string;
   role: string;
+  /** Effective subscription tier at sign time (expiry already applied). Drives server gating.
+   *  Refreshed on every token refresh (≤15m), so a plan change reflects within one refresh cycle. */
+  plan?: 'free' | 'pro' | 'premium';
 }
 
 export function signAccessToken(payload: JwtPayload): string {

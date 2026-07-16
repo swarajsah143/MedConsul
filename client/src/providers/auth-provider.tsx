@@ -7,6 +7,9 @@ export interface AuthUser {
   email: string;
   role: string;
   createdAt: string;
+  /** Subscription tier + expiry (from toSafe → /auth/me). Drives feature gating; see usePlan(). */
+  plan?: 'free' | 'pro' | 'premium';
+  planExpiresAt?: string | null;
 }
 
 interface AuthContextType {

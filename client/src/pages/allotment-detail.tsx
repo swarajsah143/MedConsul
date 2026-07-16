@@ -1,7 +1,9 @@
 import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { usePaged, useFacets } from '@/lib/data-api';
+import { usePlan } from '@/lib/use-plan';
+import { UpgradePrompt } from '@/components/ui/upgrade-prompt';
 import type { AllotmentEntry } from '@/lib/allotment-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -26,6 +28,7 @@ import {
   Loader2,
   AlertTriangle,
   Database,
+  Lock,
 } from 'lucide-react';
 
 type SortField = 'allIndiaRank' | 'stateRank' | 'neetScore' | 'category' | 'instituteName' | 'seatType' | 'round';
@@ -40,6 +43,7 @@ export default function AllotmentDetailPage() {
   const { counselling: rawCounselling } = useParams<{ counselling: string }>();
   const counselling = decodeURIComponent(rawCounselling || '');
   const navigate = useNavigate();
+  const { canFullData } = usePlan();   // Pro+ unlocks full allotment history + CSV export
 
   // Filters
   const [search, setSearch] = useState('');
@@ -346,12 +350,26 @@ export default function AllotmentDetailPage() {
               </span>
             )}
           </Button>
-          <Button onClick={handleExportCsv} disabled={exporting || filteredTotal === 0} variant="outline" className="hover:border-red-300 hover:text-red-600 transition-colors">
-            {exporting ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Download className="w-4 h-4 mr-2" />}
-            <span className="hidden sm:inline">{exporting ? 'Exporting…' : 'Export'}</span>
-          </Button>
+          {canFullData ? (
+            <Button onClick={handleExportCsv} disabled={exporting || filteredTotal === 0} variant="outline" className="hover:border-red-300 hover:text-red-600 transition-colors">
+              {exporting ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Download className="w-4 h-4 mr-2" />}
+              <span className="hidden sm:inline">{exporting ? 'Exporting…' : 'Export'}</span>
+            </Button>
+          ) : (
+            <Link to="/pricing" title="Upgrade to Pro to export" className="inline-flex items-center h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-500 hover:border-red-300 hover:text-red-600 transition-colors">
+              <Lock className="w-4 h-4 sm:mr-2" /> <span className="hidden sm:inline">Export (Pro)</span>
+            </Link>
+          )}
         </div>
       </div>
+
+      {/* Free-tier gate: the server serves a 25-row sample; prompt the upgrade for full history + export. */}
+      {!canFullData && (
+        <UpgradePrompt
+          title="You're seeing a free sample of seat allotments"
+          description={`Showing ${paginated.length} of ${filteredTotal.toLocaleString()} rows for ${counselling}. Upgrade to Pro to browse the full allotment history and export it.`}
+        />
+      )}
 
       {/* ===== FILTER MODAL ===== */}
       {showFilters && (
