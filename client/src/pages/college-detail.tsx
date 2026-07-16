@@ -1,6 +1,8 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCollection, type College } from '@/lib/data-api';
+import { usePlan } from '@/lib/use-plan';
+import { UpgradePrompt } from '@/components/ui/upgrade-prompt';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -321,6 +323,7 @@ export default function CollegeDetailPage() {
   const navigate = useNavigate();
   const { data: colleges, loading, error, reload } = useCollection<College>('colleges');
   const [activeTab, setActiveTab] = useState<Tab>('overview');
+  const { canFullData } = usePlan();   // Pro+ unlocks the full college profile (beyond Overview)
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   // A deactivated college is treated as non-existent on the public site.
@@ -463,6 +466,8 @@ export default function CollegeDetailPage() {
             <motion.div key={activeTab} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }} className="space-y-6">
 
+              {(activeTab === 'overview' || canFullData) ? (
+              <>
               {activeTab === 'overview' && !hasOverview && (
                 <EmptyState title="No overview yet" description="Details for this college haven't been published." />
               )}
@@ -630,6 +635,10 @@ export default function CollegeDetailPage() {
                     </motion.div>
                   )}
                 </>
+              )}
+              </>
+              ) : (
+                <UpgradePrompt title="Unlock the full college profile" description="Academics, campus life and photos are part of the Pro plan — upgrade to see the complete review." />
               )}
             </motion.div>
           </AnimatePresence>

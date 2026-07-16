@@ -22,6 +22,8 @@ const ForgotPasswordPage = lazy(() => import('@/pages/forgot-password'));
 const ResetPasswordPage = lazy(() => import('@/pages/reset-password'));
 const LandingPage = lazy(() => import('@/pages/landing'));
 const PricingPage = lazy(() => import('@/pages/pricing'));
+const PrivacyPage = lazy(() => import('@/pages/legal').then((m) => ({ default: m.PrivacyPage })));
+const TermsPage = lazy(() => import('@/pages/legal').then((m) => ({ default: m.TermsPage })));
 
 // App
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
@@ -97,6 +99,8 @@ export default function AppRoutes() {
       {/* Public marketing pages */}
       <Route path="/" element={<RootGate />} />
       <Route path="/pricing" element={<PricingPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/terms" element={<TermsPage />} />
 
       {/* Protected app routes — pathless layout route so `/` above stays public */}
       <Route
