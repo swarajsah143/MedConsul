@@ -1,0 +1,128 @@
+{
+ "state": "Chattisgarh",
+ "unmatched": [],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Raipur",
+   "state": "Chattisgarh",
+   "city": "Raipur",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(Raipur)",
+   "established": 2012,
+   "totalSeats": 125,
+   "website": "http://www.aiimsraipur.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Korba",
+   "state": "Chattisgarh",
+   "type": "Government",
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "totalSeats": 125,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Mahasamund",
+   "state": "Chattisgarh",
+   "type": "Government",
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "established": 2022,
+   "totalSeats": 125,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Late Shri Baliram Kashyap Memorial NDMC Govt. Medical College, Jagdalpur",
+   "state": "Chattisgarh",
+   "city": "Jagdalpur",
+   "type": "Government",
+   "affiliation": "Pt.Ravishankar Shukla University (Prev. Ravishankar University),Raipur",
+   "established": 2006,
+   "totalSeats": 125,
+   "website": "http://www.gmcjagdalpur.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Late Shri Lakhi Ram Agrawal Memorial Govt. Medical College, Raigarh",
+   "state": "Chattisgarh",
+   "type": "Government",
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "established": 2013,
+   "totalSeats": 100,
+   "website": "http://www.gmcraigarh.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Pt. J N M Medical College, Raipur",
+   "state": "Chattisgarh",
+   "city": "Raipur",
+   "type": "Government",
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "established": 1963,
+   "totalSeats": 230,
+   "website": "http://www.ptjnmcraipur.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Raipur Institute of Medical Sciences (RIMS), Raipur",
+   "state": "Chattisgarh",
+   "city": "Raipur",
+   "type": "Private",
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.rimsindia.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shri Balaji Institute of Medical Science",
+   "state": "Chattisgarh",
+   "city": "Chattisgarh",
+   "type": "Private",
+   "affiliation": "Pandit Deendayal Upadhyay Memorial Health Science & Ayush University of Chattisgarh",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://www.shribalajimedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shri Shankaracharya Institute of Medical Sciences, Bhilai",
+   "state": "Chattisgarh",
+   "city": "Durg",
+   "type": "Private",
+   "affiliation": "Pt. Deendayal Upadhyay Memorial Health Sciences and Ayush University, Raipur",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.ssimsb.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

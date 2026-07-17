@@ -3,12 +3,14 @@
  * Uses the raw Node socket to bypass Express 5's async response wrapping.
  */
 import { Router, Request, Response } from 'express';
-import { verifyAccessToken } from '../utils/jwt';
+import { verifyAccessToken, JwtPayload } from '../utils/jwt';
 import { aiService } from '../services/ai.service';
+import { store } from '../config/database';
+import { isPremium, FREE_AI_PER_DAY } from '../utils/plan';
 
 const router = Router();
 
-function getAuth(req: Request): { userId: string; email: string; role: string } | null {
+function getAuth(req: Request): JwtPayload | null {
   const header = req.headers.authorization || '';
   if (!header.startsWith('Bearer ')) return null;
   try {
@@ -17,6 +19,12 @@ function getAuth(req: Request): { userId: string; email: string; role: string } 
     return null;
   }
 }
+
+// Per-user daily AI counter (non-premium cap). Kept in the always-present JSON store, keyed by
+// user + local day so it resets at midnight. Premium is unlimited so it is never counted.
+const aiDayKey = (userId: string) => { const d = new Date(); return `${userId}:${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`; };
+function aiCount(userId: string): number { const db = store.load() as any; return db.aiDaily?.[aiDayKey(userId)] || 0; }
+function aiBump(userId: string): void { const db = store.load() as any; db.aiDaily = db.aiDaily || {}; const k = aiDayKey(userId); db.aiDaily[k] = (db.aiDaily[k] || 0) + 1; store.save(db); }
 
 function handleSSE(req: Request, res: Response, sessionId: string, action: 'send' | 'regenerate') {
   const user = getAuth(req);
@@ -45,7 +53,13 @@ function handleSSE(req: Request, res: Response, sessionId: string, action: 'send
       res.status(400).json({ success: false, message: 'Message content is required' });
       return;
     }
+    // Subscription gate: unlimited AI is Premium (₹4,999). Free/Pro get FREE_AI_PER_DAY questions/day.
+    if (!isPremium(user.plan) && aiCount(userId) >= FREE_AI_PER_DAY) {
+      res.status(402).json({ success: false, upgrade: true, message: `You've used your ${FREE_AI_PER_DAY} free MedAssist questions for today. Upgrade to Premium for unlimited answers.` });
+      return;
+    }
     aiService.addMessage(sessionId, userId, { role: 'user', content: content.trim() });
+    if (!isPremium(user.plan)) aiBump(userId);
   } else {
     aiService.removeLastAssistantMessage(sessionId, userId);
   }
@@ -70,7 +84,13 @@ function handleSSE(req: Request, res: Response, sessionId: string, action: 'send
   );
 
   const ac = new AbortController();
-  req.on('close', () => ac.abort());
+  // Abort on client disconnect — watch the SOCKET, not the request.
+  // IncomingMessage emits 'close' as soon as the request body has been fully
+  // received, so req.on('close') fires immediately on every call and would
+  // abort the provider fetch before it is even issued. That went unnoticed
+  // while the keyless RAG fallback was in use, because it writes its chunks
+  // synchronously and never checks the signal.
+  socket.on('close', () => ac.abort());
 
   aiService.streamResponse(
     sessionId, userId,

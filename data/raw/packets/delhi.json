@@ -1,0 +1,159 @@
+{
+ "state": "Delhi",
+ "unmatched": [
+  {
+   "name": "AIIMS New Delhi",
+   "city": "New Delhi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College and Hospital, Basaidarapur, New Delhi",
+   "city": "New Delhi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College, Basaidarapur",
+   "city": "Basaidarapur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Hamdard Institute of Medical Sciences and Research (HIMSR)",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Maulana Azad Medical College (MAMC)",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+   "city": "Delhi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "University College of Medical Sciences, Delhi",
+   "city": "Delhi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "VMMC & Safdarjung Hospital New Delhi",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 1956,
+   "totalSeats": 132,
+   "website": "http://www.aiims.edu",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Army College of Medical Sciences, New Delhi",
+   "state": "Delhi",
+   "type": "Private",
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "established": 2008,
+   "totalSeats": 100,
+   "website": "http://www.theacms.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dr. Baba Saheb Ambedkar Medical College, Rohini, Delhi",
+   "state": "Delhi",
+   "city": "Delhi",
+   "type": "Government",
+   "affiliation": "Guru Gobind Singh Indraprastha University",
+   "established": 2016,
+   "totalSeats": 125,
+   "website": "http://www.bsamch.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "University College of Medical Sciences & GTB Hospital, New Delhi",
+   "state": "Delhi",
+   "city": "New Delhi",
+   "type": "Government",
+   "affiliation": "Delhi University",
+   "established": 1971,
+   "totalSeats": 170,
+   "website": "http://www.ucms.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr. RML Hospital, New Delhi",
+   "candidates": [
+    "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+    "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
+    "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi"
+   ]
+  },
+  {
+   "nmcName": "Lady Hardinge Medical College, New Delhi",
+   "candidates": [
+    "Lady Hardinge Medical College (LHMC)",
+    "Lady Hardinge Medical College (LHMC), New Delhi",
+    "Lady Hardinge Medical College for Women, New Delhi"
+   ]
+  },
+  {
+   "nmcName": "Hamdard Institute of Medical Sciences & Research, New Delhi",
+   "candidates": [
+    "Hamdard Institute of Medical Sciences and Research (HIMSR), Delhi",
+    "Hamdard Institute of Medical Sciences and Research, New Delhi"
+   ]
+  },
+  {
+   "nmcName": "Vardhman Mahavir Medical College & Safdarjung Hospital, Delhi",
+   "candidates": [
+    "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
+    "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

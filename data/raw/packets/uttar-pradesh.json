@@ -1,0 +1,752 @@
+{
+ "state": "Uttar Pradesh",
+ "unmatched": [
+  {
+   "name": "AIIMS Gorakhpur",
+   "city": "Gorakhpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "AIIMS Rae Bareli",
+   "city": "Rae Bareli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Ajay Sangaal Institute of Medical Science & Research, Shamli",
+   "city": "Shamli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Auraiya",
+   "city": "Auraiya",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Firozabad",
+   "city": "Firozabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Gonda",
+   "city": "Gonda",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Kanpur Dehat (Akbarpur)",
+   "city": "Kanpur Dehat",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Kaushambi",
+   "city": "Kaushambi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Kushinagar",
+   "city": "Kushinagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Lakhimpur Kheri",
+   "city": "Lakhimpur Kheri",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Lalitpur",
+   "city": "Lalitpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Pilibhit",
+   "city": "Pilibhit",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Shahjahanpur",
+   "city": "Shahjahanpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Siddharth Nagar",
+   "city": "Siddharth Nagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Sonbhadra",
+   "city": "Sonbhadra",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Autonomous State Medical College, Sultanpur",
+   "city": "Sultanpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "BHU Institute of Medical Sciences",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Baba Kina Ram Autonomous State Medical College, Chandauli",
+   "city": "Chandauli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Baba Raghav Das Medical College, Gorakhpur",
+   "city": "Gorakhpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr. B.S. Kushwah Institute of Medical College, Kanpur",
+   "city": "Kanpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Faculty of Dental Sciences, King George's Medical University, Lucknow",
+   "city": "Lucknow",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "G S Medical College & Hospital, Hapur",
+   "city": "Hapur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Ganesh Shankar Vidyarthi Memorial (GSVM) Medical College, Kanpur",
+   "city": "Kanpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Ambedkar Nagar",
+   "city": "Ambedkar Nagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Ayodhya (Faizabad)",
+   "city": "Ayodhya",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Azamgarh",
+   "city": "Azamgarh",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Bahraich",
+   "city": "Bahraich",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Banda (Rani Durgavati Medical College)",
+   "city": "Banda",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Jalaun",
+   "city": "Jalaun",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ITS Centre for Dental Studies and Research, Ghaziabad",
+   "city": "Ghaziabad",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ITS Centre for Dental Studies and Research, Muradnagar, Ghaziabad",
+   "city": "Ghaziabad",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "JNMC AMU Aligarh",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "KGMU Lucknow",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "KMC Medical College & Hospital, Maharajganj",
+   "city": "Maharajganj",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Kalyan Singh Government Medical College, Bulandshahr",
+   "city": "Bulandshahr",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Kanti Devi Medical College, Hospital & Research Centre, Mathura",
+   "city": "Mathura",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Lala Lajpat Rai Memorial (LLRM) Medical College, Meerut",
+   "city": "Meerut",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Mahatma Vidur Autonomous State Medical College, Bijnor",
+   "city": "Bijnor",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Moti Lal Nehru Medical College, Prayagraj (Allahabad)",
+   "city": "Prayagraj",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Naraina Medical College & Research Center, Kanpur",
+   "city": "Kanpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SKS Hospital Medical College & Research Center, Mathura",
+   "city": "Mathura",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sarojini Naidu Medical College, Agra",
+   "city": "Agra",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "School of Medical Sciences & Research (SMSR), Sharda University, Greater Noida",
+   "city": "Greater Noida",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shri Gorakshnath Medical College, Hospital & Research Center, Gorakhpur",
+   "city": "Gorakhpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shri Siddhi Vinayak Medical College & Hospital, Sambhal",
+   "city": "Sambhal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "United Institute of Medical Sciences, Prayagraj",
+   "city": "Prayagraj",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Venkateswara Institute of Medical Sciences, Gajraula, Amroha",
+   "city": "Amroha",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Gorakhpur",
+   "state": "Uttar Pradesh",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2019,
+   "totalSeats": 125,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "All India Institute of Medical Sciences, Rae Bareli",
+   "state": "Uttar Pradesh",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2019,
+   "totalSeats": 100,
+   "website": "http://aiimsrbl.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Autonomous State Medical College, Siddharthnagar",
+   "state": "Uttar Pradesh",
+   "city": "Siddharthnagar",
+   "type": "Government",
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
+   "established": 2021,
+   "totalSeats": 100,
+   "website": "http://www.asmcsiddharthnagar.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Autonomous State Medical College Society, Fatehpur",
+   "state": "Uttar Pradesh",
+   "city": "Fatehpur",
+   "type": "Government",
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
+   "established": 2021,
+   "totalSeats": 100,
+   "website": "https://asmcfatehpur.com/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "BRD Medical College, Gorakhpur",
+   "state": "Uttar Pradesh",
+   "city": "Gorakhpur",
+   "type": "Government",
+   "affiliation": "Deen Dayal Upadhyay Gorakhpur University, Gorakhpur",
+   "established": 1972,
+   "totalSeats": 150,
+   "website": "http://www.brdmc.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "F.H. Medical College & Hospital, Etamdapur, Agra",
+   "state": "Uttar Pradesh",
+   "city": "Agra",
+   "type": "Private",
+   "affiliation": "Dr B R Ambedkar University,Agra, U.P.",
+   "established": 2014,
+   "totalSeats": 150,
+   "website": "http://www.fhmc.co.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Allopathic Medical College, Banda, UP",
+   "state": "Uttar Pradesh",
+   "type": "Government",
+   "affiliation": "King Georges Medical University,Lucknow",
+   "established": 2016,
+   "totalSeats": 100,
+   "website": "http://gmcbanda.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Faizabad",
+   "state": "Uttar Pradesh",
+   "city": "Faizabad",
+   "type": "Government",
+   "affiliation": "King Georges Medical University,Lucknow",
+   "established": 2019,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Firozabad",
+   "state": "Uttar Pradesh",
+   "city": "Firozabad",
+   "type": "Government",
+   "affiliation": "King Georges Medical University,Lucknow",
+   "established": 2019,
+   "totalSeats": 100,
+   "website": "http://www.gmcfirozabad.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College & Super facility Hospital, Azamgarh",
+   "state": "Uttar Pradesh",
+   "city": "Azamgarh",
+   "type": "Government",
+   "affiliation": "King Georges Medical University,Lucknow",
+   "established": 2013,
+   "totalSeats": 100,
+   "website": "http://www.gmcazamgarh.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "G.S. Medical College & Hospital, Hapur, UP",
+   "state": "Uttar Pradesh",
+   "city": "Ghaziabad",
+   "type": "Private",
+   "affiliation": "Ch. Charan Singh Universitiy, Meerut",
+   "established": 2017,
+   "totalSeats": 150,
+   "website": "http://www.gsmedicalcollege.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "GSVM Medical College, Kanpur",
+   "state": "Uttar Pradesh",
+   "city": "Kanpur",
+   "type": "Government",
+   "affiliation": "C.S.J.M. University, Kanpur",
+   "established": 1955,
+   "totalSeats": 250,
+   "website": "http://www.gsvmmedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Jawaharlal Nehru Medical College, Aligarh",
+   "state": "Uttar Pradesh",
+   "city": "Aligarh",
+   "type": "Government",
+   "affiliation": "Aligarh Muslim University",
+   "established": 1961,
+   "totalSeats": 150,
+   "website": "https://www.amu.ac.in/principal.jsp?did=10146",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "K.D. Medical College Hospital & Research Centre, Mathura",
+   "state": "Uttar Pradesh",
+   "city": "Mathura",
+   "type": "Private",
+   "affiliation": "Dr B R Ambedkar University,Agra, U.P.",
+   "established": 2015,
+   "totalSeats": 150,
+   "website": "http://www.kdmch.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "LLRM Medical College, Meerut",
+   "state": "Uttar Pradesh",
+   "city": "Meerut",
+   "type": "Government",
+   "affiliation": "Ch. Charan Singh Universitiy, Meerut",
+   "established": 1966,
+   "totalSeats": 100,
+   "website": "http://llrmmedicalcollege.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mahamaya Rajkiya Allopathic Medical College, Ambedkarnagar",
+   "state": "Uttar Pradesh",
+   "city": "Faizabad",
+   "type": "Government",
+   "affiliation": "Dr. Ram Manohar Lohia Avadh University, Faizabad",
+   "established": 2011,
+   "totalSeats": 100,
+   "website": "http://www.mramc.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Major S D Singh Medical College and Hospital, Fathehgarh, Farrukhabad",
+   "state": "Uttar Pradesh",
+   "city": "Farrukhabad",
+   "type": "Private",
+   "affiliation": "C.S.J.M. University, Kanpur",
+   "established": 2011,
+   "totalSeats": 0,
+   "website": "http://www.majorsdsmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Moti Lal Nehru Medical College, Allahabad",
+   "state": "Uttar Pradesh",
+   "city": "Allahabad",
+   "type": "Government",
+   "affiliation": "King Georges Medical University,Lucknow",
+   "established": 1961,
+   "totalSeats": 200,
+   "website": "http://www.mlnmc.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Naraina Medical College & Research Centre",
+   "state": "Uttar Pradesh",
+   "city": "Panki",
+   "type": "Private",
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://www.narainamedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "National Capital Region Institute of Medical Sciences, Meerut",
+   "state": "Uttar Pradesh",
+   "city": "Meerut",
+   "type": "Private",
+   "affiliation": "Ch. Charan Singh Universitiy, Meerut",
+   "established": 2018,
+   "totalSeats": 150,
+   "website": "http://www.mulayamsinghyadavmedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Rajkiya Allopathic Medical College, Bahraich, UP",
+   "state": "Uttar Pradesh",
+   "city": "Bahraich",
+   "type": "Government",
+   "affiliation": "King Georges Medical University,Lucknow",
+   "established": 2019,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Rajkiya Medical College Jalaun, Orai, Uttar Pradesh",
+   "state": "Uttar Pradesh",
+   "city": "oria",
+   "type": "Government",
+   "affiliation": "King Georges Medical University,Lucknow",
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "School of Medical Sciences & Research,Greater Noida",
+   "state": "Uttar Pradesh",
+   "city": "Noida",
+   "type": "Private",
+   "affiliation": "Sharda University, Greater Noida",
+   "established": 2009,
+   "totalSeats": 250,
+   "website": "http://www.sharda.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shaikh-UL-Hind Maulana Mahmood Hasan Medical College, Saharanpur",
+   "state": "Uttar Pradesh",
+   "city": "Saharanpur",
+   "type": "Government",
+   "affiliation": "Ch. Charan Singh Universitiy, Meerut",
+   "established": 2015,
+   "totalSeats": 100,
+   "website": "http://www.smmhmedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "SKS Hospital Medical College & Research Centre",
+   "state": "Uttar Pradesh",
+   "city": "Mathura",
+   "type": "Private",
+   "affiliation": "Atal Bihari Vajpayee Medical University, Lucknow, Uttar Pradesh",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "United Institute of Medical Sciences, Allahabad",
+   "state": "Uttar Pradesh",
+   "type": "Private",
+   "affiliation": "Prof. Rajendra Singh (Rajju Bhaiya) University, Prayagraj",
+   "established": 2020,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Venkateshwara Institute of Medical Sciences, Gajraula",
+   "state": "Uttar Pradesh",
+   "city": "Gajroula",
+   "type": "Private",
+   "affiliation": "Shri Venkateshwara University, Gajraula",
+   "established": 2016,
+   "totalSeats": 250,
+   "website": "http://www.vimshospital.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

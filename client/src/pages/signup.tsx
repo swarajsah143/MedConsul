@@ -25,6 +25,7 @@ export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [agreed, setAgreed] = useState(false);
 
   const allRulesPass = PASSWORD_RULES.every((r) => r.test(password));
   const passwordsMatch = password === confirmPassword && confirmPassword.length > 0;
@@ -42,6 +43,10 @@ export default function SignupPage() {
     }
     if (!passwordsMatch) {
       setError('Passwords do not match');
+      return;
+    }
+    if (!agreed) {
+      setError('Please agree to the Privacy Policy and Terms to continue');
       return;
     }
 
@@ -161,11 +166,25 @@ export default function SignupPage() {
           )}
         </div>
 
+        <label className="flex items-start gap-2.5 cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={agreed}
+            onChange={(e) => setAgreed(e.target.checked)}
+            className="mt-0.5 w-4 h-4 accent-red-600 shrink-0"
+          />
+          <span className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            I agree to the{' '}
+            <Link to="/privacy" target="_blank" className="text-red-600 hover:underline font-medium">Privacy Policy</Link>{' '}and{' '}
+            <Link to="/terms" target="_blank" className="text-red-600 hover:underline font-medium">Terms of Service</Link>, and consent to MedCounsel AI storing the details and documents I choose to provide.
+          </span>
+        </label>
+
         <Button
           type="submit"
           className="w-full h-11 gradient-primary text-white font-semibold"
           size="lg"
-          disabled={loading}
+          disabled={loading || !agreed}
         >
           {loading ? (
             <>

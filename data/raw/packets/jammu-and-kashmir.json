@@ -1,0 +1,88 @@
+{
+ "state": "Jammu & Kashmir",
+ "unmatched": [
+  {
+   "name": "AIIMS Jammu (Vijaypur)",
+   "city": "Jammu",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "AIIMS Vijaypur",
+   "city": "Vijaypur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
+   "city": "Jammu",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Doda",
+   "city": "Doda",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical Colleges, J&K (State Quota, all govt. colleges combined - aggregate last closing rank)",
+   "city": "all govt. colleges combined - aggregate last closing rank)",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SKIMS Medical College, Bemina, Srinagar",
+   "city": "Srinagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Vijaypur",
+   "state": "Jammu & Kashmir",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS (Vijaypur)",
+   "totalSeats": 62,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Govt. Medical College, Doda, Kashmir",
+   "state": "Jammu & Kashmir",
+   "type": "Government",
+   "affiliation": "Kashmir University",
+   "established": 2020,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "Government Medical College, Rajouri, J&K",
+   "candidates": [
+    "Government Medical College and Associated Hospital, Rajouri",
+    "Government Medical College, Rajouri"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

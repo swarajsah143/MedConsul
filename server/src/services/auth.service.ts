@@ -9,6 +9,10 @@ import {
   JwtPayload,
 } from '../utils/jwt';
 import { validateEmail, validatePassword, validateName } from '../utils/validate';
+import { effectiveTier } from '../utils/plan';
+import { mailService } from './mail.service';
+import { welcomeEmail, resetEmail } from './mail.templates';
+import { env } from '../config/env';
 import crypto from 'crypto';
 
 export class AuthService {
@@ -27,7 +31,11 @@ export class AuthService {
     const hashed = await hashPassword(password);
     const user = await UserModel.create(name.trim(), email, hashed);
 
-    const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role };
+    // Welcome email — fire-and-forget so a mail failure never fails the signup. mailService
+    // no-ops (logs) when SMTP is unconfigured, so this is safe before credentials are added.
+    void mailService.send({ to: user.email, ...welcomeEmail(user.name) });
+
+    const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role, plan: effectiveTier(user.plan, user.planExpiresAt) };
     const accessToken = signAccessToken(payload);
     const refreshToken = signRefreshToken(payload);
 
@@ -45,7 +53,7 @@ export class AuthService {
     const valid = await comparePassword(password, user.password);
     if (!valid) throw { status: 401, message: 'Invalid email or password' };
 
-    const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role };
+    const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role, plan: effectiveTier(user.plan, user.planExpiresAt) };
     const accessToken = signAccessToken(payload);
     const refreshToken = signRefreshToken(payload);
 
@@ -78,7 +86,7 @@ export class AuthService {
 
     // Rotate refresh token
     await TokenModel.deleteRefreshToken(token);
-    const newPayload: JwtPayload = { userId: user.id, email: user.email, role: user.role };
+    const newPayload: JwtPayload = { userId: user.id, email: user.email, role: user.role, plan: effectiveTier(user.plan, user.planExpiresAt) };
     const accessToken = signAccessToken(newPayload);
     const newRefreshToken = signRefreshToken(newPayload);
     await TokenModel.createRefreshToken(user.id, newRefreshToken, getRefreshTokenExpiry());
@@ -104,6 +112,13 @@ export class AuthService {
     const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
     await TokenModel.createPasswordReset(user.id, resetToken, expiresAt);
 
+    // Email the reset LINK (this is what fixes the prod-broken flow — previously the token was
+    // only console-logged and never reached the user). The link matches reset-password.tsx's
+    // `?token=` param. Fire-and-forget; when SMTP is unconfigured mailService logs and skips.
+    const resetUrl = `${env.clientUrl}/reset-password?token=${resetToken}`;
+    void mailService.send({ to: user.email, ...resetEmail(user.name, resetUrl) });
+
+    // Keep the console log too — it is the dev/unconfigured fallback for retrieving the token.
     console.log(`\n  Password reset token for ${email}: ${resetToken}\n`);
 
     return { message: 'If an account exists, a reset link has been generated', resetToken };

@@ -1,0 +1,222 @@
+{
+ "state": "Andhra Pradesh",
+ "unmatched": [
+  {
+   "name": "AIIMS Mangalagiri",
+   "city": "Mangalagiri",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College and Hospital, Vijayawada",
+   "city": "Vijayawada",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College, Kadapa",
+   "city": "Kadapa",
+   "courses": [
+    "BDS",
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Rajiv Gandhi Institute of Medical Sciences, Ongole",
+   "city": "Ongole",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Ranga Raya Medical College, Kakinada",
+   "city": "Kakinada",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sri Venkateswara Medical College, Tirupati",
+   "city": "Tirupati",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Mangalagiri, Vijayawada",
+   "state": "Andhra Pradesh",
+   "city": "Andhra Pradesh",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2018,
+   "totalSeats": 125,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dr. P.S.I. Medical College , Chinoutpalli",
+   "state": "Andhra Pradesh",
+   "city": "Krishna Dist.",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2002,
+   "totalSeats": 150,
+   "website": "http://www.drpsimsrf.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Kadapa",
+   "state": "Andhra Pradesh",
+   "city": "Kadapa",
+   "type": "Government",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2006,
+   "totalSeats": 175,
+   "website": "http://www.rimsmedicalcollegekadapa.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Ongole (Previously known as Rajiv Gandhi Institute of Medical Sciences, Ongole,)",
+   "state": "Andhra Pradesh",
+   "city": "Ongole",
+   "type": "Government",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2011,
+   "totalSeats": 120,
+   "website": "http://www.rimsongole.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Maharajah Institute of Medical Sciences, Vizianagaram",
+   "state": "Andhra Pradesh",
+   "city": "Vizianagaram",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2002,
+   "totalSeats": 200,
+   "website": "http://www.mimsvzm.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Nimra Institute of Medical Sciences, Krishna Dist., A.P.",
+   "state": "Andhra Pradesh",
+   "city": "Krishna Dist.",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.nims.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "NRI Medical College, Guntur",
+   "state": "Andhra Pradesh",
+   "city": "Guntur",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2003,
+   "totalSeats": 200,
+   "website": "http://www.nrias.net",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "P E S Institute Of Medical Sciences and Research, Kuppam",
+   "state": "Andhra Pradesh",
+   "city": "Kuppam",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2001,
+   "totalSeats": 150,
+   "website": "http://pesimsr.pes.edu",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Rajiv Gandhi Institute of Medical Sciences, Srikakulam",
+   "state": "Andhra Pradesh",
+   "city": "Srikakulam",
+   "type": "Government",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2008,
+   "totalSeats": 150,
+   "website": "http://www.rimssrikakulam.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Santhiram Medical College, Nandyal",
+   "state": "Andhra Pradesh",
+   "city": "Kurnool",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2005,
+   "totalSeats": 150,
+   "website": "http://www.santhirammedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sri Balaji Medical College, Hospital and Research Institute, Chittoor",
+   "state": "Andhra Pradesh",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "S V Medical College, Tirupati",
+   "state": "Andhra Pradesh",
+   "city": "Tirupati",
+   "type": "Government",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 1960,
+   "totalSeats": 240,
+   "website": "http://www.svmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

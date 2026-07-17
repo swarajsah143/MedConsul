@@ -21,6 +21,19 @@ export function requireAuth(req: AuthRequest, res: Response, next: NextFunction)
   }
 }
 
+/**
+ * Populates req.user if a valid Bearer token is present, otherwise continues as anonymous.
+ * For PUBLIC endpoints whose response depends on the signed-in user's plan (e.g. allotments,
+ * predictor) — an invalid/absent token is not an error here, it just means the free tier.
+ */
+export function optionalAuth(req: AuthRequest, _res: Response, next: NextFunction): void {
+  const header = req.headers.authorization;
+  if (header?.startsWith('Bearer ')) {
+    try { req.user = verifyAccessToken(header.slice(7)); } catch { /* ignore — treat as anonymous */ }
+  }
+  next();
+}
+
 export function requireAdmin(req: AuthRequest, res: Response, next: NextFunction): void {
   if (req.user?.role !== 'admin') {
     res.status(403).json({ success: false, message: 'Admin access required' });

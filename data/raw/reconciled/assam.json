@@ -1,0 +1,140 @@
+{
+  "state": "Assam",
+  "pairings": [
+    {
+      "ourName": "AIIMS Guwahati",
+      "nmcName": "All India Institute of Medical Sciences, Guwahati",
+      "evidence": "Same institution: AIIMS Guwahati is the full expansion of the NMC row name. NMC row is an AIIMS (universityName 'Statutory Autonomous, AIIMS (Guwahati)', 50 UG seats), so it is NOT Gauhati Medical College, Guwahati — which exists as its own already-matched NMC row."
+    },
+    {
+      "ourName": "Dhubri Medical College",
+      "nmcName": "Dhubri Medical College, Dhubri",
+      "evidence": "Name drift only (city suffix). NMC address 'R.K. Mission Road, Dhubri-783324, Assam' — the sole Dhubri MBBS college in the registry."
+    },
+    {
+      "ourName": "Diphu Medical College",
+      "nmcName": "Diphu Medical College & Hospital, Diphu, Assam",
+      "evidence": "Name drift only ('& Hospital, Diphu, Assam' suffix). NMC address 'Baghmari, Diphu (Karbi Anglong)' — the sole Diphu MBBS college."
+    },
+    {
+      "ourName": "Jorhat Medical College",
+      "nmcName": "Jorhat Medical College & Hospital , Jorhat",
+      "evidence": "Name drift only ('& Hospital' suffix + city). NMC city Jorhat, sole Jorhat MBBS college."
+    },
+    {
+      "ourName": "Nalbari Medical College",
+      "nmcName": "Nalbari Medical College, Nalbari",
+      "evidence": "Name drift only (city suffix). NMC city Nalbari, sole Nalbari MBBS college."
+    },
+    {
+      "ourName": "Silchar Medical College",
+      "nmcName": "Silchar Medical College, Silchar",
+      "evidence": "Name drift only (city suffix). NMC city Silchar, est. 1968 — the MBBS college; distinct from our separate BDS record 'Government Dental College, Silchar'."
+    },
+    {
+      "ourName": "Tezpur Medical College",
+      "nmcName": "Tezpur Medical College & Hospital, Tezpur",
+      "evidence": "Name drift only ('& Hospital' suffix + city). NMC city Tezpur, sole Tezpur MBBS college."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Guwahati",
+      "state": "Assam",
+      "city": "Guwahati",
+      "type": "Government",
+      "totalSeats": 50,
+      "affiliation": "Statutory Autonomous, AIIMS (Guwahati)",
+      "website": "https://aiimsguwahati.ac.in/",
+      "source": "NMC UG registry 2023 (raw/nmc_ug_2023.json: managementupdate 'Govt.', ugApproved 50, universityName 'Statutory Autonomous, AIIMS (Guwahati)'); city + website from https://en.wikipedia.org/wiki/All_India_Institute_of_Medical_Sciences,_Guwahati and https://aiimsguwahati.ac.in/ . NMC's city field for this row reads 'Assam' (a state, not a city) so it was not used. 'established' omitted: sources conflict (Wikipedia infobox 12 Jan 2020 vs. first MBBS session reported 12 Jan 2021)."
+    },
+    {
+      "name": "Dhubri Medical College",
+      "state": "Assam",
+      "city": "Dhubri",
+      "type": "Government",
+      "established": 2022,
+      "totalSeats": 100,
+      "affiliation": "Srimanta Shankardeva University of Health Sciences",
+      "source": "NMC UG registry 2023 (raw/nmc_ug_2023.json: managementupdate 'Govt.', ugApproved 100, address 'R.K. Mission Road, Dhubri-783324, Assam' -> city Dhubri); established year from https://www.sentinelassam.com/more-news/editorial/dhubri-medical-college-and-hospital-619070 (inaugurated 13 Oct 2022, first MBBS batch 2022-23, 9th government medical college of Assam). NMC yearOfInc is blank for this row."
+    },
+    {
+      "name": "Diphu Medical College",
+      "state": "Assam",
+      "city": "Diphu",
+      "type": "Government",
+      "established": 2020,
+      "totalSeats": 100,
+      "affiliation": "Srimanta Shankardeva University of Health Sciences",
+      "website": "http://www.dmch.assam.gov.in",
+      "source": "NMC UG registry 2023 (raw/nmc_ug_2023.json: managementupdate 'Govt.', yearOfInc 2020, ugApproved 100, address 'Baghmari, Diphu (Karbi Anglong)' -> city Diphu)"
+    },
+    {
+      "name": "Jorhat Medical College",
+      "state": "Assam",
+      "city": "Jorhat",
+      "type": "Government",
+      "established": 2010,
+      "totalSeats": 125,
+      "affiliation": "Srimanta Shankardeva University of Health Sciences",
+      "website": "http://www.jorhatmedicalcollege.in/jmch/",
+      "source": "NMC UG registry 2023 (raw/nmc_ug_2023.json: managementupdate 'Govt.', yearOfInc 2010, ugApproved 125, city Jorhat)"
+    },
+    {
+      "name": "Nalbari Medical College",
+      "state": "Assam",
+      "city": "Nalbari",
+      "type": "Government",
+      "established": 2023,
+      "totalSeats": 100,
+      "affiliation": "Srimanta Shankardeva University of Health Sciences",
+      "source": "NMC UG registry 2023 (raw/nmc_ug_2023.json: managementupdate 'Govt.', yearOfInc 2023, ugApproved 100, city Nalbari)"
+    },
+    {
+      "name": "Silchar Medical College",
+      "state": "Assam",
+      "city": "Silchar",
+      "type": "Government",
+      "established": 1968,
+      "totalSeats": 125,
+      "affiliation": "Srimanta Shankardeva University of Health Sciences",
+      "website": "http://www.smcassam.gov.in",
+      "source": "NMC UG registry 2023 (raw/nmc_ug_2023.json: managementupdate 'Govt.', yearOfInc 1968, ugApproved 125, city Silchar)"
+    },
+    {
+      "name": "Tezpur Medical College",
+      "state": "Assam",
+      "city": "Tezpur",
+      "type": "Government",
+      "established": 2014,
+      "totalSeats": 125,
+      "affiliation": "Srimanta Shankardeva University of Health Sciences",
+      "website": "http://www.tmcassam.org",
+      "source": "NMC UG registry 2023 (raw/nmc_ug_2023.json: managementupdate 'Govt.', yearOfInc 2014, ugApproved 125, city Tezpur)"
+    },
+    {
+      "name": "Government Dental College, Silchar",
+      "state": "Assam",
+      "city": "Silchar",
+      "type": "Government",
+      "established": 2018,
+      "totalSeats": 63,
+      "affiliation": "Srimanta Sankaradeva University of Health Sciences",
+      "source": "BDS college, absent from the MBBS-only NMC registry. https://www.careers360.com/colleges/government-dental-college-silchar/bds-course (Silchar, Assam; Government; 63 BDS seats; affiliated to Srimanta Sankaradeva University of Health Sciences; DCI approved) and https://www.edufever.com/government-dental-college-silchar/ (established 2018-19, 63 BDS seats, Government, under Directorate of Medical Education Assam). totalSeats = BDS intake. Website omitted: sources list smcassam.gov.in, which is Silchar Medical College's site, a different institution."
+    },
+    {
+      "name": "Tinsukia Medical College",
+      "state": "Assam",
+      "city": "Tinsukia",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 100,
+      "affiliation": "Srimanta Sankaradeva University of Health Sciences",
+      "website": "https://tinsukiamch.assam.gov.in/",
+      "source": "Post-2023 college, absent from the 2023 NMC snapshot. https://tinsukiamch.assam.gov.in/ (official Government of Assam site; Makum, Tinsukia district; 100 UG seats as of 2024-25; affiliated to Srimanta Sankaradeva University of Health Sciences, Guwahati; operates under State Ministry of Health and Family Welfare) and https://medicaldialogues.in/news/education/medical-colleges/nmc-recognition-to-tinsukia-medical-college-with-100-mbbs-seats-131280 (NMC recognition, 100 MBBS seats, 13th medical college of Assam; inaugurated 9 March 2024)."
+    }
+  ],
+  "merges": [],
+  "newColleges": [],
+  "unresolved": []
+}

@@ -1,0 +1,440 @@
+{
+ "state": "Telangana",
+ "unmatched": [
+  {
+   "name": "AIIMS Bibinagar (Hyderabad)",
+   "city": "Bibinagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Arundathi Institute of Medical Sciences, Hyderabad",
+   "city": "Hyderabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Ayaan Institute of Medical Sciences",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Bhaskar Medical College, Moinabad, Hyderabad",
+   "city": "Hyderabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "CMR Institute of Medical Sciences, Medchal, Hyderabad",
+   "city": "Hyderabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr Patnam Mahender Reddy Institute of Medical Sciences, Chevella",
+   "city": "Chevella",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dr VRK Women's Medical College, Hyderabad",
+   "city": "Hyderabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College, Sanathnagar, Hyderabad",
+   "city": "Hyderabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College and Hospital, Hyderabad",
+   "city": "Hyderabad",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Jogulamba Gadwal",
+   "city": "Jogulamba Gadwal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Kodangal",
+   "city": "Kodangal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Maheshwaram",
+   "city": "Maheshwaram",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Medak",
+   "city": "Medak",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Mulugu",
+   "city": "Mulugu",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Narayanpet",
+   "city": "Narayanpet",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Narsampet",
+   "city": "Narsampet",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Quthbullapur",
+   "city": "Quthbullapur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Yadadri Bhuvanagiri",
+   "city": "Yadadri Bhuvanagiri",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Mahavir Institute of Medical Sciences, Vikarabad",
+   "city": "Vikarabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Maheshwara Medical College, Patancheru",
+   "city": "Patancheru",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "MediCiti Institute of Medical Sciences, Medchal",
+   "city": "Medchal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Neelima Institute of Medical Sciences, Ghatkesar",
+   "city": "Ghatkesar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Nova Institute of Medical Sciences and Research Centre, Ranga Reddy",
+   "city": "Ranga Reddy",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Prathima Relief Institute of Medical Sciences, Warangal",
+   "city": "Warangal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "RVM Institute of Medical Sciences and Research Centre, Medak",
+   "city": "Medak",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "SVS Medical College, Mahabubnagar",
+   "city": "Mahabubnagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shadan Institute of Medical Sciences, Hyderabad",
+   "city": "Hyderabad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Bibinagar",
+   "state": "Telangana",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2019,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Arundathi Institute of Medical Sciences",
+   "state": "Telangana",
+   "type": "Private",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Ayaan Institute of Medical Sciences, Teaching Hospital & Research Centre, Kanaka Mamidi, R.R. Dist",
+   "state": "Telangana",
+   "city": "R.R. District",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2018,
+   "totalSeats": 150,
+   "website": "http://www.aimshyd.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Bhaskar Medical College, Yenkapally",
+   "state": "Telangana",
+   "city": "Hyderabad",
+   "type": "Private",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 2005,
+   "totalSeats": 150,
+   "website": "http://www.bhaskarmedicalcollege.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "CMR Institute of Medical Sciences",
+   "state": "Telangana",
+   "city": "Hyderabad",
+   "type": "Private",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dr. Patnam Mahender Reddy Institute of Medical Sciences, Chevella, Rangareddy",
+   "state": "Telangana",
+   "city": "Telangana",
+   "type": "Private",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 2019,
+   "totalSeats": 150,
+   "website": "http://www.pmrims.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dr. VRK Womens Medical College, Aziznagar",
+   "state": "Telangana",
+   "city": "R.R. District,",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2010,
+   "totalSeats": 100,
+   "website": "http://www.drvrkwmc.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Employees State Insurance Coporation Medical College, Sanath Nagar, Hyderabad",
+   "state": "Telangana",
+   "city": "Hyderabad",
+   "type": "Government",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 2016,
+   "totalSeats": 100,
+   "website": "http://www.esicmchyd.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mahavir Institute of Medical Sciences, Vikarabad, Telengana",
+   "state": "Telangana",
+   "city": "Ranga Reddy",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.mahavirmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Maheshwara Medical College, Chitkul, Patancheru, Medak",
+   "state": "Telangana",
+   "city": "Medak",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.maheshwarmedical.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mediciti Institute Of Medical Sciences, Ghanpur",
+   "state": "Telangana",
+   "city": "Ghanpur",
+   "type": "Private",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 2002,
+   "totalSeats": 150,
+   "website": "http://mims.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Neelima Institute of Medical Sciences, Medchal",
+   "state": "Telangana",
+   "city": "Medchal- Malkjigiri, District",
+   "type": "Private",
+   "affiliation": "Anurag University",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Prathima Relief Institue of Medical Sciences",
+   "state": "Telangana",
+   "type": "Private",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 2022,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "R.V.M. Institute of Medical Sciences and Research Centre, Siddipet",
+   "state": "Telangana",
+   "type": "Private",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 2016,
+   "totalSeats": 250,
+   "website": "http://www.rvmims.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shadan Institute of Medical Sciences,Research Centre and Teaching Hospital, Peerancheru",
+   "state": "Telangana",
+   "city": "Hyderabad",
+   "type": "Private",
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "established": 2005,
+   "totalSeats": 150,
+   "website": "http://www.shadan.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "S V S Medical College, Mehboobnagar",
+   "state": "Telangana",
+   "city": "Mahboobnagar",
+   "type": "Private",
+   "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+   "established": 1999,
+   "totalSeats": 150,
+   "website": "http://www.svsmch.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

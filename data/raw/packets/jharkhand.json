@@ -1,0 +1,164 @@
+{
+ "state": "Jharkhand",
+ "unmatched": [
+  {
+   "name": "AIIMS Deoghar",
+   "city": "Deoghar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dumka Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Hazaribagh Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Mahatma Gandhi Memorial (MGM) Medical College, Jamshedpur",
+   "city": "Jamshedpur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Palamu Medical College (Medininirai Medical College)",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Patliputra Medical College (PMCH), Dhanbad",
+   "city": "Dhanbad",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Deoghar",
+   "state": "Jharkhand",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+   "established": 2019,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dumka Medical College, Dighi Dumka",
+   "state": "Jharkhand",
+   "type": "Government",
+   "affiliation": "Sidho Kanhu Murmu University",
+   "established": 2019,
+   "totalSeats": 100,
+   "website": "http://dumkamedicalcollege.org/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Hazaribagh Medical College, Hazaribagh",
+   "state": "Jharkhand",
+   "type": "Government",
+   "affiliation": "Binod Bihati Mahto Koyalanchal University, Dhanbad",
+   "established": 2019,
+   "totalSeats": 100,
+   "website": "http://www.hazaribagmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Laxmi Chandravansi Medical College & Hospital",
+   "state": "Jharkhand",
+   "city": "bihar",
+   "type": "Private",
+   "affiliation": "Ramchandra Chandravansi University, Bishrampur, Palamu",
+   "established": 2021,
+   "totalSeats": 100,
+   "website": "http://www.lcmch.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Manipal Tata Medical College,Baridih Jameshedpur",
+   "state": "Jharkhand",
+   "city": "Jamshedpur",
+   "type": "Private",
+   "affiliation": "Manipal University, Manipal",
+   "established": 2020,
+   "totalSeats": 150,
+   "website": "https://manipal.edu/mtmc-jamshedpur.html",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "M G M Medical College, Jamshedpur",
+   "state": "Jharkhand",
+   "city": "Jamshedpur",
+   "type": "Government",
+   "affiliation": "Kolhan University, Chaibasa",
+   "established": 1961,
+   "totalSeats": 50,
+   "website": "http://www.mgmmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Palamu Medical College, Palamu",
+   "state": "Jharkhand",
+   "type": "Government",
+   "affiliation": "Nilamber-Pitamber University",
+   "established": 2019,
+   "totalSeats": 100,
+   "website": "http://www.pmchpalamu.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shahed Nirmal Mahto Medical College & Hospital, Dhanbad",
+   "state": "Jharkhand",
+   "city": "Dhanbad",
+   "type": "Government",
+   "affiliation": "Binod Bihati Mahto Koyalanchal University, Dhanbad",
+   "established": 1969,
+   "totalSeats": 100,
+   "website": "http://www.patliputramedicaldhn.com/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

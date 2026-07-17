@@ -1,0 +1,130 @@
+{
+  "state": "Bihar",
+  "pairings": [
+    {
+      "ourName": "AIIMS Patna",
+      "nmcName": "All India Institute of Medical Sciences, Patna",
+      "evidence": "AIIMS is the standard acronym for All India Institute of Medical Sciences; same city (Patna). NMC row is the AIIMS(New Delhi)-affiliated statutory autonomous institute. Distinct from IGIMS Patna (rule 4)."
+    },
+    {
+      "ourName": "ESIC Medical College & Hospital, Bihta, Patna",
+      "nmcName": "Employees State Insurance Corporation Medical College,Patna",
+      "evidence": "ESIC expands exactly to Employees State Insurance Corporation. NMC row's city is Bihta, matching our name's 'Bihta, Patna'. Corroborated by BCECE UGMAC-2025 seat matrix row 'ESIC M.C.& H. BIHTA,PATNA'."
+    },
+    {
+      "ourName": "Jananayak Karpoori Thakur Medical College & Hospital, Madhepura (JKTMCH)",
+      "nmcName": "Jannayak Karpoori Thakur Medical College & Hospital, Madhepura, Bihar",
+      "evidence": "Same institution; 'Jananayak' vs 'Jannayak' is a transliteration variant of the same title. Same city (Madhepura) and same acronym JKTMCH."
+    },
+    {
+      "ourName": "RDJM Medical College & Hospital, Turki, Muzaffarpur",
+      "nmcName": "Radha Devi Jageshwari Memorial Medical College and Hospital",
+      "evidence": "RDJM expands to Radha Devi Jageshwari Memorial. NMC row's city is Muzaffarpur, matching 'Turki, Muzaffarpur' (Turki is the locality within Muzaffarpur district). NMC website rdjmmch.com encodes the same acronym."
+    },
+    {
+      "ourName": "Shri Narayan Medical Institute & Hospital, Saharsa",
+      "nmcName": "Shree Narayan Medical Institute and Hospital",
+      "evidence": "Same institution; 'Shri' vs 'Shree' is a spelling variant. NMC row's city is Saharsa, matching ours; NMC affiliation (Bhupendra Narayan Mandal University, Madhepura) is the Saharsa-region university."
+    },
+    {
+      "ourName": "Indira Gandhi Institute of Medical Sciences (IGIMS), Patna",
+      "nmcName": "Indira Gandhi Institute of Medical Sciences,Sheikhpura, Patna",
+      "evidence": "Resolves the ambiguous pair: name matches exactly apart from the Sheikhpura locality qualifier (IGIMS's Patna campus is at Sheikhpura). The rival candidate AIIMS Patna is a different institution in the same city and is rejected under rule 4; it is separately paired to its own NMC row."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Patna",
+      "state": "Bihar",
+      "city": "Patna",
+      "type": "Government",
+      "established": 2012,
+      "totalSeats": 125,
+      "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+      "website": "http://www.aiimspatna.org",
+      "source": "nmc-ug-registry"
+    },
+    {
+      "name": "ESIC Medical College & Hospital, Bihta, Patna",
+      "state": "Bihar",
+      "city": "Bihta",
+      "type": "Government",
+      "established": 2021,
+      "totalSeats": 100,
+      "affiliation": "Aryabhatta Knowledge University, Patna",
+      "website": "https://www.esic.nic.in/medical-institution",
+      "source": "nmc-ug-registry"
+    },
+    {
+      "name": "Jananayak Karpoori Thakur Medical College & Hospital, Madhepura (JKTMCH)",
+      "state": "Bihar",
+      "city": "Madhepura",
+      "type": "Government",
+      "established": 2020,
+      "totalSeats": 100,
+      "affiliation": "Aryabhatta Knowledge University, Patna",
+      "source": "nmc-ug-registry"
+    },
+    {
+      "name": "RDJM Medical College & Hospital, Turki, Muzaffarpur",
+      "state": "Bihar",
+      "city": "Muzaffarpur",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "Aryabhatta Knowledge University, Patna",
+      "website": "http://www.rdjmmch.com",
+      "source": "nmc-ug-registry"
+    },
+    {
+      "name": "Shri Narayan Medical Institute & Hospital, Saharsa",
+      "state": "Bihar",
+      "city": "Saharsa",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "Bhupendra Narayan Mandal University, Madhepura",
+      "website": "http://www.snmih.com",
+      "source": "nmc-ug-registry"
+    },
+    {
+      "name": "Indira Gandhi Institute of Medical Sciences (IGIMS), Patna",
+      "state": "Bihar",
+      "city": "Patna",
+      "type": "Government",
+      "established": 2011,
+      "totalSeats": 120,
+      "affiliation": "Indira Gandhi Instt of Medical Sciences (Deemed University), Patna",
+      "website": "http://www.igims.org",
+      "source": "nmc-ug-registry"
+    },
+    {
+      "name": "Patna Dental College and Hospital, Patna",
+      "state": "Bihar",
+      "city": "Patna",
+      "type": "Government",
+      "established": 1960,
+      "affiliation": "Patna University & Aryabhatta Knowledge University, Patna",
+      "website": "https://patnadentalcollege.in/",
+      "source": "https://patnadentalcollege.in/ (official site: 'established by the Government of Bihar ... on September 9, 1960', 'affiliated to Patna University & Aryabhatt Knowledge University, Patna'); state/city confirmed by Dental Council of India recognised-college list https://dciindia.gov.in/Images/Total%20College%20list.pdf ('Patna Dental College & Hospital, Patna' - Bihar)"
+    }
+  ],
+  "merges": [],
+  "newColleges": [
+    {
+      "name": "Patna Medical College, Patna",
+      "state": "Bihar",
+      "city": "Patna",
+      "type": "Government",
+      "established": 1925,
+      "totalSeats": 200,
+      "affiliation": "Aryabhatta Knowledge University, Patna",
+      "website": "http://www.patnamedicalcollege.com",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "nmc-ug-registry; separate institution from Patna Dental College - Bihar's own BCECE UGMAC-2025 seat matrix lists 'P.M.C.PATNA / M.B.B.S.' and 'P.D.C. PATNA / B.D.S.' as two distinct institutions (https://bceceboard.bihar.gov.in/pdf_Seat/REV_UGMAC25_SM.pdf)"
+    }
+  ],
+  "unresolved": []
+}

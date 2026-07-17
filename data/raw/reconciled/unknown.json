@@ -1,0 +1,303 @@
+{
+ "state": "UNKNOWN",
+ "pairings": [
+  {
+   "ourName": "Ananya College of Medicine & Research, Kalol, Gandhinagar",
+   "nmcName": "Ananya College of Medicine & Research",
+   "evidence": "Only 'Ananya' MBBS college in the NMC registry (Gujarat, est. 2023, 150 seats, Gujarat University). The 2023 row's city cell reads 'Ahmedabad' (address '1050 G Block, KIRC Education Campus'), but NMC's own Revised UG Seat Matrix 2024-25 lists it as 'Ananya College of Medicine & Research, Kalol', district Gandhinagar, management Private, 2023, 150 — matching our record exactly. City taken as Gandhinagar (the newer NMC document + our record), not the stale 2023 city cell."
+  },
+  {
+   "ourName": "Banas Medical College & Research Institute, Palanpur",
+   "nmcName": "Banas Medical College and Research Institute, Palanpur, Gujarat",
+   "evidence": "Same name, same town. NMC address 'Moriya, Taluka and District - Palanpur, Banaskantha, Palanpur - 385001', Gujarat, Trust, est. 2018, 200 seats, Hemchandracharya North Gujarat University. NMC city cell is blank, so city stays Palanpur (from our record and the NMC address)."
+  },
+  {
+   "ourName": "C. U. Shah Medical College, Surendranagar",
+   "nmcName": "CU Shah Medical College, Surendra Nagar",
+   "evidence": "Punctuation/spacing variant of the same name. NMC address 'Dudhrej Road, Surendranagar-363001 (Gujarat)', Trust, est. 2000, 100 seats, Saurashtra University, www.cusmc.org."
+  },
+  {
+   "ourName": "Dr Pinnamaneni Siddhartha Institute of Medical Sciences, Chinoutpalli",
+   "nmcName": "Dr. P.S.I. Medical College , Chinoutpalli",
+   "evidence": "P.S.I. = Pinnamaneni Siddhartha Institute. Same town (Chinoutpalli / Chinna Avutapalli, Gannavaram Mandal, Krishna District, Andhra Pradesh), website www.drpsimsrf.edu.in ('drpsimsrf' = Dr Pinnamaneni Siddhartha Institute of Medical Sciences & Research Foundation). Trust, est. 2002, 150 seats."
+  },
+  {
+   "ourName": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
+   "nmcName": "Dr.Kiran C.Patel Medical College and Research Institute",
+   "evidence": "Same name (only spacing/'&' differ); the 2023 NMC row has an empty address/city but is affiliated to Veer Narmad South Gujarat University, est. 2020, 200 seats, Trust. NMC's Revised UG Seat Matrix 2024-25 gives the district for this exact row as Bharuch — matching our record. Only college of this name in India."
+  },
+  {
+   "ourName": "GMERS Medical College, Godhra",
+   "nmcName": "Government Medical College, Panchmahal Godhra ",
+   "evidence": "One and the same college under two names: NMC address 'General Hospital Godhra, Cuba Masjid Road, Shahwali Wad, Godhra, Panchmahal-389120', Govt., est. 2022, 100 seats, Shri Govind Guru University Godhra. GMERS Medical College Godhra is the Gujarat Medical Education & Research Society college opened in Godhra in 2022 with 100 MBBS seats under Shri Govind Guru University (https://bodmaseducation.com/gmers-medical-college-godhra). Godhra has only one MBBS college."
+  },
+  {
+   "ourName": "GMERS Medical College, Morbi",
+   "nmcName": "Government Medical College, Morbi",
+   "evidence": "NMC address 'Civil Hospital Campus, Sardar Nagar, Morbi-363641', Govt., est. 2022, 100 seats, Saurashtra University Rajkot — identical to GMERS Medical College Morbi (GMERS society college, 2022, 100 MBBS seats, Saurashtra University; https://bodmaseducation.com/gmers-medical-college-morbi). Morbi has only one MBBS college."
+  },
+  {
+   "ourName": "GMERS Medical College, Porbandar",
+   "nmcName": "Government Medical College, Porbandar",
+   "evidence": "NMC address '1, Behind ITI, Porbandar-360575', Govt., est. 2022, 100 seats, Bhakta Kavi Narsinh Mehta University — identical to GMERS Medical College Porbandar (GMERS society college, 2022, 100 MBBS seats, Bhakta Kavi Narsinh Mehta University; https://www.bodmaseducation.com/gmers-medical-college-porbandar). Porbandar has only one MBBS college."
+  },
+  {
+   "ourName": "Government Medical College, Srikakulam",
+   "nmcName": "Rajiv Gandhi Institute of Medical Sciences, Srikakulam",
+   "evidence": "RIMS Srikakulam was renamed Government Medical College, Srikakulam by the Andhra Pradesh government; the college's own site (https://www.gmcsrikakulam.org/ , https://gmcsrikakulam.org/about.php) states GMC Srikakulam is the former Rajiv Gandhi Institute of Medical Sciences, established 2008 in Srikakulam. NMC row: Govt., est. 2008, Balaga, Srikakulam-532001, Dr. YSR University of Health Sciences. Deliberately NOT paired with 'Great Eastern Medical School and Hospital, Srikakulam' (a separate private college in the same town)."
+  },
+  {
+   "ourName": "Maharajahs Institute of Medical Sciences, Nellimarla",
+   "nmcName": "Maharajah Institute of Medical Sciences, Vizianagaram",
+   "evidence": "NMC address '31-15, Nellimarla-535217, Vizianagaram District (Andhra Pradesh)', website www.mimsvzm.org, Trust, est. 2002, 200 seats. Nellimarla is the campus town inside Vizianagaram district — same institution; the NMC city cell holds the district."
+  },
+  {
+   "ourName": "NRI Medical College, Chinakakani",
+   "nmcName": "NRI Medical College, Guntur",
+   "evidence": "NMC address 'Chinakakani (P.O), Mangalagiri Mandal, Guntur - 522503', website www.nrias.net, Trust, est. 2003, 200 seats. Chinakakani is the campus post office in Guntur district. Deliberately NOT paired with the separate 'NRI Institute of Medical Sciences, Visakhapatnam'."
+  },
+  {
+   "ourName": "Nootan Medical College & Research Centre, Visnagar",
+   "nmcName": "Nootan Medical College and Research Centre, Mehsana",
+   "evidence": "NMC address 'Sankalchand Patel Vidhyadham, Gandhinagar-Ambaji State Highway, Distt. Mehsana, Visnagar - 384315', Sankalchand Patel University, Trust, est. 2019, 150 seats. Visnagar is the town, Mehsana the district — one college."
+  },
+  {
+   "ourName": "PES Institute of Medical Science and Research, Kuppam",
+   "nmcName": "P E S Institute Of Medical Sciences and Research, Kuppam",
+   "evidence": "Same name (spacing only), same town: NMC address 'PES Institute of Medical Sciences and Research, Kuppam 517425, Chittoor District (Andhra Pradesh)', website pesimsr.pes.edu, Trust, est. 2001, 150 seats."
+  },
+  {
+   "ourName": "Pramukhswami Medical College, Karamsad",
+   "nmcName": "Pramukhswami Medical College, Karmsad",
+   "evidence": "Spelling variant of the same town (Karamsad). NMC address 'Pramukhswami Medical College, Karamsad-388325 (Gujarat)', Bhaikaka University, Trust, est. 1987, 150 seats."
+  },
+  {
+   "ourName": "Santhiram Medical College and General Hospital, Nandyal",
+   "nmcName": "Santhiram Medical College, Nandyal",
+   "evidence": "NMC address 'Santhiram Medical College & General Hospital, NH-40 Nandyal, Kurnool District-518501', Trust, est. 2005, 150 seats — our longer name is the NMC address's own name for it. Deliberately NOT paired with the separate 'Government Medical College, Nandyal' (Govt., est. 2023) in the same town."
+  },
+  {
+   "ourName": "Sri Balaji Medical College, Hospital and Research Institute, Renigunta",
+   "nmcName": "Sri Balaji Medical College, Hospital and Research Institute, Chittoor",
+   "evidence": "Identical name; the NMC row's address is literally 'new Airport Road renigunta, tirupati, chittoor- 517520' — Renigunta (Tirupati) sat in the erstwhile Chittoor district. College site https://sbmch.org/ (Renigunta, Tirupati) and NMC's Revised UG Seat Matrix 2024-25 (district Chittoor, Trust, 2022, 150 seats) confirm one institution. Deliberately NOT paired with 'Sree Balaji Medical College and Hospital, Chennai' (Tamil Nadu, different college)."
+  },
+  {
+   "ourName": "Swaminarayan Institute of Medical Sciences & Research, Kalol, Gandhinagar",
+   "nmcName": "Swaminayaran Institute of Medical Sciences & Research",
+   "evidence": "NMC's row is a misspelling of Swaminarayan; address '68-1, Shree Swaminarayan Vishvamangal Gurukul, AT & P.O. Saij, Tal-Kalol, Gandhinagar-382725', Swaminarayan University, Trust, est. 2023, 150 seats — Kalol, Gandhinagar, exactly our record. Distinct from Ananya College of Medicine & Research, which is also in Kalol (two colleges, one town)."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "Ananya College of Medicine & Research, Kalol, Gandhinagar",
+   "state": "Gujarat",
+   "city": "Gandhinagar",
+   "type": "Private",
+   "established": 2023,
+   "totalSeats": 150,
+   "affiliation": "Gujarat University",
+   "source": "NMC UG registry snapshot 2023-08-31 (data/raw/nmc_ug_2023.json; https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Ananya College of Medicine & Research', management Trust -> Private; state/city/management cross-checked against NMC Revised UG Seat Matrix 2024-25 (https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf) row 142 'Ananya College of Medicine & Research, Kalol', district Gandhinagar, Private, 2023, 150."
+  },
+  {
+   "name": "Banas Medical College & Research Institute, Palanpur",
+   "state": "Gujarat",
+   "city": "Palanpur",
+   "type": "Private",
+   "established": 2018,
+   "totalSeats": 200,
+   "affiliation": "Hemchandracharya North Gujarat University, Patan",
+   "website": "http://www.bmcri.co.in",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Banas Medical College and Research Institute, Palanpur, Gujarat', address 'Moriya, Taluka and District - Palanpur, Banaskantha, Palanpur - 385001', management Trust -> Private."
+  },
+  {
+   "name": "Bhagyoday Medical College, Kadi, Mehsana",
+   "state": "Gujarat",
+   "city": "Mehsana",
+   "type": "Private",
+   "established": 2024,
+   "totalSeats": 100,
+   "affiliation": "Gujarat University",
+   "source": "Not in the 2023 NMC registry (opened 2024-25). NMC Revised UG Seat Matrix 2024-25 (https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf) row 106: 'Bhagyoday Medical College', Gujarat, district Mehsana, Gujarat University, management Trust -> Private, year of inception 2024, annual intake 100. NMC approval for 100 MBBS seats at Kadi reported by https://medicaldialogues.in/news/education/medical-colleges/new-medical-college-in-gujarats-kadi-gets-nmc-approval-for-100-mbbs-seats-136341"
+  },
+  {
+   "name": "C. U. Shah Medical College, Surendranagar",
+   "state": "Gujarat",
+   "city": "Surendranagar",
+   "type": "Private",
+   "established": 2000,
+   "totalSeats": 100,
+   "affiliation": "Saurashtra University",
+   "website": "http://www.cusmc.org",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'CU Shah Medical College, Surendra Nagar', address 'Dudhrej Road, Surendranagar-363001 (Gujarat)', management Trust -> Private."
+  },
+  {
+   "name": "Dr Pinnamaneni Siddhartha Institute of Medical Sciences, Chinoutpalli",
+   "state": "Andhra Pradesh",
+   "city": "Chinoutpalli",
+   "type": "Private",
+   "established": 2002,
+   "totalSeats": 150,
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "website": "http://www.drpsimsrf.edu.in",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Dr. P.S.I. Medical College , Chinoutpalli', address 'Chinna Avutapalli, Gannavaram Mandal, Krishna Dist. - 521286', management Trust -> Private. City kept as Chinoutpalli (our record + NMC address); the NMC city cell holds the district 'Krishna Dist.'."
+  },
+  {
+   "name": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
+   "state": "Gujarat",
+   "city": "Bharuch",
+   "type": "Private",
+   "established": 2020,
+   "totalSeats": 200,
+   "affiliation": "Veer Narmad South Gujarat University",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Dr.Kiran C.Patel Medical College and Research Institute', management Trust -> Private (address/city cells empty). District Bharuch from NMC Revised UG Seat Matrix 2024-25 (https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf) row 120, Gujarat, Trust, 2020, 200."
+  },
+  {
+   "name": "GMERS Medical College, Godhra",
+   "state": "Gujarat",
+   "city": "Godhra",
+   "type": "Government",
+   "established": 2022,
+   "totalSeats": 100,
+   "affiliation": "Shri Govind Guru University, Godhra",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Government Medical College, Panchmahal Godhra', address 'General Hospital Godhra, Cuba Masjid Road, Shahwali Wad, Godhra, Panchmahal-389120', management Govt. -> Government; same college as GMERS Medical College Godhra (GMERS society, 2022, 100 MBBS seats, Shri Govind Guru University: https://bodmaseducation.com/gmers-medical-college-godhra)."
+  },
+  {
+   "name": "GMERS Medical College, Morbi",
+   "state": "Gujarat",
+   "city": "Morbi",
+   "type": "Government",
+   "established": 2022,
+   "totalSeats": 100,
+   "affiliation": "Saurashtra University, Rajkot",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Government Medical College, Morbi', address 'Civil Hospital Campus, Sardar Nagar, Morbi-363641', management Govt. -> Government; same college as GMERS Medical College Morbi (GMERS society, 2022, 100 MBBS seats, Saurashtra University: https://bodmaseducation.com/gmers-medical-college-morbi)."
+  },
+  {
+   "name": "GMERS Medical College, Porbandar",
+   "state": "Gujarat",
+   "city": "Porbandar",
+   "type": "Government",
+   "established": 2022,
+   "totalSeats": 100,
+   "affiliation": "Bhakta Kavi Narsinh Mehta University",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Government Medical College, Porbandar', address '1, Behind ITI, Porbandar-360575', management Govt. -> Government; same college as GMERS Medical College Porbandar (GMERS society, 2022, 100 MBBS seats, Bhakta Kavi Narsinh Mehta University: https://www.bodmaseducation.com/gmers-medical-college-porbandar)."
+  },
+  {
+   "name": "Government Medical College, Srikakulam",
+   "state": "Andhra Pradesh",
+   "city": "Srikakulam",
+   "type": "Government",
+   "established": 2008,
+   "totalSeats": 150,
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "website": "http://www.rimssrikakulam.org",
+   "source": "College's own site https://gmcsrikakulam.org/about.php — Government Medical College, Srikakulam is the renamed Rajiv Gandhi Institute of Medical Sciences (RIMS), Srikakulam, established 2008, affiliated to Dr. NTR/YSR University of Health Sciences. Matched to NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Rajiv Gandhi Institute of Medical Sciences, Srikakulam', address 'Balaga, Srikakulam-532001', Govt., 2008, 150 seats (raised to 200 in NMC's Revised UG Seat Matrix 2024-25)."
+  },
+  {
+   "name": "Government Medical College, Paderu",
+   "state": "Andhra Pradesh",
+   "city": "Paderu",
+   "type": "Government",
+   "established": 2024,
+   "totalSeats": 50,
+   "affiliation": "Dr. YSR University of Health Sciences, Vijayawada",
+   "source": "Not in the 2023 NMC registry (opened 2024-25). NMC Revised UG Seat Matrix 2024-25 (https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf) row 2: 'Government Medical College, Paderu', Andhra Pradesh, district Alluri Sitharama Raju, Dr. YSR University of Health Sciences Vijayawada, Govt. -> Government, year of inception 2024, annual intake 50. The automated matcher's candidates (Purulia GMC, GMC Rajouri) are unrelated colleges in other states."
+  },
+  {
+   "name": "Maharajahs Institute of Medical Sciences, Nellimarla",
+   "state": "Andhra Pradesh",
+   "city": "Nellimarla",
+   "type": "Private",
+   "established": 2002,
+   "totalSeats": 200,
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "website": "http://www.mimsvzm.org",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Maharajah Institute of Medical Sciences, Vizianagaram', address '31-15, Nellimarla-535217, Vizianagaram District (Andhra Pradesh)', management Trust -> Private. City kept as Nellimarla (our record + NMC address); the NMC city cell holds the district."
+  },
+  {
+   "name": "NRI Medical College, Chinakakani",
+   "state": "Andhra Pradesh",
+   "city": "Chinakakani",
+   "type": "Private",
+   "established": 2003,
+   "totalSeats": 200,
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "website": "http://www.nrias.net",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'NRI Medical College, Guntur', address 'Chinakakani (P.O), Mangalagiri Mandal, Guntur - 522503', management Trust -> Private. City kept as Chinakakani (our record + NMC address); the NMC city cell holds the district."
+  },
+  {
+   "name": "Nootan Medical College & Research Centre, Visnagar",
+   "state": "Gujarat",
+   "city": "Visnagar",
+   "type": "Private",
+   "established": 2019,
+   "totalSeats": 150,
+   "affiliation": "Sankalchand Patel University",
+   "website": "http://mbbs.spu.ac.in/",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Nootan Medical College and Research Centre, Mehsana', address 'Sankalchand Patel Vidhyadham, Gandhinagar-Ambaji State Highway, Distt. Mehsana, Visnagar - 384315', management Trust -> Private. City kept as Visnagar (our record + NMC address); the NMC city cell holds the district/state."
+  },
+  {
+   "name": "PES Institute of Medical Science and Research, Kuppam",
+   "state": "Andhra Pradesh",
+   "city": "Kuppam",
+   "type": "Private",
+   "established": 2001,
+   "totalSeats": 150,
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "website": "http://pesimsr.pes.edu",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'P E S Institute Of Medical Sciences and Research, Kuppam', address 'Kuppam 517425, Chittoor District (Andhra Pradesh)', management Trust -> Private."
+  },
+  {
+   "name": "Pramukhswami Medical College, Karamsad",
+   "state": "Gujarat",
+   "city": "Karamsad",
+   "type": "Private",
+   "established": 1987,
+   "totalSeats": 150,
+   "affiliation": "Bhaikaka University",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Pramukhswami Medical College, Karmsad', address 'Pramukhswami Medical College, Karamsad-388325 (Gujarat)', management Trust -> Private."
+  },
+  {
+   "name": "Santhiram Medical College and General Hospital, Nandyal",
+   "state": "Andhra Pradesh",
+   "city": "Nandyal",
+   "type": "Private",
+   "established": 2005,
+   "totalSeats": 150,
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "website": "http://www.santhirammedicalcollege.com",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Santhiram Medical College, Nandyal', address 'Santhiram Medical College & General Hospital, NH-40 Nandyal, Kurnool District-518501', management Trust -> Private. City kept as Nandyal (our record + NMC address); the NMC city cell holds the district 'Kurnool'."
+  },
+  {
+   "name": "Sri Balaji Medical College, Hospital and Research Institute, Renigunta",
+   "state": "Andhra Pradesh",
+   "city": "Renigunta",
+   "type": "Private",
+   "established": 2022,
+   "totalSeats": 150,
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "website": "https://sbmch.org",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Sri Balaji Medical College, Hospital and Research Institute, Chittoor', address 'new Airport Road renigunta, tirupati, chittoor- 517520', management Trust -> Private (year of inception blank). Established 2022 with 150 seats per NMC Revised UG Seat Matrix 2024-25 (https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf) row 37 and the college's own site https://sbmch.org/ (Renigunta, Tirupati)."
+  },
+  {
+   "name": "Swaminarayan Institute of Medical Sciences & Research, Kalol, Gandhinagar",
+   "state": "Gujarat",
+   "city": "Gandhinagar",
+   "type": "Private",
+   "established": 2023,
+   "totalSeats": 150,
+   "affiliation": "Swaminarayan University",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) row 'Swaminayaran Institute of Medical Sciences & Research' (NMC misspelling), address '68-1, Shree Swaminarayan Vishvamangal Gurukul, AT & P.O. Saij, Tal-Kalol, Gandhinagar-382725, Gujarat', city cell 'Gandhinagar', management Trust -> Private; confirmed by NMC Revised UG Seat Matrix 2024-25 (https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf) row 108, district Gandhinagar, Swaminarayan University, Trust, 2023, 150."
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "Narayana Medical College, Nellore",
+   "aliases": [
+    "Narayana Medical College and Hospital, Chinthareddypalem"
+   ],
+   "reason": "One college recorded twice — once with its town, once with its campus locality. The NMC row 'Narayana Medical College, Nellore' has address 'Chinthareddypalem, S.P.S.R. Nellore District, Nellore - 524003' (est. 2000, 250 seats, Dr. YSR University of Health Sciences, www.narayanamedicalcollege.com). Our stateless 'Narayana Medical College and Hospital, Chinthareddypalem' record is that same college; the Nellore record (Andhra Pradesh, Deemed) already carries state/city/type and keeps its Deemed type."
+  }
+ ],
+ "newColleges": [],
+ "unresolved": []
+}

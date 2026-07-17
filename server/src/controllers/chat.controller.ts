@@ -21,13 +21,13 @@ export const chatController = {
   },
 
   getSession(req: AuthRequest, res: Response) {
-    const session = aiService.getSession(req.params.id, req.user!.userId);
+    const session = aiService.getSession(String(req.params.id), req.user!.userId);
     if (!session) { res.status(404).json({ success: false, message: 'Session not found' }); return; }
     res.json({ success: true, data: { session } });
   },
 
   deleteSession(req: AuthRequest, res: Response) {
-    const deleted = aiService.deleteSession(req.params.id, req.user!.userId);
+    const deleted = aiService.deleteSession(String(req.params.id), req.user!.userId);
     if (!deleted) { res.status(404).json({ success: false, message: 'Session not found' }); return; }
     res.json({ success: true, message: 'Session deleted' });
   },

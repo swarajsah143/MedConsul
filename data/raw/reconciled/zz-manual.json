@@ -1,0 +1,40 @@
+{
+ "state": "MANUAL",
+ "_note": "The 3 colleges the per-state agents left unresolved, sourced by hand. No merges here on purpose — a merge is destructive and belongs to a verified state pass, not to a manual patch.",
+ "pairings": [],
+ "enrichment": [
+  {
+   "name": "Narayana Medical College and Hospital, Chinthareddypalem",
+   "state": "Andhra Pradesh",
+   "city": "Nellore",
+   "type": "Private",
+   "established": 2000,
+   "totalSeats": 250,
+   "affiliation": "Dr. YSR University of Health Sciences",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges",
+   "_evidence": "NMC lists 'Narayana Medical College, Nellore' with the address 'Chinthareddypalem, S.P.S.R. Nellore District, Nellore - 524003' — Chinthareddypalem is the locality, so this is the same institution under a locality-qualified name. managementupdate=Trust -> Private."
+  },
+  {
+   "name": "DM Wayanad Institute of Medical Sciences",
+   "city": "Wayanad",
+   "state": "Kerala",
+   "established": 2013,
+   "totalSeats": 150,
+   "affiliation": "Kerala University of Health Sciences, Thrissur, Kerala",
+   "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges",
+   "_evidence": "NMC lists it as \"Dr. Moopen's Medical College, Wayanad, Kerala\" (DM = Dr. Moopen's), city Wayanad. Only `city` was missing; `type` is deliberately NOT set here so the base record's Deemed value survives — the Kerala verifier rejected a merge precisely because it would have downgraded this college from Deemed to Private."
+  },
+  {
+   "name": "SKIMS Medical College, Bemina, Srinagar",
+   "type": "Government",
+   "state": "Jammu and Kashmir",
+   "city": "Srinagar",
+   "established": 1989,
+   "source": "https://en.wikipedia.org/wiki/Sher-e-Kashmir_Institute_of_Medical_Sciences",
+   "_evidence": "Founded 1989 as the private Jhelum Valley Medical College and taken over by the Government of Jammu & Kashmir in 1998 -> Government. NOTE: this is NOT NMC's 'Sher-I-Kashmir Instt. Of Medical Sciences, Srinagar', which is the SKIMS Soura campus — a different institution in the same city. Not paired to it, per the same-city rule. Its absence from the NMC 2023 UG list is why no agent could resolve it."
+  }
+ ],
+ "merges": [],
+ "newColleges": [],
+ "unresolved": []
+}

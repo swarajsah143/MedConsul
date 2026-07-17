@@ -1,0 +1,172 @@
+{
+ "state": "Assam",
+ "unmatched": [
+  {
+   "name": "AIIMS Guwahati",
+   "city": "Guwahati",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Dhubri Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Diphu Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College, Silchar",
+   "city": "Silchar",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Jorhat Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Nalbari Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Silchar Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Tezpur Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Tinsukia Medical College",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Guwahati",
+   "state": "Assam",
+   "city": "Assam",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS (Guwahati)",
+   "totalSeats": 50,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dhubri Medical College, Dhubri",
+   "state": "Assam",
+   "type": "Government",
+   "affiliation": "Srimanta Shankardeva University of Health Sciences",
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Diphu Medical College & Hospital, Diphu, Assam",
+   "state": "Assam",
+   "type": "Government",
+   "affiliation": "Srimanta Shankardeva University of Health Sciences",
+   "established": 2020,
+   "totalSeats": 100,
+   "website": "http://www.dmch.assam.gov.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Jorhat Medical College & Hospital , Jorhat",
+   "state": "Assam",
+   "city": "Jorhat",
+   "type": "Government",
+   "affiliation": "Srimanta Shankardeva University of Health Sciences",
+   "established": 2010,
+   "totalSeats": 125,
+   "website": "http://www.jorhatmedicalcollege.in/jmch/",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Nalbari Medical College, Nalbari",
+   "state": "Assam",
+   "city": "Nalbari",
+   "type": "Government",
+   "affiliation": "Srimanta Shankardeva University of Health Sciences",
+   "established": 2023,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Silchar Medical College, Silchar",
+   "state": "Assam",
+   "city": "Silchar",
+   "type": "Government",
+   "affiliation": "Srimanta Shankardeva University of Health Sciences",
+   "established": 1968,
+   "totalSeats": 125,
+   "website": "http://www.smcassam.gov.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Tezpur Medical College & Hospital, Tezpur",
+   "state": "Assam",
+   "city": "Tezpur",
+   "type": "Government",
+   "affiliation": "Srimanta Shankardeva University of Health Sciences",
+   "established": 2014,
+   "totalSeats": 125,
+   "website": "http://www.tmcassam.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

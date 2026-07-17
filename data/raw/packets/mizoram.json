@@ -1,0 +1,30 @@
+{
+ "state": "Mizoram",
+ "unmatched": [
+  {
+   "name": "Zoram Medical College, Falkawn",
+   "city": "Falkawn",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "Zoram Medical College, Mizoram",
+   "state": "Mizoram",
+   "city": "Falkawn",
+   "type": "Government",
+   "affiliation": "Mizoram University",
+   "established": 2018,
+   "totalSeats": 100,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

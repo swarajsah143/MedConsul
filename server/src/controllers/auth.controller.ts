@@ -4,10 +4,18 @@ import { AuthRequest } from '../middlewares/auth.middleware';
 
 const authService = new AuthService();
 
+// A `secure` cookie is dropped by the browser over plain HTTP, which would make
+// refresh silently fail on a TLS-less deployment. Tie it to NODE_ENV by default,
+// but let COOKIE_SECURE override so an HTTP host can opt out explicitly.
+// Set COOKIE_SECURE=true as soon as the host is behind TLS.
+const cookieSecure = process.env.COOKIE_SECURE
+  ? process.env.COOKIE_SECURE === 'true'
+  : process.env.NODE_ENV === 'production';
+
 function setRefreshCookie(res: Response, token: string) {
   res.cookie('refreshToken', token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
+    secure: cookieSecure,
     sameSite: 'lax',
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     path: '/api/auth',

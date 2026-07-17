@@ -1,0 +1,814 @@
+{
+ "state": "Karnataka",
+ "unmatched": [
+  {
+   "name": "Adichunchanagiri Institute of Medical Sciences (AIMS), Mandya (BG Nagara)",
+   "city": "Mandya",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Akash Institute of Medical Sciences and Research Centre, Devanahalli",
+   "city": "Devanahalli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "BLDE (Shri B M Patil Medical College), Vijayapura",
+   "city": "Vijayapura",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "BLDE University Shri B M Patil Medical College, Bijapur",
+   "city": "Bijapur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Bangalore Medical College and Research Institute (BMCRI)",
+   "city": "",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Belgaum Institute of Medical Sciences, Belgaum",
+   "city": "Belgaum",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Chamarajanagar Institute of Medical Sciences, Chamarajanagar",
+   "city": "Chamarajanagar",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Chikkaballapura Institute of Medical Sciences (CBIMS), Chikkaballapur",
+   "city": "Chikkaballapur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Chitradurga Medical College and Research Institute, Chitradurga",
+   "city": "Chitradurga",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESI-PGIMSR, Bangalore",
+   "city": "Bangalore",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Dental College, Gulbarga",
+   "city": "Gulbarga",
+   "courses": [
+    "BDS",
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "ESIC Medical College, Bangalore",
+   "city": "Bangalore",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Faculty of Dental Sciences, MS Ramaiah University, Bangalore",
+   "city": "Bangalore",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Gadag Institute of Medical Sciences, Gadag",
+   "city": "Gadag",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Dental College and Research Institute, Bangalore",
+   "city": "Bangalore",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Gulbarga Institute of Medical Sciences, Kalaburagi",
+   "city": "Kalaburagi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "J N Medical College, KLE Academy of Higher Education, Belagavi",
+   "city": "Belagavi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "JN Medical College (KLE), Belgaum",
+   "city": "Belgaum",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "JSS Medical College, Mysuru",
+   "city": "Mysuru",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Jagadguru Gangadhar Mahaswamigalu Moorusavirmath (JGMM) Medical College, Gadag/Hubli (KLE Academy)",
+   "city": "Gadag/Hubli",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
+   "city": "Belagavi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Jawaharlal Nehru Medical College, KLE, Belagavi",
+   "city": "Belagavi",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "KLE VK Institute of Dental Sciences and Hospital, Belagavi",
+   "city": "Belagavi",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "KLE VK Institute of Dental Sciences and Hospital, Belgaum",
+   "city": "Belgaum",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Kodagu Institute of Medical Sciences, Madikeri",
+   "city": "Madikeri",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Manipal College of Dental Sciences, Mangalore",
+   "city": "Mangalore",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Manipal College of Dental Sciences, Manipal",
+   "city": "Manipal",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Mysore Medical College and Research Institute, Mysore",
+   "city": "Mysore",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "RajaRajeswari Dental College and Hospital, Bangalore",
+   "city": "Bangalore",
+   "courses": [
+    "BDS",
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Yadgiri Institute of Medical Sciences (YIMS), Yadgir",
+   "city": "Yadgir",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "Adichunchanagiri Institute of Medical Sciences Bellur",
+   "state": "Karnataka",
+   "city": "Bellur",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 1985,
+   "totalSeats": 250,
+   "website": "http://www.bgsaims.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "A J Institute of Medical Sciences & Research Centre, Mangalore",
+   "state": "Karnataka",
+   "city": "Mangalore",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2002,
+   "totalSeats": 150,
+   "website": "http://www.ajims.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Akash Institute of Medical Sciences & Research Centre, Devanhalli, Bangalore, Karnataka",
+   "state": "Karnataka",
+   "city": "Bangalore",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.aimsrc.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Al-Ameen Medical College,Bijapur",
+   "state": "Karnataka",
+   "city": "Bijapur",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 1984,
+   "totalSeats": 150,
+   "website": "http://www.alameenmedical.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Bangalore Medical College and Research Institute, Bangalore",
+   "state": "Karnataka",
+   "city": "Bangalore",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 1955,
+   "totalSeats": 250,
+   "website": "http://www.bmcri.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Basaveswara Medical College and Hospital, Chitradurga",
+   "state": "Karnataka",
+   "city": "Chitradurga",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 1999,
+   "totalSeats": 150,
+   "website": "http://www.bmchchitradurga.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Belagavi Institute of Medical Sciences, Belagavi",
+   "state": "Karnataka",
+   "city": "Belagavi",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2006,
+   "totalSeats": 150,
+   "website": "http://www.bimsbelgaum.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Chamrajanagar Institute of Medical Sciences, Karnataka",
+   "state": "Karnataka",
+   "city": "Chamarajanagar",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.cimscrnagara.kar.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Chikkaballapura Institute of Medical Sciences",
+   "state": "Karnataka",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2021,
+   "totalSeats": 100,
+   "website": "http://cimschikkaballapura.karnataka.gov.in/english",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Chitradurga Medical College and Research Institute",
+   "state": "Karnataka",
+   "city": "Chitradurga",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Dr. Chandramma Dayananda Sagar Instt. of Medical Education & Research, Harohalli, Hubli",
+   "state": "Karnataka",
+   "type": "Private",
+   "affiliation": "Dayananda Sagar University, Bangalore",
+   "established": 2020,
+   "totalSeats": 150,
+   "website": "https://www.dsu.edu.in/academics/schools/cdsimer",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "East Point College of Medical Sciences & Research Centre, Bangalore",
+   "state": "Karnataka",
+   "city": "Bangalore",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2017,
+   "totalSeats": 150,
+   "website": "http://www.epcms.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Employees State Insurance Corporation Medical College, Bangalore",
+   "state": "Karnataka",
+   "city": "Bangalore",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2012,
+   "totalSeats": 150,
+   "website": "http://www.esipgirnr.kar.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Employees State Insurance Corporation Medical College, Gulbarga",
+   "state": "Karnataka",
+   "city": "Gulbarga",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2013,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Gadag Institute of Medical Sciences, Mallasamudra, Mulgund Road, Gadag",
+   "state": "Karnataka",
+   "city": "Gadag",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2015,
+   "totalSeats": 150,
+   "website": "http://www.karnataka.gov.in/gimsgadag/Pages/home.aspx",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Gulbarga Institute of Medical Sciences, Gulbarga",
+   "state": "Karnataka",
+   "city": "Gulbarga",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2015,
+   "totalSeats": 150,
+   "website": "http://www.gims-gulbarga.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Jagadguru Gangadhar Mahaswamigalu Moorusavirmath Medical College JGMMMC",
+   "state": "Karnataka",
+   "city": "Hubballi",
+   "type": "Private",
+   "affiliation": "KLE Academy of Higher Education & Research (Deemed), Belgaum",
+   "established": 2021,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Jawaharlal Nehru Medical College, Belgaum",
+   "state": "Karnataka",
+   "city": "Belgaum",
+   "type": "Private",
+   "affiliation": "KLE Academy of Higher Education & Research (Deemed), Belgaum",
+   "established": 1963,
+   "totalSeats": 200,
+   "website": "http://www.jnmc.edu",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Kanachur Institute of Medical Sciences, Mangalore",
+   "state": "Karnataka",
+   "city": "Mangalore",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://www.kanachurims.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Khaja Bandanawaz University - Faculty of Medical Sciences, Gulbarga",
+   "state": "Karnataka",
+   "city": "Gulbarga",
+   "type": "Private",
+   "affiliation": "Khaja Bandanawaz University",
+   "established": 2000,
+   "totalSeats": 150,
+   "website": "http://www.kbnims.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Kodagu Institute of Medical Sciences, Kodagu",
+   "state": "Karnataka",
+   "city": "Kodagu",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2016,
+   "totalSeats": 150,
+   "website": "http://kimskodagu.kar.nic.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "K V G Medical College, Sullia",
+   "state": "Karnataka",
+   "city": "Sullia",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 1999,
+   "totalSeats": 100,
+   "website": "http://www.kvgmch.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mahadevappa Rampure Medical College, Kalaburagi, Gulbarga",
+   "state": "Karnataka",
+   "city": "Gulbarga",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 1963,
+   "totalSeats": 150,
+   "website": "http://mrmc.hkes.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mysore Medical College and Research Instt. (Prev.name Government Medical College), Mysore",
+   "state": "Karnataka",
+   "city": "Mysore",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 1924,
+   "totalSeats": 150,
+   "website": "http://www.mysoremedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Navodaya Medical College, Raichur",
+   "state": "Karnataka",
+   "city": "Raichur",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2002,
+   "totalSeats": 200,
+   "website": "http://www.navodaya.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Rajarajeswari Medical College & Hospital, Bangalore",
+   "state": "Karnataka",
+   "city": "Bangalore",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2005,
+   "totalSeats": 250,
+   "website": "http://www.rrmch.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sambharam Institute of Medical Sciences & Research, Kolar",
+   "state": "Karnataka",
+   "city": "Kolar Dist.",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2016,
+   "totalSeats": 0,
+   "website": "http://www.sambhrammedical.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Shridevi Institute of Medical Sciences & Research Hospital, Tumkur",
+   "state": "Karnataka",
+   "city": "Tumkur",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2013,
+   "totalSeats": 150,
+   "website": "http://www.shridevimedical.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Siddaganga Medical College and Research Institute, Tumakuru",
+   "state": "Karnataka",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "S. Nijalingappa Medical College & HSK Hospital & Research Centre, Bagalkot",
+   "state": "Karnataka",
+   "city": "Bagalkot",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2002,
+   "totalSeats": 250,
+   "website": "http://www.snmcbgk.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sri Chamundeshwari Medical College Hospital & Research Institute",
+   "state": "Karnataka",
+   "city": "Bangalore Mysore NH 257",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2023,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sri Devaraj URS Medical College, Kolar",
+   "state": "Karnataka",
+   "city": "Kolar",
+   "type": "Private",
+   "affiliation": "Sri Devaraj Urs Academy of Higher Education and Research (Deemed University), Kolar",
+   "established": 1986,
+   "totalSeats": 150,
+   "website": "http://www.sdumu.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sri Madhusudan Sai Institute of Medical Sciences and Research",
+   "state": "Karnataka",
+   "city": "Chikballapur",
+   "type": "Private",
+   "affiliation": "Sri Sathya Sai University for Human Excellence",
+   "established": 2023,
+   "totalSeats": 50,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Srinivas Institute of Medical Research Centre, Srinivasnagar, mangalore",
+   "state": "Karnataka",
+   "city": "Surathkal",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2011,
+   "totalSeats": 150,
+   "website": "http://www.srinivasgroup.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sri siddhartha Institute of Medical Sciences & Research Centre, Bangalore",
+   "state": "Karnataka",
+   "city": "Bangalore",
+   "type": "Private",
+   "affiliation": "Sri Siddhartha Academy of Higher Education, Tumkur",
+   "established": 2019,
+   "totalSeats": 150,
+   "website": "http://www.ssimrc.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "S S Institute of Medical Sciences& Research Centre, Davangere",
+   "state": "Karnataka",
+   "city": "Davangere",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2006,
+   "totalSeats": 200,
+   "website": "http://www.ssimsrc.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Subbaiah Institute of Medical Sciences, Shimoga, Karnataka",
+   "state": "Karnataka",
+   "city": "Shimoga",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2012,
+   "totalSeats": 200,
+   "website": "http://www.smcshimoga.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "The Oxford Medical College, Hospital & Research Centre, Bangalore",
+   "state": "Karnataka",
+   "city": "Bangalore",
+   "type": "Private",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2014,
+   "totalSeats": 150,
+   "website": "http://www.theoxfordmedical.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Yadgiri Institute of Medical Sciences,  Yadgiri",
+   "state": "Karnataka",
+   "type": "Government",
+   "affiliation": "Rajiv Gandhi University of Health Sciences, Karnataka",
+   "established": 2022,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [
+  {
+   "nmcName": "Shri B M Patil Medical College, Hospital & Research Centre, Vijayapura(Bijapur",
+   "candidates": [
+    "BLDE (Deemed to be University) - Shri B M Patil Medical College, Vijayapura",
+    "Shri B M Patil Medical College (BLDE), Vijayapura"
+   ]
+  },
+  {
+   "nmcName": "K S Hegde Medical Academy, Mangalore",
+   "candidates": [
+    "K S Hegde Medical Academy (KSHEMA/Nitte), Mangalore",
+    "KS Hegde Medical Academy (Nitte), Mangalore"
+   ]
+  },
+  {
+   "nmcName": "M S Ramaiah Medical College, Bangalore",
+   "candidates": [
+    "M S Ramaiah Medical College, Bangalore",
+    "MS Ramaiah Medical College, Bangalore"
+   ]
+  },
+  {
+   "nmcName": "Shri Atal Bihari Vajpayee Medical College & Research Institute",
+   "candidates": [
+    "Shri Atal Bihari Vajpayee Medical College & Research Institute, Bangalore",
+    "Shri Atal Bihari Vajpayee Medical College and Research Institute (ABVMC), Bengaluru"
+   ]
+  }
+ ],
+ "ambiguous": []
+}

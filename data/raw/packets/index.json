@@ -1,0 +1,308 @@
+[
+ {
+  "state": "Maharashtra",
+  "slug": "maharashtra",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/maharashtra.json",
+  "items": 77,
+  "unmatched": 53,
+  "nmcPool": 12,
+  "duplicates": 12
+ },
+ {
+  "state": "Uttar Pradesh",
+  "slug": "uttar-pradesh",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/uttar-pradesh.json",
+  "items": 74,
+  "unmatched": 47,
+  "nmcPool": 27,
+  "duplicates": 0
+ },
+ {
+  "state": "Karnataka",
+  "slug": "karnataka",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/karnataka.json",
+  "items": 73,
+  "unmatched": 30,
+  "nmcPool": 39,
+  "duplicates": 4
+ },
+ {
+  "state": "Tamil Nadu",
+  "slug": "tamil-nadu",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/tamil-nadu.json",
+  "items": 60,
+  "unmatched": 33,
+  "nmcPool": 25,
+  "duplicates": 2
+ },
+ {
+  "state": "Telangana",
+  "slug": "telangana",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/telangana.json",
+  "items": 43,
+  "unmatched": 27,
+  "nmcPool": 16,
+  "duplicates": 0
+ },
+ {
+  "state": "Kerala",
+  "slug": "kerala",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/kerala.json",
+  "items": 39,
+  "unmatched": 18,
+  "nmcPool": 21,
+  "duplicates": 0
+ },
+ {
+  "state": "Rajasthan",
+  "slug": "rajasthan",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/rajasthan.json",
+  "items": 29,
+  "unmatched": 20,
+  "nmcPool": 9,
+  "duplicates": 0
+ },
+ {
+  "state": "West Bengal",
+  "slug": "west-bengal",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/west-bengal.json",
+  "items": 29,
+  "unmatched": 12,
+  "nmcPool": 17,
+  "duplicates": 0
+ },
+ {
+  "state": "Haryana",
+  "slug": "haryana",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/haryana.json",
+  "items": 25,
+  "unmatched": 19,
+  "nmcPool": 6,
+  "duplicates": 0
+ },
+ {
+  "state": "Gujarat",
+  "slug": "gujarat",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/gujarat.json",
+  "items": 24,
+  "unmatched": 9,
+  "nmcPool": 14,
+  "duplicates": 1
+ },
+ {
+  "state": "Madhya Pradesh",
+  "slug": "madhya-pradesh",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/madhya-pradesh.json",
+  "items": 24,
+  "unmatched": 12,
+  "nmcPool": 12,
+  "duplicates": 0
+ },
+ {
+  "state": "UNKNOWN",
+  "slug": "unknown",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/unknown.json",
+  "items": 20,
+  "unmatched": 19,
+  "nmcPool": 0,
+  "duplicates": 0
+ },
+ {
+  "state": "Andhra Pradesh",
+  "slug": "andhra-pradesh",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/andhra-pradesh.json",
+  "items": 18,
+  "unmatched": 6,
+  "nmcPool": 12,
+  "duplicates": 0
+ },
+ {
+  "state": "Assam",
+  "slug": "assam",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/assam.json",
+  "items": 16,
+  "unmatched": 9,
+  "nmcPool": 7,
+  "duplicates": 0
+ },
+ {
+  "state": "Delhi",
+  "slug": "delhi",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/delhi.json",
+  "items": 16,
+  "unmatched": 8,
+  "nmcPool": 4,
+  "duplicates": 4
+ },
+ {
+  "state": "Odisha",
+  "slug": "odisha",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/odisha.json",
+  "items": 16,
+  "unmatched": 8,
+  "nmcPool": 8,
+  "duplicates": 0
+ },
+ {
+  "state": "Bihar",
+  "slug": "bihar",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/bihar.json",
+  "items": 14,
+  "unmatched": 6,
+  "nmcPool": 7,
+  "duplicates": 0
+ },
+ {
+  "state": "Jharkhand",
+  "slug": "jharkhand",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/jharkhand.json",
+  "items": 14,
+  "unmatched": 6,
+  "nmcPool": 8,
+  "duplicates": 0
+ },
+ {
+  "state": "Puducherry",
+  "slug": "puducherry",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/puducherry.json",
+  "items": 14,
+  "unmatched": 7,
+  "nmcPool": 7,
+  "duplicates": 0
+ },
+ {
+  "state": "Punjab",
+  "slug": "punjab",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/punjab.json",
+  "items": 12,
+  "unmatched": 9,
+  "nmcPool": 2,
+  "duplicates": 1
+ },
+ {
+  "state": "Chattisgarh",
+  "slug": "chattisgarh",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/chattisgarh.json",
+  "items": 9,
+  "unmatched": 0,
+  "nmcPool": 9,
+  "duplicates": 0
+ },
+ {
+  "state": "Jammu & Kashmir",
+  "slug": "jammu-and-kashmir",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/jammu-and-kashmir.json",
+  "items": 9,
+  "unmatched": 6,
+  "nmcPool": 2,
+  "duplicates": 1
+ },
+ {
+  "state": "Uttarakhand",
+  "slug": "uttarakhand",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/uttarakhand.json",
+  "items": 8,
+  "unmatched": 5,
+  "nmcPool": 2,
+  "duplicates": 1
+ },
+ {
+  "state": "Himachal Pradesh",
+  "slug": "himachal-pradesh",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/himachal-pradesh.json",
+  "items": 7,
+  "unmatched": 3,
+  "nmcPool": 3,
+  "duplicates": 1
+ },
+ {
+  "state": "Chhattisgarh",
+  "slug": "chhattisgarh",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/chhattisgarh.json",
+  "items": 5,
+  "unmatched": 5,
+  "nmcPool": 0,
+  "duplicates": 0
+ },
+ {
+  "state": "Tripura",
+  "slug": "tripura",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/tripura.json",
+  "items": 3,
+  "unmatched": 2,
+  "nmcPool": 1,
+  "duplicates": 0
+ },
+ {
+  "state": "Goa",
+  "slug": "goa",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/goa.json",
+  "items": 2,
+  "unmatched": 1,
+  "nmcPool": 1,
+  "duplicates": 0
+ },
+ {
+  "state": "Mizoram",
+  "slug": "mizoram",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/mizoram.json",
+  "items": 2,
+  "unmatched": 1,
+  "nmcPool": 1,
+  "duplicates": 0
+ },
+ {
+  "state": "Nagaland",
+  "slug": "nagaland",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/nagaland.json",
+  "items": 2,
+  "unmatched": 1,
+  "nmcPool": 1,
+  "duplicates": 0
+ },
+ {
+  "state": "Andaman Nicobar Islands",
+  "slug": "andaman-nicobar-islands",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/andaman-nicobar-islands.json",
+  "items": 1,
+  "unmatched": 0,
+  "nmcPool": 1,
+  "duplicates": 0
+ },
+ {
+  "state": "Chandigarh",
+  "slug": "chandigarh",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/chandigarh.json",
+  "items": 1,
+  "unmatched": 1,
+  "nmcPool": 0,
+  "duplicates": 0
+ },
+ {
+  "state": "Manipur",
+  "slug": "manipur",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/manipur.json",
+  "items": 1,
+  "unmatched": 0,
+  "nmcPool": 1,
+  "duplicates": 0
+ },
+ {
+  "state": "Meghalaya",
+  "slug": "meghalaya",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/meghalaya.json",
+  "items": 1,
+  "unmatched": 1,
+  "nmcPool": 0,
+  "duplicates": 0
+ },
+ {
+  "state": "Sikkim",
+  "slug": "sikkim",
+  "path": "/Users/avin/projects/clients/MedConsul/data/raw/packets/sikkim.json",
+  "items": 1,
+  "unmatched": 0,
+  "nmcPool": 1,
+  "duplicates": 0
+ }
+]

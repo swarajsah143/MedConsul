@@ -1,0 +1,5090 @@
+[
+ {
+  "name": "ACPM Medical College, Dhule",
+  "state": "Maharashtra",
+  "city": "Dhule",
+  "knownType": null
+ },
+ {
+  "name": "ACS Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "ACSR Government Medical College, Nellore",
+  "state": "Andhra Pradesh",
+  "city": "Nellore",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Bathinda",
+  "state": "Punjab",
+  "city": "Bathinda",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Bibinagar (Hyderabad)",
+  "state": "Telangana",
+  "city": "Bibinagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Bilaspur",
+  "state": "Himachal Pradesh",
+  "city": "Bilaspur",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Deoghar",
+  "state": "Jharkhand",
+  "city": "Deoghar",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Gorakhpur",
+  "state": "Uttar Pradesh",
+  "city": "Gorakhpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Guwahati",
+  "state": "Assam",
+  "city": "Guwahati",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Jammu (Vijaypur)",
+  "state": "Jammu & Kashmir",
+  "city": "Jammu",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Jodhpur",
+  "state": "Rajasthan",
+  "city": "Jodhpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Kalyani",
+  "state": "West Bengal",
+  "city": "Kalyani",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Madurai",
+  "state": "Tamil Nadu",
+  "city": "Madurai",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Mangalagiri",
+  "state": "Andhra Pradesh",
+  "city": "Mangalagiri",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Rae Bareli",
+  "state": "Uttar Pradesh",
+  "city": "Rae Bareli",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Rajkot",
+  "state": "Gujarat",
+  "city": "Rajkot",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Rishikesh",
+  "state": "Uttarakhand",
+  "city": "Rishikesh",
+  "knownType": "Government"
+ },
+ {
+  "name": "AIIMS Vijaypur",
+  "state": "Jammu & Kashmir",
+  "city": "Vijaypur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Aarupadai Veedu Medical College and Hospital",
+  "state": "Puducherry",
+  "city": "",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Acharya Shri Chander College of Medical Sciences (ASCOMS), Jammu",
+  "state": "Jammu & Kashmir",
+  "city": "Jammu",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Adesh Institute, Bathinda",
+  "state": "Punjab",
+  "city": "Bathinda",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Adichunchanagiri Institute of Medical Sciences (AIMS), Mandya (BG Nagara)",
+  "state": "Karnataka",
+  "city": "Mandya",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Agartala Government Dental College and IGM Hospital, Agartala",
+  "state": "Tripura",
+  "city": "Agartala",
+  "knownType": "Government"
+ },
+ {
+  "name": "Agartala Government Medical College",
+  "state": "Tripura",
+  "city": "",
+  "knownType": "Government"
+ },
+ {
+  "name": "Ajay Sangaal Institute of Medical Science & Research, Shamli",
+  "state": "Uttar Pradesh",
+  "city": "Shamli",
+  "knownType": null
+ },
+ {
+  "name": "Akash Institute of Medical Sciences and Research Centre, Devanahalli",
+  "state": "Karnataka",
+  "city": "Devanahalli",
+  "knownType": null
+ },
+ {
+  "name": "Al-Falah School of Medical Sciences & Research Centre, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "All India Institute of Medical Sciences (AIIMS), Vijaypur, Jammu",
+  "state": "Jammu & Kashmir",
+  "city": "Jammu",
+  "knownType": "Government"
+ },
+ {
+  "name": "All India Institute of Medical Sciences, Bathinda",
+  "state": "Punjab",
+  "city": "Bathinda",
+  "knownType": null
+ },
+ {
+  "name": "Alluri Sitaramaraju Academy of Medical Sciences, Eluru",
+  "state": "",
+  "city": "Eluru",
+  "knownType": null
+ },
+ {
+  "name": "Amaltas Institute of Medical Sciences, Dewas",
+  "state": "Madhya Pradesh",
+  "city": "Dewas",
+  "knownType": null
+ },
+ {
+  "name": "American International Institute of Medical Sciences, Bedwas",
+  "state": "Rajasthan",
+  "city": "Bedwas",
+  "knownType": null
+ },
+ {
+  "name": "Amrita Institute of Medical Sciences, Kochi",
+  "state": "Kerala",
+  "city": "Kochi",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Amrita School of Medicine, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Amrita School of Medicine, Kochi",
+  "state": "Kerala",
+  "city": "Kochi",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Ananta Institute of Medical Science and Research Centre, Rajsamand",
+  "state": "Rajasthan",
+  "city": "Rajsamand",
+  "knownType": null
+ },
+ {
+  "name": "Ananya College of Medicine & Research, Kalol, Gandhinagar",
+  "state": "",
+  "city": "Gandhinagar",
+  "knownType": null
+ },
+ {
+  "name": "Andhra Medical College, Visakhapatnam",
+  "state": "Andhra Pradesh",
+  "city": "Visakhapatnam",
+  "knownType": null
+ },
+ {
+  "name": "Anugrah Narayan Magadh Medical College & Hospital (ANMMCH), Gaya",
+  "state": "Bihar",
+  "city": "Gaya",
+  "knownType": null
+ },
+ {
+  "name": "Apollo Institute of Medical Sciences and Research, Chittoor",
+  "state": "Andhra Pradesh",
+  "city": "Chittoor",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Apollo Institute of Medical Sciences and Research, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Arundathi Institute of Medical Sciences, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Ashwini Rural Medical College Hospital and Research Centre, Kumbhari",
+  "state": "Maharashtra",
+  "city": "Kumbhari",
+  "knownType": null
+ },
+ {
+  "name": "Assam Medical College, Dibrugarh",
+  "state": "Assam",
+  "city": "Dibrugarh",
+  "knownType": null
+ },
+ {
+  "name": "Atal Bihari Vajpayee Government Medical College, Vidisha",
+  "state": "Madhya Pradesh",
+  "city": "Vidisha",
+  "knownType": "Government"
+ },
+ {
+  "name": "Atal Bihari Vajpayee Institute of Medical Sciences & Dr RML Hospital (ABVIMS-RML)",
+  "state": "Delhi",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Atal Bihari Vajpayee Institute of Medical Sciences (ABVIMS) & Dr RML Hospital, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "knownType": null
+ },
+ {
+  "name": "Atal Bihari Vajpayee Institute of Medical Sciences and Dr Ram Manohar Lohia Hospital, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "knownType": null
+ },
+ {
+  "name": "Autonomous State Medical College, Auraiya",
+  "state": "Uttar Pradesh",
+  "city": "Auraiya",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Etah",
+  "state": "Uttar Pradesh",
+  "city": "Etah",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Firozabad",
+  "state": "Uttar Pradesh",
+  "city": "Firozabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Ghazipur",
+  "state": "Uttar Pradesh",
+  "city": "Ghazipur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Gonda",
+  "state": "Uttar Pradesh",
+  "city": "Gonda",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Hardoi",
+  "state": "Uttar Pradesh",
+  "city": "Hardoi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Kanpur Dehat (Akbarpur)",
+  "state": "Uttar Pradesh",
+  "city": "Kanpur Dehat",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Kaushambi",
+  "state": "Uttar Pradesh",
+  "city": "Kaushambi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Kushinagar",
+  "state": "Uttar Pradesh",
+  "city": "Kushinagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Lakhimpur Kheri",
+  "state": "Uttar Pradesh",
+  "city": "Lakhimpur Kheri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Lalitpur",
+  "state": "Uttar Pradesh",
+  "city": "Lalitpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Mirzapur",
+  "state": "Uttar Pradesh",
+  "city": "Mirzapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Pilibhit",
+  "state": "Uttar Pradesh",
+  "city": "Pilibhit",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Pratapgarh",
+  "state": "Uttar Pradesh",
+  "city": "Pratapgarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Shahjahanpur",
+  "state": "Uttar Pradesh",
+  "city": "Shahjahanpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Siddharth Nagar",
+  "state": "Uttar Pradesh",
+  "city": "Siddharth Nagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Sonbhadra",
+  "state": "Uttar Pradesh",
+  "city": "Sonbhadra",
+  "knownType": "Government"
+ },
+ {
+  "name": "Autonomous State Medical College, Sultanpur",
+  "state": "Uttar Pradesh",
+  "city": "Sultanpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Ayaan Institute of Medical Sciences",
+  "state": "Telangana",
+  "city": "",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Azeezia Medical College, Kollam",
+  "state": "Kerala",
+  "city": "Kollam",
+  "knownType": null
+ },
+ {
+  "name": "Azeezia Medical College, Meeyannoor",
+  "state": "Kerala",
+  "city": "Meeyannoor",
+  "knownType": null
+ },
+ {
+  "name": "B.J. Government Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Government"
+ },
+ {
+  "name": "B.J. Medical College, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": null
+ },
+ {
+  "name": "BGS Global Institute of Medical Sciences, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "BHU Institute of Medical Sciences",
+  "state": "Uttar Pradesh",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "BHU Varanasi (IMS)",
+  "state": "Uttar Pradesh",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "BJ Government Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Government"
+ },
+ {
+  "name": "BJ Medical College, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": null
+ },
+ {
+  "name": "BJ Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": null
+ },
+ {
+  "name": "BKL Walawalkar Rural Medical College, Ratnagiri",
+  "state": "Maharashtra",
+  "city": "Ratnagiri",
+  "knownType": null
+ },
+ {
+  "name": "BLDE (Deemed to be University) - Shri B M Patil Medical College, Vijayapura",
+  "state": "Karnataka",
+  "city": "Vijayapura",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "BLDE (Shri B M Patil Medical College), Vijayapura",
+  "state": "Karnataka",
+  "city": "Vijayapura",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "BLDE University Shri B M Patil Medical College, Bijapur",
+  "state": "Karnataka",
+  "city": "Bijapur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)",
+  "state": "Haryana",
+  "city": "Khanpur Kalan",
+  "knownType": "Government"
+ },
+ {
+  "name": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+  "state": "Haryana",
+  "city": "Sonepat",
+  "knownType": "Government"
+ },
+ {
+  "name": "Baba Kina Ram Autonomous State Medical College, Chandauli",
+  "state": "Uttar Pradesh",
+  "city": "Chandauli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Baba Raghav Das Medical College, Gorakhpur",
+  "state": "Uttar Pradesh",
+  "city": "Gorakhpur",
+  "knownType": null
+ },
+ {
+  "name": "Banas Medical College & Research Institute, Palanpur",
+  "state": "",
+  "city": "Palanpur",
+  "knownType": null
+ },
+ {
+  "name": "Bangalore Medical College and Research Institute (BMCRI)",
+  "state": "Karnataka",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Bankura Sammilani Medical College, Bankura",
+  "state": "West Bengal",
+  "city": "Bankura",
+  "knownType": null
+ },
+ {
+  "name": "Barasat Government Medical College, North 24 Parganas",
+  "state": "West Bengal",
+  "city": "North 24 Parganas",
+  "knownType": "Government"
+ },
+ {
+  "name": "Belgaum Institute of Medical Sciences, Belgaum",
+  "state": "Karnataka",
+  "city": "Belgaum",
+  "knownType": null
+ },
+ {
+  "name": "Believers Church Medical College, Thiruvalla",
+  "state": "Kerala",
+  "city": "Thiruvalla",
+  "knownType": null
+ },
+ {
+  "name": "Bhaarath Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bhagwan Mahavir Institute of Medical Sciences (BMIMS), Pawapuri, Nalanda",
+  "state": "Bihar",
+  "city": "Nalanda",
+  "knownType": null
+ },
+ {
+  "name": "Bhagyoday Medical College, Kadi, Mehsana",
+  "state": "",
+  "city": "Mehsana",
+  "knownType": null
+ },
+ {
+  "name": "Bharati Vidyapeeth Deemed University Medical College, Pune — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Pune — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharati Vidyapeeth Deemed University Medical College, Pune — NRI seats",
+  "state": "Maharashtra",
+  "city": "Pune — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharati Vidyapeeth Deemed University Medical College, Sangli",
+  "state": "Maharashtra",
+  "city": "Sangli",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharati Vidyapeeth Dental College and Hospital, Sangli",
+  "state": "Maharashtra",
+  "city": "Sangli",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharati Vidyapeeth Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bharatratna Atal Bihari Vajpayee Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": null
+ },
+ {
+  "name": "Bhaskar Medical College, Moinabad, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Bhima Bhoi Medical College and Hospital, Balangir",
+  "state": "Odisha",
+  "city": "Balangir",
+  "knownType": null
+ },
+ {
+  "name": "Bidar Institute of Medical Sciences, Bidar",
+  "state": "Karnataka",
+  "city": "Bidar",
+  "knownType": null
+ },
+ {
+  "name": "Birsa Munda Government Medical College, Shahdol",
+  "state": "Madhya Pradesh",
+  "city": "Shahdol",
+  "knownType": "Government"
+ },
+ {
+  "name": "Bundelkhand Medical College, Sagar",
+  "state": "Madhya Pradesh",
+  "city": "Sagar",
+  "knownType": null
+ },
+ {
+  "name": "Burdwan Medical College, Burdwan",
+  "state": "West Bengal",
+  "city": "Burdwan",
+  "knownType": null
+ },
+ {
+  "name": "Byramjee Jeejeebhoy Government Medical College and Sassoon General Hospital, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Government"
+ },
+ {
+  "name": "Byramjee Jeejeebhoy Government Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Government"
+ },
+ {
+  "name": "C. U. Shah Medical College, Surendranagar",
+  "state": "",
+  "city": "Surendranagar",
+  "knownType": null
+ },
+ {
+  "name": "CMC Ludhiana",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "CMR Institute of Medical Sciences, Medchal, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Calcutta National Medical College, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "knownType": null
+ },
+ {
+  "name": "Career Institute of Medical Sciences & Hospital, Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "knownType": null
+ },
+ {
+  "name": "Chalmeda Anand Rao Institute of Medical Sciences, Karimnagar",
+  "state": "Telangana",
+  "city": "Karimnagar",
+  "knownType": null
+ },
+ {
+  "name": "Chamarajanagar Institute of Medical Sciences, Chamarajanagar",
+  "state": "Karnataka",
+  "city": "Chamarajanagar",
+  "knownType": null
+ },
+ {
+  "name": "Chandulal Chandrakar Memorial Medical College, Durg",
+  "state": "Chhattisgarh",
+  "city": "Durg",
+  "knownType": null
+ },
+ {
+  "name": "Chengalpattu Medical College, Chengalpattu",
+  "state": "Tamil Nadu",
+  "city": "Chengalpattu",
+  "knownType": null
+ },
+ {
+  "name": "Chettinad Academy of Research and Education (Chettinad Hospital and Research Institute), Kelambakkam",
+  "state": "Tamil Nadu",
+  "city": "Kelambakkam",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chettinad Hospital & Research Institute, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chettinad Hospital and Research Institute, Kancheepuram",
+  "state": "Tamil Nadu",
+  "city": "Kancheepuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chettinad Hospital and Research Institute, Kelambakkam",
+  "state": "Tamil Nadu",
+  "city": "Kelambakkam",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chhattisgarh Institute of Medical Sciences (CIMS), Bilaspur",
+  "state": "Chhattisgarh",
+  "city": "Bilaspur",
+  "knownType": null
+ },
+ {
+  "name": "Chhindwara Institute of Medical Sciences, Chhindwara",
+  "state": "Madhya Pradesh",
+  "city": "Chhindwara",
+  "knownType": null
+ },
+ {
+  "name": "Chikkaballapura Institute of Medical Sciences (CBIMS), Chikkaballapur",
+  "state": "Karnataka",
+  "city": "Chikkaballapur",
+  "knownType": null
+ },
+ {
+  "name": "Chikkamagaluru Institute of Medical Sciences (CmIMS), Chikkamagaluru",
+  "state": "Karnataka",
+  "city": "Chikkamagaluru",
+  "knownType": null
+ },
+ {
+  "name": "Chirayu Medical College and Hospital, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Chitradurga Medical College and Research Institute, Chitradurga",
+  "state": "Karnataka",
+  "city": "Chitradurga",
+  "knownType": null
+ },
+ {
+  "name": "Christian Medical College, Ludhiana",
+  "state": "Punjab",
+  "city": "Ludhiana",
+  "knownType": null
+ },
+ {
+  "name": "Christian Medical College, Vellore",
+  "state": "Tamil Nadu",
+  "city": "Vellore",
+  "knownType": null
+ },
+ {
+  "name": "Coimbatore Medical College, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "knownType": null
+ },
+ {
+  "name": "College of Medicine and JNM Hospital, Kalyani",
+  "state": "West Bengal",
+  "city": "Kalyani",
+  "knownType": null
+ },
+ {
+  "name": "College of Medicine and Sagore Dutta Hospital, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "knownType": null
+ },
+ {
+  "name": "DM Wayanad Institute of Medical Sciences",
+  "state": "Kerala",
+  "city": "",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "DM Wayanad Institute of Medical Sciences, Meppadi",
+  "state": "Kerala",
+  "city": "Meppadi",
+  "knownType": null
+ },
+ {
+  "name": "DMC Ludhiana",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "DY Patil University School of Dentistry, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "DY Patil University School of Medicine, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Darbhanga Medical College & Hospital (DMCH), Laheriasarai",
+  "state": "Bihar",
+  "city": "Laheriasarai",
+  "knownType": null
+ },
+ {
+  "name": "Datta Meghe Institute of Higher Education and Research (DMIMS), Jawaharlal Nehru Medical College, Wardha",
+  "state": "Maharashtra",
+  "city": "Wardha",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Datta Meghe Medical College, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dayanand Medical College & Hospital, Ludhiana",
+  "state": "Punjab",
+  "city": "Ludhiana",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Deccan College of Medical Sciences, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dhanalakshmi Srinivasan Institute of Medical Sciences and Hospital, Perambalur",
+  "state": "Tamil Nadu",
+  "city": "Perambalur",
+  "knownType": null
+ },
+ {
+  "name": "Dhubri Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Diamond Harbour Government Medical College, Diamond Harbour",
+  "state": "West Bengal",
+  "city": "Diamond Harbour",
+  "knownType": "Government"
+ },
+ {
+  "name": "Diphu Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
+  "state": "Punjab",
+  "city": "Mohali",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr BR Ambedkar Medical College, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "Dr BR Ambedkar SIMS, Mohali",
+  "state": "Punjab",
+  "city": "Mohali",
+  "knownType": null
+ },
+ {
+  "name": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Pune — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College Hospital and Research Centre, Pune — NRI seats",
+  "state": "Maharashtra",
+  "city": "Pune — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Kolhapur",
+  "state": "Maharashtra",
+  "city": "Kolhapur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Kolhapur — General category",
+  "state": "Maharashtra",
+  "city": "Kolhapur — General category",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Kolhapur — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Kolhapur — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Kolhapur — NRI seats",
+  "state": "Maharashtra",
+  "city": "Kolhapur — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Navi Mumbai — General category",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — General category",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Navi Mumbai — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Navi Mumbai — NRI seats",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Nerul, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr D Y Patil Medical College, Pimpri, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr DY Patil Dental College and Hospital, Pimpri, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr DY Patil Dental College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr DY Patil Education Society Deemed University, Kolhapur",
+  "state": "Maharashtra",
+  "city": "Kolhapur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr DY Patil Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr NY Tasgaonkar Institute of Medical Sciences, Karjat",
+  "state": "Maharashtra",
+  "city": "Karjat",
+  "knownType": null
+ },
+ {
+  "name": "Dr Panjabrao Deshmukh Memorial Medical College, Amravati",
+  "state": "Maharashtra",
+  "city": "Amravati",
+  "knownType": null
+ },
+ {
+  "name": "Dr Patnam Mahender Reddy Institute of Medical Sciences, Chevella",
+  "state": "Telangana",
+  "city": "Chevella",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr Pinnamaneni Siddhartha Institute of Medical Sciences, Chinoutpalli",
+  "state": "",
+  "city": "Chinoutpalli",
+  "knownType": null
+ },
+ {
+  "name": "Dr Radhakrishnan Government Medical College, Hamirpur",
+  "state": "Himachal Pradesh",
+  "city": "Hamirpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Rajendra Gode Medical College, Amravati",
+  "state": "Maharashtra",
+  "city": "Amravati",
+  "knownType": null
+ },
+ {
+  "name": "Dr Rajendra Prasad Government Medical College (RPGMC), Tanda",
+  "state": "Himachal Pradesh",
+  "city": "Tanda",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Ram Manohar Lohia Institute of Medical Sciences, Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "knownType": null
+ },
+ {
+  "name": "Dr SS Tantia Medical College Hospital and Research Centre, Sri Ganganagar",
+  "state": "Rajasthan",
+  "city": "Sri Ganganagar",
+  "knownType": null
+ },
+ {
+  "name": "Dr Sampurnanand Medical College, Jodhpur",
+  "state": "Rajasthan",
+  "city": "Jodhpur",
+  "knownType": null
+ },
+ {
+  "name": "Dr Shankarrao Chavan Government Medical College, Nanded",
+  "state": "Maharashtra",
+  "city": "Nanded",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Ulhas Patil Medical College and General Hospital, Jalgaon",
+  "state": "Maharashtra",
+  "city": "Jalgaon",
+  "knownType": null
+ },
+ {
+  "name": "Dr VRK Women's Medical College, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr Vaishampayan Memorial Government Medical College, Solapur",
+  "state": "Maharashtra",
+  "city": "Solapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr Vasantrao Pawar Medical College Hospital and Research Center, Adgaon, Nashik",
+  "state": "Maharashtra",
+  "city": "Nashik",
+  "knownType": null
+ },
+ {
+  "name": "Dr Vitthalrao Vikhe Patil Foundation's Medical College and Hospital, Ahmednagar",
+  "state": "Maharashtra",
+  "city": "Ahmednagar",
+  "knownType": null
+ },
+ {
+  "name": "Dr Yashwant Singh Parmar Government Medical College, Nahan",
+  "state": "Himachal Pradesh",
+  "city": "Nahan",
+  "knownType": "Government"
+ },
+ {
+  "name": "Dr. B.S. Kushwah Institute of Medical College, Kanpur",
+  "state": "Uttar Pradesh",
+  "city": "Kanpur",
+  "knownType": null
+ },
+ {
+  "name": "Dr. D Y Patil Medical College, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Dr. Kiran C. Patel Medical College & Research Institute, Bharuch",
+  "state": "",
+  "city": "Bharuch",
+  "knownType": null
+ },
+ {
+  "name": "Dr. M. K. Shah Medical College and Research Centre, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": null
+ },
+ {
+  "name": "Dr. N. D. Desai Faculty of Medical Science and Research, Nadiad",
+  "state": "",
+  "city": "Nadiad",
+  "knownType": null
+ },
+ {
+  "name": "Dumka Medical College",
+  "state": "Jharkhand",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "ESI-PGIMSR Medical College, Joka, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "knownType": null
+ },
+ {
+  "name": "ESI-PGIMSR, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "ESIC Dental College, Gulbarga",
+  "state": "Karnataka",
+  "city": "Gulbarga",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College & Hospital, Bihta, Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College and Hospital, Alwar",
+  "state": "Rajasthan",
+  "city": "Alwar",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College and Hospital, Basaidarapur, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College and PGIMSR, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College, Basaidarapur",
+  "state": "Delhi",
+  "city": "Basaidarapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College, Naroda-Bapunagar, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "ESIC Medical College, Sanathnagar, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Era's Lucknow Medical College & Hospital, Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "F.H. Medical College & Hospital, Agra",
+  "state": "Uttar Pradesh",
+  "city": "Agra",
+  "knownType": null
+ },
+ {
+  "name": "Faculty of Dental Sciences, King George's Medical University, Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "knownType": null
+ },
+ {
+  "name": "Faculty of Dental Sciences, MS Ramaiah University, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "Fakhruddin Ali Ahmed Medical College, Barpeta",
+  "state": "Assam",
+  "city": "Barpeta",
+  "knownType": null
+ },
+ {
+  "name": "Fakir Mohan Medical College and Hospital, Balasore",
+  "state": "Odisha",
+  "city": "Balasore",
+  "knownType": null
+ },
+ {
+  "name": "Father Colombo Institute of Medical Sciences, Warangal",
+  "state": "Telangana",
+  "city": "Warangal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Father Muller Medical College, Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "knownType": null
+ },
+ {
+  "name": "Fathima Institute of Medical Sciences, Kadapa",
+  "state": "",
+  "city": "Kadapa",
+  "knownType": null
+ },
+ {
+  "name": "G S Medical College & Hospital, Hapur",
+  "state": "Uttar Pradesh",
+  "city": "Hapur",
+  "knownType": null
+ },
+ {
+  "name": "GCS Medical College, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": null
+ },
+ {
+  "name": "GGS Faridkot",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "GITAM Institute of Medical Sciences and Research, Visakhapatnam",
+  "state": "Andhra Pradesh",
+  "city": "Visakhapatnam",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "GMC Amritsar",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "GMC Patiala",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "GMCH Chandigarh",
+  "state": "Chandigarh",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Dharpur, Patan",
+  "state": "",
+  "city": "Patan",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Gandhinagar",
+  "state": "",
+  "city": "Gandhinagar",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Godhra",
+  "state": "",
+  "city": "Godhra",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Gotri, Vadodara",
+  "state": "Gujarat",
+  "city": "Vadodara",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Himmatnagar",
+  "state": "",
+  "city": "Himmatnagar",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Junagadh",
+  "state": "",
+  "city": "Junagadh",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Morbi",
+  "state": "",
+  "city": "Morbi",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Navsari",
+  "state": "",
+  "city": "Navsari",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Porbandar",
+  "state": "",
+  "city": "Porbandar",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Rajpipla",
+  "state": "",
+  "city": "Rajpipla",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Sola, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Vadnagar",
+  "state": "",
+  "city": "Vadnagar",
+  "knownType": null
+ },
+ {
+  "name": "GMERS Medical College, Valsad",
+  "state": "",
+  "city": "Valsad",
+  "knownType": null
+ },
+ {
+  "name": "GSL Medical College and General Hospital, Rajahmundry",
+  "state": "",
+  "city": "Rajahmundry",
+  "knownType": null
+ },
+ {
+  "name": "Gadag Institute of Medical Sciences, Gadag",
+  "state": "Karnataka",
+  "city": "Gadag",
+  "knownType": null
+ },
+ {
+  "name": "Gajra Raja Medical College, Gwalior",
+  "state": "Madhya Pradesh",
+  "city": "Gwalior",
+  "knownType": null
+ },
+ {
+  "name": "Gandhi Medical College, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": null
+ },
+ {
+  "name": "Gandhi Medical College, Secunderabad",
+  "state": "Telangana",
+  "city": "Secunderabad",
+  "knownType": null
+ },
+ {
+  "name": "Ganesh Shankar Vidyarthi Memorial (GSVM) Medical College, Kanpur",
+  "state": "Uttar Pradesh",
+  "city": "Kanpur",
+  "knownType": null
+ },
+ {
+  "name": "Gauhati Medical College, Guwahati",
+  "state": "Assam",
+  "city": "Guwahati",
+  "knownType": null
+ },
+ {
+  "name": "Gautam Buddha Chikitsa Mahavidyalaya, Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": null
+ },
+ {
+  "name": "Gayatri Vidya Parishad Institute of Health Care and Medical Technology, Visakhapatnam",
+  "state": "Andhra Pradesh",
+  "city": "Visakhapatnam",
+  "knownType": null
+ },
+ {
+  "name": "Geetanjali Medical College and Hospital, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Goa Medical College, Bambolim (Panaji)",
+  "state": "Goa",
+  "city": "Bambolim",
+  "knownType": null
+ },
+ {
+  "name": "Gouri Devi Institute of Medical Sciences and Hospital, Durgapur",
+  "state": "West Bengal",
+  "city": "Durgapur",
+  "knownType": null
+ },
+ {
+  "name": "Government College of Dentistry, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College and Hospital, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College and Hospital, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College and Hospital, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College and Hospital, Jamnagar",
+  "state": "Gujarat",
+  "city": "Jamnagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College and Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College and Hospital, Vijayawada",
+  "state": "Andhra Pradesh",
+  "city": "Vijayawada",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College and Research Institute, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College, Kadapa",
+  "state": "Andhra Pradesh",
+  "city": "Kadapa",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College, Kozhikode",
+  "state": "Kerala",
+  "city": "Kozhikode",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College, Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College, Silchar",
+  "state": "Assam",
+  "city": "Silchar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dental College, Thrissur",
+  "state": "Kerala",
+  "city": "Thrissur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Dharmapuri Medical College, Dharmapuri",
+  "state": "Tamil Nadu",
+  "city": "Dharmapuri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Doon Medical College, Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Institute of Medical Sciences, Greater Noida",
+  "state": "Uttar Pradesh",
+  "city": "Greater Noida",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Kilpauk Medical College, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
+  "state": "Chandigarh",
+  "city": "Chandigarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and Associated Hospital, Rajouri",
+  "state": "Jammu & Kashmir",
+  "city": "Rajouri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and District Hospital, Ratnagiri",
+  "state": "Maharashtra",
+  "city": "Ratnagiri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and ESIC Hospital, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and Hospital, Bhandara",
+  "state": "Maharashtra",
+  "city": "Bhandara",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and Hospital, Jalgaon",
+  "state": "Maharashtra",
+  "city": "Jalgaon",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and Hospital, Sundargarh",
+  "state": "Odisha",
+  "city": "Sundargarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College and Hospital, Washim",
+  "state": "Maharashtra",
+  "city": "Washim",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Akola",
+  "state": "Maharashtra",
+  "city": "Akola",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Alibag",
+  "state": "Maharashtra",
+  "city": "Alibag",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Alwar",
+  "state": "Rajasthan",
+  "city": "Alwar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ambedkar Nagar",
+  "state": "Uttar Pradesh",
+  "city": "Ambedkar Nagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ambernath",
+  "state": "Maharashtra",
+  "city": "Ambernath",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Amravati",
+  "state": "Maharashtra",
+  "city": "Amravati",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Amritsar",
+  "state": "Punjab",
+  "city": "Amritsar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Anantapur",
+  "state": "Andhra Pradesh",
+  "city": "Anantapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Anantnag",
+  "state": "Jammu & Kashmir",
+  "city": "Anantnag",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ariyalur",
+  "state": "Tamil Nadu",
+  "city": "Ariyalur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Aurangabad",
+  "state": "Maharashtra",
+  "city": "Aurangabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ayodhya (Faizabad)",
+  "state": "Uttar Pradesh",
+  "city": "Ayodhya",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Azamgarh",
+  "state": "Uttar Pradesh",
+  "city": "Azamgarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Badaun",
+  "state": "Uttar Pradesh",
+  "city": "Badaun",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Bahraich",
+  "state": "Uttar Pradesh",
+  "city": "Bahraich",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Banda (Rani Durgavati Medical College)",
+  "state": "Uttar Pradesh",
+  "city": "Banda",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Banswara",
+  "state": "Rajasthan",
+  "city": "Banswara",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Baramati",
+  "state": "Maharashtra",
+  "city": "Baramati",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Baramulla",
+  "state": "Jammu & Kashmir",
+  "city": "Baramulla",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Baran",
+  "state": "Rajasthan",
+  "city": "Baran",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Barmer",
+  "state": "Rajasthan",
+  "city": "Barmer",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Basti",
+  "state": "Uttar Pradesh",
+  "city": "Basti",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Bettiah (GMC Bettiah)",
+  "state": "Bihar",
+  "city": "Bettiah",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Bhadradri Kothagudem",
+  "state": "Telangana",
+  "city": "Bhadradri Kothagudem",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Bharatpur",
+  "state": "Rajasthan",
+  "city": "Bharatpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Bhavnagar",
+  "state": "Gujarat",
+  "city": "Bhavnagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Bundi",
+  "state": "Rajasthan",
+  "city": "Bundi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Chandrapur",
+  "state": "Maharashtra",
+  "city": "Chandrapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Chittorgarh",
+  "state": "Rajasthan",
+  "city": "Chittorgarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Churachandpur",
+  "state": "Manipur",
+  "city": "Churachandpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Datia",
+  "state": "Madhya Pradesh",
+  "city": "Datia",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Dausa",
+  "state": "Rajasthan",
+  "city": "Dausa",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Dholpur",
+  "state": "Rajasthan",
+  "city": "Dholpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Dindigul",
+  "state": "Tamil Nadu",
+  "city": "Dindigul",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Doda",
+  "state": "Jammu & Kashmir",
+  "city": "Doda",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Dungarpur",
+  "state": "Rajasthan",
+  "city": "Dungarpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Eluru",
+  "state": "Andhra Pradesh",
+  "city": "Eluru",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ernakulam",
+  "state": "Kerala",
+  "city": "Ernakulam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Gadchiroli",
+  "state": "Maharashtra",
+  "city": "Gadchiroli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Gondia",
+  "state": "Maharashtra",
+  "city": "Gondia",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Haldwani",
+  "state": "Uttarakhand",
+  "city": "Haldwani",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Handwara",
+  "state": "Jammu & Kashmir",
+  "city": "Handwara",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Hanumangarh",
+  "state": "Rajasthan",
+  "city": "Hanumangarh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Haridwar",
+  "state": "Uttarakhand",
+  "city": "Haridwar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Hingoli",
+  "state": "Maharashtra",
+  "city": "Hingoli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Idukki",
+  "state": "Kerala",
+  "city": "Idukki",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jagtial",
+  "state": "Telangana",
+  "city": "Jagtial",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jaisalmer",
+  "state": "Rajasthan",
+  "city": "Jaisalmer",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jalaun",
+  "state": "Uttar Pradesh",
+  "city": "Jalaun",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jalna",
+  "state": "Maharashtra",
+  "city": "Jalna",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jammu",
+  "state": "Jammu & Kashmir",
+  "city": "Jammu",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jangaon",
+  "state": "Telangana",
+  "city": "Jangaon",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jayashankar Bhupalpally",
+  "state": "Telangana",
+  "city": "Jayashankar Bhupalpally",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jhunjhunu",
+  "state": "Rajasthan",
+  "city": "Jhunjhunu",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Jogulamba Gadwal",
+  "state": "Telangana",
+  "city": "Jogulamba Gadwal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kallakurichi",
+  "state": "Tamil Nadu",
+  "city": "Kallakurichi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kamareddy",
+  "state": "Telangana",
+  "city": "Kamareddy",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kanker (Late Smt. Indira Gandhi Memorial GMC)",
+  "state": "Chhattisgarh",
+  "city": "Kanker",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kannauj",
+  "state": "Uttar Pradesh",
+  "city": "Kannauj",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Karauli",
+  "state": "Rajasthan",
+  "city": "Karauli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Karimnagar",
+  "state": "Telangana",
+  "city": "Karimnagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Karur",
+  "state": "Tamil Nadu",
+  "city": "Karur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kasaragod",
+  "state": "Kerala",
+  "city": "Kasaragod",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kathua",
+  "state": "Jammu & Kashmir",
+  "city": "Kathua",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Khammam",
+  "state": "Telangana",
+  "city": "Khammam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kodangal",
+  "state": "Telangana",
+  "city": "Kodangal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kollam",
+  "state": "Kerala",
+  "city": "Kollam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Konni",
+  "state": "Kerala",
+  "city": "Konni",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kota",
+  "state": "Rajasthan",
+  "city": "Kota",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kottayam",
+  "state": "Kerala",
+  "city": "Kottayam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Krishnagiri",
+  "state": "Tamil Nadu",
+  "city": "Krishnagiri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Kumuram Bheem Asifabad",
+  "state": "Telangana",
+  "city": "Kumuram Bheem Asifabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Latur",
+  "state": "Maharashtra",
+  "city": "Latur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Machilipatnam",
+  "state": "",
+  "city": "Machilipatnam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Mahabubabad",
+  "state": "Telangana",
+  "city": "Mahabubabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Mahabubnagar",
+  "state": "Telangana",
+  "city": "Mahabubnagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Maheshwaram",
+  "state": "Telangana",
+  "city": "Maheshwaram",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Mancherial",
+  "state": "Telangana",
+  "city": "Mancherial",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Manjeri",
+  "state": "Kerala",
+  "city": "Manjeri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Medak",
+  "state": "Telangana",
+  "city": "Medak",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Miraj",
+  "state": "Maharashtra",
+  "city": "Miraj",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Mulugu",
+  "state": "Telangana",
+  "city": "Mulugu",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nagapattinam",
+  "state": "Tamil Nadu",
+  "city": "Nagapattinam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nagarkurnool",
+  "state": "Telangana",
+  "city": "Nagarkurnool",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nagaur",
+  "state": "Rajasthan",
+  "city": "Nagaur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nalgonda",
+  "state": "Telangana",
+  "city": "Nalgonda",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Namakkal",
+  "state": "Tamil Nadu",
+  "city": "Namakkal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nandurbar",
+  "state": "Maharashtra",
+  "city": "Nandurbar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nandyal",
+  "state": "",
+  "city": "Nandyal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Narayanpet",
+  "state": "Telangana",
+  "city": "Narayanpet",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Narsampet",
+  "state": "Telangana",
+  "city": "Narsampet",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nashik",
+  "state": "Maharashtra",
+  "city": "Nashik",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nilgiris",
+  "state": "Tamil Nadu",
+  "city": "Nilgiris",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nirmal",
+  "state": "Telangana",
+  "city": "Nirmal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Nizamabad",
+  "state": "Telangana",
+  "city": "Nizamabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Omandurar, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Osmanabad",
+  "state": "Maharashtra",
+  "city": "Osmanabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Paderu",
+  "state": "",
+  "city": "Paderu",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Palakkad",
+  "state": "Kerala",
+  "city": "Palakkad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Pali",
+  "state": "Rajasthan",
+  "city": "Pali",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Parbhani",
+  "state": "Maharashtra",
+  "city": "Parbhani",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Patiala",
+  "state": "Punjab",
+  "city": "Patiala",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Purnea (GMC Purnea)",
+  "state": "Bihar",
+  "city": "Purnea",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Quthbullapur",
+  "state": "Telangana",
+  "city": "Quthbullapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Rajamahendravaram",
+  "state": "Andhra Pradesh",
+  "city": "Rajamahendravaram",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Rajanna Sircilla",
+  "state": "Telangana",
+  "city": "Rajanna Sircilla",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Rajnandgaon (Bharat Ratna A.B. Vajpayee Memorial GMC)",
+  "state": "Chhattisgarh",
+  "city": "Rajnandgaon",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Rajouri",
+  "state": "Jammu & Kashmir",
+  "city": "Rajouri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ramagundam",
+  "state": "Telangana",
+  "city": "Ramagundam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ramanathapuram",
+  "state": "Tamil Nadu",
+  "city": "Ramanathapuram",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Ratlam",
+  "state": "Madhya Pradesh",
+  "city": "Ratlam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Saharanpur",
+  "state": "Uttar Pradesh",
+  "city": "Saharanpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sangareddy",
+  "state": "Telangana",
+  "city": "Sangareddy",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Satara",
+  "state": "Maharashtra",
+  "city": "Satara",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Satna",
+  "state": "Madhya Pradesh",
+  "city": "Satna",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sawai Madhopur",
+  "state": "Rajasthan",
+  "city": "Sawai Madhopur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Seoni",
+  "state": "Madhya Pradesh",
+  "city": "Seoni",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Siddipet",
+  "state": "Telangana",
+  "city": "Siddipet",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sindhudurg",
+  "state": "Maharashtra",
+  "city": "Sindhudurg",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sirohi",
+  "state": "Rajasthan",
+  "city": "Sirohi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Sri Ganganagar",
+  "state": "Rajasthan",
+  "city": "Sri Ganganagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Srikakulam",
+  "state": "",
+  "city": "Srikakulam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Srinagar",
+  "state": "Jammu & Kashmir",
+  "city": "Srinagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Surat",
+  "state": "Gujarat",
+  "city": "Surat",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Suryapet",
+  "state": "Telangana",
+  "city": "Suryapet",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Thiruvallur",
+  "state": "Tamil Nadu",
+  "city": "Thiruvallur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Thiruvananthapuram",
+  "state": "Kerala",
+  "city": "Thiruvananthapuram",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Tirunelveli",
+  "state": "Tamil Nadu",
+  "city": "Tirunelveli",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Tiruppur",
+  "state": "Tamil Nadu",
+  "city": "Tiruppur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Tonk",
+  "state": "Rajasthan",
+  "city": "Tonk",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Udhampur",
+  "state": "Jammu & Kashmir",
+  "city": "Udhampur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Vadodara (Baroda)",
+  "state": "Gujarat",
+  "city": "Vadodara",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Vikarabad",
+  "state": "Telangana",
+  "city": "Vikarabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Virudhunagar",
+  "state": "Tamil Nadu",
+  "city": "Virudhunagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Vizianagaram",
+  "state": "Andhra Pradesh",
+  "city": "Vizianagaram",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Wanaparthy",
+  "state": "Telangana",
+  "city": "Wanaparthy",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Wayanad",
+  "state": "Kerala",
+  "city": "Wayanad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical College, Yadadri Bhuvanagiri",
+  "state": "Telangana",
+  "city": "Yadadri Bhuvanagiri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Medical Colleges, J&K (State Quota, all govt. colleges combined - aggregate last closing rank)",
+  "state": "Jammu & Kashmir",
+  "city": "all govt. colleges combined - aggregate last closing rank)",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Mohan Kumaramangalam Medical College, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Pudukkottai Medical College, Pudukkottai",
+  "state": "Tamil Nadu",
+  "city": "Pudukkottai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Sivagangai Medical College, Sivagangai",
+  "state": "Tamil Nadu",
+  "city": "Sivagangai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Thiruvarur Medical College, Thiruvarur",
+  "state": "Tamil Nadu",
+  "city": "Thiruvarur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Vellore Medical College, Vellore",
+  "state": "Tamil Nadu",
+  "city": "Vellore",
+  "knownType": "Government"
+ },
+ {
+  "name": "Government Villupuram Medical College, Villupuram",
+  "state": "Tamil Nadu",
+  "city": "Villupuram",
+  "knownType": "Government"
+ },
+ {
+  "name": "Grant Government Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Grant Medical College & Sir JJ Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Grant Medical College and Sir JJ Group of Hospitals, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Grant Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Great Eastern Medical School and Hospital, Srikakulam",
+  "state": "",
+  "city": "Srikakulam",
+  "knownType": null
+ },
+ {
+  "name": "Gujarat Adani Institute of Medical Sciences, Bhuj",
+  "state": "",
+  "city": "Bhuj",
+  "knownType": null
+ },
+ {
+  "name": "Gulbarga Institute of Medical Sciences, Kalaburagi",
+  "state": "Karnataka",
+  "city": "Kalaburagi",
+  "knownType": null
+ },
+ {
+  "name": "Guntur Medical College, Guntur",
+  "state": "Andhra Pradesh",
+  "city": "Guntur",
+  "knownType": null
+ },
+ {
+  "name": "Guru Gobind Singh Medical College & Hospital, Faridkot",
+  "state": "Punjab",
+  "city": "Faridkot",
+  "knownType": null
+ },
+ {
+  "name": "HBT Medical College & Dr. R.N. Cooper Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "HBT Medical College and Dr RN Cooper Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "HBT Medical College and Dr RN Cooper Municipal Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Hamdard Institute of Medical Sciences and Research (HIMSR)",
+  "state": "Delhi",
+  "city": "",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Hamdard Institute of Medical Sciences and Research (HIMSR), Delhi",
+  "state": "Delhi",
+  "city": "Delhi",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Hamdard Institute of Medical Sciences and Research, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Hassan Institute of Medical Sciences, Hassan",
+  "state": "Karnataka",
+  "city": "Hassan",
+  "knownType": null
+ },
+ {
+  "name": "Haveri Institute of Medical Sciences (HaIMS), Haveri",
+  "state": "Karnataka",
+  "city": "Haveri",
+  "knownType": null
+ },
+ {
+  "name": "Hazaribagh Medical College",
+  "state": "Jharkhand",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Heritage Institute of Medical Sciences, Varanasi",
+  "state": "Uttar Pradesh",
+  "city": "Varanasi",
+  "knownType": null
+ },
+ {
+  "name": "Hi-Tech Medical College and Hospital, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Hi-Tech Medical College and Hospital, Rourkela",
+  "state": "Odisha",
+  "city": "Rourkela",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Himachal Pradesh Government Dental College and Hospital, Shimla",
+  "state": "Himachal Pradesh",
+  "city": "Shimla",
+  "knownType": "Government"
+ },
+ {
+  "name": "Himalayan Institute of Medical Sciences (HIMS), SRHU, Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Himalayan Institute of Medical Sciences, Swami Rama Himalayan University, Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": null
+ },
+ {
+  "name": "Hind Institute of Medical Sciences, Barabanki",
+  "state": "Uttar Pradesh",
+  "city": "Barabanki",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Hind Institute of Medical Sciences, Sitapur",
+  "state": "Uttar Pradesh",
+  "city": "Sitapur",
+  "knownType": null
+ },
+ {
+  "name": "ICARE Institute of Medical Sciences and Research, Haldia",
+  "state": "West Bengal",
+  "city": "Haldia",
+  "knownType": null
+ },
+ {
+  "name": "IPGMER Kolkata",
+  "state": "West Bengal",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "IQ City Medical College, Durgapur",
+  "state": "West Bengal",
+  "city": "Durgapur",
+  "knownType": null
+ },
+ {
+  "name": "IRT Perundurai Medical College, Perundurai",
+  "state": "Tamil Nadu",
+  "city": "Perundurai",
+  "knownType": null
+ },
+ {
+  "name": "ITS Centre for Dental Studies and Research, Ghaziabad",
+  "state": "Uttar Pradesh",
+  "city": "Ghaziabad",
+  "knownType": null
+ },
+ {
+  "name": "ITS Centre for Dental Studies and Research, Muradnagar, Ghaziabad",
+  "state": "Uttar Pradesh",
+  "city": "Ghaziabad",
+  "knownType": null
+ },
+ {
+  "name": "Index Medical College Hospital and Research Center, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Indian Institute of Medical Science and Research, Jalna",
+  "state": "Maharashtra",
+  "city": "Jalna",
+  "knownType": null
+ },
+ {
+  "name": "Indira Gandhi Government Medical College and Hospital, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Indira Gandhi Institute of Medical Sciences (IGIMS), Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "knownType": null
+ },
+ {
+  "name": "Indira Gandhi Medical College (IGMC), Shimla",
+  "state": "Himachal Pradesh",
+  "city": "Shimla",
+  "knownType": null
+ },
+ {
+  "name": "Indira Gandhi Medical College, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": null
+ },
+ {
+  "name": "Institute of Medical Sciences and SUM Hospital, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Integral Institute of Medical Sciences & Research, Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "knownType": null
+ },
+ {
+  "name": "J N Medical College, KLE Academy of Higher Education, Belagavi",
+  "state": "Karnataka",
+  "city": "Belagavi",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "J R Medical College and Hospital, Tamil Nadu",
+  "state": "Tamil Nadu",
+  "city": "Tamil Nadu",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "JIPMER Karaikal Campus",
+  "state": "Puducherry",
+  "city": "Karaikal Campus",
+  "knownType": "Government"
+ },
+ {
+  "name": "JIPMER Puducherry",
+  "state": "Puducherry",
+  "city": "Puducherry",
+  "knownType": "Government"
+ },
+ {
+  "name": "JIS School of Medical Science and Research, Howrah",
+  "state": "West Bengal",
+  "city": "Howrah",
+  "knownType": null
+ },
+ {
+  "name": "JJM Medical College, Davangere",
+  "state": "Karnataka",
+  "city": "Davangere",
+  "knownType": null
+ },
+ {
+  "name": "JN Kapoor DAV Centenary Dental College, Yamuna Nagar",
+  "state": "Haryana",
+  "city": "Yamuna Nagar",
+  "knownType": null
+ },
+ {
+  "name": "JN Medical College (KLE), Belgaum",
+  "state": "Karnataka",
+  "city": "Belgaum",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "JNMC AMU Aligarh",
+  "state": "Uttar Pradesh",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "JSS Medical College, Mysore",
+  "state": "Karnataka",
+  "city": "Mysore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "JSS Medical College, Mysuru",
+  "state": "Karnataka",
+  "city": "Mysuru",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jagadguru Gangadhar Mahaswamigalu Moorusavirmath (JGMM) Medical College, Gadag/Hubli (KLE Academy)",
+  "state": "Karnataka",
+  "city": "Gadag/Hubli",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jagannath Gupta Institute of Medical Sciences and Hospital, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "knownType": null
+ },
+ {
+  "name": "Jaipur National University Institute for Medical Sciences and Research Centre, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": null
+ },
+ {
+  "name": "Jalpaiguri Government Medical College, Jalpaiguri",
+  "state": "West Bengal",
+  "city": "Jalpaiguri",
+  "knownType": "Government"
+ },
+ {
+  "name": "Jananayak Karpoori Thakur Medical College & Hospital, Madhepura (JKTMCH)",
+  "state": "Bihar",
+  "city": "Madhepura",
+  "knownType": null
+ },
+ {
+  "name": "Jawaharlal Nehru Institute of Medical Sciences (JNIMS), Imphal",
+  "state": "Manipur",
+  "city": "Imphal",
+  "knownType": null
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College & Hospital (JLNMCH), Bhagalpur",
+  "state": "Bihar",
+  "city": "Bhagalpur",
+  "knownType": null
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College (Datta Meghe), Wardha",
+  "state": "Maharashtra",
+  "city": "Wardha",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Ajmer",
+  "state": "Rajasthan",
+  "city": "Ajmer",
+  "knownType": null
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, DMIMS, Wardha",
+  "state": "Maharashtra",
+  "city": "Wardha",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Wardha — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, Datta Meghe Institute (DMIHER), Wardha — NRI seats",
+  "state": "Maharashtra",
+  "city": "Wardha — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, KLE Academy of Higher Education and Research, Belagavi",
+  "state": "Karnataka",
+  "city": "Belagavi",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jawaharlal Nehru Medical College, KLE, Belagavi",
+  "state": "Karnataka",
+  "city": "Belagavi",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Jhalawar Hospital & Medical College, Jhalawar",
+  "state": "Rajasthan",
+  "city": "Jhalawar",
+  "knownType": null
+ },
+ {
+  "name": "Jorhat Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Jubilee Mission Medical College & Research Institute, Thrissur",
+  "state": "Kerala",
+  "city": "Thrissur",
+  "knownType": null
+ },
+ {
+  "name": "K S Hegde Medical Academy (KSHEMA/Nitte), Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "KAP Viswanatham Government Medical College, Tiruchirappalli",
+  "state": "Tamil Nadu",
+  "city": "Tiruchirappalli",
+  "knownType": "Government"
+ },
+ {
+  "name": "KGMU Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "KJ Somaiya Medical College and Research Centre, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "KLE VK Institute of Dental Sciences and Hospital, Belagavi",
+  "state": "Karnataka",
+  "city": "Belagavi",
+  "knownType": null
+ },
+ {
+  "name": "KLE VK Institute of Dental Sciences and Hospital, Belgaum",
+  "state": "Karnataka",
+  "city": "Belgaum",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "KMC Medical College & Hospital, Maharajganj",
+  "state": "Uttar Pradesh",
+  "city": "Maharajganj",
+  "knownType": null
+ },
+ {
+  "name": "KMCH Institute of Health Sciences and Research, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "knownType": null
+ },
+ {
+  "name": "KMCT Medical College, Kozhikode",
+  "state": "Kerala",
+  "city": "Kozhikode",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "KMCT Medical College, Manassery",
+  "state": "Kerala",
+  "city": "Manassery",
+  "knownType": null
+ },
+ {
+  "name": "KPC Medical College and Hospital, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "knownType": null
+ },
+ {
+  "name": "KS Hegde Medical Academy (Nitte), Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Kakatiya Medical College, Warangal",
+  "state": "Telangana",
+  "city": "Warangal",
+  "knownType": null
+ },
+ {
+  "name": "Kalinga Institute of Medical Sciences, Bhubaneswar",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Kalpana Chawla Government Medical College, Karnal",
+  "state": "Haryana",
+  "city": "Karnal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Kalyan Singh Government Medical College, Bulandshahr",
+  "state": "Uttar Pradesh",
+  "city": "Bulandshahr",
+  "knownType": "Government"
+ },
+ {
+  "name": "Kamineni Academy of Medical Sciences and Research Centre, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Kamineni Institute of Medical Sciences, Narketpally",
+  "state": "Telangana",
+  "city": "Narketpally",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Kanti Devi Medical College, Hospital & Research Centre, Mathura",
+  "state": "Uttar Pradesh",
+  "city": "Mathura",
+  "knownType": null
+ },
+ {
+  "name": "Kanyakumari Government Medical College, Asaripallam",
+  "state": "Tamil Nadu",
+  "city": "Asaripallam",
+  "knownType": "Government"
+ },
+ {
+  "name": "Karnataka Institute of Medical Sciences, Hubli",
+  "state": "Karnataka",
+  "city": "Hubli",
+  "knownType": null
+ },
+ {
+  "name": "Karpaga Vinayaga Institute of Medical Sciences, Palayanoor",
+  "state": "Tamil Nadu",
+  "city": "Palayanoor",
+  "knownType": null
+ },
+ {
+  "name": "Karpagam Faculty of Medical Sciences, Coimbatore",
+  "state": "Tamil Nadu",
+  "city": "Coimbatore",
+  "knownType": null
+ },
+ {
+  "name": "Karuna Medical College, Palakkad",
+  "state": "Kerala",
+  "city": "Palakkad",
+  "knownType": null
+ },
+ {
+  "name": "Karwar Institute of Medical Sciences, Karwar",
+  "state": "Karnataka",
+  "city": "Karwar",
+  "knownType": null
+ },
+ {
+  "name": "Kasturba Health Society's Mahatma Gandhi Institute of Medical Sciences, Sevagram",
+  "state": "Maharashtra",
+  "city": "Sevagram",
+  "knownType": null
+ },
+ {
+  "name": "Kasturba Medical College, Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Kasturba Medical College, Manipal",
+  "state": "Karnataka",
+  "city": "Manipal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Katihar Medical College (KMC), Katihar",
+  "state": "Bihar",
+  "city": "Katihar",
+  "knownType": null
+ },
+ {
+  "name": "Katuri Medical College and Hospital, Guntur",
+  "state": "Andhra Pradesh",
+  "city": "Guntur",
+  "knownType": null
+ },
+ {
+  "name": "Kempegowda Institute of Medical Sciences, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "King George's Medical University, Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "knownType": null
+ },
+ {
+  "name": "Kiran Medical College, Surat",
+  "state": "Gujarat",
+  "city": "Surat",
+  "knownType": null
+ },
+ {
+  "name": "Kodagu Institute of Medical Sciences, Madikeri",
+  "state": "Karnataka",
+  "city": "Madikeri",
+  "knownType": null
+ },
+ {
+  "name": "Kokrajhar Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Konaseema Institute of Medical Sciences and Research Foundation, Amalapuram",
+  "state": "",
+  "city": "Amalapuram",
+  "knownType": null
+ },
+ {
+  "name": "Koppal Institute of Medical Sciences, Koppal",
+  "state": "Karnataka",
+  "city": "Koppal",
+  "knownType": null
+ },
+ {
+  "name": "Krishna Institute of Medical Sciences (KIMS), Karad — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Karad — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Krishna Institute of Medical Sciences (KIMS), Karad — NRI seats",
+  "state": "Maharashtra",
+  "city": "Karad — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Krishna Institute of Medical Sciences, Karad",
+  "state": "Maharashtra",
+  "city": "Karad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Krishna Mohan Medical College & Hospital, Mathura",
+  "state": "Uttar Pradesh",
+  "city": "Mathura",
+  "knownType": null
+ },
+ {
+  "name": "Krishna Vishwa Vidyapeeth, Karad",
+  "state": "Maharashtra",
+  "city": "Karad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Kurnool Medical College, Kurnool",
+  "state": "Andhra Pradesh",
+  "city": "Kurnool",
+  "knownType": null
+ },
+ {
+  "name": "LN Medical College, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Lady Hardinge Medical College (LHMC)",
+  "state": "Delhi",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Lady Hardinge Medical College (LHMC), New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "knownType": null
+ },
+ {
+  "name": "Lady Hardinge Medical College for Women, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "knownType": null
+ },
+ {
+  "name": "Lakhimpur Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Lala Lajpat Rai Memorial (LLRM) Medical College, Meerut",
+  "state": "Uttar Pradesh",
+  "city": "Meerut",
+  "knownType": null
+ },
+ {
+  "name": "Lokmanya Tilak Municipal Medical College (LTMMC), Sion, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Lokmanya Tilak Municipal Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Lord Buddha Koshi Medical College & Hospital, Saharsa",
+  "state": "Bihar",
+  "city": "Saharsa",
+  "knownType": null
+ },
+ {
+  "name": "M S Ramaiah Medical College, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "MES Medical College, Perinthalmanna",
+  "state": "Kerala",
+  "city": "Perinthalmanna",
+  "knownType": null
+ },
+ {
+  "name": "MGM Medical College and Hospital, Navi Mumbai — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MGM Medical College and Hospital, Navi Mumbai — NRI seats",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MGM Medical College, Aurangabad — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Aurangabad — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MGM Medical College, Aurangabad — NRI seats",
+  "state": "Maharashtra",
+  "city": "Aurangabad — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MGM Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MIMER Medical College, Talegaon, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": null
+ },
+ {
+  "name": "MKCG Medical College, Berhampur",
+  "state": "Odisha",
+  "city": "Berhampur",
+  "knownType": null
+ },
+ {
+  "name": "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
+  "state": "Haryana",
+  "city": "Mullana",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MNR Medical College and Hospital, Sangareddy",
+  "state": "Telangana",
+  "city": "Sangareddy",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "MS Ramaiah Medical College, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "MVJ Medical College and Research Hospital, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "Madhubani Medical College, Madhubani",
+  "state": "Bihar",
+  "city": "Madhubani",
+  "knownType": null
+ },
+ {
+  "name": "Madras Medical College Chennai",
+  "state": "Tamil Nadu",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Madurai Medical College, Madurai",
+  "state": "Tamil Nadu",
+  "city": "Madurai",
+  "knownType": null
+ },
+ {
+  "name": "Maharaja Agrasen Medical College, Agroha (Hisar)",
+  "state": "Haryana",
+  "city": "Agroha",
+  "knownType": null
+ },
+ {
+  "name": "Maharaja Jajati Keshari Medical College and Hospital, Jajpur",
+  "state": "Odisha",
+  "city": "Jajpur",
+  "knownType": null
+ },
+ {
+  "name": "Maharaja Jitendra Narayan Medical College and Hospital, Cooch Behar",
+  "state": "West Bengal",
+  "city": "Cooch Behar",
+  "knownType": null
+ },
+ {
+  "name": "Maharajahs Institute of Medical Sciences, Nellimarla",
+  "state": "",
+  "city": "Nellimarla",
+  "knownType": null
+ },
+ {
+  "name": "Maharani Laxmi Bai Medical College, Jhansi",
+  "state": "Uttar Pradesh",
+  "city": "Jhansi",
+  "knownType": null
+ },
+ {
+  "name": "Maharashtra Institute of Medical Education and Research (MIMER), Talegaon, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": null
+ },
+ {
+  "name": "Maharashtra Institute of Medical Sciences and Research, Latur",
+  "state": "Maharashtra",
+  "city": "Latur",
+  "knownType": null
+ },
+ {
+  "name": "Maharishi Chyawan Medical College, Koriawas (Rewari)",
+  "state": "Haryana",
+  "city": "Koriawas",
+  "knownType": null
+ },
+ {
+  "name": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana",
+  "state": "Haryana",
+  "city": "Mullana",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana, Ambala",
+  "state": "Haryana",
+  "city": "Ambala",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Maharshi Devraha Baba Autonomous State Medical College, Deoria",
+  "state": "Uttar Pradesh",
+  "city": "Deoria",
+  "knownType": "Government"
+ },
+ {
+  "name": "Mahatma Gandhi Medical College & Research Institute, SBV Puducherry",
+  "state": "Puducherry",
+  "city": "SBV Puducherry",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Mahatma Gandhi Medical College and Hospital, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Mahatma Gandhi Medical College and Research Institute (MGMCRI), Puducherry",
+  "state": "Puducherry",
+  "city": "Puducherry",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Mahatma Gandhi Memorial (MGM) Medical College, Jamshedpur",
+  "state": "Jharkhand",
+  "city": "Jamshedpur",
+  "knownType": null
+ },
+ {
+  "name": "Mahatma Gandhi Memorial Medical College, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "knownType": null
+ },
+ {
+  "name": "Mahatma Vidur Autonomous State Medical College, Bijnor",
+  "state": "Uttar Pradesh",
+  "city": "Bijnor",
+  "knownType": "Government"
+ },
+ {
+  "name": "Mahavir Institute of Medical Sciences, Vikarabad",
+  "state": "Telangana",
+  "city": "Vikarabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Maheshwara Medical College, Patancheru",
+  "state": "Telangana",
+  "city": "Patancheru",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Malda Medical College, Malda",
+  "state": "West Bengal",
+  "city": "Malda",
+  "knownType": null
+ },
+ {
+  "name": "Malla Reddy Institute of Medical Sciences, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Malla Reddy Medical College for Women, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": null
+ },
+ {
+  "name": "Mamata Academy of Medical Sciences, Bachupally",
+  "state": "Telangana",
+  "city": "Bachupally",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Mamata Medical College, Khammam",
+  "state": "Telangana",
+  "city": "Khammam",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Manav Rachna Dental College, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Mandya Institute of Medical Sciences, Mandya",
+  "state": "Karnataka",
+  "city": "Mandya",
+  "knownType": null
+ },
+ {
+  "name": "Manipal College of Dental Sciences, Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Manipal College of Dental Sciences, Manipal",
+  "state": "Karnataka",
+  "city": "Manipal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Mata Gujri Memorial Medical College & LSK Hospital (MGMMC), Kishanganj",
+  "state": "Bihar",
+  "city": "Kishanganj",
+  "knownType": null
+ },
+ {
+  "name": "Matushri Prabhaben Khodabhai Boghara Medical College & Research Centre, Atkot, Rajkot",
+  "state": "Gujarat",
+  "city": "Rajkot",
+  "knownType": null
+ },
+ {
+  "name": "Maulana Azad Medical College (MAMC)",
+  "state": "Delhi",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Maulana Azad Medical College New Delhi",
+  "state": "Delhi",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Mayo Institute of Medical Sciences, Barabanki",
+  "state": "Uttar Pradesh",
+  "city": "Barabanki",
+  "knownType": null
+ },
+ {
+  "name": "MediCiti Institute of Medical Sciences, Medchal",
+  "state": "Telangana",
+  "city": "Medchal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Medical College, Baroda (Government Medical College, Vadodara)",
+  "state": "Gujarat",
+  "city": "Vadodara)",
+  "knownType": "Government"
+ },
+ {
+  "name": "Medical College, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "knownType": null
+ },
+ {
+  "name": "Meenakshi Medical College & Research Institute, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Melmaruvathur Adhiparasakthi Institute of Medical Sciences and Research, Kancheepuram",
+  "state": "Tamil Nadu",
+  "city": "Kancheepuram",
+  "knownType": null
+ },
+ {
+  "name": "Midnapore Medical College, Midnapore",
+  "state": "West Bengal",
+  "city": "Midnapore",
+  "knownType": null
+ },
+ {
+  "name": "Moti Lal Nehru Medical College, Prayagraj (Allahabad)",
+  "state": "Uttar Pradesh",
+  "city": "Prayagraj",
+  "knownType": null
+ },
+ {
+  "name": "Murshidabad Medical College, Murshidabad",
+  "state": "West Bengal",
+  "city": "Murshidabad",
+  "knownType": null
+ },
+ {
+  "name": "Muzaffarnagar Medical College, Muzaffarnagar",
+  "state": "Uttar Pradesh",
+  "city": "Muzaffarnagar",
+  "knownType": null
+ },
+ {
+  "name": "Mysore Medical College and Research Institute, Mysore",
+  "state": "Karnataka",
+  "city": "Mysore",
+  "knownType": null
+ },
+ {
+  "name": "N.C. Medical College & Hospital, Israna, Panipat",
+  "state": "Haryana",
+  "city": "Panipat",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "NAMO Medical Education & Research Institute, Silvassa",
+  "state": "Dadra and Nagar Haveli",
+  "city": "Silvassa",
+  "knownType": null
+ },
+ {
+  "name": "NC Medical College & Hospital, Israna (Panipat)",
+  "state": "Haryana",
+  "city": "Israna",
+  "knownType": null
+ },
+ {
+  "name": "NC Medical College & Hospital, Israna, Panipat",
+  "state": "Haryana",
+  "city": "Panipat",
+  "knownType": null
+ },
+ {
+  "name": "NDMC Medical College & Hindu Rao Hospital, Delhi",
+  "state": "Delhi",
+  "city": "Delhi",
+  "knownType": null
+ },
+ {
+  "name": "NIMS University, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "NKP Salve Institute of Medical Sciences and Research Centre, Nagpur",
+  "state": "Maharashtra",
+  "city": "Nagpur",
+  "knownType": null
+ },
+ {
+  "name": "NRI Institute of Medical Sciences, Visakhapatnam",
+  "state": "Andhra Pradesh",
+  "city": "Visakhapatnam",
+  "knownType": null
+ },
+ {
+  "name": "NRI Medical College, Chinakakani",
+  "state": "",
+  "city": "Chinakakani",
+  "knownType": null
+ },
+ {
+  "name": "Nagaland Institute of Medical Sciences and Research, Kohima",
+  "state": "Nagaland",
+  "city": "Kohima",
+  "knownType": null
+ },
+ {
+  "name": "Nagaon Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Nalanda Medical College & Hospital (NMCH), Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "knownType": null
+ },
+ {
+  "name": "Nalbari Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Nandkumar Singh Chouhan Government Medical College, Khandwa",
+  "state": "Madhya Pradesh",
+  "city": "Khandwa",
+  "knownType": "Government"
+ },
+ {
+  "name": "Naraina Medical College & Research Center, Kanpur",
+  "state": "Uttar Pradesh",
+  "city": "Kanpur",
+  "knownType": null
+ },
+ {
+  "name": "Narayan Medical College & Hospital, Sasaram",
+  "state": "Bihar",
+  "city": "Sasaram",
+  "knownType": null
+ },
+ {
+  "name": "Narayana Medical College and Hospital, Chinthareddypalem",
+  "state": "",
+  "city": "Chinthareddypalem",
+  "knownType": null
+ },
+ {
+  "name": "Narayana Medical College, Nellore",
+  "state": "Andhra Pradesh",
+  "city": "Nellore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Narendra Modi Medical College, Ahmedabad (formerly AMC MET)",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": null
+ },
+ {
+  "name": "Neelima Institute of Medical Sciences, Ghatkesar",
+  "state": "Telangana",
+  "city": "Ghatkesar",
+  "knownType": null
+ },
+ {
+  "name": "Netaji Subhas Medical College & Hospital, Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "knownType": null
+ },
+ {
+  "name": "Netaji Subhash Chandra Bose Medical College, Jabalpur",
+  "state": "Madhya Pradesh",
+  "city": "Jabalpur",
+  "knownType": null
+ },
+ {
+  "name": "Nilratan Sircar Medical College, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "knownType": null
+ },
+ {
+  "name": "Noida International Institute of Medical Sciences, Greater Noida",
+  "state": "Uttar Pradesh",
+  "city": "Greater Noida",
+  "knownType": null
+ },
+ {
+  "name": "Nootan Medical College & Research Centre, Visnagar",
+  "state": "",
+  "city": "Visnagar",
+  "knownType": null
+ },
+ {
+  "name": "North Bengal Medical College, Darjeeling",
+  "state": "West Bengal",
+  "city": "Darjeeling",
+  "knownType": null
+ },
+ {
+  "name": "North Delhi Municipal Corporation Medical College & Hindu Rao Hospital (NDMC)",
+  "state": "Delhi",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "North Eastern Indira Gandhi Regional Institute of Health & Medical Sciences (NEIGRIHMS), Shillong",
+  "state": "Meghalaya",
+  "city": "Shillong",
+  "knownType": null
+ },
+ {
+  "name": "Nova Institute of Medical Sciences and Research Centre, Ranga Reddy",
+  "state": "Telangana",
+  "city": "Ranga Reddy",
+  "knownType": null
+ },
+ {
+  "name": "Osmania Medical College, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": null
+ },
+ {
+  "name": "PES Institute of Medical Science and Research, Kuppam",
+  "state": "",
+  "city": "Kuppam",
+  "knownType": null
+ },
+ {
+  "name": "PIMS Jalandhar",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "PSG Institute of Medical Sciences and Research, Peelamedu",
+  "state": "Tamil Nadu",
+  "city": "Peelamedu",
+  "knownType": null
+ },
+ {
+  "name": "Pacific Institute of Medical Sciences, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "knownType": null
+ },
+ {
+  "name": "Padmashree Dr D Y Patil Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Palamu Medical College (Medininirai Medical College)",
+  "state": "Jharkhand",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Pandit Deendayal Upadhyay Medical College, Rajkot",
+  "state": "Gujarat",
+  "city": "Rajkot",
+  "knownType": null
+ },
+ {
+  "name": "Pandit Deendayal Upadhyaya Medical College, Churu",
+  "state": "Rajasthan",
+  "city": "Churu",
+  "knownType": null
+ },
+ {
+  "name": "Pandit Neki Ram Sharma Government Medical College, Bhiwani",
+  "state": "Haryana",
+  "city": "Bhiwani",
+  "knownType": "Government"
+ },
+ {
+  "name": "Pandit Raghunath Murmu Medical College and Hospital, Baripada",
+  "state": "Odisha",
+  "city": "Baripada",
+  "knownType": null
+ },
+ {
+  "name": "Panimalar Medical College Hospital and Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Parbhani Medical College, Parbhani",
+  "state": "Maharashtra",
+  "city": "Parbhani",
+  "knownType": null
+ },
+ {
+  "name": "Parul Institute of Medical Sciences & Research, Vadodara",
+  "state": "Gujarat",
+  "city": "Vadodara",
+  "knownType": null
+ },
+ {
+  "name": "Patliputra Medical College (PMCH), Dhanbad",
+  "state": "Jharkhand",
+  "city": "Dhanbad",
+  "knownType": null
+ },
+ {
+  "name": "Patna Dental College and Hospital, Patna",
+  "state": "Bihar",
+  "city": "Patna",
+  "knownType": null
+ },
+ {
+  "name": "Peoples College of Medical Science, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Pondicherry Institute of Medical Sciences",
+  "state": "Puducherry",
+  "city": "",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Post Graduate Institute of Dental Sciences, Rohtak",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "knownType": null
+ },
+ {
+  "name": "Prafulla Chandra Sen Government Medical College and Hospital, Arambagh",
+  "state": "West Bengal",
+  "city": "Arambagh",
+  "knownType": "Government"
+ },
+ {
+  "name": "Prakash Institute of Medical Sciences and Research, Sangli",
+  "state": "Maharashtra",
+  "city": "Sangli",
+  "knownType": null
+ },
+ {
+  "name": "Pramukhswami Medical College, Karamsad",
+  "state": "",
+  "city": "Karamsad",
+  "knownType": null
+ },
+ {
+  "name": "Prasad Institute of Medical Sciences, Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Prathima Institute of Medical Sciences, Karimnagar",
+  "state": "Telangana",
+  "city": "Karimnagar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Prathima Relief Institute of Medical Sciences, Warangal",
+  "state": "Telangana",
+  "city": "Warangal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "knownType": null
+ },
+ {
+  "name": "Pt Jawahar Lal Nehru Government Medical College, Chamba",
+  "state": "Himachal Pradesh",
+  "city": "Chamba",
+  "knownType": "Government"
+ },
+ {
+  "name": "Pt Jawahar Lal Nehru Memorial Medical College, Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "knownType": null
+ },
+ {
+  "name": "Pt. B.D. Sharma PGIMS, Rohtak",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "knownType": null
+ },
+ {
+  "name": "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak",
+  "state": "Haryana",
+  "city": "Rohtak",
+  "knownType": null
+ },
+ {
+  "name": "Pt. Neki Ram Sharma Government Medical College, Bhiwani",
+  "state": "Haryana",
+  "city": "Bhiwani",
+  "knownType": "Government"
+ },
+ {
+  "name": "Punjab Government Dental College and Hospital, Amritsar",
+  "state": "Punjab",
+  "city": "Amritsar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Punjab Institute of Medical Sciences, Jalandhar",
+  "state": "Punjab",
+  "city": "Jalandhar",
+  "knownType": null
+ },
+ {
+  "name": "RD Gardi Medical College, Ujjain",
+  "state": "Madhya Pradesh",
+  "city": "Ujjain",
+  "knownType": null
+ },
+ {
+  "name": "RDJM Medical College & Hospital, Turki, Muzaffarpur",
+  "state": "Bihar",
+  "city": "Muzaffarpur",
+  "knownType": null
+ },
+ {
+  "name": "RG Kar Medical College and Hospital, Kolkata",
+  "state": "West Bengal",
+  "city": "Kolkata",
+  "knownType": null
+ },
+ {
+  "name": "RKDF Medical College Hospital and Research Centre, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": null
+ },
+ {
+  "name": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "knownType": null
+ },
+ {
+  "name": "RUHS College of Medical Sciences, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": null
+ },
+ {
+  "name": "RVM Institute of Medical Sciences and Research Centre, Medak",
+  "state": "Telangana",
+  "city": "Medak",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Rabindra Nath Tagore Medical College, Udaipur",
+  "state": "Rajasthan",
+  "city": "Udaipur",
+  "knownType": null
+ },
+ {
+  "name": "Raichur Institute of Medical Sciences, Raichur",
+  "state": "Karnataka",
+  "city": "Raichur",
+  "knownType": null
+ },
+ {
+  "name": "Raiganj Government Medical College and Hospital, Raiganj",
+  "state": "West Bengal",
+  "city": "Raiganj",
+  "knownType": "Government"
+ },
+ {
+  "name": "RajaRajeswari Dental College and Hospital, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Rajah Muthiah Medical College, Annamalainagar",
+  "state": "Tamil Nadu",
+  "city": "Annamalainagar",
+  "knownType": null
+ },
+ {
+  "name": "Rajarshee Chhatrapati Shahu Maharaj Government Medical College, Kolhapur",
+  "state": "Maharashtra",
+  "city": "Kolhapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Rajendra Institute of Medical Sciences (RIMS), Ranchi",
+  "state": "Jharkhand",
+  "city": "Ranchi",
+  "knownType": null
+ },
+ {
+  "name": "Rajiv Gandhi Institute of Medical Sciences, Adilabad",
+  "state": "Telangana",
+  "city": "Adilabad",
+  "knownType": null
+ },
+ {
+  "name": "Rajiv Gandhi Institute of Medical Sciences, Ongole",
+  "state": "Andhra Pradesh",
+  "city": "Ongole",
+  "knownType": null
+ },
+ {
+  "name": "Rajiv Gandhi Medical College and Chhatrapati Shivaji Maharaj Hospital, Thane",
+  "state": "Maharashtra",
+  "city": "Thane",
+  "knownType": null
+ },
+ {
+  "name": "Rajiv Gandhi Medical College, Thane",
+  "state": "Maharashtra",
+  "city": "Thane",
+  "knownType": null
+ },
+ {
+  "name": "Rajmata Shrimati Devendra Kumari Singhdeo Government Medical College, Ambikapur",
+  "state": "Chhattisgarh",
+  "city": "Ambikapur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Rajmata Vijaya Raje Scindia Medical College, Bhilwara",
+  "state": "Rajasthan",
+  "city": "Bhilwara",
+  "knownType": null
+ },
+ {
+  "name": "Rajshree Medical Research Institute, Bareilly",
+  "state": "Uttar Pradesh",
+  "city": "Bareilly",
+  "knownType": null
+ },
+ {
+  "name": "Ram Krishna Medical College Hospital and Research Centre, Bhopal",
+  "state": "Madhya Pradesh",
+  "city": "Bhopal",
+  "knownType": null
+ },
+ {
+  "name": "Rama Medical College and Hospital, Kanpur",
+  "state": "Uttar Pradesh",
+  "city": "Kanpur",
+  "knownType": null
+ },
+ {
+  "name": "Rama Medical College, Hospital & Research Centre, Hapur",
+  "state": "Uttar Pradesh",
+  "city": "Hapur",
+  "knownType": null
+ },
+ {
+  "name": "Rampurhat Government Medical College and Hospital, Rampurhat",
+  "state": "West Bengal",
+  "city": "Rampurhat",
+  "knownType": "Government"
+ },
+ {
+  "name": "Ranga Raya Medical College, Kakinada",
+  "state": "Andhra Pradesh",
+  "city": "Kakinada",
+  "knownType": null
+ },
+ {
+  "name": "Rangaraya Medical College, Kakinada",
+  "state": "Andhra Pradesh",
+  "city": "Kakinada",
+  "knownType": null
+ },
+ {
+  "name": "Regional Institute of Medical Sciences (RIMS), Imphal",
+  "state": "Manipur",
+  "city": "Imphal",
+  "knownType": null
+ },
+ {
+  "name": "Rohilkhand Medical College & Hospital, Bareilly",
+  "state": "Uttar Pradesh",
+  "city": "Bareilly",
+  "knownType": null
+ },
+ {
+  "name": "Rungta College of Dental Sciences and Research, Bhilai",
+  "state": "Chhattisgarh",
+  "city": "Bhilai",
+  "knownType": null
+ },
+ {
+  "name": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — Management/Paid seats",
+  "state": "Maharashtra",
+  "city": "Loni — Management/Paid seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Rural Medical College and Pravara Institute of Medical Sciences, Loni — NRI seats",
+  "state": "Maharashtra",
+  "city": "Loni — NRI seats",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SAL Institute of Medical Sciences, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": null
+ },
+ {
+  "name": "SCB Medical College, Cuttack",
+  "state": "Odisha",
+  "city": "Cuttack",
+  "knownType": null
+ },
+ {
+  "name": "SDM College of Medical Sciences and Hospital, Dharwad",
+  "state": "Karnataka",
+  "city": "Dharwad",
+  "knownType": null
+ },
+ {
+  "name": "SGRD Amritsar",
+  "state": "Punjab",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "SGT Medical College, Gurugram",
+  "state": "Haryana",
+  "city": "Gurugram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SGT University Faculty of Medicine & Health Sciences, Gurugram",
+  "state": "Haryana",
+  "city": "Gurugram",
+  "knownType": null
+ },
+ {
+  "name": "SKIMS Medical College, Bemina, Srinagar",
+  "state": "Jammu & Kashmir",
+  "city": "Srinagar",
+  "knownType": null
+ },
+ {
+  "name": "SKS Hospital Medical College & Research Center, Mathura",
+  "state": "Uttar Pradesh",
+  "city": "Mathura",
+  "knownType": null
+ },
+ {
+  "name": "SLN Medical College and Hospital, Koraput",
+  "state": "Odisha",
+  "city": "Koraput",
+  "knownType": null
+ },
+ {
+  "name": "SMBT Institute of Medical Sciences and Research Center, Nashik",
+  "state": "Maharashtra",
+  "city": "Nashik",
+  "knownType": null
+ },
+ {
+  "name": "SMS Medical College, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": null
+ },
+ {
+  "name": "SRM Dental College, Ramapuram, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SRM Medical College Hospital & Research Centre, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SRM Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SRM Medical College, Kattankulathur",
+  "state": "Tamil Nadu",
+  "city": "Kattankulathur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "SUT Academy of Medical Sciences, Thiruvananthapuram",
+  "state": "Kerala",
+  "city": "Thiruvananthapuram",
+  "knownType": null
+ },
+ {
+  "name": "SVS Medical College, Mahabubnagar",
+  "state": "Telangana",
+  "city": "Mahabubnagar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Saheed Rendo Majhi Medical College and Hospital (GMC Bhawanipatna), Kalahandi",
+  "state": "Odisha",
+  "city": "Kalahandi",
+  "knownType": null
+ },
+ {
+  "name": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
+  "state": "Odisha",
+  "city": "Bhawanipatna",
+  "knownType": null
+ },
+ {
+  "name": "Santhiram Medical College and General Hospital, Nandyal",
+  "state": "",
+  "city": "Nandyal",
+  "knownType": null
+ },
+ {
+  "name": "Santosh Medical College, Ghaziabad",
+  "state": "Uttar Pradesh",
+  "city": "Ghaziabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sapthagiri Institute of Medical Sciences and Research Centre, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "Saraswati Institute of Medical Sciences, Hapur",
+  "state": "Uttar Pradesh",
+  "city": "Hapur",
+  "knownType": null
+ },
+ {
+  "name": "Saraswati Medical College, Unnao",
+  "state": "Uttar Pradesh",
+  "city": "Unnao",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sardar Patel Medical College, Bikaner",
+  "state": "Rajasthan",
+  "city": "Bikaner",
+  "knownType": null
+ },
+ {
+  "name": "Sarojini Naidu Medical College, Agra",
+  "state": "Uttar Pradesh",
+  "city": "Agra",
+  "knownType": null
+ },
+ {
+  "name": "Saveetha Medical College & Hospital, Kanchipuram",
+  "state": "Tamil Nadu",
+  "city": "Kanchipuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Saveetha Medical College, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sawai Man Singh Medical College, Jaipur",
+  "state": "Rajasthan",
+  "city": "Jaipur",
+  "knownType": null
+ },
+ {
+  "name": "School of Medical Sciences & Research (SMSR), Sharda University, Greater Noida",
+  "state": "Uttar Pradesh",
+  "city": "Greater Noida",
+  "knownType": null
+ },
+ {
+  "name": "Seth GS Medical College Mumbai",
+  "state": "Maharashtra",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Seth Gordhandas Sunderdas Medical College (GSMC) & KEM Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Seth Gordhandas Sunderdas Medical College (GSMC), Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Shadan Institute of Medical Sciences, Hyderabad",
+  "state": "Telangana",
+  "city": "Hyderabad",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Shaheed Hasan Khan Mewati Government Medical College, Nalhar",
+  "state": "Haryana",
+  "city": "Nalhar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shantabaa Medical College, Amreli",
+  "state": "",
+  "city": "Amreli",
+  "knownType": null
+ },
+ {
+  "name": "Sher-i-Kashmir Institute of Medical Sciences (SKIMS) Medical College, Bemina/Srinagar",
+  "state": "Jammu & Kashmir",
+  "city": "Bemina/Srinagar",
+  "knownType": null
+ },
+ {
+  "name": "Shillong Medical College",
+  "state": "Meghalaya",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Shimoga Institute of Medical Sciences, Shimoga",
+  "state": "Karnataka",
+  "city": "Shimoga",
+  "knownType": null
+ },
+ {
+  "name": "Shri Atal Bihari Vajpayee Government Medical College, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Atal Bihari Vajpayee Medical College & Research Institute, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "Shri Atal Bihari Vajpayee Medical College and Research Institute (ABVMC), Bengaluru",
+  "state": "Karnataka",
+  "city": "Bengaluru",
+  "knownType": null
+ },
+ {
+  "name": "Shri B M Patil Medical College (BLDE), Vijayapura",
+  "state": "Karnataka",
+  "city": "Vijayapura",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Shri Balaji Institute of Medical Science, Raipur",
+  "state": "Chhattisgarh",
+  "city": "Raipur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Shri Bhausaheb Hire Government Medical College and Hospital, Dhule",
+  "state": "Maharashtra",
+  "city": "Dhule",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Gorakshnath Medical College, Hospital & Research Center, Gorakhpur",
+  "state": "Uttar Pradesh",
+  "city": "Gorakhpur",
+  "knownType": null
+ },
+ {
+  "name": "Shri Guru Ram Rai Institute of Medical & Health Sciences (SGRR), Dehradun",
+  "state": "Uttarakhand",
+  "city": "Dehradun",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Shri Jagannath Medical College and Hospital, Puri",
+  "state": "Odisha",
+  "city": "Puri",
+  "knownType": null
+ },
+ {
+  "name": "Shri Kalyan Government Medical College, Sikar",
+  "state": "Rajasthan",
+  "city": "Sikar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Lal Bahadur Shastri Government Medical College (SLBS), Nerchowk Mandi",
+  "state": "Himachal Pradesh",
+  "city": "Nerchowk Mandi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Lal Bahadur Shastri Government Medical College, Mandi",
+  "state": "Himachal Pradesh",
+  "city": "Mandi",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri M. P. Shah Government Medical College, Jamnagar",
+  "state": "Gujarat",
+  "city": "Jamnagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shri Narayan Medical Institute & Hospital, Saharsa",
+  "state": "Bihar",
+  "city": "Saharsa",
+  "knownType": null
+ },
+ {
+  "name": "Shri Ram Murti Smarak Institute of Medical Sciences (SRMS), Bareilly",
+  "state": "Uttar Pradesh",
+  "city": "Bareilly",
+  "knownType": null
+ },
+ {
+  "name": "Shri Ramachandra Institute of Medical Sciences, Aurangabad",
+  "state": "Maharashtra",
+  "city": "Aurangabad",
+  "knownType": null
+ },
+ {
+  "name": "Shri Ramkrishna Institute of Medical Sciences and Sanaka Hospitals, Durgapur",
+  "state": "West Bengal",
+  "city": "Durgapur",
+  "knownType": null
+ },
+ {
+  "name": "Shri Sathya Sai Medical College and Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Shri Sathya Sai Medical College and Research Institute, Kancheepuram",
+  "state": "Tamil Nadu",
+  "city": "Kancheepuram",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Shri Siddhi Vinayak Medical College & Hospital, Sambhal",
+  "state": "Uttar Pradesh",
+  "city": "Sambhal",
+  "knownType": null
+ },
+ {
+  "name": "Shri Vasant Rao Naik Government Medical College, Yavatmal",
+  "state": "Maharashtra",
+  "city": "Yavatmal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Shrimant Rajmata Vijayaraje Scindia Medical College, Shivpuri",
+  "state": "Madhya Pradesh",
+  "city": "Shivpuri",
+  "knownType": null
+ },
+ {
+  "name": "Shyam Shah Medical College, Rewa",
+  "state": "Madhya Pradesh",
+  "city": "Rewa",
+  "knownType": null
+ },
+ {
+  "name": "Siddhartha Medical College, Vijayawada",
+  "state": "Andhra Pradesh",
+  "city": "Vijayawada",
+  "knownType": null
+ },
+ {
+  "name": "Silchar Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Sindhudurg Shikshan Prasarak Mandal Medical College, Sindhudurg",
+  "state": "Maharashtra",
+  "city": "Sindhudurg",
+  "knownType": null
+ },
+ {
+  "name": "Smt Kashibai Navale Medical College, Ambegaon (Sinhgad Technical Education Society)",
+  "state": "Maharashtra",
+  "city": "Ambegaon",
+  "knownType": null
+ },
+ {
+  "name": "Smt. B. K. Shah Medical Institute & Research Centre (Sumandeep Vidyapeeth), Piparia, Vadodara",
+  "state": "Gujarat",
+  "city": "Vadodara",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Smt. NHL Municipal Medical College, Ahmedabad",
+  "state": "Gujarat",
+  "city": "Ahmedabad",
+  "knownType": null
+ },
+ {
+  "name": "Soban Singh Jeena Government Institute of Medical Science & Research (SSJGIMS&R), Almora",
+  "state": "Uttarakhand",
+  "city": "Almora",
+  "knownType": "Government"
+ },
+ {
+  "name": "Soban Singh Jeena Govt. Institute of Medical Science & Research (SSJ GIMSR), Almora",
+  "state": "Uttarakhand",
+  "city": "Almora",
+  "knownType": "Government"
+ },
+ {
+  "name": "Sree Balaji Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sree Gokulam Medical College and Research Foundation, Venjaramoodu",
+  "state": "Kerala",
+  "city": "Venjaramoodu",
+  "knownType": null
+ },
+ {
+  "name": "Sree Gokulam Medical College, Thiruvananthapuram",
+  "state": "Kerala",
+  "city": "Thiruvananthapuram",
+  "knownType": null
+ },
+ {
+  "name": "Sree Mookambika Institute / Kanyakumari Medical Mission Research Centre, Kulasekharam",
+  "state": "Tamil Nadu",
+  "city": "Kulasekharam",
+  "knownType": null
+ },
+ {
+  "name": "Sree Mookambika Institute of Medical Sciences, Kulasekharam",
+  "state": "Tamil Nadu",
+  "city": "Kulasekharam",
+  "knownType": null
+ },
+ {
+  "name": "Sree Uthradom Thirunal Academy of Medical Sciences, Vencode",
+  "state": "Kerala",
+  "city": "Vencode",
+  "knownType": null
+ },
+ {
+  "name": "Sri Aurobindo Institute of Medical Science, Indore",
+  "state": "Madhya Pradesh",
+  "city": "Indore",
+  "knownType": null
+ },
+ {
+  "name": "Sri Balaji Medical College, Hospital and Research Institute, Renigunta",
+  "state": "",
+  "city": "Renigunta",
+  "knownType": null
+ },
+ {
+  "name": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
+  "state": "Punjab",
+  "city": "Amritsar",
+  "knownType": null
+ },
+ {
+  "name": "Sri Krishna Medical College & Hospital (SKMCH), Muzaffarpur",
+  "state": "Bihar",
+  "city": "Muzaffarpur",
+  "knownType": null
+ },
+ {
+  "name": "Sri Lalithambigai Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sri Muthukumaran Medical College Hospital and Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Sri Padmavathi Medical College for Women, Tirupati",
+  "state": "Andhra Pradesh",
+  "city": "Tirupati",
+  "knownType": null
+ },
+ {
+  "name": "Sri Ramachandra Dental College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sri Ramachandra Institute of Higher Education and Research (SRIHER), Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sri Siddhartha Medical College, Tumkur",
+  "state": "Karnataka",
+  "city": "Tumkur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Sri Venkateshwaraa Medical College Hospital & Research Centre (SVMCH)",
+  "state": "Puducherry",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Sri Venkateswara Medical College, Tirupati",
+  "state": "Andhra Pradesh",
+  "city": "Tirupati",
+  "knownType": null
+ },
+ {
+  "name": "Sri Venkateswaraa Medical College Hospital and Research Institute, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Srinivasan Medical College and Hospital, Tiruchirappalli",
+  "state": "Tamil Nadu",
+  "city": "Tiruchirappalli",
+  "knownType": null
+ },
+ {
+  "name": "St John's Medical College, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "St Peter's Medical College Hospital and Research Institute, Hosur",
+  "state": "Tamil Nadu",
+  "city": "Hosur",
+  "knownType": null
+ },
+ {
+  "name": "Stanley Medical College, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Subharti Medical College, Meerut",
+  "state": "Uttar Pradesh",
+  "city": "Meerut",
+  "knownType": null
+ },
+ {
+  "name": "Sudha Medical College and Hospital, Kota",
+  "state": "Rajasthan",
+  "city": "Kota",
+  "knownType": null
+ },
+ {
+  "name": "Sudha Rustagi College of Dental Sciences and Research, Faridabad",
+  "state": "Haryana",
+  "city": "Faridabad",
+  "knownType": null
+ },
+ {
+  "name": "Sunderlal Patwa Government Medical College, Mandsaur",
+  "state": "Madhya Pradesh",
+  "city": "Mandsaur",
+  "knownType": "Government"
+ },
+ {
+  "name": "Surabhi Institute of Medical Sciences, Siddipet",
+  "state": "Telangana",
+  "city": "Siddipet",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Surat Municipal Institute of Medical Education & Research (SMIMER)",
+  "state": "Gujarat",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Swami Ramanand Tirth Rural Government Medical College, Ambajogai",
+  "state": "Maharashtra",
+  "city": "Ambajogai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Swaminarayan Institute of Medical Sciences & Research, Kalol, Gandhinagar",
+  "state": "",
+  "city": "Gandhinagar",
+  "knownType": null
+ },
+ {
+  "name": "Swamy Vivekanandha Medical College Hospital and Research Institute, Namakkal",
+  "state": "Tamil Nadu",
+  "city": "Namakkal",
+  "knownType": null
+ },
+ {
+  "name": "Symbiosis Medical College for Women, Pune",
+  "state": "Maharashtra",
+  "city": "Pune",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "T D Medical College, Alappuzha",
+  "state": "Kerala",
+  "city": "Alappuzha",
+  "knownType": null
+ },
+ {
+  "name": "T.S. Misra Medical College & Hospital, Lucknow",
+  "state": "Uttar Pradesh",
+  "city": "Lucknow",
+  "knownType": null
+ },
+ {
+  "name": "TRR Institute of Medical Sciences, Patancheru",
+  "state": "Telangana",
+  "city": "Patancheru",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Tagore Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": null
+ },
+ {
+  "name": "Tamil Nadu Government Dental College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Government"
+ },
+ {
+  "name": "Tamralipto Government Medical College and Hospital, Tamluk",
+  "state": "West Bengal",
+  "city": "Tamluk",
+  "knownType": "Government"
+ },
+ {
+  "name": "Teerthanker Mahaveer Medical College & Research Centre, Moradabad",
+  "state": "Uttar Pradesh",
+  "city": "Moradabad",
+  "knownType": null
+ },
+ {
+  "name": "Terna Medical College, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Terna Medical College, Nerul, Navi Mumbai",
+  "state": "Maharashtra",
+  "city": "Navi Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Tezpur Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Thanjavur Medical College, Thanjavur",
+  "state": "Tamil Nadu",
+  "city": "Thanjavur",
+  "knownType": null
+ },
+ {
+  "name": "Theni Government Medical College, Theni",
+  "state": "Tamil Nadu",
+  "city": "Theni",
+  "knownType": "Government"
+ },
+ {
+  "name": "Thiruvannamalai Medical College, Thiruvannamalai",
+  "state": "Tamil Nadu",
+  "city": "Thiruvannamalai",
+  "knownType": null
+ },
+ {
+  "name": "Thoothukudi Medical College, Thoothukudi",
+  "state": "Tamil Nadu",
+  "city": "Thoothukudi",
+  "knownType": null
+ },
+ {
+  "name": "Tinsukia Medical College",
+  "state": "Assam",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Tirunelveli Medical College, Tirunelveli",
+  "state": "Tamil Nadu",
+  "city": "Tirunelveli",
+  "knownType": null
+ },
+ {
+  "name": "Tomo Riba Institute of Health & Medical Sciences (TRIHMS), Naharlagun",
+  "state": "Arunachal Pradesh",
+  "city": "Naharlagun",
+  "knownType": null
+ },
+ {
+  "name": "Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Topiwala National Medical College, Mumbai",
+  "state": "Maharashtra",
+  "city": "Mumbai",
+  "knownType": null
+ },
+ {
+  "name": "Travancore Medical College, Kollam",
+  "state": "Kerala",
+  "city": "Kollam",
+  "knownType": null
+ },
+ {
+  "name": "Trichy SRM Medical College Hospital and Research Centre, Irungalur",
+  "state": "Tamil Nadu",
+  "city": "Irungalur",
+  "knownType": null
+ },
+ {
+  "name": "Tripura Medical College & Dr. BRAM Teaching Hospital, Hapania",
+  "state": "Tripura",
+  "city": "Hapania",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Uma Nath Singh Autonomous State Medical College, Jaunpur",
+  "state": "Uttar Pradesh",
+  "city": "Jaunpur",
+  "knownType": "Government"
+ },
+ {
+  "name": "United Institute of Medical Sciences, Prayagraj",
+  "state": "Uttar Pradesh",
+  "city": "Prayagraj",
+  "knownType": null
+ },
+ {
+  "name": "University College of Medical Sciences (UCMS)",
+  "state": "Delhi",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "University College of Medical Sciences, Delhi",
+  "state": "Delhi",
+  "city": "Delhi",
+  "knownType": null
+ },
+ {
+  "name": "Uttar Pradesh University of Medical Sciences, Saifai, Etawah",
+  "state": "Uttar Pradesh",
+  "city": "Etawah",
+  "knownType": null
+ },
+ {
+  "name": "VELS Medical College and Hospital, Tiruvallur",
+  "state": "Tamil Nadu",
+  "city": "Tiruvallur",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences & Research), Burla",
+  "state": "Odisha",
+  "city": "Burla",
+  "knownType": null
+ },
+ {
+  "name": "VMKV Medical College and Hospital, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "VMMC & Safdarjung Hospital New Delhi",
+  "state": "Delhi",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Vardhman Mahavir Medical College & Safdarjung Hospital (VMMC)",
+  "state": "Delhi",
+  "city": "",
+  "knownType": null
+ },
+ {
+  "name": "Vardhman Mahavir Medical College and Safdarjung Hospital, New Delhi",
+  "state": "Delhi",
+  "city": "New Delhi",
+  "knownType": null
+ },
+ {
+  "name": "Varun Arjun Medical College & Rohilkhand Hospital, Shahjahanpur",
+  "state": "Uttar Pradesh",
+  "city": "Shahjahanpur",
+  "knownType": null
+ },
+ {
+  "name": "Vedantaa Institute of Medical Science, Palghar",
+  "state": "Maharashtra",
+  "city": "Palghar",
+  "knownType": null
+ },
+ {
+  "name": "Veer Chandra Singh Garhwali Government Institute of Medical Science and Research, Srinagar (Garhwal)",
+  "state": "Uttarakhand",
+  "city": "Srinagar",
+  "knownType": "Government"
+ },
+ {
+  "name": "Veer Chandra Singh Garhwali Govt. Institute of Medical Science & Research (VCSG), Srinagar Garhwal",
+  "state": "Uttarakhand",
+  "city": "Srinagar Garhwal",
+  "knownType": "Government"
+ },
+ {
+  "name": "Velammal Medical College Hospital and Research Institute, Madurai",
+  "state": "Tamil Nadu",
+  "city": "Madurai",
+  "knownType": null
+ },
+ {
+  "name": "Vels Medical College and Hospital, Chennai",
+  "state": "Tamil Nadu",
+  "city": "Chennai",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Venkateswara Institute of Medical Sciences, Gajraula, Amroha",
+  "state": "Uttar Pradesh",
+  "city": "Amroha",
+  "knownType": null
+ },
+ {
+  "name": "Vijayanagar Institute of Medical Sciences, Bellary",
+  "state": "Karnataka",
+  "city": "Bellary",
+  "knownType": null
+ },
+ {
+  "name": "Vinayaka Mission's Kirupananda Variyar Medical College, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Vinayaka Mission's Medical College, Karaikal",
+  "state": "Puducherry",
+  "city": "Karaikal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Vinayaka Missions Kirupananda Variyar Medical College, Salem",
+  "state": "Tamil Nadu",
+  "city": "Salem",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Vinayaka Missions Medical College, Karaikal",
+  "state": "Puducherry",
+  "city": "Karaikal",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Viswabharathi Medical College and General Hospital, Kurnool",
+  "state": "Andhra Pradesh",
+  "city": "Kurnool",
+  "knownType": null
+ },
+ {
+  "name": "Vyas Medical College and Hospital, Jodhpur",
+  "state": "Rajasthan",
+  "city": "Jodhpur",
+  "knownType": null
+ },
+ {
+  "name": "Vydehi Institute of Medical Sciences, Bangalore",
+  "state": "Karnataka",
+  "city": "Bangalore",
+  "knownType": null
+ },
+ {
+  "name": "World College of Medical Sciences & Research, Jhajjar",
+  "state": "Haryana",
+  "city": "Jhajjar",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Yadgiri Institute of Medical Sciences (YIMS), Yadgir",
+  "state": "Karnataka",
+  "city": "Yadgir",
+  "knownType": null
+ },
+ {
+  "name": "Yenepoya Medical College, Mangalore",
+  "state": "Karnataka",
+  "city": "Mangalore",
+  "knownType": "Deemed"
+ },
+ {
+  "name": "Zoram Medical College, Falkawn",
+  "state": "Mizoram",
+  "city": "Falkawn",
+  "knownType": null
+ },
+ {
+  "name": "Zydus Medical College and Hospital, Dahod",
+  "state": "",
+  "city": "Dahod",
+  "knownType": null
+ }
+]

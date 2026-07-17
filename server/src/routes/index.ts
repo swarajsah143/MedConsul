@@ -2,6 +2,10 @@ import { Router, Request, Response } from 'express';
 import authRoutes from './auth.routes';
 import chatRoutes from './chat.routes';
 import adminRoutes from './admin.routes';
+import dataRoutes from './data.routes';
+import documentRoutes from './documents.routes';
+import profileRoutes from './profile.routes';
+import predictRoutes from './predict.routes';
 
 const router = Router();
 
@@ -12,5 +16,9 @@ router.get('/health', (_req: Request, res: Response) => {
 router.use('/auth', authRoutes);
 router.use('/chat', chatRoutes);
 router.use('/admin', adminRoutes);
+router.use('/data', dataRoutes);   // public read-only domain data
+router.use('/documents', documentRoutes);   // student uploads + admin verification
+router.use('/profile', profileRoutes);      // a student's own counselling details
+router.use('/predict', predictRoutes);      // public: score -> AIR -> matched colleges
 
 export default router;

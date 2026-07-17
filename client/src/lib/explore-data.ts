@@ -69,7 +69,6 @@ const SUPER_BRANCHES = [
   'Endocrinology',
 ];
 
-const UG_ONLY = ['MBBS', 'B.Sc Nursing', 'BPT'];
 const WITH_PG = ['MBBS', 'MD', 'MS', 'DM', 'MCh', 'B.Sc Nursing', 'M.Sc Nursing', 'DNB'];
 const WITH_MD_MS = ['MBBS', 'MD', 'MS', 'B.Sc Nursing', 'DNB'];
 const DENTAL = ['BDS', 'MDS'];

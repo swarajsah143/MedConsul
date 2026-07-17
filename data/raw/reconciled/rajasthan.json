@@ -1,0 +1,257 @@
+{
+  "state": "Rajasthan",
+  "pairings": [
+    {
+      "ourName": "AIIMS Jodhpur",
+      "nmcName": "All India Institute of Medical Sciences, Jodhpur",
+      "evidence": "NMC address 'Basni Phase-II, Jodhpur - 342005', Govt., est. 2012, 125 UG seats, aiimsjodhpur.edu.in — the same institution. Deliberately NOT paired with 'Dr SN Medical College, Jodhpur' (a separate Govt. college in the same city, rule 4)."
+    },
+    {
+      "ourName": "Dr SS Tantia Medical College Hospital and Research Centre, Sri Ganganagar",
+      "nmcName": "Dr S S Tantia Medical College Hospital & Research Centre",
+      "evidence": "Punctuation-only name drift. NMC address 'Tantia University, Sri Ganganagar (Rajasthan) 335002', affiliation Tantia University, est. 2021, 150 seats. NMC's city cell says 'Ganganagar'; the address and the NMC 2024-25 seat matrix both say Sri Ganganagar, which is what our record has. Distinct from 'Government Medical College, Sri Ganganagar' (separate Govt. college in the same city)."
+    },
+    {
+      "ourName": "ESIC Medical College and Hospital, Alwar",
+      "nmcName": "Employees State Insurance Corporation Medical College,Alwar",
+      "evidence": "ESIC = Employees State Insurance Corporation. NMC address 'Desula, Road No. 2, Mia, Alwar, Rajasthan - 301030', Govt., est. 2021, 100 seats. Deliberately NOT paired with 'Government Medical College, Alwar' (a separate, newer Govt. college in the same city, est. 2023 — rule 4); both survive as separate records."
+    },
+    {
+      "ourName": "NIMS University, Jaipur",
+      "nmcName": "National Institute of Medical Science & Research, Jaipur",
+      "evidence": "NIMS = National Institute of Medical Sciences; the NMC row's universityName is literally 'NIMS University (Deemed), Jaipur', website nimsuniversity.org, est. 2004, 250 seats. NOTE: the automated matcher had wrongly given this NMC row to our 'Jaipur National University Institute for Medical Sciences and Research Centre, Jaipur' record (both are 'Jaipur' + 'National' + 'Institute of Medical Science'); they are two different private colleges and are re-paired correctly here. Type stays Deemed (rule 2)."
+    },
+    {
+      "ourName": "Jaipur National University Institute for Medical Sciences and Research Centre, Jaipur",
+      "nmcName": "Jaipur National University Institute of Medical Sciences and Resarch Centre, Jagatpura, Jaipur",
+      "evidence": "CORRECTION of a bad automated match (this record had been given NIMS University's NMC row, score 1.0). The correct row is the JNU one, address 'Research Centre, Jagatpura, Jaipur - 302017', affiliation Jaipur National University (Private Univ.), website jnujaipur.ac.in, est. 2016. Jagatpura is a locality of Jaipur, so city = Jaipur."
+    },
+    {
+      "ourName": "Pandit Deendayal Upadhyaya Medical College, Churu",
+      "nmcName": "Government Medical College, Churu",
+      "evidence": "The NMC row's own address string is 'Pandit Deendayal Upadhyaya Medical College, Churu, Civil Line, Shekhawat Colony, Churu - 331001 (Rajasthan)' — NMC lists the college under its generic name but the address carries the official name. Govt., est. 2018, 150 seats. NMC's city cell is empty; city Churu comes from that address. Only one MBBS college exists in Churu district in the NMC registry and in the 2024-25 / 2025-26 seat matrices."
+    },
+    {
+      "ourName": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
+      "nmcName": "R N T Medical College,  Udaipur",
+      "evidence": "R N T = Rabindra Nath Tagore. NMC address 'Court Chowk, Udaipur 313001', Govt., est. 1961, 250 seats, education.rajasthan.gov.in/rntmcudaipur. Our second record 'Rabindra Nath Tagore Medical College, Udaipur' is the same college and is merged into this one as an alias. Deliberately NOT paired with the private Udaipur colleges (Geetanjali / Pacific / American International) — rule 4."
+    },
+    {
+      "ourName": "Rajmata Vijaya Raje Scindia Medical College, Bhilwara",
+      "nmcName": "Government Medical College, Bhilwara, Rajasthan",
+      "evidence": "RVRS Medical College is the official name of the government medical college at Bhilwara (est. 2018, 150 MBBS seats, RUHS-affiliated — careers360.com/colleges/rajmata-vijaya-raje-scindia-medical-college-bhilwara). NMC lists it under the generic name with address 'Medical College Campus, Bhilwara (Rajasthan) - 311011', Govt., est. 2018, 150 seats — the same year and seat count. Bhilwara district has exactly one MBBS college in the NMC 2023 registry and in both the 2024-25 and 2025-26 NMC seat matrices, so the identity is unambiguous."
+    },
+    {
+      "ourName": "Sawai Man Singh Medical College, Jaipur",
+      "nmcName": "SMS Medical College, Jaipur",
+      "evidence": "NMC address is literally 'Sawai Man Singh Medical College, Jawahar Lal Nehru Marg, Jaipur - 302004', Govt., est. 1947, 250 seats. Our separate 'SMS Medical College, Jaipur' record is the same college and is merged in as an alias. Distinct from RUHS College of Medical Sciences, Jaipur (a different Govt. college in the same city)."
+    },
+    {
+      "ourName": "Shri Kalyan Government Medical College, Sikar",
+      "nmcName": "Shri Kalyan Govt. Medical College, Sikar, Rajasthan",
+      "evidence": "'Govt.' vs 'Government' abbreviation drift only. Govt., est. 2020, 100 seats, RUHS. The NMC row has an empty address and city cell; city Sikar comes from the NMC college name itself ('...,Sikar, Rajasthan') and is confirmed by the NMC 2024-25 seat matrix, which lists city Sikar."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Jodhpur",
+      "state": "Rajasthan",
+      "city": "Jodhpur",
+      "type": "Government",
+      "established": 2012,
+      "totalSeats": 125,
+      "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+      "website": "http://www.aiimsjodhpur.edu.in",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Dr SS Tantia Medical College Hospital and Research Centre, Sri Ganganagar",
+      "state": "Rajasthan",
+      "city": "Sri Ganganagar",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "Tantia University",
+      "website": "http://drsstantiamch.org/about/",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "ESIC Medical College and Hospital, Alwar",
+      "state": "Rajasthan",
+      "city": "Alwar",
+      "type": "Government",
+      "established": 2021,
+      "totalSeats": 100,
+      "affiliation": "Rajasthan University of Health Sciences",
+      "website": "https://www.esic.nic.in/",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Pandit Deendayal Upadhyaya Medical College, Churu",
+      "state": "Rajasthan",
+      "city": "Churu",
+      "type": "Government",
+      "established": 2018,
+      "totalSeats": 150,
+      "affiliation": "Rajasthan University of Health Sciences",
+      "website": "http://www.education.rajasthan.gov.in/mcchuru",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
+      "state": "Rajasthan",
+      "city": "Udaipur",
+      "type": "Government",
+      "established": 1961,
+      "totalSeats": 250,
+      "affiliation": "Rajasthan University of Health Sciences",
+      "website": "http://www.education.rajasthan.gov.in/rntmcudaipur",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Rajmata Vijaya Raje Scindia Medical College, Bhilwara",
+      "state": "Rajasthan",
+      "city": "Bhilwara",
+      "type": "Government",
+      "established": 2018,
+      "totalSeats": 150,
+      "affiliation": "Rajasthan University of Health Sciences",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges + https://www.careers360.com/colleges/rajmata-vijaya-raje-scindia-medical-college-bhilwara"
+    },
+    {
+      "name": "Sawai Man Singh Medical College, Jaipur",
+      "state": "Rajasthan",
+      "city": "Jaipur",
+      "type": "Government",
+      "established": 1947,
+      "totalSeats": 250,
+      "affiliation": "Rajasthan University of Health Sciences",
+      "website": "http://www.education.rajasthan.gov.in/smsmcjaipur",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Shri Kalyan Government Medical College, Sikar",
+      "state": "Rajasthan",
+      "city": "Sikar",
+      "type": "Government",
+      "established": 2020,
+      "totalSeats": 100,
+      "affiliation": "Rajasthan University of Health Sciences",
+      "source": "https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges"
+    },
+    {
+      "name": "Government Dental College and Hospital, Jaipur",
+      "state": "Rajasthan",
+      "city": "Jaipur",
+      "type": "Government",
+      "source": "https://dciindia.gov.in/Images/Total%20College%20list.pdf"
+    },
+    {
+      "name": "Government Medical College, Banswara",
+      "state": "Rajasthan",
+      "city": "Banswara",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 100,
+      "affiliation": "Rajasthan University of Health Sciences, Jaipur",
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf"
+    },
+    {
+      "name": "Government Medical College, Baran",
+      "state": "Rajasthan",
+      "city": "Baran",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 100,
+      "affiliation": "Rajasthan University of Health Sciences, Jaipur",
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf"
+    },
+    {
+      "name": "Government Medical College, Nagaur",
+      "state": "Rajasthan",
+      "city": "Nagaur",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 100,
+      "affiliation": "Rajasthan University of Health Sciences, Jaipur",
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf"
+    },
+    {
+      "name": "Government Medical College, Jhunjhunu",
+      "state": "Rajasthan",
+      "city": "Jhunjhunu",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 100,
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf"
+    },
+    {
+      "name": "Government Medical College, Sawai Madhopur",
+      "state": "Rajasthan",
+      "city": "Sawai Madhopur",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 100,
+      "affiliation": "Rajasthan University of Health Sciences, Jaipur",
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf"
+    },
+    {
+      "name": "Government Medical College, Jaisalmer",
+      "state": "Rajasthan",
+      "city": "Jaisalmer",
+      "type": "Government",
+      "established": 2025,
+      "totalSeats": 50,
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/12/UG%20Seat%20Matrix%2003-12-2025.pdf"
+    },
+    {
+      "name": "Government Medical College, Tonk",
+      "state": "Rajasthan",
+      "city": "Tonk",
+      "type": "Government",
+      "established": 2025,
+      "totalSeats": 50,
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/12/UG%20Seat%20Matrix%2003-12-2025.pdf"
+    },
+    {
+      "name": "Sudha Medical College and Hospital, Kota",
+      "state": "Rajasthan",
+      "city": "Kota",
+      "type": "Private",
+      "established": 2024,
+      "totalSeats": 100,
+      "affiliation": "Rajasthan University of Health Sciences",
+      "website": "https://sudhamedicalcollege.com/",
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf + https://sudhamedicalcollege.com/about-us/"
+    },
+    {
+      "name": "Vyas Medical College and Hospital, Jodhpur",
+      "state": "Rajasthan",
+      "city": "Jodhpur",
+      "type": "Private",
+      "established": 2024,
+      "totalSeats": 100,
+      "affiliation": "Rajasthan University of Health Sciences, Jaipur",
+      "website": "https://vyasmedicalcollege.com/",
+      "source": "https://www.nmc.org.in/wp-content/uploads/2025/04/Revised%20UG%20Seat%20Matrix%202024-25%20on%2031-03-2025.pdf + https://vyasmedicalcollege.com/"
+    }
+  ],
+  "merges": [
+    {
+      "canonical": "RNT (Rabindra Nath Tagore) Medical College, Udaipur",
+      "aliases": [
+        "Rabindra Nath Tagore Medical College, Udaipur"
+      ],
+      "reason": "Same institution, two spellings of one name: R N T Medical College, Court Chowk, Udaipur (Govt., est. 1961, 250 seats). Udaipur has exactly one government medical college in the NMC registry and in the 2024-25 / 2025-26 NMC seat matrices, so both records can only be it. The canonical keeps both the abbreviation and the expansion so either spelling is searchable."
+    },
+    {
+      "canonical": "Sawai Man Singh Medical College, Jaipur",
+      "aliases": [
+        "SMS Medical College, Jaipur"
+      ],
+      "reason": "SMS = Sawai Man Singh. NMC lists it as 'SMS Medical College, Jaipur' with the address 'Sawai Man Singh Medical College, Jawahar Lal Nehru Marg, Jaipur - 302004' (Govt., est. 1947, 250 seats) — one college, two records on our side. Canonical is the full official name; the abbreviation survives as an alias."
+    }
+  ],
+  "newColleges": [],
+  "unresolved": []
+}

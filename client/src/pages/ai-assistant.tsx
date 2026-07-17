@@ -313,6 +313,12 @@ export default function AiAssistantPage() {
         throw { message: data.message || 'Rate limit exceeded', retryAfter: data.retryAfter };
       }
 
+      // 402 = free daily AI limit reached (upgrade to Premium for unlimited).
+      if (res.status === 402) {
+        const data = await res.json().catch(() => ({}));
+        throw { message: data.message || 'Upgrade to Premium for unlimited answers.' };
+      }
+
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw { message: data.message || `Error ${res.status}` };
@@ -589,7 +595,7 @@ export default function AiAssistantPage() {
             </div>
             <div className="flex items-center gap-1.5 mt-8 text-[10px] text-slate-400">
               <Sparkles className="w-3 h-3" />
-              <span>Powered by AI — Add your API key in server/.env for live responses</span>
+              <span>Answers are drawn from MedCounsel's verified counselling data</span>
             </div>
           </div>
         ) : (

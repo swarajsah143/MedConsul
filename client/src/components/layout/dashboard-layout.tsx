@@ -1,37 +1,41 @@
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
-import { ANNOUNCEMENTS_DATA } from '@/lib/announcements-data';
-import { CHECKLIST_DOCS } from '@/lib/checklist-data';
+import { useCollection } from '@/lib/data-api';
 import {
-  Stethoscope,
-  LayoutDashboard,
-  GraduationCap,
   BarChart3,
-  IndianRupee,
-  ClipboardCheck,
-  Menu,
-  X,
-  LogOut,
+  Target,
+  BookOpen,
+  Building2,
   ChevronDown,
   ChevronRight,
-  Megaphone,
-  MapPin,
-  ScrollText,
-  ShieldCheck,
+  ClipboardCheck,
   ClipboardList,
-  Home,
-  Users,
-  Layers,
-  Sparkles,
   Compass,
-  Building2,
-  BookOpen,
-  Newspaper,
+  Database,
+  FileCheck,
   Globe2,
+  GraduationCap,
+  Home,
+  IndianRupee,
+  Layers,
+  LayoutDashboard,
+  LogOut,
+  MapPin,
+  Megaphone,
+  Menu,
+  Newspaper,
+  ScrollText,
   Shield,
+  ShieldCheck,
+  Sparkles,
+  Stethoscope,
+  UserCircle,
+  Users,
+  UsersRound,
+  X,
   type LucideIcon,
 } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 
 interface NavLeaf {
   name: string;
@@ -54,30 +58,33 @@ interface NavSection {
   items: NavEntry[];
 }
 
-function getChecklistRemaining(): number {
+/** Ids the user has ticked off. Stale ids (from the old static data) are ignored. */
+function loadCheckedIds(): string[] {
   try {
     const raw = localStorage.getItem('medcounsel-checklist-state');
     if (raw) {
-      const checked = JSON.parse(raw) as string[];
-      return Math.max(CHECKLIST_DOCS.length - checked.length, 0);
+      const parsed: unknown = JSON.parse(raw);
+      if (Array.isArray(parsed)) return parsed.filter((v): v is string => typeof v === 'string');
     }
-  } catch { /* ignore */ }
-  return CHECKLIST_DOCS.length;
+  } catch { /* ignore malformed/stale state */ }
+  return [];
 }
 
-function buildNavSections(): NavSection[] {
-  const docsRemaining = getChecklistRemaining();
+/** Badge counts come from the API now — render no badge while loading or on error. */
+function buildNavSections(announcementBadge?: string, docsBadge?: string): NavSection[] {
   return [
     {
       label: 'Overview',
       items: [
         { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-        { name: 'Announcements', href: '/announcements', icon: Megaphone, badge: String(ANNOUNCEMENTS_DATA.length) },
+        { name: 'Announcements', href: '/announcements', icon: Megaphone, badge: announcementBadge },
+        { name: 'My Profile', href: '/profile', icon: UserCircle },
       ],
     },
     {
       label: 'Research',
       items: [
+        { name: 'Rank Predictor', href: '/rank-predictor', icon: Target },
         { name: 'College Reviews', href: '/colleges', icon: GraduationCap },
         { name: 'Rank Insights', href: '/rank-insights', icon: BarChart3 },
         { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
@@ -99,7 +106,7 @@ function buildNavSections(): NavSection[] {
             { name: 'Quota & Reservation', href: '/counselling-conditions/quota', icon: Layers },
           ],
         },
-        { name: 'Doc Checklist', href: '/doc-checklist', icon: ClipboardCheck, badge: docsRemaining > 0 ? String(docsRemaining) : undefined },
+        { name: 'Doc Checklist', href: '/doc-checklist', icon: ClipboardCheck, badge: docsBadge },
         {
           name: 'Explore',
           icon: Compass,
@@ -117,7 +124,12 @@ function buildNavSections(): NavSection[] {
 }
 
 // Admin-only entry, shown above everything else for admin users
-const ADMIN_NAV: NavLeaf = { name: 'Admin Dashboard', href: '/admin', icon: Shield };
+const ADMIN_NAV: NavLeaf[] = [
+  { name: 'Admin Dashboard', href: '/admin', icon: Shield },
+  { name: 'Manage Data', href: '/admin/data', icon: Database },
+  { name: 'Verify Documents', href: '/admin/verifications', icon: FileCheck },
+  { name: 'Students', href: '/admin/students', icon: UsersRound },
+];
 
 function NavItem({ item, active, onClick }: { item: NavLeaf; active: boolean; onClick?: () => void }) {
   const Icon = item.icon;
@@ -224,9 +236,25 @@ export default function DashboardLayout() {
   const isActive = (href: string) =>
     location.pathname === href || location.pathname.startsWith(href + '/');
 
-  const navSections = buildNavSections();
+  // Nav badge counts are admin-managed data now.
+  const announcements = useCollection<{ id: string }>('announcements');
+  const checklistDocs = useCollection<{ id: string }>('checklistDocs');
+
+  const announcementBadge = useMemo(() => {
+    if (announcements.loading || announcements.error) return undefined;
+    return announcements.data.length > 0 ? String(announcements.data.length) : undefined;
+  }, [announcements.loading, announcements.error, announcements.data]);
+
+  const docsBadge = useMemo(() => {
+    if (checklistDocs.loading || checklistDocs.error) return undefined;
+    const checked = new Set(loadCheckedIds());
+    const remaining = checklistDocs.data.filter((d) => !checked.has(d.id)).length;
+    return remaining > 0 ? String(remaining) : undefined;
+  }, [checklistDocs.loading, checklistDocs.error, checklistDocs.data]);
+
+  const navSections = buildNavSections(announcementBadge, docsBadge);
   const visibleSections: NavSection[] = user?.role === 'admin'
-    ? navSections.map((s, i) => (i === 0 ? { ...s, items: [ADMIN_NAV, ...s.items] } : s))
+    ? navSections.map((s, i) => (i === 0 ? { ...s, items: [...ADMIN_NAV, ...s.items] } : s))
     : navSections;
 
   const handleLogout = async () => {
@@ -237,7 +265,11 @@ export default function DashboardLayout() {
   const userInitial = user?.name?.charAt(0)?.toUpperCase() || 'U';
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex">
+    // A proper app shell: the PAGE never scrolls, only <main> does. It used to be
+    // min-h-screen (body grows with content) while <main> also had overflow-y-auto —
+    // so a tall form (the colleges admin form has 27 fields) scrolled the body past
+    // the end of the app and left a large blank region below it.
+    <div className="h-screen overflow-hidden bg-slate-50 dark:bg-slate-950 flex">
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-60 h-screen sticky top-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-30">
         <Link to="/dashboard" className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">

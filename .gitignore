@@ -26,3 +26,19 @@ npm-debug.log*
 
 # Coverage
 coverage/
+
+# Student identity documents (Aadhaar, marksheets) — never commit these
+uploads/
+
+# Production database dumps — contain real user data (emails, bcrypt hashes, tokens).
+# NB: the real dir is data/backup/ (singular). The old `backups/` line was a typo that let
+# users.bson / submissions.bson / refreshtokens.bson get committed. Cover all forms.
+backups/
+data/backup/
+**/backup/
+*.bson
+*.archive
+
+# Python bytecode
+__pycache__/
+*.pyc

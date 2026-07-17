@@ -1,0 +1,16 @@
+{
+ "state": "Chandigarh",
+ "pairings": [],
+ "enrichment": [],
+ "merges": [
+  {
+   "canonical": "Government Medical College & Hospital, Chandigarh (GMCH-32)",
+   "aliases": [
+    "GMCH Chandigarh"
+   ],
+   "reason": "GMCH is the standard acronym of Government Medical College & Hospital, Chandigarh (Sector 32) — the same institution, not a second college. The NMC UG 2023 registry lists exactly ONE MBBS college in the whole of Chandigarh UT (collegeId 18, 'Government Medical College, Chandigarh', Sector-32, Chandigarh-160030, Punjab University, est. 1991, 150 UG seats, www.gmch.gov.in), and it is already claimed by the canonical record (nmcPool for Chandigarh is empty), so 'GMCH Chandigarh' cannot be a distinct NMC-listed college. Chandigarh's other medical institutions are not candidates: PGIMER runs no MBBS course and Dr. Harvansh Singh Judge Institute is a dental (BDS) college, so rule 4 (same city != same college) has no alternative to point at here. Merging also repoints the 14 closingRank rows currently keyed to 'GMCH Chandigarh' onto the canonical record instead of orphaning them."
+  }
+ ],
+ "newColleges": [],
+ "unresolved": []
+}

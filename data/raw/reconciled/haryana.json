@@ -1,0 +1,216 @@
+{
+ "state": "Haryana",
+ "pairings": [
+  {
+   "ourName": "ESIC Medical College, Faridabad",
+   "nmcName": "Employees State Insurance Corporation Medical College, Faridabad",
+   "evidence": "ESIC = Employees State Insurance Corporation. NMC address 'Employee State Insurance Corporation Medical College, Faridabad, Med. Supdt., ESI Hospital NH-3, ESIC Building, NIIT Faridabad-121001 (Haryana)', website www.esicmcfbd.ac.in, management Govt. Same institution, same city (Faridabad); the only ESIC medical college in Haryana."
+  },
+  {
+   "ourName": "N.C. Medical College & Hospital, Israna, Panipat",
+   "nmcName": "N.C. Medical College & Hospital, Panipat",
+   "evidence": "NMC address 'Panipat-Rohtak Road, VPO-Israna, District-Panipat-132107 (Haryana)' — Israna is the village inside Panipat district where the college sits, so our 'Israna, Panipat' name and the NMC 'Panipat' row are the same college. Our two other spellings ('NC Medical College & Hospital, Israna (Panipat)' / '... Israna, Panipat') are merged into this one."
+  },
+  {
+   "ourName": "SGT Medical College, Gurugram",
+   "nmcName": "Faculty of Medicine and Health Sciences, Gurgaon (Formarly SGGST Medical College & R Centre,Gurgaon)",
+   "evidence": "NMC address 'SGT Medical College Hospital & Research Institute, Near Sultanpur Bird Sanctuary, Village Budhera, Gurugram-122505 (Haryana)', university 'SGT University, Gurugram', email info@sgtmedicalcollege.org — the NMC row IS SGT Medical College (renamed Faculty of Medicine & Health Sciences). Our second spelling 'SGT University Faculty of Medicine & Health Sciences, Gurugram' is merged into it. NOT paired with the separate Sri Govind Tricentenary (SGT) Dental College, which is a BDS institution."
+  },
+  {
+   "ourName": "World College of Medical Sciences & Research, Jhajjar",
+   "nmcName": "World College of Medical Sciences & Researc, Jhajjar, Haryana",
+   "evidence": "NMC row is the same name with a typo ('Researc'), address 'World College of Medical Sciences and Hospital, Jhajjar Sample Road, Gurwar, Jhajjar-124103 (Haryana)', website www.wcmsrh.com. Same city, same college."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "ESIC Medical College, Faridabad",
+   "state": "Haryana",
+   "city": "Faridabad",
+   "type": "Government",
+   "established": 2015,
+   "totalSeats": 125,
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "website": "http://www.esicmcfbd.ac.in",
+   "source": "NMC UG registry snapshot 2023-08-31 (data/raw/nmc_ug_2023.json; https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Employees State Insurance Corporation Medical College, Faridabad', managementupdate Govt. -> Government, yearOfInc 2015, ugApproved 125."
+  },
+  {
+   "name": "N.C. Medical College & Hospital, Israna, Panipat",
+   "state": "Haryana",
+   "city": "Panipat",
+   "type": "Deemed",
+   "established": 2016,
+   "totalSeats": 150,
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "website": "http://www.ncmedicalcollege.com",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'N.C. Medical College & Hospital, Panipat', yearOfInc 2016, ugApproved 150. NMC managementupdate is 'Trust'; type Deemed retained from our record per the Deemed-never-downgraded rule (flagged for human review — NMC affiliates it to Pt. B.D. Sharma UHS, which suggests a private, non-deemed college)."
+  },
+  {
+   "name": "SGT Medical College, Gurugram",
+   "state": "Haryana",
+   "city": "Gurugram",
+   "type": "Deemed",
+   "established": 2010,
+   "totalSeats": 150,
+   "affiliation": "SGT University, Gurugram",
+   "website": "http://sgtmedicalcollege.org",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Faculty of Medicine and Health Sciences, Gurgaon (Formarly SGGST Medical College & R Centre,Gurgaon)', yearOfInc 2010, ugApproved 150, university 'SGT University, Gurugram'. City kept as Gurugram (NMC still writes the old name Gurgaon). NMC managementupdate is 'Trust'; type Deemed retained from our record per the Deemed-never-downgraded rule (flagged: SGT University is a Haryana private state university, so Private may be the truth)."
+  },
+  {
+   "name": "World College of Medical Sciences & Research, Jhajjar",
+   "state": "Haryana",
+   "city": "Jhajjar",
+   "type": "Deemed",
+   "established": 2016,
+   "totalSeats": 150,
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "website": "http://www.wcmsrh.com",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'World College of Medical Sciences & Researc, Jhajjar, Haryana', yearOfInc 2016, ugApproved 150. NMC managementupdate is 'Trust'; type Deemed retained from our record per the Deemed-never-downgraded rule (flagged for human review)."
+  },
+  {
+   "name": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
+   "state": "Haryana",
+   "city": "Rohtak",
+   "type": "Government",
+   "established": 1960,
+   "totalSeats": 250,
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "website": "http://pgimsrohtak.nic.in",
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Pt. B D Sharma Postgraduate Institute of Medical Sciences, Rohtak (Haryana)', managementupdate Govt. -> Government, yearOfInc 1960, ugApproved 250. Re-stated on the canonical (fullest) spelling because the NMC row was originally matched to our shorter 'Pt. B.D. Sharma PGIMS, Rohtak' record, which is now an alias."
+  },
+  {
+   "name": "Pt. Neki Ram Sharma Government Medical College, Bhiwani",
+   "state": "Haryana",
+   "city": "Bhiwani",
+   "type": "Government",
+   "established": 2025,
+   "totalSeats": 100,
+   "source": "Founded after the 2023 NMC snapshot. NMC granted permission for 100 MBBS seats from AY 2025-26: https://www.tribuneindia.com/news/haryana/koriawas-bhiwani-medical-colleges-can-now-admit-students/ ; Haryana state counselling (Pt. B.D. Sharma UHS, Rohtak) added the 100 seats in NEET UG 2025 round 2 and names it a government college: https://news.careers360.com/haryana-neet-ug-2025-round-2-uhsrugcounselling-registration-begins-date-cutoff-200-new-mbbs-seats-bhiwani-koriawas-added/amp"
+  },
+  {
+   "name": "Maharishi Chyawan Medical College, Koriawas (Rewari)",
+   "state": "Haryana",
+   "city": "Koriawas",
+   "type": "Government",
+   "established": 2025,
+   "totalSeats": 100,
+   "source": "Founded after the 2023 NMC snapshot. NMC permission for 100 MBBS seats from AY 2025-26: https://www.tribuneindia.com/news/haryana/koriawas-bhiwani-medical-colleges-can-now-admit-students/ (Tribune places it at 'Koriawas, Mahendragarh district', i.e. Koriawas village near Narnaul — NOT Rewari as our display name says). Government college, seats added to Haryana state counselling by Pt. B.D. Sharma UHS Rohtak: https://news.careers360.com/haryana-neet-ug-2025-round-2-uhsrugcounselling-registration-begins-date-cutoff-200-new-mbbs-seats-bhiwani-koriawas-added/amp (names it 'Maharishi Chyawan Government Medical College, Koriawas, Narnaul'). City kept as the village Koriawas, which both sources agree on."
+  },
+  {
+   "name": "Post Graduate Institute of Dental Sciences, Rohtak",
+   "state": "Haryana",
+   "city": "Rohtak",
+   "type": "Government",
+   "established": 1981,
+   "totalSeats": 100,
+   "affiliation": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+   "website": "https://pgids.ac.in",
+   "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Official site https://pgids.ac.in/ — 'under the aegis of Government of Haryana and Pt. B.D. Sharma University of Health Sciences, Rohtak', dental education since 1981, B.D.S. with 100 admissions per year. Dental Council of India college list (https://dciindia.gov.in/CollegeSearch.aspx?ColName=&CourseId=1&SplId=0&StateId=&Hospital=&Type=0&Status=--Select--) lists it as the Government dental college of Haryana, established 1980-81."
+  },
+  {
+   "name": "JN Kapoor DAV Centenary Dental College, Yamuna Nagar",
+   "state": "Haryana",
+   "city": "Yamuna Nagar",
+   "type": "Private",
+   "established": 1987,
+   "affiliation": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+   "website": "http://www.davdentalynr.com",
+   "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Dental Council of India college list (https://dciindia.gov.in/CollegeSearch.aspx?ColName=&CourseId=1&SplId=0&StateId=&Hospital=&Type=0&Status=--Select--): 'D.A.V. Centenary Dental College, Yamuna Nagar', established 1987-88, Private (D.A.V. trust/society). Affiliating university from https://www.careers360.com/colleges/jn-kapoor-dav-centenary-dental-college-yamuna-nagar ; official site http://www.davdentalynr.com/ (TLS certificate expired, so it could not be fetched — website corroborated by the DCI/careers360 listings and https://yamunanagar.nic.in/public-utility/dav-dental-college/). totalSeats omitted: careers360 says 50 BDS seats but the college's own site states 40 admissions per year — the sources conflict, so no seat count is asserted."
+  },
+  {
+   "name": "Sudha Rustagi College of Dental Sciences and Research, Faridabad",
+   "state": "Haryana",
+   "city": "Faridabad",
+   "type": "Private",
+   "established": 2002,
+   "affiliation": "Pt. B.D. Sharma University of Health Sciences, Rohtak",
+   "website": "https://srdentalcollege.com",
+   "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Official site https://srdentalcollege.com/ — private institution, Greater Faridabad, established 2002, affiliated to Pandit Bhagwat Dayal Sharma University of Health Sciences, Rohtak, recognised by the Dental Council of India. DCI college list (https://dciindia.gov.in/CollegeSearch.aspx?ColName=&CourseId=1&SplId=0&StateId=&Hospital=&Type=0&Status=--Select--) confirms Private, established 2002-03. BDS intake not stated on the official site, so totalSeats is omitted."
+  },
+  {
+   "name": "Manav Rachna Dental College, Faridabad",
+   "state": "Haryana",
+   "city": "Faridabad",
+   "type": "Deemed",
+   "established": 2006,
+   "source": "BDS college, absent from the NMC UG (MBBS) registry by design. Dental Council of India college list (https://dciindia.gov.in/CollegeSearch.aspx?ColName=&CourseId=1&SplId=0&StateId=&Hospital=&Type=0&Status=--Select--): 'Manav Rachna Dental College, Faridabad', established 2006-07. It is a faculty of Manav Rachna International Institute of Research and Studies, a Deemed-to-be University (https://www.bdsdental.in/blog/manav-rachna-dental-college-faridabad), so the Deemed type on our record is correct and is retained."
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "BPS Government Medical College for Women, Khanpur Kalan, Sonepat",
+   "aliases": [
+    "BPS Government Medical College for Women, Khanpur Kalan (Sonepat)"
+   ],
+   "reason": "One college, two spellings of the same string. Bhagat Phool Singh Govt. Medical College for Women sits in Khanpur Kalan village, Sonipat district — NMC row 'BPS Government Medical College for Women, Sonepat' (address 'Khanpur kalan, Sonipat-131305'). Canonical is the record already matched to that NMC row (city Sonepat, Government, est 2012, 120 seats)."
+  },
+  {
+   "canonical": "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana, Ambala",
+   "aliases": [
+    "MM Institute of Medical Sciences & Research, Mullana (Ambala)",
+    "Maharishi Markandeshwar Institute of Medical Sciences & Research, Mullana"
+   ],
+   "reason": "'MM' is the abbreviation of 'Maharishi Markandeshwar'; all three records are MMIMSR at Mullana, Ambala (NMC row 'Maharishi Markandeshwar Institute Of Medical Sciences & Research, Mullana, Ambala', a constituent of the deemed MM University — Deemed retained). Deliberately NOT merged with the separate 'Maharishi Markandeshwar College of Medical Sciences & Research, Sadopur' (a different campus, est 2023, added below as a new college)."
+  },
+  {
+   "canonical": "N.C. Medical College & Hospital, Israna, Panipat",
+   "aliases": [
+    "NC Medical College & Hospital, Israna (Panipat)",
+    "NC Medical College & Hospital, Israna, Panipat"
+   ],
+   "reason": "Three spellings of one college: N.C. Medical College & Hospital, VPO Israna, district Panipat (single NMC row, collegeId 710). Canonical keeps the NMC punctuation 'N.C.' and both locality tokens (Israna, Panipat)."
+  },
+  {
+   "canonical": "Pt Bhagwat Dayal Sharma Post Graduate Institute of Medical Sciences (PGIMS), Rohtak",
+   "aliases": [
+    "Pt. B.D. Sharma PGIMS, Rohtak",
+    "Pt. Bhagwat Dayal Sharma PGIMS, Rohtak"
+   ],
+   "reason": "One college (PGIMS Rohtak, NMC collegeId 52) recorded three times: the full name, the initialism 'B.D.', and a half-expanded form. Canonical is the fullest spelling; its NMC enrichment (Government, 1960, 250 seats) is re-stated in `enrichment` because the NMC row had originally been matched to the alias 'Pt. B.D. Sharma PGIMS, Rohtak'."
+  },
+  {
+   "canonical": "SGT Medical College, Gurugram",
+   "aliases": [
+    "SGT University Faculty of Medicine & Health Sciences, Gurugram"
+   ],
+   "reason": "One college: SGT Medical College, the medical faculty of SGT University, Budhera, Gurugram — a single NMC row (collegeId 507, 'Faculty of Medicine and Health Sciences, Gurgaon'). Canonical is the record that carries our Deemed type, which must not be dropped by the merge; the official long name survives as a searchable alias."
+  },
+  {
+   "canonical": "Pt. Neki Ram Sharma Government Medical College, Bhiwani",
+   "aliases": [
+    "Pandit Neki Ram Sharma Government Medical College, Bhiwani"
+   ],
+   "reason": "One college, 'Pt.' vs 'Pandit'. Bhiwani has exactly one government medical college (NMC permitted it for 100 MBBS seats from 2025-26). Canonical uses the spelling NMC/Haryana counselling use ('Pt. Neki Ram Sharma Government Medical College, Bhiwani')."
+  }
+ ],
+ "newColleges": [
+  {
+   "name": "Adesh Medical College and Hospital, Shahabad, Kurukshetra, Haryana",
+   "state": "Haryana",
+   "city": "Kurukshetra",
+   "type": "Private",
+   "established": 2017,
+   "totalSeats": 150,
+   "affiliation": "PT. B.D. Sharma University of Health Sciences, Rohtak",
+   "website": "http://www.amch.ac.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Adesh Medical College and Hospital, Shahabad, Kurukshetra, Haryana', address 'Village Mohri, Tehsil Shahabad (M), Distt. Kurukshetra-136135', managementupdate Society -> Private, yearOfInc 2017, ugApproved 150. No record of it on the site."
+  },
+  {
+   "name": "Maharishi Markandeshwar College of Medical Sciences & Research, Sadopur",
+   "state": "Haryana",
+   "city": "Sadopur, Ambala",
+   "type": "Private",
+   "established": 2023,
+   "totalSeats": 150,
+   "affiliation": "Maharishi Marakandeshwar University (Deemed), Ambala",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "NMC UG registry snapshot 2023-08-31 (https://www.nmc.org.in/MCIRest/open/getDataFromService?service=getAllUgColleges) — row 'Maharishi Markandeshwar College of Medical Sciences & Research, Sadopur', address 'Sadopur, Ambala, Haryana', managementupdate Private -> Private, yearOfInc 2023, ugApproved 150. A separate institution from MMIMSR Mullana (different campus, first permitted 2023-24), so it is added rather than merged. No website in the registry."
+  }
+ ],
+ "unresolved": []
+}

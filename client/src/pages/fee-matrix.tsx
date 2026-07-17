@@ -1,11 +1,8 @@
+import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  FEE_MATRIX_DATA,
-  FEE_FILTER_OPTIONS,
-  formatINR,
-  type CollegeFeeEntry,
-} from '@/lib/fee-matrix-data';
+import { useCollections, byId, distinct, type College, type FeeEntry } from '@/lib/data-api';
+import { formatINR } from '@/lib/fee-matrix-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,17 +24,44 @@ import {
   ArrowRight,
   TrendingUp,
   Wallet,
-  Target,
   ClipboardCheck,
+  Loader2,
+  AlertTriangle,
 } from 'lucide-react';
 
 type SortField = 'college' | 'tuitionFee' | 'hostelFee' | 'totalFirstYear' | 'govtSeats' | 'mgmtSeats';
 type ViewMode = 'cards' | 'table';
 
+/** A fee row joined against its college — the API stores only a collegeId, and every money/seat field is optional. */
+interface FeeRow {
+  id: string;
+  collegeId: string;
+  name: string;
+  state: string;
+  city: string;
+  type: string;
+  course: string;
+  category: string;
+  quota: string;
+  tuitionFee: number;
+  hostelFee: number;
+  miscCharges: number;
+  securityDeposit: number;
+  totalFirstYear: number;
+  govtSeats: number;
+  mgmtSeats: number;
+  nriSeats: number;
+}
+
 const PAGE_SIZE = 12;
 
 export default function FeeMatrixPage() {
   const navigate = useNavigate();
+
+  const { data, loading, error } = useCollections<{ colleges: College[]; fees: FeeEntry[] }>([
+    'colleges',
+    'fees',
+  ]);
 
   const [search, setSearch] = useState('');
   const [state, setState] = useState('All');
@@ -63,19 +87,72 @@ export default function FeeMatrixPage() {
     category !== 'All', quota !== 'All', search !== '',
   ].filter(Boolean).length;
 
+  // ── join + normalise: college info from `colleges`, every optional number defaulted ──
+  const rows = useMemo<FeeRow[]>(() => {
+    const collegeMap = byId(data.colleges ?? []);
+    return (data.fees ?? []).map((f) => {
+      const c = collegeMap.get(f.collegeId);
+      const tuitionFee = f.tuitionFee ?? 0;
+      const hostelFee = f.hostelFee ?? 0;
+      const miscCharges = f.miscCharges ?? 0;
+      const securityDeposit = f.securityDeposit ?? 0;
+      return {
+        id: f.id,
+        collegeId: f.collegeId,
+        name: c?.name ?? 'Unknown college',
+        state: c?.state ?? '',
+        city: c?.city ?? '',
+        type: c?.type ?? '',
+        course: f.course ?? '',
+        category: f.category ?? '',
+        quota: f.quota ?? '',
+        tuitionFee,
+        hostelFee,
+        miscCharges,
+        securityDeposit,
+        totalFirstYear: f.totalFirstYear ?? (tuitionFee + hostelFee + miscCharges + securityDeposit),
+        govtSeats: f.govtSeats ?? 0,
+        mgmtSeats: f.mgmtSeats ?? 0,
+        nriSeats: f.nriSeats ?? 0,
+      };
+    });
+  }, [data.colleges, data.fees]);
+
+  // Dropdown options built from the live rows, so admin-added colleges/quotas show up automatically.
+  const filterOptions = useMemo(() => ({
+    states: distinct(rows, 'state'),
+    courses: distinct(rows, 'course'),
+    categories: distinct(rows, 'category'),
+    quotas: distinct(rows, 'quota'),
+  }), [rows]);
+
+  // Colleges are keyed by id, never by display name: two colleges can share a name, and every
+  // orphaned row falls back to the same 'Unknown college' label.
+  const collegeOptions = useMemo(() => {
+    const seen = new Map<string, string>();
+    for (const r of rows) {
+      if (!seen.has(r.collegeId)) seen.set(r.collegeId, r.name);
+    }
+    return [...seen.entries()]
+      .map(([id, name]) => ({ id, name }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [rows]);
+
+  const collegeLabel = collegeOptions.find((c) => c.id === college)?.name ?? college;
+
   const filtered = useMemo(() => {
-    let data = FEE_MATRIX_DATA;
+    let list = rows;
     if (search) {
       const q = search.toLowerCase();
-      data = data.filter((e) => e.name.toLowerCase().includes(q) || e.city.toLowerCase().includes(q) || e.course.toLowerCase().includes(q));
+      list = list.filter((e) => e.name.toLowerCase().includes(q) || e.city.toLowerCase().includes(q) || e.course.toLowerCase().includes(q));
     }
-    if (state !== 'All') data = data.filter((e) => e.state === state);
-    if (college !== 'All') data = data.filter((e) => e.name === college);
-    if (course !== 'All') data = data.filter((e) => e.course === course);
-    if (category !== 'All') data = data.filter((e) => e.category === category);
-    if (quota !== 'All') data = data.filter((e) => e.quota === quota);
+    if (state !== 'All') list = list.filter((e) => e.state === state);
+    if (college !== 'All') list = list.filter((e) => e.collegeId === college);
+    if (course !== 'All') list = list.filter((e) => e.course === course);
+    if (category !== 'All') list = list.filter((e) => e.category === category);
+    if (quota !== 'All') list = list.filter((e) => e.quota === quota);
 
-    data = [...data].sort((a, b) => {
+    list = [...list].sort((a, b) => {
       let cmp = 0;
       switch (sortBy) {
         case 'college': cmp = a.name.localeCompare(b.name); break;
@@ -87,11 +164,19 @@ export default function FeeMatrixPage() {
       }
       return sortOrder === 'asc' ? cmp : -cmp;
     });
-    return data;
-  }, [search, state, college, course, category, quota, sortBy, sortOrder]);
+    return list;
+  }, [rows, search, state, college, course, category, quota, sortBy, sortOrder]);
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
-  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+
+  // A narrowing filter can leave `page` past the end of the new result set, which
+  // renders an empty grid with no pagination control — as if the data vanished.
+  useEffect(() => {
+    if (page > totalPages) setPage(1);
+  }, [totalPages, page]);
+
+  const safePage = Math.min(page, totalPages);
+  const paginated = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   const handleSort = useCallback((field: SortField) => {
     if (sortBy === field) setSortOrder((o) => (o === 'asc' ? 'desc' : 'asc'));
@@ -105,37 +190,32 @@ export default function FeeMatrixPage() {
   };
 
   const handleExportCsv = () => {
-    const header = 'College,State,City,Type,Course,Category,Quota,Tuition,Hostel,Misc,Deposit,Total 1st Yr,Govt Seats,Mgmt Seats,NRI Seats\n';
-    const rows = filtered.map((e) =>
-      `"${e.name}","${e.state}","${e.city}","${e.type}","${e.course}","${e.category}","${e.quota}",${e.tuitionFee},${e.hostelFee},${e.miscCharges},${e.securityDeposit},${e.totalFirstYear},${e.govtSeats},${e.mgmtSeats},${e.nriSeats}`
-    ).join('\n');
-    const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'fee-seat-matrix.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
+    const csv = toCsv(
+      ['College', 'State', 'City', 'Type', 'Course', 'Category', 'Quota', 'Tuition', 'Hostel', 'Misc',
+       'Deposit', 'Total 1st Yr', 'Govt Seats', 'Mgmt Seats', 'NRI Seats'],
+      filtered.map((e) => [
+        e.name, e.state, e.city, e.type, e.course, e.category, e.quota,
+        e.tuitionFee, e.hostelFee, e.miscCharges, e.securityDeposit, e.totalFirstYear,
+        e.govtSeats, e.mgmtSeats, e.nriSeats,
+      ])
+    );
+    downloadCsv('fee-seat-matrix.csv', csv);
+    };
 
-  // Summary stats
-  const avgTotal = filtered.length > 0 ? Math.round(filtered.reduce((s, e) => s + e.totalFirstYear, 0) / filtered.length) : 0;
-  const minTotal = filtered.length > 0 ? Math.min(...filtered.map((e) => e.totalFirstYear)) : 0;
-  const maxTotal = filtered.length > 0 ? Math.max(...filtered.map((e) => e.totalFirstYear)) : 0;
+  // Summary stats. `null` when there's nothing to summarise — formatINR(0) renders "Free",
+  // so an empty result set must never be fed through it.
+  const hasRows = filtered.length > 0;
+  const avgTotal = hasRows ? Math.round(filtered.reduce((s, e) => s + e.totalFirstYear, 0) / filtered.length) : null;
+  const minTotal = hasRows ? Math.min(...filtered.map((e) => e.totalFirstYear)) : null;
+  const maxTotal = hasRows ? Math.max(...filtered.map((e) => e.totalFirstYear)) : null;
   const totalGovtSeats = filtered.reduce((s, e) => s + e.govtSeats, 0);
+
+  const statFee = (amount: number | null) => (amount === null ? '—' : formatINR(amount));
 
   const typeColor = (t: string) =>
     t === 'Government' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400'
     : t === 'Deemed' ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400'
     : 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400';
-
-  const typeIconBg = (t: string) =>
-    t === 'Government' ? 'bg-emerald-100 dark:bg-emerald-950/40'
-    : t === 'Deemed' ? 'bg-blue-100 dark:bg-blue-950/40'
-    : 'bg-amber-100 dark:bg-amber-950/40';
-
-  const typeIconColor = (t: string) =>
-    t === 'Government' ? 'text-emerald-600' : t === 'Deemed' ? 'text-blue-600' : 'text-amber-600';
 
   function SortHeader({ field, children, className }: { field: SortField; children: React.ReactNode; className?: string }) {
     const active = sortBy === field;
@@ -146,6 +226,28 @@ export default function FeeMatrixPage() {
           <ArrowUpDown className={`w-3 h-3 shrink-0 transition-colors ${active ? 'text-red-600' : 'text-slate-400'}`} />
         </span>
       </th>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center py-24 gap-3">
+        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <p className="text-sm text-muted-foreground">Loading fee & seat data...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-md mx-auto mt-12">
+        <EmptyState
+          icon={AlertTriangle}
+          title="Couldn't load fee data"
+          description={error}
+          action={{ label: 'Retry', onClick: () => window.location.reload() }}
+        />
+      </div>
     );
   }
 
@@ -191,10 +293,10 @@ export default function FeeMatrixPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: 'Avg. 1st Year', value: formatINR(avgTotal), icon: Wallet, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
-          { label: 'Lowest Fee', value: formatINR(minTotal), icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
-          { label: 'Highest Fee', value: formatINR(maxTotal), icon: IndianRupee, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
-          { label: 'Govt Seats', value: totalGovtSeats.toLocaleString(), icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
+          { label: 'Avg. 1st Year', value: statFee(avgTotal), icon: Wallet, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Lowest Fee', value: statFee(minTotal), icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
+          { label: 'Highest Fee', value: statFee(maxTotal), icon: IndianRupee, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
+          { label: 'Govt Seats', value: hasRows ? totalGovtSeats.toLocaleString() : '—', icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <CardContent className="p-4 sm:p-5">
@@ -242,7 +344,7 @@ export default function FeeMatrixPage() {
                 </h3>
                 <div className="relative">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Search college, city, course..." value={search} onChange={(e) => setSearch(e.target.value)}
+                  <Input placeholder="Search college, city, course..." value={search} onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                     className="pl-11 h-12 text-sm rounded-xl focus:shadow-lg transition-all duration-200" />
                 </div>
               </section>
@@ -256,18 +358,18 @@ export default function FeeMatrixPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">State</label>
-                      <select value={state} onChange={(e) => setState(e.target.value)}
+                      <select value={state} onChange={(e) => { setState(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All States</option>
-                        {FEE_FILTER_OPTIONS.states.map((s) => <option key={s} value={s}>{s}</option>)}
+                        {filterOptions.states.map((s) => <option key={s} value={s}>{s}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">College</label>
-                      <select value={college} onChange={(e) => setCollege(e.target.value)}
+                      <select value={college} onChange={(e) => { setCollege(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Colleges</option>
-                        {FEE_FILTER_OPTIONS.colleges.map((c) => <option key={c} value={c}>{c}</option>)}
+                        {collegeOptions.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
                       </select>
                     </div>
                   </div>
@@ -283,26 +385,26 @@ export default function FeeMatrixPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Course</label>
-                      <select value={course} onChange={(e) => setCourse(e.target.value)}
+                      <select value={course} onChange={(e) => { setCourse(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Courses</option>
-                        {FEE_FILTER_OPTIONS.courses.map((c) => <option key={c} value={c}>{c}</option>)}
+                        {filterOptions.courses.map((c) => <option key={c} value={c}>{c}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Category</label>
-                      <select value={category} onChange={(e) => setCategory(e.target.value)}
+                      <select value={category} onChange={(e) => { setCategory(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Categories</option>
-                        {FEE_FILTER_OPTIONS.categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                        {filterOptions.categories.map((c) => <option key={c} value={c}>{c}</option>)}
                       </select>
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Quota</label>
-                      <select value={quota} onChange={(e) => setQuota(e.target.value)}
+                      <select value={quota} onChange={(e) => { setQuota(e.target.value); setPage(1); }}
                         className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
                         <option value="All">All Quotas</option>
-                        {FEE_FILTER_OPTIONS.quotas.map((q) => <option key={q} value={q}>{q}</option>)}
+                        {filterOptions.quotas.map((q) => <option key={q} value={q}>{q}</option>)}
                       </select>
                     </div>
                   </div>
@@ -353,7 +455,7 @@ export default function FeeMatrixPage() {
           {activeFilterCount > 0 && (
             <>
               {state !== 'All' && <FilterTag label={state} onRemove={() => { setState('All'); setPage(1); }} />}
-              {college !== 'All' && <FilterTag label={college} onRemove={() => { setCollege('All'); setPage(1); }} />}
+              {college !== 'All' && <FilterTag label={collegeLabel} onRemove={() => { setCollege('All'); setPage(1); }} />}
               {course !== 'All' && <FilterTag label={course} onRemove={() => { setCourse('All'); setPage(1); }} />}
               {category !== 'All' && <FilterTag label={category} onRemove={() => { setCategory('All'); setPage(1); }} />}
               {quota !== 'All' && <FilterTag label={quota} onRemove={() => { setQuota('All'); setPage(1); }} />}
@@ -411,11 +513,13 @@ export default function FeeMatrixPage() {
 
                 {/* Tags row */}
                 <div className="flex flex-wrap gap-1.5 mb-4">
-                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
-                    entry.type === 'Government' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
-                    entry.type === 'Deemed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
-                    'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                  }`}>{entry.type}</span>
+                  {entry.type && (
+                    <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                      entry.type === 'Government' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
+                      entry.type === 'Deemed' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
+                      'bg-amber-500/10 text-amber-400 border-amber-500/20'
+                    }`}>{entry.type}</span>
+                  )}
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">{entry.course}</span>
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">{entry.category}</span>
                 </div>
@@ -502,7 +606,7 @@ export default function FeeMatrixPage() {
                       <div className="truncate max-w-[220px] group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">{entry.name}</div>
                       <div className="flex flex-wrap items-center gap-1.5 mt-1 text-[10px] text-muted-foreground font-normal">
                         <span className="flex items-center gap-0.5"><MapPin className="w-2.5 h-2.5" />{entry.city}, {entry.state}</span>
-                        <span className={`px-1.5 py-0.5 rounded-full font-bold ${typeColor(entry.type)}`}>{entry.type}</span>
+                        {entry.type && <span className={`px-1.5 py-0.5 rounded-full font-bold ${typeColor(entry.type)}`}>{entry.type}</span>}
                       </div>
                     </td>
                     <td className="px-3 py-3.5 text-right tabular-nums font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">{formatINR(entry.tuitionFee)}</td>
@@ -523,7 +627,7 @@ export default function FeeMatrixPage() {
         </Card>
       )}
 
-      <Pagination page={page} totalPages={totalPages} onPageChange={setPage} itemCount={paginated.length} totalItems={filtered.length} />
+      <Pagination page={safePage} totalPages={totalPages} onPageChange={setPage} itemCount={paginated.length} totalItems={filtered.length} />
 
       {/* Tip */}
       <Card className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border-amber-200 dark:border-amber-900/30">

@@ -1,0 +1,113 @@
+{
+ "state": "Punjab",
+ "pairings": [],
+ "enrichment": [
+  {
+   "name": "Punjab Government Dental College and Hospital, Amritsar",
+   "state": "Punjab",
+   "city": "Amritsar",
+   "type": "Government",
+   "established": 1952,
+   "totalSeats": 40,
+   "affiliation": "Baba Farid University of Health Sciences, Faridkot",
+   "website": "https://www.gdcamritsar.com/",
+   "source": "https://www.gdcamritsar.com/ (own site: founded 1952, 40 BDS seats); https://www.bfuhs.ac.in/COLLEGES/Dental.pdf (BFUHS list of affiliated dental colleges, entry 6 'Govt. Dental College, Amritsar')"
+  }
+ ],
+ "merges": [
+  {
+   "canonical": "Dr B.R. Ambedkar State Institute of Medical Sciences, Mohali",
+   "aliases": [
+    "Dr BR Ambedkar SIMS, Mohali"
+   ],
+   "reason": "Same institution; both resolve to NMC row 'Dr B R Ambedkar State Institute of Medical Sciences, SAS Nagar , Mohali' (Mohali, Govt., est. 2021). 'SIMS' is the acronym of 'State Institute of Medical Sciences'. Only one such institute exists in Mohali."
+  },
+  {
+   "canonical": "All India Institute of Medical Sciences, Bathinda",
+   "aliases": [
+    "AIIMS Bathinda"
+   ],
+   "reason": "Acronym duplicate of the same base record; the canonical already matched NMC row 'All India Institute of Medical Sciences, Bhatinda' (Govt., est. 2019). Only one AIIMS in Bathinda."
+  },
+  {
+   "canonical": "Christian Medical College, Ludhiana",
+   "aliases": [
+    "CMC Ludhiana"
+   ],
+   "reason": "CMC = Christian Medical College; canonical already matched NMC row 'Christian Medical College, Ludhiana' (est. 1953). Both records are MBBS-only, so this is not the separate Christian Dental College, Ludhiana."
+  },
+  {
+   "canonical": "Dayanand Medical College & Hospital, Ludhiana",
+   "aliases": [
+    "DMC Ludhiana"
+   ],
+   "reason": "DMC = Dayanand Medical College; canonical already matched NMC row 'Dayanand Medical College & Hospital, Ludhiana' (est. 1963). Type stays Deemed on the canonical."
+  },
+  {
+   "canonical": "Guru Gobind Singh Medical College & Hospital, Faridkot",
+   "aliases": [
+    "GGS Faridkot"
+   ],
+   "reason": "GGS = Guru Gobind Singh; canonical already matched NMC row 'Guru Govind Singh Medical College, Faridkot' (Govt., est. 1973). Only one medical college in Faridkot."
+  },
+  {
+   "canonical": "Government Medical College, Amritsar",
+   "aliases": [
+    "GMC Amritsar"
+   ],
+   "reason": "GMC = Government Medical College; canonical already matched NMC row 'Government Medical College, Amritsar' (Govt., est. 1943). Both records are MBBS; kept distinct from Punjab Government Dental College, Amritsar and from SGRD Amritsar."
+  },
+  {
+   "canonical": "Government Medical College, Patiala",
+   "aliases": [
+    "GMC Patiala"
+   ],
+   "reason": "GMC = Government Medical College; canonical already matched NMC row 'Government Medical College, Patiala' (Govt., est. 1953). The MBBS abbreviation refers to this college, not to the separate Govt. Dental College, Patiala."
+  },
+  {
+   "canonical": "Punjab Institute of Medical Sciences, Jalandhar",
+   "aliases": [
+    "PIMS Jalandhar"
+   ],
+   "reason": "PIMS = Punjab Institute of Medical Sciences, and the city pins it to Jalandhar; canonical already matched NMC row 'Punjab Institute of Medical Sciences, Jalandhar' (est. 2011). Only one medical college in Jalandhar."
+  },
+  {
+   "canonical": "Sri Guru Ram Das Institute of Medical Sciences & Research, Amritsar",
+   "aliases": [
+    "SGRD Amritsar"
+   ],
+   "reason": "SGRD = Sri Guru Ram Das; canonical already matched NMC row 'Sri Guru Ram Das Institute of Medical Sciences and Research, Sri Amritsar' (est. 1997). Both records are MBBS-only, so this is not the separate SGRD Dental College, Amritsar (listed independently in https://www.bfuhs.ac.in/COLLEGES/Dental.pdf)."
+  }
+ ],
+ "newColleges": [
+  {
+   "name": "Chintpurni Medical College, Pathankot, Gurdaspur",
+   "state": "Punjab",
+   "city": "Gurdaspur",
+   "type": "Private",
+   "established": 2011,
+   "totalSeats": 150,
+   "affiliation": "Baba Farid University of Health Sciences,Faridkot",
+   "website": "http://www.cmch.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Gian Sagar Medical College & Hospital, Patiala",
+   "state": "Punjab",
+   "city": "Patiala",
+   "type": "Private",
+   "established": 2020,
+   "totalSeats": 150,
+   "affiliation": "Baba Farid University of Health Sciences,Faridkot",
+   "website": "http://www.giansagar.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "unresolved": []
+}

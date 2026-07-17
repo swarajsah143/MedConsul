@@ -1,0 +1,382 @@
+{
+  "state": "Telangana",
+  "pairings": [
+    {
+      "ourName": "AIIMS Bibinagar (Hyderabad)",
+      "nmcName": "All India Institute of Medical Sciences, Bibinagar",
+      "evidence": "AIIMS is the acronym expansion; NMC address 'All India Institute of Medical Sciences, Bibinagar, Telangana' matches our city Bibinagar. Only one AIIMS in the Telangana NMC list; not conflated with any Hyderabad college (rule 4)."
+    },
+    {
+      "ourName": "Arundathi Institute of Medical Sciences, Hyderabad",
+      "nmcName": "Arundathi Institute of Medical Sciences",
+      "evidence": "Identical name; NMC address '48, Dundigal, Medchal Hyderabad, Telangana' matches our city Hyderabad. Sole 'Arundathi' MBBS row in the state."
+    },
+    {
+      "ourName": "Ayaan Institute of Medical Sciences",
+      "nmcName": "Ayaan Institute of Medical Sciences, Teaching Hospital & Research Centre, Kanaka Mamidi, R.R. Dist",
+      "evidence": "NMC name is our name plus the hospital suffix and locality. Sole 'Ayaan' MBBS row in Telangana."
+    },
+    {
+      "ourName": "Bhaskar Medical College, Moinabad, Hyderabad",
+      "nmcName": "Bhaskar Medical College, Yenkapally",
+      "evidence": "NMC address 'Yenkapally (V), Moinabad (M), CBIT (Post), R.R. Dist' - Yenkapally village sits in Moinabad mandal, so our 'Moinabad' and NMC's 'Yenkapally' are one campus. Only one Bhaskar Medical College."
+    },
+    {
+      "ourName": "CMR Institute of Medical Sciences, Medchal, Hyderabad",
+      "nmcName": "CMR Institute of Medical Sciences",
+      "evidence": "Identical name; NMC address '33, Kandlakoya (V), Medchal Malkajgiri, Hyderabad' matches our Medchal/Hyderabad locality."
+    },
+    {
+      "ourName": "Dr Patnam Mahender Reddy Institute of Medical Sciences, Chevella",
+      "nmcName": "Dr. Patnam Mahender Reddy Institute of Medical Sciences, Chevella, Rangareddy",
+      "evidence": "Same name (punctuation drift) and same town Chevella; NMC address 'Chevella Village and Mandal Rangareddy (Dist.)'."
+    },
+    {
+      "ourName": "Dr VRK Women's Medical College, Hyderabad",
+      "nmcName": "Dr. VRK Womens Medical College, Aziznagar",
+      "evidence": "Apostrophe/period drift only; NMC address 'Aziz Nagar (Village), Ranga Reddy District, 500075' - Aziznagar lies on the Hyderabad periphery (500075 is a Hyderabad PIN). Sole 'VRK' women's MBBS row."
+    },
+    {
+      "ourName": "ESIC Medical College, Sanathnagar, Hyderabad",
+      "nmcName": "Employees State Insurance Coporation Medical College, Sanath Nagar, Hyderabad",
+      "evidence": "ESIC = Employees State Insurance Corporation (the NMC row misspells it 'Coporation'); identical locality Sanathnagar, Hyderabad."
+    },
+    {
+      "ourName": "Mahavir Institute of Medical Sciences, Vikarabad",
+      "nmcName": "Mahavir Institute of Medical Sciences, Vikarabad, Telengana",
+      "evidence": "Same name; the NMC row merely appends a misspelt state. NMC address '#2-4-40, Shivareddypet, Vikarabad, Vikarabad District 501102' confirms our city Vikarabad (the NMC city cell still says 'Ranga Reddy', the parent district Vikarabad was carved out of)."
+    },
+    {
+      "ourName": "Maheshwara Medical College, Patancheru",
+      "nmcName": "Maheshwara Medical College, Chitkul, Patancheru, Medak",
+      "evidence": "Same name; NMC address 'Chitkul (V), Insapur Crossing Road, Patancheru (M), Medak (Distt)' contains our locality Patancheru. Sole 'Maheshwara' MBBS row in Telangana; 'Medak' in the NMC name is the district, not a competing college."
+    },
+    {
+      "ourName": "MediCiti Institute of Medical Sciences, Medchal",
+      "nmcName": "Mediciti Institute Of Medical Sciences, Ghanpur",
+      "evidence": "Same name (casing drift); NMC address 'Medchal (Mandal), Medchal Malkajgiri District-501401' - the Ghanpur campus lies in Medchal mandal. Sole MediCiti IMS in Telangana."
+    },
+    {
+      "ourName": "Neelima Institute of Medical Sciences, Ghatkesar",
+      "nmcName": "Neelima Institute of Medical Sciences, Medchal",
+      "evidence": "Identical name; NMC address 'Venkatapur (Village), Jodimetla Cross Road, Medchal-Malkjigiri (District)' and NMC affiliation 'Anurag University' (whose campus is at Venkatapur, Ghatkesar) both point at our Ghatkesar locality. Sole Neelima IMS in the state."
+    },
+    {
+      "ourName": "Prathima Relief Institute of Medical Sciences, Warangal",
+      "nmcName": "Prathima Relief Institue of Medical Sciences",
+      "evidence": "NMC row has a typo ('Institue'); its address '51-3-630 Sahasra Nagar, Hanamkonda Warangal Telangana' matches our city Warangal. Deliberately NOT paired with the separate NMC row 'Prathima Institute Of Medical Sciences, Karimnagar', which is a different college in a different city (rule 4)."
+    },
+    {
+      "ourName": "RVM Institute of Medical Sciences and Research Centre, Medak",
+      "nmcName": "R.V.M. Institute of Medical Sciences and Research Centre, Siddipet",
+      "evidence": "Same name (dot drift); NMC address 'Medak, H.No. 2-51/1, Village Laxmakkapally, Mandal Mulugu, Siddipet Distt, Medak 502279' carries both Medak and Siddipet, reconciling the two names. Sole RVM IMS."
+    },
+    {
+      "ourName": "SVS Medical College, Mahabubnagar",
+      "nmcName": "S V S Medical College, Mehboobnagar",
+      "evidence": "Spacing drift in the acronym plus an alternate transliteration of Mahabubnagar/Mehboobnagar; NMC address 'SVS Medical College, Mehboobnagar, Yenugonda 509001'. Distinct from the separate NMC row 'Government Medical College, Mahabubnagar' (rule 4)."
+    },
+    {
+      "ourName": "Shadan Institute of Medical Sciences, Hyderabad",
+      "nmcName": "Shadan Institute of Medical Sciences,Research Centre and Teaching Hospital, Peerancheru",
+      "evidence": "Same name; the NMC row appends the hospital and the locality Peerancheru (Himayathsagar Road, Hyderabad). Both sides are the MBBS institution - NOT the separate Shadan dental college (rule 3)."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Bibinagar (Hyderabad)",
+      "state": "Telangana",
+      "city": "Bibinagar",
+      "type": "Government",
+      "established": 2019,
+      "totalSeats": 100,
+      "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'All India Institute of Medical Sciences, Bibinagar' - city from NMC address 'Bibinagar, Telangana' (NMC city cell empty); managementupdate=Govt. -> Government"
+    },
+    {
+      "name": "Arundathi Institute of Medical Sciences, Hyderabad",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "Private",
+      "established": 2023,
+      "totalSeats": 150,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Arundathi Institute of Medical Sciences' - city from NMC address '48, Dundigal, Medchal Hyderabad' (NMC city cell empty); managementupdate=Trust -> Private"
+    },
+    {
+      "name": "Ayaan Institute of Medical Sciences",
+      "state": "Telangana",
+      "city": "Moinabad",
+      "type": "Private",
+      "established": 2018,
+      "totalSeats": 150,
+      "affiliation": "Dr. YSR University of Health Sciences",
+      "website": "http://www.aimshyd.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Ayaan Institute of Medical Sciences, Teaching Hospital & Research Centre, Kanaka Mamidi, R.R. Dist' - our record had no city; city taken from the NMC address 'Kanaka Mamidi (V), Moinabad Mandal, R.R. District - 501504' (the NMC city cell holds 'R.R. District', a district rather than a town); managementupdate=Society -> Private"
+    },
+    {
+      "name": "Bhaskar Medical College, Moinabad, Hyderabad",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "Private",
+      "established": 2005,
+      "totalSeats": 150,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "http://www.bhaskarmedicalcollege.edu.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Bhaskar Medical College, Yenkapally' - NMC city cell = Hyderabad; managementupdate=Trust -> Private"
+    },
+    {
+      "name": "CMR Institute of Medical Sciences, Medchal, Hyderabad",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "Private",
+      "established": 2023,
+      "totalSeats": 150,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'CMR Institute of Medical Sciences' - NMC city cell = Hyderabad; managementupdate=Trust -> Private"
+    },
+    {
+      "name": "Dr Patnam Mahender Reddy Institute of Medical Sciences, Chevella",
+      "state": "Telangana",
+      "city": "Chevella",
+      "type": "Private",
+      "established": 2019,
+      "totalSeats": 150,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "http://www.pmrims.com",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Dr. Patnam Mahender Reddy Institute of Medical Sciences, Chevella, Rangareddy' - the NMC city cell wrongly holds the state name 'Telangana', so city is taken from the NMC address 'Chevella Village and Mandal Rangareddy (Dist.)', which agrees with our record; managementupdate=Society -> Private"
+    },
+    {
+      "name": "Dr VRK Women's Medical College, Hyderabad",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "Private",
+      "established": 2010,
+      "totalSeats": 100,
+      "affiliation": "Dr. YSR University of Health Sciences",
+      "website": "http://www.drvrkwmc.com",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Dr. VRK Womens Medical College, Aziznagar' - the NMC city cell holds a district ('R.R. District,'); city Hyderabad retained from our own record and consistent with the NMC address PIN 500075; managementupdate=Trust -> Private"
+    },
+    {
+      "name": "ESIC Medical College, Sanathnagar, Hyderabad",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "Government",
+      "established": 2016,
+      "totalSeats": 100,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "http://www.esicmchyd.ac.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Employees State Insurance Coporation Medical College, Sanath Nagar, Hyderabad' - NMC city cell = Hyderabad; managementupdate=Govt. -> Government"
+    },
+    {
+      "name": "Mahavir Institute of Medical Sciences, Vikarabad",
+      "state": "Telangana",
+      "city": "Vikarabad",
+      "type": "Private",
+      "established": 2016,
+      "totalSeats": 150,
+      "affiliation": "Dr. YSR University of Health Sciences",
+      "website": "http://www.mahavirmedicalcollege.org",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Mahavir Institute of Medical Sciences, Vikarabad, Telengana' - the NMC city cell says 'Ranga Reddy' but the NMC address is explicit: 'Shivareddypet, Vikarabad, Vikarabad District 501102'; city Vikarabad also agrees with our record and the college name; managementupdate=Trust -> Private"
+    },
+    {
+      "name": "Maheshwara Medical College, Patancheru",
+      "state": "Telangana",
+      "city": "Patancheru",
+      "type": "Private",
+      "established": 2016,
+      "totalSeats": 150,
+      "affiliation": "Dr. YSR University of Health Sciences",
+      "website": "http://www.maheshwarmedical.com",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Maheshwara Medical College, Chitkul, Patancheru, Medak' - the NMC city cell holds the district 'Medak'; town Patancheru taken from the NMC address 'Chitkul (V), Patancheru (M), Medak (Distt)' and our record; managementupdate=Society -> Private"
+    },
+    {
+      "name": "MediCiti Institute of Medical Sciences, Medchal",
+      "state": "Telangana",
+      "city": "Medchal",
+      "type": "Private",
+      "established": 2002,
+      "totalSeats": 150,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "http://mims.edu.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Mediciti Institute Of Medical Sciences, Ghanpur' - NMC address 'Medchal (Mandal), Medchal Malkajgiri District-501401' confirms city Medchal (the NMC city cell names the village, Ghanpur); managementupdate=Trust -> Private"
+    },
+    {
+      "name": "Neelima Institute of Medical Sciences, Ghatkesar",
+      "state": "Telangana",
+      "city": "Ghatkesar",
+      "type": "Private",
+      "established": 2023,
+      "totalSeats": 150,
+      "affiliation": "Anurag University",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Neelima Institute of Medical Sciences, Medchal' - the NMC city cell holds a district ('Medchal- Malkjigiri, District'); city Ghatkesar retained from our own record, corroborated by the NMC address 'Venkatapur (Village), Jodimetla Cross Road' and the Anurag University (Venkatapur, Ghatkesar) affiliation; managementupdate=Trust -> Private"
+    },
+    {
+      "name": "Prathima Relief Institute of Medical Sciences, Warangal",
+      "state": "Telangana",
+      "city": "Warangal",
+      "type": "Private",
+      "established": 2022,
+      "totalSeats": 150,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Prathima Relief Institue of Medical Sciences' - NMC city cell empty; city from the NMC address 'Sahasra Nagar, Hanamkonda Warangal', which agrees with our record; managementupdate=Trust -> Private"
+    },
+    {
+      "name": "RVM Institute of Medical Sciences and Research Centre, Medak",
+      "state": "Telangana",
+      "city": "Medak",
+      "type": "Private",
+      "established": 2016,
+      "totalSeats": 250,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "http://www.rvmims.org",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'R.V.M. Institute of Medical Sciences and Research Centre, Siddipet' - NMC city cell empty; the NMC address names Medak twice ('Medak, ... Siddipet Distt, Medak 502279'), so our city Medak is retained; managementupdate=Trust -> Private"
+    },
+    {
+      "name": "SVS Medical College, Mahabubnagar",
+      "state": "Telangana",
+      "city": "Mahabubnagar",
+      "type": "Private",
+      "established": 1999,
+      "totalSeats": 150,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "http://www.svsmch.com",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'S V S Medical College, Mehboobnagar' - NMC city cell 'Mahboobnagar' is an alternate transliteration of our 'Mahabubnagar'; our spelling retained; managementupdate=Trust -> Private"
+    },
+    {
+      "name": "Shadan Institute of Medical Sciences, Hyderabad",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "Private",
+      "established": 2005,
+      "totalSeats": 150,
+      "affiliation": "Dr. YSR University of Health Sciences",
+      "website": "http://www.shadan.in",
+      "source": "NMC UG registry snapshot 2023-08-31 (local raw/nmc_ug_2023.json), row 'Shadan Institute of Medical Sciences,Research Centre and Teaching Hospital, Peerancheru' - NMC city cell = Hyderabad; managementupdate=Society -> Private"
+    },
+    {
+      "name": "Government Dental College and Hospital, Hyderabad",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "Government",
+      "established": 1959,
+      "totalSeats": 100,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gdchyd.com/",
+      "source": "https://gdchyd.com/ (official site: dental college established 1959, Hyderabad, 'annual admissions to 100 undergraduate students' in BDS); KNRUHS affiliation per https://collegedunia.com/college/63051-government-dental-college-hyderabad-hyderabad . BDS-only institution - deliberately NOT paired with any MBBS row (rule 3); totalSeats is the BDS intake."
+    },
+    {
+      "name": "Government Medical College, Jogulamba Gadwal",
+      "state": "Telangana",
+      "city": "Jogulamba Gadwal",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmcjogulambagadwal.org/",
+      "source": "https://gmcjogulambagadwal.org/ (official site: 'Each year, we welcome 50 students into our MBBS course', affiliated to Kaloji Narayana Rao University of Health Sciences, Warangal, under the Director of Medical Education, Telangana; Jogulamba Gadwal, Telangana). First NMC-permitted MBBS intake is AY 2024-25 (50 seats), per the NMC UG seat-matrix public notice https://www.nmc.org.in/wp-content/uploads/college_course/28-3%20Public%20Notice%2006-09-2024%20(UG%20matrix).pdf and https://thesouthfirst.com/health/south-indian-states-to-get-12-new-medical-colleges-for-academic-year-2024-25/ . Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    },
+    {
+      "name": "Government Medical College, Kodangal",
+      "state": "Telangana",
+      "city": "Kodangal",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmckodangal.org/",
+      "source": "https://gmckodangal.org/ (official site: 'Establishment Year: 2024', Telangana's 35th government medical college, Kodangal). 50 MBBS seats and KNRUHS affiliation per https://www.edufever.com/government-medical-college-kodangal/ ; the NMC seat matrix records 0 seats for AY 2024-25 and 50 seats for AY 2025-26 (new establishment during AY 2025-26), i.e. the first intake is 2025-26 even though the college itself dates its establishment to 2024. Kodangal (Vikarabad district) is a separate college from Government Medical College, Vikarabad (rule 4)."
+    },
+    {
+      "name": "Government Medical College, Maheshwaram",
+      "state": "Telangana",
+      "city": "Maheshwaram",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmcmaheshwaram.org/",
+      "source": "https://gmcmaheshwaram.org/ (official site: 'a new medical college', annual intake 50 students, Maheshwaram, Ranga Reddy district); founded 2024 and affiliated to KNRUHS Warangal per https://www.edufever.com/government-medical-college-maheshwaram/ . First NMC-permitted MBBS intake is AY 2024-25 (50 seats), per the NMC UG seat-matrix public notice https://www.nmc.org.in/wp-content/uploads/college_course/28-3%20Public%20Notice%2006-09-2024%20(UG%20matrix).pdf and https://thesouthfirst.com/health/south-indian-states-to-get-12-new-medical-colleges-for-academic-year-2024-25/ . Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    },
+    {
+      "name": "Government Medical College, Medak",
+      "state": "Telangana",
+      "city": "Medak",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmcmedak.org/",
+      "source": "https://gmcmedak.org/ (official site: Pillikotyal, Medak district; 'obtained letter of permission from NMC on 13/9/2024'; annual intake of 50 MBBS seats); established 2024 and KNRUHS Warangal affiliation per https://www.careers360.com/colleges/government-medical-college-medak . First NMC-permitted MBBS intake is AY 2024-25 (50 seats), per the NMC UG seat-matrix public notice https://www.nmc.org.in/wp-content/uploads/college_course/28-3%20Public%20Notice%2006-09-2024%20(UG%20matrix).pdf and https://thesouthfirst.com/health/south-indian-states-to-get-12-new-medical-colleges-for-academic-year-2024-25/ . Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    },
+    {
+      "name": "Government Medical College, Mulugu",
+      "state": "Telangana",
+      "city": "Mulugu",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmcmulugu.org/",
+      "source": "https://www.edufever.com/government-medical-college-mulugu/ (established 2024, 50 NMC-approved MBBS seats, affiliated to Kaloji Narayana Rao University of Health Sciences, Warangal, Mulugu district, government-owned); the official site https://gmcmulugu.org/ confirms the college is in Mulugu district and was announced by the Government of Telangana in 2023 - 2024 is the year of the first NMC-permitted MBBS intake. First NMC-permitted MBBS intake is AY 2024-25 (50 seats), per the NMC UG seat-matrix public notice https://www.nmc.org.in/wp-content/uploads/college_course/28-3%20Public%20Notice%2006-09-2024%20(UG%20matrix).pdf and https://thesouthfirst.com/health/south-indian-states-to-get-12-new-medical-colleges-for-academic-year-2024-25/ . Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    },
+    {
+      "name": "Government Medical College, Narayanpet",
+      "state": "Telangana",
+      "city": "Narayanpet",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmcnarayanpet.org/",
+      "source": "https://gmcnarayanpet.org/ (official site: newly established medical college, began operations 2024-25, 50 students per year, affiliated to Kaloji Narayana Rao University of Health Sciences, Warangal, Narayanpet district). First NMC-permitted MBBS intake is AY 2024-25 (50 seats), per the NMC UG seat-matrix public notice https://www.nmc.org.in/wp-content/uploads/college_course/28-3%20Public%20Notice%2006-09-2024%20(UG%20matrix).pdf and https://thesouthfirst.com/health/south-indian-states-to-get-12-new-medical-colleges-for-academic-year-2024-25/ . Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    },
+    {
+      "name": "Government Medical College, Narsampet",
+      "state": "Telangana",
+      "city": "Narsampet",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmcnspt.com/",
+      "source": "https://gmcnspt.com/ (official site: Government Medical College Narsampet, Sarwapuram village, Pakhal road, Warangal district; the site dates its founding to 2023). 50 MBBS seats, KNRUHS Warangal affiliation and establishment year 2024 (first NMC-permitted intake, AY 2024-25) per https://www.careermarg.com/college/government-medical-college-narsampet and https://education.sakshi.com/en/neet/education-news/neet-mbbs-admissions-2024-four-new-medical-colleges-telangana-160928 . First NMC-permitted MBBS intake is AY 2024-25 (50 seats), per the NMC UG seat-matrix public notice https://www.nmc.org.in/wp-content/uploads/college_course/28-3%20Public%20Notice%2006-09-2024%20(UG%20matrix).pdf and https://thesouthfirst.com/health/south-indian-states-to-get-12-new-medical-colleges-for-academic-year-2024-25/ . Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    },
+    {
+      "name": "Government Medical College, Quthbullapur",
+      "state": "Telangana",
+      "city": "Quthbullapur",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmcqutbullapur.org/",
+      "source": "https://gmcqutbullapur.org/ (official site: established 2024, NMC approval for the inaugural MBBS cohort in 2024, 50 seats for AY 2024-25, affiliated to Kaloji Narayan Rao University of Health Sciences, Warangal; Qutbullapur, Medchal-Malkajgiri district). Distinct from the private Malla Reddy colleges also sited in Quthbullapur (rule 4). First NMC-permitted MBBS intake is AY 2024-25 (50 seats), per the NMC UG seat-matrix public notice https://www.nmc.org.in/wp-content/uploads/college_course/28-3%20Public%20Notice%2006-09-2024%20(UG%20matrix).pdf and https://thesouthfirst.com/health/south-indian-states-to-get-12-new-medical-colleges-for-academic-year-2024-25/ . Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    },
+    {
+      "name": "Government Medical College, Yadadri Bhuvanagiri",
+      "state": "Telangana",
+      "city": "Yadadri Bhuvanagiri",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://gmcyadadri.org/",
+      "source": "https://gmcyadadri.org/ (official site: new medical college for 2024-25, 50 MBBS seats, Pagidipally village, Bhongiri, Yadadri Bhuvanagiri district, 220-bed teaching hospital); founded 2024, KNRUHS Warangal affiliation per https://www.edufever.com/government-medical-college-yadadri/ . First NMC-permitted MBBS intake is AY 2024-25 (50 seats), per the NMC UG seat-matrix public notice https://www.nmc.org.in/wp-content/uploads/college_course/28-3%20Public%20Notice%2006-09-2024%20(UG%20matrix).pdf and https://thesouthfirst.com/health/south-indian-states-to-get-12-new-medical-colleges-for-academic-year-2024-25/ . Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    },
+    {
+      "name": "Nova Institute of Medical Sciences and Research Centre, Ranga Reddy",
+      "state": "Telangana",
+      "city": "Ranga Reddy",
+      "type": "Private",
+      "established": 2024,
+      "totalSeats": 150,
+      "affiliation": "Kaloji Narayana Rao University of Health Sciences, Warangal",
+      "website": "https://nimsrc.com/",
+      "source": "https://www.careers360.com/colleges/nova-institute-of-medical-sciences-and-research-centre-ranga-reddy (private, established 2024, MBBS intake 150, affiliated to Kaloji Narayana Rao University of Health Sciences, Warangal, NMC-approved, Jaffarguda (V), Abdullapurmet (M), Ranga Reddy district 501512); official site https://nimsrc.com/ confirms the Jaffarguda / Abdullapurmet / Ranga Reddy location. Post-dates the 2023 NMC snapshot, hence absent from nmcPool."
+    }
+  ],
+  "merges": [],
+  "newColleges": [],
+  "unresolved": []
+}

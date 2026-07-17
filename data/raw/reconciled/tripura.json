@@ -1,0 +1,36 @@
+{
+ "state": "Tripura",
+ "pairings": [
+  {
+   "ourName": "Tripura Medical College & Dr. BRAM Teaching Hospital, Hapania",
+   "nmcName": "Tripura Medical College and Dr. B R A M Teaching Hospital, Agartala",
+   "evidence": "Same institution, name expanded ('BRAM' = 'B R A M', i.e. Dr. Bir Rendra Kishore Agartala Medical / Dr. BRAM Teaching Hospital). The NMC row (collegeId 157) gives the address as 'Tripura Medical College & Dr. Bram Teaching Hospital, Hapania, P.O.- ONGC, Agartala - 799014, West Tripura' -- Hapania (our 'city') is literally the campus locality named in the NMC row's own address, and Agartala is the city. Same discipline (MBBS), same locality, same hospital name. This is the only non-Government MBBS college in Tripura in the 2023 registry, so there is no second candidate to confuse it with (the other Tripura row, Agartala Government Medical College, is a distinct Govt. college already matched and is not in nmcPool)."
+  }
+ ],
+ "enrichment": [
+  {
+   "name": "Tripura Medical College & Dr. BRAM Teaching Hospital, Hapania",
+   "state": "Tripura",
+   "city": "Agartala",
+   "type": "Private",
+   "established": 2006,
+   "totalSeats": 100,
+   "affiliation": "Tripura University",
+   "website": "http://www.tmc.nic.in",
+   "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 157; yearOfInc 2006, ugApproved 100; managementupdate 'Trust' -> Private)"
+  },
+  {
+   "name": "Agartala Government Dental College and IGM Hospital, Agartala",
+   "state": "Tripura",
+   "city": "Agartala",
+   "type": "Government",
+   "totalSeats": 63,
+   "affiliation": "Tripura University",
+   "website": "https://agdc.tripura.gov.in/",
+   "source": "Official college website (Government of Tripura): https://agdc.tripura.gov.in/ (name 'AGARTALA GOVERNMENT DENTAL COLLEGE & IGM HOSPITAL', Agartala, Tripura; state-government college under the Tripura Directorate of Medical Education, https://health.tripura.gov.in/directorate-medical-education). Intake: https://agdc.tripura.gov.in/Intake_Capacity -- '50+13=63 Students for 2025-26 Batch'. Affiliation: https://agdc.tripura.gov.in/Affiliated_University -- 'Tripura University'. BDS college (DCI-recognised), NOT the MBBS Agartala Government Medical College -- deliberately not paired to any NMC row (NMC UG registry is MBBS-only)."
+  }
+ ],
+ "merges": [],
+ "newColleges": [],
+ "unresolved": []
+}

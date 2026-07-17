@@ -1,0 +1,21 @@
+{
+  "state": "Sikkim",
+  "pairings": [],
+  "enrichment": [],
+  "merges": [],
+  "newColleges": [
+    {
+      "name": "Sikkim Manipal Institute of Medical Sciences, Gangtok",
+      "state": "Sikkim",
+      "city": "Gangtok",
+      "type": "Private",
+      "established": 2000,
+      "totalSeats": 150,
+      "affiliation": "Sikkim Manipal Univ. of Health,Medical & Tech. Scs",
+      "website": "http://www.smims.smu.edu.in",
+      "coursesOffered": ["MBBS"],
+      "source": "nmc-ug-registry"
+    }
+  ],
+  "unresolved": []
+}

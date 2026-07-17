@@ -55,8 +55,8 @@ function checkRateLimit(userId: string): { allowed: boolean; retryAfter?: number
 // When no AI API key is set, we generate a formatted response
 // directly from the retrieved data chunks.
 
-function generateFallbackFromRAG(query: string): string {
-  const { intent, chunks } = buildContextPrompt(query);
+async function generateFallbackFromRAG(query: string): Promise<string> {
+  const { intent, chunks } = await buildContextPrompt(query);
 
   if (chunks.length === 0) {
     return `Hey! I understand your question, but I don't have specific data matching it in my database right now.
@@ -174,7 +174,7 @@ async function callProvider(
   // No API key → generate response from RAG data directly
   if (!apiKey) {
     const userMsg = messages.filter((m) => m.role === 'user').pop();
-    const text = generateFallbackFromRAG(userMsg?.content || '');
+    const text = await generateFallbackFromRAG(userMsg?.content || '');
     // In fallback mode, send the complete response.
     // The frontend handles typing animation on its side.
     onChunk(text);
@@ -182,26 +182,46 @@ async function callProvider(
     return;
   }
 
-  // Real API call with streaming
-  const res = await fetch(`${baseUrl}/chat/completions`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model,
-      messages,
-      stream: true,
-      max_tokens: 2048,
-      temperature: 0.3, // Lower temperature for factual responses
-    }),
-    signal,
-  });
+  // Real API call with streaming.
+  // If the provider is unreachable or errors, degrade to the RAG answer rather
+  // than failing the chat outright — a dead upstream should cost answer quality,
+  // not the whole feature. A caller-initiated abort is NOT a provider failure,
+  // so it is rethrown untouched.
+  let res: Response;
+  try {
+    res = await fetch(`${baseUrl}/chat/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        messages,
+        stream: true,
+        max_tokens: 2048,
+        temperature: 0.3, // Lower temperature for factual responses
+      }),
+      signal,
+    });
+  } catch (err: any) {
+    if (err?.name === 'AbortError') throw err;
+    console.error(`  AI provider unreachable (${baseUrl}) — falling back to RAG:`, err?.message);
+    const userMsg = messages.filter((m) => m.role === 'user').pop();
+    const text = await generateFallbackFromRAG(userMsg?.content || '');
+    onChunk(text);
+    onDone(text);
+    return;
+  }
 
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`AI provider error (${res.status}): ${err}`);
+    console.error(`  AI provider error (${res.status}) — falling back to RAG: ${err.slice(0, 200)}`);
+    const userMsg = messages.filter((m) => m.role === 'user').pop();
+    const text = await generateFallbackFromRAG(userMsg?.content || '');
+    onChunk(text);
+    onDone(text);
+    return;
   }
 
   const reader = res.body?.getReader();
@@ -335,7 +355,7 @@ export const aiService = {
     const query = lastUserMsg?.content || '';
 
     // Build RAG-enriched system prompt
-    const { systemPrompt } = buildContextPrompt(query);
+    const { systemPrompt } = await buildContextPrompt(query);
 
     const messages: ChatMsg[] = [
       { role: 'system', content: systemPrompt },

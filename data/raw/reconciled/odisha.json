@@ -1,0 +1,153 @@
+{
+  "state": "Odisha",
+  "pairings": [
+    {
+      "ourName": "AIIMS Bhubaneswar",
+      "nmcName": "All India Institute of Medical Sciences, Bhubaneswar",
+      "evidence": "Same institution: 'AIIMS' is the standard abbreviation of 'All India Institute of Medical Sciences'; same city (Bhubaneswar). Only one AIIMS in Odisha."
+    },
+    {
+      "ourName": "Bhima Bhoi Medical College and Hospital, Balangir",
+      "nmcName": "Government Medical College & Hospital (Renamed as Bhima Bhoi Medical College & Hospital), Balangir",
+      "evidence": "NMC row explicitly records the rename: 'Government Medical College & Hospital (Renamed as Bhima Bhoi Medical College & Hospital), Balangir'. Same town (Balangir)."
+    },
+    {
+      "ourName": "Fakir Mohan Medical College and Hospital, Balasore",
+      "nmcName": "Government Medical College & Hospital (Renamed as Fakir Mohan Medical College & Hospital), Balasore",
+      "evidence": "NMC row explicitly records the rename to Fakir Mohan Medical College & Hospital, Balasore. Same town (Balasore)."
+    },
+    {
+      "ourName": "SLN Medical College and Hospital, Koraput",
+      "nmcName": "Saheed Laxman Nayak Medical College & Hospital, Koraput",
+      "evidence": "'SLN' expands to 'Saheed Laxman Nayak'; same city (Koraput). Sole medical college in Koraput."
+    },
+    {
+      "ourName": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
+      "nmcName": "Government Medical College Bhawanipatna",
+      "evidence": "GMC Bhawanipatna is the former name of Saheed Rendo Majhi Medical College & Hospital; our own record carries '(GMC Bhawanipatna)' in its alias form. NMC city 'Bhagwanipatna, Kalahandi' is the same town, spelled variantly. Only one medical college in Bhawanipatna/Kalahandi."
+    },
+    {
+      "ourName": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences & Research), Burla",
+      "nmcName": "Veer Surendra Sai Institute of Medical Sciences and Research, Burla",
+      "evidence": "Identical expanded name; 'VIMSAR' is its own acronym. Same town suffix (Burla)."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Bhubaneswar",
+      "state": "Odisha",
+      "city": "Bhubaneswar",
+      "type": "Government",
+      "established": 2012,
+      "totalSeats": 125,
+      "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+      "website": "http://www.aiimsbhubaneswar.nic.in",
+      "source": "NMC UG registry (nmc_ug_2023.json, snapshot 2023-08-31): row 'All India Institute of Medical Sciences, Bhubaneswar'"
+    },
+    {
+      "name": "Bhima Bhoi Medical College and Hospital, Balangir",
+      "state": "Odisha",
+      "city": "Balangir",
+      "type": "Government",
+      "established": 2018,
+      "totalSeats": 100,
+      "affiliation": "Sambalpur University",
+      "website": "http://www.gmchbalangir.infocreatives.com",
+      "source": "NMC UG registry (nmc_ug_2023.json, snapshot 2023-08-31): row 'Government Medical College & Hospital (Renamed as Bhima Bhoi Medical College & Hospital), Balangir'. City taken from the NMC row's own name suffix 'Balangir' (NMC city cell blank) and confirmed by our record."
+    },
+    {
+      "name": "Fakir Mohan Medical College and Hospital, Balasore",
+      "state": "Odisha",
+      "city": "Balasore",
+      "type": "Government",
+      "established": 2018,
+      "totalSeats": 100,
+      "affiliation": "Fakir Mohan Univeristy, Balasore",
+      "website": "http://gmchbalasore.infocreatives.com",
+      "source": "NMC UG registry (nmc_ug_2023.json, snapshot 2023-08-31): row 'Government Medical College & Hospital (Renamed as Fakir Mohan Medical College & Hospital), Balasore'. City taken from the NMC row's name suffix and affiliation ('Fakir Mohan Univeristy, Balasore'); NMC city cell blank."
+    },
+    {
+      "name": "SLN Medical College and Hospital, Koraput",
+      "state": "Odisha",
+      "city": "Koraput",
+      "type": "Government",
+      "established": 2017,
+      "totalSeats": 125,
+      "affiliation": "Berhampur University",
+      "website": "http://www.sinmch.nic.in",
+      "source": "NMC UG registry (nmc_ug_2023.json, snapshot 2023-08-31): row 'Saheed Laxman Nayak Medical College & Hospital, Koraput'"
+    },
+    {
+      "name": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
+      "state": "Odisha",
+      "city": "Bhawanipatna",
+      "type": "Government",
+      "established": 2023,
+      "totalSeats": 100,
+      "affiliation": "The Kalahandi university",
+      "source": "NMC UG registry (nmc_ug_2023.json, snapshot 2023-08-31): row 'Government Medical College Bhawanipatna', city 'Bhagwanipatna, Kalahandi'. City normalised to the standard spelling 'Bhawanipatna' as carried by our own record."
+    },
+    {
+      "name": "VIMSAR (Veer Surendra Sai Institute of Medical Sciences & Research), Burla",
+      "state": "Odisha",
+      "city": "Sambalpur",
+      "type": "Government",
+      "established": 1959,
+      "totalSeats": 200,
+      "affiliation": "Sambalpur University",
+      "website": "http://www.vimsar.ac.in",
+      "source": "NMC UG registry (nmc_ug_2023.json, snapshot 2023-08-31): row 'Veer Surendra Sai Institute of Medical Sciences and Research, Burla' (city 'Sambalpur'; Burla is the township inside Sambalpur district)."
+    },
+    {
+      "name": "Maharaja Jajati Keshari Medical College and Hospital, Jajpur",
+      "state": "Odisha",
+      "city": "Jajpur",
+      "type": "Government",
+      "established": 2024,
+      "totalSeats": 50,
+      "affiliation": "Odisha University of Health Sciences, Bhubaneswar",
+      "website": "https://jkmchjajpur.odisha.gov.in/",
+      "source": "https://www.careers360.com/colleges/maharaja-jajati-keshari-medical-college-and-hospital-jajpur (Government, Jajpur, est. 2024, 50 MBBS seats, affiliated to OUHS Bhubaneswar); official college site https://jkmchjajpur.odisha.gov.in/ . Absent from the NMC 2023 registry because it opened in 2024."
+    }
+  ],
+  "merges": [
+    {
+      "canonical": "Saheed Rendo Majhi Medical College and Hospital, Bhawanipatna (Kalahandi)",
+      "aliases": [
+        "Saheed Rendo Majhi Medical College and Hospital (GMC Bhawanipatna), Kalahandi"
+      ],
+      "reason": "Two records for the single government medical college at Bhawanipatna, the district headquarters of Kalahandi. Identical institution name; one record stores the town as the city and the district in brackets, the other reverses it and keeps the old name 'GMC Bhawanipatna'. Both map to the same NMC row 'Government Medical College Bhawanipatna'. Canonical name keeps both the town and the district."
+    }
+  ],
+  "newColleges": [
+    {
+      "name": "Dharanidhar Medical College & Hospital (DDMCH), Keonjhar",
+      "state": "Odisha",
+      "city": "Keonjhar",
+      "type": "Government",
+      "established": 2022,
+      "totalSeats": 100,
+      "affiliation": "MSCBD University, Baripada",
+      "website": "https://gmchkeonjhar.odisha.gov.in/",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "NMC UG registry (nmc_ug_2023.json, snapshot 2023-08-31): row 'Dharanidhar Medical College & Hospital (DDMCH), Keonjhar,' (Government, est. 2022, 100 UG seats, MSCBD University Baripada; city cell blank). City and official website confirmed by the college's own Government of Odisha site https://gmchkeonjhar.odisha.gov.in/ ."
+    },
+    {
+      "name": "DRIEMS Institute of Health Sciences and Hospital, Kairapari",
+      "state": "Odisha",
+      "city": "Cuttack",
+      "type": "Private",
+      "established": 2023,
+      "totalSeats": 100,
+      "affiliation": "Utkal University",
+      "website": "https://driemsmedicalcollege.org/",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "NMC UG registry (nmc_ug_2023.json, snapshot 2023-08-31): row 'DRIEMS Institute of Health Sciences and Hospital, Kairapari' (city 'Cuttak' [sic], Private, est. 2023, 100 UG seats, Utkal University). City spelling corrected to 'Cuttack' and website confirmed from the college's own site https://driemsmedicalcollege.org/ (address: Driems Road, Kotasahi, Tangi, Cuttack district, Odisha 754022; private, est. 2023, 100 MBBS seats)."
+    }
+  ],
+  "unresolved": []
+}

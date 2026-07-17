@@ -1,0 +1,422 @@
+[
+ {
+  "year": 2025,
+  "marksMin": 680,
+  "marksMax": 686,
+  "rankMin": 1,
+  "rankMax": 8
+ },
+ {
+  "year": 2025,
+  "marksMin": 650,
+  "marksMax": 680,
+  "rankMin": 8,
+  "rankMax": 77
+ },
+ {
+  "year": 2025,
+  "marksMin": 635,
+  "marksMax": 650,
+  "rankMin": 77,
+  "rankMax": 210
+ },
+ {
+  "year": 2025,
+  "marksMin": 622,
+  "marksMax": 635,
+  "rankMin": 210,
+  "rankMax": 630
+ },
+ {
+  "year": 2025,
+  "marksMin": 607,
+  "marksMax": 622,
+  "rankMin": 630,
+  "rankMax": 1140
+ },
+ {
+  "year": 2025,
+  "marksMin": 589,
+  "marksMax": 607,
+  "rankMin": 1140,
+  "rankMax": 3170
+ },
+ {
+  "year": 2025,
+  "marksMin": 571,
+  "marksMax": 589,
+  "rankMin": 3170,
+  "rankMax": 6200
+ },
+ {
+  "year": 2025,
+  "marksMin": 540,
+  "marksMax": 571,
+  "rankMin": 6200,
+  "rankMax": 21455
+ },
+ {
+  "year": 2025,
+  "marksMin": 525,
+  "marksMax": 540,
+  "rankMin": 21455,
+  "rankMax": 32270
+ },
+ {
+  "year": 2025,
+  "marksMin": 500,
+  "marksMax": 525,
+  "rankMin": 32270,
+  "rankMax": 45000
+ },
+ {
+  "year": 2025,
+  "marksMin": 478,
+  "marksMax": 500,
+  "rankMin": 45000,
+  "rankMax": 94140
+ },
+ {
+  "year": 2025,
+  "marksMin": 435,
+  "marksMax": 478,
+  "rankMin": 94140,
+  "rankMax": 176448
+ },
+ {
+  "year": 2025,
+  "marksMin": 398,
+  "marksMax": 435,
+  "rankMin": 176448,
+  "rankMax": 213371
+ },
+ {
+  "year": 2025,
+  "marksMin": 350,
+  "marksMax": 398,
+  "rankMin": 213371,
+  "rankMax": 300000
+ },
+ {
+  "year": 2025,
+  "marksMin": 302,
+  "marksMax": 350,
+  "rankMin": 300000,
+  "rankMax": 436777
+ },
+ {
+  "year": 2025,
+  "marksMin": 257,
+  "marksMax": 302,
+  "rankMin": 436777,
+  "rankMax": 577330
+ },
+ {
+  "year": 2025,
+  "marksMin": 228,
+  "marksMax": 257,
+  "rankMin": 577330,
+  "rankMax": 684232
+ },
+ {
+  "year": 2025,
+  "marksMin": 172,
+  "marksMax": 228,
+  "rankMin": 684232,
+  "rankMax": 937041
+ },
+ {
+  "year": 2025,
+  "marksMin": 144,
+  "marksMax": 172,
+  "rankMin": 937041,
+  "rankMax": 1152192
+ },
+ {
+  "year": 2025,
+  "marksMin": 0,
+  "marksMax": 143,
+  "rankMin": 1152193,
+  "rankMax": 2300000
+ },
+ {
+  "year": 2024,
+  "marksMin": 715,
+  "marksMax": 720,
+  "rankMin": 1,
+  "rankMax": 177
+ },
+ {
+  "year": 2024,
+  "marksMin": 700,
+  "marksMax": 715,
+  "rankMin": 177,
+  "rankMax": 2250
+ },
+ {
+  "year": 2024,
+  "marksMin": 690,
+  "marksMax": 700,
+  "rankMin": 2250,
+  "rankMax": 4406
+ },
+ {
+  "year": 2024,
+  "marksMin": 675,
+  "marksMax": 690,
+  "rankMin": 4406,
+  "rankMax": 11600
+ },
+ {
+  "year": 2024,
+  "marksMin": 665,
+  "marksMax": 675,
+  "rankMin": 11600,
+  "rankMax": 17800
+ },
+ {
+  "year": 2024,
+  "marksMin": 656,
+  "marksMax": 665,
+  "rankMin": 17800,
+  "rankMax": 25500
+ },
+ {
+  "year": 2024,
+  "marksMin": 645,
+  "marksMax": 656,
+  "rankMin": 25500,
+  "rankMax": 33848
+ },
+ {
+  "year": 2024,
+  "marksMin": 630,
+  "marksMax": 645,
+  "rankMin": 33848,
+  "rankMax": 47810
+ },
+ {
+  "year": 2024,
+  "marksMin": 615,
+  "marksMax": 630,
+  "rankMin": 47810,
+  "rankMax": 65000
+ },
+ {
+  "year": 2024,
+  "marksMin": 603,
+  "marksMax": 615,
+  "rankMin": 65000,
+  "rankMax": 77000
+ },
+ {
+  "year": 2024,
+  "marksMin": 591,
+  "marksMax": 603,
+  "rankMin": 77000,
+  "rankMax": 91527
+ },
+ {
+  "year": 2024,
+  "marksMin": 550,
+  "marksMax": 591,
+  "rankMin": 91527,
+  "rankMax": 144000
+ },
+ {
+  "year": 2024,
+  "marksMin": 500,
+  "marksMax": 550,
+  "rankMin": 144000,
+  "rankMax": 209000
+ },
+ {
+  "year": 2024,
+  "marksMin": 451,
+  "marksMax": 500,
+  "rankMin": 209000,
+  "rankMax": 285550
+ },
+ {
+  "year": 2024,
+  "marksMin": 414,
+  "marksMax": 451,
+  "rankMin": 285550,
+  "rankMax": 351425
+ },
+ {
+  "year": 2024,
+  "marksMin": 380,
+  "marksMax": 414,
+  "rankMin": 351425,
+  "rankMax": 420000
+ },
+ {
+  "year": 2024,
+  "marksMin": 331,
+  "marksMax": 380,
+  "rankMin": 420000,
+  "rankMax": 565970
+ },
+ {
+  "year": 2024,
+  "marksMin": 287,
+  "marksMax": 331,
+  "rankMin": 565970,
+  "rankMax": 657138
+ },
+ {
+  "year": 2024,
+  "marksMin": 251,
+  "marksMax": 287,
+  "rankMin": 657138,
+  "rankMax": 774559
+ },
+ {
+  "year": 2024,
+  "marksMin": 142,
+  "marksMax": 251,
+  "rankMin": 774559,
+  "rankMax": 1200000
+ },
+ {
+  "year": 2024,
+  "marksMin": 0,
+  "marksMax": 141,
+  "rankMin": 1200001,
+  "rankMax": 2400000
+ },
+ {
+  "year": 2023,
+  "marksMin": 715,
+  "marksMax": 720,
+  "rankMin": 1,
+  "rankMax": 20
+ },
+ {
+  "year": 2023,
+  "marksMin": 706,
+  "marksMax": 715,
+  "rankMin": 21,
+  "rankMax": 200
+ },
+ {
+  "year": 2023,
+  "marksMin": 691,
+  "marksMax": 706,
+  "rankMin": 201,
+  "rankMax": 800
+ },
+ {
+  "year": 2023,
+  "marksMin": 681,
+  "marksMax": 691,
+  "rankMin": 801,
+  "rankMax": 2000
+ },
+ {
+  "year": 2023,
+  "marksMin": 671,
+  "marksMax": 681,
+  "rankMin": 2001,
+  "rankMax": 4000
+ },
+ {
+  "year": 2023,
+  "marksMin": 651,
+  "marksMax": 671,
+  "rankMin": 4001,
+  "rankMax": 11000
+ },
+ {
+  "year": 2023,
+  "marksMin": 631,
+  "marksMax": 651,
+  "rankMin": 11001,
+  "rankMax": 22000
+ },
+ {
+  "year": 2023,
+  "marksMin": 601,
+  "marksMax": 631,
+  "rankMin": 22000,
+  "rankMax": 48000
+ },
+ {
+  "year": 2023,
+  "marksMin": 581,
+  "marksMax": 601,
+  "rankMin": 48000,
+  "rankMax": 68000
+ },
+ {
+  "year": 2023,
+  "marksMin": 551,
+  "marksMax": 581,
+  "rankMin": 68000,
+  "rankMax": 100000
+ },
+ {
+  "year": 2023,
+  "marksMin": 501,
+  "marksMax": 551,
+  "rankMin": 100000,
+  "rankMax": 135000
+ },
+ {
+  "year": 2023,
+  "marksMin": 451,
+  "marksMax": 501,
+  "rankMin": 135000,
+  "rankMax": 165000
+ },
+ {
+  "year": 2023,
+  "marksMin": 401,
+  "marksMax": 451,
+  "rankMin": 165000,
+  "rankMax": 235000
+ },
+ {
+  "year": 2023,
+  "marksMin": 351,
+  "marksMax": 401,
+  "rankMin": 235000,
+  "rankMax": 315000
+ },
+ {
+  "year": 2023,
+  "marksMin": 301,
+  "marksMax": 351,
+  "rankMin": 315000,
+  "rankMax": 410000
+ },
+ {
+  "year": 2023,
+  "marksMin": 251,
+  "marksMax": 301,
+  "rankMin": 410000,
+  "rankMax": 520000
+ },
+ {
+  "year": 2023,
+  "marksMin": 201,
+  "marksMax": 251,
+  "rankMin": 520000,
+  "rankMax": 650000
+ },
+ {
+  "year": 2023,
+  "marksMin": 137,
+  "marksMax": 201,
+  "rankMin": 650000,
+  "rankMax": 1000000
+ },
+ {
+  "year": 2023,
+  "marksMin": 0,
+  "marksMax": 136,
+  "rankMin": 1000001,
+  "rankMax": 2050000
+ }
+]

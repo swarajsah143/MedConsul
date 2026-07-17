@@ -1,0 +1,261 @@
+{
+  "state": "West Bengal",
+  "pairings": [
+    {
+      "ourName": "AIIMS Kalyani",
+      "nmcName": "All India Institute of Medical Sciences, Kalyani, Nadia",
+      "evidence": "Acronym expansion. NMC address 'NH-34 Connector, Basantapur, Saguna, Kalyani - 741245' matches our city Kalyani; only AIIMS in West Bengal."
+    },
+    {
+      "ourName": "Barasat Government Medical College, North 24 Parganas",
+      "nmcName": "Barasat Government Medical College & Hospital",
+      "evidence": "NMC address '80, Jessore Road, Banamalipur & Uttorhat, Barasat, North Twenty Four Parganas-700124' matches our district North 24 Parganas. Barasat is the town, North 24 Parganas the district."
+    },
+    {
+      "ourName": "College of Medicine and JNM Hospital, Kalyani",
+      "nmcName": "College of Medicine and JNM Hospital,Kalyani,Nadia",
+      "evidence": "Identical name modulo whitespace; NMC adds district Nadia. Kalyani is in Nadia district."
+    },
+    {
+      "ourName": "Diamond Harbour Government Medical College, Diamond Harbour",
+      "nmcName": "Diamond Harbour Government Medical College and Hospital, West Bengal",
+      "evidence": "Same name, '&Hospital' suffix only. NMC address 'Diamond Harbour Road Harindanga, Newtown ... Diamond Harbour - 743331' matches our city."
+    },
+    {
+      "ourName": "ESI-PGIMSR Medical College, Joka, Kolkata",
+      "nmcName": "Employees State Insurance Corporation Medical College, Joka, Kolkata",
+      "evidence": "ESI-PGIMSR = Employees State Insurance Post Graduate Institute of Medical Science & Research. Same locality (Joka) and city (Kolkata); NMC website esi-pgimsrkolkata.org.in confirms the acronym."
+    },
+    {
+      "ourName": "ICARE Institute of Medical Sciences and Research, Haldia",
+      "nmcName": "ICARE Institute of Medical Sciences & Research, Haldia, Purba Midanpore",
+      "evidence": "Identical name ('and' vs '&'); NMC adds district Purba Midnapore. Both say Haldia."
+    },
+    {
+      "ourName": "IPGMER Kolkata",
+      "nmcName": "Institute of Postgraduate Medical Education & Research, Kolkata",
+      "evidence": "Acronym expansion, confirmed by NMC website ipgmer.gov.in. Same city."
+    },
+    {
+      "ourName": "IQ City Medical College, Durgapur",
+      "nmcName": "IQ-City Medical College, Burdwan",
+      "evidence": "Same distinctive name (hyphen only). NMC address 'Sovapur, Bijra Road, Jaymua, Durgapur - Dist. Burdwan - 713206' shows Durgapur town in Burdwan district, reconciling the two location strings."
+    },
+    {
+      "ourName": "KPC Medical College and Hospital, Kolkata",
+      "nmcName": "KPC Medical College,Jadavpur,Kolkata",
+      "evidence": "Same distinctive name KPC; Jadavpur is a locality of Kolkata. Only KPC medical college in the state."
+    },
+    {
+      "ourName": "Maharaja Jitendra Narayan Medical College and Hospital, Cooch Behar",
+      "nmcName": "Coochbehar Government Medical College & Hospital, Coochbehar, WB",
+      "evidence": "Rename, not a second college: Coochbehar Government Medical College & Hospital was renamed Maharaja Jitendra Narayan Medical College & Hospital (MJNMCH). Confirmed by the college's own site https://www.mjnmch.ac.in/about-us and https://en.wikipedia.org/wiki/Maharaja_Jitendra_Narayan_Medical_College_and_Hospital (both give est. 2019, 100 MBBS seats, matching the NMC row). NOTE: distinct from 'JMN Medical College, Nadia' (private, est. 2023) despite the near-anagram acronym."
+    },
+    {
+      "ourName": "Medical College, Kolkata",
+      "nmcName": "Govt. Medical College, Kolkata",
+      "evidence": "NMC address is literally 'Medical College, Kolkata, 88, College Street Kolkata- 700073' and its website is medicalcollegekolkata.org — the NMC row is our college with a 'Govt.' prefix. 250 seats matches. This is the only Kolkata-city government college left unclaimed in the pool, so no ambiguity with other 'Government Medical College' records."
+    },
+    {
+      "ourName": "Murshidabad Medical College, Murshidabad",
+      "nmcName": "Murshidabad Medical College & Hospitals, Murshidabad",
+      "evidence": "Same name, '& Hospitals' suffix only; same city."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "AIIMS Kalyani",
+      "state": "West Bengal",
+      "city": "Kalyani",
+      "type": "Government",
+      "established": 2019,
+      "totalSeats": 125,
+      "affiliation": "Statutory Autonomous, AIIMS(New Delhi)",
+      "website": "https://aiimskalyani.edu.in/",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31); website from https://aiimskalyani.edu.in/"
+    },
+    {
+      "name": "Barasat Government Medical College, North 24 Parganas",
+      "state": "West Bengal",
+      "city": "Barasat",
+      "type": "Government",
+      "established": 2022,
+      "totalSeats": 100,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "https://barasatgmch.ac.in/",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31); city + website from https://barasatgmch.ac.in/ and https://en.wikipedia.org/wiki/Barasat_Government_Medical_College_and_Hospital"
+    },
+    {
+      "name": "College of Medicine and JNM Hospital, Kalyani",
+      "state": "West Bengal",
+      "city": "Kalyani",
+      "type": "Government",
+      "established": 2010,
+      "totalSeats": 125,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://comjnmh.ac.in",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31)"
+    },
+    {
+      "name": "Diamond Harbour Government Medical College, Diamond Harbour",
+      "state": "West Bengal",
+      "city": "Diamond Harbour",
+      "type": "Government",
+      "established": 2019,
+      "totalSeats": 100,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://www.dhgmc.edu.in",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31)"
+    },
+    {
+      "name": "ESI-PGIMSR Medical College, Joka, Kolkata",
+      "state": "West Bengal",
+      "city": "Kolkata",
+      "type": "Government",
+      "established": 2013,
+      "totalSeats": 100,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://www.esi-pgimsrkolkata.org.in",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31)"
+    },
+    {
+      "name": "ICARE Institute of Medical Sciences and Research, Haldia",
+      "state": "West Bengal",
+      "city": "Haldia",
+      "type": "Private",
+      "established": 2011,
+      "totalSeats": 150,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://www.icaremedicalcollege.in",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31); managementupdate=Trust -> Private"
+    },
+    {
+      "name": "IPGMER Kolkata",
+      "state": "West Bengal",
+      "city": "Kolkata",
+      "type": "Government",
+      "established": 1957,
+      "totalSeats": 200,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://www.ipgmer.gov.in",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31)"
+    },
+    {
+      "name": "IQ City Medical College, Durgapur",
+      "state": "West Bengal",
+      "city": "Durgapur",
+      "type": "Private",
+      "established": 2013,
+      "totalSeats": 200,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://www.iqcitymedicalcollege.in",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31); city Durgapur taken from the NMC address line (NMC's city column holds the district, Burdwan); managementupdate=Trust -> Private"
+    },
+    {
+      "name": "KPC Medical College and Hospital, Kolkata",
+      "state": "West Bengal",
+      "city": "Kolkata",
+      "type": "Private",
+      "established": 2008,
+      "totalSeats": 150,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://www.kpcmedicalcollege.org",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31); managementupdate=Trust -> Private"
+    },
+    {
+      "name": "Maharaja Jitendra Narayan Medical College and Hospital, Cooch Behar",
+      "state": "West Bengal",
+      "city": "Cooch Behar",
+      "type": "Government",
+      "established": 2019,
+      "totalSeats": 100,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "https://www.mjnmch.ac.in/",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31, listed under the former name Coochbehar Government Medical College & Hospital); current name + website from https://www.mjnmch.ac.in/about-us and https://en.wikipedia.org/wiki/Maharaja_Jitendra_Narayan_Medical_College_and_Hospital"
+    },
+    {
+      "name": "Medical College, Kolkata",
+      "state": "West Bengal",
+      "city": "Kolkata",
+      "type": "Government",
+      "totalSeats": 250,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://www.medicalcollegekolkata.org",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31) for type/city/seats/affiliation/website. established omitted: the reconciler's 1835 contradicts the NMC registry's yearOfInc of 1838, and the registry is authoritative here — left unset rather than guessed."
+    },
+    {
+      "name": "Murshidabad Medical College, Murshidabad",
+      "state": "West Bengal",
+      "city": "Murshidabad",
+      "type": "Government",
+      "established": 2012,
+      "totalSeats": 125,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "http://www.msdmch.org",
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31)"
+    }
+  ],
+  "merges": [],
+  "newColleges": [
+    {
+      "name": "Jhargram Government Medical College & Hospital",
+      "state": "West Bengal",
+      "city": "Jhargram",
+      "type": "Government",
+      "established": 2022,
+      "totalSeats": 100,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "https://jgmch.ac.in/",
+      "coursesOffered": ["MBBS"],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31; address '315, Main Road, Jhargram, West Bengal'); website from https://jgmch.ac.in/"
+    },
+    {
+      "name": "JMN Medical College, Nadia",
+      "state": "West Bengal",
+      "city": "Chakdaha",
+      "type": "Private",
+      "established": 2023,
+      "totalSeats": 150,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "coursesOffered": ["MBBS"],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31; address '15 Uttar Panchpota NH 12, Chakdaha, Nadia'); managementupdate=Trust -> Private. Distinct institution from MJN Medical College, Cooch Behar."
+    },
+    {
+      "name": "Purulia Government Medical College & Hospital",
+      "state": "West Bengal",
+      "city": "Purulia",
+      "type": "Government",
+      "established": 2020,
+      "totalSeats": 100,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "https://dmgmch.edu.in/",
+      "coursesOffered": ["MBBS"],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31) for type/established/seats/affiliation; the NMC address field is blank, so city Purulia (Hatuara, Purulia district) and website from https://dmgmch.edu.in/ and https://en.wikipedia.org/wiki/Deben_Mahata_Government_Medical_College_and_Hospital, which confirm this college has since been renamed Deben Mahata Government Medical College & Hospital."
+    },
+    {
+      "name": "Santiniketan Medical College, Bolpur, West Bengal",
+      "state": "West Bengal",
+      "city": "Bolpur",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "The West Bengal University of Health Sciences",
+      "website": "https://www.smcbangla.com/",
+      "coursesOffered": ["MBBS"],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31); managementupdate=Trust -> Private. NMC's collegeName contains mojibake (U+FFFD) between words; name normalised to plain spaces."
+    },
+    {
+      "name": "Sarat Chandra Chattopadhyay Government Medical College & Hospital",
+      "state": "West Bengal",
+      "city": "Uluberia",
+      "type": "Government",
+      "established": 2022,
+      "totalSeats": 100,
+      "affiliation": "West Bengal University of Health Sciences,Kolkata",
+      "website": "https://www.sccgmch.ac.in/",
+      "coursesOffered": ["MBBS"],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, snapshot 2023-08-31; address '433, Near NH-6, Uluberia, Howrah-711315'); website from https://www.sccgmch.ac.in/"
+    }
+  ],
+  "unresolved": []
+}

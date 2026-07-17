@@ -1,10 +1,10 @@
+import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import {
-  getAllotmentsForCounselling,
-  ALLOTMENT_FILTER_OPTIONS,
-  type AllotmentEntry,
-} from '@/lib/allotment-data';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { usePaged, useFacets } from '@/lib/data-api';
+import { usePlan } from '@/lib/use-plan';
+import { UpgradePrompt } from '@/components/ui/upgrade-prompt';
+import type { AllotmentEntry } from '@/lib/allotment-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -25,18 +25,25 @@ import {
   Award,
   Filter,
   BarChart3,
+  Loader2,
+  AlertTriangle,
+  Database,
+  Lock,
 } from 'lucide-react';
 
 type SortField = 'allIndiaRank' | 'stateRank' | 'neetScore' | 'category' | 'instituteName' | 'seatType' | 'round';
 
 const PAGE_SIZE = 15;
+// The public list route caps one page at 500 rows, so an export pages through the server. This
+// bounds a runaway export (a whole counselling can be tens of thousands of rows); if a filtered
+// set exceeds it the CSV is truncated and the user is told.
+const EXPORT_CAP = 25000;
 
 export default function AllotmentDetailPage() {
   const { counselling: rawCounselling } = useParams<{ counselling: string }>();
   const counselling = decodeURIComponent(rawCounselling || '');
   const navigate = useNavigate();
-
-  const allData = useMemo(() => getAllotmentsForCounselling(counselling), [counselling]);
+  const { canFullData } = usePlan();   // Pro+ unlocks full allotment history + CSV export
 
   // Filters
   const [search, setSearch] = useState('');
@@ -53,6 +60,7 @@ export default function AllotmentDetailPage() {
   const [sortBy, setSortBy] = useState<SortField>('allIndiaRank');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [page, setPage] = useState(1);
+  const [exporting, setExporting] = useState(false);
 
   useEffect(() => {
     if (showFilters) {
@@ -68,46 +76,48 @@ export default function AllotmentDetailPage() {
     rankMin !== '', rankMax !== '', scoreMin !== '', scoreMax !== '', search !== '',
   ].filter(Boolean).length;
 
-  const institutes = useMemo(() =>
-    [...new Set(allData.map((e) => e.instituteName))].sort(),
-  [allData]);
+  // ── server-side data ──
+  // Only the visible page is ever fetched. Every filter, range bound, the institute search and
+  // the sort all go to the server, so the browser holds ~15 rows at a time instead of a
+  // (silently truncated) 5000. `q` matches instituteName / counselling / state server-side.
+  const sortParam = `${sortOrder === 'desc' ? '-' : ''}${sortBy}`;
 
-  const filtered = useMemo(() => {
-    let data = allData;
-    if (search) {
-      const q = search.toLowerCase();
-      data = data.filter((e) =>
-        e.instituteName.toLowerCase().includes(q) ||
-        e.category.toLowerCase().includes(q) ||
-        e.subcategory.toLowerCase().includes(q)
-      );
-    }
-    if (categoryFilter !== 'All') data = data.filter((e) => e.category === categoryFilter);
-    if (seatTypeFilter !== 'All') data = data.filter((e) => e.seatType === seatTypeFilter);
-    if (roundFilter !== 'All') data = data.filter((e) => e.round === Number(roundFilter));
-    if (rankMin) data = data.filter((e) => e.allIndiaRank >= Number(rankMin));
-    if (rankMax) data = data.filter((e) => e.allIndiaRank <= Number(rankMax));
-    if (scoreMin) data = data.filter((e) => e.neetScore >= Number(scoreMin));
-    if (scoreMax) data = data.filter((e) => e.neetScore <= Number(scoreMax));
+  const filterParams = useMemo<Record<string, string>>(() => ({
+    counselling,
+    ...(categoryFilter !== 'All' && { category: categoryFilter }),
+    ...(seatTypeFilter !== 'All' && { seatType: seatTypeFilter }),
+    ...(roundFilter !== 'All' && { round: roundFilter }),
+    ...(rankMin && { allIndiaRank_min: rankMin }),
+    ...(rankMax && { allIndiaRank_max: rankMax }),
+    ...(scoreMin && { neetScore_min: scoreMin }),
+    ...(scoreMax && { neetScore_max: scoreMax }),
+    ...(search.trim() && { q: search.trim() }),
+  }), [counselling, categoryFilter, seatTypeFilter, roundFilter, rankMin, rankMax, scoreMin, scoreMax, search]);
 
-    data = [...data].sort((a, b) => {
-      let cmp = 0;
-      switch (sortBy) {
-        case 'allIndiaRank': cmp = a.allIndiaRank - b.allIndiaRank; break;
-        case 'stateRank': cmp = (a.stateRank ?? 999999) - (b.stateRank ?? 999999); break;
-        case 'neetScore': cmp = a.neetScore - b.neetScore; break;
-        case 'category': cmp = a.category.localeCompare(b.category); break;
-        case 'instituteName': cmp = a.instituteName.localeCompare(b.instituteName); break;
-        case 'seatType': cmp = a.seatType.localeCompare(b.seatType); break;
-        case 'round': cmp = a.round - b.round; break;
-      }
-      return sortOrder === 'asc' ? cmp : -cmp;
-    });
-    return data;
-  }, [allData, search, categoryFilter, seatTypeFilter, roundFilter, rankMin, rankMax, scoreMin, scoreMax, sortBy, sortOrder]);
+  const { items: paginated, total: filteredTotal, pages: totalPages, loading, error } =
+    usePaged<AllotmentEntry>('allotments', { ...filterParams, sort: sortParam, page, limit: PAGE_SIZE });
 
-  const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
-  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+  // Filter dropdowns + counts, scoped to this counselling so "which rounds exist" is accurate.
+  const { facets } = useFacets('allotments', ['category', 'seatType', 'round', 'instituteName'], { counselling });
+  const filterOptions = {
+    categories: (facets.category as string[]) ?? [],
+    seatTypes: (facets.seatType as string[]) ?? [],
+    rounds: (facets.round as number[]) ?? [],
+  };
+  const instituteCount = facets.instituteName?.length ?? 0;
+  const roundCount = filterOptions.rounds.length;
+
+  // Unfiltered total for this counselling (stat tile + empty-state wording).
+  const { total: counsellingTotal, loading: countLoading } = usePaged('allotments', { counselling, limit: 1 });
+  // Does ANY allotment data exist? Distinguishes "nothing loaded" from "nothing for this one".
+  const { facets: existence, loading: existenceLoading } = useFacets('allotments', ['counselling']);
+  const anyDataExists = ((existence.counselling as string[])?.length ?? 0) > 0;
+
+  // A narrowing filter can leave `page` past the end of the new result set. The filter handlers
+  // already reset to 1; this is the backstop for a sort/limit edge that leaves it stranded.
+  useEffect(() => {
+    if (page > totalPages) setPage(1);
+  }, [totalPages, page]);
 
   const handleSort = useCallback((field: SortField) => {
     if (sortBy === field) {
@@ -125,32 +135,103 @@ export default function AllotmentDetailPage() {
     setScoreMin(''); setScoreMax(''); setPage(1);
   };
 
-  const handleExportCsv = () => {
-    const header = 'All India Rank,State Rank,NEET Score,Category,Subcategory,Institute,Seat Type,Counselling,Round\n';
-    const rows = filtered.map((e) =>
-      `${e.allIndiaRank},${e.stateRank ?? '-'},${e.neetScore},"${e.category}","${e.subcategory}","${e.instituteName}","${e.seatType}","${e.counselling}",R${e.round}`
-    ).join('\n');
-    const blob = new Blob([header + rows], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `allotment-${counselling.replace(/\s+/g, '-').toLowerCase()}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
+  /**
+   * Export a file the admin CSV importer can read back.
+   *
+   * Because the page no longer holds every filtered row, the export pages through the server
+   * (500 at a time — the route's per-page ceiling) up to EXPORT_CAP, honouring the exact same
+   * filters/sort as the on-screen table.
+   *
+   * Every header is a schema LABEL (the importer matches on field name or label,
+   * case-insensitively), numeric blanks are left EMPTY (not '-', which the importer rejects),
+   * and `collegeId` is carried through so a re-import keeps the college linkage.
+   */
+  const handleExportCsv = async () => {
+    setExporting(true);
+    try {
+      const rows: AllotmentEntry[] = [];
+      for (let p = 1; rows.length < filteredTotal && rows.length < EXPORT_CAP; p++) {
+        const qs = new URLSearchParams({ ...filterParams, sort: sortParam, page: String(p), limit: '500' });
+        const res = await fetch(`/api/data/allotments/paged?${qs}`, { credentials: 'include' });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok || !body?.success || !body.data.items.length) break;
+        rows.push(...body.data.items);
+        if (p >= body.data.pages) break;
+      }
+      const truncated = filteredTotal > rows.length;
+      const csv = toCsv(
+        ['Counselling', 'Round', 'College', 'Institute name', 'State', 'All India rank',
+         'State rank', 'NEET score', 'Category', 'Subcategory', 'Seat type', 'Course'],
+        rows.map((e) => [
+          e.counselling, e.round, e.collegeId ?? '', e.instituteName, e.state, e.allIndiaRank,
+          e.stateRank ?? '', e.neetScore ?? '', e.category, e.subcategory ?? '', e.seatType, e.course,
+        ])
+      );
+      downloadCsv(`allotment-${counselling.replace(/\s+/g, '-').toLowerCase()}.csv`, csv);
+      if (truncated) {
+        alert(`Exported the first ${rows.length.toLocaleString()} of ${filteredTotal.toLocaleString()} rows (export is capped at ${EXPORT_CAP.toLocaleString()}). Narrow the filters to export a smaller set in full.`);
+      }
+    } finally {
+      setExporting(false);
+    }
   };
 
   const isMCC = counselling === 'All India Quota - MCC';
+  const safePage = page;
 
-  if (!allData.length) {
+  // Initial load (no rows yet) — a spinner. Page-to-page fetches keep the table on screen.
+  if (loading && paginated.length === 0 && !error) {
+    return (
+      <div className="flex items-center justify-center py-20">
+        <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+      </div>
+    );
+  }
+
+  if (error) {
     return (
       <div className="space-y-4 page-enter">
         <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to States
         </Button>
         <EmptyState
-          title="No allotment data"
-          description={`Allotment data for "${counselling}" is not available yet. Please check back later.`}
-          action={{ label: 'Go Back', onClick: () => navigate('/allotment') }}
+          icon={AlertTriangle}
+          title="Couldn't load allotment data"
+          description={error}
+          action={{ label: 'Try Again', onClick: () => navigate(0) }}
+        />
+      </div>
+    );
+  }
+
+  // Nothing has been loaded at all — say so plainly rather than implying this one
+  // counselling happens to be missing from an otherwise-populated dataset.
+  if (!existenceLoading && !anyDataExists) {
+    return (
+      <div className="space-y-4 page-enter">
+        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Back to States
+        </Button>
+        <EmptyState
+          icon={Database}
+          title="No allotment data yet"
+          description="Seat allotment records haven't been loaded. An admin can add them under Manage Data → Seat Allotments."
+        />
+      </div>
+    );
+  }
+
+  // Data exists, but none of it is for this counselling.
+  if (anyDataExists && !countLoading && counsellingTotal === 0) {
+    return (
+      <div className="space-y-4 page-enter">
+        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
+          <ArrowLeft className="w-4 h-4" /> Back to States
+        </Button>
+        <EmptyState
+          title={`No allotments for ${counselling}`}
+          description="Allotment records have been loaded, but none of them belong to this counselling yet."
+          action={{ label: 'Back to States', onClick: () => navigate('/allotment') }}
         />
       </div>
     );
@@ -219,10 +300,10 @@ export default function AllotmentDetailPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: 'Total Allotments', value: allData.length.toLocaleString(), icon: Award, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
-          { label: 'Institutes', value: String(institutes.length), icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
-          { label: 'Filtered', value: filtered.length.toLocaleString(), icon: Target, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
-          { label: 'Rounds', value: '3', icon: BarChart3, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
+          { label: 'Total Allotments', value: counsellingTotal.toLocaleString(), icon: Award, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Institutes', value: instituteCount.toLocaleString(), icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
+          { label: 'Filtered', value: filteredTotal.toLocaleString(), icon: Target, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
+          { label: 'Rounds', value: String(roundCount), icon: BarChart3, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
             <CardContent className="p-4">
@@ -269,12 +350,26 @@ export default function AllotmentDetailPage() {
               </span>
             )}
           </Button>
-          <Button onClick={handleExportCsv} variant="outline" className="hover:border-red-300 hover:text-red-600 transition-colors">
-            <Download className="w-4 h-4 mr-2" />
-            <span className="hidden sm:inline">Export</span>
-          </Button>
+          {canFullData ? (
+            <Button onClick={handleExportCsv} disabled={exporting || filteredTotal === 0} variant="outline" className="hover:border-red-300 hover:text-red-600 transition-colors">
+              {exporting ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Download className="w-4 h-4 mr-2" />}
+              <span className="hidden sm:inline">{exporting ? 'Exporting…' : 'Export'}</span>
+            </Button>
+          ) : (
+            <Link to="/pricing" title="Upgrade to Pro to export" className="inline-flex items-center h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-500 hover:border-red-300 hover:text-red-600 transition-colors">
+              <Lock className="w-4 h-4 sm:mr-2" /> <span className="hidden sm:inline">Export (Pro)</span>
+            </Link>
+          )}
         </div>
       </div>
+
+      {/* Free-tier gate: the server serves a 25-row sample; prompt the upgrade for full history + export. */}
+      {!canFullData && (
+        <UpgradePrompt
+          title="You're seeing a free sample of seat allotments"
+          description={`Showing ${paginated.length} of ${filteredTotal.toLocaleString()} rows for ${counselling}. Upgrade to Pro to browse the full allotment history and export it.`}
+        />
+      )}
 
       {/* ===== FILTER MODAL ===== */}
       {showFilters && (
@@ -314,9 +409,9 @@ export default function AllotmentDetailPage() {
                       <span className="text-[10px] font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Optional</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Input type="number" placeholder="Min" value={rankMin} onChange={(e) => setRankMin(e.target.value)} className="h-11 text-sm" />
+                      <Input type="number" placeholder="Min" value={rankMin} onChange={(e) => { setRankMin(e.target.value); setPage(1); }} className="h-11 text-sm" />
                       <span className="text-slate-400 font-medium shrink-0">—</span>
-                      <Input type="number" placeholder="Max" value={rankMax} onChange={(e) => setRankMax(e.target.value)} className="h-11 text-sm" />
+                      <Input type="number" placeholder="Max" value={rankMax} onChange={(e) => { setRankMax(e.target.value); setPage(1); }} className="h-11 text-sm" />
                     </div>
                   </div>
                   <div className="rounded-xl border-2 border-slate-200 dark:border-slate-700 p-4">
@@ -325,9 +420,9 @@ export default function AllotmentDetailPage() {
                       <span className="text-[10px] font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Optional</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Input type="number" placeholder="Min" value={scoreMin} onChange={(e) => setScoreMin(e.target.value)} className="h-11 text-sm" />
+                      <Input type="number" placeholder="Min" value={scoreMin} onChange={(e) => { setScoreMin(e.target.value); setPage(1); }} className="h-11 text-sm" />
                       <span className="text-slate-400 font-medium shrink-0">—</span>
-                      <Input type="number" placeholder="Max" value={scoreMax} onChange={(e) => setScoreMax(e.target.value)} className="h-11 text-sm" />
+                      <Input type="number" placeholder="Max" value={scoreMax} onChange={(e) => { setScoreMax(e.target.value); setPage(1); }} className="h-11 text-sm" />
                     </div>
                   </div>
                 </div>
@@ -340,10 +435,10 @@ export default function AllotmentDetailPage() {
                   Round
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {['All', ...ALLOTMENT_FILTER_OPTIONS.rounds.map(String)].map((r) => (
+                  {['All', ...filterOptions.rounds.map(String)].map((r) => (
                     <button
                       key={r}
-                      onClick={() => setRoundFilter(r)}
+                      onClick={() => { setRoundFilter(r); setPage(1); }}
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         roundFilter === r
                           ? 'gradient-primary text-white border-transparent shadow-md'
@@ -363,10 +458,10 @@ export default function AllotmentDetailPage() {
                   Category
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {['All', ...ALLOTMENT_FILTER_OPTIONS.categories].map((cat) => (
+                  {['All', ...filterOptions.categories].map((cat) => (
                     <button
                       key={cat}
-                      onClick={() => setCategoryFilter(cat)}
+                      onClick={() => { setCategoryFilter(cat); setPage(1); }}
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         categoryFilter === cat
                           ? 'gradient-primary text-white border-transparent shadow-md'
@@ -386,10 +481,10 @@ export default function AllotmentDetailPage() {
                   Seat Type
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {['All', ...ALLOTMENT_FILTER_OPTIONS.seatTypes].map((st) => (
+                  {['All', ...filterOptions.seatTypes].map((st) => (
                     <button
                       key={st}
-                      onClick={() => setSeatTypeFilter(st)}
+                      onClick={() => { setSeatTypeFilter(st); setPage(1); }}
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         seatTypeFilter === st
                           ? 'gradient-primary text-white border-transparent shadow-md'
@@ -413,7 +508,7 @@ export default function AllotmentDetailPage() {
                   <Input
                     placeholder="Type institute name..."
                     value={search}
-                    onChange={(e) => setSearch(e.target.value)}
+                    onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                     className="pl-11 h-12 text-sm rounded-xl focus:shadow-lg transition-all duration-200"
                   />
                 </div>
@@ -430,7 +525,7 @@ export default function AllotmentDetailPage() {
                   onClick={() => { setPage(1); setShowFilters(false); }}
                   className="gradient-primary text-white h-11 px-8 rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] font-semibold"
                 >
-                  Show {filtered.length.toLocaleString()} Results
+                  Show {filteredTotal.toLocaleString()} Results
                 </Button>
               </div>
             </div>
@@ -442,15 +537,15 @@ export default function AllotmentDetailPage() {
       <div className="flex items-center justify-between">
         <p className="text-sm text-muted-foreground">
           Showing <span className="font-bold text-slate-800 dark:text-slate-200">{paginated.length}</span> of{' '}
-          <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length.toLocaleString()}</span> results
+          <span className="font-bold text-slate-800 dark:text-slate-200">{filteredTotal.toLocaleString()}</span> results
         </p>
       </div>
 
       {/* Table */}
-      {filtered.length === 0 ? (
+      {filteredTotal === 0 && !loading ? (
         <EmptyState
-          title="No allotments found"
-          description="Adjust your filters to find allotment data."
+          title="No allotments match your filters"
+          description={`None of the ${counsellingTotal.toLocaleString()} allotments for ${counselling} match the filters you've set.`}
           action={{ label: 'Clear Filters', onClick: handleReset }}
         />
       ) : (
@@ -487,7 +582,7 @@ export default function AllotmentDetailPage() {
                       </td>
                     )}
                     <td className="px-3 sm:px-4 py-3.5 font-bold text-slate-800 dark:text-slate-200 tabular-nums">
-                      {entry.neetScore}
+                      {entry.neetScore ?? '-'}
                     </td>
                     <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap">
                       <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${
@@ -501,7 +596,7 @@ export default function AllotmentDetailPage() {
                       </span>
                     </td>
                     <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap text-slate-500 font-medium text-[11px]">
-                      {entry.subcategory}
+                      {entry.subcategory || '-'}
                     </td>
                     <td className="px-3 sm:px-4 py-3.5 max-w-[280px]">
                       <p className="font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
@@ -536,11 +631,11 @@ export default function AllotmentDetailPage() {
       )}
 
       <Pagination
-        page={page}
+        page={safePage}
         totalPages={totalPages}
         onPageChange={setPage}
         itemCount={paginated.length}
-        totalItems={filtered.length}
+        totalItems={filteredTotal}
       />
     </div>
   );

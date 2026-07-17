@@ -1,0 +1,23 @@
+{
+  "state": "Manipur",
+  "pairings": [],
+  "enrichment": [],
+  "merges": [],
+  "newColleges": [
+    {
+      "name": "Shija Academy of Health Sciences",
+      "state": "Manipur",
+      "city": "Imphal",
+      "type": "Private",
+      "established": 2021,
+      "totalSeats": 150,
+      "affiliation": "Manipur University",
+      "website": "http://www.shijahospitals.com",
+      "coursesOffered": [
+        "MBBS"
+      ],
+      "source": "nmc-ug-registry (nmc_ug_2023.json, collegeId 5182, managementupdate=Private, ugApproved=150, yearOfInc=2021)"
+    }
+  ],
+  "unresolved": []
+}

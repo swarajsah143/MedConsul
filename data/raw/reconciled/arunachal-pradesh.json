@@ -1,0 +1,9 @@
+{
+  "state": "Arunachal Pradesh",
+  "pairings": [],
+  "enrichment": [],
+  "merges": [],
+  "newColleges": [],
+  "unresolved": [],
+  "note": "No work packet exists (raw/packets/arunachal-pradesh.json absent). Arunachal Pradesh has exactly one MBBS college in the NMC 2023 registry - 'Tomo Riba Institute of Health & Medical Sciences, Naharlagun' - and our record 'Tomo Riba Institute of Health & Medical Sciences (TRIHMS), Naharlagun' was already matched to it by the automated matcher at score 1.0 and fully enriched (Government / Naharlagun / est. 2018 / 50 seats / Rajiv Gandhi University). unmatched, nmcPool, duplicates and ambiguous are all empty for this state."
+}

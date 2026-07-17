@@ -1,0 +1,20 @@
+{
+  "state": "Meghalaya",
+  "pairings": [],
+  "enrichment": [
+    {
+      "name": "Shillong Medical College",
+      "state": "Meghalaya",
+      "city": "Shillong",
+      "type": "Government",
+      "established": 2025,
+      "totalSeats": 50,
+      "affiliation": "North Eastern Hill University, Shillong",
+      "website": "https://shillongmedicalcollege.co.in",
+      "source": "https://meghalaya.gov.in/sites/default/files/press_release/Press_Release_731.pdf (Govt. of Meghalaya press release, 3 Sep 2025: NMC Letter of Permission, first academic session 2025-26, intake capacity 50, brownfield project at Shillong using Shillong Civil Hospital and Ganesh Das Hospital); https://shillongmedicalcollege.co.in/overview (official site: run by Govt. of Meghalaya Health & Family Welfare Dept, affiliated to North Eastern Hill University, Shillong, 50 MBBS seats); https://shillongmedicalcollege.co.in/admissions (address: Plot No 02, Pasteur Institute, Lawmali, Pasteur Hills, Shillong, East Khasi Hills, Meghalaya)"
+    }
+  ],
+  "merges": [],
+  "newColleges": [],
+  "unresolved": []
+}

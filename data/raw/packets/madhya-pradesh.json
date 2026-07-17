@@ -1,0 +1,271 @@
+{
+ "state": "Madhya Pradesh",
+ "unmatched": [
+  {
+   "name": "AIIMS Bhopal",
+   "city": "Bhopal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Atal Bihari Vajpayee Government Medical College, Vidisha",
+   "city": "Vidisha",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Chhindwara Institute of Medical Sciences, Chhindwara",
+   "city": "Chhindwara",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government College of Dentistry, Indore",
+   "city": "Indore",
+   "courses": [
+    "BDS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Datia",
+   "city": "Datia",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Government Medical College, Seoni",
+   "city": "Seoni",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Mahatma Gandhi Memorial Medical College, Indore",
+   "city": "Indore",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Nandkumar Singh Chouhan Government Medical College, Khandwa",
+   "city": "Khandwa",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "RD Gardi Medical College, Ujjain",
+   "city": "Ujjain",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "RKDF Medical College Hospital and Research Centre, Bhopal",
+   "city": "Bhopal",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Shrimant Rajmata Vijayaraje Scindia Medical College, Shivpuri",
+   "city": "Shivpuri",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  },
+  {
+   "name": "Sunderlal Patwa Government Medical College, Mandsaur",
+   "city": "Mandsaur",
+   "courses": [
+    "MBBS"
+   ],
+   "statelessInSource": false
+  }
+ ],
+ "nmcPool": [
+  {
+   "name": "All India Institute of Medical Sciences, Bhopal",
+   "state": "Madhya Pradesh",
+   "city": "Bhopal",
+   "type": "Government",
+   "affiliation": "Statutory Autonomous, AIIMS(Bhopal)",
+   "established": 2012,
+   "totalSeats": 125,
+   "website": "http://www.aiimsbhopal.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Chhindwara, MP",
+   "state": "Madhya Pradesh",
+   "city": "Chhindwara",
+   "type": "Government",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 2019,
+   "totalSeats": 100,
+   "website": "http://govtmedicalcollegechhindwara.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Datia, MP",
+   "state": "Madhya Pradesh",
+   "city": "Ratlam",
+   "type": "Government",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 2018,
+   "totalSeats": 120,
+   "website": "http://www.datiamedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Khandwa, MP",
+   "state": "Madhya Pradesh",
+   "city": "Khandwa",
+   "type": "Government",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 2018,
+   "totalSeats": 120,
+   "website": "http://www.gmckhandwa.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Shivpuri, MP",
+   "state": "Madhya Pradesh",
+   "city": "Shivpuri",
+   "type": "Government",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 2019,
+   "totalSeats": 100,
+   "website": "http://www.shivpurimedicalcollege.com",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Government Medical College, Vidisha, MP",
+   "state": "Madhya Pradesh",
+   "city": "Vidisha",
+   "type": "Government",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 2018,
+   "totalSeats": 180,
+   "website": "http://www.gmcvidisha.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "LNCT Medical College & Sewakunj Hospital, Indore",
+   "state": "Madhya Pradesh",
+   "city": "indore",
+   "type": "Private",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 2021,
+   "totalSeats": 150,
+   "website": "http://indorelnmc.com/deanmessage",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Mahaveer Institute of Medical Sciences & Research, Bhopal",
+   "state": "Madhya Pradesh",
+   "city": "Bhopal",
+   "type": "Private",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 2020,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "M G M Medical College, Indore",
+   "state": "Madhya Pradesh",
+   "city": "Indore",
+   "type": "Government",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 1948,
+   "totalSeats": 250,
+   "website": "http://www.mgmmcindore.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "RKDF Medical College Hospital & Research Centre, Jatkhedi, Bhopal",
+   "state": "Madhya Pradesh",
+   "city": "Bhopal",
+   "type": "Private",
+   "affiliation": "Barkatullah University",
+   "established": 2014,
+   "totalSeats": 150,
+   "website": "http://www.rkdfmedicalcollege.org",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Ruxmaniben Deepchand Gardi Medical College, Ujjain",
+   "state": "Madhya Pradesh",
+   "city": "Ujjain",
+   "type": "Private",
+   "affiliation": "Vikram University, Ujjain",
+   "established": 2001,
+   "totalSeats": 150,
+   "website": "http://www.rdgmc.edu.in",
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  },
+  {
+   "name": "Sukh Sagar Medical College & Hospital, Jabalpur",
+   "state": "Madhya Pradesh",
+   "city": "Madhya Pradesh",
+   "type": "Private",
+   "affiliation": "Madhya Pradesh Medical Science University, Jabalpur",
+   "established": 2021,
+   "totalSeats": 150,
+   "coursesOffered": [
+    "MBBS"
+   ],
+   "source": "nmc-ug-registry"
+  }
+ ],
+ "duplicates": [],
+ "ambiguous": []
+}

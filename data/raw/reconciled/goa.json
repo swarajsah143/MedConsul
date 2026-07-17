@@ -1,0 +1,26 @@
+{
+  "state": "Goa",
+  "pairings": [
+    {
+      "ourName": "Goa Medical College, Bambolim (Panaji)",
+      "nmcName": "Goa Medical College, Panaji",
+      "evidence": "Only MBBS college in Goa in the NMC 2023 registry (collegeId 309). The NMC row's address is 'Goa Medical College & Hospital, NH-17, Bombolim, P.O. Santa Cruz, Tiswadi, North Goa Distt. Goa, Panaji - 403202' -- Bambolim/Bombolim is the campus locality of the same Panaji institution, so our name is a spelling/locality variant, not a second college. Same discipline (MBBS), same city."
+    }
+  ],
+  "enrichment": [
+    {
+      "name": "Goa Medical College, Bambolim (Panaji)",
+      "state": "Goa",
+      "city": "Panaji",
+      "type": "Government",
+      "established": 1963,
+      "totalSeats": 180,
+      "affiliation": "Goa University",
+      "website": "http://www.gmcmec.gov.in",
+      "source": "nmc-ug-registry (raw/nmc_ug_2023.json, collegeId 309; managementupdate 'Govt.' -> Government)"
+    }
+  ],
+  "merges": [],
+  "newColleges": [],
+  "unresolved": []
+}
