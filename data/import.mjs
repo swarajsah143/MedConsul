@@ -27,10 +27,12 @@ const ONLY = process.argv.slice(2).find((a) => !a.startsWith('--'))?.split(',');
 const read = (f) => (existsSync(path.join(OUT, f)) ? JSON.parse(readFileSync(path.join(OUT, f), 'utf8')) : null);
 
 async function login() {
+  const password = process.env.SEED_ADMIN_PASSWORD || process.env.ADMIN_PASSWORD;
+  if (!password) throw new Error('Set SEED_ADMIN_PASSWORD (or ADMIN_PASSWORD) to the admin login password before importing.');
   const r = await fetch(`${API}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: 'admin@medcounsel.ai', password: '***REDACTED***' }),
+    body: JSON.stringify({ email: 'admin@medcounsel.ai', password }),
   });
   const j = await r.json();
   if (!j.success) throw new Error(`login failed: ${j.message}`);

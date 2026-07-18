@@ -150,6 +150,10 @@ export const UserModel = {
 
   async findById(id: string): Promise<IUser | null> {
     if (isMongoConnected()) {
+      // A JWT minted while running on the JSON store carries a UUID `sub`, which is not a
+      // valid ObjectId — findById would throw a CastError on every request. Treat it as
+      // "no such user" so the stale session is simply rejected and the client re-logs in.
+      if (!mongoose.isValidObjectId(id)) return null;
       const doc = await UserDoc.findById(id);
       return doc ? docToUser(doc) : null;
     }
