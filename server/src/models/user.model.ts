@@ -42,6 +42,14 @@ export interface IUser {
   guardianPhone?: string;
 
   /**
+   * Profile picture, stored as a small data URL (the client downscales to 256px and
+   * re-encodes before upload, so this is tens of KB, not a raw camera photo). Empty = no
+   * picture, in which case the UI falls back to an initials monogram. Validated in
+   * profileProblem() so a student can only store an actual small image here.
+   */
+  avatar?: string;
+
+  /**
    * Internal counsellor notes. ADMIN-ONLY — never returned to the student.
    * See toStudentSafe(): a note like "parents can't afford management quota" must not
    * be one API call away from the person it is about.
@@ -55,6 +63,7 @@ export type SafeUser = Omit<IUser, 'password'>;
 export const PROFILE_FIELDS = [
   'phone', 'dateOfBirth', 'neetRollNo', 'neetRank', 'neetScore',
   'category', 'domicileState', 'coursePreference', 'guardianName', 'guardianPhone',
+  'avatar',
 ] as const;
 export type ProfileField = (typeof PROFILE_FIELDS)[number];
 export type User = IUser;
@@ -81,6 +90,7 @@ const userSchema = new Schema(
     coursePreference: { type: String, default: '' },
     guardianName: { type: String, default: '' },
     guardianPhone: { type: String, default: '' },
+    avatar: { type: String, default: '' },
     adminNotes: { type: String, default: '' },
   },
   { timestamps: true }
@@ -113,6 +123,7 @@ function docToUser(doc: any): IUser {
     coursePreference: doc.coursePreference || '',
     guardianName: doc.guardianName || '',
     guardianPhone: doc.guardianPhone || '',
+    avatar: doc.avatar || '',
     adminNotes: doc.adminNotes || '',
   };
 }

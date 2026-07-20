@@ -11,6 +11,7 @@ import {
   ClipboardCheck,
   IndianRupee,
   ArrowRight,
+  ArrowUpRight,
   Bell,
   ChevronRight,
   ChevronDown,
@@ -275,12 +276,16 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {FEATURES.map((item) => (
             <Link key={item.href + item.title} to={item.href} className="group block h-full">
-              <Card className="h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
-                <CardContent className="p-4 sm:p-5">
-                  <div className={`w-11 h-11 rounded-xl ${item.bg} flex items-center justify-center`}>
+              <Card className="relative h-full overflow-hidden hover:shadow-lg hover:-translate-y-1 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300">
+                {/* Soft accent glow — stays subtle, only blooms gently on hover (kept limited on purpose). */}
+                <div className={`pointer-events-none absolute -top-10 -right-10 w-28 h-28 rounded-full blur-2xl ${item.bg} opacity-0 group-hover:opacity-70 transition-opacity duration-500`} />
+                {/* Corner cue that this card is clickable. */}
+                <ArrowUpRight className={`absolute top-3.5 right-3.5 w-4 h-4 ${item.color} opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300`} />
+                <CardContent className="relative p-4 sm:p-5">
+                  <div className={`w-11 h-11 rounded-xl ${item.bg} flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-md`}>
                     <item.icon className={`w-5 h-5 ${item.color}`} />
                   </div>
-                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 mt-3">
+                  <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 mt-3 transition-colors duration-200 group-hover:text-slate-950 dark:group-hover:text-white">
                     {item.title}
                   </h3>
                   <p className="text-xs text-muted-foreground mt-1 leading-relaxed">

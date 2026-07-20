@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useCollection, distinct } from '@/lib/data-api';
+import { ALL_INDIA_STATES } from '@/lib/counselling-content';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -125,8 +126,13 @@ export default function AnnouncementsPage() {
     [data],
   );
 
-  // Filter options come from the live data.
-  const stateOptions = useMemo(() => distinct(sorted, 'state'), [sorted]);
+  // Show every Indian state/UT in the filter — not just the handful that happen to
+  // appear in the current announcement data. Merge the canonical list with any states
+  // present in the data (covers spellings or regions not in the canonical list).
+  const stateOptions = useMemo(
+    () => [...new Set([...ALL_INDIA_STATES, ...distinct(sorted, 'state')])].sort(),
+    [sorted],
+  );
   const typeOptions = useMemo(() => distinct(sorted, 'announcementType'), [sorted]);
   const monthOptions = useMemo(() => {
     const seen = new Map<string, string>();
@@ -218,12 +224,12 @@ export default function AnnouncementsPage() {
                 </div>
 
                 {/* Month Filter */}
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-slate-400 shrink-0 hidden sm:block" />
+                <div className="relative">
+                  <Calendar className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <select
                     value={monthFilter}
                     onChange={(e) => { setMonthFilter(e.target.value); setPage(1); }}
-                    className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[140px]"
+                    className="h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer w-full sm:min-w-[150px]"
                   >
                     <option value="All">All Months</option>
                     {monthOptions.map(([key, label]) => (
@@ -233,12 +239,12 @@ export default function AnnouncementsPage() {
                 </div>
 
                 {/* State Filter */}
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-slate-400 shrink-0 hidden sm:block" />
+                <div className="relative">
+                  <MapPin className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <select
                     value={stateFilter}
                     onChange={(e) => { setStateFilter(e.target.value); setPage(1); }}
-                    className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[160px]"
+                    className="h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer w-full sm:min-w-[170px]"
                   >
                     <option value="All">All States</option>
                     {stateOptions.map((s) => (
@@ -348,60 +354,69 @@ function AnnouncementCard({ announcement: a, index }: { announcement: DatedAnnou
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 18, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.45, delay: Math.min(index * 0.05, 0.4), ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -6 }}
       className="h-full"
     >
-      <Card className="group h-full flex flex-col border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-md transition-all duration-200">
-        <CardContent className="flex flex-col h-full p-5">
+      <Card className={`group relative h-full flex flex-col overflow-hidden ${colors.border} bg-white dark:bg-slate-900 hover:shadow-xl transition-all duration-300`}>
+        {/* Light, type-tinted wash — gives every card a soft colour that matches its category. */}
+        <div className={`pointer-events-none absolute inset-0 ${colors.bg} opacity-40 dark:opacity-25`} />
+        {/* A glow in the corner that blooms and drifts when you hover — the "alive" bit. */}
+        <div className={`pointer-events-none absolute -top-12 -right-12 w-36 h-36 rounded-full blur-3xl ${colors.bg} opacity-50 group-hover:opacity-90 group-hover:scale-125 transition-all duration-500`} />
+
+        <CardContent className="relative flex flex-col h-full p-5">
           {/* Header: type + date */}
           <div className="flex items-center justify-between gap-3 mb-4">
             <div className="flex items-center gap-2.5 min-w-0">
-              <span className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${colors.bg} ${colors.text}`}>
-                <Icon className="w-4 h-4" />
+              <span className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm ${colors.bg} ${colors.text} transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6`}>
+                <Icon className="w-5 h-5" />
               </span>
               {type && (
-                <span className={`text-xs font-semibold truncate ${colors.text}`}>{type}</span>
+                <span className={`text-xs font-bold truncate ${colors.text}`}>{type}</span>
               )}
             </div>
             {dateLabel && (
-              <span
-                title={a.monthLabel || undefined}
-                className={`text-xs font-medium tabular-nums shrink-0 ${
-                  isRecent ? 'text-red-600 dark:text-red-400' : 'text-slate-400 dark:text-slate-500'
-                }`}
-              >
-                {dateLabel}
+              <span className="inline-flex items-center gap-1.5 shrink-0">
+                {isRecent && <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_0_3px_rgba(239,68,68,0.15)]" />}
+                <span
+                  title={a.monthLabel || undefined}
+                  className={`text-xs font-semibold tabular-nums ${
+                    isRecent ? 'text-red-600 dark:text-red-400' : 'text-slate-400 dark:text-slate-500'
+                  }`}
+                >
+                  {dateLabel}
+                </span>
               </span>
             )}
           </div>
 
           {/* Title */}
-          <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2">
             {a.title ?? 'Untitled announcement'}
           </h3>
 
           {/* State meta */}
           {a.state && (
-            <p className="mt-2 inline-flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+            <p className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-slate-500 dark:text-slate-400">
               <MapPin className="w-3 h-3 shrink-0" />
               {a.state}
             </p>
           )}
 
           {/* Footer: document action, pinned to bottom */}
-          <div className="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800/60">
+          <div className="mt-auto pt-4 border-t border-slate-200/70 dark:border-slate-800/60">
             {a.documentUrl ? (
               <a
                 href={a.documentUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className={`inline-flex items-center gap-1.5 text-xs font-semibold transition-colors ${colors.text} hover:opacity-80`}
+                className={`group/doc inline-flex items-center gap-1.5 text-xs font-bold transition-all ${colors.text} hover:gap-2.5`}
               >
                 {docLabel}
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/doc:translate-x-0.5 group-hover/doc:-translate-y-0.5" />
               </a>
             ) : (
               <span className="text-xs font-medium text-slate-400 dark:text-slate-500">{docLabel}</span>
