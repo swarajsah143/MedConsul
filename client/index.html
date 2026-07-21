@@ -4,7 +4,50 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>client</title>
+
+    <title>MedCounsel AI — Plan your NEET-UG counselling with real data</title>
+    <meta
+      name="description"
+      content="Predict your NEET-UG rank, compare fees and cutoffs across 900+ medical colleges, explore reviews, and track your counselling documents — all in one place."
+    />
+    <meta name="theme-color" content="#dc2626" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MedCounsel AI" />
+    <meta
+      property="og:description"
+      content="Plan your NEET-UG counselling with real cutoff data, not guesswork."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts: preconnect + non-blocking link (was a render-blocking CSS @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    />
+
+    <!--
+      Anti-FOUC theme bootstrap. Runs before React so the correct theme class is on
+      <html> for first paint — no flash of the wrong theme. Kept in sync with the
+      ThemeProvider (src/providers/theme-provider.tsx): same storage key + logic.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('medcounsel-theme');
+          var theme = stored || 'system';
+          var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = theme === 'dark' || (theme === 'system' && systemDark);
+          document.documentElement.classList.toggle('dark', isDark);
+        } catch (e) {
+          /* localStorage unavailable — default to light */
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

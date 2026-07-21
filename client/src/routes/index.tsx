@@ -22,6 +22,7 @@ const ForgotPasswordPage = lazy(() => import('@/pages/forgot-password'));
 const ResetPasswordPage = lazy(() => import('@/pages/reset-password'));
 const LandingPage = lazy(() => import('@/pages/landing'));
 const PricingPage = lazy(() => import('@/pages/pricing'));
+const NotFoundPage = lazy(() => import('@/pages/not-found'));
 const PrivacyPage = lazy(() => import('@/pages/legal').then((m) => ({ default: m.PrivacyPage })));
 const TermsPage = lazy(() => import('@/pages/legal').then((m) => ({ default: m.TermsPage })));
 
@@ -136,8 +137,8 @@ export default function AppRoutes() {
         <Route path="ai-assistant" element={<AiAssistantPage />} />
       </Route>
 
-      {/* Fallback — unknown paths go to the landing (which forwards authed users to /dashboard) */}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      {/* Fallback — a real 404 (was a silent redirect to `/`, which hid dead links) */}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
     </Suspense>
   );

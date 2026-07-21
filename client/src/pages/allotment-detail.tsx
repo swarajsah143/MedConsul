@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
 import { EmptyState } from '@/components/ui/empty-state';
+import { useToast } from '@/providers/toast-provider';
 import {
   ArrowLeft,
   ArrowUpDown,
@@ -43,6 +44,7 @@ export default function AllotmentDetailPage() {
   const { counselling: rawCounselling } = useParams<{ counselling: string }>();
   const counselling = decodeURIComponent(rawCounselling || '');
   const navigate = useNavigate();
+  const { toast } = useToast();
   const { canFullData } = usePlan();   // Pro+ unlocks full allotment history + CSV export
 
   // Filters
@@ -169,7 +171,12 @@ export default function AllotmentDetailPage() {
       );
       downloadCsv(`allotment-${counselling.replace(/\s+/g, '-').toLowerCase()}.csv`, csv);
       if (truncated) {
-        alert(`Exported the first ${rows.length.toLocaleString()} of ${filteredTotal.toLocaleString()} rows (export is capped at ${EXPORT_CAP.toLocaleString()}). Narrow the filters to export a smaller set in full.`);
+        toast.warning(
+          `Exported ${rows.length.toLocaleString()} of ${filteredTotal.toLocaleString()} rows`,
+          `Export is capped at ${EXPORT_CAP.toLocaleString()}. Narrow the filters to export a smaller set in full.`
+        );
+      } else {
+        toast.success(`Exported ${rows.length.toLocaleString()} rows`);
       }
     } finally {
       setExporting(false);
