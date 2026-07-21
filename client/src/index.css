@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* Inter is loaded via <link> in index.html (with preconnect) — not a render-blocking @import here. */
 
 @tailwind base;
 @tailwind components;
@@ -26,8 +26,13 @@
     --input: 220 13% 91%;
     --ring: 0 72% 51%;
     --radius: 0.625rem;
-    --success: 142 76% 36%;
+    /* Semantic status tokens — consume these (text-success/bg-warning/…) instead of raw emerald/amber/blue. */
+    --success: 142 71% 40%;
+    --success-foreground: 0 0% 100%;
     --warning: 38 92% 50%;
+    --warning-foreground: 24 90% 15%;
+    --info: 217 91% 55%;
+    --info-foreground: 0 0% 100%;
   }
 
   .dark {
@@ -50,6 +55,13 @@
     --border: 215 28% 17%;
     --input: 215 28% 17%;
     --ring: 0 72% 51%;
+    /* Status tokens tuned for dark surfaces (brighter, higher contrast on near-black). */
+    --success: 142 69% 48%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 95% 58%;
+    --warning-foreground: 24 90% 12%;
+    --info: 213 94% 68%;
+    --info-foreground: 0 0% 100%;
   }
 }
 

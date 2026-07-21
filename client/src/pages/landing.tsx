@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 import {
   Stethoscope, ArrowRight, Target, BarChart3, IndianRupee, GraduationCap,
   ClipboardCheck, MapPin, Bot, ShieldCheck, Sparkles, Menu, X, Check,
@@ -69,10 +70,14 @@ export default function LandingPage() {
             <Link to="/pricing" className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-red-600 transition-colors">Pricing</Link>
             <Link to="/login" className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-red-600 transition-colors">Sign in</Link>
             <Link to="/signup" className="px-4 py-2 rounded-xl gradient-primary text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all">Get started</Link>
+            <ThemeToggle />
           </div>
-          <button className="sm:hidden p-2" onClick={() => setMenuOpen((o) => !o)} aria-label="Menu">
+          <div className="sm:hidden flex items-center gap-1">
+          <ThemeToggle />
+          <button className="p-2" onClick={() => setMenuOpen((o) => !o)} aria-label="Menu">
             {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
+          </div>
         </nav>
         {menuOpen && (
           <div className="sm:hidden border-t border-slate-100 dark:border-slate-800 px-4 py-3 flex flex-col gap-2">

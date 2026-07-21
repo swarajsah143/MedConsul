@@ -1,5 +1,6 @@
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useCollection } from '@/lib/data-api';
 import {
   BarChart3,
@@ -401,8 +402,10 @@ export default function DashboardLayout() {
             <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">{user?.name || 'User'}</span>
           </div>
 
-          {/* Profile */}
-          <div className="relative ml-auto" ref={dropdownRef}>
+          {/* Theme toggle + Profile */}
+          <div className="ml-auto flex items-center gap-1">
+          <ThemeToggle />
+          <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="flex items-center gap-2 p-1 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -430,6 +433,7 @@ export default function DashboardLayout() {
                 </button>
               </div>
             )}
+          </div>
           </div>
         </header>
 
