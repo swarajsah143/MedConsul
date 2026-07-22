@@ -13,8 +13,8 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
       <div className="hidden lg:flex lg:w-1/2 gradient-primary relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-white/8 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-rose-300/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-red-400/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-300/10 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-400/5 rounded-full blur-3xl" />
         </div>
 
         <div className="relative z-10 flex flex-col justify-center px-12 xl:px-16 text-white">
@@ -24,7 +24,7 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
             </div>
             <div>
               <h1 className="text-2xl font-bold tracking-tight">MedCounsel AI</h1>
-              <p className="text-red-100 text-xs font-medium">NEET UG Counseling Assistant</p>
+              <p className="text-emerald-100 text-xs font-medium">NEET UG Counseling Assistant</p>
             </div>
           </div>
 
@@ -32,7 +32,7 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
             <h2 className="text-3xl xl:text-4xl font-extrabold leading-tight tracking-tight">
               Navigate Your Medical Career with Confidence
             </h2>
-            <p className="text-red-100/90 text-base leading-relaxed">
+            <p className="text-emerald-100/90 text-base leading-relaxed">
               AI-powered cutoff analysis, college reviews, fee comparison,
               and document preparation — all in one platform.
             </p>
@@ -49,7 +49,7 @@ export function AuthLayout({ children, title, subtitle }: AuthLayoutProps) {
                   className="bg-white/10 backdrop-blur-sm rounded-xl p-3.5 border border-white/10"
                 >
                   <p className="text-xl font-bold">{stat.value}</p>
-                  <p className="text-red-200 text-xs font-medium mt-0.5">{stat.label}</p>
+                  <p className="text-emerald-200 text-xs font-medium mt-0.5">{stat.label}</p>
                 </div>
               ))}
             </div>

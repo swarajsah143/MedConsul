@@ -28,7 +28,7 @@ const typeStyle: Record<string, { badge: string; color: string }> = {
   Deemed: { badge: 'bg-blue-500/20 text-blue-200', color: 'text-blue-600 dark:text-blue-400' },
 };
 
-function InfoCard({ icon: Icon, label, value, iconColor = 'text-red-600 dark:text-red-400' }: {
+function InfoCard({ icon: Icon, label, value, iconColor = 'text-emerald-600 dark:text-emerald-400' }: {
   icon: LucideIcon; label: string; value: string; iconColor?: string;
 }) {
   return (
@@ -45,7 +45,7 @@ function InfoCard({ icon: Icon, label, value, iconColor = 'text-red-600 dark:tex
 }
 
 const STAT_COLORS = [
-  { text: 'text-red-600 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-950/30' },
+  { text: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
   { text: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-950/30' },
   { text: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
   { text: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/30' },
@@ -75,8 +75,8 @@ function PatientLoadCard({ data }: { data: string }) {
     <FadeIn>
       <div className="space-y-3">
         <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
-            <HeartPulse className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
+          <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0">
+            <HeartPulse className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           </div>
           Patient Load
         </h3>
@@ -208,8 +208,8 @@ function ContentBlock({ icon: Icon, title, text }: { icon: LucideIcon; title: st
     <FadeIn>
       <div className="space-y-2.5">
         <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
-            <Icon className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
+          <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0">
+            <Icon className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           </div>
           {title}
         </h3>
@@ -243,7 +243,7 @@ export default function CollegeDetailPage() {
   return (
     <div className="space-y-6 pb-12">
       {/* Back */}
-      <Button variant="ghost" size="sm" onClick={() => navigate('/colleges')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/20 transition-colors">
+      <Button variant="ghost" size="sm" onClick={() => navigate('/colleges')} className="flex items-center gap-1.5 hover:bg-emerald-50 hover:text-emerald-600 dark:hover:bg-emerald-950/20 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to Colleges
       </Button>
 
@@ -274,7 +274,7 @@ export default function CollegeDetailPage() {
       <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {([
           { icon: GraduationCap, label: 'Total Seats', value: String(college.totalSeats), color: 'text-blue-600 dark:text-blue-400' },
-          { icon: Activity, label: 'NEET Cutoff', value: college.neetCutoffRange, color: 'text-red-600 dark:text-red-400' },
+          { icon: Activity, label: 'NEET Cutoff', value: college.neetCutoffRange, color: 'text-emerald-600 dark:text-emerald-400' },
           { icon: IndianRupee, label: 'Annual Fees', value: college.annualFees, color: 'text-amber-600 dark:text-amber-400' },
           { icon: Calendar, label: 'Courses', value: college.coursesOffered.join(', '), color: 'text-purple-600 dark:text-purple-400' },
         ] as const).map((s) => (
@@ -292,13 +292,13 @@ export default function CollegeDetailPage() {
             return (
               <button key={tab.id} onClick={() => setActiveTab(tab.id)}
                 className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
-                  active ? 'text-red-600 dark:text-red-400' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  active ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
               >
                 <tab.icon className="w-3.5 h-3.5" />
                 {tab.label}
                 {active && (
-                  <motion.div layoutId="tab-indicator" className="absolute bottom-0 left-2 right-2 h-0.5 bg-red-600 dark:bg-red-400 rounded-full"
+                  <motion.div layoutId="tab-indicator" className="absolute bottom-0 left-2 right-2 h-0.5 bg-emerald-600 dark:bg-emerald-400 rounded-full"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }} />
                 )}
               </button>
@@ -335,14 +335,14 @@ export default function CollegeDetailPage() {
                           ))}
                         </CardContent>
                       </Card>
-                      <Card className="border-l-4 border-l-rose-500 bg-rose-50/30 dark:bg-rose-950/10">
+                      <Card className="border-l-4 border-l-green-500 bg-green-50/30 dark:bg-green-950/10">
                         <CardContent className="p-4 space-y-2.5">
-                          <h4 className="text-xs font-bold text-rose-700 dark:text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+                          <h4 className="text-xs font-bold text-green-700 dark:text-green-400 uppercase tracking-wider flex items-center gap-1.5">
                             <ThumbsDown className="w-3.5 h-3.5" /> Considerations
                           </h4>
                           {college.cons.map((c, i) => (
                             <p key={i} className="text-xs text-slate-700 dark:text-slate-300 flex gap-2 leading-relaxed">
-                              <span className="text-rose-500 mt-0.5 shrink-0">-</span> {c}
+                              <span className="text-green-500 mt-0.5 shrink-0">-</span> {c}
                             </p>
                           ))}
                         </CardContent>
@@ -375,7 +375,7 @@ export default function CollegeDetailPage() {
                   {/* Tinder-style Photo Stack */}
                   <FadeIn>
                     <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 mb-4">
-                      <Image className="w-4 h-4 text-red-600" /> Campus Gallery
+                      <Image className="w-4 h-4 text-emerald-600" /> Campus Gallery
                       <span className="text-[10px] font-medium text-muted-foreground ml-auto">Click to shuffle</span>
                     </h3>
                     <PhotoStack images={college.gallery} />
@@ -385,7 +385,7 @@ export default function CollegeDetailPage() {
                   {college.reviewVideos.length > 0 && (
                     <FadeIn>
                       <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2 mb-4">
-                        <Play className="w-4 h-4 text-red-600" /> Review Videos
+                        <Play className="w-4 h-4 text-emerald-600" /> Review Videos
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {college.reviewVideos.map((video, idx) => (
@@ -396,7 +396,7 @@ export default function CollegeDetailPage() {
                             </div>
                             <CardContent className="p-3">
                               <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-                                <Play className="w-3 h-3 text-red-600 shrink-0" /> {video.title}
+                                <Play className="w-3 h-3 text-emerald-600 shrink-0" /> {video.title}
                               </p>
                             </CardContent>
                           </Card>
@@ -417,7 +417,7 @@ export default function CollegeDetailPage() {
               <div className="h-1 gradient-primary" />
               <CardContent className="p-5 space-y-0">
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 mb-3 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-red-600" /> Quick Info
+                  <Sparkles className="w-4 h-4 text-emerald-600" /> Quick Info
                 </h3>
                 <div className="divide-y divide-slate-100 dark:divide-slate-800">
                   {[
@@ -457,7 +457,7 @@ export default function CollegeDetailPage() {
                 {/* Website */}
                 {college.website && (
                   <div className="pt-3 mt-1">
-                    <Button asChild variant="outline" className="w-full gap-2 text-xs rounded-xl h-10 hover:bg-red-50 hover:text-red-600 hover:border-red-200 dark:hover:bg-red-950/20 transition-colors">
+                    <Button asChild variant="outline" className="w-full gap-2 text-xs rounded-xl h-10 hover:bg-emerald-50 hover:text-emerald-600 hover:border-emerald-200 dark:hover:bg-emerald-950/20 transition-colors">
                       <a href={college.website} target="_blank" rel="noopener noreferrer">
                         <Globe className="w-3.5 h-3.5" /> Official Website <ExternalLink className="w-3 h-3 ml-auto" />
                       </a>

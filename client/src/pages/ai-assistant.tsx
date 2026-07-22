@@ -129,9 +129,9 @@ function renderContent(content: string) {
     } else if (inTable) { flushTable(); }
     if (line.startsWith('## ')) { elements.push(<h3 key={i} className="text-sm font-bold text-slate-800 dark:text-slate-200 mt-3 mb-1">{line.slice(3)}</h3>); continue; }
     if (line.startsWith('### ')) { elements.push(<h4 key={i} className="text-xs font-bold text-slate-700 dark:text-slate-300 mt-2.5 mb-1">{line.slice(4)}</h4>); continue; }
-    if (line.startsWith('> ')) { elements.push(<div key={i} className="border-l-2 border-red-300 dark:border-red-800 pl-3 my-2 text-xs text-slate-600 dark:text-slate-400 italic">{renderInline(line.slice(2))}</div>); continue; }
-    if (line.startsWith('- ')) { elements.push(<div key={i} className="flex gap-2 text-xs text-slate-700 dark:text-slate-300 ml-1 my-0.5"><span className="text-red-500 mt-0.5 shrink-0">&#8226;</span><span>{renderInline(line.slice(2))}</span></div>); continue; }
-    if (/^\d+\.\s/.test(line)) { const m = line.match(/^(\d+)\.\s(.*)$/); if (m) { elements.push(<div key={i} className="flex gap-2 text-xs text-slate-700 dark:text-slate-300 ml-1 my-0.5"><span className="text-red-500 font-semibold shrink-0">{m[1]}.</span><span>{renderInline(m[2])}</span></div>); continue; } }
+    if (line.startsWith('> ')) { elements.push(<div key={i} className="border-l-2 border-emerald-300 dark:border-emerald-800 pl-3 my-2 text-xs text-slate-600 dark:text-slate-400 italic">{renderInline(line.slice(2))}</div>); continue; }
+    if (line.startsWith('- ')) { elements.push(<div key={i} className="flex gap-2 text-xs text-slate-700 dark:text-slate-300 ml-1 my-0.5"><span className="text-emerald-500 mt-0.5 shrink-0">&#8226;</span><span>{renderInline(line.slice(2))}</span></div>); continue; }
+    if (/^\d+\.\s/.test(line)) { const m = line.match(/^(\d+)\.\s(.*)$/); if (m) { elements.push(<div key={i} className="flex gap-2 text-xs text-slate-700 dark:text-slate-300 ml-1 my-0.5"><span className="text-emerald-500 font-semibold shrink-0">{m[1]}.</span><span>{renderInline(m[2])}</span></div>); continue; } }
     if (line.trim() === '') { elements.push(<div key={i} className="h-2" />); continue; }
     elements.push(<p key={i} className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{renderInline(line)}</p>);
   }
@@ -154,7 +154,7 @@ function renderInline(text: string): React.ReactNode {
     const codeMatch = remaining.match(/`(.+?)`/);
     if (codeMatch && codeMatch.index !== undefined) {
       if (codeMatch.index > 0) parts.push(remaining.slice(0, codeMatch.index));
-      parts.push(<code key={key++} className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-[11px] font-mono text-red-600 dark:text-red-400">{codeMatch[1]}</code>);
+      parts.push(<code key={key++} className="bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded text-[11px] font-mono text-emerald-600 dark:text-emerald-400">{codeMatch[1]}</code>);
       remaining = remaining.slice(codeMatch.index + codeMatch[0].length);
       continue;
     }
@@ -514,7 +514,7 @@ export default function AiAssistantPage() {
               <Button variant="ghost" size="sm" onClick={handleRegenerate} disabled={isTyping || messages.length < 2} className="text-xs gap-1.5 h-8">
                 <RefreshCw className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Regenerate</span>
               </Button>
-              <Button variant="ghost" size="sm" onClick={handleClear} className="text-xs gap-1.5 h-8 text-slate-500 hover:text-red-600">
+              <Button variant="ghost" size="sm" onClick={handleClear} className="text-xs gap-1.5 h-8 text-slate-500 hover:text-emerald-600">
                 <Trash2 className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Clear</span>
               </Button>
             </>
@@ -534,9 +534,9 @@ export default function AiAssistantPage() {
           ) : (
             <div className="space-y-1">
               {sessions.map((s) => (
-                <div key={s.id} className={`flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-xs cursor-pointer transition-colors ${sessionId === s.id ? 'bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>
+                <div key={s.id} className={`flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-xs cursor-pointer transition-colors ${sessionId === s.id ? 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400' : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400'}`}>
                   <button onClick={() => loadSession(s.id)} className="flex-1 text-left truncate font-medium">{s.title}</button>
-                  <button onClick={() => deleteSession(s.id)} className="p-1 text-slate-400 hover:text-red-500 shrink-0"><Trash2 className="w-3 h-3" /></button>
+                  <button onClick={() => deleteSession(s.id)} className="p-1 text-slate-400 hover:text-emerald-500 shrink-0"><Trash2 className="w-3 h-3" /></button>
                 </div>
               ))}
             </div>
@@ -546,16 +546,16 @@ export default function AiAssistantPage() {
 
       {/* Error banner */}
       {error && (
-        <div className="px-4 sm:px-6 py-2 bg-red-50 dark:bg-red-950/20 border-b border-red-200 dark:border-red-900 animate-fade-in">
+        <div className="px-4 sm:px-6 py-2 bg-emerald-50 dark:bg-emerald-950/20 border-b border-emerald-200 dark:border-emerald-900 animate-fade-in">
           <div className="flex items-center gap-2 max-w-3xl mx-auto">
-            <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
-            <p className="text-xs text-red-700 dark:text-red-400 flex-1">{error}</p>
+            <AlertCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+            <p className="text-xs text-emerald-700 dark:text-emerald-400 flex-1">{error}</p>
             {lastMsgIsError && (
-              <Button variant="ghost" size="sm" onClick={handleRetry} className="text-xs h-7 text-red-600 hover:bg-red-100">
+              <Button variant="ghost" size="sm" onClick={handleRetry} className="text-xs h-7 text-emerald-600 hover:bg-emerald-100">
                 Retry
               </Button>
             )}
-            <button onClick={() => setError(null)} className="p-1 text-red-400 hover:text-red-600"><X className="w-3.5 h-3.5" /></button>
+            <button onClick={() => setError(null)} className="p-1 text-emerald-400 hover:text-emerald-600"><X className="w-3.5 h-3.5" /></button>
           </div>
         </div>
       )}
@@ -578,10 +578,10 @@ export default function AiAssistantPage() {
                 <button
                   key={s.text}
                   onClick={() => { setInput(s.text); textareaRef.current?.focus(); }}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-red-300 dark:hover:border-red-800 hover:shadow-md text-left transition-all duration-200 group"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-300 dark:hover:border-emerald-800 hover:shadow-md text-left transition-all duration-200 group"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/20 flex items-center justify-center shrink-0 group-hover:bg-red-100 dark:group-hover:bg-red-950/40 transition-colors">
-                    <s.icon className="w-4 h-4 text-red-600 dark:text-red-400" />
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center shrink-0 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-950/40 transition-colors">
+                    <s.icon className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <span className="text-xs text-slate-600 dark:text-slate-400 leading-snug">{s.text}</span>
                 </button>
@@ -607,7 +607,7 @@ export default function AiAssistantPage() {
                       msg.role === 'user'
                         ? 'gradient-primary text-white rounded-br-md'
                         : msg.error
-                        ? 'bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 rounded-bl-md'
+                        ? 'bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900 rounded-bl-md'
                         : 'bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-bl-md'
                     }`}
                   >
@@ -623,7 +623,7 @@ export default function AiAssistantPage() {
                         {copiedId === msg.id ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
                       </button>
                       {msg.error && (
-                        <button onClick={handleRetry} className="p-1 rounded text-red-400 hover:text-red-600 transition-colors" aria-label="Retry">
+                        <button onClick={handleRetry} className="p-1 rounded text-emerald-400 hover:text-emerald-600 transition-colors" aria-label="Retry">
                           <RefreshCw className="w-3.5 h-3.5" />
                         </button>
                       )}
@@ -673,7 +673,7 @@ export default function AiAssistantPage() {
       {/* Input Area */}
       <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 sm:px-6 py-3 shrink-0">
         <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
-          <div className="flex items-end gap-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 px-3 py-2 focus-within:border-red-300 dark:focus-within:border-red-800 focus-within:ring-2 focus-within:ring-red-100 dark:focus-within:ring-red-950/30 transition-all">
+          <div className="flex items-end gap-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 px-3 py-2 focus-within:border-emerald-300 dark:focus-within:border-emerald-800 focus-within:ring-2 focus-within:ring-emerald-100 dark:focus-within:ring-emerald-950/30 transition-all">
             <textarea
               ref={textareaRef}
               value={input}

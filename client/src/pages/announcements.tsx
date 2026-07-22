@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Pagination } from '@/components/ui/pagination';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { motion } from 'framer-motion';
 import {
   Search,
@@ -34,7 +35,7 @@ const MONTH_ORDER: Record<string, number> = {
 const TYPE_COLORS: Record<string, { text: string; bg: string; border: string }> = {
   'Allotment': { text: 'text-blue-700 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-950/30', border: 'border-blue-200 dark:border-blue-900/40' },
   'Counselling': { text: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/30', border: 'border-emerald-200 dark:border-emerald-900/40' },
-  'Public Notice': { text: 'text-red-700 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-950/30', border: 'border-red-200 dark:border-red-900/40' },
+  'Public Notice': { text: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/30', border: 'border-emerald-200 dark:border-emerald-900/40' },
   'Seat Matrix': { text: 'text-amber-700 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/30', border: 'border-amber-200 dark:border-amber-900/40' },
   'Merit list': { text: 'text-purple-700 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/30', border: 'border-purple-200 dark:border-purple-900/40' },
   'Merit List': { text: 'text-purple-700 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/30', border: 'border-purple-200 dark:border-purple-900/40' },
@@ -64,7 +65,7 @@ const DEFAULT_COLORS = { text: 'text-slate-700 dark:text-slate-400', bg: 'bg-sla
 const TYPE_GRADIENTS: Record<string, string> = {
   'Allotment': 'from-blue-500 to-indigo-600',
   'Counselling': 'from-emerald-500 to-green-600',
-  'Public Notice': 'from-red-500 to-rose-600',
+  'Public Notice': 'from-emerald-500 to-green-600',
   'Seat Matrix': 'from-amber-500 to-orange-600',
   'Merit list': 'from-purple-500 to-violet-600',
   'Merit List': 'from-purple-500 to-violet-600',
@@ -78,7 +79,7 @@ const TYPE_GRADIENTS: Record<string, string> = {
 const TYPE_GLOWS: Record<string, string> = {
   'Allotment': 'shadow-blue-500/20',
   'Counselling': 'shadow-emerald-500/20',
-  'Public Notice': 'shadow-red-500/20',
+  'Public Notice': 'shadow-emerald-500/20',
   'Seat Matrix': 'shadow-amber-500/20',
   'Merit list': 'shadow-purple-500/20',
   'Merit List': 'shadow-purple-500/20',
@@ -157,25 +158,21 @@ export default function AnnouncementsPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero Header */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <HeroBanner>
           <div className="relative z-10 space-y-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
               <Sparkles className="w-3.5 h-3.5" />
               Live Updates
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-              <Megaphone className="w-7 h-7 text-red-200" />
+              <Megaphone className="w-7 h-7 text-emerald-200" />
               Announcements
             </h1>
-            <p className="text-red-100/90 text-sm max-w-xl leading-relaxed">
+            <p className="text-emerald-100/90 text-sm max-w-xl leading-relaxed">
               Stay updated with the latest NEET UG counselling notifications, allotments, seat matrices, and public notices across all states.
             </p>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Search & Filters Bar */}
       <Card className="overflow-hidden">
@@ -198,7 +195,7 @@ export default function AnnouncementsPage() {
               <select
                 value={monthFilter}
                 onChange={(e) => { setMonthFilter(e.target.value); setPage(1); }}
-                className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[140px]"
+                className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-emerald-300 cursor-pointer min-w-[140px]"
               >
                 <option value="All">All Months</option>
                 {ANNOUNCEMENT_FILTER_OPTIONS.months.map((m) => (
@@ -213,7 +210,7 @@ export default function AnnouncementsPage() {
               <select
                 value={stateFilter}
                 onChange={(e) => { setStateFilter(e.target.value); setPage(1); }}
-                className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[160px]"
+                className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-emerald-300 cursor-pointer min-w-[160px]"
               >
                 <option value="All">All States</option>
                 {ANNOUNCEMENT_FILTER_OPTIONS.states.map((s) => (
@@ -231,7 +228,7 @@ export default function AnnouncementsPage() {
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                 typeFilter === 'All'
                   ? 'gradient-primary text-white border-transparent shadow-md'
-                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
               }`}
             >
               All
@@ -263,7 +260,7 @@ export default function AnnouncementsPage() {
               {stateFilter !== 'All' && <FilterTag label={stateFilter} onRemove={() => { setStateFilter('All'); setPage(1); }} />}
               {typeFilter !== 'All' && <FilterTag label={typeFilter} onRemove={() => { setTypeFilter('All'); setPage(1); }} />}
               {monthFilter !== 'All' && <FilterTag label={monthFilter} onRemove={() => { setMonthFilter('All'); setPage(1); }} />}
-              <button onClick={handleReset} className="text-[11px] font-semibold text-red-600 hover:underline ml-1">Clear all</button>
+              <button onClick={handleReset} className="text-[11px] font-semibold text-emerald-600 hover:underline ml-1">Clear all</button>
             </div>
           )}
         </CardContent>
@@ -273,7 +270,7 @@ export default function AnnouncementsPage() {
       <div className="flex items-center justify-between">
         <p className="text-sm text-muted-foreground">
           <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length}</span> announcement{filtered.length !== 1 ? 's' : ''}
-          {activeFilterCount > 0 && <span className="text-red-600 font-medium"> (filtered)</span>}
+          {activeFilterCount > 0 && <span className="text-emerald-600 font-medium"> (filtered)</span>}
         </p>
       </div>
 
@@ -321,35 +318,35 @@ function AnnouncementCard({ announcement: a, index }: { announcement: Announceme
       <Card
         className={`group relative overflow-hidden border-slate-200/60 dark:border-slate-800/60 hover:border-transparent transition-all duration-500 hover:shadow-2xl ${glow} h-full`}
       >
-        {/* Top gradient accent bar */}
-        <div className={`h-1 bg-gradient-to-r ${gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
+        {/* Top gradient accent bar (inset so it floats inside the card) */}
+        <div className={`mx-5 mt-6 h-1 rounded-full bg-gradient-to-r ${gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
 
         {/* Hover background glow */}
         <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-[0.06] blur-3xl transition-opacity duration-700 pointer-events-none`} />
 
-        <CardContent className="p-5 relative">
+        <CardContent className="p-5 pt-5 sm:p-5 sm:pt-5 relative">
           {/* Header: Icon badge + Date */}
-          <div className="flex items-start justify-between mb-3">
+          <div className="flex items-start justify-between mb-2.5">
             <motion.div
-              className={`w-11 h-11 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg ${glow}`}
+              className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-sm`}
               whileHover={{ scale: 1.15, rotate: 5 }}
               transition={{ type: 'spring', stiffness: 400, damping: 18 }}
             >
-              <Icon className="w-5 h-5 text-white" />
+              <Icon className="w-[18px] h-[18px] text-white" />
             </motion.div>
 
-            <div className={`flex flex-col items-center px-3 py-1.5 rounded-xl transition-all duration-300 group-hover:scale-105 ${
+            <div className={`flex flex-col items-center px-2.5 py-1 rounded-xl transition-all duration-300 group-hover:scale-105 ${
               isRecent
-                ? 'bg-red-50 dark:bg-red-950/30'
+                ? 'bg-emerald-50 dark:bg-emerald-950/30'
                 : 'bg-slate-50 dark:bg-slate-800'
             }`}>
               <span className={`text-[9px] font-bold uppercase leading-none tracking-wider ${
-                isRecent ? 'text-red-500 dark:text-red-400' : 'text-slate-400'
+                isRecent ? 'text-emerald-500 dark:text-emerald-400' : 'text-slate-400'
               }`}>
                 {a.month}
               </span>
-              <span className={`text-lg font-extrabold leading-none mt-0.5 ${
-                isRecent ? 'text-red-600 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'
+              <span className={`text-base font-extrabold leading-none mt-0.5 ${
+                isRecent ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-700 dark:text-slate-300'
               }`}>
                 {a.day}
               </span>
@@ -357,7 +354,7 @@ function AnnouncementCard({ announcement: a, index }: { announcement: Announceme
           </div>
 
           {/* Tags */}
-          <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
+          <div className="flex flex-wrap items-center gap-1.5 mb-2">
             <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${colors.bg} ${colors.text} border ${colors.border}`}>
               {a.announcementType}
             </span>
@@ -370,17 +367,17 @@ function AnnouncementCard({ announcement: a, index }: { announcement: Announceme
           </div>
 
           {/* Title */}
-          <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-600 group-hover:to-rose-500 dark:group-hover:from-red-400 dark:group-hover:to-rose-400 transition-all duration-300 mb-2">
+          <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-600 group-hover:to-green-500 dark:group-hover:from-emerald-400 dark:group-hover:to-green-400 transition-all duration-300 mb-1.5">
             {a.title}
           </h3>
 
           {/* Description */}
-          <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2 mb-4">
+          <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2 mb-3">
             {a.shortDescription}
           </p>
 
           {/* Bottom: Document action */}
-          <div className="pt-3 border-t border-slate-100 dark:border-slate-800/60">
+          <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800/60">
             {a.documentUrl ? (
               <a
                 href={a.documentUrl}
@@ -410,9 +407,9 @@ function AnnouncementCard({ announcement: a, index }: { announcement: Announceme
 
 function FilterTag({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-[11px] font-semibold border border-red-200 dark:border-red-900/40 hover:bg-red-100 transition-colors duration-200">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-200 dark:border-emerald-900/40 hover:bg-emerald-100 transition-colors duration-200">
       {label}
-      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors">
+      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-900/50 flex items-center justify-center transition-colors">
         <X className="w-2.5 h-2.5" />
       </button>
     </span>

@@ -6,25 +6,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 224 71% 4%;
+    --background: 150 40% 99%;
+    --foreground: 160 30% 8%;
     --card: 0 0% 100%;
-    --card-foreground: 224 71% 4%;
+    --card-foreground: 160 30% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 4%;
-    --primary: 0 72% 51%;
+    --popover-foreground: 160 30% 8%;
+    --primary: 158 64% 40%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 224 71% 4%;
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
-    --accent: 220 14% 96%;
-    --accent-foreground: 224 71% 4%;
+    --secondary: 150 24% 95%;
+    --secondary-foreground: 160 30% 8%;
+    --muted: 150 24% 95%;
+    --muted-foreground: 155 12% 42%;
+    --accent: 150 24% 95%;
+    --accent-foreground: 160 30% 8%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 0 72% 51%;
+    --border: 150 20% 89%;
+    --input: 150 20% 89%;
+    --ring: 158 64% 40%;
     --radius: 0.625rem;
     --success: 142 76% 36%;
     --warning: 38 92% 50%;
@@ -37,7 +37,7 @@
     --card-foreground: 210 20% 98%;
     --popover: 224 65% 6%;
     --popover-foreground: 210 20% 98%;
-    --primary: 0 72% 51%;
+    --primary: 152 60% 46%;
     --primary-foreground: 0 0% 100%;
     --secondary: 215 28% 17%;
     --secondary-foreground: 210 20% 98%;
@@ -49,7 +49,7 @@
     --destructive-foreground: 0 0% 100%;
     --border: 215 28% 17%;
     --input: 215 28% 17%;
-    --ring: 0 72% 51%;
+    --ring: 152 60% 46%;
   }
 }
 
@@ -96,11 +96,11 @@
   }
 
   .gradient-primary {
-    @apply bg-gradient-to-br from-red-600 via-red-600 to-rose-500;
+    @apply bg-gradient-to-br from-emerald-600 via-emerald-600 to-green-500;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-red-600 to-rose-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent;
   }
 
   .text-balance {
@@ -157,7 +157,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, transparent 40%, var(--card-accent, rgba(220,38,38,0.3)) 50%, transparent 60%);
+    background: linear-gradient(135deg, transparent 40%, var(--card-accent, rgba(5, 150, 105,0.3)) 50%, transparent 60%);
     background-size: 300% 300%;
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -184,7 +184,7 @@
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: var(--card-glow, rgba(220,38,38,0.08));
+    background: var(--card-glow, rgba(5, 150, 105,0.08));
     filter: blur(20px);
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -203,7 +203,7 @@
   .ripple-container .ripple {
     position: absolute;
     border-radius: 50%;
-    background: rgba(220, 38, 38, 0.12);
+    background: rgba(5, 150, 105, 0.12);
     transform: scale(0);
     animation: rippleExpand 0.6s ease-out forwards;
     pointer-events: none;
@@ -362,12 +362,23 @@
     100% { transform: translateX(-50%); }
   }
 
+  /* Hero light sheen — subtle periodic diagonal sweep */
+  .hero-sheen {
+    background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, 0.05) 48%, rgba(255, 255, 255, 0.05) 52%, transparent 62%);
+    background-size: 250% 100%;
+    animation: heroSheen 9s ease-in-out infinite;
+  }
+  @keyframes heroSheen {
+    0% { background-position: 160% 0; }
+    55%, 100% { background-position: -160% 0; }
+  }
+
   /* Gradient mesh animation */
   .gradient-mesh {
     background:
-      radial-gradient(ellipse at 20% 50%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 20%, rgba(244, 63, 94, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at 60% 80%, rgba(251, 113, 133, 0.08) 0%, transparent 50%);
+      radial-gradient(ellipse at 20% 50%, rgba(5, 150, 105, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 80%, rgba(74, 222, 128, 0.08) 0%, transparent 50%);
     animation: meshShift 10s ease-in-out infinite alternate;
   }
   @keyframes meshShift {

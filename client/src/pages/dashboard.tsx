@@ -196,7 +196,7 @@ function getChecklistProgress(): { completed: number; total: number } {
 const TYPE_COLORS: Record<string, string> = {
   'Allotment': 'text-blue-600 bg-blue-50 dark:bg-blue-950/20',
   'Counselling': 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/20',
-  'Public Notice': 'text-red-600 bg-red-50 dark:bg-red-950/20',
+  'Public Notice': 'text-emerald-600 bg-emerald-50 dark:bg-emerald-950/20',
   'Seat Matrix': 'text-amber-600 bg-amber-50 dark:bg-amber-950/20',
   'Merit list': 'text-purple-600 bg-purple-50 dark:bg-purple-950/20',
   'Rank List': 'text-purple-600 bg-purple-50 dark:bg-purple-950/20',
@@ -256,12 +256,12 @@ export default function DashboardPage() {
       description: 'Analyze historical closing ranks, trends & safe rank ranges.',
       icon: BarChart3,
       href: '/rank-insights',
-      iconBg: 'bg-red-500/10 border-red-500/20 group-hover:bg-red-500/20',
-      iconText: 'text-red-400',
-      hoverTitle: 'group-hover:text-red-300',
-      statColor: 'text-red-400/80',
-      arrowBg: 'bg-red-500/10 border-red-500/20',
-      glowBg: 'from-red-500/5 via-transparent to-red-500/5',
+      iconBg: 'bg-emerald-500/10 border-emerald-500/20 group-hover:bg-emerald-500/20',
+      iconText: 'text-emerald-400',
+      hoverTitle: 'group-hover:text-emerald-300',
+      statColor: 'text-emerald-400/80',
+      arrowBg: 'bg-emerald-500/10 border-emerald-500/20',
+      glowBg: 'from-emerald-500/5 via-transparent to-emerald-500/5',
       glowShadow: '0 20px 40px -12px rgba(239,68,68,0.15)',
       stat: `${stats.rankYears} years data`,
     },
@@ -425,8 +425,8 @@ export default function DashboardPage() {
         </div>
 
         {/* Blur orbs */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-rose-500/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pulse-glow" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-red-400/15 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-500/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pulse-glow" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-400/15 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />
         <div className="absolute top-1/3 left-1/3 w-40 h-40 bg-white/5 rounded-full blur-[60px]" />
 
         {/* Content */}
@@ -495,7 +495,7 @@ export default function DashboardPage() {
               <span className="font-bold text-white">{stats.states}</span> States
             </Link>
             <Link to="/rank-insights" className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/[0.08] hover:bg-white/[0.14] backdrop-blur-sm border border-white/10 text-white/80 text-xs font-medium transition-all duration-300 hover:-translate-y-0.5 group/chip">
-              <BarChart3 className="w-3.5 h-3.5 text-rose-300 group-hover/chip:scale-110 transition-transform" />
+              <BarChart3 className="w-3.5 h-3.5 text-green-300 group-hover/chip:scale-110 transition-transform" />
               <span className="font-bold text-white">{stats.rankRecords}</span> Rank Records
             </Link>
             {todaySummary.docsRemaining > 0 && (
@@ -518,8 +518,8 @@ export default function DashboardPage() {
             >
               {/* Header */}
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-6 h-6 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
-                  <Activity className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
+                <div className="w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center">
+                  <Activity className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Your Progress</span>
               </div>
@@ -530,7 +530,7 @@ export default function DashboardPage() {
                   <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
                     <circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-slate-100 dark:text-slate-800" />
                     <motion.circle cx="18" cy="18" r="14" fill="none" strokeWidth="2.5" strokeLinecap="round"
-                      stroke={checklistPct === 100 ? '#059669' : '#dc2626'}
+                      stroke={checklistPct === 100 ? '#059669' : '#059669'}
                       initial={{ strokeDasharray: '0 88' }}
                       animate={{ strokeDasharray: `${checklistPct * 0.88} 88` }}
                       transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -546,7 +546,7 @@ export default function DashboardPage() {
                   <div className="h-1 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden mt-1.5">
                     <motion.div
                       className="h-full rounded-full"
-                      style={{ backgroundColor: checklistPct === 100 ? '#059669' : '#dc2626' }}
+                      style={{ backgroundColor: checklistPct === 100 ? '#059669' : '#059669' }}
                       initial={{ width: 0 }}
                       animate={{ width: `${checklistPct}%` }}
                       transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -570,7 +570,7 @@ export default function DashboardPage() {
               </div>
 
               {/* CTA */}
-              <div className="mt-2.5 flex items-center justify-center gap-1 text-[10px] font-semibold text-red-600 dark:text-red-400 group-hover/prog:gap-1.5 transition-all">
+              <div className="mt-2.5 flex items-center justify-center gap-1 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 group-hover/prog:gap-1.5 transition-all">
                 {checklistPct === 100 ? 'All prepared' : 'Complete checklist'}
                 <ChevronRight className="w-3 h-3 group-hover/prog:translate-x-0.5 transition-transform" />
               </div>
@@ -582,14 +582,14 @@ export default function DashboardPage() {
       {/* ═══════════════ LIVE ANNOUNCEMENT TICKER ═══════════════ */}
       <div className="widget-enter overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900" role="marquee" aria-label="Live announcements" style={{ animationDelay: '0.1s' }}>
         <div className="flex items-center">
-          <div className="shrink-0 flex items-center gap-2 px-4 py-2.5 bg-red-50 dark:bg-red-950/30 border-r border-slate-200 dark:border-slate-800">
-            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase tracking-wider">Live</span>
+          <div className="shrink-0 flex items-center gap-2 px-4 py-2.5 bg-emerald-50 dark:bg-emerald-950/30 border-r border-slate-200 dark:border-slate-800">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Live</span>
           </div>
           <div className="flex-1 overflow-hidden py-2.5">
             <div className="ticker-scroll flex gap-8 whitespace-nowrap" style={{ '--ticker-duration': '40s' } as React.CSSProperties}>
               {[...recentAnnouncements, ...recentAnnouncements].map((a, i) => (
-                <Link key={`${a.id}-${i}`} to="/announcements" className="inline-flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 transition-colors">
+                <Link key={`${a.id}-${i}`} to="/announcements" className="inline-flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   <TickerIcon type={a.announcementType} />
                   <span className="font-medium">{a.title}</span>
                   <span className="text-slate-400 dark:text-slate-600">·</span>
@@ -608,7 +608,7 @@ export default function DashboardPage() {
             <div className="grid grid-cols-3 sm:grid-cols-6 divide-x divide-slate-100 dark:divide-slate-800">
               {[
                 { label: 'Colleges', value: stats.colleges, icon: Building2, color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-950/40', href: '/colleges' },
-                { label: 'Rank Records', value: stats.rankRecords, icon: BarChart3, color: 'text-red-600 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-950/40', href: '/rank-insights' },
+                { label: 'Rank Records', value: stats.rankRecords, icon: BarChart3, color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40', href: '/rank-insights' },
                 { label: 'States', value: stats.states, icon: MapPin, color: 'text-indigo-600 dark:text-indigo-400', bg: 'bg-indigo-50 dark:bg-indigo-950/40', href: '/allotment' },
                 { label: 'Documents', value: stats.docCategories, icon: ClipboardCheck, color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40', href: '/doc-checklist' },
                 { label: 'Fee Records', value: stats.feeRecords, icon: IndianRupee, color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/40', href: '/fee-matrix' },
@@ -617,7 +617,7 @@ export default function DashboardPage() {
                 <Link
                   key={stat.label}
                   to={stat.href}
-                  className="group flex items-center gap-3 px-4 py-4 sm:py-5 hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors duration-200"
+                  className="group flex items-center justify-center gap-3 px-4 pt-6 pb-4 sm:pt-8 sm:pb-5 hover:bg-slate-50/80 dark:hover:bg-slate-800/40 transition-colors duration-200"
                 >
                   <motion.div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${stat.bg}`}
@@ -643,8 +643,8 @@ export default function DashboardPage() {
       <FadeIn delay={0.1}>
         <SectionHeader
           icon={Shield}
-          iconBg="bg-red-50 dark:bg-red-950/30"
-          iconColor="text-red-600 dark:text-red-400"
+          iconBg="bg-emerald-50 dark:bg-emerald-950/30"
+          iconColor="text-emerald-600 dark:text-emerald-400"
           title="Your Control Panel"
           subtitle={`${controlPanelItems.length} modules`}
         />
@@ -710,7 +710,7 @@ export default function DashboardPage() {
               <p className="text-[10px] text-muted-foreground">Most searched this week</p>
             </div>
           </div>
-          <Link to="/colleges" className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline flex items-center gap-1">
+          <Link to="/colleges" className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1">
             See all <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
@@ -763,13 +763,13 @@ export default function DashboardPage() {
                       <div className="absolute left-[39px] top-0 bottom-0 w-px bg-gradient-to-b from-emerald-300 via-slate-200 to-slate-200 dark:from-emerald-700 dark:via-slate-800 dark:to-slate-800" />
                       {[
                         { month: 'May', event: 'NEET UG 2026 Exam', detail: 'Pen-and-paper exam conducted by NTA across India', done: true, color: 'bg-emerald-500', gradient: 'from-emerald-500 to-green-500' },
-                        { month: 'Jul', event: 'Result & Scorecard', detail: 'Download from nta.ac.in. Calculate expected rank', done: false, color: 'bg-red-500', gradient: 'from-red-500 to-rose-500' },
+                        { month: 'Jul', event: 'Result & Scorecard', detail: 'Download from nta.ac.in. Calculate expected rank', done: false, color: 'bg-emerald-500', gradient: 'from-emerald-500 to-green-500' },
                         { month: 'Aug', event: 'MCC Registration Opens', detail: 'Register on mcc.nic.in for AIQ counselling', done: false, color: 'bg-blue-500', gradient: 'from-blue-500 to-indigo-500' },
                         { month: 'Aug', event: 'State Registration', detail: 'Register separately on your state counselling portal', done: false, color: 'bg-emerald-500', gradient: 'from-emerald-500 to-teal-500' },
                         { month: 'Sep', event: 'Round 1 Choice Filling', detail: 'Fill college preferences. Lock before deadline', done: false, color: 'bg-purple-500', gradient: 'from-purple-500 to-violet-500' },
                         { month: 'Sep', event: 'Round 1 Allotment', detail: 'Check result. Report to college if allotted', done: false, color: 'bg-amber-500', gradient: 'from-amber-500 to-orange-500' },
                         { month: 'Oct', event: 'Round 2 & Upgrades', detail: 'Float/upgrade options. New choice filling window', done: false, color: 'bg-indigo-500', gradient: 'from-indigo-500 to-blue-500' },
-                        { month: 'Nov', event: 'Mop-up & Stray Round', detail: 'Final rounds for remaining seats', done: false, color: 'bg-pink-500', gradient: 'from-pink-500 to-rose-500' },
+                        { month: 'Nov', event: 'Mop-up & Stray Round', detail: 'Final rounds for remaining seats', done: false, color: 'bg-pink-500', gradient: 'from-pink-500 to-green-500' },
                       ].map((step, idx) => (
                         <motion.div
                           key={idx}

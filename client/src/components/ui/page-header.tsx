@@ -14,8 +14,8 @@ export function PageHeader({ icon: Icon, iconClassName, title, description, chil
       <div className="space-y-1">
         <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 flex items-center gap-2.5">
           {Icon && (
-            <span className="w-9 h-9 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
-              <Icon className={`w-5 h-5 ${iconClassName || 'text-red-600 dark:text-red-400'}`} />
+            <span className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0">
+              <Icon className={`w-5 h-5 ${iconClassName || 'text-emerald-600 dark:text-emerald-400'}`} />
             </span>
           )}
           {title}

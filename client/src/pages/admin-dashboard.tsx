@@ -1,12 +1,23 @@
 import { useEffect, useMemo, useState } from 'react';
 import { api } from '@/lib/api';
+import { useAuth } from '@/providers/auth-provider';
 import { Card, CardContent } from '@/components/ui/card';
-import { PageHeader } from '@/components/ui/page-header';
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
 import {
   Shield,
   Users,
   GraduationCap,
-  ShieldCheck,
   CreditCard,
   Crown,
   Loader2,
@@ -15,6 +26,9 @@ import {
   IndianRupee,
   BadgeCheck,
   AlertCircle,
+  TrendingUp,
+  TrendingDown,
+  ArrowUpRight,
 } from 'lucide-react';
 
 interface AdminUser {
@@ -75,19 +89,44 @@ function buildSubscriptions(users: AdminUser[]): Subscription[] {
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
-function StatCard({ icon: Icon, label, value, tint }: { icon: typeof Users; label: string; value: number | string; tint: string }) {
+const MS_30D = 30 * 24 * 60 * 60 * 1000;
+
+// ── Stat card (solid, colored — Skydash style) ──
+function StatCard({
+  icon: Icon,
+  label,
+  value,
+  delta,
+  gradient,
+}: {
+  icon: typeof Users;
+  label: string;
+  value: number | string;
+  delta: number; // percentage change vs previous period
+  gradient: string;
+}) {
+  const up = delta >= 0;
   return (
-    <Card className="overflow-hidden">
-      <CardContent className="p-5 flex items-center gap-4">
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${tint}`}>
+    <div className={`relative overflow-hidden rounded-xl p-5 text-white shadow-sm ${gradient}`}>
+      <div className="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-white/10" />
+      <div className="absolute -right-10 top-10 w-20 h-20 rounded-full bg-white/5" />
+      <div className="relative flex items-start justify-between">
+        <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-sm">
           <Icon className="w-6 h-6" />
         </div>
-        <div className="min-w-0">
-          <p className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{value}</p>
-          <p className="text-xs text-muted-foreground font-medium truncate">{label}</p>
-        </div>
-      </CardContent>
-    </Card>
+        <span
+          className={`inline-flex items-center gap-0.5 text-[11px] font-semibold px-2 py-0.5 rounded-full ${
+            up ? 'bg-white/25' : 'bg-black/15'
+          }`}
+        >
+          {up ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+          {up ? '+' : ''}
+          {delta}%
+        </span>
+      </div>
+      <p className="relative mt-4 text-3xl font-extrabold tabular-nums leading-none">{value}</p>
+      <p className="relative mt-1.5 text-xs font-medium text-white/80">{label}</p>
+    </div>
   );
 }
 
@@ -95,7 +134,7 @@ function RoleBadge({ role }: { role: string }) {
   const isAdmin = role === 'admin';
   return (
     <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${
-      isAdmin ? 'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400' : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400'
+      isAdmin ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400'
     }`}>
       {isAdmin ? <Shield className="w-3 h-3" /> : <GraduationCap className="w-3 h-3" />}
       {isAdmin ? 'Admin' : 'Student'}
@@ -103,7 +142,23 @@ function RoleBadge({ role }: { role: string }) {
   );
 }
 
+const chartTooltip = {
+  background: 'white',
+  border: '1px solid #e2e8f0',
+  borderRadius: '12px',
+  fontSize: '12px',
+  boxShadow: '0 10px 25px -5px rgb(0 0 0 / 0.1)',
+  padding: '10px 12px',
+};
+
+const PLAN_BAR_COLORS: Record<PlanName, string> = {
+  Free: '#94a3b8',
+  Pro: '#3b82f6',
+  Premium: '#f59e0b',
+};
+
 export default function AdminDashboardPage() {
+  const { user: currentUser } = useAuth();
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -129,36 +184,188 @@ export default function AdminDashboardPage() {
     mrr: paidSubs.filter((s) => s.status === 'Active').reduce((sum, s) => sum + PLAN_META[s.plan].price, 0),
   }), [users, subscriptions, paidSubs]);
 
+  // Growth over the last 30 days → % delta badges on the stat cards.
+  const deltas = useMemo(() => {
+    const now = Date.now();
+    const recent = (list: { createdAt: string }[]) =>
+      list.filter((x) => now - new Date(x.createdAt).getTime() <= MS_30D).length;
+    const pct = (added: number, total: number) => {
+      const base = total - added;
+      if (base <= 0) return added > 0 ? 100 : 0;
+      return Math.round((added / base) * 100);
+    };
+    const newUsers = recent(users);
+    const newStudents = recent(users.filter((u) => u.role === 'student'));
+    const newPaid = recent(paidSubs.map((s) => ({ createdAt: s.startedAt })));
+    return {
+      total: pct(newUsers, users.length),
+      students: pct(newStudents, users.filter((u) => u.role === 'student').length),
+      subs: pct(newPaid, paidSubs.length),
+      mrr: pct(newPaid, paidSubs.length),
+    };
+  }, [users, paidSubs]);
+
+  // Cumulative user growth by month (last 6 months) — area chart.
+  const growthData = useMemo(() => {
+    const now = new Date();
+    const buckets: { label: string; end: number }[] = [];
+    for (let i = 5; i >= 0; i--) {
+      const d = new Date(now.getFullYear(), now.getMonth() - i + 1, 1); // start of next month
+      buckets.push({
+        label: new Date(now.getFullYear(), now.getMonth() - i, 1).toLocaleDateString('en-IN', { month: 'short' }),
+        end: d.getTime(),
+      });
+    }
+    const times = users.map((u) => new Date(u.createdAt).getTime());
+    return buckets.map((b) => ({
+      month: b.label,
+      users: times.filter((t) => t < b.end).length,
+    }));
+  }, [users]);
+
+  // Plan distribution — bar chart.
+  const planData = useMemo(() => {
+    const order: PlanName[] = ['Free', 'Pro', 'Premium'];
+    const counts: Record<PlanName, number> = { Free: 0, Pro: 0, Premium: 0 };
+    subscriptions.forEach((s) => { counts[s.plan]++; });
+    return order.map((p) => ({ plan: p, count: counts[p] }));
+  }, [subscriptions]);
+
+  const firstName = currentUser?.name?.split(' ')[0] || 'Admin';
+  const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader2 className="w-8 h-8 animate-spin text-red-600" />
+        <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
       </div>
     );
   }
 
   return (
     <div className="space-y-6 page-enter">
-      <PageHeader
-        icon={Shield}
-        title="Admin Dashboard"
-        description="Administrative overview — manage users, review account details, and track subscriptions."
-      />
-
       {error && (
-        <Card className="border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20">
-          <CardContent className="p-4 flex items-center gap-2.5 text-sm text-red-700 dark:text-red-400">
+        <Card className="border-emerald-200 dark:border-emerald-900/40 bg-emerald-50 dark:bg-emerald-950/20">
+          <CardContent className="p-4 flex items-center gap-2.5 text-sm text-emerald-700 dark:text-emerald-400">
             <AlertCircle className="w-4 h-4 shrink-0" /> {error}
           </CardContent>
         </Card>
       )}
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard icon={Users} label="Total Users" value={stats.total} tint="bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400" />
-        <StatCard icon={GraduationCap} label="Students" value={stats.students} tint="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" />
-        <StatCard icon={ShieldCheck} label="Admins" value={stats.admins} tint="bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400" />
-        <StatCard icon={CreditCard} label="Active Subscriptions" value={stats.activeSubs} tint="bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-400" />
+      {/* Top row: welcome hero + stat cards */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        {/* Welcome hero */}
+        <div className="lg:col-span-7 relative overflow-hidden rounded-2xl gradient-primary text-white p-6 sm:p-8">
+          <div className="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-white/10" />
+          <div className="absolute right-16 bottom-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2" />
+          <div className="relative flex items-start justify-between gap-4">
+            <div className="flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm">
+              <Shield className="w-3.5 h-3.5" /> Admin Panel
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm">
+              <CalendarDays className="w-3.5 h-3.5" /> {today}
+            </div>
+          </div>
+          <div className="relative mt-8 max-w-md">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">Welcome back, {firstName} 👋</h2>
+            <p className="mt-2 text-sm text-white/85">
+              Your platform is running smoothly. You have{' '}
+              <span className="font-bold text-white">{stats.total}</span> registered user{stats.total !== 1 ? 's' : ''} and{' '}
+              <span className="font-bold text-white">{stats.activeSubs}</span> active subscription{stats.activeSubs !== 1 ? 's' : ''}.
+            </p>
+            <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold bg-white/20 hover:bg-white/25 transition-colors px-4 py-2 rounded-lg backdrop-blur-sm">
+              Est. Monthly Revenue
+              <span className="inline-flex items-center font-extrabold">
+                <IndianRupee className="w-3.5 h-3.5" />{stats.mrr.toLocaleString('en-IN')}
+              </span>
+              <ArrowUpRight className="w-4 h-4" />
+            </div>
+          </div>
+        </div>
+
+        {/* Stat cards (2×2) */}
+        <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+          <StatCard icon={Users} label="Total Users" value={stats.total} delta={deltas.total}
+            gradient="bg-gradient-to-br from-indigo-500 to-indigo-600" />
+          <StatCard icon={GraduationCap} label="Students" value={stats.students} delta={deltas.students}
+            gradient="bg-gradient-to-br from-violet-500 to-purple-600" />
+          <StatCard icon={CreditCard} label="Active Subscriptions" value={stats.activeSubs} delta={deltas.subs}
+            gradient="bg-gradient-to-br from-orange-400 to-amber-500" />
+          <StatCard icon={IndianRupee} label="Est. MRR (₹)" value={stats.mrr.toLocaleString('en-IN')} delta={deltas.mrr}
+            gradient="bg-gradient-to-br from-green-500 to-emerald-600" />
+        </div>
+      </div>
+
+      {/* Charts row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* User growth */}
+        <Card className="overflow-hidden">
+          <CardContent className="p-5">
+            <div className="flex items-center justify-between mb-1">
+              <div className="flex items-center gap-2.5">
+                <span className="w-9 h-9 rounded-lg bg-indigo-50 dark:bg-indigo-950/30 flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                </span>
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">User Growth</h3>
+                  <p className="text-xs text-muted-foreground">Cumulative registered users · last 6 months</p>
+                </div>
+              </div>
+              <span className="text-2xl font-extrabold tabular-nums text-slate-900 dark:text-slate-100">{stats.total}</span>
+            </div>
+            <div className="h-64 mt-3 -ml-2">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart data={growthData} margin={{ top: 10, right: 12, bottom: 0, left: 0 }}>
+                  <defs>
+                    <linearGradient id="userGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#6366f1" stopOpacity={0.35} />
+                      <stop offset="100%" stopColor="#6366f1" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
+                  <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#94a3b8' }} tickLine={false} axisLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} tickLine={false} axisLine={false} allowDecimals={false} width={32} />
+                  <Tooltip contentStyle={chartTooltip} formatter={(v: number) => [v, 'Users']} />
+                  <Area type="monotone" dataKey="users" stroke="#6366f1" strokeWidth={2.5} fill="url(#userGrad)"
+                    dot={{ r: 3, strokeWidth: 2, fill: 'white' }} activeDot={{ r: 6, strokeWidth: 0, fill: '#6366f1' }} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Subscription report */}
+        <Card className="overflow-hidden">
+          <CardContent className="p-5">
+            <div className="flex items-center justify-between mb-1">
+              <div className="flex items-center gap-2.5">
+                <span className="w-9 h-9 rounded-lg bg-amber-50 dark:bg-amber-950/30 flex items-center justify-center">
+                  <Crown className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                </span>
+                <div>
+                  <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">Subscription Report</h3>
+                  <p className="text-xs text-muted-foreground">Users by plan tier</p>
+                </div>
+              </div>
+              <span className="text-2xl font-extrabold tabular-nums text-slate-900 dark:text-slate-100">{paidSubs.length}</span>
+            </div>
+            <div className="h-64 mt-3 -ml-2">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={planData} margin={{ top: 10, right: 12, bottom: 0, left: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
+                  <XAxis dataKey="plan" tick={{ fontSize: 11, fill: '#94a3b8' }} tickLine={false} axisLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: '#94a3b8' }} tickLine={false} axisLine={false} allowDecimals={false} width={32} />
+                  <Tooltip contentStyle={chartTooltip} cursor={{ fill: 'rgba(148,163,184,0.08)' }} formatter={(v: number) => [v, 'Users']} />
+                  <Bar dataKey="count" radius={[8, 8, 0, 0]} maxBarSize={64}>
+                    {planData.map((d) => (
+                      <Cell key={d.plan} fill={PLAN_BAR_COLORS[d.plan as PlanName]} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* All Users */}
@@ -166,8 +373,8 @@ export default function AdminDashboardPage() {
         <CardContent className="p-0">
           <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-2.5">
-              <span className="w-9 h-9 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
-                <Users className="w-5 h-5 text-red-600 dark:text-red-400" />
+              <span className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center">
+                <Users className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </span>
               <div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">All Users</h3>

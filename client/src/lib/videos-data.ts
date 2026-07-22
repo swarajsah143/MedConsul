@@ -16,7 +16,7 @@ export type VideoCategory =
 
 export const VIDEO_CATEGORIES: { name: VideoCategory; count: number; color: string }[] = [
   { name: 'MEDICAL COLLEGE REVIEW INDIA', count: 88, color: 'bg-blue-50 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400' },
-  { name: 'NEET UG COUNSELLING', count: 57, color: 'bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400' },
+  { name: 'NEET UG COUNSELLING', count: 57, color: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400' },
   { name: 'MBBS IN ABROAD', count: 65, color: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400' },
   { name: 'MEDICAL COLLEGE REVIEW ABROAD', count: 12, color: 'bg-amber-50 text-amber-700 dark:bg-amber-950/20 dark:text-amber-400' },
 ];

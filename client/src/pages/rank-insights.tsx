@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   Search,
   ArrowUpDown,
@@ -174,7 +175,7 @@ export default function RankInsightsPage() {
       >
         <span className="flex items-center gap-1.5">
           {children}
-          <ArrowUpDown className={`w-3 h-3 transition-colors duration-200 ${active ? 'text-red-600' : 'text-slate-400'}`} />
+          <ArrowUpDown className={`w-3 h-3 transition-colors duration-200 ${active ? 'text-emerald-600' : 'text-slate-400'}`} />
         </span>
       </th>
     );
@@ -183,10 +184,7 @@ export default function RankInsightsPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero Header */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <HeroBanner>
           <div className="relative z-10">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div className="space-y-2">
@@ -195,22 +193,22 @@ export default function RankInsightsPage() {
                   NEET UG Counselling
                 </span>
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-                  <BarChart3 className="w-7 h-7 text-red-200" />
+                  <BarChart3 className="w-7 h-7 text-emerald-200" />
                   Closing Rank Insights
                 </h1>
-                <p className="text-red-100/90 text-sm max-w-xl leading-relaxed">
+                <p className="text-emerald-100/90 text-sm max-w-xl leading-relaxed">
                   Find your safe rank range. Compare closing ranks across colleges, categories & quotas. Click any entry to see year-over-year trends.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 shrink-0">
                 <Button
                   onClick={() => setShowFilters(true)}
-                  className="bg-white text-red-600 hover:bg-red-50 transition-all duration-200 shadow-sm font-semibold"
+                  className="bg-white text-emerald-600 hover:bg-emerald-50 transition-all duration-200 shadow-sm font-semibold"
                 >
                   <SlidersHorizontal className="w-4 h-4 mr-2" />
                   Advanced Filters
                   {activeFilterCount > 0 && (
-                    <span className="ml-2 w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">
+                    <span className="ml-2 w-5 h-5 flex items-center justify-center rounded-full bg-emerald-600 text-white text-[10px] font-bold">
                       {activeFilterCount}
                     </span>
                   )}
@@ -222,8 +220,7 @@ export default function RankInsightsPage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* ========== FILTER MODAL ========== */}
       {showFilters && (
@@ -245,7 +242,7 @@ export default function RankInsightsPage() {
                   </div>
                   <div>
                     <h2 className="text-xl font-extrabold text-white">Advanced Filters</h2>
-                    <p className="text-red-200 text-xs mt-0.5">Refine your search results</p>
+                    <p className="text-emerald-200 text-xs mt-0.5">Refine your search results</p>
                   </div>
                 </div>
                 <button
@@ -264,7 +261,7 @@ export default function RankInsightsPage() {
                 {/* ---- Section 1: Rank & Round Filters ---- */}
                 <section className="space-y-5">
                   <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                    <span className="w-1 h-5 rounded-full bg-red-500" />
+                    <span className="w-1 h-5 rounded-full bg-emerald-500" />
                     Rank & Round Filters
                   </h3>
 
@@ -297,11 +294,11 @@ export default function RankInsightsPage() {
                     {/* Rank Range */}
                     <div className={`rounded-xl border-2 p-4 transition-all duration-300 ${
                       searchMode === 'rank'
-                        ? 'border-red-300 dark:border-red-800 bg-red-50/30 dark:bg-red-950/10 shadow-sm'
+                        ? 'border-emerald-300 dark:border-emerald-800 bg-emerald-50/30 dark:bg-emerald-950/10 shadow-sm'
                         : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50'
                     }`}>
                       <div className="flex items-center justify-between mb-3">
-                        <p className={`text-xs font-bold ${searchMode === 'rank' ? 'text-red-600 dark:text-red-400' : 'text-slate-500'}`}>
+                        <p className={`text-xs font-bold ${searchMode === 'rank' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500'}`}>
                           All India Rank Range
                         </p>
                         <span className="text-[10px] font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Optional</span>
@@ -312,7 +309,7 @@ export default function RankInsightsPage() {
                           placeholder="0"
                           value={rankMin}
                           onChange={(e) => setRankMin(e.target.value)}
-                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
+                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-emerald-400 transition-colors duration-200"
                         />
                         <span className="text-slate-400 font-medium shrink-0">—</span>
                         <Input
@@ -320,7 +317,7 @@ export default function RankInsightsPage() {
                           placeholder="5000000"
                           value={rankMax}
                           onChange={(e) => setRankMax(e.target.value)}
-                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
+                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-emerald-400 transition-colors duration-200"
                         />
                       </div>
                     </div>
@@ -328,11 +325,11 @@ export default function RankInsightsPage() {
                     {/* Score Range */}
                     <div className={`rounded-xl border-2 p-4 transition-all duration-300 ${
                       searchMode === 'score'
-                        ? 'border-red-300 dark:border-red-800 bg-red-50/30 dark:bg-red-950/10 shadow-sm'
+                        ? 'border-emerald-300 dark:border-emerald-800 bg-emerald-50/30 dark:bg-emerald-950/10 shadow-sm'
                         : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50'
                     }`}>
                       <div className="flex items-center justify-between mb-3">
-                        <p className={`text-xs font-bold ${searchMode === 'score' ? 'text-red-600 dark:text-red-400' : 'text-slate-500'}`}>
+                        <p className={`text-xs font-bold ${searchMode === 'score' ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500'}`}>
                           NEET UG Score Range
                         </p>
                         <span className="text-[10px] font-medium text-slate-400 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">Optional</span>
@@ -343,7 +340,7 @@ export default function RankInsightsPage() {
                           placeholder="113"
                           value={scoreMin}
                           onChange={(e) => setScoreMin(e.target.value)}
-                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
+                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-emerald-400 transition-colors duration-200"
                         />
                         <span className="text-slate-400 font-medium shrink-0">—</span>
                         <Input
@@ -351,7 +348,7 @@ export default function RankInsightsPage() {
                           placeholder="720"
                           value={scoreMax}
                           onChange={(e) => setScoreMax(e.target.value)}
-                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-red-400 transition-colors duration-200"
+                          className="text-sm h-11 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-600 focus:border-emerald-400 transition-colors duration-200"
                         />
                       </div>
                     </div>
@@ -368,7 +365,7 @@ export default function RankInsightsPage() {
                           className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                             round === 'All'
                               ? 'gradient-primary text-white border-transparent shadow-md'
-                              : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                              : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                           }`}
                         >
                           All
@@ -380,7 +377,7 @@ export default function RankInsightsPage() {
                             className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                               round === String(r)
                                 ? 'gradient-primary text-white border-transparent shadow-md'
-                                : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                                : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                             }`}
                           >
                             Round {r}
@@ -398,7 +395,7 @@ export default function RankInsightsPage() {
                           className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                             category === 'All'
                               ? 'gradient-primary text-white border-transparent shadow-md'
-                              : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                              : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                           }`}
                         >
                           All
@@ -410,7 +407,7 @@ export default function RankInsightsPage() {
                             className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                               category === String(cat)
                                 ? 'gradient-primary text-white border-transparent shadow-md'
-                                : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                                : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                             }`}
                           >
                             {cat}
@@ -435,7 +432,7 @@ export default function RankInsightsPage() {
                         <select
                           value={state}
                           onChange={(e) => setState(e.target.value)}
-                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
+                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all duration-200 hover:border-emerald-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All States</option>
                           {INSIGHT_FILTER_OPTIONS.states.map((s) => (
@@ -448,7 +445,7 @@ export default function RankInsightsPage() {
                         <select
                           value={college}
                           onChange={(e) => setCollege(e.target.value)}
-                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
+                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all duration-200 hover:border-emerald-300 appearance-none cursor-pointer"
                         >
                           <option value="All">Select Institute</option>
                           {INSIGHT_FILTER_OPTIONS.colleges.map((c) => (
@@ -474,7 +471,7 @@ export default function RankInsightsPage() {
                         <select
                           value={course}
                           onChange={(e) => setCourse(e.target.value)}
-                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
+                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all duration-200 hover:border-emerald-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All Courses</option>
                           {INSIGHT_FILTER_OPTIONS.courses.map((c) => (
@@ -487,7 +484,7 @@ export default function RankInsightsPage() {
                         <select
                           value={quota}
                           onChange={(e) => setQuota(e.target.value)}
-                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 hover:border-red-300 appearance-none cursor-pointer"
+                          className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all duration-200 hover:border-emerald-300 appearance-none cursor-pointer"
                         >
                           <option value="All">All Quotas</option>
                           {INSIGHT_FILTER_OPTIONS.quotas.map((q) => (
@@ -512,7 +509,7 @@ export default function RankInsightsPage() {
                       placeholder="Type college name, course, category..."
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
-                      className="pl-11 h-12 text-sm rounded-xl border-slate-200 dark:border-slate-600 focus:border-red-400 focus:shadow-lg transition-all duration-200"
+                      className="pl-11 h-12 text-sm rounded-xl border-slate-200 dark:border-slate-600 focus:border-emerald-400 focus:shadow-lg transition-all duration-200"
                     />
                   </div>
                 </section>
@@ -525,14 +522,14 @@ export default function RankInsightsPage() {
                 <Button
                   variant="outline"
                   onClick={handleReset}
-                  className="h-11 px-6 rounded-xl border-2 hover:border-red-300 hover:text-red-600 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                  className="h-11 px-6 rounded-xl border-2 hover:border-emerald-300 hover:text-emerald-600 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   Clear All
                 </Button>
                 <div className="flex items-center gap-3">
                   {activeFilterCount > 0 && (
                     <span className="text-xs text-muted-foreground">
-                      <span className="font-bold text-red-600">{activeFilterCount}</span> filter{activeFilterCount !== 1 ? 's' : ''} active
+                      <span className="font-bold text-emerald-600">{activeFilterCount}</span> filter{activeFilterCount !== 1 ? 's' : ''} active
                     </span>
                   )}
                   <Button
@@ -553,7 +550,7 @@ export default function RankInsightsPage() {
         {[
           { label: 'Total Records', value: INSIGHTS_DATA.length.toLocaleString(), icon: FileText, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
           { label: 'Colleges Tracked', value: String(INSIGHT_FILTER_OPTIONS.colleges.length), icon: Building2, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
-          { label: 'Filtered Results', value: String(filtered.length), icon: Target, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Filtered Results', value: String(filtered.length), icon: Target, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Latest Year', value: '2025', icon: Award, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
@@ -586,7 +583,7 @@ export default function RankInsightsPage() {
           {rankMax && <FilterTag label={`Rank <= ${rankMax}`} onRemove={() => setRankMax('')} />}
           {scoreMin && <FilterTag label={`Score >= ${scoreMin}`} onRemove={() => setScoreMin('')} />}
           {scoreMax && <FilterTag label={`Score <= ${scoreMax}`} onRemove={() => setScoreMax('')} />}
-          <button onClick={handleReset} className="text-xs font-semibold text-red-600 hover:text-red-700 hover:underline transition-colors ml-1">
+          <button onClick={handleReset} className="text-xs font-semibold text-emerald-600 hover:text-emerald-700 hover:underline transition-colors ml-1">
             Clear all
           </button>
         </div>
@@ -596,7 +593,7 @@ export default function RankInsightsPage() {
       <div className="flex items-center justify-between">
         <p className="text-sm text-muted-foreground">
           Showing <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length}</span> results
-          {activeFilterCount > 0 && <span className="text-red-600 dark:text-red-400 font-medium"> (filtered)</span>}
+          {activeFilterCount > 0 && <span className="text-emerald-600 dark:text-emerald-400 font-medium"> (filtered)</span>}
         </p>
         <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 rounded-lg p-0.5">
           <button
@@ -627,18 +624,18 @@ export default function RankInsightsPage() {
             <div
               key={entry.id}
               onClick={() => handleRowClick(entry)}
-              className="group cursor-pointer rounded-2xl bg-slate-900 dark:bg-slate-950 border border-slate-800 dark:border-slate-700/50 overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300 relative"
+              className="group cursor-pointer rounded-2xl bg-slate-900 dark:bg-slate-950 border border-slate-800 dark:border-slate-700/50 overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-1 transition-all duration-300 relative"
             >
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/5 via-transparent to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
               <div className="p-4 sm:p-5 relative">
                 {/* Header */}
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-red-500/20 transition-all duration-300">
-                    <GraduationCap className="w-5 h-5 text-red-400" />
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+                    <GraduationCap className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-sm font-bold text-white leading-snug truncate group-hover:text-red-300 transition-colors duration-200">
+                    <h3 className="text-sm font-bold text-white leading-snug truncate group-hover:text-emerald-300 transition-colors duration-200">
                       {entry.college.name}
                     </h3>
                     <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
@@ -675,7 +672,7 @@ export default function RankInsightsPage() {
                     </div>
                     <div className="text-center">
                       <p className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Round</p>
-                      <p className="text-lg font-extrabold text-red-400 mt-0.5">
+                      <p className="text-lg font-extrabold text-emerald-400 mt-0.5">
                         R{entry.round}
                       </p>
                     </div>
@@ -685,8 +682,8 @@ export default function RankInsightsPage() {
                 {/* Bottom */}
                 <div className="flex items-center justify-between mt-3">
                   <span className="text-[10px] text-slate-500 truncate max-w-[65%] font-medium">{entry.quota}</span>
-                  <div className="w-7 h-7 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    <ArrowRight className="w-3.5 h-3.5 text-red-400" />
+                  <div className="w-7 h-7 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                    <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
                   </div>
                 </div>
               </div>
@@ -714,10 +711,10 @@ export default function RankInsightsPage() {
                   <tr
                     key={entry.id}
                     onClick={() => handleRowClick(entry)}
-                    className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors duration-200 cursor-pointer group"
+                    className="hover:bg-emerald-50/40 dark:hover:bg-emerald-950/20 transition-colors duration-200 cursor-pointer group"
                   >
                     <td className="px-4 py-3.5 font-bold text-slate-800 dark:text-slate-100 max-w-[220px]">
-                      <div className="truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">{entry.college.name}</div>
+                      <div className="truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">{entry.college.name}</div>
                       <div className="text-[10px] text-muted-foreground font-normal mt-0.5 flex items-center gap-1">
                         <MapPin className="w-2.5 h-2.5" />
                         {entry.college.city}, {entry.college.state}
@@ -744,7 +741,7 @@ export default function RankInsightsPage() {
                       {entry.quota}
                     </td>
                     <td className="px-4 py-3.5 whitespace-nowrap text-center">
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 font-extrabold text-red-600 dark:text-red-400 text-[11px]">
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 font-extrabold text-emerald-600 dark:text-emerald-400 text-[11px]">
                         R{entry.round}
                       </span>
                     </td>
@@ -755,7 +752,7 @@ export default function RankInsightsPage() {
                       {entry.closingScore ?? 'N/A'}
                     </td>
                     <td className="px-4 py-3.5 text-center">
-                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all duration-200 inline-block" />
+                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all duration-200 inline-block" />
                     </td>
                   </tr>
                 ))}
@@ -793,9 +790,9 @@ export default function RankInsightsPage() {
 
 function FilterTag({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-xs font-semibold border border-red-200 dark:border-red-900/40 hover:bg-red-100 dark:hover:bg-red-950/50 transition-colors duration-200 group/tag">
+    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 text-xs font-semibold border border-emerald-200 dark:border-emerald-900/40 hover:bg-emerald-100 dark:hover:bg-emerald-950/50 transition-colors duration-200 group/tag">
       {label}
-      <button onClick={(e) => { e.stopPropagation(); onRemove(); }} className="w-4 h-4 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors duration-200">
+      <button onClick={(e) => { e.stopPropagation(); onRemove(); }} className="w-4 h-4 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-900/50 flex items-center justify-center transition-colors duration-200">
         <X className="w-3 h-3" />
       </button>
     </span>

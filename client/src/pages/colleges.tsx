@@ -4,6 +4,7 @@ import { MOCK_COLLEGES } from '@/lib/college-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   Search,
   GraduationCap,
@@ -67,36 +68,38 @@ export default function CollegesPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-          <div className="relative z-10 space-y-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
+      <HeroBanner>
+        <div className="relative z-10 space-y-3.5">
+            <span className="hero-enter-badge inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-xs font-semibold text-white border border-white/20 shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white/70 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+              </span>
               <Sparkles className="w-3.5 h-3.5" /> Detailed Reviews
             </span>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-              <GraduationCap className="w-7 h-7 text-red-200" />
+            <h1 className="hero-enter-title text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight flex items-center gap-3.5 drop-shadow-md">
+              <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/15 border border-white/25 backdrop-blur-sm shadow-lg float-medium shrink-0">
+                <GraduationCap className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+              </span>
               College Reviews
             </h1>
-            <p className="text-red-100/90 text-sm max-w-xl leading-relaxed">
+            <p className="hero-enter-desc text-emerald-50/90 text-sm sm:text-base max-w-xl leading-relaxed">
               Explore honest, in-depth reviews of India's top medical colleges. Compare facilities, faculty, clinical exposure, campus life, and more.
             </p>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: 'Total Colleges', value: MOCK_COLLEGES.length, icon: GraduationCap, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Total Colleges', value: MOCK_COLLEGES.length, icon: GraduationCap, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Government', value: govtCount, icon: Building2, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Private', value: pvtCount, icon: Star, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
           { label: 'Deemed', value: deemedCount, icon: Target, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
+            <CardContent className="p-4 sm:p-4">
+              <div className="flex items-center justify-center gap-3">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${s.bg} transition-transform duration-300 group-hover:scale-110`}>
                   <s.icon className={`w-5 h-5 ${s.color}`} />
                 </div>
@@ -125,7 +128,7 @@ export default function CollegesPage() {
               />
             </div>
             <select value={selectedState} onChange={(e) => setSelectedState(e.target.value)}
-              className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[150px]">
+              className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-emerald-300 cursor-pointer min-w-[150px]">
               <option value="All">All States</option>
               {STATES.map((s) => <option key={s} value={s}>{s}</option>)}
             </select>
@@ -138,7 +141,7 @@ export default function CollegesPage() {
               className={`px-4 py-2 rounded-xl text-xs font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                 selectedType === 'All'
                   ? 'gradient-primary text-white border-transparent shadow-md'
-                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
               }`}>All</button>
             {TYPES.map((t) => (
               <button key={t} onClick={() => setSelectedType(selectedType === t ? 'All' : t)}
@@ -157,7 +160,7 @@ export default function CollegesPage() {
               {search && <FilterTag label={`"${search}"`} onRemove={() => setSearch('')} />}
               {selectedState !== 'All' && <FilterTag label={selectedState} onRemove={() => setSelectedState('All')} />}
               {selectedType !== 'All' && <FilterTag label={selectedType} onRemove={() => setSelectedType('All')} />}
-              <button onClick={handleReset} className="text-[11px] font-semibold text-red-600 hover:underline ml-1">Clear all</button>
+              <button onClick={handleReset} className="text-[11px] font-semibold text-emerald-600 hover:underline ml-1">Clear all</button>
             </div>
           )}
         </CardContent>
@@ -176,9 +179,9 @@ export default function CollegesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {filtered.map((college) => (
             <Link key={college.id} to={`/colleges/${college.id}`} className="group">
-              <Card className="overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col border-transparent hover:border-red-200 dark:hover:border-red-900/40 relative">
+              <Card className="overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col border-transparent hover:border-emerald-200 dark:hover:border-emerald-900/40 relative">
                 {/* Hover accent */}
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 via-rose-500 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
                 {/* Thumbnail */}
                 <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
@@ -249,10 +252,10 @@ export default function CollegesPage() {
                   {/* Cutoff */}
                   <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800">
                     <div className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
-                      <Target className="w-3 h-3 text-red-500" />
+                      <Target className="w-3 h-3 text-emerald-500" />
                       <span className="font-medium">{college.neetCutoffRange}</span>
                     </div>
-                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-red-600 dark:text-red-400 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300">
                       Review <ArrowRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
@@ -268,9 +271,9 @@ export default function CollegesPage() {
 
 function FilterTag({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-[11px] font-semibold border border-red-200 dark:border-red-900/40 hover:bg-red-100 transition-colors">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-200 dark:border-emerald-900/40 hover:bg-emerald-100 transition-colors">
       {label}
-      <button onClick={(e) => { e.preventDefault(); onRemove(); }} className="w-3.5 h-3.5 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors">
+      <button onClick={(e) => { e.preventDefault(); onRemove(); }} className="w-3.5 h-3.5 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-900/50 flex items-center justify-center transition-colors">
         <X className="w-2.5 h-2.5" />
       </button>
     </span>

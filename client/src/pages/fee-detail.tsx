@@ -4,6 +4,7 @@ import { FEE_MATRIX_DATA, formatINRFull, type CollegeFeeEntry } from '@/lib/fee-
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   PieChart, Pie, Cell,
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend,
@@ -13,7 +14,7 @@ import {
   CalendarClock, RefreshCw, Link2, Award, AlertTriangle, Wallet, Sparkles,
 } from 'lucide-react';
 
-const PIE_COLORS = ['#dc2626', '#2563eb', '#d97706', '#f43f5e', '#8b5cf6', '#06b6d4', '#84cc16'];
+const PIE_COLORS = ['#059669', '#2563eb', '#d97706', '#22c55e', '#8b5cf6', '#06b6d4', '#84cc16'];
 
 export default function FeeDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -50,15 +51,12 @@ export default function FeeDetailPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       <Button variant="ghost" size="sm" onClick={() => navigate('/fee-matrix')}
-        className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/20 transition-colors duration-200">
+        className="flex items-center gap-1.5 hover:bg-emerald-50 hover:text-emerald-600 dark:hover:bg-emerald-950/20 transition-colors duration-200">
         <ArrowLeft className="w-4 h-4" /> Back to Fee Matrix
       </Button>
 
       {/* Hero */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8 lg:p-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <HeroBanner>
           <div className="relative z-10 space-y-4">
             <div className="flex flex-wrap gap-2">
               <span className={`text-[10px] uppercase font-bold px-3 py-1 rounded-full ${typeColor(entry.type)}`}>{entry.type}</span>
@@ -71,19 +69,18 @@ export default function FeeDetailPage() {
               </div>
               <div>
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight">{entry.name}</h1>
-                <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-red-100/90">
+                <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-emerald-100/90">
                   <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> {entry.city}, {entry.state}</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
-          { label: 'Total 1st Year', value: formatINRFull(entry.totalFirstYear), icon: IndianRupee, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Total 1st Year', value: formatINRFull(entry.totalFirstYear), icon: IndianRupee, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Total All Years', value: formatINRFull(totalAllYears), icon: Wallet, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Total Seats', value: String(totalSeats), icon: Users, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
           { label: 'Govt Seats', value: String(entry.govtSeats || '--'), icon: Building2, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
@@ -111,8 +108,8 @@ export default function FeeDetailPage() {
           <Card className="group hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
-                  <IndianRupee className="w-4 h-4 text-red-600" />
+                <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center">
+                  <IndianRupee className="w-4 h-4 text-emerald-600" />
                 </div>
                 First Year Fee Composition
               </CardTitle>
@@ -206,8 +203,8 @@ export default function FeeDetailPage() {
           <Card className="overflow-hidden">
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
-                  <Wallet className="w-4 h-4 text-red-600" />
+                <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center">
+                  <Wallet className="w-4 h-4 text-emerald-600" />
                 </div>
                 Year-wise Fee Table
               </CardTitle>
@@ -227,10 +224,10 @@ export default function FeeDetailPage() {
                   </thead>
                   <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                     {entry.yearWiseFees.map((y) => (
-                      <tr key={y.year} className="group/row hover:bg-red-50/30 dark:hover:bg-red-950/10 transition-colors duration-200">
+                      <tr key={y.year} className="group/row hover:bg-emerald-50/30 dark:hover:bg-emerald-950/10 transition-colors duration-200">
                         <td className="px-5 py-3 font-bold text-slate-800 dark:text-slate-200">
                           <span className="inline-flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-red-400 group-hover/row:scale-125 transition-transform duration-200" />
+                            <span className="w-2 h-2 rounded-full bg-emerald-400 group-hover/row:scale-125 transition-transform duration-200" />
                             {y.year}
                           </span>
                         </td>
@@ -241,10 +238,10 @@ export default function FeeDetailPage() {
                         <td className="px-5 py-3 text-right tabular-nums font-extrabold text-slate-900 dark:text-slate-50">{formatINRFull(y.total)}</td>
                       </tr>
                     ))}
-                    <tr className="bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-950/20 dark:to-rose-950/20 font-bold">
-                      <td className="px-5 py-3.5 text-red-700 dark:text-red-400">Grand Total</td>
+                    <tr className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20 font-bold">
+                      <td className="px-5 py-3.5 text-emerald-700 dark:text-emerald-400">Grand Total</td>
                       <td className="px-5 py-3.5 text-right" colSpan={4}></td>
-                      <td className="px-5 py-3.5 text-right tabular-nums text-red-700 dark:text-red-400 text-sm">{formatINRFull(totalAllYears)}</td>
+                      <td className="px-5 py-3.5 text-right tabular-nums text-emerald-700 dark:text-emerald-400 text-sm">{formatINRFull(totalAllYears)}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -259,7 +256,7 @@ export default function FeeDetailPage() {
           <Card className="sticky top-4">
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-red-500" /> Key Information
+                <Sparkles className="w-4 h-4 text-emerald-500" /> Key Information
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-0">
@@ -296,7 +293,7 @@ export default function FeeDetailPage() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-sm font-bold flex items-center gap-2">
-                <IndianRupee className="w-4 h-4 text-red-600" /> Fee Breakdown
+                <IndianRupee className="w-4 h-4 text-emerald-600" /> Fee Breakdown
               </CardTitle>
             </CardHeader>
             <CardContent className="p-0">
@@ -307,9 +304,9 @@ export default function FeeDetailPage() {
                     <span className="font-bold text-slate-800 dark:text-slate-200 tabular-nums">{formatINRFull(b.amount)}</span>
                   </div>
                 ))}
-                <div className="flex items-center justify-between px-6 py-3.5 bg-gradient-to-r from-red-50 to-rose-50 dark:from-red-950/20 dark:to-rose-950/20 text-xs font-bold">
-                  <span className="text-red-700 dark:text-red-400">Total First Year</span>
-                  <span className="text-red-700 dark:text-red-400 tabular-nums text-sm">{formatINRFull(entry.totalFirstYear)}</span>
+                <div className="flex items-center justify-between px-6 py-3.5 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20 text-xs font-bold">
+                  <span className="text-emerald-700 dark:text-emerald-400">Total First Year</span>
+                  <span className="text-emerald-700 dark:text-emerald-400 tabular-nums text-sm">{formatINRFull(entry.totalFirstYear)}</span>
                 </div>
               </div>
             </CardContent>
@@ -323,7 +320,7 @@ export default function FeeDetailPage() {
 function InfoRow({ label, value, icon: Icon }: { label: string; value: string; icon: typeof IndianRupee }) {
   return (
     <div className="flex items-start gap-3 py-3 border-b border-slate-100 dark:border-slate-800 last:border-0">
-      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-red-600 dark:text-red-400 shrink-0 mt-0.5">
+      <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
         <Icon className="w-4 h-4" />
       </div>
       <div className="min-w-0 flex-1">

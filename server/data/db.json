@@ -26,6 +26,15 @@
       "role": "student",
       "createdAt": "2026-06-28T13:15:45.439Z",
       "updatedAt": "2026-06-28T13:15:45.439Z"
+    },
+    "792ff19b-c204-4a7c-a846-4fd6b32c0bd2": {
+      "id": "792ff19b-c204-4a7c-a846-4fd6b32c0bd2",
+      "name": "Test",
+      "email": "test@demo.com",
+      "password": "$2b$12$ZHz1YWj3wI94jY8TwsAG7.Kbtwzc68tMltzGslIzocYd1M6A5OVpe",
+      "role": "student",
+      "createdAt": "2026-07-02T07:20:38.047Z",
+      "updatedAt": "2026-07-02T07:20:38.047Z"
     }
   },
   "refreshTokens": {
@@ -268,6 +277,192 @@
       "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5MzM5MTMsImV4cCI6MTc4MzUzODcxM30.G7Slbl2oKgi4aRdsKwk7V1iAnoU0RLrMOXDPOdTp4lM",
       "expiresAt": "2026-07-08T19:25:13.955Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OTJmZjE5Yi1jMjA0LTRhN2MtYTg0Ni00ZmQ2YjMyYzBiZDIiLCJlbWFpbCI6InRlc3RAZGVtby5jb20iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc4Mjk3NjgzOCwiZXhwIjoxNzgzNTgxNjM4fQ.LsaHNtQxWz1ruTRhqp3nNg4z7x3xKtl7f0UNrMl2TYE": {
+      "id": "a60e12a5-dbee-477c-a82c-305db9081bb6",
+      "userId": "792ff19b-c204-4a7c-a846-4fd6b32c0bd2",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3OTJmZjE5Yi1jMjA0LTRhN2MtYTg0Ni00ZmQ2YjMyYzBiZDIiLCJlbWFpbCI6InRlc3RAZGVtby5jb20iLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTc4Mjk3NjgzOCwiZXhwIjoxNzgzNTgxNjM4fQ.LsaHNtQxWz1ruTRhqp3nNg4z7x3xKtl7f0UNrMl2TYE",
+      "expiresAt": "2026-07-09T07:20:38.054Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5NzgwODcsImV4cCI6MTc4MzU4Mjg4N30.55R_CY7093JkovMHGTcmqMZqKZhIJnyVGYTB-0gv5ho": {
+      "id": "58fd00d1-d68f-4e2a-82a1-3a472daa690f",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5NzgwODcsImV4cCI6MTc4MzU4Mjg4N30.55R_CY7093JkovMHGTcmqMZqKZhIJnyVGYTB-0gv5ho",
+      "expiresAt": "2026-07-09T07:41:27.749Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5Nzk4OTIsImV4cCI6MTc4MzU4NDY5Mn0.AZ0urx865I9zfSczcbjQa35IlhWwFP3w1WDMzplOhFY": {
+      "id": "43e594a8-d70f-4a0d-97c4-ffb15ba8e5cd",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODI5Nzk4OTIsImV4cCI6MTc4MzU4NDY5Mn0.AZ0urx865I9zfSczcbjQa35IlhWwFP3w1WDMzplOhFY",
+      "expiresAt": "2026-07-09T08:11:32.007Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5ODU5NjcsImV4cCI6MTc4MzU5MDc2N30.GlDwBEbgowz04KUKgfJzj0RU5ptwwmsvgL5Ml_eabwQ": {
+      "id": "122ffee7-ec1b-43d3-bea4-c9697a4c1740",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5ODU5NjcsImV4cCI6MTc4MzU5MDc2N30.GlDwBEbgowz04KUKgfJzj0RU5ptwwmsvgL5Ml_eabwQ",
+      "expiresAt": "2026-07-09T09:52:47.832Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5ODYwNDUsImV4cCI6MTc4MzU5MDg0NX0.J2JZi4BMt7tVThgLNpWO5WREibwL7Kkg7VnYek4gN4U": {
+      "id": "bc4fa9cc-20a8-43b7-baeb-7ce9d36836e9",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5ODYwNDUsImV4cCI6MTc4MzU5MDg0NX0.J2JZi4BMt7tVThgLNpWO5WREibwL7Kkg7VnYek4gN4U",
+      "expiresAt": "2026-07-09T09:54:05.727Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5ODYyODYsImV4cCI6MTc4MzU5MTA4Nn0.wGl5nZwqSoEwrNJQ6ClSndEvL4xK7SXibs0IyP9LaX8": {
+      "id": "77f5040b-2b87-48a2-9ecb-6ee61ba552b8",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5ODYyODYsImV4cCI6MTc4MzU5MTA4Nn0.wGl5nZwqSoEwrNJQ6ClSndEvL4xK7SXibs0IyP9LaX8",
+      "expiresAt": "2026-07-09T09:58:06.422Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5OTA1MjYsImV4cCI6MTc4MzU5NTMyNn0.5w8Yb68weui06UpQdOHc-bPlo4qNJuyUkf6ZW22nEDE": {
+      "id": "17a75080-c594-4ab0-953b-39a16bf65236",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODI5OTA1MjYsImV4cCI6MTc4MzU5NTMyNn0.5w8Yb68weui06UpQdOHc-bPlo4qNJuyUkf6ZW22nEDE",
+      "expiresAt": "2026-07-09T11:08:46.306Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2MjY5NDUsImV4cCI6MTc4NTIzMTc0NX0.PiQ_ExfZFqitPW6-accxGboI4oWoMjFB-3EE2P9cnJY": {
+      "id": "50504895-4916-472e-bb81-736ded5125bc",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2MjY5NDUsImV4cCI6MTc4NTIzMTc0NX0.PiQ_ExfZFqitPW6-accxGboI4oWoMjFB-3EE2P9cnJY",
+      "expiresAt": "2026-07-28T09:42:25.991Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODQ2Mzk5MzcsImV4cCI6MTc4NTI0NDczN30.6x5d08K6YwZMa3vO2mpKmo1jur1YZ_SjMDbXXCK-khI": {
+      "id": "b39ebaee-fa88-4e15-982a-3ea9a62664d5",
+      "userId": "a995854f-25fb-4d96-93b8-9d1d000f0bcc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJhOTk1ODU0Zi0yNWZiLTRkOTYtOTNiOC05ZDFkMDAwZjBiY2MiLCJlbWFpbCI6InN3YXJhakBtZWRjb3Vuc2VsLmFpIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3ODQ2Mzk5MzcsImV4cCI6MTc4NTI0NDczN30.6x5d08K6YwZMa3vO2mpKmo1jur1YZ_SjMDbXXCK-khI",
+      "expiresAt": "2026-07-28T13:18:57.286Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NDgwNDgsImV4cCI6MTc4NTI1Mjg0OH0.LzjyhPxxK1qaFxyesCYMAO2OhBu7ayubezCvaVv_FiQ": {
+      "id": "86095c2b-a531-4660-a0e9-4571c107c5e5",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NDgwNDgsImV4cCI6MTc4NTI1Mjg0OH0.LzjyhPxxK1qaFxyesCYMAO2OhBu7ayubezCvaVv_FiQ",
+      "expiresAt": "2026-07-28T15:34:08.795Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTI2ODMsImV4cCI6MTc4NTI1NzQ4M30.lcV-pwbVzGT7zjO03iiJfI0C86OSrs6bmg9W53IC9Ow": {
+      "id": "77b69e4e-d9c1-431e-a914-a609b7fbe4d8",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTI2ODMsImV4cCI6MTc4NTI1NzQ4M30.lcV-pwbVzGT7zjO03iiJfI0C86OSrs6bmg9W53IC9Ow",
+      "expiresAt": "2026-07-28T16:51:23.266Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTU2NjcsImV4cCI6MTc4NTI2MDQ2N30.9I8C-7proPzT0vwgaapmGlV5w__DxDeiG0k8a7-_nyE": {
+      "id": "70356698-5e56-448c-9507-0061f25bb7e9",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTU2NjcsImV4cCI6MTc4NTI2MDQ2N30.9I8C-7proPzT0vwgaapmGlV5w__DxDeiG0k8a7-_nyE",
+      "expiresAt": "2026-07-28T17:41:07.083Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTYxODksImV4cCI6MTc4NTI2MDk4OX0.Dux7c1_1txkuu3-JAt-0_oXvIflMezduUDyYP3hPcPg": {
+      "id": "b9843434-cb78-4ee3-a652-9406a68779f0",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTYxODksImV4cCI6MTc4NTI2MDk4OX0.Dux7c1_1txkuu3-JAt-0_oXvIflMezduUDyYP3hPcPg",
+      "expiresAt": "2026-07-28T17:49:49.131Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTgwMDYsImV4cCI6MTc4NTI2MjgwNn0.sd0MR4PiaFYkXbH8jeX3HLPdJNfNVeVgAhVrPXmbq7Q": {
+      "id": "6f4a278f-8510-44c2-9b09-4d1ed79e9b3d",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTgwMDYsImV4cCI6MTc4NTI2MjgwNn0.sd0MR4PiaFYkXbH8jeX3HLPdJNfNVeVgAhVrPXmbq7Q",
+      "expiresAt": "2026-07-28T18:20:06.799Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTk5MzgsImV4cCI6MTc4NTI2NDczOH0.2xN9RjRJOfKdDFI-4w0c5oXJOqgUqXQPLr5gZZn-6Uo": {
+      "id": "f31e970c-260c-4eb9-8152-df9e8cad303a",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NTk5MzgsImV4cCI6MTc4NTI2NDczOH0.2xN9RjRJOfKdDFI-4w0c5oXJOqgUqXQPLr5gZZn-6Uo",
+      "expiresAt": "2026-07-28T18:52:18.989Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjAwMzgsImV4cCI6MTc4NTI2NDgzOH0.WUVBpAZOh6BjaVzQEPASY7Pyiwt9NJT5UJaYR4vgzT4": {
+      "id": "5f6c460a-eb94-4fc0-9f08-b16fc9ebfb0e",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjAwMzgsImV4cCI6MTc4NTI2NDgzOH0.WUVBpAZOh6BjaVzQEPASY7Pyiwt9NJT5UJaYR4vgzT4",
+      "expiresAt": "2026-07-28T18:53:58.352Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjAwNzEsImV4cCI6MTc4NTI2NDg3MX0.OJE7rGXSHameWzOu7NEFvvHcfRbTdkX1k-OqUZbMETM": {
+      "id": "a29c5971-7829-430b-ba71-c31b1c769c1c",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjAwNzEsImV4cCI6MTc4NTI2NDg3MX0.OJE7rGXSHameWzOu7NEFvvHcfRbTdkX1k-OqUZbMETM",
+      "expiresAt": "2026-07-28T18:54:31.799Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjAyNTIsImV4cCI6MTc4NTI2NTA1Mn0._bAioDMz9J2nduQm3Uy7-YGGudCvS4oDqqWaOcgmPx4": {
+      "id": "2c7277ce-c398-4ecd-907f-9c011482cd5a",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjAyNTIsImV4cCI6MTc4NTI2NTA1Mn0._bAioDMz9J2nduQm3Uy7-YGGudCvS4oDqqWaOcgmPx4",
+      "expiresAt": "2026-07-28T18:57:32.670Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjE5ODcsImV4cCI6MTc4NTI2Njc4N30.YZeGqdUKskCWJkT322CLo2ovOm3xDroPKFILXJOVnME": {
+      "id": "b9bbd8d1-0894-49aa-a3d2-ce7139a75b2d",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjE5ODcsImV4cCI6MTc4NTI2Njc4N30.YZeGqdUKskCWJkT322CLo2ovOm3xDroPKFILXJOVnME",
+      "expiresAt": "2026-07-28T19:26:27.175Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjIyODAsImV4cCI6MTc4NTI2NzA4MH0.xp0wKFrKmutm2pYwTha8bicJ3TfykAC3dsJELE9mvpo": {
+      "id": "85b69b4d-2ff7-4f37-a23e-1eb9be7a9902",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjIyODAsImV4cCI6MTc4NTI2NzA4MH0.xp0wKFrKmutm2pYwTha8bicJ3TfykAC3dsJELE9mvpo",
+      "expiresAt": "2026-07-28T19:31:20.148Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjI0MDgsImV4cCI6MTc4NTI2NzIwOH0.6TlRY2soz1M4SmmfduibOgq_1ZabyLRFhlWwTk1tOA4": {
+      "id": "65bef92d-2a24-4319-a5c3-d226703f8365",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjI0MDgsImV4cCI6MTc4NTI2NzIwOH0.6TlRY2soz1M4SmmfduibOgq_1ZabyLRFhlWwTk1tOA4",
+      "expiresAt": "2026-07-28T19:33:28.727Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjI3MjQsImV4cCI6MTc4NTI2NzUyNH0.nLC_WOyNZZafKU9T_P6gtDZbgL995DvQvGziAWaNQNo": {
+      "id": "8ae75ebf-d2ed-4516-9d9b-f0f4a177dc27",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjI3MjQsImV4cCI6MTc4NTI2NzUyNH0.nLC_WOyNZZafKU9T_P6gtDZbgL995DvQvGziAWaNQNo",
+      "expiresAt": "2026-07-28T19:38:44.710Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjI3ODUsImV4cCI6MTc4NTI2NzU4NX0.Zrcww19IpuDJ-b0_1dG2N1VofD_sRwMjoyXAPKiI_Ik": {
+      "id": "3c41c075-21fc-4b33-957c-e0040f0da138",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjI3ODUsImV4cCI6MTc4NTI2NzU4NX0.Zrcww19IpuDJ-b0_1dG2N1VofD_sRwMjoyXAPKiI_Ik",
+      "expiresAt": "2026-07-28T19:39:45.445Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjMyNjAsImV4cCI6MTc4NTI2ODA2MH0.r-fwRu2LOvUeXPgqfMpnLFzI7Qa7kf_GPfOb8KxkKTY": {
+      "id": "d28c73bf-6f60-4e00-b63f-e0f71bd2db10",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjMyNjAsImV4cCI6MTc4NTI2ODA2MH0.r-fwRu2LOvUeXPgqfMpnLFzI7Qa7kf_GPfOb8KxkKTY",
+      "expiresAt": "2026-07-28T19:47:40.229Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjQxNjMsImV4cCI6MTc4NTI2ODk2M30.cgSZLOK2CzTWvyjBgkwQ3Br_kKeYJmtQj1G6fuxrJ_w": {
+      "id": "fc28681d-0837-4433-b368-004f4920d160",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjQxNjMsImV4cCI6MTc4NTI2ODk2M30.cgSZLOK2CzTWvyjBgkwQ3Br_kKeYJmtQj1G6fuxrJ_w",
+      "expiresAt": "2026-07-28T20:02:43.266Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjQ0NjcsImV4cCI6MTc4NTI2OTI2N30.B85O_3QLF9aS9sW1j87X0xTf1R77YeJrtKUV6VmlOvs": {
+      "id": "ecc60fba-7e62-43fd-8117-5018cd801938",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjQ0NjcsImV4cCI6MTc4NTI2OTI2N30.B85O_3QLF9aS9sW1j87X0xTf1R77YeJrtKUV6VmlOvs",
+      "expiresAt": "2026-07-28T20:07:47.134Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjQ1MDYsImV4cCI6MTc4NTI2OTMwNn0.i2nFLZb_Kni3brnu3UNuBQU8gJxCl7bypys1ZJEw-_M": {
+      "id": "f2b821ac-d09b-4c81-8b16-6afdb53cd889",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjQ1MDYsImV4cCI6MTc4NTI2OTMwNn0.i2nFLZb_Kni3brnu3UNuBQU8gJxCl7bypys1ZJEw-_M",
+      "expiresAt": "2026-07-28T20:08:26.706Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjUxMjMsImV4cCI6MTc4NTI2OTkyM30.mvOVLDoim1yyX24-ALaQXvWXytjqxoGjouhhuPqsTkI": {
+      "id": "3547ba4d-24d6-4c85-a330-e5760ad89352",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjUxMjMsImV4cCI6MTc4NTI2OTkyM30.mvOVLDoim1yyX24-ALaQXvWXytjqxoGjouhhuPqsTkI",
+      "expiresAt": "2026-07-28T20:18:43.685Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjUyMTQsImV4cCI6MTc4NTI3MDAxNH0._l_IOWMPMxJ_iiEz4Sgf9riTyvG_ji6YvNqSs3op_Kg": {
+      "id": "96134b5a-3588-404e-b9c9-20a645dbe300",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjUyMTQsImV4cCI6MTc4NTI3MDAxNH0._l_IOWMPMxJ_iiEz4Sgf9riTyvG_ji6YvNqSs3op_Kg",
+      "expiresAt": "2026-07-28T20:20:14.087Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjU4NjAsImV4cCI6MTc4NTI3MDY2MH0.oX4cTcihLycFCJwx_xlsrnF5h54LWd198_rUpUjaGNA": {
+      "id": "95d6b5fe-fee4-4ce1-85fa-eecf8bf90987",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2NjU4NjAsImV4cCI6MTc4NTI3MDY2MH0.oX4cTcihLycFCJwx_xlsrnF5h54LWd198_rUpUjaGNA",
+      "expiresAt": "2026-07-28T20:31:00.958Z"
+    },
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2OTQwODUsImV4cCI6MTc4NTI5ODg4NX0.0ZgleN1M91Nekr4HTD-zCM-gGyPn4iNNNbnqoASIosU": {
+      "id": "838d164f-89de-4dc9-9e41-766bbc44190b",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1M2RiYjViZC02NmQzLTQxNmItODIwOS04OTY5MjY0MTk3ZmMiLCJlbWFpbCI6ImFkbWluQG1lZGNvdW5zZWwuYWkiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3ODQ2OTQwODUsImV4cCI6MTc4NTI5ODg4NX0.0ZgleN1M91Nekr4HTD-zCM-gGyPn4iNNNbnqoASIosU",
+      "expiresAt": "2026-07-29T04:21:25.907Z"
     }
   },
   "passwordResets": {},
@@ -845,6 +1040,40 @@
       ],
       "createdAt": "2026-07-01T15:18:30.759Z",
       "updatedAt": "2026-07-01T15:18:30.834Z"
+    },
+    "5600b517-e920-4fef-84e8-6b1944bcae1c": {
+      "id": "5600b517-e920-4fef-84e8-6b1944bcae1c",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "title": "Which colleges can I get with AIR 45,000?",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Which colleges can I get with AIR 45,000?"
+        },
+        {
+          "role": "assistant",
+          "content": "## College Options Based on Your Rank\n\nHere are the colleges that match your rank range:\n\n### Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| KMC Manipal | MBBS | General | Management | 2025 R1 | Closing Rank: #42,150 | Score: 565 |\n| Patna MC, Patna | MBBS | OBC | Bihar State | 2025 R1 | Closing Rank: #28,000 | Score: 580 |\n| St. John's, Bengaluru | MBBS | General | Management | 2025 R1 | Closing Rank: #18,000 | Score: 630 |\n| Grant MC, Mumbai | BDS | General | Maharashtra State | 2025 R1 | Closing Rank: #15,420 | Score: 615 |\n| Patna MC, Patna | MBBS | General | Bihar State | 2025 R1 | Closing Rank: #15,000 | Score: 620 |\n| KMC Manipal | MBBS | General | AIQ | 2025 R1 | Closing Rank: #10,500 | Score: 648 |\n| KGMU, Lucknow | MBBS | OBC | UP State | 2025 R1 | Closing Rank: #8,500 | Score: 640 |\n| AIIMS, New Delhi | MBBS | ST | AIQ | 2025 R1 | Closing Rank: #5,500 | Score: 590 |\n| CMC Vellore | MBBS | General | Management | 2025 R1 | Closing Rank: #5,410 | Score: 662 |\n| SMS MC, Jaipur | MBBS | General | Rajasthan State | 2025 R1 | Closing Rank: #5,200 | Score: 658 |\n| Grant MC, Mumbai | MBBS | OBC | Maharashtra State | 2025 R1 | Closing Rank: #5,100 | Score: 655 |\n| GMC Chandigarh | MBBS | General | AIQ | 2025 R1 | Closing Rank: #5,000 | Score: 660 |\n\n**Basic Eligibility for NEET UG:**\n\n- **Age:** Minimum 17 years at time of admission (no upper age limit since 2019 Supreme Court ruling)\n- **Qualification:** Class 12 or equivalent with Physics, Chemistry, Biology/Biotechnology and English\n- **Marks:** Minimum 50% aggregate in PCB for General; 40% for SC/ST/OBC; 45% for PwD\n- **Attempts:** No limit on number of attempts\n- **Nationality:** Indian citizens, NRIs, OCIs, PIOs, and foreign nationals can apply\n\n**For NEET UG 2026:**\n- Exam conducted by NTA (National Testing Agency)\n- Single exam for all medical/dental colleges in India (except AIIMS & JIPMER which now merged)\n- Pen-and-paper based exam (OMR sheet)\n- Duration: 3 hours 20 minutes\n- Total marks: 720 (180 questions × 4 marks each, -1 for wrong answer)\n\n**Government vs Private Medical Colleges — Key Differences:**\n\n| Factor | Government | Private/Deemed |\n|--------|-----------|----------------|\n| **Fees** | Rs 5K - 1.5L/year | Rs 5L - 25L/year |\n| **Total MBBS cost** | Rs 1-8 Lakh | Rs 30-1.5 Crore |\n| **Patient load** | Very high (great exposure) | Moderate |\n| **Infrastructure** | Varies (some old) | Usually modern |\n| **Faculty** | Experienced, may be overburdened | Good ratio, more accessible |\n| **Clinical exposure** | Excellent (high OPD/IPD) | Good but less volume |\n| **Bond** | Some states have bond (2-5 yrs) | Usually no bond |\n| **Hostel** | Basic but cheap | Better amenities, costlier |\n\n**Bottom line:** If you can get a government seat, it's almost always the better choice financially. A government college MBBS degree is valued equally (sometimes more) by employers and PG exam committees.\n\n**Exception:** Top deemed universities like KMC Manipal, CMC Vellore offer excellent education but at premium fees.\n\n**MBBS vs BDS — Should You Choose BDS?**\n\n**MBBS:**\n- 5.5 years (4.5 + 1 year internship)\n- Better long-term career prospects\n- Higher earning potential\n- More PG specialization options\n- More competitive (lower closing rank needed)\n\n**BDS:**\n- 5 years (4 + 1 year internship)\n- Easier to get admission (higher closing rank)\n- Good career in private practice\n- Fewer PG seats available\n- Lower initial investment in private practice setup\n\n**Our recommendation:** If your rank allows MBBS in a government college, always prefer it. Consider BDS only if:\n- Your rank doesn't qualify for MBBS anywhere\n- You have genuine interest in dentistry\n- Private college MBBS is unaffordable\n\n**Never drop a year just for MBBS** if you have a government BDS seat — unless you're very confident about improving your rank significantly.\n\n\n> **Tip:** Use the **Allotment Mapping** module to see detailed state-wise allotments for your rank range. The **Rank Insights** module shows year-over-year trends."
+        }
+      ],
+      "createdAt": "2026-07-02T07:32:27.512Z",
+      "updatedAt": "2026-07-02T07:32:27.549Z"
+    },
+    "6824f2f0-b20d-44d4-a135-6b5cdff01d6f": {
+      "id": "6824f2f0-b20d-44d4-a135-6b5cdff01d6f",
+      "userId": "53dbb5bd-66d3-416b-8209-8969264197fc",
+      "title": "Explain Round 2 counselling.",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Explain Round 2 counselling."
+        },
+        {
+          "role": "assistant",
+          "content": "## Counselling Process Guide\n\n**Round 1:** First allotment based on NEET AIR and choices. You can Accept (freeze), Float (upgrade attempt), or Slide (upgrade within same institute).\n\n**Round 2:** Vacant seats from Round 1 + newly added seats. Can change preferences. Important for upgrades.\n\n**Mop-up Round:** For seats remaining after Round 2. Open to fresh candidates too (who didn't participate earlier). Usually the last regular round.\n\n**Stray Round:** Final round. Colleges may directly admit from a list. Usually walk-in basis.\n\n**Options after allotment:**\n- **Freeze:** Accept the allotted seat. No further upgradation.\n- **Float:** Accept but allow upgradation to higher preference in next round.\n- **Slide:** Accept but allow upgradation within the same institute only.\n\n**Pro tip:** Always choose \"Float\" in Round 1 unless you got your top choice. This keeps upgrade possibilities open.\n\n### Closing Rank Insights\n\n| College | Course | Category | Quota | Year | Rank | Score |\n|---------|--------|----------|-------|------|------|-------|\n| AIIMS, New Delhi | MBBS | General | AIQ | 2025 R1 | Closing Rank: #57 | Score: 715 |\n| AIIMS, New Delhi | MBBS | OBC | AIQ | 2025 R1 | Closing Rank: #450 | Score: 686 |\n| AIIMS, New Delhi | MBBS | SC | AIQ | 2025 R1 | Closing Rank: #2,700 | Score: 630 |\n| AIIMS, New Delhi | MBBS | ST | AIQ | 2025 R1 | Closing Rank: #5,500 | Score: 590 |\n| AIIMS, New Delhi | MBBS | EWS | AIQ | 2025 R1 | Closing Rank: #350 | Score: 690 |\n| MAMC, New Delhi | MBBS | General | Delhi State | 2025 R1 | Closing Rank: #85 | Score: 710 |\n| MAMC, New Delhi | MBBS | General | AIQ | 2025 R1 | Closing Rank: #98 | Score: 708 |\n| MAMC, New Delhi | MBBS | OBC | AIQ | 2025 R1 | Closing Rank: #750 | Score: 695 |\n| Grant MC, Mumbai | MBBS | General | Maharashtra State | 2025 R1 | Closing Rank: #1,900 | Score: 683 |\n| Grant MC, Mumbai | MBBS | OBC | Maharashtra State | 2025 R1 | Closing Rank: #5,100 | Score: 655 |\n| Grant MC, Mumbai | BDS | General | Maharashtra State | 2025 R1 | Closing Rank: #15,420 | Score: 615 |\n| BMCRI, Bengaluru | MBBS | General | Karnataka State | 2025 R1 | Closing Rank: #945 | Score: 695 |\n\n\n> *Data sourced from MedCounsel AI database. Feel free to ask follow-up questions!*"
+        }
+      ],
+      "createdAt": "2026-07-02T09:43:19.869Z",
+      "updatedAt": "2026-07-02T09:43:19.890Z"
     }
   }
 }

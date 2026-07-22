@@ -75,8 +75,14 @@ export const UserModel = {
   },
 
   async findAll(): Promise<SafeUser[]> {
-    const users = await UserDoc.find().sort({ createdAt: -1 });
-    return users.map(toSafe);
+    if (isMongoConnected()) {
+      const users = await UserDoc.find().sort({ createdAt: -1 });
+      return users.map(toSafe);
+    }
+    const db = store.load();
+    return Object.values(db.users || {})
+      .map((u: any) => toSafe(u as IUser))
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   },
 
   async create(name: string, email: string, hashedPassword: string, role = 'student'): Promise<SafeUser> {
