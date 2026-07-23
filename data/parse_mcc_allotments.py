@@ -51,6 +51,10 @@ os.makedirs(CACHE, exist_ok=True)
 
 COURSES = {'MBBS', 'BDS', 'BAMS', 'BHMS', 'BUMS', 'BSMS', 'BNYS', 'BVSc'}
 CATEGORIES = {'General', 'OBC', 'SC', 'ST', 'EWS', 'PwD'}
+# NEET fields roughly 24 lakh candidates, so the largest real All India Rank is 7 digits. A NEET
+# ROLL number is 10. Anything at or above this ceiling on a rank row is therefore a roll number
+# that has wandered into the rank column — see the note where rank is read.
+MAX_RANK = 9_999_999
 
 STATES = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa',
@@ -252,7 +256,19 @@ def parse_pdf(path, meta):
 
                     # rank = the first bare number on the row after SNo. MCC prints tie-broken
                     # ranks as "1.01", so allow a decimal.
-                    nums = [c for c in cells[:ci] if re.fullmatch(r'\d+(\.\d+)?', c or '')]
+                    #
+                    # Anything too large to BE a rank is discarded first. The 2021 R1/R3/R4 files
+                    # print an extra column the other rounds do not —
+                    #     SNo RollNo Rank Allotted Quota Allotted Institute Course ...
+                    # — so "the first bare number after SNo" was the candidate's 10-digit NEET
+                    # roll number, not their rank. That put roll numbers in allIndiaRank for
+                    # 16,171 rows (max 9,902,002,878) and made every rank filter on 2021 useless.
+                    # We screen by MAGNITUDE rather than by column index on purpose: the largest
+                    # real AIR is 7 digits and a roll number is 10, whereas column positions slide
+                    # across continuation pages — which is why everything else here anchors on
+                    # content too.
+                    nums = [c for c in cells[:ci]
+                            if re.fullmatch(r'\d+(\.\d+)?', c or '') and float(c) <= MAX_RANK]
                     rank = nums[1] if len(nums) > 1 else (nums[0] if nums else '')
                     if not rank:
                         continue                       # banner / spillover / blank line
