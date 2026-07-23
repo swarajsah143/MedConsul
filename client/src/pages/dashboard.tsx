@@ -407,7 +407,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6 pb-12">
       {/* ═══════════════ HERO SECTION ═══════════════ */}
-      <div className="relative rounded-2xl overflow-hidden">
+      <div className="group/hero relative rounded-2xl overflow-hidden">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700" />
         <div className="absolute inset-0 gradient-mesh opacity-50" />
@@ -416,6 +416,16 @@ export default function DashboardPage() {
           style={{
             backgroundImage:
               "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+          }}
+        />
+        {/* Dotted texture with radial fade */}
+        <div
+          className="absolute inset-0 opacity-[0.14] pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.7) 1px, transparent 0)',
+            backgroundSize: '22px 22px',
+            WebkitMaskImage: 'radial-gradient(ellipse 70% 90% at 20% 40%, black, transparent 75%)',
+            maskImage: 'radial-gradient(ellipse 70% 90% at 20% 40%, black, transparent 75%)',
           }}
         />
 
@@ -435,6 +445,13 @@ export default function DashboardPage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-500/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pulse-glow" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-400/15 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />
         <div className="absolute top-1/3 left-1/3 w-40 h-40 bg-white/5 rounded-full blur-[60px]" />
+        {/* Lumpy accent blobs */}
+        <div className="absolute top-8 left-[38%] w-28 h-28 rounded-full bg-lime-300/15 blur-2xl float-slow" />
+        <div className="absolute bottom-6 left-[42%] w-24 h-24 rounded-full bg-teal-200/15 blur-2xl float-fast" />
+
+        {/* Light sheen + gentle hover sweep */}
+        <div className="absolute inset-0 hero-sheen pointer-events-none" />
+        <div className="absolute inset-y-0 -left-1/3 w-1/3 skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-40 group-hover/hero:translate-x-[350%] transition-transform duration-1000 ease-out pointer-events-none" />
 
         {/* Content */}
         <div className="relative z-10 p-6 sm:p-8 lg:p-10">
