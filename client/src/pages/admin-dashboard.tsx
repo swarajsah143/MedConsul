@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { api } from '@/lib/api';
 import { useAuth } from '@/providers/auth-provider';
 import { Card, CardContent } from '@/components/ui/card';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   Area,
   AreaChart,
@@ -255,9 +256,7 @@ export default function AdminDashboardPage() {
       {/* Top row: welcome hero + stat cards */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Welcome hero */}
-        <div className="lg:col-span-7 relative overflow-hidden rounded-2xl gradient-primary text-white p-6 sm:p-8">
-          <div className="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-white/10" />
-          <div className="absolute right-16 bottom-0 w-40 h-40 rounded-full bg-white/5 translate-y-1/2" />
+        <HeroBanner className="lg:col-span-7" contentClassName="text-white">
           <div className="relative flex items-start justify-between gap-4">
             <div className="flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm">
               <Shield className="w-3.5 h-3.5" /> Admin Panel
@@ -281,7 +280,7 @@ export default function AdminDashboardPage() {
               <ArrowUpRight className="w-4 h-4" />
             </div>
           </div>
-        </div>
+      </HeroBanner>
 
         {/* Stat cards (2×2) */}
         <div className="lg:col-span-5 grid grid-cols-2 gap-4">

@@ -409,8 +409,15 @@ export default function DashboardPage() {
       {/* ═══════════════ HERO SECTION ═══════════════ */}
       <div className="relative rounded-2xl overflow-hidden">
         {/* Background layers */}
-        <div className="absolute inset-0 gradient-primary" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700" />
         <div className="absolute inset-0 gradient-mesh opacity-50" />
+        <div
+          className="absolute inset-0 opacity-[0.35] mix-blend-soft-light pointer-events-none"
+          style={{
+            backgroundImage:
+              "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+          }}
+        />
 
         {/* Floating decorative elements — positioned to avoid the progress card area */}
         <div className="absolute top-6 left-[60%] w-16 h-16 float-slow hidden md:block">

@@ -8,7 +8,7 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { PageHeader } from '@/components/ui/page-header';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   Search,
   Filter,
@@ -305,32 +305,40 @@ export default function DocChecklistPage() {
 
   return (
     <div className="space-y-6 pb-10 print:pb-0 print:space-y-4" ref={printRef}>
-      <PageHeader
-        icon={ClipboardCheck}
-        iconClassName="text-emerald-600"
-        title="Document Checklist"
-        description="Complete guide to documents needed for NEET UG online registration and physical college reporting."
-      >
-        <Button
-          variant="outline"
-          className={`flex items-center gap-2 print:hidden ${showFilters ? 'bg-emerald-50/50 border-emerald-200 text-emerald-700' : ''}`}
-          onClick={() => setShowFilters(!showFilters)}
-        >
-          <Filter className="w-4 h-4" />
-          <span className="hidden sm:inline">Filters</span>
-          {activeFilterCount > 0 && (
-            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-emerald-600 text-white text-[10px] font-bold">{activeFilterCount}</span>
-          )}
-        </Button>
-        <Button variant="outline" onClick={handlePrint} className="flex items-center gap-2 print:hidden">
-          <Printer className="w-4 h-4" />
-          <span className="hidden sm:inline">Print</span>
-        </Button>
-        <Button onClick={handleDownloadPdf} className="gradient-primary text-white flex items-center gap-2 shadow-sm print:hidden">
-          <Download className="w-4 h-4" />
-          <span className="hidden sm:inline">Download</span>
-        </Button>
-      </PageHeader>
+      <HeroBanner contentClassName="text-white print:!p-6">
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="space-y-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/20">
+              <ClipboardCheck className="w-3.5 h-3.5" /> Checklist
+            </span>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Document Checklist</h1>
+            <p className="text-emerald-50/90 text-sm max-w-2xl leading-relaxed">
+              Complete guide to documents needed for NEET UG online registration and physical college reporting.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
+            <Button
+              variant="ghost"
+              className={`text-white border backdrop-blur-sm print:hidden ${showFilters ? 'bg-white/30 border-white/40' : 'bg-white/15 border-white/20 hover:bg-white/25'}`}
+              onClick={() => setShowFilters(!showFilters)}
+            >
+              <Filter className="w-4 h-4" />
+              <span className="hidden sm:inline">Filters</span>
+              {activeFilterCount > 0 && (
+                <span className="w-5 h-5 flex items-center justify-center rounded-full bg-white text-emerald-700 text-[10px] font-bold">{activeFilterCount}</span>
+              )}
+            </Button>
+            <Button variant="ghost" onClick={handlePrint} className="text-white border border-white/20 bg-white/15 hover:bg-white/25 backdrop-blur-sm print:hidden">
+              <Printer className="w-4 h-4" />
+              <span className="hidden sm:inline">Print</span>
+            </Button>
+            <Button variant="ghost" onClick={handleDownloadPdf} className="bg-white text-emerald-700 hover:bg-emerald-50 shadow-sm print:hidden">
+              <Download className="w-4 h-4" />
+              <span className="hidden sm:inline">Download</span>
+            </Button>
+          </div>
+        </div>
+      </HeroBanner>
 
       {/* Progress Section */}
       <Card className="border-emerald-100 dark:border-emerald-900/30 overflow-hidden">

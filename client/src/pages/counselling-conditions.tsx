@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   ScrollText,
   ClipboardList,
@@ -627,15 +628,7 @@ export default function CounsellingConditionsPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero */}
-      <div className="relative rounded-2xl">
-        <div className="gradient-primary rounded-2xl p-6 sm:p-8 lg:p-10 relative">
-          {/* Decorative blurs — clipped to the hero, but kept below content so the dropdown can overflow */}
-          <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-            <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-green-400/10 rounded-full blur-2xl" />
-          </div>
-
+      <HeroBanner>
           <div className="relative z-10 space-y-4 text-center">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
               <Sparkles className="w-3.5 h-3.5" /> Counselling Conditions
@@ -746,8 +739,7 @@ export default function CounsellingConditionsPage() {
               )}
             </div>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Section tabs */}
       <div className="flex flex-wrap justify-center gap-2">
