@@ -15,6 +15,7 @@ import {
   ChevronRight,
   Megaphone,
   MapPin,
+  Target,
   ScrollText,
   ShieldCheck,
   ClipboardList,
@@ -52,6 +53,7 @@ const navigation: NavEntry[] = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Announcements', href: '/announcements', icon: Megaphone },
   { name: 'Allotment Mapping', href: '/allotment', icon: MapPin },
+  { name: 'Eligibility Matcher', href: '/eligibility-matcher', icon: Target },
   {
     name: 'Counselling Conditions',
     icon: ScrollText,

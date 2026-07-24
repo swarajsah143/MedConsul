@@ -21,6 +21,7 @@ import AiAssistantPage from '@/pages/ai-assistant';
 import AnnouncementsPage from '@/pages/announcements';
 import AllotmentStatesPage from '@/pages/allotment-states';
 import AllotmentDetailPage from '@/pages/allotment-detail';
+import EligibilityMatcherPage from '@/pages/eligibility-matcher';
 import CounsellingConditionsPage from '@/pages/counselling-conditions';
 import ExplorePage from '@/pages/explore';
 import AbroadUniversitiesPage from '@/pages/abroad-universities';
@@ -80,6 +81,7 @@ export default function AppRoutes() {
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
         <Route path="allotment/:counselling" element={<AllotmentDetailPage />} />
+        <Route path="eligibility-matcher" element={<EligibilityMatcherPage />} />
         <Route path="rank-insights" element={<RankInsightsPage />} />
         <Route path="rank-insights/detail" element={<RankInsightDetailPage />} />
         <Route path="fee-matrix" element={<FeeMatrixPage />} />
