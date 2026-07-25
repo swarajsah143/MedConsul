@@ -1,9 +1,10 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCollection, distinct, type College } from '@/lib/data-api';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
+import { Pagination } from '@/components/ui/pagination';
 import {
   Search,
   GraduationCap,
@@ -24,10 +25,22 @@ import {
 
 const TYPES: Array<'Government' | 'Private' | 'Deemed'> = ['Government', 'Private', 'Deemed'];
 
+// Rendering all 820 cards at once made the page (and every filter click) crawl. We now show
+// one page at a time — the filtered set is sliced, so only this many cards ever mount.
+const PAGE_SIZE = 12;
+
 const typeColors: Record<string, string> = {
   Government: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400',
   Private: 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400',
   Deemed: 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-400',
+};
+
+// No college has a `thumbnail` in the data, so the image slot was rendering as an empty dark
+// box. Fall back to a branded, type-coloured gradient header instead of a blank frame.
+const typeGradient: Record<string, string> = {
+  Government: 'from-emerald-500 to-teal-600',
+  Private: 'from-amber-500 to-orange-600',
+  Deemed: 'from-blue-500 to-indigo-600',
 };
 
 export default function CollegesPage() {
@@ -35,6 +48,7 @@ export default function CollegesPage() {
   const [search, setSearch] = useState('');
   const [selectedState, setSelectedState] = useState('All');
   const [selectedType, setSelectedType] = useState('All');
+  const [page, setPage] = useState(1);
 
   // A college an admin deactivated must not appear publicly. Legacy rows have no
   // isActive field at all — treat those as active.
@@ -59,6 +73,13 @@ export default function CollegesPage() {
   }, [colleges, search, selectedState, selectedType]);
 
   const activeFilterCount = (selectedState !== 'All' ? 1 : 0) + (selectedType !== 'All' ? 1 : 0) + (search ? 1 : 0);
+
+  // Any change to the result set jumps back to page 1 — otherwise filtering down while on
+  // page 30 would show an empty grid.
+  useEffect(() => { setPage(1); }, [search, selectedState, selectedType]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const paginated = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   const handleReset = () => { setSearch(''); setSelectedState('All'); setSelectedType('All'); };
 
@@ -107,7 +128,7 @@ export default function CollegesPage() {
       </div>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {[
           { label: 'Total Colleges', value: colleges.length, icon: GraduationCap, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
           { label: 'Government', value: govtCount, icon: Building2, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
@@ -115,14 +136,14 @@ export default function CollegesPage() {
           { label: 'Deemed', value: deemedCount, icon: Target, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-            <CardContent className="p-4">
-              <div className="flex items-center gap-3">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${s.bg} transition-transform duration-300 group-hover:scale-110`}>
+            <CardContent className="p-4 sm:p-5">
+              <div className="flex items-center gap-4">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${s.bg} transition-transform duration-300 group-hover:scale-110`}>
                   <s.icon className={`w-5 h-5 ${s.color}`} />
                 </div>
-                <div>
-                  <p className="text-xl font-extrabold text-slate-900 dark:text-slate-100 leading-none">{s.value}</p>
-                  <p className="text-[10px] font-semibold text-muted-foreground mt-1 uppercase tracking-wider">{s.label}</p>
+                <div className="min-w-0">
+                  <p className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 leading-none">{s.value}</p>
+                  <p className="text-[11px] font-semibold text-muted-foreground mt-1.5 uppercase tracking-wide truncate">{s.label}</p>
                 </div>
               </div>
             </CardContent>
@@ -199,21 +220,25 @@ export default function CollegesPage() {
           action={{ label: 'Clear Filters', onClick: handleReset }} />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-          {filtered.map((college) => (
+          {paginated.map((college) => (
             <Link key={college.id} to={`/colleges/${college.id}`} className="group">
               <Card className="overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col border-transparent hover:border-red-200 dark:hover:border-red-900/40 relative">
                 {/* Hover accent */}
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 via-rose-500 to-red-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
-                {/* Thumbnail */}
+                {/* Thumbnail — real image if present, otherwise a branded type-coloured header */}
                 <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
-                  {college.thumbnail && (
+                  {college.thumbnail ? (
                     <img
                       src={college.thumbnail}
                       alt={college.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       loading="lazy"
                     />
+                  ) : (
+                    <div className={`w-full h-full bg-gradient-to-br ${typeGradient[college.type] ?? 'from-red-500 to-rose-600'} flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110`}>
+                      <GraduationCap className="w-16 h-16 text-white/25" />
+                    </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
@@ -290,6 +315,16 @@ export default function CollegesPage() {
             </Link>
           ))}
         </div>
+      )}
+
+      {filtered.length > PAGE_SIZE && (
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          onPageChange={setPage}
+          itemCount={paginated.length}
+          totalItems={filtered.length}
+        />
       )}
     </div>
   );

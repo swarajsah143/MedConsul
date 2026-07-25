@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useCollection, distinct } from '@/lib/data-api';
+import { ALL_INDIA_STATES } from '@/lib/counselling-content';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -103,34 +104,6 @@ const TYPE_ICONS: Record<string, typeof Bell> = {
 
 const DEFAULT_COLORS = { text: 'text-slate-700 dark:text-slate-400', bg: 'bg-slate-50 dark:bg-slate-800', border: 'border-slate-200 dark:border-slate-700' };
 
-const TYPE_GRADIENTS: Record<string, string> = {
-  'Allotment': 'from-blue-500 to-indigo-600',
-  'Counselling': 'from-emerald-500 to-green-600',
-  'Public Notice': 'from-red-500 to-rose-600',
-  'Seat Matrix': 'from-amber-500 to-orange-600',
-  'Merit list': 'from-purple-500 to-violet-600',
-  'Merit List': 'from-purple-500 to-violet-600',
-  'Rank List': 'from-indigo-500 to-blue-600',
-  'Rank list': 'from-indigo-500 to-blue-600',
-  'Last rank': 'from-cyan-500 to-teal-600',
-  'Opening and closing rank': 'from-indigo-500 to-blue-600',
-  'Seat matrix': 'from-amber-500 to-orange-600',
-};
-
-const TYPE_GLOWS: Record<string, string> = {
-  'Allotment': 'shadow-blue-500/20',
-  'Counselling': 'shadow-emerald-500/20',
-  'Public Notice': 'shadow-red-500/20',
-  'Seat Matrix': 'shadow-amber-500/20',
-  'Merit list': 'shadow-purple-500/20',
-  'Merit List': 'shadow-purple-500/20',
-  'Rank List': 'shadow-indigo-500/20',
-  'Rank list': 'shadow-indigo-500/20',
-  'Last rank': 'shadow-cyan-500/20',
-  'Opening and closing rank': 'shadow-indigo-500/20',
-  'Seat matrix': 'shadow-amber-500/20',
-};
-
 export default function AnnouncementsPage() {
   const { data, loading, error, reload } = useCollection<Announcement>('announcements');
 
@@ -153,8 +126,13 @@ export default function AnnouncementsPage() {
     [data],
   );
 
-  // Filter options come from the live data.
-  const stateOptions = useMemo(() => distinct(sorted, 'state'), [sorted]);
+  // Show every Indian state/UT in the filter — not just the handful that happen to
+  // appear in the current announcement data. Merge the canonical list with any states
+  // present in the data (covers spellings or regions not in the canonical list).
+  const stateOptions = useMemo(
+    () => [...new Set([...ALL_INDIA_STATES, ...distinct(sorted, 'state')])].sort(),
+    [sorted],
+  );
   const typeOptions = useMemo(() => distinct(sorted, 'announcementType'), [sorted]);
   const monthOptions = useMemo(() => {
     const seen = new Map<string, string>();
@@ -246,12 +224,12 @@ export default function AnnouncementsPage() {
                 </div>
 
                 {/* Month Filter */}
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-slate-400 shrink-0 hidden sm:block" />
+                <div className="relative">
+                  <Calendar className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <select
                     value={monthFilter}
                     onChange={(e) => { setMonthFilter(e.target.value); setPage(1); }}
-                    className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[140px]"
+                    className="h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer w-full sm:min-w-[150px]"
                   >
                     <option value="All">All Months</option>
                     {monthOptions.map(([key, label]) => (
@@ -261,12 +239,12 @@ export default function AnnouncementsPage() {
                 </div>
 
                 {/* State Filter */}
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-slate-400 shrink-0 hidden sm:block" />
+                <div className="relative">
+                  <MapPin className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                   <select
                     value={stateFilter}
                     onChange={(e) => { setStateFilter(e.target.value); setPage(1); }}
-                    className="h-11 px-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer min-w-[160px]"
+                    className="h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer w-full sm:min-w-[170px]"
                   >
                     <option value="All">All States</option>
                     {stateOptions.map((s) => (
@@ -343,7 +321,7 @@ export default function AnnouncementsPage() {
               action={{ label: 'Clear Filters', onClick: handleReset }}
             />
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {paginated.map((announcement, idx) => (
                 <AnnouncementCard key={announcement.id} announcement={announcement} index={idx} />
               ))}
@@ -367,105 +345,81 @@ function AnnouncementCard({ announcement: a, index }: { announcement: DatedAnnou
   const type = a.announcementType ?? '';
   const colors = TYPE_COLORS[type] || DEFAULT_COLORS;
   const Icon = TYPE_ICONS[type] || Bell;
-  const gradient = TYPE_GRADIENTS[type] || 'from-slate-500 to-slate-600';
-  const glow = TYPE_GLOWS[type] || 'shadow-slate-500/20';
 
   const isRecent = a.ts > 0 && Date.now() - a.ts <= RECENT_MS;
-  const docLabel = a.documentLabel || type || 'Document';
+  const docLabel = a.documentLabel || type || 'View document';
+  const dateLabel = a.ts > 0
+    ? `${a.dayLabel} ${a.monthShort.charAt(0)}${a.monthShort.slice(1).toLowerCase()}`
+    : '';
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 18, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.45, delay: Math.min(index * 0.05, 0.4), ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -6 }}
+      className="h-full"
     >
-      <Card
-        className={`group relative overflow-hidden border-slate-200/60 dark:border-slate-800/60 hover:border-transparent transition-all duration-500 hover:shadow-2xl ${glow} h-full`}
-      >
-        {/* Top gradient accent bar */}
-        <div className={`h-1 bg-gradient-to-r ${gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
+      <Card className={`group relative h-full flex flex-col overflow-hidden ${colors.border} bg-white dark:bg-slate-900 hover:shadow-xl transition-all duration-300`}>
+        {/* Light, type-tinted wash — gives every card a soft colour that matches its category. */}
+        <div className={`pointer-events-none absolute inset-0 ${colors.bg} opacity-40 dark:opacity-25`} />
+        {/* A glow in the corner that blooms and drifts when you hover — the "alive" bit. */}
+        <div className={`pointer-events-none absolute -top-12 -right-12 w-36 h-36 rounded-full blur-3xl ${colors.bg} opacity-50 group-hover:opacity-90 group-hover:scale-125 transition-all duration-500`} />
 
-        {/* Hover background glow */}
-        <div className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-[0.06] blur-3xl transition-opacity duration-700 pointer-events-none`} />
-
-        <CardContent className="p-5 relative">
-          {/* Header: Icon badge + Date */}
-          <div className="flex items-start justify-between mb-3">
-            <motion.div
-              className={`w-11 h-11 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg ${glow}`}
-              whileHover={{ scale: 1.15, rotate: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-            >
-              <Icon className="w-5 h-5 text-white" />
-            </motion.div>
-
-            <div
-              title={a.monthLabel || undefined}
-              className={`flex flex-col items-center px-3 py-1.5 rounded-xl transition-all duration-300 group-hover:scale-105 ${
-                isRecent
-                  ? 'bg-red-50 dark:bg-red-950/30'
-                  : 'bg-slate-50 dark:bg-slate-800'
-              }`}
-            >
-              <span className={`text-[9px] font-bold uppercase leading-none tracking-wider ${
-                isRecent ? 'text-red-500 dark:text-red-400' : 'text-slate-400'
-              }`}>
-                {a.monthShort}
+        <CardContent className="relative flex flex-col h-full p-5">
+          {/* Header: type + date */}
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <span className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm ${colors.bg} ${colors.text} transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6`}>
+                <Icon className="w-5 h-5" />
               </span>
-              <span className={`text-lg font-extrabold leading-none mt-0.5 ${
-                isRecent ? 'text-red-600 dark:text-red-400' : 'text-slate-700 dark:text-slate-300'
-              }`}>
-                {a.dayLabel}
-              </span>
+              {type && (
+                <span className={`text-xs font-bold truncate ${colors.text}`}>{type}</span>
+              )}
             </div>
-          </div>
-
-          {/* Tags */}
-          <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
-            {type && (
-              <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${colors.bg} ${colors.text} border ${colors.border}`}>
-                {type}
-              </span>
-            )}
-            {a.state && (
-              <span className="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400">
-                <MapPin className="w-2.5 h-2.5" />
-                {a.state}
+            {dateLabel && (
+              <span className="inline-flex items-center gap-1.5 shrink-0">
+                {isRecent && <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_0_3px_rgba(239,68,68,0.15)]" />}
+                <span
+                  title={a.monthLabel || undefined}
+                  className={`text-xs font-semibold tabular-nums ${
+                    isRecent ? 'text-red-600 dark:text-red-400' : 'text-slate-400 dark:text-slate-500'
+                  }`}
+                >
+                  {dateLabel}
+                </span>
               </span>
             )}
           </div>
 
           {/* Title */}
-          <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-600 group-hover:to-rose-500 dark:group-hover:from-red-400 dark:group-hover:to-rose-400 transition-all duration-300 mb-2">
+          <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2">
             {a.title ?? 'Untitled announcement'}
           </h3>
 
-          {/* Description */}
-          <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-2 mb-4">
-            {a.shortDescription ?? ''}
-          </p>
+          {/* State meta */}
+          {a.state && (
+            <p className="mt-2 inline-flex items-center gap-1 text-xs font-medium text-slate-500 dark:text-slate-400">
+              <MapPin className="w-3 h-3 shrink-0" />
+              {a.state}
+            </p>
+          )}
 
-          {/* Bottom: Document action */}
-          <div className="pt-3 border-t border-slate-100 dark:border-slate-800/60">
+          {/* Footer: document action, pinned to bottom */}
+          <div className="mt-auto pt-4 border-t border-slate-200/70 dark:border-slate-800/60">
             {a.documentUrl ? (
               <a
                 href={a.documentUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className={`inline-flex items-center gap-2 text-[11px] font-bold w-full justify-between px-3.5 py-2 rounded-xl border transition-all duration-300 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] ${colors.bg} ${colors.text} ${colors.border} group/link`}
+                className={`group/doc inline-flex items-center gap-1.5 text-xs font-bold transition-all ${colors.text} hover:gap-2.5`}
               >
-                <span className="flex items-center gap-1.5">
-                  <Icon className="w-3.5 h-3.5" />
-                  {docLabel}
-                </span>
-                <ArrowUpRight className="w-3.5 h-3.5 opacity-50 group-hover/link:opacity-100 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-all duration-300" />
+                {docLabel}
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/doc:translate-x-0.5 group-hover/doc:-translate-y-0.5" />
               </a>
             ) : (
-              <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-3.5 py-2 rounded-xl ${colors.bg} ${colors.text} opacity-60`}>
-                <Icon className="w-3.5 h-3.5" />
-                {docLabel}
-              </span>
+              <span className="text-xs font-medium text-slate-400 dark:text-slate-500">{docLabel}</span>
             )}
           </div>
         </CardContent>

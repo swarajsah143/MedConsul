@@ -25,10 +25,8 @@ import {
   Printer,
   Download,
   Info,
+  ChevronDown,
   FileText,
-  HardDrive,
-  Tag,
-  Shield,
   Loader2,
   AlertTriangle,
   Upload,
@@ -84,9 +82,9 @@ function StatusBadge({ status }: { status: SubmissionStatus }) {
   const { label, icon: Icon, className } = STATUS_BADGE[status];
   return (
     <span
-      className={`inline-flex items-center gap-1 px-2 py-0.5 border rounded text-[9px] font-bold uppercase tracking-wider ${className}`}
+      className={`inline-flex items-center gap-1 px-2 py-0.5 border rounded-md text-[11px] font-semibold ${className}`}
     >
-      <Icon className="w-3 h-3" /> {label}
+      <Icon className="w-3.5 h-3.5" /> {label}
     </span>
   );
 }
@@ -208,15 +206,13 @@ function DocCard({
   onSubmissionChange: (docId: string, submission: Submission | null) => void;
 }) {
   const name = doc.name ?? 'Untitled document';
-  const categories = doc.categories ?? [];
-  const counsellingTypes = doc.counsellingTypes ?? [];
-  const states = doc.states ?? [];
 
   const [uploading, setUploading] = useState(false);
   const [removing, setRemoving] = useState(false);
   const [confirmingRemove, setConfirmingRemove] = useState(false);
   const [viewing, setViewing] = useState(false);
   const [rowError, setRowError] = useState<string | null>(null);
+  const [showNotes, setShowNotes] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Object URLs handed out by `downloadFile` outlive the click that created them —
@@ -327,63 +323,56 @@ function DocCard({
 
         {/* Content */}
         <div className="flex-1 min-w-0 space-y-2">
-          {/* Title Row */}
+          {/* Title + required/optional + status — one clear line */}
           <div className="flex flex-wrap items-center gap-2">
-            <h4 className={`text-sm font-bold leading-snug ${isChecked ? 'text-slate-400 line-through' : 'text-slate-800 dark:text-slate-100'}`}>
+            <h4 className={`text-base font-semibold leading-snug ${isChecked ? 'text-slate-400 line-through' : 'text-slate-800 dark:text-slate-100'}`}>
               {name}
             </h4>
-            {status && <StatusBadge status={status} />}
             {doc.mandatory ? (
-              <span className="px-2 py-0.5 bg-rose-50 text-rose-700 border border-rose-100 rounded text-[9px] font-bold uppercase tracking-wider dark:bg-rose-950/30 dark:border-rose-900/50 dark:text-rose-400">
-                Mandatory
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-rose-50 text-rose-700 border border-rose-100 dark:bg-rose-950/30 dark:border-rose-900/50 dark:text-rose-400">
+                Required
               </span>
             ) : (
-              <span className="px-2 py-0.5 bg-amber-50 text-amber-700 border border-amber-100 rounded text-[9px] font-bold uppercase tracking-wider dark:bg-amber-950/30 dark:border-amber-900/50 dark:text-amber-400">
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
                 Optional
               </span>
             )}
+            {status && <StatusBadge status={status} />}
           </div>
 
-          {/* Notes */}
-          {doc.notes && (
-            <div className={`flex gap-2 items-start text-xs p-2.5 rounded-lg ${
-              isChecked
-                ? 'bg-emerald-50/60 text-emerald-700/60 dark:bg-emerald-900/10 dark:text-emerald-400/50'
-                : 'bg-slate-50 text-slate-600 dark:bg-slate-800/50 dark:text-slate-400'
-            }`}>
-              <Info className="w-3.5 h-3.5 mt-0.5 shrink-0" />
-              <span className="leading-relaxed">{doc.notes}</span>
-            </div>
+          {/* Format & size — one quiet line so the student knows what to prepare */}
+          {(doc.format || doc.fileSize) && (
+            <p className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+              <FileText className="w-3.5 h-3.5 shrink-0" />
+              {[doc.format, doc.fileSize].filter(Boolean).join('  ·  ')}
+            </p>
           )}
 
-          {/* Meta Tags */}
-          <div className="flex flex-wrap gap-2">
-            {doc.format && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-blue-50 dark:bg-blue-950/20 text-blue-700 dark:text-blue-400 rounded text-[10px] font-semibold">
-                <FileText className="w-3 h-3" /> {doc.format}
-              </span>
-            )}
-            {doc.fileSize && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-purple-50 dark:bg-purple-950/20 text-purple-700 dark:text-purple-400 rounded text-[10px] font-semibold">
-                <HardDrive className="w-3 h-3" /> {doc.fileSize}
-              </span>
-            )}
-            {categories.length > 0 && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-50 dark:bg-amber-950/20 text-amber-700 dark:text-amber-400 rounded text-[10px] font-semibold">
-                <Tag className="w-3 h-3" /> {categories.join(', ')}
-              </span>
-            )}
-            {counsellingTypes.length > 0 && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 rounded text-[10px] font-semibold">
-                <Shield className="w-3 h-3" /> {counsellingTypes.join(', ')}
-              </span>
-            )}
-            {states.length > 0 && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-400 rounded text-[10px] font-semibold">
-                {states.join(', ')}
-              </span>
-            )}
-          </div>
+          {/* Guidance note — collapsed into a dropdown so the card stays short;
+              the plain-language "what this is / how to get it right" is one click away. */}
+          {doc.notes && (
+            <div>
+              <button
+                type="button"
+                onClick={() => setShowNotes((v) => !v)}
+                aria-expanded={showNotes}
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 transition-colors"
+              >
+                <Info className="w-3.5 h-3.5" />
+                {showNotes ? 'Hide description' : 'View description'}
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${showNotes ? 'rotate-180' : ''}`} />
+              </button>
+              {showNotes && (
+                <div className={`mt-2 text-sm p-3 rounded-lg animate-fade-in leading-relaxed ${
+                  isChecked
+                    ? 'bg-emerald-50/60 text-emerald-700/70 dark:bg-emerald-900/10 dark:text-emerald-400/60'
+                    : 'bg-slate-50 text-slate-600 dark:bg-slate-800/50 dark:text-slate-300'
+                }`}>
+                  {doc.notes}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Rejection remarks — the only channel telling the student what to fix. */}
           {status === 'rejected' && (
@@ -735,7 +724,7 @@ export default function DocChecklistPage() {
         icon={ClipboardCheck}
         iconClassName="text-red-600"
         title="Document Checklist"
-        description="Complete guide to documents needed for NEET UG online registration and physical college reporting."
+        description="Upload each document and track its status — for online registration and college reporting."
       >
         <Button
           variant="outline"

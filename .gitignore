@@ -42,3 +42,10 @@ data/backup/
 # Python bytecode
 __pycache__/
 *.pyc
+
+# Local dev credentials — never commit (contains demo passwords, connection strings)
+CREDENTIALS.md
+
+# Large local data snapshot (~68MB, incl. a 69MB allotments.json). Kept on disk, not in git —
+# the DB already contains this data. Use Git LFS if it ever needs to be versioned.
+/data/seed/

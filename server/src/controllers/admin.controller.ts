@@ -50,6 +50,18 @@ export function profileProblem(p: Record<string, any>): string | null {
   if (p.dateOfBirth && !/^\d{4}-\d{2}-\d{2}$/.test(String(p.dateOfBirth))) {
     return 'Date of birth must be YYYY-MM-DD';
   }
+  // Profile picture: a small data URL, or blank (= no picture). The client downscales to
+  // 256px and re-encodes, so a legitimate avatar is tens of KB. Reject anything that is not
+  // an image data URL, or that is implausibly large (uncompressed / abusive).
+  if (p.avatar !== undefined && p.avatar !== null && p.avatar !== '') {
+    const s = String(p.avatar);
+    if (!/^data:image\/(png|jpe?g|webp);base64,/.test(s)) {
+      return 'Profile picture must be a PNG, JPG or WEBP image.';
+    }
+    if (s.length > 700_000) {
+      return 'Profile picture is too large — please choose a smaller image.';
+    }
+  }
   return null;
 }
 

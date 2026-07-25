@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCollection, distinct } from '@/lib/data-api';
 import { Card, CardContent } from '@/components/ui/card';
@@ -23,6 +24,11 @@ import {
   Loader2,
   AlertTriangle,
   Database,
+  FlaskConical,
+  Briefcase,
+  ClipboardList,
+  ArrowUpRight,
+  type LucideIcon,
 } from 'lucide-react';
 
 type SectionKey = 'university' | 'courses' | 'blogs';
@@ -442,14 +448,55 @@ function CoursesSection() {
 
 // ─────────────────────── Blogs ───────────────────────
 
-const BLOG_CAT_NEON: Record<string, { bg: string; text: string; border: string; icon: string; glow: string; hoverText: string }> = {
-  University: { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20', icon: 'text-blue-400', glow: 'hover:shadow-blue-500/10', hoverText: 'group-hover:text-blue-300' },
-  Research: { bg: 'bg-emerald-500/10', text: 'text-emerald-400', border: 'border-emerald-500/20', icon: 'text-emerald-400', glow: 'hover:shadow-emerald-500/10', hoverText: 'group-hover:text-emerald-300' },
-  Discovery: { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20', icon: 'text-purple-400', glow: 'hover:shadow-purple-500/10', hoverText: 'group-hover:text-purple-300' },
-  Admissions: { bg: 'bg-amber-500/10', text: 'text-amber-400', border: 'border-amber-500/20', icon: 'text-amber-400', glow: 'hover:shadow-amber-500/10', hoverText: 'group-hover:text-amber-300' },
-  Career: { bg: 'bg-cyan-500/10', text: 'text-cyan-400', border: 'border-cyan-500/20', icon: 'text-cyan-400', glow: 'hover:shadow-cyan-500/10', hoverText: 'group-hover:text-cyan-300' },
+/** Per-category theme — a light, on-brand tint per blog type used for the card background,
+ *  the top accent bar, the badge, the hover glow and the title hover colour. */
+interface BlogCat {
+  grad: string;        // card background gradient
+  bar: string;         // top accent bar + corner glow gradient
+  badge: string;       // category pill
+  border: string;
+  glow: string;        // hover shadow colour
+  hoverTitle: string;  // title colour on hover
+  Icon: LucideIcon;
+}
+const BLOG_CAT: Record<string, BlogCat> = {
+  University: {
+    grad: 'from-blue-50 via-white to-white dark:from-blue-950/30 dark:via-slate-900 dark:to-slate-900',
+    bar: 'from-blue-500 to-indigo-500', badge: 'bg-blue-100 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300',
+    border: 'border-blue-200/70 dark:border-blue-900/40', glow: 'group-hover:shadow-blue-500/20',
+    hoverTitle: 'group-hover:text-blue-700 dark:group-hover:text-blue-300', Icon: GraduationCap,
+  },
+  Research: {
+    grad: 'from-emerald-50 via-white to-white dark:from-emerald-950/30 dark:via-slate-900 dark:to-slate-900',
+    bar: 'from-emerald-500 to-teal-500', badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300',
+    border: 'border-emerald-200/70 dark:border-emerald-900/40', glow: 'group-hover:shadow-emerald-500/20',
+    hoverTitle: 'group-hover:text-emerald-700 dark:group-hover:text-emerald-300', Icon: FlaskConical,
+  },
+  Discovery: {
+    grad: 'from-purple-50 via-white to-white dark:from-purple-950/30 dark:via-slate-900 dark:to-slate-900',
+    bar: 'from-purple-500 to-fuchsia-500', badge: 'bg-purple-100 text-purple-700 dark:bg-purple-950/50 dark:text-purple-300',
+    border: 'border-purple-200/70 dark:border-purple-900/40', glow: 'group-hover:shadow-purple-500/20',
+    hoverTitle: 'group-hover:text-purple-700 dark:group-hover:text-purple-300', Icon: Sparkles,
+  },
+  Admissions: {
+    grad: 'from-amber-50 via-white to-white dark:from-amber-950/30 dark:via-slate-900 dark:to-slate-900',
+    bar: 'from-amber-500 to-orange-500', badge: 'bg-amber-100 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300',
+    border: 'border-amber-200/70 dark:border-amber-900/40', glow: 'group-hover:shadow-amber-500/20',
+    hoverTitle: 'group-hover:text-amber-700 dark:group-hover:text-amber-300', Icon: ClipboardList,
+  },
+  Career: {
+    grad: 'from-cyan-50 via-white to-white dark:from-cyan-950/30 dark:via-slate-900 dark:to-slate-900',
+    bar: 'from-cyan-500 to-sky-500', badge: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-950/50 dark:text-cyan-300',
+    border: 'border-cyan-200/70 dark:border-cyan-900/40', glow: 'group-hover:shadow-cyan-500/20',
+    hoverTitle: 'group-hover:text-cyan-700 dark:group-hover:text-cyan-300', Icon: Briefcase,
+  },
 };
-const DEFAULT_BLOG_NEON = { bg: 'bg-red-500/10', text: 'text-red-400', border: 'border-red-500/20', icon: 'text-red-400', glow: 'hover:shadow-red-500/10', hoverText: 'group-hover:text-red-300' };
+const DEFAULT_BLOG_CAT: BlogCat = {
+  grad: 'from-rose-50 via-white to-white dark:from-rose-950/30 dark:via-slate-900 dark:to-slate-900',
+  bar: 'from-rose-500 to-red-500', badge: 'bg-rose-100 text-rose-700 dark:bg-rose-950/50 dark:text-rose-300',
+  border: 'border-rose-200/70 dark:border-rose-900/40', glow: 'group-hover:shadow-rose-500/20',
+  hoverTitle: 'group-hover:text-rose-700 dark:group-hover:text-rose-300', Icon: Newspaper,
+};
 
 function formatBlogDate(date?: string): string {
   if (!date) return '';
@@ -458,76 +505,89 @@ function formatBlogDate(date?: string): string {
   return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
-function BlogCard({ b }: { b: Blog }) {
+function BlogCard({ b, index = 0 }: { b: Blog; index?: number }) {
   const dateStr = formatBlogDate(b.date);
-  const neon = BLOG_CAT_NEON[b.category ?? ''] || DEFAULT_BLOG_NEON;
+  const cat = BLOG_CAT[b.category ?? ''] || DEFAULT_BLOG_CAT;
+  const Icon = cat.Icon;
   const tags = b.tags ?? [];
   const hasLink = Boolean(b.url);
 
   const body = (
-    <div className="h-full rounded-2xl bg-gradient-to-br from-red-50/80 via-orange-50/60 to-amber-50/40 dark:from-red-950/25 dark:via-orange-950/15 dark:to-amber-950/10 border border-red-200/60 dark:border-red-900/30 overflow-hidden hover:shadow-2xl hover:shadow-red-500/10 hover:-translate-y-1 transition-all duration-300 relative">
-      {/* Hover glow */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 via-transparent to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+    <div className={`group relative h-full rounded-2xl overflow-hidden border ${cat.border} bg-gradient-to-br ${cat.grad} shadow-sm hover:shadow-xl ${cat.glow} transition-all duration-300`}>
+      {/* Top accent bar — the category's colour at a glance. */}
+      <div className={`h-1 w-full bg-gradient-to-r ${cat.bar}`} />
+      {/* A soft glow that blooms in the corner on hover. */}
+      <div className={`pointer-events-none absolute -top-10 -right-10 w-32 h-32 rounded-full blur-3xl bg-gradient-to-br ${cat.bar} opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
 
-      <div className="p-4 sm:p-5 relative flex flex-col h-full">
-        {/* Category badge + Read time */}
+      <div className="p-5 relative flex flex-col h-full">
+        {/* Category badge + Read time — smallest tier in the hierarchy. */}
         <div className="flex items-center justify-between mb-3">
           {b.category ? (
-            <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border ${neon.bg} ${neon.text} ${neon.border}`}>
-              <Newspaper className={`w-3 h-3 ${neon.icon}`} />
+            <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${cat.badge} transition-transform duration-300 group-hover:scale-105`}>
+              <Icon className="w-3 h-3" />
               {b.category}
             </span>
           ) : <span />}
           {b.readTime && (
-            <span className="flex items-center gap-1 text-[10px] font-medium text-slate-500 dark:text-slate-400">
+            <span className="flex items-center gap-1 text-[11px] font-medium text-slate-400 dark:text-slate-500">
               <Clock className="w-3 h-3" /> {b.readTime}
             </span>
           )}
         </div>
 
-        {/* Title */}
-        <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors line-clamp-2">
+        {/* Title — top of the hierarchy: largest and boldest. */}
+        <h3 className={`text-[15px] sm:text-base font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 transition-colors duration-200 ${cat.hoverTitle}`}>
           {b.title ?? 'Untitled post'}
         </h3>
 
-        {/* Excerpt */}
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed line-clamp-3 flex-1">{b.excerpt ?? ''}</p>
+        {/* Excerpt — second tier: readable body size, muted. */}
+        <p className="text-[13px] text-slate-600 dark:text-slate-400 mt-2 leading-relaxed line-clamp-3 flex-1">{b.excerpt ?? ''}</p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-1 mt-3">
-          {tags.slice(0, 3).map((t) => (
-            <span key={t} className="text-[10px] font-medium px-2 py-0.5 rounded-md bg-white/60 dark:bg-slate-800/60 border border-red-100 dark:border-slate-700/50 text-slate-600 dark:text-slate-400">
-              #{t}
-            </span>
-          ))}
-        </div>
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 mt-3.5">
+            {tags.slice(0, 3).map((t) => (
+              <span key={t} className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-white/70 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/50 text-slate-500 dark:text-slate-400">
+                #{t}
+              </span>
+            ))}
+          </div>
+        )}
 
-        {/* Footer: Author + Date */}
-        <div className="flex items-center gap-3 mt-4 pt-3 border-t border-red-100/80 dark:border-red-900/20 text-[11px] text-slate-500 dark:text-slate-400">
+        {/* Footer: Author + Date — smallest meta tier. */}
+        <div className="flex items-center gap-3 mt-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60 text-[11px] text-slate-500 dark:text-slate-400">
           {b.author && (
-            <span className="flex items-center gap-1.5">
-              <div className="w-5 h-5 rounded-full bg-red-100 dark:bg-red-950/30 border border-red-200 dark:border-red-800/40 flex items-center justify-center">
-                <User className="w-2.5 h-2.5 text-red-500 dark:text-red-400" />
-              </div>
-              {b.author}
+            <span className="flex items-center gap-1.5 min-w-0">
+              <span className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${cat.badge}`}>
+                <User className="w-2.5 h-2.5" />
+              </span>
+              <span className="truncate">{b.author}</span>
             </span>
           )}
-          {dateStr && <span className="flex items-center gap-1"><CalendarDays className="w-3 h-3" /> {dateStr}</span>}
+          {dateStr && <span className="flex items-center gap-1 shrink-0"><CalendarDays className="w-3 h-3" /> {dateStr}</span>}
           {hasLink && (
-            <ExternalLink className="w-3.5 h-3.5 ml-auto opacity-0 group-hover:opacity-100 text-red-500 dark:text-red-400 transition-opacity duration-300" />
+            <ArrowUpRight className="w-4 h-4 ml-auto shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 text-slate-500 dark:text-slate-400 transition-all duration-300" />
           )}
         </div>
       </div>
     </div>
   );
 
-  // Blogs have no real URL yet — render the card as plain content, not a dead link.
-  if (!hasLink) return <div className="group block h-full">{body}</div>;
-
   return (
-    <a href={b.url} target="_blank" rel="noopener noreferrer" className="group block h-full">
-      {body}
-    </a>
+    <motion.div
+      initial={{ opacity: 0, y: 18, scale: 0.98 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4), ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -6 }}
+      className="h-full"
+    >
+      {/* Blogs have no real URL yet — render as plain content, not a dead link. */}
+      {hasLink ? (
+        <a href={b.url} target="_blank" rel="noopener noreferrer" className="block h-full">{body}</a>
+      ) : (
+        <div className="block h-full">{body}</div>
+      )}
+    </motion.div>
   );
 }
 
@@ -593,8 +653,8 @@ function BlogsSection() {
         <EmptyResults message="No blogs match your search" hint="Try a different keyword or category." />
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {results.map((b) => (
-            <BlogCard key={b.id} b={b} />
+          {results.map((b, i) => (
+            <BlogCard key={b.id} b={b} index={i} />
           ))}
         </div>
       )}

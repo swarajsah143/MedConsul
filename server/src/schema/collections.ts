@@ -344,6 +344,16 @@ export const abroadUniversities: CollectionSchema = {
     { name: 'recognitions', type: 'string[]', label: 'Recognitions' },
     { name: 'highlight', type: 'text', label: 'Highlight' },
     { name: 'image', type: 'url', label: 'Image' },
+
+    // ── Richer detail (shown in the "View details" panel) ──
+    { name: 'about', type: 'text', label: 'About' },
+    { name: 'website', type: 'url', label: 'Official website' },
+    { name: 'established', type: 'number', label: 'Established (year)' },
+    { name: 'intake', type: 'string', label: 'Intake' },
+    { name: 'eligibility', type: 'text', label: 'Eligibility' },
+    { name: 'licensingExams', type: 'string[]', label: 'Licensing exams' },
+    { name: 'advantages', type: 'string[]', label: 'Key advantages' },
+    { name: 'hostelInfo', type: 'text', label: 'Hostel & mess' },
   ],
 };
 
