@@ -323,7 +323,7 @@ function StatCard({
   to?: string;
 }) {
   const body = (
-    <CardContent className="p-5 flex items-center gap-4">
+    <CardContent className="px-5 pt-8 pb-4 sm:px-5 sm:pt-8 sm:pb-4 flex items-center gap-4">
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${tint}`}>
         <Icon className="w-6 h-6" />
       </div>
