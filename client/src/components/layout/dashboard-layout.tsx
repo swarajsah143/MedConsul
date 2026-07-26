@@ -21,6 +21,7 @@ import {
   LayoutDashboard,
   LogOut,
   MapPin,
+  ListChecks,
   Megaphone,
   Menu,
   Newspaper,
@@ -89,6 +90,7 @@ function buildNavSections(announcementBadge?: string, docsBadge?: string): NavSe
         { name: 'Rank Insights', href: '/rank-insights', icon: BarChart3 },
         { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
         { name: 'Allotment Mapping', href: '/allotment', icon: MapPin },
+        { name: 'Eligibility Matcher', href: '/eligibility-matcher', icon: ListChecks },
       ],
     },
     {
