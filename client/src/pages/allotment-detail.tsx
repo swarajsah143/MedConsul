@@ -304,7 +304,7 @@ export default function AllotmentDetailPage() {
       </HeroBanner>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
         {[
           { label: 'Total Allotments', value: counsellingTotal.toLocaleString(), icon: Award, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Institutes', value: instituteCount.toLocaleString(), icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
