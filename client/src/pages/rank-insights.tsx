@@ -2,6 +2,7 @@ import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCollections, byId, distinct, type College, type ClosingRank } from '@/lib/data-api';
+import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -730,8 +731,11 @@ export default function RankInsightsPage() {
               <div className="p-4 sm:p-5 relative">
                 {/* Header */}
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+                  <div className="relative w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
                     <GraduationCap className="w-5 h-5 text-emerald-400" />
+                    <img src={collegePhoto(entry.collegeName)} alt="" loading="lazy"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      className="absolute inset-0 w-full h-full object-cover" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-sm font-bold text-white leading-snug truncate group-hover:text-emerald-300 transition-colors duration-200">

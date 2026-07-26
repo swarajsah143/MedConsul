@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useFacets } from '@/lib/data-api';
+import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,27 +9,6 @@ import { HeroBanner } from '@/components/ui/hero-banner';
 import { Search, Building2, ListChecks, Loader2 } from 'lucide-react';
 
 const PER_PAGE = 24;
-
-// A small pool of campus / hospital photos (same source the college data uses).
-// Assigned deterministically per college so each card keeps a stable image.
-const COLLEGE_PHOTOS = [
-  'photo-1587351021759-3e566b6af7cc',
-  'photo-1519494026892-80bbd2d6fd0d',
-  'photo-1580281658223-9b93f18ae9ae',
-  'photo-1551076805-e1869033e561',
-  'photo-1562774053-701939374585',
-  'photo-1504439468489-c8920d796a29',
-  'photo-1571019614242-c5c5dee9f50b',
-  'photo-1523050854058-8df90110c9f1',
-  'photo-1607237138185-eedd9c632b0b',
-  'photo-1541339907198-e08756dedf3f',
-].map((id) => `https://images.unsplash.com/${id}?w=160&h=160&fit=crop&auto=format`);
-
-function collegePhoto(name: string): string {
-  let h = 0;
-  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
-  return COLLEGE_PHOTOS[h % COLLEGE_PHOTOS.length];
-}
 
 const selectClass =
   'mt-1.5 w-full h-11 px-3 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-700 dark:text-slate-200 focus:border-emerald-400 focus:outline-none transition-colors';

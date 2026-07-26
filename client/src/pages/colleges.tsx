@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCollection, distinct, type College } from '@/lib/data-api';
+import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -223,20 +224,18 @@ export default function CollegesPage() {
                 {/* Hover accent */}
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
-                {/* Thumbnail — real image if present, otherwise a branded type-coloured header */}
+                {/* Thumbnail — real image if present, deterministic Unsplash as fallback */}
                 <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
-                  {college.thumbnail ? (
-                    <img
-                      src={college.thumbnail}
-                      alt={college.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className={`w-full h-full bg-gradient-to-br ${typeGradient[college.type] ?? 'from-emerald-500 to-green-600'} flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-110`}>
-                      <GraduationCap className="w-16 h-16 text-white/25" />
-                    </div>
-                  )}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${typeGradient[college.type] ?? 'from-emerald-500 to-green-600'} flex items-center justify-center`}>
+                    <GraduationCap className="w-16 h-16 text-white/25" />
+                  </div>
+                  <img
+                    src={college.thumbnail || collegePhoto(college.name ?? '')}
+                    alt={college.name}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
                   {/* Type badge on image */}

@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { collegePhoto } from '@/lib/college-photo';
 import {
   predict, usePredictorMeta, CHANCE_STYLE,
   type Prediction, type PredictMatch, type Chance,
@@ -406,17 +407,26 @@ function MatchTable({ matches }: { matches: PredictMatch[] }) {
                   className="border-b border-slate-100 dark:border-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors"
                 >
                   <td className="px-4 py-3">
-                    <Link
-                      to={`/colleges/${m.collegeId}`}
-                      className="font-medium text-slate-900 dark:text-slate-100 hover:text-emerald-600 dark:hover:text-emerald-400 inline-flex items-center gap-1 group"
-                    >
-                      {m.college}
-                      <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                    <p className="text-xs text-muted-foreground">
-                      {[m.city, m.state].filter(Boolean).join(', ')}
-                      {m.type ? ` · ${m.type}` : ''}
-                    </p>
+                    <div className="flex items-center gap-2.5">
+                      <div className="relative w-8 h-8 rounded-lg overflow-hidden shrink-0 bg-emerald-50 dark:bg-emerald-950/30 ring-1 ring-slate-200/60 dark:ring-slate-700/60">
+                        <img src={collegePhoto(m.college)} alt="" loading="lazy"
+                          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                          className="w-full h-full object-cover" />
+                      </div>
+                      <div className="min-w-0">
+                        <Link
+                          to={`/colleges/${m.collegeId}`}
+                          className="font-medium text-slate-900 dark:text-slate-100 hover:text-emerald-600 dark:hover:text-emerald-400 inline-flex items-center gap-1 group"
+                        >
+                          {m.college}
+                          <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </Link>
+                        <p className="text-xs text-muted-foreground">
+                          {[m.city, m.state].filter(Boolean).join(', ')}
+                          {m.type ? ` · ${m.type}` : ''}
+                        </p>
+                      </div>
+                    </div>
                   </td>
                   <td className="px-4 py-3 whitespace-nowrap">{m.course}</td>
                   <td className="px-4 py-3 text-xs text-muted-foreground max-w-[14rem]">{m.quota}</td>
