@@ -18,7 +18,9 @@ const json = (message: string) => ({
  */
 export const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  limit: 10,
+  // Strict in production (this closes the brute-force hole); generous in local dev so
+  // normal testing and legitimate retries don't lock you out.
+  limit: process.env.NODE_ENV === 'production' ? 10 : 200,
   ...json('Too many attempts. Please wait a few minutes and try again.'),
 });
 
