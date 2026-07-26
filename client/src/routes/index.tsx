@@ -128,6 +128,7 @@ export default function AppRoutes() {
         <Route path="profile" element={<ProfilePage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
+        <Route path="allotment/state/:state" element={<AllotmentDetailPage />} />
         <Route path="allotment/:counselling" element={<AllotmentDetailPage />} />
         <Route path="eligibility-matcher" element={<EligibilityMatcherPage />} />
         <Route path="rank-predictor" element={<RankPredictorPage />} />

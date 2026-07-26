@@ -1,7 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useLayoutEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePaged, useFacets, type Paged } from '@/lib/data-api';
 import type { AllotmentEntry } from '@/lib/allotment-data';
+import { stateMap, INDIA_VIEWBOX } from '@/lib/state-maps';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,7 +15,6 @@ import {
   ChevronRight,
   Sparkles,
   MapPin,
-  Star,
   Globe,
   Hash,
   ArrowRight,
@@ -76,6 +76,43 @@ const RANK_RESULTS_PER_PAGE = 15;
 // it an impossible range (min > max) that returns nothing rather than a stray page of all rows.
 const NO_SEARCH_PARAMS = { limit: 1, allIndiaRank_min: '2', allIndiaRank_max: '1' };
 
+/** A single state's map outline, cropped to fill its icon box. */
+const mapViewBoxCache = new Map<string, string>();
+
+function StateMapIcon({ path, className }: { path: string; className?: string }) {
+  const pathRef = useRef<SVGPathElement>(null);
+  const [viewBox, setViewBox] = useState<string | undefined>(() => mapViewBoxCache.get(path));
+
+  // Every state path is drawn in the same India viewBox, so on its own it renders tiny and
+  // off-centre. getBBox gives the path's real geometry box (independent of render size), which
+  // we use to crop the viewBox down to just this state. useLayoutEffect runs before paint, so
+  // there's no visible jump; the result is cached so repeat mounts are correct on first render.
+  useLayoutEffect(() => {
+    if (viewBox || !pathRef.current) return;
+    try {
+      const b = pathRef.current.getBBox();
+      if (!b || (!b.width && !b.height)) return;
+      const pad = Math.max(b.width, b.height) * 0.1 || 1;
+      const vb = `${b.x - pad} ${b.y - pad} ${b.width + pad * 2} ${b.height + pad * 2}`;
+      mapViewBoxCache.set(path, vb);
+      setViewBox(vb);
+    } catch {
+      /* getBBox unsupported (e.g. jsdom in tests) — fall back to the full-India viewBox */
+    }
+  }, [path, viewBox]);
+
+  return (
+    <svg
+      viewBox={viewBox ?? INDIA_VIEWBOX}
+      className={className}
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+    >
+      <path ref={pathRef} d={path} fill="currentColor" />
+    </svg>
+  );
+}
+
 export default function AllotmentStatesPage() {
   const navigate = useNavigate();
 
@@ -94,14 +131,30 @@ export default function AllotmentStatesPage() {
   const [rankCategory, setRankCategory] = useState('All');
   const [rankRound, setRankRound] = useState('All');
 
-  // Counselling list (state grid) + filter-pill options come from the whole collection, on the
-  // server — no rows are shipped just to derive them. A counselling with no rows is not offered.
-  const { facets } = useFacets('allotments', ['counselling', 'category', 'round']);
-  const counsellings = (facets.counselling as string[]) ?? [];
+  // State list (state grid) + filter-pill options come from the whole collection, on the server —
+  // no rows are shipped just to derive them. A state with no rows is not offered.
+  const { facets } = useFacets('allotments', ['state', 'category', 'round']);
   const filterOptions = {
     categories: (facets.category as string[]) ?? [],
     rounds: (facets.round as number[]) ?? [],
   };
+
+  // Deduplicate the raw state values onto their canonical map name (the data carries a couple of
+  // variants, e.g. "Andaman Nicobar Islands" vs "Andaman and Nicobar Islands"), attach each
+  // state's map outline, and sort alphabetically. `query` is the exact value we filter rows by.
+  const stateList = useMemo(() => {
+    const rawStates = (facets.state as string[]) ?? [];
+    const seen = new Map<string, { name: string; path?: string; query: string }>();
+    for (const raw of rawStates) {
+      const m = stateMap(raw);
+      const name = m?.name ?? raw;
+      const existing = seen.get(name);
+      if (!existing) seen.set(name, { name, path: m?.path, query: raw });
+      // Prefer the variant that exactly matches the canonical name — fewer missed rows.
+      else if (raw === name) existing.query = raw;
+    }
+    return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name));
+  }, [facets.state]);
 
   // Existence / load status (also gives the error path that facets swallows).
   const { total: anyTotal, loading: existLoading, error: existError } = usePaged('allotments', { limit: 1 });
@@ -128,16 +181,14 @@ export default function AllotmentStatesPage() {
   }: Paged<AllotmentEntry> = usePaged<AllotmentEntry>('allotments', rankParams);
   const searching = rankLoading && !!searchedRank;
 
-  // Counselling list comes from the allotments actually loaded — a counselling with no rows is
-  // not offered, so nobody clicks through to an empty table.
   const filteredStates = useMemo(() => {
-    if (!stateSearch) return counsellings;
+    if (!stateSearch) return stateList;
     const q = stateSearch.toLowerCase();
-    return counsellings.filter((s) => s.toLowerCase().includes(q));
-  }, [counsellings, stateSearch]);
+    return stateList.filter((s) => s.name.toLowerCase().includes(q));
+  }, [stateList, stateSearch]);
 
-  const handleSelectState = (state: string) => {
-    navigate(`/allotment/${encodeURIComponent(state)}`);
+  const handleSelectState = (query: string) => {
+    navigate(`/allotment/state/${encodeURIComponent(query)}`);
   };
 
   const handleRankSearch = () => {
@@ -271,40 +322,15 @@ export default function AllotmentStatesPage() {
             <span className="font-bold text-slate-800 dark:text-slate-200">{filteredStates.length}</span> state{filteredStates.length !== 1 ? 's' : ''} found
           </p>
 
-          {/* All India Quota - MCC (always first if visible) */}
-          {filteredStates.includes('All India Quota - MCC') && (
-            <button onClick={() => handleSelectState('All India Quota - MCC')} className="group w-full text-left">
-              <Card className="overflow-hidden border-2 border-emerald-200 dark:border-emerald-900/40 bg-gradient-to-r from-emerald-50 via-green-50 to-white dark:from-emerald-950/20 dark:via-green-950/10 dark:to-slate-900 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <CardContent className="p-5 sm:p-6">
-                  <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/25 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                      <Star className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-base sm:text-lg font-extrabold text-emerald-700 dark:text-emerald-400 group-hover:text-emerald-600 transition-colors">
-                        All India Quota - MCC
-                      </h3>
-                      <p className="text-xs text-emerald-500/80 dark:text-emerald-400/60 mt-0.5">National level counselling across all AIIMS, JIPMER & top government colleges</p>
-                    </div>
-                    <div className="shrink-0 w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center text-emerald-600 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-emerald-200">
-                      <ChevronRight className="w-5 h-5" />
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </button>
-          )}
-
-          {/* State Grid */}
+          {/* State Grid — every state alphabetically, each with its own map outline */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {filteredStates
-              .filter((s) => s !== 'All India Quota - MCC')
-              .map((state, idx) => {
+              .map((st, idx) => {
                 const colorIdx = idx % GRADIENT_COLORS.length;
                 return (
                   <button
-                    key={state}
-                    onClick={() => handleSelectState(state)}
+                    key={st.name}
+                    onClick={() => handleSelectState(st.query)}
                     className="group text-left w-full"
                   >
                     <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-transparent hover:border-slate-200 dark:hover:border-slate-700 relative">
@@ -312,11 +338,18 @@ export default function AllotmentStatesPage() {
                       <CardContent className="p-4 sm:p-5">
                         <div className="flex items-center gap-4">
                           <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md ${ICON_BG_COLORS[colorIdx]}`}>
-                            <Globe className={`w-5 h-5 ${ICON_TEXT_COLORS[colorIdx]} transition-transform duration-300 group-hover:rotate-12`} />
+                            {st.path ? (
+                              <StateMapIcon
+                                path={st.path}
+                                className={`w-6 h-6 ${ICON_TEXT_COLORS[colorIdx]} transition-transform duration-300 group-hover:scale-110`}
+                              />
+                            ) : (
+                              <Globe className={`w-5 h-5 ${ICON_TEXT_COLORS[colorIdx]} transition-transform duration-300 group-hover:rotate-12`} />
+                            )}
                           </div>
                           <div className="flex-1 min-w-0">
                             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
-                              {state}
+                              {st.name}
                             </h3>
                           </div>
                           <div className="shrink-0 w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-600 dark:group-hover:bg-emerald-950/30 transition-all duration-300 group-hover:translate-x-0.5">

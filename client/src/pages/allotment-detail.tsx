@@ -41,8 +41,17 @@ const PAGE_SIZE = 15;
 const EXPORT_CAP = 25000;
 
 export default function AllotmentDetailPage() {
-  const { counselling: rawCounselling } = useParams<{ counselling: string }>();
-  const counselling = decodeURIComponent(rawCounselling || '');
+  // This page is scoped either to a counselling (/allotment/:counselling) or, when reached from
+  // the state grid, to a single state (/allotment/state/:state). `scopeFilter` is the exact-match
+  // query sent to the server; `counselling` stays as the display label the heading/badge/filename
+  // already read.
+  const { counselling: rawCounselling, state: rawState } = useParams<{ counselling?: string; state?: string }>();
+  const byState = rawState != null;
+  const counselling = decodeURIComponent((byState ? rawState : rawCounselling) || '');
+  const scopeFilter = useMemo<Record<string, string>>(
+    () => ({ [byState ? 'state' : 'counselling']: counselling }),
+    [byState, counselling],
+  );
   const navigate = useNavigate();
   const { canFullData } = usePlan();   // Pro+ unlocks full allotment history + CSV export
 
@@ -84,7 +93,7 @@ export default function AllotmentDetailPage() {
   const sortParam = `${sortOrder === 'desc' ? '-' : ''}${sortBy}`;
 
   const filterParams = useMemo<Record<string, string>>(() => ({
-    counselling,
+    ...scopeFilter,
     ...(categoryFilter !== 'All' && { category: categoryFilter }),
     ...(seatTypeFilter !== 'All' && { seatType: seatTypeFilter }),
     ...(roundFilter !== 'All' && { round: roundFilter }),
@@ -93,13 +102,13 @@ export default function AllotmentDetailPage() {
     ...(scoreMin && { neetScore_min: scoreMin }),
     ...(scoreMax && { neetScore_max: scoreMax }),
     ...(search.trim() && { q: search.trim() }),
-  }), [counselling, categoryFilter, seatTypeFilter, roundFilter, rankMin, rankMax, scoreMin, scoreMax, search]);
+  }), [scopeFilter, categoryFilter, seatTypeFilter, roundFilter, rankMin, rankMax, scoreMin, scoreMax, search]);
 
   const { items: paginated, total: filteredTotal, pages: totalPages, loading, error } =
     usePaged<AllotmentEntry>('allotments', { ...filterParams, sort: sortParam, page, limit: PAGE_SIZE });
 
-  // Filter dropdowns + counts, scoped to this counselling so "which rounds exist" is accurate.
-  const { facets } = useFacets('allotments', ['category', 'seatType', 'round', 'instituteName'], { counselling });
+  // Filter dropdowns + counts, scoped to this counselling/state so "which rounds exist" is accurate.
+  const { facets } = useFacets('allotments', ['category', 'seatType', 'round', 'instituteName'], scopeFilter);
   const filterOptions = {
     categories: (facets.category as string[]) ?? [],
     seatTypes: (facets.seatType as string[]) ?? [],
@@ -108,8 +117,8 @@ export default function AllotmentDetailPage() {
   const instituteCount = facets.instituteName?.length ?? 0;
   const roundCount = filterOptions.rounds.length;
 
-  // Unfiltered total for this counselling (stat tile + empty-state wording).
-  const { total: counsellingTotal, loading: countLoading } = usePaged('allotments', { counselling, limit: 1 });
+  // Unfiltered total for this counselling/state (stat tile + empty-state wording).
+  const { total: counsellingTotal, loading: countLoading } = usePaged('allotments', { ...scopeFilter, limit: 1 });
   // Does ANY allotment data exist? Distinguishes "nothing loaded" from "nothing for this one".
   const { facets: existence, loading: existenceLoading } = useFacets('allotments', ['counselling']);
   const anyDataExists = ((existence.counselling as string[])?.length ?? 0) > 0;
@@ -177,7 +186,7 @@ export default function AllotmentDetailPage() {
     }
   };
 
-  const isMCC = counselling === 'All India Quota - MCC';
+  const isMCC = !byState && counselling === 'All India Quota - MCC';
   const safePage = page;
 
   // Initial load (no rows yet) — a spinner. Page-to-page fetches keep the table on screen.
@@ -231,7 +240,7 @@ export default function AllotmentDetailPage() {
         </Button>
         <EmptyState
           title={`No allotments for ${counselling}`}
-          description="Allotment records have been loaded, but none of them belong to this counselling yet."
+          description={`Allotment records have been loaded, but none of them belong to this ${byState ? 'state' : 'counselling'} yet.`}
           action={{ label: 'Back to States', onClick: () => navigate('/allotment') }}
         />
       </div>
@@ -287,7 +296,7 @@ export default function AllotmentDetailPage() {
                   className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-emerald-600 text-sm font-bold hover:bg-emerald-50 transition-colors shadow-sm"
                 >
                   <GraduationCap className="w-4 h-4" />
-                  Counselling
+                  {byState ? 'All states' : 'Counselling'}
                 </button>
               </div>
             </div>
