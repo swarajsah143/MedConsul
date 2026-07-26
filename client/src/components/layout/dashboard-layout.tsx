@@ -255,8 +255,14 @@ export default function DashboardLayout() {
   }, [checklistDocs.loading, checklistDocs.error, checklistDocs.data]);
 
   const navSections = buildNavSections(announcementBadge, docsBadge);
+  // Admins get the admin nav prepended to Overview, and the student-facing "Dashboard"
+  // entry removed — their home is the Admin Dashboard.
   const visibleSections: NavSection[] = user?.role === 'admin'
-    ? navSections.map((s, i) => (i === 0 ? { ...s, items: [...ADMIN_NAV, ...s.items] } : s))
+    ? navSections.map((s, i) =>
+        i === 0
+          ? { ...s, items: [...ADMIN_NAV, ...s.items.filter((it) => !('href' in it && it.href === '/dashboard'))] }
+          : s
+      )
     : navSections;
 
   const handleLogout = async () => {
@@ -265,6 +271,8 @@ export default function DashboardLayout() {
   };
 
   const userInitial = user?.name?.charAt(0)?.toUpperCase() || 'U';
+  // Admins have no student dashboard — their home is the Admin Dashboard.
+  const homeHref = user?.role === 'admin' ? '/admin' : '/dashboard';
 
   return (
     // A proper app shell: the PAGE never scrolls, only <main> does. It used to be
@@ -274,7 +282,7 @@ export default function DashboardLayout() {
     <div className="h-screen overflow-hidden bg-slate-50 dark:bg-slate-950 flex">
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-60 h-screen sticky top-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-30">
-        <Link to="/dashboard" className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+        <Link to={homeHref} className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
             <Stethoscope className="w-4.5 h-4.5" />
           </div>
@@ -324,7 +332,7 @@ export default function DashboardLayout() {
           <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
           <aside className="fixed inset-y-0 left-0 w-72 bg-white dark:bg-slate-900 shadow-2xl z-50 flex flex-col animate-in slide-in-from-left duration-200">
             <div className="h-14 flex items-center justify-between px-5 border-b border-slate-200 dark:border-slate-800">
-              <Link to="/dashboard" className="flex items-center gap-2.5" onClick={() => setMobileMenuOpen(false)}>
+              <Link to={homeHref} className="flex items-center gap-2.5" onClick={() => setMobileMenuOpen(false)}>
                 <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
                   <Stethoscope className="w-4.5 h-4.5" />
                 </div>
@@ -390,7 +398,7 @@ export default function DashboardLayout() {
             >
               <Menu className="w-5 h-5" />
             </button>
-            <Link to="/dashboard" className="flex items-center gap-2">
+            <Link to={homeHref} className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-lg gradient-primary flex items-center justify-center text-white">
                 <Stethoscope className="w-3.5 h-3.5" />
               </div>
