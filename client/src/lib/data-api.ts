@@ -241,3 +241,20 @@ export function byId(colleges: College[]): Map<string, College> {
 export function distinct<T, K extends keyof T>(rows: T[], key: K): string[] {
   return [...new Set(rows.map((r) => String(r[key] ?? '')).filter(Boolean))].sort();
 }
+
+/**
+ * The NEET-UG seat courses — mirrors the COURSES enum in server/src/schema/collections.ts.
+ * Keep in sync. Used to populate course filters fully even when the loaded data only happens
+ * to contain a couple of them (closing ranks / fees currently carry just MBBS + BDS).
+ */
+export const NEET_UG_COURSES = ['MBBS', 'BDS', 'BAMS', 'BHMS', 'BUMS', 'BSMS', 'BNYS', 'BVSc'] as const;
+
+/**
+ * A dropdown's options = the curated catalog (in its intentional order) followed by any values the
+ * live data has that the catalog doesn't — so the filter lists every course, not just the ones
+ * that appear in the currently loaded rows.
+ */
+export function withCatalog(catalog: readonly string[], fromData: string[]): string[] {
+  const known = new Set(catalog);
+  return [...catalog, ...fromData.filter((v) => !known.has(v)).sort()];
+}

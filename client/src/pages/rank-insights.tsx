@@ -1,7 +1,7 @@
 import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCollections, byId, distinct, type College, type ClosingRank } from '@/lib/data-api';
+import { useCollections, byId, distinct, withCatalog, NEET_UG_COURSES, type College, type ClosingRank } from '@/lib/data-api';
 import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -119,7 +119,8 @@ export default function RankInsightsPage() {
   const filterOptions = useMemo(() => ({
     states: distinct(rows, 'collegeState'),
     colleges: distinct(rows, 'collegeName'),
-    courses: distinct(rows, 'course'),
+    // Show every NEET-UG course, not just those in the loaded rows (data has only MBBS + BDS).
+    courses: withCatalog(NEET_UG_COURSES, distinct(rows, 'course')),
     categories: distinct(rows, 'category'),
     quotas: distinct(rows, 'quota'),
     rounds: [...new Set(rows.map((r) => r.round))].sort((a, b) => a - b),

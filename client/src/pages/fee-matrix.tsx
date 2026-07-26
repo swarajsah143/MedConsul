@@ -1,7 +1,7 @@
 import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCollections, byId, distinct, type College, type FeeEntry } from '@/lib/data-api';
+import { useCollections, byId, distinct, withCatalog, NEET_UG_COURSES, type College, type FeeEntry } from '@/lib/data-api';
 import { collegePhoto } from '@/lib/college-photo';
 import { formatINR } from '@/lib/fee-matrix-data';
 import { Card, CardContent } from '@/components/ui/card';
@@ -123,7 +123,8 @@ export default function FeeMatrixPage() {
   // Dropdown options built from the live rows, so admin-added colleges/quotas show up automatically.
   const filterOptions = useMemo(() => ({
     states: distinct(rows, 'state'),
-    courses: distinct(rows, 'course'),
+    // Show every NEET-UG course, not just those in the loaded rows (data has only MBBS + BDS).
+    courses: withCatalog(NEET_UG_COURSES, distinct(rows, 'course')),
     categories: distinct(rows, 'category'),
     quotas: distinct(rows, 'quota'),
   }), [rows]);
