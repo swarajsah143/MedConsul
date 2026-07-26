@@ -312,7 +312,9 @@ export default function AllotmentDetailPage() {
           { label: 'Rounds', value: String(roundCount), icon: BarChart3, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-            <CardContent className="p-4">
+            {/* sm:p-4 is required: CardContent defaults to sm:pt-0 (for cards with a header),
+                which would otherwise flush the number against the top border on desktop. */}
+            <CardContent className="p-4 sm:p-4">
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${s.bg} transition-transform duration-300 group-hover:scale-110`}>
                   <s.icon className={`w-5 h-5 ${s.color}`} />
