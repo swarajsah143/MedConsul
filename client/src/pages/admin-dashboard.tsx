@@ -1,6 +1,7 @@
 import { Fragment, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { api } from '@/lib/api';
 import { useAuth } from '@/providers/auth-provider';
+import { DashboardAnalytics } from '@/components/admin/dashboard-analytics';
 import { Card, CardContent } from '@/components/ui/card';
 import { PageHeader } from '@/components/ui/page-header';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,6 @@ import {
   Shield,
   Users,
   GraduationCap,
-  ShieldCheck,
   Loader2,
   Mail,
   CalendarDays,
@@ -31,12 +31,6 @@ interface AdminUser {
   updatedAt?: string;
 }
 
-interface AdminStats {
-  totalUsers: number;
-  admins: number;
-  students: number;
-}
-
 type Role = 'student' | 'admin';
 
 /** The server rejects anything weaker — show the rules instead of letting an admin guess. */
@@ -48,22 +42,6 @@ const SELECT_CLASS =
 
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
-
-function StatCard({ icon: Icon, label, value, tint }: { icon: typeof Users; label: string; value: number | string; tint: string }) {
-  return (
-    <Card className="overflow-hidden">
-      <CardContent className="p-5 sm:p-5 flex items-center gap-4">
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${tint}`}>
-          <Icon className="w-6 h-6" />
-        </div>
-        <div className="min-w-0">
-          <p className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{value}</p>
-          <p className="text-xs text-muted-foreground font-medium truncate">{label}</p>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
 
 function RoleBadge({ role }: { role: string }) {
   const isAdmin = role === 'admin';
@@ -326,7 +304,6 @@ export default function AdminDashboardPage() {
   const { user: me } = useAuth();
 
   const [users, setUsers] = useState<AdminUser[]>([]);
-  const [stats, setStats] = useState<AdminStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [actionError, setActionError] = useState<string | null>(null);
@@ -335,15 +312,10 @@ export default function AdminDashboardPage() {
   const [adding, setAdding] = useState(false);
   const [rowAction, setRowAction] = useState<RowAction>(null);
 
-  /** Users and stats always move together — a write that changes one changes the other. */
   const refresh = useCallback(async () => {
     try {
-      const [usersRes, statsRes] = await Promise.all([
-        api.get('/admin/users'),
-        api.get('/admin/stats'),
-      ]);
+      const usersRes = await api.get('/admin/users');
       setUsers(usersRes?.data?.users ?? []);
-      setStats(statsRes?.data ?? null);
       setError(null);
     } catch (e: any) {
       setError(e?.message || 'Failed to load users');
@@ -443,12 +415,8 @@ export default function AdminDashboardPage() {
         </Card>
       )}
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        <StatCard icon={Users} label="Total Users" value={stats?.totalUsers ?? users.length} tint="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" />
-        <StatCard icon={GraduationCap} label="Students" value={stats?.students ?? 0} tint="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" />
-        <StatCard icon={ShieldCheck} label="Admins" value={stats?.admins ?? 0} tint="bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400" />
-      </div>
+      {/* Analytics, charts & system monitoring */}
+      <DashboardAnalytics />
 
       {/* All Users */}
       <Card className="overflow-hidden">

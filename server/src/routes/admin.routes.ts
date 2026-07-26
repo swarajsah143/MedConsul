@@ -12,6 +12,7 @@ router.use(requireAuth, requireAdmin);
 
 router.get('/users', adminController.listUsers);
 router.get('/stats', adminController.stats);
+router.get('/analytics', adminController.analytics);
 
 // User management. Previously the admin panel could only LOOK at users — it had no
 // write endpoints at all: no role change, no delete, no create, no password reset.
