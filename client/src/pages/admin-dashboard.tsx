@@ -52,7 +52,7 @@ const fmtDate = (iso: string) =>
 function StatCard({ icon: Icon, label, value, tint }: { icon: typeof Users; label: string; value: number | string; tint: string }) {
   return (
     <Card className="overflow-hidden">
-      <CardContent className="p-5 flex items-center gap-4">
+      <CardContent className="p-5 sm:p-5 flex items-center gap-4">
         <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${tint}`}>
           <Icon className="w-6 h-6" />
         </div>
