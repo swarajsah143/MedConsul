@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCollection, distinct } from '@/lib/data-api';
+import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
@@ -147,15 +148,13 @@ function AbroadCard({ x, onOpen }: { x: AbroadUniversity; onOpen: (x: AbroadUniv
     >
       {/* Photo banner */}
       <div className="relative h-32 bg-gradient-to-br from-emerald-500 to-green-600 overflow-hidden">
-        {x.image && (
-          <img
-            src={x.image}
-            alt={name}
-            loading="lazy"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        )}
+        <img
+          src={x.image || collegePhoto(name)}
+          alt={name}
+          loading="lazy"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
         {recommended && (
           <span className="absolute top-2.5 left-2.5 inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500 text-white shadow">
@@ -289,14 +288,12 @@ function AbroadDetailModal({ x, onClose }: { x: AbroadUniversity; onClose: () =>
       >
         {/* Banner */}
         <div className="relative h-44 bg-gradient-to-br from-emerald-500 to-green-600 overflow-hidden">
-          {x.image && (
-            <img
-              src={x.image}
-              alt={name}
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-              className="w-full h-full object-cover"
-            />
-          )}
+          <img
+            src={x.image || collegePhoto(name)}
+            alt={name}
+            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
           <button
             onClick={onClose}
