@@ -122,13 +122,22 @@ function toForm(p: Profile): FormState {
   };
 }
 
+/** Fields that only a student fills in — the NEET/counselling numbers and guardian contact.
+ *  Hidden from the admin's own profile, and excluded from their completion score. */
+const STUDENT_ONLY_FIELDS: ReadonlyArray<keyof FormState> = [
+  'neetRollNo', 'neetRank', 'neetScore', 'category', 'domicileState', 'coursePreference',
+  'guardianName', 'guardianPhone',
+];
+
 /** How much of the profile is filled in, 0–100. Every counselling field counts equally — this
  *  is the number the hero ring animates to, so it must move the moment the user types. The
  *  avatar is deliberately excluded: "profile strength" is about the counselling data a
- *  counsellor needs, not whether you uploaded a photo. */
-function completionPercent(f: FormState): number {
+ *  counsellor needs, not whether you uploaded a photo. For an admin, the student-only fields
+ *  are hidden, so they are left out of the score too — otherwise it could never reach 100%. */
+function completionPercent(f: FormState, isAdmin: boolean): number {
+  const hidden = new Set<string>(isAdmin ? STUDENT_ONLY_FIELDS : []);
   const vals = Object.entries(f)
-    .filter(([k]) => k !== 'avatar')
+    .filter(([k]) => k !== 'avatar' && !hidden.has(k))
     .map(([, v]) => v);
   const filled = vals.filter((v) => v.trim() !== '').length;
   return Math.round((filled / vals.length) * 100);
@@ -517,7 +526,10 @@ export default function ProfilePage() {
     []
   );
 
-  const completion = useMemo(() => completionPercent(form), [form]);
+  // The profile's own role is authoritative for this exact user; an admin's own profile
+  // has no NEET/counselling or guardian details to fill in.
+  const isAdmin = profile?.role === 'admin';
+  const completion = useMemo(() => completionPercent(form, isAdmin), [form, isAdmin]);
   // Compared against the last-saved snapshot so the save bar can say "unsaved changes".
   const dirty = useMemo(
     () => (profile ? JSON.stringify(form) !== JSON.stringify(toForm(profile)) : false),
@@ -663,28 +675,30 @@ export default function ProfilePage() {
         </div>
       </HeroBanner>
 
-      {/* ── Live stat strip ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
-        className="grid grid-cols-2 lg:grid-cols-4 gap-4"
-      >
-        <StatTile
-          icon={Target}
-          accent={ACCENT.red}
-          label="All India Rank"
-          value={form.neetRank.trim() ? Number(form.neetRank).toLocaleString('en-IN') : ''}
-        />
-        <StatTile
-          icon={Award}
-          accent={ACCENT.amber}
-          label="NEET Score"
-          value={form.neetScore.trim() ? `${form.neetScore}/720` : ''}
-        />
-        <StatTile icon={GraduationCap} accent={ACCENT.indigo} label="Category" value={form.category} />
-        <StatTile icon={MapPin} accent={ACCENT.emerald} label="Domicile" value={form.domicileState} />
-      </motion.div>
+      {/* ── Live stat strip (student NEET/counselling data — hidden for admins) ── */}
+      {!isAdmin && (
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
+        >
+          <StatTile
+            icon={Target}
+            accent={ACCENT.red}
+            label="All India Rank"
+            value={form.neetRank.trim() ? Number(form.neetRank).toLocaleString('en-IN') : ''}
+          />
+          <StatTile
+            icon={Award}
+            accent={ACCENT.amber}
+            label="NEET Score"
+            value={form.neetScore.trim() ? `${form.neetScore}/720` : ''}
+          />
+          <StatTile icon={GraduationCap} accent={ACCENT.indigo} label="Category" value={form.category} />
+          <StatTile icon={MapPin} accent={ACCENT.emerald} label="Domicile" value={form.domicileState} />
+        </motion.div>
+      )}
 
       <form onSubmit={save} className="space-y-6" noValidate>
         {/* ── You ── */}
@@ -746,7 +760,8 @@ export default function ProfilePage() {
           </Field>
         </Section>
 
-        {/* ── NEET ── */}
+        {/* ── NEET & counselling (student-only) ── */}
+        {!isAdmin && (
         <Section
           icon={Target}
           accent={ACCENT.red}
@@ -838,8 +853,10 @@ export default function ProfilePage() {
             </datalist>
           </Field>
         </Section>
+        )}
 
-        {/* ── Guardian ── */}
+        {/* ── Guardian (student-only) ── */}
+        {!isAdmin && (
         <Section
           icon={Users}
           accent={ACCENT.emerald}
@@ -868,6 +885,7 @@ export default function ProfilePage() {
             />
           </Field>
         </Section>
+        )}
 
         {/* ── Save bar ── */}
         <motion.div
