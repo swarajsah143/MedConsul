@@ -168,16 +168,34 @@ cd server && npm run build
 
 ## Environment Variables
 
-Create a `.env` file in the `server/` directory:
+Copy `.env.example` to `.env` in the **project root** (not `server/`) and fill in the values:
 
-```env
-PORT=5000
-CLIENT_URL=http://localhost:5173
-JWT_SECRET=your-secret-key-here
-JWT_REFRESH_SECRET=your-refresh-secret-here
-JWT_EXPIRES_IN=15m
-JWT_REFRESH_EXPIRES_IN=7d
+```bash
+cp .env.example .env
 ```
+
+Key variables:
+
+| Variable | Purpose |
+|----------|---------|
+| `MONGODB_URI` | MongoDB connection string. Domain data (colleges, ranks, fees, allotments) requires it; auth falls back to a local JSON store if unset. |
+| `JWT_SECRET`, `JWT_REFRESH_SECRET` | Required — the server refuses to start without strong values. |
+| `PORT`, `CLIENT_URL` | API port and the frontend origin (used for CORS). |
+| `AI_API_KEY`, `AI_API_BASE_URL`, `AI_MODEL` | Powers the MedAssist AI chatbot — see below. |
+
+### Enable MedAssist AI (chatbot)
+
+MedAssist answers questions conversationally (like ChatGPT) and grounds NEET-specific
+answers in the app's own data. It needs a key for any OpenAI-compatible model, and
+**Groq offers one for free:**
+
+1. Get a free API key at **https://console.groq.com** → sign in → **API Keys** → **Create API Key**.
+2. Paste it into your `.env`: `AI_API_KEY=gsk_...` — the base URL and model are already set for Groq in `.env.example`.
+3. Restart: `npm run dev`.
+
+Without a key, the chatbot still runs in a limited **offline mode** that answers from the
+app's data only. Each contributor uses their **own** free key — **never commit a real key**
+(a key pushed to a public repo is scraped and auto-revoked within minutes).
 
 ## License
 
