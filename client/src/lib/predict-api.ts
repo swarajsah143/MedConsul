@@ -114,8 +114,8 @@ export const CHANCE_STYLE: Record<Chance, { label: string; dot: string; chip: st
   },
   Tough: {
     label: 'Tough',
-    dot: 'bg-rose-500',
-    chip: 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-900',
+    dot: 'bg-green-500',
+    chip: 'bg-green-50 text-green-700 border-green-200 dark:bg-green-950/40 dark:text-green-300 dark:border-green-900',
     blurb: 'Closed above your rank last year. Only if the cutoff loosens.',
   },
 };

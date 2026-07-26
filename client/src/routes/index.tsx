@@ -40,6 +40,7 @@ const AiAssistantPage = lazy(() => import('@/pages/ai-assistant'));
 const AnnouncementsPage = lazy(() => import('@/pages/announcements'));
 const AllotmentStatesPage = lazy(() => import('@/pages/allotment-states'));
 const AllotmentDetailPage = lazy(() => import('@/pages/allotment-detail'));
+const EligibilityMatcherPage = lazy(() => import('@/pages/eligibility-matcher'));
 const CounsellingConditionsPage = lazy(() => import('@/pages/counselling-conditions'));
 const ExplorePage = lazy(() => import('@/pages/explore'));
 const AbroadUniversitiesPage = lazy(() => import('@/pages/abroad-universities'));
@@ -53,7 +54,7 @@ const AdminStudentsPage = lazy(() => import('@/pages/admin-students'));
 function FullPageSpinner() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
-      <Loader2 className="w-8 h-8 animate-spin text-red-600" />
+      <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
     </div>
   );
 }
@@ -120,6 +121,7 @@ export default function AppRoutes() {
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
         <Route path="allotment/:counselling" element={<AllotmentDetailPage />} />
+        <Route path="eligibility-matcher" element={<EligibilityMatcherPage />} />
         <Route path="rank-predictor" element={<RankPredictorPage />} />
         <Route path="rank-insights" element={<RankInsightsPage />} />
         <Route path="rank-insights/detail" element={<RankInsightDetailPage />} />

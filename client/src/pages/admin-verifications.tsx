@@ -53,7 +53,7 @@ type Counts = Record<SubmissionStatus, number>;
 const STATUS_STYLES: Record<SubmissionStatus, string> = {
   pending: 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400',
   verified: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400',
-  rejected: 'bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400',
+  rejected: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400',
 };
 
 const STATUS_ICONS: Record<SubmissionStatus, typeof Clock> = {
@@ -326,7 +326,7 @@ export default function AdminVerificationsPage() {
               onClick={() => selectTab(key)}
               className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 ${
                 active
-                  ? 'bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400'
+                  ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
                   : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
               }`}
             >
@@ -335,7 +335,7 @@ export default function AdminVerificationsPage() {
                 <span
                   className={`rounded-full px-1.5 py-0.5 text-[11px] font-semibold ${
                     active
-                      ? 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300'
+                      ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'
                       : 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400'
                   }`}
                 >
@@ -348,14 +348,14 @@ export default function AdminVerificationsPage() {
       </div>
 
       {error && (
-        <Card className="border-red-200 dark:border-red-900/40">
+        <Card className="border-emerald-200 dark:border-emerald-900/40">
           <CardContent className="p-4 flex items-start gap-2.5">
-            <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 mt-0.5 shrink-0" />
+            <AlertTriangle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
             <div>
-              <p className="text-sm font-semibold text-red-600 dark:text-red-400">{error}</p>
+              <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">{error}</p>
               <button
                 onClick={refresh}
-                className="text-xs text-muted-foreground hover:text-red-600 mt-1 font-medium"
+                className="text-xs text-muted-foreground hover:text-emerald-600 mt-1 font-medium"
               >
                 Try again
               </button>
@@ -366,7 +366,7 @@ export default function AdminVerificationsPage() {
 
       {items === null ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+          <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
         </div>
       ) : error ? null /* the error card above already says everything */ : items.length === 0 ? (
         // An empty pending queue is the goal, not a failure — it must not read like one.
@@ -393,8 +393,8 @@ export default function AdminVerificationsPage() {
                 return (
                   <li key={item.id} className="p-4 sm:p-5">
                     <div className="flex flex-col lg:flex-row lg:items-start gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
-                        <FileText className="w-5 h-5 text-red-600" />
+                      <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0">
+                        <FileText className="w-5 h-5 text-emerald-600" />
                       </div>
 
                       <div className="min-w-0 flex-1 space-y-1">
@@ -424,7 +424,7 @@ export default function AdminVerificationsPage() {
                         </p>
 
                         {item.status === 'rejected' && item.remarks && (
-                          <p className="text-xs text-red-600 dark:text-red-400 pt-1">
+                          <p className="text-xs text-emerald-600 dark:text-emerald-400 pt-1">
                             <span className="font-semibold">Reason: </span>
                             {item.remarks}
                           </p>
@@ -461,7 +461,7 @@ export default function AdminVerificationsPage() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
+                            className="text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/20"
                             onClick={() => {
                               setRejecting(item.id);
                               setRemarks('');
@@ -477,13 +477,13 @@ export default function AdminVerificationsPage() {
 
                     {/* Rejection reason. Required — Confirm stays disabled until it is filled in. */}
                     {isRejecting && (
-                      <div className="mt-4 lg:ml-14 rounded-lg border border-red-200 dark:border-red-900/40 bg-red-50/50 dark:bg-red-950/10 p-3.5 space-y-2.5">
+                      <div className="mt-4 lg:ml-14 rounded-lg border border-emerald-200 dark:border-emerald-900/40 bg-emerald-50/50 dark:bg-emerald-950/10 p-3.5 space-y-2.5">
                         <label
                           htmlFor={`reason-${item.id}`}
                           className="block text-xs font-semibold text-slate-700 dark:text-slate-300"
                         >
                           Why is this being rejected?{' '}
-                          <span className="text-red-600">Required</span>
+                          <span className="text-emerald-600">Required</span>
                         </label>
                         <textarea
                           id={`reason-${item.id}`}
