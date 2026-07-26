@@ -17,9 +17,9 @@ const https = require('https');
 const { MongoClient } = require('../node_modules/mongodb');
 
 const MONGO_URI   = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/medcounsel';
-const CONCURRENCY = 8;
-const MAX_IMAGES  = 5;   // max gallery images per college
-const WIKI_TIMEOUT = 7000;
+const CONCURRENCY  = 3;   // keep well within Wikipedia rate limits
+const MAX_IMAGES   = 5;   // max gallery images per college
+const WIKI_TIMEOUT = 8000;
 
 const FORCE = process.argv.includes('--force');
 const LIMIT_ARG = (() => { const i = process.argv.indexOf('--limit'); return i >= 0 ? parseInt(process.argv[i + 1], 10) : Infinity; })();
@@ -121,12 +121,22 @@ function get(url) {
   });
 }
 
-function wikiApi(params) {
+async function wikiApi(params, retries = 2) {
   const qs = new URLSearchParams({ format: 'json', ...params }).toString();
-  return get(`https://en.wikipedia.org/w/api.php?${qs}`).then(b => JSON.parse(b));
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const body = await get(`https://en.wikipedia.org/w/api.php?${qs}`);
+      return JSON.parse(body);
+    } catch (e) {
+      if (i === retries) throw e;
+      await delay(1500 * (i + 1));  // back off 1.5s, 3s on consecutive failures
+    }
+  }
 }
 
 // ── Core logic ────────────────────────────────────────────────────────────────
+
+const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
 async function fetchGallery(collegeName) {
   const words = distinctiveWords(collegeName);
@@ -141,11 +151,12 @@ async function fetchGallery(collegeName) {
   const hits = searchRes?.query?.search || [];
   if (!hits.length) return [];
 
-  // Pick the article with the most word overlap with the college name
-  const scored = hits.map(h => ({ ...h, score: nameScore(h.title, words) }))
-                     .sort((a, b) => b.score - a.score);
-  const best = scored[0];
-  if (best.score === 0) return [];   // no reasonable match
+  // Trust Wikipedia's own search ranking for article selection.
+  // Title scoring is NOT applied here — "JIPMER" doesn't appear in the title
+  // "Jawaharlal Institute of Postgraduate Medical Education and Research"
+  // but Wikipedia search correctly surfaces it. We rely on image-level
+  // name scoring (score >= 2) to prevent wrong-college photos.
+  const best = hits[0];
 
   // 2. Get images in the article
   const imgRes = await wikiApi({
@@ -156,15 +167,17 @@ async function fetchGallery(collegeName) {
   const allImages = (page?.images || []).map(i => i.title);
 
   // Filter and score
-  const candidates = allImages
+  const allCandidates = allImages
     .filter(name => {
       const n = name.replace(/^File:/i, '');
       return WANT_EXT.test(n) && !skipFile(n);
     })
     .map(name => ({ name, score: nameScore(name, words) }))
-    .filter(c => c.score >= 2)   // require ≥2 matching words — prevents city-only matches
-    .sort((a, b) => b.score - a.score)
-    .slice(0, MAX_IMAGES + 2);
+    .sort((a, b) => b.score - a.score);
+
+  // Prefer score ≥ 2 (city-name + institution-type); fall back to score = 1 (abbreviation-only names like JIPMER)
+  let candidates = allCandidates.filter(c => c.score >= 2).slice(0, MAX_IMAGES + 2);
+  if (!candidates.length) candidates = allCandidates.filter(c => c.score >= 1).slice(0, MAX_IMAGES + 2);
 
   if (!candidates.length) return [];
 
@@ -215,10 +228,11 @@ async function runConcurrent(items, fn, concurrency, onDone) {
   const withGallery = await col.find({ 'gallery.0': { $exists: true } }, { projection: { _id: 1, name: 1, gallery: 1 } }).toArray();
   const cleanOps = [];
   for (const college of withGallery) {
-    const words = distinctiveWords(college.name);
+    // Phase 0 only removes entries that match SKIP_NAME (logos, maps, statues, etc.).
+    // nameScore is NOT used here — it's for finding new images, not validating existing ones.
     const clean = (college.gallery || []).filter(g => {
       const fname = decodeURIComponent((g.url || '').split('/').pop() || '');
-      return !skipFile(fname) && nameScore(fname, words) >= 2;
+      return !skipFile(fname);
     });
     if (clean.length !== (college.gallery || []).length) {
       cleanOps.push({ updateOne: { filter: { _id: college._id }, update: { $set: { gallery: clean } } } });
@@ -239,6 +253,7 @@ async function runConcurrent(items, fn, concurrency, onDone) {
 
   const results = await runConcurrent(toProcess, async (college) => {
     try {
+      await delay(400);  // gentle throttle to stay within Wikipedia rate limits
       const gallery = await fetchGallery(college.name);
       return { id: college._id, name: college.name, gallery };
     } catch (e) {
