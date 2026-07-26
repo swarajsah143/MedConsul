@@ -54,3 +54,4 @@ CREDENTIALS.md
 data/raw/colleges.live.json
 data/raw/fee_keys.live.json
 data/raw/fees.careers360.resolved.json
+dist-db/
