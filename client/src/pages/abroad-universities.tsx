@@ -174,7 +174,9 @@ function AbroadCard({ x, onOpen }: { x: AbroadUniversity; onOpen: (x: AbroadUniv
         )}
       </div>
 
-      <CardContent className="p-5">
+      {/* pt-6/sm:pt-6 are explicit: CardContent defaults to pt-0/sm:pt-0 (it assumes a CardHeader
+          above), which would flush the icon row against the photo banner — worst on desktop. */}
+      <CardContent className="p-5 pt-6 sm:p-6 sm:pt-6">
         <div className="flex items-start gap-3">
           <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
             <GraduationCap className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
