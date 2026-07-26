@@ -116,10 +116,29 @@ cd server && npm install && cd ..
 ### Seed Demo Accounts
 
 ```bash
-npm run seed
+SEED_ADMIN_PASSWORD=<min 10 chars> npm run seed
 ```
 
 This creates three demo accounts. See [CREDENTIALS.md](./CREDENTIALS.md) for login details.
+
+### Load the domain data (MongoDB)
+
+Colleges, ranks, fees and allotments live in MongoDB; the source JSON is committed under
+`data/out/`. To populate a fresh database:
+
+1. Set `MONGODB_URI` in `.env` to a MongoDB you can reach (a local `mongod`, or your own Atlas).
+2. Start the app: `npm run dev`.
+3. In another terminal, run the importer (it logs in with the admin account from the seed step):
+
+   ```bash
+   SEED_ADMIN_PASSWORD=<same as above> node data/import.mjs
+   ```
+
+   It loads colleges first, then the rank/fee/allotment rows that reference them (~222k
+   allotments, so allow a minute or two). Re-running is idempotent.
+
+Without MongoDB the app still runs on a JSON auth fallback — logins work, but the data pages
+return 503 and MedAssist grounds on a small built-in sample instead of the full dataset.
 
 ### Run Development Server
 
