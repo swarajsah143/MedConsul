@@ -67,9 +67,9 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function PublicRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
   if (isLoading) return <FullPageSpinner />;
-  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
+  if (isAuthenticated) return <Navigate to={user?.role === 'admin' ? '/admin' : '/dashboard'} replace />;
   return <>{children}</>;
 }
 
@@ -80,11 +80,19 @@ function AdminRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-/** Root `/`: the public landing page for visitors, the app dashboard for signed-in users. */
+/** Root `/`: the public landing page for visitors, the app dashboard for signed-in users (admin dashboard for admins). */
 function RootGate() {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
   if (isLoading) return <FullPageSpinner />;
-  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <LandingPage />;
+  if (!isAuthenticated) return <LandingPage />;
+  return <Navigate to={user?.role === 'admin' ? '/admin' : '/dashboard'} replace />;
+}
+
+/** The student dashboard has no place in the admin experience — send admins to their own. */
+function StudentDashboardRoute() {
+  const { user } = useAuth();
+  if (user?.role === 'admin') return <Navigate to="/admin" replace />;
+  return <DashboardPage />;
 }
 
 export default function AppRoutes() {
@@ -116,7 +124,7 @@ export default function AppRoutes() {
         <Route path="admin/data/:collection" element={<AdminRoute><AdminDataPage /></AdminRoute>} />
         <Route path="admin/verifications" element={<AdminRoute><AdminVerificationsPage /></AdminRoute>} />
         <Route path="admin/students" element={<AdminRoute><AdminStudentsPage /></AdminRoute>} />
-        <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="dashboard" element={<StudentDashboardRoute />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
