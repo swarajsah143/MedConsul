@@ -108,12 +108,19 @@ export default function AllotmentDetailPage() {
     usePaged<AllotmentEntry>('allotments', { ...filterParams, sort: sortParam, page, limit: PAGE_SIZE });
 
   // Filter dropdowns + counts, scoped to this counselling/state so "which rounds exist" is accurate.
-  const { facets } = useFacets('allotments', ['category', 'seatType', 'round', 'instituteName'], scopeFilter);
+  // stateRank/neetScore/subcategory are pulled too, purely to know whether a column has ANY data in
+  // this scope — facets strips null/blank, so an empty array means "nothing to show, hide the column"
+  // rather than painting a full column of dashes (MCC data, for instance, has no state rank at all).
+  const { facets } = useFacets('allotments', ['category', 'seatType', 'round', 'instituteName', 'stateRank', 'neetScore', 'subcategory'], scopeFilter);
   const filterOptions = {
     categories: (facets.category as string[]) ?? [],
     seatTypes: (facets.seatType as string[]) ?? [],
     rounds: (facets.round as number[]) ?? [],
   };
+  // Which optional columns actually carry data for this counselling/state.
+  const hasStateRank = (facets.stateRank?.length ?? 0) > 0;
+  const hasNeetScore = (facets.neetScore?.length ?? 0) > 0;
+  const hasSubcategory = (facets.subcategory?.length ?? 0) > 0;
   const instituteCount = facets.instituteName?.length ?? 0;
   const roundCount = filterOptions.rounds.length;
 
@@ -565,10 +572,10 @@ export default function AllotmentDetailPage() {
               <thead>
                 <tr className="bg-gradient-to-r from-emerald-600 via-emerald-600 to-green-500 text-white text-[11px] uppercase tracking-wider">
                   <SortHeader field="allIndiaRank" className="text-white hover:bg-white/10">All India Rank</SortHeader>
-                  {!isMCC && <SortHeader field="stateRank" className="text-white hover:bg-white/10">State Rank</SortHeader>}
-                  <SortHeader field="neetScore" className="text-white hover:bg-white/10">NEET Score</SortHeader>
+                  {hasStateRank && <SortHeader field="stateRank" className="text-white hover:bg-white/10">State Rank</SortHeader>}
+                  {hasNeetScore && <SortHeader field="neetScore" className="text-white hover:bg-white/10">NEET Score</SortHeader>}
                   <SortHeader field="category" className="text-white hover:bg-white/10">Category</SortHeader>
-                  <th className="px-3 sm:px-4 py-3 whitespace-nowrap font-bold">Subcategory</th>
+                  {hasSubcategory && <th className="px-3 sm:px-4 py-3 whitespace-nowrap font-bold">Subcategory</th>}
                   <SortHeader field="instituteName" className="text-white hover:bg-white/10">Institute Name</SortHeader>
                   <SortHeader field="seatType" className="text-white hover:bg-white/10">Seat Type</SortHeader>
                   <th className="px-3 sm:px-4 py-3 whitespace-nowrap font-bold">Counselling</th>
@@ -584,14 +591,16 @@ export default function AllotmentDetailPage() {
                     <td className="px-3 sm:px-4 py-3.5 font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">
                       {entry.allIndiaRank.toLocaleString()}
                     </td>
-                    {!isMCC && (
+                    {hasStateRank && (
                       <td className="px-3 sm:px-4 py-3.5 text-slate-500 tabular-nums font-medium">
                         {entry.stateRank?.toLocaleString() ?? '-'}
                       </td>
                     )}
-                    <td className="px-3 sm:px-4 py-3.5 font-bold text-slate-800 dark:text-slate-200 tabular-nums">
-                      {entry.neetScore ?? '-'}
-                    </td>
+                    {hasNeetScore && (
+                      <td className="px-3 sm:px-4 py-3.5 font-bold text-slate-800 dark:text-slate-200 tabular-nums">
+                        {entry.neetScore ?? '-'}
+                      </td>
+                    )}
                     <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap">
                       <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${
                         entry.category === 'General' ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300' :
@@ -603,9 +612,11 @@ export default function AllotmentDetailPage() {
                         {entry.category}
                       </span>
                     </td>
-                    <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap text-slate-500 font-medium text-[11px]">
-                      {entry.subcategory || '-'}
-                    </td>
+                    {hasSubcategory && (
+                      <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap text-slate-500 font-medium text-[11px]">
+                        {entry.subcategory || '-'}
+                      </td>
+                    )}
                     <td className="px-3 sm:px-4 py-3.5 max-w-[280px]">
                       <p className="font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
                         {entry.instituteName}
