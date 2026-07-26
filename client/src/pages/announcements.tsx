@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
 import { Pagination } from '@/components/ui/pagination';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { motion } from 'framer-motion';
 import {
   Search,
@@ -77,7 +78,7 @@ function decorate(a: Announcement): DatedAnnouncement {
 const TYPE_COLORS: Record<string, { text: string; bg: string; border: string }> = {
   'Allotment': { text: 'text-blue-700 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-950/30', border: 'border-blue-200 dark:border-blue-900/40' },
   'Counselling': { text: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/30', border: 'border-emerald-200 dark:border-emerald-900/40' },
-  'Public Notice': { text: 'text-red-700 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-950/30', border: 'border-red-200 dark:border-red-900/40' },
+  'Public Notice': { text: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/30', border: 'border-emerald-200 dark:border-emerald-900/40' },
   'Seat Matrix': { text: 'text-amber-700 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/30', border: 'border-amber-200 dark:border-amber-900/40' },
   'Merit list': { text: 'text-purple-700 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/30', border: 'border-purple-200 dark:border-purple-900/40' },
   'Merit List': { text: 'text-purple-700 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/30', border: 'border-purple-200 dark:border-purple-900/40' },
@@ -172,30 +173,26 @@ export default function AnnouncementsPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero Header */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <HeroBanner>
           <div className="relative z-10 space-y-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
               <Sparkles className="w-3.5 h-3.5" />
               Live Updates
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-              <Megaphone className="w-7 h-7 text-red-200" />
+              <Megaphone className="w-7 h-7 text-emerald-200" />
               Announcements
             </h1>
-            <p className="text-red-100/90 text-sm max-w-xl leading-relaxed">
+            <p className="text-emerald-100/90 text-sm max-w-xl leading-relaxed">
               Stay updated with the latest NEET UG counselling notifications, allotments, seat matrices, and public notices across all states.
             </p>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {loading ? (
         <Card>
           <CardContent className="py-20 flex flex-col items-center justify-center gap-3">
-            <Loader2 className="w-7 h-7 text-red-600 animate-spin" />
+            <Loader2 className="w-7 h-7 text-emerald-600 animate-spin" />
             <p className="text-sm text-muted-foreground">Loading announcements...</p>
           </CardContent>
         </Card>
@@ -229,7 +226,7 @@ export default function AnnouncementsPage() {
                   <select
                     value={monthFilter}
                     onChange={(e) => { setMonthFilter(e.target.value); setPage(1); }}
-                    className="h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer w-full sm:min-w-[150px]"
+                    className="h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-emerald-300 cursor-pointer w-full sm:min-w-[150px]"
                   >
                     <option value="All">All Months</option>
                     {monthOptions.map(([key, label]) => (
@@ -244,7 +241,7 @@ export default function AnnouncementsPage() {
                   <select
                     value={stateFilter}
                     onChange={(e) => { setStateFilter(e.target.value); setPage(1); }}
-                    className="h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-red-300 cursor-pointer w-full sm:min-w-[170px]"
+                    className="h-11 pl-10 pr-4 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-all duration-200 hover:border-emerald-300 cursor-pointer w-full sm:min-w-[170px]"
                   >
                     <option value="All">All States</option>
                     {stateOptions.map((s) => (
@@ -262,7 +259,7 @@ export default function AnnouncementsPage() {
                   className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                     typeFilter === 'All'
                       ? 'gradient-primary text-white border-transparent shadow-md'
-                      : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                      : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                   }`}
                 >
                   All
@@ -299,7 +296,7 @@ export default function AnnouncementsPage() {
                       onRemove={() => { setMonthFilter('All'); setPage(1); }}
                     />
                   )}
-                  <button onClick={handleReset} className="text-[11px] font-semibold text-red-600 hover:underline ml-1">Clear all</button>
+                  <button onClick={handleReset} className="text-[11px] font-semibold text-emerald-600 hover:underline ml-1">Clear all</button>
                 </div>
               )}
             </CardContent>
@@ -309,7 +306,7 @@ export default function AnnouncementsPage() {
           <div className="flex items-center justify-between">
             <p className="text-sm text-muted-foreground">
               <span className="font-bold text-slate-800 dark:text-slate-200">{filtered.length}</span> announcement{filtered.length !== 1 ? 's' : ''}
-              {activeFilterCount > 0 && <span className="text-red-600 font-medium"> (filtered)</span>}
+              {activeFilterCount > 0 && <span className="text-emerald-600 font-medium"> (filtered)</span>}
             </p>
           </div>
 
@@ -379,11 +376,11 @@ function AnnouncementCard({ announcement: a, index }: { announcement: DatedAnnou
             </div>
             {dateLabel && (
               <span className="inline-flex items-center gap-1.5 shrink-0">
-                {isRecent && <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_0_3px_rgba(239,68,68,0.15)]" />}
+                {isRecent && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_0_3px_rgba(239,68,68,0.15)]" />}
                 <span
                   title={a.monthLabel || undefined}
                   className={`text-xs font-semibold tabular-nums ${
-                    isRecent ? 'text-red-600 dark:text-red-400' : 'text-slate-400 dark:text-slate-500'
+                    isRecent ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400 dark:text-slate-500'
                   }`}
                 >
                   {dateLabel}
@@ -430,9 +427,9 @@ function AnnouncementCard({ announcement: a, index }: { announcement: DatedAnnou
 
 function FilterTag({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-[11px] font-semibold border border-red-200 dark:border-red-900/40 hover:bg-red-100 transition-colors duration-200">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-200 dark:border-emerald-900/40 hover:bg-emerald-100 transition-colors duration-200">
       {label}
-      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors">
+      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-900/50 flex items-center justify-center transition-colors">
         <X className="w-2.5 h-2.5" />
       </button>
     </span>

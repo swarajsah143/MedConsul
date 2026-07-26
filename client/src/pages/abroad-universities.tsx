@@ -4,6 +4,7 @@ import { useCollection, distinct } from '@/lib/data-api';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   Globe2,
   Search,
@@ -142,10 +143,10 @@ function AbroadCard({ x, onOpen }: { x: AbroadUniversity; onOpen: (x: AbroadUniv
       role="button"
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(x); } }}
-      className="group h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-transparent hover:border-red-200 dark:hover:border-red-900/40 relative cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500/40"
+      className="group h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-transparent hover:border-emerald-200 dark:hover:border-emerald-900/40 relative cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40"
     >
       {/* Photo banner */}
-      <div className="relative h-32 bg-gradient-to-br from-red-500 to-rose-600 overflow-hidden">
+      <div className="relative h-32 bg-gradient-to-br from-emerald-500 to-green-600 overflow-hidden">
         {x.image && (
           <img
             src={x.image}
@@ -176,11 +177,11 @@ function AbroadCard({ x, onOpen }: { x: AbroadUniversity; onOpen: (x: AbroadUniv
 
       <CardContent className="p-5">
         <div className="flex items-start gap-3">
-          <div className="w-11 h-11 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
-            <GraduationCap className="w-5 h-5 text-red-600 dark:text-red-400" />
+          <div className="w-11 h-11 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110">
+            <GraduationCap className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors line-clamp-2">
+            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors line-clamp-2">
               {name}
             </h3>
             <div className="flex flex-wrap items-center gap-2 mt-1 text-[11px] text-muted-foreground">
@@ -224,7 +225,7 @@ function AbroadCard({ x, onOpen }: { x: AbroadUniversity; onOpen: (x: AbroadUniv
           ))}
         </div>
 
-        <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 dark:text-red-400 group-hover:gap-2.5 transition-all">
+        <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400 group-hover:gap-2.5 transition-all">
           View Details <ExternalLink className="w-3.5 h-3.5" />
         </span>
       </CardContent>
@@ -287,7 +288,7 @@ function AbroadDetailModal({ x, onClose }: { x: AbroadUniversity; onClose: () =>
         transition={{ type: 'spring', stiffness: 320, damping: 28 }}
       >
         {/* Banner */}
-        <div className="relative h-44 bg-gradient-to-br from-red-500 to-rose-600 overflow-hidden">
+        <div className="relative h-44 bg-gradient-to-br from-emerald-500 to-green-600 overflow-hidden">
           {x.image && (
             <img
               src={x.image}
@@ -328,7 +329,7 @@ function AbroadDetailModal({ x, onClose }: { x: AbroadUniversity; onClose: () =>
           {x.about && (
             <section>
               <h3 className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
-                <Info className="w-4 h-4 text-red-600 dark:text-red-400" /> About
+                <Info className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> About
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{x.about}</p>
             </section>
@@ -361,7 +362,7 @@ function AbroadDetailModal({ x, onClose }: { x: AbroadUniversity; onClose: () =>
           {x.eligibility && (
             <section>
               <h3 className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
-                <GraduationCap className="w-4 h-4 text-red-600 dark:text-red-400" /> Eligibility
+                <GraduationCap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Eligibility
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{x.eligibility}</p>
             </section>
@@ -405,7 +406,7 @@ function AbroadDetailModal({ x, onClose }: { x: AbroadUniversity; onClose: () =>
           {x.hostelInfo && (
             <section>
               <h3 className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-slate-100 mb-2">
-                <Home className="w-4 h-4 text-red-600 dark:text-red-400" /> Hostel &amp; mess
+                <Home className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> Hostel &amp; mess
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{x.hostelInfo}</p>
             </section>
@@ -423,7 +424,7 @@ function AbroadDetailModal({ x, onClose }: { x: AbroadUniversity; onClose: () =>
               href={x.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 w-full h-11 rounded-xl gradient-primary text-white text-sm font-semibold shadow-md shadow-red-600/20 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all"
+              className="inline-flex items-center justify-center gap-2 w-full h-11 rounded-xl gradient-primary text-white text-sm font-semibold shadow-md shadow-emerald-600/20 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all"
             >
               <Globe2 className="w-4 h-4" /> Visit official website <ExternalLink className="w-4 h-4" />
             </a>
@@ -446,10 +447,7 @@ export default function AbroadUniversitiesPage() {
   const recommended = useMemo(() => recommendedAbroad(data, 6), [data]);
 
   const hero = (
-    <div className="relative rounded-2xl overflow-hidden">
-      <div className="gradient-primary p-6 sm:p-8 lg:p-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+    <HeroBanner>
         <div className="relative z-10 space-y-3">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
             <Sparkles className="w-3.5 h-3.5" /> Study Abroad
@@ -457,12 +455,11 @@ export default function AbroadUniversitiesPage() {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
             <Globe2 className="w-7 h-7 sm:w-8 sm:h-8" /> Abroad Universities
           </h1>
-          <p className="text-red-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
+          <p className="text-emerald-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
             Research affordable, NMC-recognised medical universities abroad. Search by name or explore our curated recommendations.
           </p>
         </div>
-      </div>
-    </div>
+    </HeroBanner>
   );
 
   if (loading) {
@@ -471,7 +468,7 @@ export default function AbroadUniversitiesPage() {
         {hero}
         <Card>
           <CardContent className="py-20 flex flex-col items-center justify-center gap-3">
-            <Loader2 className="w-7 h-7 text-red-600 animate-spin" />
+            <Loader2 className="w-7 h-7 text-emerald-600 animate-spin" />
             <p className="text-sm text-muted-foreground">Loading universities...</p>
           </CardContent>
         </Card>
@@ -514,7 +511,7 @@ export default function AbroadUniversitiesPage() {
 
       {/* Search */}
       <Card className="overflow-hidden border-0 shadow-lg">
-        <div className="h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400" />
+        <div className="h-1 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400" />
         <CardContent className="p-5 sm:p-6">
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">

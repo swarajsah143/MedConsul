@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { useCollection } from '@/lib/data-api';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -167,15 +168,7 @@ export default function CounsellingConditionsPage() {
   const blocks = displayContent.blocks ?? [];
 
   const hero = (dropdown: ReactNode) => (
-    <div className="relative rounded-2xl">
-      <div className="gradient-primary rounded-2xl p-6 sm:p-8 lg:p-10 relative">
-        {/* Decorative blurs — clipped to the hero, but kept below content so the dropdown can overflow */}
-        <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-          <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-rose-400/10 rounded-full blur-2xl" />
-        </div>
-
+    <HeroBanner>
         <div className="relative z-10 space-y-4 text-center">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
             <Sparkles className="w-3.5 h-3.5" /> Counselling Conditions
@@ -183,14 +176,13 @@ export default function CounsellingConditionsPage() {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
             Counselling Conditions
           </h1>
-          <p className="text-red-100/90 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-emerald-100/90 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Review eligibility, application rules, counselling flow, quota types, and domicile conditions.
           </p>
 
           {dropdown && <div className="flex justify-center pt-2">{dropdown}</div>}
         </div>
-      </div>
-    </div>
+    </HeroBanner>
   );
 
   if (loading) {
@@ -199,7 +191,7 @@ export default function CounsellingConditionsPage() {
         {hero(null)}
         <Card>
           <CardContent className="py-20 flex flex-col items-center justify-center gap-3">
-            <Loader2 className="w-7 h-7 text-red-600 animate-spin" />
+            <Loader2 className="w-7 h-7 text-emerald-600 animate-spin" />
             <p className="text-sm text-muted-foreground">Loading counselling conditions...</p>
           </CardContent>
         </Card>
@@ -276,12 +268,12 @@ export default function CounsellingConditionsPage() {
                         onClick={() => { setSelectedQuota(qt.label); setQuotaMenuOpen(false); setQuotaSearch(''); }}
                         className={`w-full flex items-center justify-between gap-2 px-4 py-2.5 text-sm transition-colors ${
                           isOn
-                            ? 'bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 font-semibold'
+                            ? 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400 font-semibold'
                             : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                         }`}
                       >
                         <span className="truncate text-left">{qt.label}</span>
-                        {isOn && <Check className="w-4 h-4 shrink-0 text-red-600 dark:text-red-400" />}
+                        {isOn && <Check className="w-4 h-4 shrink-0 text-emerald-600 dark:text-emerald-400" />}
                       </button>
                     );
                   })}
@@ -316,12 +308,12 @@ export default function CounsellingConditionsPage() {
                 onClick={() => { setSelectedState(st); setStateMenuOpen(false); }}
                 className={`w-full flex items-center justify-between gap-2 px-4 py-2 text-sm transition-colors ${
                   isOn
-                    ? 'bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 font-semibold'
+                    ? 'bg-emerald-50 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-400 font-semibold'
                     : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                 }`}
               >
                 <span className="truncate text-left">{st}</span>
-                {isOn && <Check className="w-4 h-4 shrink-0 text-red-600 dark:text-red-400" />}
+                {isOn && <Check className="w-4 h-4 shrink-0 text-emerald-600 dark:text-emerald-400" />}
               </button>
             );
           })}
@@ -346,8 +338,8 @@ export default function CounsellingConditionsPage() {
               onClick={() => navigate(`/counselling-conditions/${s.key}`)}
               className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                 isOn
-                  ? 'gradient-primary text-white border-transparent shadow-md shadow-red-500/25'
-                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 hover:border-red-300 hover:text-red-600'
+                  ? 'gradient-primary text-white border-transparent shadow-md shadow-emerald-500/25'
+                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 hover:border-emerald-300 hover:text-emerald-600'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -363,8 +355,8 @@ export default function CounsellingConditionsPage() {
           {isQuotaTab ? <Layers className="w-3.5 h-3.5" /> : <Building2 className="w-3.5 h-3.5" />}
           Showing <span className="font-bold text-slate-700 dark:text-slate-200">{activeTab.label}</span>
           {isQuotaTab
-            ? quotaInfo && <> for <span className="font-bold text-red-600 dark:text-red-400">{quotaInfo.label}</span></>
-            : <> conditions · <span className="font-bold text-red-600 dark:text-red-400">All-India baseline</span></>
+            ? quotaInfo && <> for <span className="font-bold text-emerald-600 dark:text-emerald-400">{quotaInfo.label}</span></>
+            : <> conditions · <span className="font-bold text-emerald-600 dark:text-emerald-400">All-India baseline</span></>
           }
           {/* NB: these sections are the MCC/All-India baseline — the same content for every state.
               The state picker above is scaffolding for future per-state rules; until that content
@@ -381,16 +373,16 @@ export default function CounsellingConditionsPage() {
         />
       ) : (
         <Card className="overflow-hidden border-0 shadow-lg">
-          <div className="h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400" />
+          <div className="h-1 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400" />
           <CardContent className="p-5 sm:p-7 space-y-7">
             {/* Governing authority */}
             {displayContent.authority && (
-              <div className="flex items-start gap-3 rounded-xl bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 p-4">
+              <div className="flex items-start gap-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/30 p-4">
                 <div className="w-9 h-9 rounded-lg bg-white dark:bg-slate-900 flex items-center justify-center shrink-0 shadow-sm">
-                  <ScrollText className="w-4.5 h-4.5 text-red-600 dark:text-red-400" />
+                  <ScrollText className="w-4.5 h-4.5 text-emerald-600 dark:text-emerald-400" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-red-700 dark:text-red-400">
+                  <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
                     {isQuotaTab ? 'About This Quota' : 'Governing Authority'}
                   </p>
                   <p className="text-sm text-slate-700 dark:text-slate-300 mt-1 leading-relaxed">{displayContent.authority}</p>
@@ -412,7 +404,7 @@ export default function CounsellingConditionsPage() {
                     {block.items.map((item, ii) => (
                       <li key={ii} className="flex items-start gap-3">
                         {block.ordered ? (
-                          <span className="shrink-0 w-6 h-6 rounded-lg bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 text-xs font-bold flex items-center justify-center mt-0.5">
+                          <span className="shrink-0 w-6 h-6 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold flex items-center justify-center mt-0.5">
                             {ii + 1}
                           </span>
                         ) : (

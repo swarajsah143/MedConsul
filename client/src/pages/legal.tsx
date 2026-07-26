@@ -29,8 +29,8 @@ function Shell({ title, children }: { title: string; children: React.ReactNode }
             <span className="text-lg font-extrabold tracking-tight">MedCounsel AI</span>
           </Link>
           <div className="flex items-center gap-4 text-sm font-semibold">
-            <Link to="/privacy" className="hover:text-red-600">Privacy</Link>
-            <Link to="/terms" className="hover:text-red-600">Terms</Link>
+            <Link to="/privacy" className="hover:text-emerald-600">Privacy</Link>
+            <Link to="/terms" className="hover:text-emerald-600">Terms</Link>
           </div>
         </nav>
       </header>
@@ -39,7 +39,7 @@ function Shell({ title, children }: { title: string; children: React.ReactNode }
         <p className="mt-2 text-sm text-slate-500">Last updated {UPDATED} · MedCounsel AI, operated by Earthling Aid Tech.</p>
         {children}
         <div className="mt-12 pt-6 border-t border-slate-100 dark:border-slate-800">
-          <Link to="/" className="text-sm text-slate-400 hover:text-red-600">← Back to home</Link>
+          <Link to="/" className="text-sm text-slate-400 hover:text-emerald-600">← Back to home</Link>
         </div>
       </main>
     </div>
@@ -69,13 +69,13 @@ function Privacy() {
         <p>Data is transmitted over HTTPS and stored on access-controlled servers. No system is perfectly secure, but we take reasonable technical and organisational measures to protect your information.</p>
       </Section>
       <Section title="5. Retention & your rights (DPDP Act, 2023)">
-        <p>We keep your data only as long as your account is active or as needed to provide the service. You may request access to, correction of, or deletion of your personal data — including your uploaded documents — at any time by emailing <a href={`mailto:${CONTACT}`} className="text-red-600 hover:underline">{CONTACT}</a>. We will respond within a reasonable time.</p>
+        <p>We keep your data only as long as your account is active or as needed to provide the service. You may request access to, correction of, or deletion of your personal data — including your uploaded documents — at any time by emailing <a href={`mailto:${CONTACT}`} className="text-emerald-600 hover:underline">{CONTACT}</a>. We will respond within a reasonable time.</p>
       </Section>
       <Section title="6. Children & consent">
         <p>By creating an account you consent to this policy. If you are a minor, a parent or guardian should create and manage the account.</p>
       </Section>
       <Section title="7. Contact">
-        <p>Questions or requests: <a href={`mailto:${CONTACT}`} className="text-red-600 hover:underline">{CONTACT}</a>.</p>
+        <p>Questions or requests: <a href={`mailto:${CONTACT}`} className="text-emerald-600 hover:underline">{CONTACT}</a>.</p>
       </Section>
     </Shell>
   );
@@ -103,7 +103,7 @@ function Terms() {
         <p>The service is provided "as is". To the extent permitted by law, MedCounsel AI and Earthling Aid Tech are not liable for admission outcomes or decisions made based on the information provided.</p>
       </Section>
       <Section title="6. Changes & contact">
-        <p>We may update these terms; material changes will be reflected here with a new date. Questions: <a href={`mailto:${CONTACT}`} className="text-red-600 hover:underline">{CONTACT}</a>.</p>
+        <p>We may update these terms; material changes will be reflected here with a new date. Questions: <a href={`mailto:${CONTACT}`} className="text-emerald-600 hover:underline">{CONTACT}</a>.</p>
       </Section>
     </Shell>
   );

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { Loader2, Search, Building2, MapPin, AlertTriangle, ListChecks } from 'lucide-react';
 
 const PER_PAGE = 12;
@@ -42,7 +43,7 @@ interface EligibleCollege {
 }
 
 const selectClass =
-  'mt-1.5 w-full h-11 px-3 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-700 dark:text-slate-200 focus:border-red-400 focus:outline-none transition-colors';
+  'mt-1.5 w-full h-11 px-3 rounded-xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-700 dark:text-slate-200 focus:border-emerald-400 focus:outline-none transition-colors';
 
 export default function EligibilityMatcherPage() {
   const navigate = useNavigate();
@@ -98,10 +99,7 @@ export default function EligibilityMatcherPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8 lg:p-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <HeroBanner>
           <div className="relative z-10 space-y-3">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
               <ListChecks className="w-3.5 h-3.5" /> Eligibility Matcher
@@ -109,12 +107,11 @@ export default function EligibilityMatcherPage() {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Eligibility Matcher
             </h1>
-            <p className="text-red-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
+            <p className="text-emerald-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
               Enter your rank range and we'll match you with every college where your eligibility holds. Narrow further by category and state.
             </p>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Matcher form */}
       <Card className="overflow-hidden border-0 shadow-lg">
@@ -123,7 +120,7 @@ export default function EligibilityMatcherPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <div className="sm:col-span-2">
               <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
-                Rank Range <span className="text-red-600">*</span>
+                Rank Range <span className="text-emerald-600">*</span>
               </label>
               <div className="flex items-center gap-2 mt-1.5">
                 <Input type="number" placeholder="From (e.g. 5000)" value={rankFrom}
@@ -151,7 +148,7 @@ export default function EligibilityMatcherPage() {
             </div>
           </div>
 
-          {formError && <p className="text-xs font-semibold text-red-500">{formError}</p>}
+          {formError && <p className="text-xs font-semibold text-emerald-500">{formError}</p>}
 
           <div className="flex items-center gap-2">
             <Button onClick={handleMatch} disabled={loading}
@@ -159,7 +156,7 @@ export default function EligibilityMatcherPage() {
               <span className="flex items-center gap-2"><Search className="w-4 h-4" /> Match Eligible Colleges</span>
             </Button>
             {submitted !== null && (
-              <Button variant="outline" onClick={handleReset} className="h-11 rounded-xl hover:border-red-300 hover:text-red-600 transition-colors">
+              <Button variant="outline" onClick={handleReset} className="h-11 rounded-xl hover:border-emerald-300 hover:text-emerald-600 transition-colors">
                 Reset
               </Button>
             )}
@@ -170,7 +167,7 @@ export default function EligibilityMatcherPage() {
       {/* Results */}
       {loading ? (
         <div className="flex items-center justify-center py-16">
-          <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+          <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
         </div>
       ) : error ? (
         <EmptyState icon={AlertTriangle} title="Couldn't load allotment data" description={error} />
@@ -195,8 +192,8 @@ export default function EligibilityMatcherPage() {
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground px-1">
               <span className="font-bold text-slate-800 dark:text-slate-200">{eligibleColleges.length}</span> eligible college{eligibleColleges.length !== 1 ? 's' : ''} matched for rank {submitted.from.toLocaleString()}–{submitted.to.toLocaleString()}
-              {category !== 'All' && <span className="text-red-600 font-medium"> · {category}</span>}
-              {state !== 'All' && <span className="text-red-600 font-medium"> · {state === 'All India Quota - MCC' ? 'MCC' : state}</span>}
+              {category !== 'All' && <span className="text-emerald-600 font-medium"> · {category}</span>}
+              {state !== 'All' && <span className="text-emerald-600 font-medium"> · {state === 'All India Quota - MCC' ? 'MCC' : state}</span>}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {paginated.map((c) => {
@@ -210,8 +207,8 @@ export default function EligibilityMatcherPage() {
                     <Card className="h-full border-slate-200/60 dark:border-slate-800/60 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
                       <CardContent className="p-4 space-y-2.5">
                         <div className="flex items-center gap-2.5">
-                          <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-red-50 dark:bg-red-950/30 flex items-center justify-center ring-1 ring-slate-200/60 dark:ring-slate-700/60">
-                            <Building2 className="w-[18px] h-[18px] text-red-600" />
+                          <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center ring-1 ring-slate-200/60 dark:ring-slate-700/60">
+                            <Building2 className="w-[18px] h-[18px] text-emerald-600" />
                             <img
                               src={collegePhoto(c.instituteName)}
                               alt=""
@@ -220,7 +217,7 @@ export default function EligibilityMatcherPage() {
                               className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                             />
                           </div>
-                          <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                          <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                             {c.instituteName}
                           </h3>
                         </div>
@@ -241,7 +238,7 @@ export default function EligibilityMatcherPage() {
                               {c.minRank.toLocaleString()}{c.maxRank !== c.minRank ? `–${c.maxRank.toLocaleString()}` : ''}
                             </p>
                           </div>
-                          <span className="text-[10px] font-semibold text-red-600 dark:text-red-400">{c.seats} seat{c.seats !== 1 ? 's' : ''}</span>
+                          <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">{c.seats} seat{c.seats !== 1 ? 's' : ''}</span>
                         </div>
                       </CardContent>
                     </Card>

@@ -150,7 +150,7 @@ export default function AdminDataPage() {
   if (error) {
     return (
       <Card><CardContent className="p-6">
-        <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+        <p className="text-sm text-emerald-600 dark:text-emerald-400">{error}</p>
         <p className="text-xs text-muted-foreground mt-2">
           Admin-managed data requires MongoDB. Check that MONGODB_URI is set and mongod is reachable.
         </p>
@@ -159,7 +159,7 @@ export default function AdminDataPage() {
   }
 
   if (!schemas) {
-    return <div className="flex items-center justify-center py-20"><Loader2 className="w-6 h-6 animate-spin text-red-600" /></div>;
+    return <div className="flex items-center justify-center py-20"><Loader2 className="w-6 h-6 animate-spin text-emerald-600" /></div>;
   }
 
   // ── index: pick a collection ──
@@ -178,8 +178,8 @@ export default function AdminDataPage() {
               <Card className="hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 h-full">
                 <CardContent className="p-5">
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
-                      <Database className="w-5 h-5 text-red-600" />
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0">
+                      <Database className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div className="min-w-0">
                       <p className="font-bold text-slate-900 dark:text-slate-100">{s.labelPlural}</p>
@@ -203,7 +203,7 @@ export default function AdminDataPage() {
     <div className="space-y-5 page-enter">
       <div className="flex items-center justify-between gap-3 flex-wrap">
         <div>
-          <Link to="/admin/data" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-red-600 mb-1">
+          <Link to="/admin/data" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-emerald-600 mb-1">
             <ArrowLeft className="w-3.5 h-3.5" /> All collections
           </Link>
           <h1 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">{schema.labelPlural}</h1>
@@ -215,9 +215,9 @@ export default function AdminDataPage() {
       </div>
 
       {refError && (
-        <Card className="border-red-200 dark:border-red-900/40">
+        <Card className="border-emerald-200 dark:border-emerald-900/40">
           <CardContent className="p-4">
-            <p className="text-sm font-semibold text-red-600 dark:text-red-400">{refError}</p>
+            <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">{refError}</p>
             <p className="text-xs text-muted-foreground mt-1">
               Linked records could not be loaded, so reference dropdowns and filters are empty. Reload the page to try again.
             </p>

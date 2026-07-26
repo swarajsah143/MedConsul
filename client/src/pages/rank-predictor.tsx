@@ -30,12 +30,12 @@ import {
 
 const SELECT =
   'w-full h-11 px-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm ' +
-  'focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200 ' +
-  'hover:border-red-300 appearance-none cursor-pointer';
+  'focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all duration-200 ' +
+  'hover:border-emerald-300 appearance-none cursor-pointer';
 
 const FIELD =
   'w-full h-11 px-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm ' +
-  'focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all duration-200';
+  'focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all duration-200';
 
 const BANDS: Chance[] = ['Safe', 'Good', 'Reach', 'Tough'];
 
@@ -123,7 +123,7 @@ export default function RankPredictorPage() {
   if (metaLoading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader2 className="w-6 h-6 animate-spin text-red-500" />
+        <Loader2 className="w-6 h-6 animate-spin text-emerald-500" />
       </div>
     );
   }
@@ -151,7 +151,7 @@ export default function RankPredictorPage() {
               <Download className="w-4 h-4 mr-1.5" /> Export
             </Button>
           ) : (
-            <Link to="/pricing" title="Upgrade to Pro to export" className="inline-flex items-center h-9 px-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-500 hover:border-red-300 hover:text-red-600">
+            <Link to="/pricing" title="Upgrade to Pro to export" className="inline-flex items-center h-9 px-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-500 hover:border-emerald-300 hover:text-emerald-600">
               <Lock className="w-3.5 h-3.5 mr-1.5" /> Export (Pro)
             </Link>
           )
@@ -173,7 +173,7 @@ export default function RankPredictorPage() {
                       onClick={() => setMode(m)}
                       className={`px-3.5 py-1.5 text-xs font-semibold rounded-lg transition-all ${
                         mode === m
-                          ? 'bg-white dark:bg-slate-700 text-red-600 dark:text-red-400 shadow-sm'
+                          ? 'bg-white dark:bg-slate-700 text-emerald-600 dark:text-emerald-400 shadow-sm'
                           : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
                       }`}
                     >
@@ -236,7 +236,7 @@ export default function RankPredictorPage() {
           </form>
 
           {error && (
-            <p className="mt-4 flex items-center gap-2 text-sm text-red-600 dark:text-red-400" role="alert">
+            <p className="mt-4 flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400" role="alert">
               <AlertTriangle className="w-4 h-4 shrink-0" /> {error}
             </p>
           )}
@@ -313,7 +313,7 @@ function Summary({ result }: { result: Prediction }) {
   const spread = result.air.hi > result.air.lo;
 
   return (
-    <Card className="border-red-100 dark:border-red-950/40 bg-gradient-to-br from-red-50/60 to-transparent dark:from-red-950/20">
+    <Card className="border-emerald-100 dark:border-emerald-950/40 bg-gradient-to-br from-emerald-50/60 to-transparent dark:from-emerald-950/20">
       <CardContent className="p-5 sm:p-6">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <Stat
@@ -354,7 +354,7 @@ function Stat({ label, value, sub, accent }: { label: string; value: string; sub
     <div>
       <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{label}</p>
       <p className={`mt-1 text-2xl font-bold tracking-tight ${
-        accent ? 'text-red-600 dark:text-red-400' : 'text-slate-900 dark:text-slate-100'}`}>
+        accent ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-900 dark:text-slate-100'}`}>
         {value}
       </p>
       {sub && <p className="mt-0.5 text-xs text-muted-foreground">{sub}</p>}
@@ -371,7 +371,7 @@ function BandChip({ active, onClick, label, count, dot }: {
       onClick={onClick}
       className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border text-sm font-medium transition-all ${
         active
-          ? 'border-red-300 bg-red-50 text-red-700 dark:border-red-800 dark:bg-red-950/40 dark:text-red-300'
+          ? 'border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300'
           : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
       }`}
       aria-pressed={active}
@@ -408,7 +408,7 @@ function MatchTable({ matches }: { matches: PredictMatch[] }) {
                   <td className="px-4 py-3">
                     <Link
                       to={`/colleges/${m.collegeId}`}
-                      className="font-medium text-slate-900 dark:text-slate-100 hover:text-red-600 dark:hover:text-red-400 inline-flex items-center gap-1 group"
+                      className="font-medium text-slate-900 dark:text-slate-100 hover:text-emerald-600 dark:hover:text-emerald-400 inline-flex items-center gap-1 group"
                     >
                       {m.college}
                       <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />

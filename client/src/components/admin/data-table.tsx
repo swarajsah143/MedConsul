@@ -138,7 +138,7 @@ function renderCell(field: Field, value: unknown, refLabels: RefLabels): ReactNo
           target="_blank"
           rel="noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="text-red-600 dark:text-red-400 hover:underline"
+          className="text-emerald-600 dark:text-emerald-400 hover:underline"
         >
           {truncate(String(value), 32)}
         </a>
@@ -402,7 +402,7 @@ export function DataTable(props: {
     const active = sort === field.name || sort === `-${field.name}`;
     return (
       <ArrowUpDown
-        className={`w-3 h-3 transition-colors duration-200 ${active ? 'text-red-600 dark:text-red-400' : 'text-slate-400 dark:text-slate-600'}`}
+        className={`w-3 h-3 transition-colors duration-200 ${active ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400 dark:text-slate-600'}`}
       />
     );
   };
@@ -460,7 +460,7 @@ export function DataTable(props: {
             {activeFilters > 0 && (
               <button
                 onClick={clearFilters}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-red-600 dark:text-red-400 hover:underline px-1"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline px-1"
               >
                 <X className="w-3 h-3" />
                 Clear ({activeFilters})
@@ -472,9 +472,9 @@ export function DataTable(props: {
 
       {/* Error */}
       {error && (
-        <div className="flex items-start gap-2 rounded-lg border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20 px-4 py-3">
-          <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
-          <p className="text-xs font-medium text-red-700 dark:text-red-400">{error}</p>
+        <div className="flex items-start gap-2 rounded-lg border border-emerald-200 dark:border-emerald-900/40 bg-emerald-50 dark:bg-emerald-950/20 px-4 py-3">
+          <AlertTriangle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+          <p className="text-xs font-medium text-emerald-700 dark:text-emerald-400">{error}</p>
         </div>
       )}
 
@@ -550,7 +550,7 @@ export function DataTable(props: {
               {loading && (
                 <tr>
                   <td colSpan={columns.length + 1} className="px-4 py-14 text-center">
-                    <Loader2 className="w-5 h-5 animate-spin text-red-600 dark:text-red-400 mx-auto" />
+                    <Loader2 className="w-5 h-5 animate-spin text-emerald-600 dark:text-emerald-400 mx-auto" />
                     <p className="text-xs text-muted-foreground mt-2">Loading {schema.labelPlural.toLowerCase()}…</p>
                   </td>
                 </tr>
@@ -596,7 +596,7 @@ export function DataTable(props: {
                   return (
                     <tr
                       key={id}
-                      className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors duration-200"
+                      className="hover:bg-emerald-50/40 dark:hover:bg-emerald-950/20 transition-colors duration-200"
                     >
                       {columns.map((f) => (
                         <td key={f.name} className="px-4 py-3 align-middle max-w-[16rem]">
@@ -606,7 +606,7 @@ export function DataTable(props: {
                       <td className="px-4 py-3 text-right whitespace-nowrap">
                         {confirming ? (
                           <span className="inline-flex items-center gap-2">
-                            <span className="text-[11px] font-semibold text-red-600 dark:text-red-400">
+                            <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
                               Delete?
                             </span>
                             <Button
@@ -639,7 +639,7 @@ export function DataTable(props: {
                             <Button
                               variant="ghost"
                               size="sm"
-                              className="text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30"
+                              className="text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/30"
                               onClick={() => setConfirmId(id)}
                             >
                               <Trash2 className="w-3.5 h-3.5" />

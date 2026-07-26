@@ -28,6 +28,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { PageHeader } from '@/components/ui/page-header';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { cn } from '@/lib/utils';
 
 /**
@@ -217,7 +218,7 @@ const PLAN_STYLE: Record<Plan, string> = {
 /** Accent presets — one tinted foreground/background pair per section and stat. */
 type Accent = { bg: string; text: string };
 const ACCENT: Record<'red' | 'blue' | 'emerald' | 'amber' | 'indigo' | 'purple', Accent> = {
-  red: { bg: 'bg-red-50 dark:bg-red-950/40', text: 'text-red-600 dark:text-red-400' },
+  red: { bg: 'bg-emerald-50 dark:bg-emerald-950/40', text: 'text-emerald-600 dark:text-emerald-400' },
   blue: { bg: 'bg-blue-50 dark:bg-blue-950/40', text: 'text-blue-600 dark:text-blue-400' },
   emerald: { bg: 'bg-emerald-50 dark:bg-emerald-950/40', text: 'text-emerald-600 dark:text-emerald-400' },
   amber: { bg: 'bg-amber-50 dark:bg-amber-950/40', text: 'text-amber-600 dark:text-amber-400' },
@@ -233,15 +234,15 @@ const ACCENT: Record<'red' | 'blue' | 'emerald' | 'amber' | 'indigo' | 'purple',
  *  Passed to every Input so the whole form reacts consistently to hover/focus. */
 const inputFx =
   'h-11 rounded-xl bg-white/80 dark:bg-slate-900/60 border-slate-200/80 dark:border-slate-700 ' +
-  'hover:border-red-300 dark:hover:border-red-800 hover:shadow-sm ' +
-  'focus-visible:border-red-400 focus-visible:ring-2 focus-visible:ring-red-500/25 focus-visible:ring-offset-0 ' +
-  'focus-visible:shadow-[0_0_0_4px_rgba(244,63,94,0.10)] transition-all duration-200';
+  'hover:border-emerald-300 dark:hover:border-emerald-800 hover:shadow-sm ' +
+  'focus-visible:border-emerald-400 focus-visible:ring-2 focus-visible:ring-emerald-500/25 focus-visible:ring-offset-0 ' +
+  'focus-visible:shadow-[0_0_0_4px_rgba(34, 197, 94,0.10)] transition-all duration-200';
 
 const selectClass =
   'flex h-11 w-full rounded-xl border border-slate-200/80 dark:border-slate-700 bg-white/80 dark:bg-slate-900/60 px-3 py-2 text-sm ' +
-  'focus-visible:outline-none focus-visible:border-red-400 focus-visible:ring-2 focus-visible:ring-red-500/25 ' +
-  'focus-visible:shadow-[0_0_0_4px_rgba(244,63,94,0.10)] ' +
-  'transition-all duration-200 hover:border-red-300 dark:hover:border-red-800 hover:shadow-sm cursor-pointer';
+  'focus-visible:outline-none focus-visible:border-emerald-400 focus-visible:ring-2 focus-visible:ring-emerald-500/25 ' +
+  'focus-visible:shadow-[0_0_0_4px_rgba(34, 197, 94,0.10)] ' +
+  'transition-all duration-200 hover:border-emerald-300 dark:hover:border-emerald-800 hover:shadow-sm cursor-pointer';
 
 function Field({
   id,
@@ -344,7 +345,7 @@ function AvatarEditor({
         onClick={pick}
         disabled={busy}
         aria-label="Change profile picture"
-        className="absolute -bottom-2 -right-2 w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-md ring-2 ring-red-600/10 text-red-600 hover:bg-red-50 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+        className="absolute -bottom-2 -right-2 w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-md ring-2 ring-emerald-600/10 text-emerald-600 hover:bg-emerald-50 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
       >
         <Camera className="w-4 h-4" />
       </button>
@@ -355,7 +356,7 @@ function AvatarEditor({
           type="button"
           onClick={() => { setErr(null); onChange(''); }}
           aria-label="Remove profile picture"
-          className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-md text-slate-500 hover:text-red-600 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
+          className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-md text-slate-500 hover:text-emerald-600 hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer"
         >
           <X className="w-3.5 h-3.5" />
         </button>
@@ -370,7 +371,7 @@ function AvatarEditor({
       />
 
       {err && (
-        <p className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max max-w-[220px] text-center text-[11px] font-medium text-white bg-red-700/95 rounded-lg px-2.5 py-1.5 shadow-lg z-20">
+        <p className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max max-w-[220px] text-center text-[11px] font-medium text-white bg-emerald-700/95 rounded-lg px-2.5 py-1.5 shadow-lg z-20">
           {err}
         </p>
       )}
@@ -449,7 +450,7 @@ function Section({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay, ease: [0.16, 1, 0.3, 1] }}
     >
-      <Card className="group overflow-hidden border-slate-200/70 dark:border-slate-800 bg-gradient-to-br from-white via-white to-rose-50/50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 hover:shadow-lg hover:shadow-rose-200/40 dark:hover:shadow-black/20 hover:-translate-y-0.5 transition-all duration-300">
+      <Card className="group overflow-hidden border-slate-200/70 dark:border-slate-800 bg-gradient-to-br from-white via-white to-green-50/50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 hover:shadow-lg hover:shadow-green-200/40 dark:hover:shadow-black/20 hover:-translate-y-0.5 transition-all duration-300">
         <div className="flex items-start gap-3 p-5 sm:p-6 pb-4 border-b border-slate-100 dark:border-slate-800/80">
           <span className={cn('w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105', accent.bg, accent.text)}>
             <Icon className="w-5 h-5" />
@@ -566,7 +567,7 @@ export default function ProfilePage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+        <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
       </div>
     );
   }
@@ -576,9 +577,9 @@ export default function ProfilePage() {
     return (
       <div className="space-y-6 page-enter">
         <PageHeader icon={UserCircle} title="My Profile" />
-        <Card className="border-red-200 dark:border-red-900/40">
+        <Card className="border-emerald-200 dark:border-emerald-900/40">
           <CardContent className="p-6">
-            <p className="text-sm font-semibold text-red-600 dark:text-red-400">
+            <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">
               {loadError || 'Could not load your profile.'}
             </p>
             <p className="text-xs text-muted-foreground mt-1">
@@ -612,15 +613,12 @@ export default function ProfilePage() {
           form area feels warm and distinct without fighting the content. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-6 -z-10 h-[420px] bg-gradient-to-b from-rose-100/70 via-rose-50/30 to-transparent dark:from-red-950/20 dark:via-red-950/5 dark:to-transparent blur-2xl"
+        className="pointer-events-none absolute inset-x-0 -top-6 -z-10 h-[420px] bg-gradient-to-b from-green-100/70 via-green-50/30 to-transparent dark:from-emerald-950/20 dark:via-emerald-950/5 dark:to-transparent blur-2xl"
       />
 
       {/* ── Hero ── */}
-      <div className="relative overflow-hidden rounded-2xl gradient-primary text-white shadow-lg shadow-red-600/20">
-        <div className="pointer-events-none absolute -top-16 -right-8 w-72 h-72 bg-white/10 rounded-full blur-3xl float-slow" />
-        <div className="pointer-events-none absolute -bottom-24 -left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl float-medium" />
-
-        <div className="relative z-10 p-6 sm:p-8">
+      <HeroBanner contentClassName="text-white">
+        <div className="relative z-10">
           <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-6">
             {/* Avatar — editable */}
             <AvatarEditor
@@ -635,7 +633,7 @@ export default function ProfilePage() {
               <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight truncate">
                 {profile.name || 'Your profile'}
               </h1>
-              <p className="text-red-50/90 text-sm mt-1 flex items-center gap-1.5 min-w-0">
+              <p className="text-emerald-50/90 text-sm mt-1 flex items-center gap-1.5 min-w-0">
                 <Mail className="w-3.5 h-3.5 shrink-0" />
                 <span className="truncate">{profile.email}</span>
               </p>
@@ -645,7 +643,7 @@ export default function ProfilePage() {
                   {PLAN_LABEL[plan]} plan
                 </span>
                 {memberSince && (
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-medium text-red-50">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-medium text-emerald-50">
                     <Calendar className="w-3.5 h-3.5" />
                     Member since {memberSince}
                   </span>
@@ -658,12 +656,12 @@ export default function ProfilePage() {
               <CompletionRing percent={completion} />
               <div className="leading-tight">
                 <p className="text-sm font-bold">{strengthLabel}</p>
-                <p className="text-xs text-red-50/80">Profile strength</p>
+                <p className="text-xs text-emerald-50/80">Profile strength</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </HeroBanner>
 
       {/* ── Live stat strip ── */}
       <motion.div
@@ -885,7 +883,7 @@ export default function ProfilePage() {
                 {saving ? (
                   <span className="text-muted-foreground">Saving your changes…</span>
                 ) : saveError ? (
-                  <span role="alert" className="font-semibold text-red-600 dark:text-red-400">{saveError}</span>
+                  <span role="alert" className="font-semibold text-emerald-600 dark:text-emerald-400">{saveError}</span>
                 ) : flash ? (
                   <span className="inline-flex items-center gap-1.5 font-semibold text-emerald-600 dark:text-emerald-400">
                     <CheckCircle2 className="w-4 h-4" />
@@ -907,7 +905,7 @@ export default function ProfilePage() {
                 type="submit"
                 size="lg"
                 disabled={saving || !dirty}
-                className="bg-gradient-to-r from-red-600 to-rose-500 text-white hover:from-red-500 hover:to-rose-500 shadow-md shadow-red-600/20 hover:shadow-lg hover:shadow-red-600/25 hover:-translate-y-0.5 active:translate-y-0 disabled:hover:translate-y-0 disabled:shadow-sm"
+                className="bg-gradient-to-r from-emerald-600 to-green-500 text-white hover:from-emerald-500 hover:to-green-500 shadow-md shadow-emerald-600/20 hover:shadow-lg hover:shadow-emerald-600/25 hover:-translate-y-0.5 active:translate-y-0 disabled:hover:translate-y-0 disabled:shadow-sm"
               >
                 {saving && <Loader2 className="w-4 h-4 animate-spin" />}
                 {saving ? 'Saving…' : 'Save changes'}
@@ -939,7 +937,7 @@ export default function ProfilePage() {
                 <Crown className="w-3.5 h-3.5" />
                 {PLAN_LABEL[plan]}
               </span>
-              <span className={cn('text-sm font-medium', planExpired ? 'text-red-600 dark:text-red-400' : 'text-slate-600 dark:text-slate-400')}>
+              <span className={cn('text-sm font-medium', planExpired ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-600 dark:text-slate-400')}>
                 {planExpiry
                   ? planExpired
                     ? `Expired on ${planExpiry}`

@@ -14,7 +14,7 @@ export function UpgradePrompt({
   className?: string;
 }) {
   return (
-    <div className={`rounded-2xl border-2 border-dashed border-red-200 dark:border-red-900/40 bg-red-50/40 dark:bg-red-950/10 p-6 text-center ${className}`}>
+    <div className={`rounded-2xl border-2 border-dashed border-emerald-200 dark:border-emerald-900/40 bg-emerald-50/40 dark:bg-emerald-950/10 p-6 text-center ${className}`}>
       <div className="w-11 h-11 rounded-xl gradient-primary flex items-center justify-center mx-auto text-white shadow">
         <Lock className="w-5 h-5" />
       </div>
@@ -33,7 +33,7 @@ export function UpgradePrompt({
 /** A small inline "PRO" / "PREMIUM" lock chip for buttons and labels. */
 export function ProChip({ tier = 'Pro' }: { tier?: 'Pro' | 'Premium' }) {
   return (
-    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-red-100 dark:bg-red-950/40 text-red-700 dark:text-red-300 text-[10px] font-bold uppercase tracking-wide">
+    <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold uppercase tracking-wide">
       <Lock className="w-2.5 h-2.5" /> {tier}
     </span>
   );

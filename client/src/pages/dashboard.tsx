@@ -4,6 +4,7 @@ import { useAuth } from '@/providers/auth-provider';
 import { useCollection } from '@/lib/data-api';
 import { Card, CardContent } from '@/components/ui/card';
 import { FadeIn } from '@/components/ui/motion';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   GraduationCap,
@@ -93,7 +94,7 @@ const TYPE_ICONS: Record<string, typeof Bell> = {
 // One accent color, big icons, one line of text — nothing else.
 const FEATURES = [
   { title: 'Colleges', description: 'Browse & compare medical colleges', icon: Star, href: '/colleges', color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-950/40' },
-  { title: 'Closing Ranks', description: 'Check past cutoff ranks', icon: BarChart3, href: '/rank-insights', color: 'text-red-600 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-950/40' },
+  { title: 'Closing Ranks', description: 'Check past cutoff ranks', icon: BarChart3, href: '/rank-insights', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40' },
   { title: 'Fees & Seats', description: 'Compare fees and seat counts', icon: IndianRupee, href: '/fee-matrix', color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/40' },
   { title: 'My Documents', description: 'Track documents you need', icon: ClipboardCheck, href: '/doc-checklist', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40' },
   { title: 'Counselling Rules', description: 'Eligibility & quota rules explained', icon: BookOpen, href: '/counselling-conditions/eligibility', color: 'text-purple-600 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/40' },
@@ -189,9 +190,8 @@ export default function DashboardPage() {
   return (
     <div className="max-w-5xl mx-auto space-y-8 pb-12">
       {/* ═══════════════ HEADER: greeting + search ═══════════════ */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="absolute inset-0 gradient-primary" />
-        <div className="relative z-10 p-6 sm:p-8">
+      <HeroBanner>
+        <div className="relative z-10">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             {greeting}, {firstName}
           </h1>
@@ -212,14 +212,14 @@ export default function DashboardPage() {
               />
               <button
                 type="submit"
-                className="shrink-0 m-1.5 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm font-semibold transition-colors"
+                className="shrink-0 m-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold transition-colors"
               >
                 Search
               </button>
             </div>
           </form>
         </div>
-      </div>
+      </HeroBanner>
 
       {/* ═══════════════ DOCUMENT PROGRESS ═══════════════ */}
       <FadeIn delay={0.05}>
@@ -248,7 +248,7 @@ export default function DashboardPage() {
                     className="h-full rounded-full transition-all duration-700"
                     style={{
                       width: checklistDocs.loading || checklistDocs.error ? '0%' : `${checklistPct}%`,
-                      backgroundColor: checklistPct === 100 ? '#059669' : '#dc2626',
+                      backgroundColor: checklistPct === 100 ? '#059669' : '#059669',
                     }}
                   />
                 </div>
@@ -302,7 +302,7 @@ export default function DashboardPage() {
       <FadeIn delay={0.15}>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Latest updates</h2>
-          <Link to="/announcements" className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline flex items-center gap-1">
+          <Link to="/announcements" className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1">
             See all <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
@@ -310,7 +310,7 @@ export default function DashboardPage() {
           <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
             {announcements.loading ? (
               <div className="flex items-center justify-center gap-2.5 p-8">
-                <Loader2 className="w-5 h-5 text-red-600 animate-spin" />
+                <Loader2 className="w-5 h-5 text-emerald-600 animate-spin" />
                 <p className="text-sm text-muted-foreground">Loading latest updates...</p>
               </div>
             ) : announcements.error ? (
@@ -318,7 +318,7 @@ export default function DashboardPage() {
                 <p className="text-sm text-muted-foreground">Could not load the latest updates.</p>
                 <button
                   onClick={announcements.reload}
-                  className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline"
+                  className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
                 >
                   Retry
                 </button>
