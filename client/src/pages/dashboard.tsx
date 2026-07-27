@@ -1,7 +1,8 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
-import { useCollection } from '@/lib/data-api';
+import { useCollection, type College } from '@/lib/data-api';
+import { matchCollege } from '@/lib/college-search';
 import { Card, CardContent } from '@/components/ui/card';
 import { FadeIn } from '@/components/ui/motion';
 import { HeroBanner } from '@/components/ui/hero-banner';
@@ -169,10 +170,38 @@ export default function DashboardPage() {
     return 'Good evening';
   }, []);
 
-  const handleSearch = useCallback((e: React.FormEvent) => {
+  // Colleges are fetched lazily (on first focus/submit) and cached, so the dashboard
+  // itself stays light — the full list is only needed to resolve a search.
+  const collegesRef = useRef<College[] | null>(null);
+  const loadColleges = useCallback(async (): Promise<College[]> => {
+    if (collegesRef.current) return collegesRef.current;
+    try {
+      const res = await fetch('/api/data/colleges', { credentials: 'include' });
+      const body = await res.json();
+      const items: College[] = body?.data?.items ?? [];
+      collegesRef.current = items;
+      return items;
+    } catch {
+      return [];
+    }
+  }, []);
+
+  const handleSearch = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    const q = searchQuery.trim().toLowerCase();
-    if (!q) return;
+    const raw = searchQuery.trim();
+    if (!raw) return;
+
+    // 1. If the query names a college (tolerant of partial names + small typos),
+    //    open that college's review directly.
+    const college = matchCollege(raw, await loadColleges());
+    if (college) {
+      navigate(`/colleges/${college.id}`);
+      setSearchQuery('');
+      return;
+    }
+
+    // 2. Otherwise route by topic keyword, defaulting to the AI assistant.
+    const q = raw.toLowerCase();
     const routes: [string[], string][] = [
       [['college', 'review', 'aiims', 'campus'], '/colleges'],
       [['rank', 'cutoff', 'closing', 'score'], '/rank-insights'],
@@ -185,7 +214,7 @@ export default function DashboardPage() {
     const match = routes.find(([keywords]) => keywords.some((kw) => q.includes(kw)));
     navigate(match ? match[1] : '/ai-assistant');
     setSearchQuery('');
-  }, [searchQuery, navigate]);
+  }, [searchQuery, navigate, loadColleges]);
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 pb-12">
@@ -206,7 +235,8 @@ export default function DashboardPage() {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search colleges, ranks, fees, documents..."
+                onFocus={() => { void loadColleges(); }}
+                placeholder="Search a college to open its review, or ranks, fees, documents..."
                 aria-label="Search MedCounsel AI"
                 className="flex-1 bg-transparent text-slate-900 text-sm placeholder:text-slate-400 px-3 py-3.5 outline-none"
               />
