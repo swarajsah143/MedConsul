@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCollection, distinct } from '@/lib/data-api';
 import { MEDICAL_COURSES, MEDICAL_BRANCHES } from '@/lib/explore-data';
+import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -160,17 +161,21 @@ function UniversityCard({ u }: { u: University }) {
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-      {/* Photo banner */}
+      {/* Photo banner — real image if the record has one, else a deterministic building/campus
+          photo so a university without a stored image never shows a blank banner. */}
       <div className="relative h-32 overflow-hidden">
-        {u.image && (
-          <img
-            src={u.image}
-            alt={name}
-            loading="lazy"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        )}
+        <img
+          src={u.image || collegePhoto(name)}
+          alt={name}
+          loading="lazy"
+          onError={(e) => {
+            const img = e.currentTarget as HTMLImageElement;
+            if (img.dataset.fellBack) return;   // swap to the building fallback at most once
+            img.dataset.fellBack = '1';
+            img.src = collegePhoto(name);
+          }}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
         {u.type && (
           <span className={`absolute top-2.5 right-2.5 text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${neon.bg} ${neon.text} ${neon.border}`}>
