@@ -28,10 +28,27 @@ npm test               # client vitest + full server test suite
 - **Client lint:** `cd client && npm run lint` (oxlint). There is no server lint.
 - **Client tests:** `cd client && npm test` (vitest, jsdom). Watch: `npm run test:watch`. A single
   file: `npx vitest run src/test/csv.test.tsx`.
-- **Server tests:** individually via the named scripts in `server/package.json` — e.g.
-  `cd server && npm run test:predictor` or `npm run test:profile`. These are `tsx` scripts, not a
-  framework, so run them one at a time by script name. `test:admin-users` and `admin-ui.test.tsx`
-  **write to a real Mongo** — they need `MONGODB_URI` set and are not safe to run in parallel.
+- **Server tests:** individually via the named scripts in `server/package.json` —
+  `test:integrity`, `test:documents`, `test:admin-users`, `test:students`, `test:profile` (e.g.
+  `cd server && npm run test:profile`). These are `tsx` scripts, not a framework, so run them one at
+  a time by script name. `test:admin-users` and the client's `admin-ui.test.tsx` **write to a real
+  Mongo** — they need `MONGODB_URI` set and are not safe to run in parallel. `admin-ui.test.tsx`
+  additionally drives the real UI against a **live server on :5050**, so `npm run dev` must be up.
+
+### Ops scripts
+
+```bash
+npm run open                   # open the app in Playwright Chromium, already signed in as admin
+npm run open -- prod student   # ...against production, as the demo student
+npm run pull:prod              # one-way mirror of prod Mongo + uploads down to local (also a backup)
+./scripts/dump-dev-db.sh       # sanitized shareable dump → dist-db/ (strips users/tokens/submissions)
+./scripts/backup.sh            # full disaster-recovery dump (stays on the server; includes PII)
+npx tsx scripts/migrate-to-db.ts --dry   # migrate the old static data through the admin API
+```
+
+`npm run open` takes credentials from `MEDC_ADMIN_*` / `MEDC_STUDENT_*` env vars — never hardcode
+them, the script is committed. There is deliberately **no push-to-prod** counterpart to
+`pull:prod`: production holds the only copy of real student accounts and uploaded documents.
 
 ### Ports (important)
 
@@ -88,6 +105,17 @@ importing or migrating, **colleges must exist first**. Note: the colleges table 
 clusters (one institution entered several ways); the predictor collapses them by a name key — see the
 comment in `server/src/services/predictor.ts`.
 
+### CSV import is an upsert on `naturalKey` — never a delete-then-insert
+
+Every collection declares a `naturalKey` (colleges → `name`; closingRanks →
+`collegeId + year + round + course + category + quota`). Import matches on it and updates rows **in
+place, preserving `_id`**, so re-running the same CSV is a no-op and imports are idempotent. The
+original delete-then-insert implementation minted fresh ObjectIds and orphaned every child rank/fee
+row ("Unknown college" across the site); `npm --prefix server run test:integrity` is the regression
+test guarding it. Import is also all-or-nothing (one bad row rejects the batch), an unresolvable
+`collegeId` is rejected, and deleting a referenced college returns **409** unless `?cascade=true`.
+Keep this property when touching import/bulk code. Full detail in `ADMIN.md`.
+
 ### Data storage: Mongo required for domain data, JSON fallback for auth
 
 - **Auth** (`user.model.ts`, tokens, chat sessions) dual-branches on `isMongoConnected()` and falls
@@ -120,6 +148,22 @@ must return the same numbers, and the curves (`rankBands`/`categoryFactors`) are
 not constants. `PUBLIC_MAX = 20000` caps the unpaginated public read; the truly large collections use
 `/paged` + `/facets`. Some features are Pro-gated (`utils/plan.ts`, `isPro`) — e.g. free users get a
 25-row allotment sample.
+
+### Subscription gating is server-enforced and mirrored
+
+`server/src/utils/plan.ts` is the source of truth (`free`/`pro`/`premium`; an expired paid plan
+degrades to free via `effectiveTier`). Caps live there as constants — `FREE_ALLOTMENT_ROWS = 25`,
+`FREE_PREDICT_MATCHES = 10`, `FREE_AI_PER_DAY = 5`. `client/src/lib/plans.ts` deliberately mirrors
+it for UI copy/upgrade prompts; **change both together**, and never gate only on the client.
+
+### Background jobs and uploads
+
+- `server/src/jobs/scheduler.ts` runs in-process `node-cron` (single EC2 box, no multi-node
+  double-fire risk): reminders daily at 08:00 IST **plus** a boot catch-up 20s after start so a
+  restart never skips a day. `runAllDueReminders()` is idempotent — keep it that way.
+- `/documents` handles student identity uploads (multer → `uploads/`, which is gitignored and
+  contains real Aadhaar cards/marksheets). Downloads are **owner-or-admin only**; per-file and
+  per-user byte caps + a MIME allowlist live in `server/src/config/uploads.ts`.
 
 ### Client (`client/src`)
 
@@ -154,3 +198,17 @@ It ships the **currently checked-out** code (prints branch@sha first), auto-disc
 server dir and nginx root, never touches the prod `.env`/`node_modules`, and rolls back if
 `/api/health` doesn't return 200. See `PRODUCTION_READINESS.md` for go-live blockers and
 `scripts/backup.sh` for the automated Mongo backup.
+
+## Stale docs — don't trust these
+
+`README.md` predates most of the current architecture: it claims port 5000, a `server/.env`, and
+lists only the auth endpoints. `.env.example` lists Postgres/Redis/Twilio vars this stack never
+used. `ADMIN.md` row counts are from the original migration and are long superseded by the `data/`
+pipeline. Prefer this file and the code; when they conflict, the code wins.
+
+## Local AI backend (optional)
+
+`opencode-shim/` translates opencode's session/event protocol into the OpenAI-compatible
+`/chat/completions` + SSE that `services/ai.service.ts` speaks, so the assistant can run against a
+local model with **no app code changes** — point `AI_API_BASE_URL` at the shim (`:8787/v1`).
+`opencode serve` must run with `opencode-shim/` as cwd or its `medcounsel` agent won't exist.
