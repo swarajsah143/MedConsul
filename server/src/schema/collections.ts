@@ -106,6 +106,16 @@ export const closingRanks: CollectionSchema = {
     { name: 'quota', type: 'string', label: 'Quota', required: true, filterable: true, help: QUOTA_EXAMPLES },
     { name: 'closingRank', type: 'number', label: 'Closing rank', required: true, inList: true },
     { name: 'closingScore', type: 'number', label: 'Closing score' },
+    {
+      name: 'source', type: 'string', label: 'Source', filterable: true,
+      // Load-bearing: a PUBLISHED cutoff and one DERIVED from allotment data are not the same
+      // claim. Derivation takes max(allIndiaRank) over the candidates we hold for a group, so it
+      // is only as complete as our allotment set — where it disagrees with a published cutoff it
+      // reads OPTIMISTIC (median 1.46x, p90 3.38x better than truth, measured over the 2,317
+      // overlapping groups). Students plan around these numbers, so a derived row must be
+      // labelled and must never silently overwrite a published one.
+      help: 'Where this cutoff came from. Blank = published/imported cutoff. "derived: MCC allotments" = computed as the last allotted rank in our allotment data, which is a lower bound, not an official cutoff.',
+    },
   ],
 };
 

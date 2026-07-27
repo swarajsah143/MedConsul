@@ -9,6 +9,14 @@ export function isMongoConnected() {
   return mongoConnected;
 }
 
+/**
+ * The live mongoose connection, for the driver-level reads the `resource()` wrapper does not
+ * expose (aggregations, distinct). Scripts under `scripts/` need this: mongoose resolves from
+ * `server/node_modules`, so importing it directly from a root-level script fails.
+ * Read through this; write through `resource()` so schema validation still applies.
+ */
+export const connection = mongoose.connection;
+
 export async function connectDatabase() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
