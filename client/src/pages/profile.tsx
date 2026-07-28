@@ -650,9 +650,10 @@ export default function ProfilePage() {
                 <span className="truncate">{profile.email}</span>
               </p>
               <div className="mt-3 flex flex-wrap items-center gap-2">
+                {/* Admins have full authority and no subscription — show the role, not a plan. */}
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-bold uppercase tracking-wide border border-white/15">
                   <Crown className="w-3.5 h-3.5" />
-                  {PLAN_LABEL[plan]} plan
+                  {isAdmin ? 'Administrator' : `${PLAN_LABEL[plan]} plan`}
                 </span>
                 {memberSince && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-medium text-emerald-50">
@@ -933,7 +934,8 @@ export default function ProfilePage() {
         </motion.div>
       </form>
 
-      {/* ── Plan (read-only) ── */}
+      {/* ── Plan (read-only) — hidden for admins, who have full authority and no subscription ── */}
+      {!isAdmin && (
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -973,6 +975,7 @@ export default function ProfilePage() {
           </CardContent>
         </Card>
       </motion.div>
+      )}
     </div>
   );
 }

@@ -15,6 +15,20 @@ export const atLeast = (tier: PlanTier | undefined, min: PlanTier) => RANK[tier 
 export const isPro = (tier?: PlanTier) => atLeast(tier, 'pro');       // pro OR premium → full data
 export const isPremium = (tier?: PlanTier) => tier === 'premium';    // unlimited AI
 
+/**
+ * Admins have COMPLETE authority and are never gated by a subscription — plans exist only for
+ * the students they manage. Gating checks take the whole principal (role + plan from the JWT) and
+ * ask these instead of `isPro(plan)` / `isPremium(plan)` directly, so an admin is unlocked
+ * everywhere by role, no matter what plan value their own record happens to carry.
+ */
+type Principal = { role?: string | null; plan?: PlanTier | string | null } | null | undefined;
+export const isAdmin = (role?: string | null) => role === 'admin';
+
+/** Full data (allotments, full predictions, college detail, exports). Admin OR pro/premium. */
+export const hasFullData = (u: Principal) => isAdmin(u?.role) || isPro(u?.plan as PlanTier);
+/** Unlimited AI questions. Admin OR premium. */
+export const hasUnlimitedAi = (u: Principal) => isAdmin(u?.role) || isPremium(u?.plan as PlanTier);
+
 // Free-tier caps (server-enforced).
 export const FREE_ALLOTMENT_ROWS = 25;   // non-pro: sample only, no export
 export const FREE_PREDICT_MATCHES = 10;  // non-pro: top-N shortlist only

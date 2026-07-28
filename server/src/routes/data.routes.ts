@@ -3,7 +3,7 @@ import { COLLECTIONS, getSchema } from '../schema/collections';
 import { resource } from '../models/resource.model';
 import { isMongoConnected } from '../config/database';
 import { optionalAuth, AuthRequest } from '../middlewares/auth.middleware';
-import { isPro, FREE_ALLOTMENT_ROWS } from '../utils/plan';
+import { hasFullData, FREE_ALLOTMENT_ROWS } from '../utils/plan';
 
 /**
  * Public read-only API for the app.
@@ -49,7 +49,7 @@ router.get('/:collection/paged', optionalAuth, async (req: AuthRequest, res: Res
   // sample of page 1 only — which also blocks CSV export, since export just pages this endpoint
   // deeper and `pages: 1` stops the loop. Real `total` is still returned so the UI can say
   // "25 of N — upgrade to see all".
-  if (collection === 'allotments' && !isPro(req.user?.plan)) {
+  if (collection === 'allotments' && !hasFullData(req.user)) {
     const data = await r.list({ page: 1, limit: FREE_ALLOTMENT_ROWS, sort, q, filters });
     res.json({ success: true, data: { ...data, page: 1, pages: 1, gated: true } });
     return;
