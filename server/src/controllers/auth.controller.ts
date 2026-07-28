@@ -63,6 +63,24 @@ export const authController = {
     }
   },
 
+  async google(req: Request, res: Response) {
+    try {
+      const { idToken } = req.body;
+      const result = await authService.loginWithGoogle(idToken);
+      setRefreshCookie(res, result.refreshToken);
+      res.json({
+        success: true,
+        message: 'Login successful',
+        data: { user: result.user, accessToken: result.accessToken },
+      });
+    } catch (err: any) {
+      res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Google sign-in failed',
+      });
+    }
+  },
+
   async refresh(req: Request, res: Response) {
     try {
       const token = req.cookies?.refreshToken || req.body?.refreshToken;

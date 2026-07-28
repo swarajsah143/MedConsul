@@ -32,4 +32,10 @@ export const env = {
     pass: process.env.SMTP_PASS || '',
     from: process.env.EMAIL_FROM || 'MedCounsel AI <noreply@medcounsel.ai>',
   },
+  // Google Sign-In. Optional, like SMTP — a blank clientId means the /auth/google
+  // route responds 503 instead of the server refusing to boot (unlike the JWT
+  // secrets, this isn't a security-critical value to fail fast on).
+  google: {
+    clientId: process.env.GOOGLE_CLIENT_ID || '',
+  },
 } as const;
