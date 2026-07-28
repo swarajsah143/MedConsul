@@ -116,7 +116,7 @@ export const authController = {
     try {
       const { email } = req.body;
 
-      const user = await authService.getProfile(email);
+      const user = await authService.getProfileEmail(email);
       
       if (!user) {
         return res.status(404).json({ success: false, message: 'User not found' });
@@ -124,9 +124,9 @@ export const authController = {
       const result = await authService.forgotPassword(email);
       // In dev mode include resetToken in response for testing
       const data: any = { message: result.message };
-      if (process.env.NODE_ENV !== 'production' && result.resetToken) {
-        data.resetToken = result.resetToken;
-      }
+      // if (process.env.NODE_ENV !== 'production' && result.resetToken) {
+      //   data.resetToken = result.resetToken;
+      // }
       res.json({ success: true, ...data });
     } catch (err: any) {
       console.error("LOGIN ERROR:", err); res.status(err.status || 500).json({

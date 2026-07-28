@@ -206,4 +206,9 @@ export class AuthService {
     if (!user) throw { status: 404, message: 'User not found' };
     return toSafe(user);
   }
+  async getProfileEmail(email: string) {
+    const user = await UserModel.findByEmail(email);
+    if (!user) throw { status: 404, message: 'User not found' };
+    return toSafe(user);
+  }
 }
