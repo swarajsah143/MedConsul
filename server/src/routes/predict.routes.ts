@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { predict, predictorMeta, takeAcrossBands, TOTAL_MARKS, PredictInput } from '../services/predictor';
 import { optionalAuth, AuthRequest } from '../middlewares/auth.middleware';
-import { isPro, FREE_PREDICT_MATCHES } from '../utils/plan';
+import { hasFullData, FREE_PREDICT_MATCHES } from '../utils/plan';
 
 /**
  * The Rank Predictor's public API.
@@ -76,7 +76,7 @@ router.post('/', optionalAuth, async (req: AuthRequest, res: Response) => {
   // Cut it the same way predict() does — a plain .slice() here took the first 10 of a
   // toughest-cutoff-first list, so a free user was told "605 Safe colleges" and then shown ten
   // Tough ones and no Safe one at all.
-  const gated = !isPro(req.user?.plan);
+  const gated = !hasFullData(req.user);
   if (gated && Array.isArray(result.matches) && result.matches.length > FREE_PREDICT_MATCHES) {
     result.matches = takeAcrossBands(result.matches, FREE_PREDICT_MATCHES);
   }

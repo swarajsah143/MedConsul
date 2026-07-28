@@ -6,7 +6,7 @@ import { Router, Request, Response } from 'express';
 import { verifyAccessToken, JwtPayload } from '../utils/jwt';
 import { aiService } from '../services/ai.service';
 import { store } from '../config/database';
-import { isPremium, FREE_AI_PER_DAY } from '../utils/plan';
+import { hasUnlimitedAi, FREE_AI_PER_DAY } from '../utils/plan';
 
 const router = Router();
 
@@ -54,12 +54,12 @@ function handleSSE(req: Request, res: Response, sessionId: string, action: 'send
       return;
     }
     // Subscription gate: unlimited AI is Premium (₹4,999). Free/Pro get FREE_AI_PER_DAY questions/day.
-    if (!isPremium(user.plan) && aiCount(userId) >= FREE_AI_PER_DAY) {
+    if (!hasUnlimitedAi(user) && aiCount(userId) >= FREE_AI_PER_DAY) {
       res.status(402).json({ success: false, upgrade: true, message: `You've used your ${FREE_AI_PER_DAY} free MedAssist questions for today. Upgrade to Premium for unlimited answers.` });
       return;
     }
     aiService.addMessage(sessionId, userId, { role: 'user', content: content.trim() });
-    if (!isPremium(user.plan)) aiBump(userId);
+    if (!hasUnlimitedAi(user)) aiBump(userId);
   } else {
     aiService.removeLastAssistantMessage(sessionId, userId);
   }
