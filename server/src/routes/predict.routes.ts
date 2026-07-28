@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { predict, predictorMeta, TOTAL_MARKS, PredictInput } from '../services/predictor';
 import { optionalAuth, AuthRequest } from '../middlewares/auth.middleware';
-import { isPro, isStaff, FREE_PREDICT_MATCHES } from '../utils/plan';
+import { hasFullData, isStaff, FREE_PREDICT_MATCHES } from '../utils/plan';
 
 /**
  * The Rank Predictor's public API.
@@ -72,7 +72,9 @@ router.post('/', optionalAuth, async (req: AuthRequest, res: Response) => {
 
   // Subscription gate: the full shortlist + export is a Pro (₹3,999+) feature. Free users see the
   // top matches only; `estimatedRank`/percentile/counts stay intact so the core estimate is free.
-  const gated = !isPro(req.user?.plan);
+  // Admins bypass by role (hasFullData); counsellors bypass specifically for predictions (isStaff)
+  // — they were never granted the broader hasFullData set (allotments, unlimited AI).
+  const gated = !hasFullData(req.user) && !isStaff(req.user?.role);
   if (gated && Array.isArray(result.matches) && result.matches.length > FREE_PREDICT_MATCHES) {
     result.matches = result.matches.slice(0, FREE_PREDICT_MATCHES);
   }

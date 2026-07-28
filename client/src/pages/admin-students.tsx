@@ -55,7 +55,7 @@ const PLAN_DISCLOSURE =
 
 type DocStatus = 'verified' | 'pending' | 'rejected' | 'not_uploaded';
 
-const ROLES = ['student', 'admin'] as const;
+const ROLES = ['student', 'counsellor', 'admin'] as const;
 type Role = (typeof ROLES)[number];
 
 /** The server rejects anything outside this list with a 400. */
@@ -1736,6 +1736,11 @@ export default function AdminStudentsPage() {
                                 {s.role === 'admin' && (
                                   <span className="ml-1.5 inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 align-middle">
                                     <Shield className="w-3 h-3" /> Admin
+                                  </span>
+                                )}
+                                {s.role === 'counsellor' && (
+                                  <span className="ml-1.5 inline-flex items-center gap-0.5 text-[10px] font-bold text-sky-600 dark:text-sky-400 align-middle">
+                                    <UsersRound className="w-3 h-3" /> Counsellor
                                   </span>
                                 )}
                               </p>
