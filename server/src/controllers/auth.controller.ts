@@ -99,6 +99,7 @@ export const authController = {
       const { email } = req.body;
 
       const user = await authService.getProfile(email);
+      
       if (!user) {
         return res.status(404).json({ success: false, message: 'User not found' });
       }
