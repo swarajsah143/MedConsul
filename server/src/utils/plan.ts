@@ -16,21 +16,21 @@ export const isPro = (tier?: PlanTier) => atLeast(tier, 'pro');       // pro OR 
 export const isPremium = (tier?: PlanTier) => tier === 'premium';    // unlimited AI
 
 /**
- * Admins have COMPLETE authority and are never gated by a subscription — plans exist only for
- * the students they manage. Gating checks take the whole principal (role + plan from the JWT) and
- * ask these instead of `isPro(plan)` / `isPremium(plan)` directly, so an admin is unlocked
- * everywhere by role, no matter what plan value their own record happens to carry.
+ * Staff (admin AND counsellor) have COMPLETE authority and are never gated by a subscription —
+ * there is no plan system for them at all, only for the students they work with. Gating checks
+ * take the whole principal (role + plan from the JWT) and ask these instead of `isPro(plan)` /
+ * `isPremium(plan)` directly, so staff are unlocked everywhere by role, no matter what plan value
+ * their own record happens to carry (which is why admin-students.tsx hides plan controls for
+ * staff rows — granting one a "plan" would be a no-op that only invites confusion).
  */
 type Principal = { role?: string | null; plan?: PlanTier | string | null } | null | undefined;
 export const isAdmin = (role?: string | null) => role === 'admin';
-
-/** Admins and counsellors work the data on the job, not on a subscription — never gated on prediction results like a student. */
 export const isStaff = (role?: string | null) => role === 'admin' || role === 'counsellor';
 
-/** Full data (allotments, college detail, exports). Admin OR pro/premium. */
-export const hasFullData = (u: Principal) => isAdmin(u?.role) || isPro(u?.plan as PlanTier);
-/** Unlimited AI questions. Admin OR premium — counsellors were never granted this, only unlimited predictions. */
-export const hasUnlimitedAi = (u: Principal) => isAdmin(u?.role) || isPremium(u?.plan as PlanTier);
+/** Full data (allotments, college detail, exports, unlimited predictions). Staff OR pro/premium. */
+export const hasFullData = (u: Principal) => isStaff(u?.role) || isPro(u?.plan as PlanTier);
+/** Unlimited AI questions. Staff OR premium. */
+export const hasUnlimitedAi = (u: Principal) => isStaff(u?.role) || isPremium(u?.plan as PlanTier);
 
 // Free-tier caps (server-enforced).
 export const FREE_ALLOTMENT_ROWS = 25;   // non-pro: sample only, no export

@@ -1813,17 +1813,25 @@ export default function AdminStudentsPage() {
                             >
                               <Eye className="w-4 h-4" /> View
                             </Button>
-                            <Button
-                              size="sm"
-                              variant="ghost"
-                              aria-label={`Set plan for ${s.name}`}
-                              onClick={() => {
-                                setPlanError(null);
-                                setEditingId((cur) => (cur === s.id ? null : s.id));
-                              }}
-                            >
-                              <Sparkles className="w-4 h-4" /> Set plan
-                            </Button>
+                            {/* Staff (admin/counsellor) have no plan system — a "plan" on their own
+                                account is a no-op the server ignores for gating, so don't offer to
+                                set one; that's exactly how a counsellor ended up on a stray Premium
+                                plan before. */}
+                            {s.role === 'admin' || s.role === 'counsellor' ? (
+                              <span className="px-2.5 py-1.5 text-xs text-muted-foreground">No plan system (staff)</span>
+                            ) : (
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                aria-label={`Set plan for ${s.name}`}
+                                onClick={() => {
+                                  setPlanError(null);
+                                  setEditingId((cur) => (cur === s.id ? null : s.id));
+                                }}
+                              >
+                                <Sparkles className="w-4 h-4" /> Set plan
+                              </Button>
+                            )}
                           </div>
                         </td>
                       </tr>
