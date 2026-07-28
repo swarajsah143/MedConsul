@@ -29,6 +29,8 @@ const TermsPage = lazy(() => import('@/pages/legal').then((m) => ({ default: m.T
 const DashboardPage = lazy(() => import('@/pages/dashboard'));
 const ProfilePage = lazy(() => import('@/pages/profile'));
 const RankPredictorPage = lazy(() => import('@/pages/rank-predictor'));
+const CounsellorLookupPage = lazy(() => import('@/pages/counsellor-lookup'));
+const CounsellorDashboardPage = lazy(() => import('@/pages/counsellor-dashboard'));
 const RankInsightsPage = lazy(() => import('@/pages/rank-insights'));
 const RankInsightDetailPage = lazy(() => import('@/pages/rank-insight-detail'));
 const FeeMatrixPage = lazy(() => import('@/pages/fee-matrix'));
@@ -59,6 +61,15 @@ function FullPageSpinner() {
   );
 }
 
+/** Where a signed-in user's "home" is, by role. The one place this mapping is defined —
+ * PublicRoute, RootGate and StudentDashboardRoute all redirect through it, so the three
+ * destinations (student dashboard / admin dashboard / counsellor home) can't drift apart. */
+function homeFor(role?: string): string {
+  if (role === 'admin') return '/admin';
+  if (role === 'counsellor') return '/counsellor';
+  return '/dashboard';
+}
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
   if (isLoading) return <FullPageSpinner />;
@@ -69,7 +80,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 function PublicRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading, user } = useAuth();
   if (isLoading) return <FullPageSpinner />;
-  if (isAuthenticated) return <Navigate to={user?.role === 'admin' ? '/admin' : '/dashboard'} replace />;
+  if (isAuthenticated) return <Navigate to={homeFor(user?.role)} replace />;
   return <>{children}</>;
 }
 
@@ -80,18 +91,36 @@ function AdminRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-/** Root `/`: the public landing page for visitors, the app dashboard for signed-in users (admin dashboard for admins). */
+/** Counsellor-only — mirrors the server's requireCounsellor being restricted to a single role
+ * here (admins have their own home at /admin; StaffRoute below is the admin+counsellor gate
+ * used by tools like Counsellor Lookup that both roles share). */
+function CounsellorRoute({ children }: { children: React.ReactNode }) {
+  const { user, isLoading } = useAuth();
+  if (isLoading) return <FullPageSpinner />;
+  if (user?.role !== 'counsellor') return <Navigate to="/dashboard" replace />;
+  return <>{children}</>;
+}
+
+/** Admins and counsellors — mirrors the server's requireCounsellor. */
+function StaffRoute({ children }: { children: React.ReactNode }) {
+  const { user, isLoading } = useAuth();
+  if (isLoading) return <FullPageSpinner />;
+  if (user?.role !== 'admin' && user?.role !== 'counsellor') return <Navigate to="/dashboard" replace />;
+  return <>{children}</>;
+}
+
+/** Root `/`: the public landing page for visitors, each role's home for signed-in users. */
 function RootGate() {
   const { isAuthenticated, isLoading, user } = useAuth();
   if (isLoading) return <FullPageSpinner />;
   if (!isAuthenticated) return <LandingPage />;
-  return <Navigate to={user?.role === 'admin' ? '/admin' : '/dashboard'} replace />;
+  return <Navigate to={homeFor(user?.role)} replace />;
 }
 
-/** The student dashboard has no place in the admin experience — send admins to their own. */
+/** The student dashboard has no place in the admin or counsellor experience — send them to their own. */
 function StudentDashboardRoute() {
   const { user } = useAuth();
-  if (user?.role === 'admin') return <Navigate to="/admin" replace />;
+  if (user?.role === 'admin' || user?.role === 'counsellor') return <Navigate to={homeFor(user.role)} replace />;
   return <DashboardPage />;
 }
 
@@ -125,6 +154,7 @@ export default function AppRoutes() {
         <Route path="admin/verifications" element={<AdminRoute><AdminVerificationsPage /></AdminRoute>} />
         <Route path="admin/students" element={<AdminRoute><AdminStudentsPage /></AdminRoute>} />
         <Route path="dashboard" element={<StudentDashboardRoute />} />
+        <Route path="counsellor" element={<CounsellorRoute><CounsellorDashboardPage /></CounsellorRoute>} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
@@ -132,6 +162,7 @@ export default function AppRoutes() {
         <Route path="allotment/:counselling" element={<AllotmentDetailPage />} />
         <Route path="eligibility-matcher" element={<EligibilityMatcherPage />} />
         <Route path="rank-predictor" element={<RankPredictorPage />} />
+        <Route path="counsellor-lookup" element={<StaffRoute><CounsellorLookupPage /></StaffRoute>} />
         <Route path="rank-insights" element={<RankInsightsPage />} />
         <Route path="rank-insights/detail" element={<RankInsightDetailPage />} />
         <Route path="fee-matrix" element={<FeeMatrixPage />} />

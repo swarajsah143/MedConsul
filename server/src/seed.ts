@@ -23,8 +23,11 @@ if (!adminPassword || adminPassword.length < 10) {
 }
 const studentPassword = process.env.SEED_STUDENT_PASSWORD || 'ChangeMe#Student1';
 
-const DEMO_ACCOUNTS = [
+type SeedRole = 'admin' | 'counsellor' | 'student';
+
+const DEMO_ACCOUNTS: { name: string; email: string; password: string; role: SeedRole }[] = [
   { name: 'Admin User', email: 'admin@medcounsel.ai', password: adminPassword, role: 'admin' },
+  { name: 'Demo Counsellor', email: 'counsellor@medcounsel.ai', password: studentPassword, role: 'counsellor' },
   { name: 'Swaraj Sah', email: 'swaraj@medcounsel.ai', password: studentPassword, role: 'student' },
   { name: 'Demo Student', email: 'demo@medcounsel.ai', password: studentPassword, role: 'student' },
 ];

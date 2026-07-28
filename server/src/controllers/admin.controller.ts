@@ -20,7 +20,7 @@ import { effectiveTier, type PlanTier } from '../utils/plan';
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const ROLES = ['student', 'admin'];
+const ROLES = ['student', 'admin', 'counsellor'];
 
 /** The same rules signup enforces — an admin-set password must not be weaker. */
 function passwordProblem(pw: string): string | null {
@@ -79,10 +79,11 @@ export const adminController = {
   async stats(_req: AuthRequest, res: Response): Promise<void> {
     const users = await UserModel.findAll();
     const admins = users.filter((u) => u.role === 'admin').length;
+    const counsellors = users.filter((u) => u.role === 'counsellor').length;
     const students = users.filter((u) => u.role === 'student').length;
     res.json({
       success: true,
-      data: { totalUsers: users.length, admins, students },
+      data: { totalUsers: users.length, admins, counsellors, students },
     });
   },
 
@@ -98,6 +99,7 @@ export const adminController = {
 
     // ── users ──
     const admins = users.filter((u) => u.role === 'admin').length;
+    const counsellors = users.filter((u) => u.role === 'counsellor').length;
     const students = users.filter((u) => u.role === 'student').length;
     const plans: Record<PlanTier, number> = { free: 0, pro: 0, premium: 0 };
     let activeSubscriptions = 0;
@@ -153,7 +155,7 @@ export const adminController = {
     res.json({
       success: true,
       data: {
-        users: { total: users.length, students, admins, plans, activeSubscriptions, withProfile, signupsByDay },
+        users: { total: users.length, students, admins, counsellors, plans, activeSubscriptions, withProfile, signupsByDay },
         documents: { ...documents, total: documents.pending + documents.verified + documents.rejected },
         content,
         system,

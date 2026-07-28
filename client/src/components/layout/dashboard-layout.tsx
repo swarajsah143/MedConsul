@@ -26,6 +26,7 @@ import {
   Menu,
   Newspaper,
   ScrollText,
+  Search,
   Shield,
   ShieldCheck,
   Sparkles,
@@ -132,6 +133,29 @@ const ADMIN_NAV: NavLeaf[] = [
   { name: 'Verify Documents', href: '/admin/verifications', icon: FileCheck },
   { name: 'Students', href: '/admin/students', icon: UsersRound },
 ];
+
+/**
+ * The counsellor sidebar. Deliberately its own short list, not a filtered slice of the
+ * student nav or the admin nav — a counsellor gets exactly the tools their role needs
+ * (the lookup + the reference data a counsellor talks a student through) and nothing
+ * else: no admin tools (data management, verification, user management), and none of
+ * the student's own document/registration pages (Doc Checklist, Counselling Conditions,
+ * Explore, Abroad Universities, Profile) — those are the student's own paperwork, not a
+ * counsellor's.
+ */
+function buildCounsellorNavSections(announcementBadge?: string): NavSection[] {
+  return [
+    {
+      label: 'Counsellor',
+      items: [
+        { name: 'Lookup', href: '/counsellor-lookup', icon: Search },
+        { name: 'College Reviews', href: '/colleges', icon: GraduationCap },
+        { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
+        { name: 'Announcements', href: '/announcements', icon: Megaphone, badge: announcementBadge },
+      ],
+    },
+  ];
+}
 
 function NavItem({ item, active, onClick }: { item: NavLeaf; active: boolean; onClick?: () => void }) {
   const Icon = item.icon;
@@ -256,14 +280,18 @@ export default function DashboardLayout() {
 
   const navSections = buildNavSections(announcementBadge, docsBadge);
   // Admins get the admin nav prepended to Overview, and the student-facing "Dashboard"
-  // entry removed — their home is the Admin Dashboard.
+  // entry removed — their home is the Admin Dashboard. Counsellors get their own short,
+  // separate list (buildCounsellorNavSections) — not a filtered version of either the
+  // student or admin nav, so changes to those two never leak into the counsellor's.
   const visibleSections: NavSection[] = user?.role === 'admin'
     ? navSections.map((s, i) =>
         i === 0
           ? { ...s, items: [...ADMIN_NAV, ...s.items.filter((it) => !('href' in it && it.href === '/dashboard'))] }
           : s
       )
-    : navSections;
+    : user?.role === 'counsellor'
+      ? buildCounsellorNavSections(announcementBadge)
+      : navSections;
 
   const handleLogout = async () => {
     await logout();
@@ -271,17 +299,17 @@ export default function DashboardLayout() {
   };
 
   const userInitial = user?.name?.charAt(0)?.toUpperCase() || 'U';
-  // Admins have no student dashboard — their home is the Admin Dashboard.
-  const homeHref = user?.role === 'admin' ? '/admin' : '/dashboard';
+  // Admins and counsellors have no student dashboard — each has its own home.
+  const homeHref = user?.role === 'admin' ? '/admin' : user?.role === 'counsellor' ? '/counsellor' : '/dashboard';
 
   return (
     // A proper app shell: the PAGE never scrolls, only <main> does. It used to be
     // min-h-screen (body grows with content) while <main> also had overflow-y-auto —
     // so a tall form (the colleges admin form has 27 fields) scrolled the body past
     // the end of the app and left a large blank region below it.
-    <div className="h-screen overflow-hidden bg-slate-50 dark:bg-slate-950 flex">
-      {/* Desktop Sidebar */}
-      <aside className="hidden md:flex flex-col w-60 h-screen sticky top-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-30">
+    <div className="h-screen overflow-hidden bg-slate-50 dark:bg-slate-950 flex print:h-auto print:overflow-visible print:block print:bg-white">
+      {/* Desktop Sidebar — never printed: a page's print view stands on its own, not framed by app navigation. */}
+      <aside className="hidden md:flex flex-col w-60 h-screen sticky top-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-30 print:hidden">
         <Link to={homeHref} className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
             <Stethoscope className="w-4.5 h-4.5" />
@@ -388,8 +416,8 @@ export default function DashboardLayout() {
       )}
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col min-w-0">
-        <header className="h-14 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-5 z-30 shrink-0 relative">
+      <div className="flex-1 flex flex-col min-w-0 print:block">
+        <header className="h-14 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 sm:px-5 z-30 shrink-0 relative print:hidden">
           <div className="flex items-center gap-3 md:hidden">
             <button
               onClick={() => setMobileMenuOpen(true)}
@@ -443,8 +471,8 @@ export default function DashboardLayout() {
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6">
-          <div className="max-w-7xl mx-auto space-y-6">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 sm:p-6 print:overflow-visible print:h-auto print:p-0">
+          <div className="max-w-7xl mx-auto space-y-6 print:max-w-none print:mx-0">
             <Outlet />
           </div>
         </main>
