@@ -97,6 +97,11 @@ export const authController = {
   async forgotPassword(req: Request, res: Response) {
     try {
       const { email } = req.body;
+
+      const user = await authService.getProfile(email);
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
       const result = await authService.forgotPassword(email);
       // In dev mode include resetToken in response for testing
       const data: any = { message: result.message };
