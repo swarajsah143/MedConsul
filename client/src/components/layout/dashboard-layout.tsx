@@ -21,6 +21,7 @@ import {
   LayoutDashboard,
   LogOut,
   MapPin,
+  ListChecks,
   Megaphone,
   Menu,
   Newspaper,
@@ -89,6 +90,7 @@ function buildNavSections(announcementBadge?: string, docsBadge?: string): NavSe
         { name: 'Rank Insights', href: '/rank-insights', icon: BarChart3 },
         { name: 'Fee & Seats', href: '/fee-matrix', icon: IndianRupee },
         { name: 'Allotment Mapping', href: '/allotment', icon: MapPin },
+        { name: 'Eligibility Matcher', href: '/eligibility-matcher', icon: ListChecks },
       ],
     },
     {
@@ -139,11 +141,11 @@ function NavItem({ item, active, onClick }: { item: NavLeaf; active: boolean; on
       onClick={onClick}
       className={`flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-200 ${
         active
-          ? 'bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400'
+          ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
           : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
       }`}
     >
-      <Icon className={`w-[18px] h-[18px] ${active ? 'text-red-600 dark:text-red-400' : 'text-slate-400'}`} />
+      <Icon className={`w-[18px] h-[18px] ${active ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'}`} />
       <span className="flex-1 text-left truncate">{item.name}</span>
       {item.badge && (
         <span className="text-[11px] font-semibold bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400 rounded-full px-1.5 py-0.5 shrink-0">
@@ -180,11 +182,11 @@ function NavGroup({
         aria-expanded={open}
         className={`flex w-full items-center gap-3 px-3.5 py-2.5 rounded-lg text-[13px] font-medium transition-all duration-200 ${
           groupActive
-            ? 'bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400'
+            ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
             : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
         }`}
       >
-        <Icon className={`w-[18px] h-[18px] ${groupActive ? 'text-red-600 dark:text-red-400' : 'text-slate-400'}`} />
+        <Icon className={`w-[18px] h-[18px] ${groupActive ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'}`} />
         <span className="flex-1 text-left">{group.name}</span>
         <ChevronRight className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${open ? 'rotate-90' : ''}`} />
       </button>
@@ -200,11 +202,11 @@ function NavGroup({
                 onClick={onNavigate}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-[12.5px] font-medium transition-all duration-200 ${
                   active
-                    ? 'bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400'
+                    ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
                     : 'text-slate-500 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
                 }`}
               >
-                <ChildIcon className={`w-4 h-4 ${active ? 'text-red-600 dark:text-red-400' : 'text-slate-400'}`} />
+                <ChildIcon className={`w-4 h-4 ${active ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-400'}`} />
                 {child.name}
               </Link>
             );
@@ -253,8 +255,14 @@ export default function DashboardLayout() {
   }, [checklistDocs.loading, checklistDocs.error, checklistDocs.data]);
 
   const navSections = buildNavSections(announcementBadge, docsBadge);
+  // Admins get the admin nav prepended to Overview, and the student-facing "Dashboard"
+  // entry removed — their home is the Admin Dashboard.
   const visibleSections: NavSection[] = user?.role === 'admin'
-    ? navSections.map((s, i) => (i === 0 ? { ...s, items: [...ADMIN_NAV, ...s.items] } : s))
+    ? navSections.map((s, i) =>
+        i === 0
+          ? { ...s, items: [...ADMIN_NAV, ...s.items.filter((it) => !('href' in it && it.href === '/dashboard'))] }
+          : s
+      )
     : navSections;
 
   const handleLogout = async () => {
@@ -263,6 +271,8 @@ export default function DashboardLayout() {
   };
 
   const userInitial = user?.name?.charAt(0)?.toUpperCase() || 'U';
+  // Admins have no student dashboard — their home is the Admin Dashboard.
+  const homeHref = user?.role === 'admin' ? '/admin' : '/dashboard';
 
   return (
     // A proper app shell: the PAGE never scrolls, only <main> does. It used to be
@@ -272,7 +282,7 @@ export default function DashboardLayout() {
     <div className="h-screen overflow-hidden bg-slate-50 dark:bg-slate-950 flex">
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex flex-col w-60 h-screen sticky top-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shrink-0 z-30">
-        <Link to="/dashboard" className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+        <Link to={homeHref} className="h-14 flex items-center gap-2.5 px-5 border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
           <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
             <Stethoscope className="w-4.5 h-4.5" />
           </div>
@@ -308,7 +318,7 @@ export default function DashboardLayout() {
           </Link>
           <button
             onClick={handleLogout}
-            className="flex w-full items-center gap-3 px-3.5 py-2.5 mt-1 rounded-lg text-[13px] font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 transition-colors"
+            className="flex w-full items-center gap-3 px-3.5 py-2.5 mt-1 rounded-lg text-[13px] font-medium text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors"
           >
             <LogOut className="w-[18px] h-[18px]" />
             Sign Out
@@ -322,7 +332,7 @@ export default function DashboardLayout() {
           <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
           <aside className="fixed inset-y-0 left-0 w-72 bg-white dark:bg-slate-900 shadow-2xl z-50 flex flex-col animate-in slide-in-from-left duration-200">
             <div className="h-14 flex items-center justify-between px-5 border-b border-slate-200 dark:border-slate-800">
-              <Link to="/dashboard" className="flex items-center gap-2.5" onClick={() => setMobileMenuOpen(false)}>
+              <Link to={homeHref} className="flex items-center gap-2.5" onClick={() => setMobileMenuOpen(false)}>
                 <div className="w-8 h-8 rounded-lg gradient-primary flex items-center justify-center text-white shadow-sm">
                   <Stethoscope className="w-4.5 h-4.5" />
                 </div>
@@ -367,7 +377,7 @@ export default function DashboardLayout() {
               </Link>
               <button
                 onClick={handleLogout}
-                className="flex w-full items-center gap-3 px-3.5 py-2.5 mt-1 rounded-lg text-[13px] font-medium text-slate-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 transition-colors"
+                className="flex w-full items-center gap-3 px-3.5 py-2.5 mt-1 rounded-lg text-[13px] font-medium text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors"
               >
                 <LogOut className="w-[18px] h-[18px]" />
                 Sign Out
@@ -388,7 +398,7 @@ export default function DashboardLayout() {
             >
               <Menu className="w-5 h-5" />
             </button>
-            <Link to="/dashboard" className="flex items-center gap-2">
+            <Link to={homeHref} className="flex items-center gap-2">
               <div className="w-7 h-7 rounded-lg gradient-primary flex items-center justify-center text-white">
                 <Stethoscope className="w-3.5 h-3.5" />
               </div>
@@ -423,7 +433,7 @@ export default function DashboardLayout() {
                 </div>
                 <button
                   onClick={() => { setDropdownOpen(false); handleLogout(); }}
-                  className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-slate-600 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 transition-colors"
+                  className="flex w-full items-center gap-2.5 px-4 py-2.5 text-sm text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors"
                 >
                   <LogOut className="w-4 h-4" />
                   Sign Out

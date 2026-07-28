@@ -16,7 +16,7 @@ interface AuthContextType {
   user: AuthUser | null;
   isLoading: boolean;
   isAuthenticated: boolean;
-  login: (email: string, password: string, remember?: boolean) => Promise<void>;
+  login: (email: string, password: string, remember?: boolean) => Promise<AuthUser>;
   register: (name: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   forgotPassword: (email: string) => Promise<{ message: string; resetToken?: string }>;
@@ -90,9 +90,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (remember) localStorage.setItem('rememberEmail', email);
       else localStorage.removeItem('rememberEmail');
       setUser(res.data.user);
-    } else {
-      throw { message: res.message || 'Login failed' };
+      return res.data.user as AuthUser;
     }
+    throw { message: res.message || 'Login failed' };
   }, []);
 
   const register = useCallback(async (name: string, email: string, password: string) => {

@@ -28,8 +28,8 @@ export default function LoginPage() {
     try {
       setError('');
       setLoading(true);
-      await login(email.trim(), password, remember);
-      navigate('/rank-insights', { replace: true });
+      const user = await login(email.trim(), password, remember);
+      navigate(user.role === 'admin' ? '/admin' : '/rank-insights', { replace: true });
     } catch (err: any) {
       setError(err.message || 'Login failed. Please try again.');
     } finally {

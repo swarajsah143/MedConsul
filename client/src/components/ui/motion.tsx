@@ -153,7 +153,7 @@ interface ProgressProps {
   label?: string;
 }
 
-export function AnimatedProgress({ value, color = 'bg-red-500', height = 'h-1.5', className, label }: ProgressProps) {
+export function AnimatedProgress({ value, color = 'bg-emerald-500', height = 'h-1.5', className, label }: ProgressProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-20px' });
 

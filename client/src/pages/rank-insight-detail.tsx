@@ -4,6 +4,7 @@ import { useCollections, byId, type College, type ClosingRank } from '@/lib/data
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   LineChart,
   Line,
@@ -131,7 +132,7 @@ export default function RankInsightDetailPage() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-3">
-        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-emerald-600 animate-spin" />
         <p className="text-sm text-muted-foreground">Loading historical trends...</p>
       </div>
     );
@@ -225,7 +226,7 @@ export default function RankInsightDetailPage() {
       score: h.closingScore ?? 0,
     }));
 
-  const roundColors = ['#dc2626', '#2563eb', '#d97706', '#059669'];
+  const roundColors = ['#059669', '#2563eb', '#d97706', '#059669'];
 
   return (
     <div className="space-y-6 pb-10 page-enter">
@@ -234,18 +235,13 @@ export default function RankInsightDetailPage() {
         variant="ghost"
         size="sm"
         onClick={() => navigate('/rank-insights')}
-        className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/20 transition-colors duration-200"
+        className="flex items-center gap-1.5 hover:bg-emerald-50 hover:text-emerald-600 dark:hover:bg-emerald-950/20 transition-colors duration-200"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Insights
       </Button>
 
       {/* Hero Banner */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8 lg:p-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-          <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-rose-400/10 rounded-full blur-2xl" />
-
+      <HeroBanner>
           <div className="relative z-10 space-y-4">
             <div className="flex flex-wrap gap-2">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-[10px] uppercase font-bold text-white border border-white/10">
@@ -267,7 +263,7 @@ export default function RankInsightDetailPage() {
                 <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight">
                   {displayName}
                 </h1>
-                <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-red-100/90">
+                <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-sm text-emerald-100/90">
                   {collegeInfo && (
                     <span className="flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5" /> {collegeInfo.city}, {collegeInfo.state}
@@ -289,8 +285,7 @@ export default function RankInsightDetailPage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Duplicate year+round rows: the charts can only plot one point per slot, so say
           which slots are ambiguous rather than silently dropping the extra rows. */}
@@ -308,16 +303,16 @@ export default function RankInsightDetailPage() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         <StatCard
           icon={Award}
-          color="text-red-600 dark:text-red-400"
-          bg="bg-red-50 dark:bg-red-950/30"
+          color="text-emerald-600 dark:text-emerald-400"
+          bg="bg-emerald-50 dark:bg-emerald-950/30"
           label="Latest Closing Rank"
           value={latestRank === null ? '—' : `#${latestRank.toLocaleString()}`}
           sub={round1Data.length ? `${latestYear} Round 1` : `${latestYear} (no Round 1 data)`}
         />
         <StatCard
           icon={(rankChange ?? 0) > 0 ? TrendingDown : TrendingUp}
-          color={(rankChange ?? 0) > 0 ? 'text-emerald-600' : (rankChange ?? 0) < 0 ? 'text-rose-600' : 'text-slate-500'}
-          bg={(rankChange ?? 0) > 0 ? 'bg-emerald-50 dark:bg-emerald-950/30' : (rankChange ?? 0) < 0 ? 'bg-rose-50 dark:bg-rose-950/30' : 'bg-slate-50 dark:bg-slate-800'}
+          color={(rankChange ?? 0) > 0 ? 'text-emerald-600' : (rankChange ?? 0) < 0 ? 'text-green-600' : 'text-slate-500'}
+          bg={(rankChange ?? 0) > 0 ? 'bg-emerald-50 dark:bg-emerald-950/30' : (rankChange ?? 0) < 0 ? 'bg-green-50 dark:bg-green-950/30' : 'bg-slate-50 dark:bg-slate-800'}
           label="Rank Trend"
           value={rankChange === null ? '—' : rankChange > 0 ? `Improved ${rankChange.toLocaleString()}` : rankChange < 0 ? `Dropped ${Math.abs(rankChange).toLocaleString()}` : 'Stable'}
           sub={`${statRows.at(0)?.year ?? '--'} vs ${statRows.at(-1)?.year ?? '--'}`}
@@ -367,8 +362,8 @@ export default function RankInsightDetailPage() {
         <Card className="group hover:shadow-lg transition-shadow duration-300">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-bold flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
-                <BarChart3 className="w-4 h-4 text-red-600" />
+              <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center">
+                <BarChart3 className="w-4 h-4 text-emerald-600" />
               </div>
               Closing Rank Trend
             </CardTitle>
@@ -538,8 +533,8 @@ export default function RankInsightDetailPage() {
       <Card className="overflow-hidden">
         <CardHeader className="pb-2">
           <CardTitle className="text-sm font-bold flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
-              <Calendar className="w-4 h-4 text-red-600" />
+            <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center">
+              <Calendar className="w-4 h-4 text-emerald-600" />
             </div>
             Complete Historical Data
           </CardTitle>
@@ -568,15 +563,15 @@ export default function RankInsightDetailPage() {
                   const change = prevSameRound ? prevSameRound.closingRank - h.closingRank : null;
 
                   return (
-                    <tr key={h.id} className="group/row hover:bg-red-50/30 dark:hover:bg-red-950/10 transition-colors duration-200">
+                    <tr key={h.id} className="group/row hover:bg-emerald-50/30 dark:hover:bg-emerald-950/10 transition-colors duration-200">
                       <td className="px-5 py-3.5 font-bold text-slate-800 dark:text-slate-200">
                         <span className="inline-flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-red-400 group-hover/row:scale-125 transition-transform duration-200" />
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 group-hover/row:scale-125 transition-transform duration-200" />
                           {h.year}
                         </span>
                       </td>
                       <td className="px-5 py-3.5 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 font-extrabold text-red-600 dark:text-red-400 text-[11px] group-hover/row:shadow-sm transition-shadow duration-200">
+                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 font-extrabold text-emerald-600 dark:text-emerald-400 text-[11px] group-hover/row:shadow-sm transition-shadow duration-200">
                           R{h.round}
                         </span>
                       </td>
@@ -593,7 +588,7 @@ export default function RankInsightDetailPage() {
                               change > 0
                                 ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-950/30 dark:text-emerald-400'
                                 : change < 0
-                                ? 'text-rose-700 bg-rose-50 dark:bg-rose-950/30 dark:text-rose-400'
+                                ? 'text-green-700 bg-green-50 dark:bg-green-950/30 dark:text-green-400'
                                 : 'text-slate-400 bg-slate-50 dark:bg-slate-800'
                             }`}
                           >

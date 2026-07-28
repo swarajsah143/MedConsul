@@ -171,12 +171,12 @@ export default function SignupPage() {
             type="checkbox"
             checked={agreed}
             onChange={(e) => setAgreed(e.target.checked)}
-            className="mt-0.5 w-4 h-4 accent-red-600 shrink-0"
+            className="mt-0.5 w-4 h-4 accent-emerald-600 shrink-0"
           />
           <span className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
             I agree to the{' '}
-            <Link to="/privacy" target="_blank" className="text-red-600 hover:underline font-medium">Privacy Policy</Link>{' '}and{' '}
-            <Link to="/terms" target="_blank" className="text-red-600 hover:underline font-medium">Terms of Service</Link>, and consent to MedCounsel AI storing the details and documents I choose to provide.
+            <Link to="/privacy" target="_blank" className="text-emerald-600 hover:underline font-medium">Privacy Policy</Link>{' '}and{' '}
+            <Link to="/terms" target="_blank" className="text-emerald-600 hover:underline font-medium">Terms of Service</Link>, and consent to MedCounsel AI storing the details and documents I choose to provide.
           </span>
         </label>
 

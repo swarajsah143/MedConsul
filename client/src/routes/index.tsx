@@ -40,6 +40,7 @@ const AiAssistantPage = lazy(() => import('@/pages/ai-assistant'));
 const AnnouncementsPage = lazy(() => import('@/pages/announcements'));
 const AllotmentStatesPage = lazy(() => import('@/pages/allotment-states'));
 const AllotmentDetailPage = lazy(() => import('@/pages/allotment-detail'));
+const EligibilityMatcherPage = lazy(() => import('@/pages/eligibility-matcher'));
 const CounsellingConditionsPage = lazy(() => import('@/pages/counselling-conditions'));
 const ExplorePage = lazy(() => import('@/pages/explore'));
 const AbroadUniversitiesPage = lazy(() => import('@/pages/abroad-universities'));
@@ -53,7 +54,7 @@ const AdminStudentsPage = lazy(() => import('@/pages/admin-students'));
 function FullPageSpinner() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
-      <Loader2 className="w-8 h-8 animate-spin text-red-600" />
+      <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
     </div>
   );
 }
@@ -66,9 +67,9 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function PublicRoute({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
   if (isLoading) return <FullPageSpinner />;
-  if (isAuthenticated) return <Navigate to="/dashboard" replace />;
+  if (isAuthenticated) return <Navigate to={user?.role === 'admin' ? '/admin' : '/dashboard'} replace />;
   return <>{children}</>;
 }
 
@@ -79,11 +80,19 @@ function AdminRoute({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-/** Root `/`: the public landing page for visitors, the app dashboard for signed-in users. */
+/** Root `/`: the public landing page for visitors, the app dashboard for signed-in users (admin dashboard for admins). */
 function RootGate() {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, user } = useAuth();
   if (isLoading) return <FullPageSpinner />;
-  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <LandingPage />;
+  if (!isAuthenticated) return <LandingPage />;
+  return <Navigate to={user?.role === 'admin' ? '/admin' : '/dashboard'} replace />;
+}
+
+/** The student dashboard has no place in the admin experience — send admins to their own. */
+function StudentDashboardRoute() {
+  const { user } = useAuth();
+  if (user?.role === 'admin') return <Navigate to="/admin" replace />;
+  return <DashboardPage />;
 }
 
 export default function AppRoutes() {
@@ -115,11 +124,13 @@ export default function AppRoutes() {
         <Route path="admin/data/:collection" element={<AdminRoute><AdminDataPage /></AdminRoute>} />
         <Route path="admin/verifications" element={<AdminRoute><AdminVerificationsPage /></AdminRoute>} />
         <Route path="admin/students" element={<AdminRoute><AdminStudentsPage /></AdminRoute>} />
-        <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="dashboard" element={<StudentDashboardRoute />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="announcements" element={<AnnouncementsPage />} />
         <Route path="allotment" element={<AllotmentStatesPage />} />
+        <Route path="allotment/state/:state" element={<AllotmentDetailPage />} />
         <Route path="allotment/:counselling" element={<AllotmentDetailPage />} />
+        <Route path="eligibility-matcher" element={<EligibilityMatcherPage />} />
         <Route path="rank-predictor" element={<RankPredictorPage />} />
         <Route path="rank-insights" element={<RankInsightsPage />} />
         <Route path="rank-insights/detail" element={<RankInsightDetailPage />} />

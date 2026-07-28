@@ -28,12 +28,17 @@ npm test               # client vitest + full server test suite
 - **Client lint:** `cd client && npm run lint` (oxlint). There is no server lint.
 - **Client tests:** `cd client && npm test` (vitest, jsdom). Watch: `npm run test:watch`. A single
   file: `npx vitest run src/test/csv.test.tsx`.
-- **Server tests:** individually via the named scripts in `server/package.json` —
-  `test:integrity`, `test:documents`, `test:admin-users`, `test:students`, `test:profile` (e.g.
-  `cd server && npm run test:profile`). These are `tsx` scripts, not a framework, so run them one at
-  a time by script name. `test:admin-users` and the client's `admin-ui.test.tsx` **write to a real
-  Mongo** — they need `MONGODB_URI` set and are not safe to run in parallel. `admin-ui.test.tsx`
-  additionally drives the real UI against a **live server on :5050**, so `npm run dev` must be up.
+- **Server tests are integration tests, not unit tests.** `server/src/test/*` are standalone `tsx`
+  scripts that make **real HTTP calls to a running server** (`http://localhost:5050`, override with
+  `API_URL`) against a real Mongo with a seeded admin — so `npm run dev` must be up and
+  `npm run seed` must have run, or they fail on connect/login. There is no framework: each prints
+  `✓`/`✗` per assertion and exits non-zero. Run them one at a time by script name —
+  `test:integrity`, `test:documents`, `test:admin-users`, `test:students`, `test:profile`.
+  `test:admin-users` and the client's `admin-ui.test.tsx` write to that real Mongo and are not safe
+  in parallel; `admin-ui.test.tsx` also drives the real UI against the live server.
+- **`server/src/test/predictor.test.ts` is the exception** — pure, no server or DB needed, and
+  deliberately **not** in the default `test` script. Run it directly:
+  `npx tsx server/src/test/predictor.test.ts`.
 
 ### Ops scripts
 
@@ -125,7 +130,11 @@ Keep this property when touching import/bulk code. Full detail in `ADMIN.md`.
   rows. Both `data.routes.ts` and `admin.resources.routes.ts` return **503** when Mongo is down
   rather than hanging on Mongoose's buffer timeout.
 - The server starts listening **immediately** and connects Mongo in the background; a failed Mongo
-  connection does not crash boot (auth degrades to the file store).
+  connection does not crash boot (auth degrades to the file store). `serverSelectionTimeoutMS` is
+  **30s, not the old 8s** — an Atlas SRV lookup + replica-set discovery + TLS handshake on a
+  high-latency link routinely exceeds 8s, and the old ceiling silently dropped a fully-reachable
+  cluster to the JSON store. `connected`/`disconnected` listeners keep `isMongoConnected()` honest
+  across mongoose's background reconnects.
 
 ### Server wiring (`server/src/server.ts`) — order is deliberate
 
@@ -162,16 +171,29 @@ it for UI copy/upgrade prompts; **change both together**, and never gate only on
   double-fire risk): reminders daily at 08:00 IST **plus** a boot catch-up 20s after start so a
   restart never skips a day. `runAllDueReminders()` is idempotent — keep it that way.
 - `/documents` handles student identity uploads (multer → `uploads/`, which is gitignored and
-  contains real Aadhaar cards/marksheets). Downloads are **owner-or-admin only**; per-file and
-  per-user byte caps + a MIME allowlist live in `server/src/config/uploads.ts`.
+  contains real Aadhaar cards/marksheets). It sits **outside the web root** and nginx never serves
+  it; stored filenames are randomised. Downloads are **owner-or-admin only**; per-file and per-user
+  byte caps + a MIME allowlist live in `server/src/config/uploads.ts`. SVG/HTML are rejected
+  (stored-XSS) and PDFs are forced to download rather than render.
 
 ### Client (`client/src`)
 
 React 19 + Vite 8 + React Router 7 + Tailwind 3 + Recharts + Radix + framer-motion. `@` aliases
-`client/src`. Auth lives in `providers/auth-provider.tsx` (JWT access token + httpOnly refresh
-cookie). Pages are flat in `pages/`; `components/ui` is the shadcn-style primitive set,
-`components/admin` renders the schema-driven admin panel. The vite build manually chunks
-react/charts/motion/icons so the login screen doesn't pull Recharts.
+`client/src`. Pages are flat in `pages/`; `components/ui` is the shadcn-style primitive set,
+`components/admin` renders the schema-driven admin panel.
+
+- **Auth:** `providers/auth-provider.tsx` — JWT access token (15m, localStorage) + httpOnly refresh
+  cookie (7d). `api.ts` transparently retries once on 401 via `/auth/refresh`; the provider restores
+  a session on mount by trying the access token then the refresh cookie (this is what makes
+  "remember me" survive a reload). Routes gate through `ProtectedRoute`/`PublicRoute`/`AdminRoute`.
+- **Every page is lazy-loaded/code-split** (`routes/index.tsx`) — the audience is on Indian mobile
+  data, so the login screen must not pull Recharts/framer-motion. Vite 8 uses the **rolldown**
+  bundler; heavy libs are split into named chunks via `rolldownOptions` in `vite.config.ts`.
+- Data fetching is plain `fetch` through hooks in `lib/data-api.ts` — no TanStack Query or axios,
+  whatever older docs claim.
+- **Domain record types (`College`, `ClosingRank`, `FeeEntry`, …) are hand-mirrored** from the
+  server schema into `client/src/lib/data-api.ts` — add a field to `collections.ts` and you must
+  update them here too.
 
 ## Data pipeline (`data/`)
 

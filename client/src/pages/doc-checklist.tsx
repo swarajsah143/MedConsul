@@ -74,7 +74,7 @@ const STATUS_BADGE: Record<SubmissionStatus, { label: string; icon: typeof Clock
     label: 'Rejected',
     icon: XCircle,
     className:
-      'bg-red-50 text-red-700 border-red-100 dark:bg-red-950/30 dark:border-red-900/50 dark:text-red-400',
+      'bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-950/30 dark:border-emerald-900/50 dark:text-emerald-400',
   },
 };
 
@@ -178,14 +178,14 @@ function ProgressRing({ completed, total }: { completed: number; total: number }
         <circle cx="50" cy="50" r={radius} fill="none" stroke="currentColor" strokeWidth="8" className="text-slate-200 dark:text-slate-800" />
         <circle
           cx="50" cy="50" r={radius} fill="none" strokeWidth="8" strokeLinecap="round"
-          stroke={pct === 100 ? '#10b981' : '#dc2626'}
+          stroke={pct === 100 ? '#10b981' : '#059669'}
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           className="transition-all duration-700 ease-out"
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className={`text-lg font-extrabold ${pct === 100 ? 'text-emerald-600' : 'text-red-600'}`}>{pct}%</span>
+        <span className={`text-lg font-extrabold ${pct === 100 ? 'text-emerald-600' : 'text-emerald-600'}`}>{pct}%</span>
         <span className="text-[9px] text-slate-400 font-semibold">{completed}/{total}</span>
       </div>
     </div>
@@ -300,10 +300,10 @@ function DocCard({
     status === 'verified'
       ? 'bg-emerald-50/40 border-emerald-200 dark:bg-emerald-950/10 dark:border-emerald-900/30'
       : status === 'rejected'
-        ? 'bg-red-50/40 border-red-200 dark:bg-red-950/10 dark:border-red-900/30'
+        ? 'bg-emerald-50/40 border-emerald-200 dark:bg-emerald-950/10 dark:border-emerald-900/30'
         : isChecked
           ? 'bg-emerald-50/40 border-emerald-200 dark:bg-emerald-950/10 dark:border-emerald-900/30'
-          : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-red-300 hover:shadow-md dark:hover:border-red-800';
+          : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-emerald-300 hover:shadow-md dark:hover:border-emerald-800';
 
   return (
     <div className={`rounded-xl border p-4 transition-all duration-200 ${tone}`}>
@@ -314,7 +314,7 @@ function DocCard({
           className={`w-6 h-6 shrink-0 rounded-md border-2 flex items-center justify-center transition-colors mt-0.5 ${
             isChecked
               ? 'bg-emerald-500 border-emerald-500 text-white'
-              : 'border-slate-300 dark:border-slate-600 hover:border-red-500'
+              : 'border-slate-300 dark:border-slate-600 hover:border-emerald-500'
           }`}
           aria-label={isChecked ? `Unmark ${name}` : `Mark ${name} as done`}
         >
@@ -329,7 +329,7 @@ function DocCard({
               {name}
             </h4>
             {doc.mandatory ? (
-              <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-rose-50 text-rose-700 border border-rose-100 dark:bg-rose-950/30 dark:border-rose-900/50 dark:text-rose-400">
+              <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-green-50 text-green-700 border border-green-100 dark:bg-green-950/30 dark:border-green-900/50 dark:text-green-400">
                 Required
               </span>
             ) : (
@@ -356,7 +356,7 @@ function DocCard({
                 type="button"
                 onClick={() => setShowNotes((v) => !v)}
                 aria-expanded={showNotes}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 transition-colors"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"
               >
                 <Info className="w-3.5 h-3.5" />
                 {showNotes ? 'Hide description' : 'View description'}
@@ -376,7 +376,7 @@ function DocCard({
 
           {/* Rejection remarks — the only channel telling the student what to fix. */}
           {status === 'rejected' && (
-            <div className="flex gap-2 items-start text-xs p-2.5 rounded-lg bg-red-50 border border-red-100 text-red-700 dark:bg-red-950/30 dark:border-red-900/50 dark:text-red-400">
+            <div className="flex gap-2 items-start text-xs p-2.5 rounded-lg bg-emerald-50 border border-emerald-100 text-emerald-700 dark:bg-emerald-950/30 dark:border-emerald-900/50 dark:text-emerald-400">
               <AlertTriangle className="w-3.5 h-3.5 mt-0.5 shrink-0" />
               <div className="min-w-0">
                 <p className="font-bold">Rejected by the verification team</p>
@@ -431,8 +431,8 @@ function DocCard({
                 </Button>
 
                 {confirmingRemove ? (
-                  <span className="inline-flex items-center gap-2 px-2 py-1 rounded-lg border border-red-200 bg-red-50 dark:border-red-900/50 dark:bg-red-950/20">
-                    <span className="text-[11px] font-semibold text-red-700 dark:text-red-400">Remove this file?</span>
+                  <span className="inline-flex items-center gap-2 px-2 py-1 rounded-lg border border-emerald-200 bg-emerald-50 dark:border-emerald-900/50 dark:bg-emerald-950/20">
+                    <span className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-400">Remove this file?</span>
                     <Button variant="destructive" size="sm" onClick={handleRemove} disabled={removing}>
                       {removing && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                       {removing ? 'Removing...' : 'Yes, remove'}
@@ -459,7 +459,7 @@ function DocCard({
             )}
 
             {rowError && (
-              <p role="alert" className="flex gap-1.5 items-start text-[11px] font-semibold text-red-600 dark:text-red-400">
+              <p role="alert" className="flex gap-1.5 items-start text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
                 <AlertTriangle className="w-3.5 h-3.5 mt-px shrink-0" />
                 <span>{rowError}</span>
               </p>
@@ -684,7 +684,7 @@ export default function DocChecklistPage() {
   const header = (
     <PageHeader
       icon={ClipboardCheck}
-      iconClassName="text-red-600"
+      iconClassName="text-emerald-600"
       title="Document Checklist"
       description="Complete guide to documents needed for NEET UG online registration and physical college reporting."
     />
@@ -696,7 +696,7 @@ export default function DocChecklistPage() {
         {header}
         <Card>
           <CardContent className="py-20 flex flex-col items-center justify-center gap-3">
-            <Loader2 className="w-7 h-7 text-red-600 animate-spin" />
+            <Loader2 className="w-7 h-7 text-emerald-600 animate-spin" />
             <p className="text-sm text-muted-foreground">Loading document checklist...</p>
           </CardContent>
         </Card>
@@ -722,19 +722,19 @@ export default function DocChecklistPage() {
     <div className="space-y-6 pb-10 print:pb-0 print:space-y-4" ref={printRef}>
       <PageHeader
         icon={ClipboardCheck}
-        iconClassName="text-red-600"
+        iconClassName="text-emerald-600"
         title="Document Checklist"
         description="Upload each document and track its status — for online registration and college reporting."
       >
         <Button
           variant="outline"
-          className={`flex items-center gap-2 print:hidden ${showFilters ? 'bg-red-50/50 border-red-200 text-red-700' : ''}`}
+          className={`flex items-center gap-2 print:hidden ${showFilters ? 'bg-emerald-50/50 border-emerald-200 text-emerald-700' : ''}`}
           onClick={() => setShowFilters(!showFilters)}
         >
           <Filter className="w-4 h-4" />
           <span className="hidden sm:inline">Filters</span>
           {activeFilterCount > 0 && (
-            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">{activeFilterCount}</span>
+            <span className="w-5 h-5 flex items-center justify-center rounded-full bg-emerald-600 text-white text-[10px] font-bold">{activeFilterCount}</span>
           )}
         </Button>
         <Button variant="outline" onClick={handlePrint} className="flex items-center gap-2 print:hidden">
@@ -748,8 +748,8 @@ export default function DocChecklistPage() {
       </PageHeader>
 
       {/* Progress Section */}
-      <Card className="border-red-100 dark:border-red-900/30 overflow-hidden">
-        <div className="bg-gradient-to-r from-red-50/80 to-rose-50/80 dark:from-red-950/20 dark:to-rose-950/20 p-5">
+      <Card className="border-emerald-100 dark:border-emerald-900/30 overflow-hidden">
+        <div className="bg-gradient-to-r from-emerald-50/80 to-green-50/80 dark:from-emerald-950/20 dark:to-green-950/20 p-5">
           <div className="flex flex-col sm:flex-row items-center gap-5">
             <ProgressRing completed={completedDocs} total={totalDocs} />
             <div className="flex-1 w-full space-y-3">
@@ -761,7 +761,7 @@ export default function DocChecklistPage() {
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded border text-[10px] font-bold bg-amber-50 text-amber-700 border-amber-100 dark:bg-amber-950/30 dark:border-amber-900/50 dark:text-amber-400">
                     <Clock className="w-3 h-3" /> {pendingDocs} awaiting review
                   </span>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded border text-[10px] font-bold bg-red-50 text-red-700 border-red-100 dark:bg-red-950/30 dark:border-red-900/50 dark:text-red-400">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded border text-[10px] font-bold bg-emerald-50 text-emerald-700 border-emerald-100 dark:bg-emerald-950/30 dark:border-emerald-900/50 dark:text-emerald-400">
                     <XCircle className="w-3 h-3" /> {rejectedDocs} rejected
                   </span>
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded border text-[10px] font-bold bg-slate-50 text-slate-600 border-slate-200 dark:bg-slate-800/50 dark:border-slate-700 dark:text-slate-400">
@@ -776,11 +776,11 @@ export default function DocChecklistPage() {
                     <span className="font-semibold text-slate-600 dark:text-slate-400 flex items-center gap-1">
                       <Monitor className="w-3 h-3" /> Online
                     </span>
-                    <span className="font-bold text-red-600">{onlineComplete}/{allOnlineDocs.length}</span>
+                    <span className="font-bold text-emerald-600">{onlineComplete}/{allOnlineDocs.length}</span>
                   </div>
                   <div className="h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-500 ${onlineComplete === allOnlineDocs.length && allOnlineDocs.length > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
+                      className={`h-full rounded-full transition-all duration-500 ${onlineComplete === allOnlineDocs.length && allOnlineDocs.length > 0 ? 'bg-emerald-500' : 'bg-emerald-500'}`}
                       style={{ width: `${allOnlineDocs.length > 0 ? (onlineComplete / allOnlineDocs.length) * 100 : 0}%` }}
                     />
                   </div>
@@ -790,11 +790,11 @@ export default function DocChecklistPage() {
                     <span className="font-semibold text-slate-600 dark:text-slate-400 flex items-center gap-1">
                       <UserCheck className="w-3 h-3" /> Physical
                     </span>
-                    <span className="font-bold text-red-600">{physicalComplete}/{allPhysicalDocs.length}</span>
+                    <span className="font-bold text-emerald-600">{physicalComplete}/{allPhysicalDocs.length}</span>
                   </div>
                   <div className="h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
                     <div
-                      className={`h-full rounded-full transition-all duration-500 ${physicalComplete === allPhysicalDocs.length && allPhysicalDocs.length > 0 ? 'bg-emerald-500' : 'bg-red-500'}`}
+                      className={`h-full rounded-full transition-all duration-500 ${physicalComplete === allPhysicalDocs.length && allPhysicalDocs.length > 0 ? 'bg-emerald-500' : 'bg-emerald-500'}`}
                       style={{ width: `${allPhysicalDocs.length > 0 ? (physicalComplete / allPhysicalDocs.length) * 100 : 0}%` }}
                     />
                   </div>
@@ -840,7 +840,7 @@ export default function DocChecklistPage() {
           onClick={() => setActiveTab('online')}
           className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
             activeTab === 'online'
-              ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
+              ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
               : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:bg-slate-50'
           }`}
         >
@@ -856,7 +856,7 @@ export default function DocChecklistPage() {
           onClick={() => setActiveTab('physical')}
           className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 ${
             activeTab === 'physical'
-              ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
+              ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
               : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:bg-slate-50'
           }`}
         >

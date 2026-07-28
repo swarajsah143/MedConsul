@@ -5,6 +5,11 @@ import { AuthRequest } from '../middlewares/auth.middleware';
 import { UserModel, PROFILE_FIELDS } from '../models/user.model';
 import { SubmissionModel } from '../models/submission.model';
 import { resolveStored } from '../config/uploads';
+import { isMongoConnected } from '../config/database';
+import { mailService } from '../services/mail.service';
+import { COLLECTIONS } from '../schema/collections';
+import { resource } from '../models/resource.model';
+import { effectiveTier, type PlanTier } from '../utils/plan';
 
 /**
  * Admin user management.
@@ -78,6 +83,81 @@ export const adminController = {
     res.json({
       success: true,
       data: { totalUsers: users.length, admins, students },
+    });
+  },
+
+  /**
+   * Dashboard analytics — every number here is aggregated from real data (users, uploaded
+   * documents, the content collections) plus live process/DB/integration health. Nothing is
+   * fabricated: when Mongo is down the content counts are simply omitted rather than guessed,
+   * and plan tiers use effectiveTier() so an expired paid plan counts as free (matching gating).
+   */
+  async analytics(_req: AuthRequest, res: Response): Promise<void> {
+    const users = await UserModel.findAll();
+    const now = Date.now();
+
+    // ── users ──
+    const admins = users.filter((u) => u.role === 'admin').length;
+    const students = users.filter((u) => u.role === 'student').length;
+    const plans: Record<PlanTier, number> = { free: 0, pro: 0, premium: 0 };
+    let activeSubscriptions = 0;
+    let withProfile = 0;
+    for (const u of users) {
+      plans[effectiveTier(u.plan, u.planExpiresAt)] += 1;
+      if (effectiveTier(u.plan, u.planExpiresAt) !== 'free') activeSubscriptions += 1;
+      if (PROFILE_FIELDS.some((f) => f !== 'avatar' && (u as any)[f])) withProfile += 1;
+    }
+
+    // Signups per day for the last 30 days, zero-filled so the chart shows gaps as gaps.
+    const DAYS = 30;
+    const byDay = new Map<string, number>();
+    for (let i = DAYS - 1; i >= 0; i--) {
+      byDay.set(new Date(now - i * 86_400_000).toISOString().slice(0, 10), 0);
+    }
+    for (const u of users) {
+      const key = new Date(u.createdAt).toISOString().slice(0, 10);
+      if (byDay.has(key)) byDay.set(key, (byDay.get(key) ?? 0) + 1);
+    }
+    const signupsByDay = [...byDay.entries()].map(([date, count]) => ({ date, count }));
+
+    // ── documents (verification queue) ──
+    let documents = { pending: 0, verified: 0, rejected: 0 };
+    try { documents = await SubmissionModel.counts(); } catch { /* store unavailable */ }
+
+    // ── content library (domain data is Mongo-only) ──
+    const content: { collection: string; label: string; count: number }[] = [];
+    if (isMongoConnected()) {
+      await Promise.all(
+        COLLECTIONS.map(async (schema) => {
+          try {
+            content.push({ collection: schema.name, label: schema.labelPlural, count: await resource(schema).count() });
+          } catch { /* skip a collection that fails to count */ }
+        }),
+      );
+      content.sort((a, b) => b.count - a.count);
+    }
+
+    // ── system / integrations ──
+    const mem = process.memoryUsage();
+    const system = {
+      dbConnected: isMongoConnected(),
+      dbMode: isMongoConnected() ? 'mongodb' : 'json',
+      aiConfigured: Boolean(process.env.AI_API_KEY),
+      mailConfigured: mailService.isConfigured(),
+      uptimeSeconds: Math.round(process.uptime()),
+      memory: { rss: mem.rss, heapUsed: mem.heapUsed, heapTotal: mem.heapTotal },
+      nodeVersion: process.version,
+      timestamp: new Date().toISOString(),
+    };
+
+    res.json({
+      success: true,
+      data: {
+        users: { total: users.length, students, admins, plans, activeSubscriptions, withProfile, signupsByDay },
+        documents: { ...documents, total: documents.pending + documents.verified + documents.rejected },
+        content,
+        system,
+      },
     });
   },
 

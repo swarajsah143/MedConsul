@@ -1,6 +1,7 @@
 import { Fragment, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { api } from '@/lib/api';
 import { useAuth } from '@/providers/auth-provider';
+import { DashboardAnalytics } from '@/components/admin/dashboard-analytics';
 import { Card, CardContent } from '@/components/ui/card';
 import { PageHeader } from '@/components/ui/page-header';
 import { Button } from '@/components/ui/button';
@@ -9,7 +10,6 @@ import {
   Shield,
   Users,
   GraduationCap,
-  ShieldCheck,
   Loader2,
   Mail,
   CalendarDays,
@@ -31,12 +31,6 @@ interface AdminUser {
   updatedAt?: string;
 }
 
-interface AdminStats {
-  totalUsers: number;
-  admins: number;
-  students: number;
-}
-
 type Role = 'student' | 'admin';
 
 /** The server rejects anything weaker — show the rules instead of letting an admin guess. */
@@ -49,27 +43,11 @@ const SELECT_CLASS =
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
-function StatCard({ icon: Icon, label, value, tint }: { icon: typeof Users; label: string; value: number | string; tint: string }) {
-  return (
-    <Card className="overflow-hidden">
-      <CardContent className="p-5 flex items-center gap-4">
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${tint}`}>
-          <Icon className="w-6 h-6" />
-        </div>
-        <div className="min-w-0">
-          <p className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{value}</p>
-          <p className="text-xs text-muted-foreground font-medium truncate">{label}</p>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
 function RoleBadge({ role }: { role: string }) {
   const isAdmin = role === 'admin';
   return (
     <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${
-      isAdmin ? 'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400' : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400'
+      isAdmin ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400'
     }`}>
       {isAdmin ? <Shield className="w-3 h-3" /> : <GraduationCap className="w-3 h-3" />}
       {isAdmin ? 'Admin' : 'Student'}
@@ -88,7 +66,7 @@ function FieldLabel({ htmlFor, children }: { htmlFor: string; children: ReactNod
 /** The server's `message` on a 4xx (self-demotion, last admin, duplicate email, weak password). */
 function FormError({ message }: { message: string }) {
   return (
-    <p className="flex items-start gap-2 text-sm font-medium text-red-600 dark:text-red-400">
+    <p className="flex items-start gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
       <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" /> {message}
     </p>
   );
@@ -294,12 +272,12 @@ function DeleteConfirm({
   return (
     <div className="space-y-4">
       <div className="flex items-start gap-2.5">
-        <AlertTriangle className="w-5 h-5 shrink-0 text-red-600 dark:text-red-400 mt-0.5" />
+        <AlertTriangle className="w-5 h-5 shrink-0 text-emerald-600 dark:text-emerald-400 mt-0.5" />
         <div className="space-y-1">
           <p className="text-sm font-bold text-slate-900 dark:text-slate-100">
             Delete {user.name} ({user.email})?
           </p>
-          <p className="text-sm text-red-700 dark:text-red-400">
+          <p className="text-sm text-emerald-700 dark:text-emerald-400">
             This also <strong>permanently deletes every identity document they have uploaded</strong> — the files are
             erased from disk, not archived. This cannot be undone.
           </p>
@@ -326,7 +304,6 @@ export default function AdminDashboardPage() {
   const { user: me } = useAuth();
 
   const [users, setUsers] = useState<AdminUser[]>([]);
-  const [stats, setStats] = useState<AdminStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [actionError, setActionError] = useState<string | null>(null);
@@ -335,15 +312,10 @@ export default function AdminDashboardPage() {
   const [adding, setAdding] = useState(false);
   const [rowAction, setRowAction] = useState<RowAction>(null);
 
-  /** Users and stats always move together — a write that changes one changes the other. */
   const refresh = useCallback(async () => {
     try {
-      const [usersRes, statsRes] = await Promise.all([
-        api.get('/admin/users'),
-        api.get('/admin/stats'),
-      ]);
+      const usersRes = await api.get('/admin/users');
       setUsers(usersRes?.data?.users ?? []);
-      setStats(statsRes?.data ?? null);
       setError(null);
     } catch (e: any) {
       setError(e?.message || 'Failed to load users');
@@ -422,7 +394,7 @@ export default function AdminDashboardPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader2 className="w-8 h-8 animate-spin text-red-600" />
+        <Loader2 className="w-8 h-8 animate-spin text-emerald-600" />
       </div>
     );
   }
@@ -436,27 +408,23 @@ export default function AdminDashboardPage() {
       />
 
       {error && (
-        <Card className="border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20">
-          <CardContent className="p-4 flex items-center gap-2.5 text-sm text-red-700 dark:text-red-400">
+        <Card className="border-emerald-200 dark:border-emerald-900/40 bg-emerald-50 dark:bg-emerald-950/20">
+          <CardContent className="p-4 flex items-center gap-2.5 text-sm text-emerald-700 dark:text-emerald-400">
             <AlertCircle className="w-4 h-4 shrink-0" /> {error}
           </CardContent>
         </Card>
       )}
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        <StatCard icon={Users} label="Total Users" value={stats?.totalUsers ?? users.length} tint="bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400" />
-        <StatCard icon={GraduationCap} label="Students" value={stats?.students ?? 0} tint="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" />
-        <StatCard icon={ShieldCheck} label="Admins" value={stats?.admins ?? 0} tint="bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400" />
-      </div>
+      {/* Analytics, charts & system monitoring */}
+      <DashboardAnalytics />
 
       {/* All Users */}
       <Card className="overflow-hidden">
         <CardContent className="p-0">
           <div className="flex flex-wrap items-center justify-between gap-3 p-5 border-b border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-2.5">
-              <span className="w-9 h-9 rounded-lg bg-red-50 dark:bg-red-950/30 flex items-center justify-center">
-                <Users className="w-5 h-5 text-red-600 dark:text-red-400" />
+              <span className="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center">
+                <Users className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </span>
               <div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">All Users</h3>
@@ -571,7 +539,7 @@ export default function AdminDashboardPage() {
                                 <Button
                                   size="sm"
                                   variant="ghost"
-                                  className="text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30"
+                                  className="text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/30"
                                   aria-label={`Delete ${u.name}`}
                                   onClick={() => openRowAction('delete', u.id)}
                                 >
@@ -584,7 +552,7 @@ export default function AdminDashboardPage() {
 
                         {open && (
                           <tr className={`border-b border-slate-50 dark:border-slate-800/50 ${
-                            open === 'delete' ? 'bg-red-50 dark:bg-red-950/20' : 'bg-slate-50/60 dark:bg-slate-800/20'
+                            open === 'delete' ? 'bg-emerald-50 dark:bg-emerald-950/20' : 'bg-slate-50/60 dark:bg-slate-800/20'
                           }`}>
                             <td colSpan={6} className="px-5 py-4">
                               {open === 'edit' && (

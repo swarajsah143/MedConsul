@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   ArrowLeft,
   ArrowUpDown,
@@ -40,8 +41,17 @@ const PAGE_SIZE = 15;
 const EXPORT_CAP = 25000;
 
 export default function AllotmentDetailPage() {
-  const { counselling: rawCounselling } = useParams<{ counselling: string }>();
-  const counselling = decodeURIComponent(rawCounselling || '');
+  // This page is scoped either to a counselling (/allotment/:counselling) or, when reached from
+  // the state grid, to a single state (/allotment/state/:state). `scopeFilter` is the exact-match
+  // query sent to the server; `counselling` stays as the display label the heading/badge/filename
+  // already read.
+  const { counselling: rawCounselling, state: rawState } = useParams<{ counselling?: string; state?: string }>();
+  const byState = rawState != null;
+  const counselling = decodeURIComponent((byState ? rawState : rawCounselling) || '');
+  const scopeFilter = useMemo<Record<string, string>>(
+    () => ({ [byState ? 'state' : 'counselling']: counselling }),
+    [byState, counselling],
+  );
   const navigate = useNavigate();
   const { canFullData } = usePlan();   // Pro+ unlocks full allotment history + CSV export
 
@@ -83,7 +93,7 @@ export default function AllotmentDetailPage() {
   const sortParam = `${sortOrder === 'desc' ? '-' : ''}${sortBy}`;
 
   const filterParams = useMemo<Record<string, string>>(() => ({
-    counselling,
+    ...scopeFilter,
     ...(categoryFilter !== 'All' && { category: categoryFilter }),
     ...(seatTypeFilter !== 'All' && { seatType: seatTypeFilter }),
     ...(roundFilter !== 'All' && { round: roundFilter }),
@@ -92,23 +102,30 @@ export default function AllotmentDetailPage() {
     ...(scoreMin && { neetScore_min: scoreMin }),
     ...(scoreMax && { neetScore_max: scoreMax }),
     ...(search.trim() && { q: search.trim() }),
-  }), [counselling, categoryFilter, seatTypeFilter, roundFilter, rankMin, rankMax, scoreMin, scoreMax, search]);
+  }), [scopeFilter, categoryFilter, seatTypeFilter, roundFilter, rankMin, rankMax, scoreMin, scoreMax, search]);
 
   const { items: paginated, total: filteredTotal, pages: totalPages, loading, error } =
     usePaged<AllotmentEntry>('allotments', { ...filterParams, sort: sortParam, page, limit: PAGE_SIZE });
 
-  // Filter dropdowns + counts, scoped to this counselling so "which rounds exist" is accurate.
-  const { facets } = useFacets('allotments', ['category', 'seatType', 'round', 'instituteName'], { counselling });
+  // Filter dropdowns + counts, scoped to this counselling/state so "which rounds exist" is accurate.
+  // stateRank/neetScore/subcategory are pulled too, purely to know whether a column has ANY data in
+  // this scope — facets strips null/blank, so an empty array means "nothing to show, hide the column"
+  // rather than painting a full column of dashes (MCC data, for instance, has no state rank at all).
+  const { facets } = useFacets('allotments', ['category', 'seatType', 'round', 'instituteName', 'stateRank', 'neetScore', 'subcategory'], scopeFilter);
   const filterOptions = {
     categories: (facets.category as string[]) ?? [],
     seatTypes: (facets.seatType as string[]) ?? [],
     rounds: (facets.round as number[]) ?? [],
   };
+  // Which optional columns actually carry data for this counselling/state.
+  const hasStateRank = (facets.stateRank?.length ?? 0) > 0;
+  const hasNeetScore = (facets.neetScore?.length ?? 0) > 0;
+  const hasSubcategory = (facets.subcategory?.length ?? 0) > 0;
   const instituteCount = facets.instituteName?.length ?? 0;
   const roundCount = filterOptions.rounds.length;
 
-  // Unfiltered total for this counselling (stat tile + empty-state wording).
-  const { total: counsellingTotal, loading: countLoading } = usePaged('allotments', { counselling, limit: 1 });
+  // Unfiltered total for this counselling/state (stat tile + empty-state wording).
+  const { total: counsellingTotal, loading: countLoading } = usePaged('allotments', { ...scopeFilter, limit: 1 });
   // Does ANY allotment data exist? Distinguishes "nothing loaded" from "nothing for this one".
   const { facets: existence, loading: existenceLoading } = useFacets('allotments', ['counselling']);
   const anyDataExists = ((existence.counselling as string[])?.length ?? 0) > 0;
@@ -176,14 +193,14 @@ export default function AllotmentDetailPage() {
     }
   };
 
-  const isMCC = counselling === 'All India Quota - MCC';
+  const isMCC = !byState && counselling === 'All India Quota - MCC';
   const safePage = page;
 
   // Initial load (no rows yet) — a spinner. Page-to-page fetches keep the table on screen.
   if (loading && paginated.length === 0 && !error) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+        <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
       </div>
     );
   }
@@ -191,7 +208,7 @@ export default function AllotmentDetailPage() {
   if (error) {
     return (
       <div className="space-y-4 page-enter">
-        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
+        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to States
         </Button>
         <EmptyState
@@ -209,7 +226,7 @@ export default function AllotmentDetailPage() {
   if (!existenceLoading && !anyDataExists) {
     return (
       <div className="space-y-4 page-enter">
-        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
+        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to States
         </Button>
         <EmptyState
@@ -225,12 +242,12 @@ export default function AllotmentDetailPage() {
   if (anyDataExists && !countLoading && counsellingTotal === 0) {
     return (
       <div className="space-y-4 page-enter">
-        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
+        <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to States
         </Button>
         <EmptyState
           title={`No allotments for ${counselling}`}
-          description="Allotment records have been loaded, but none of them belong to this counselling yet."
+          description={`Allotment records have been loaded, but none of them belong to this ${byState ? 'state' : 'counselling'} yet.`}
           action={{ label: 'Back to States', onClick: () => navigate('/allotment') }}
         />
       </div>
@@ -242,11 +259,11 @@ export default function AllotmentDetailPage() {
     return (
       <th
         onClick={() => handleSort(field)}
-        className={`px-3 sm:px-4 py-3 cursor-pointer hover:bg-red-50/50 dark:hover:bg-red-950/20 select-none transition-colors duration-150 whitespace-nowrap ${className || ''}`}
+        className={`px-3 sm:px-4 py-3 cursor-pointer hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 select-none transition-colors duration-150 whitespace-nowrap ${className || ''}`}
       >
         <span className="flex items-center gap-1">
           {children}
-          <ArrowUpDown className={`w-3 h-3 transition-colors ${active ? 'text-red-600' : 'text-slate-400'}`} />
+          <ArrowUpDown className={`w-3 h-3 transition-colors ${active ? 'text-emerald-600' : 'text-slate-400'}`} />
         </span>
       </th>
     );
@@ -255,15 +272,12 @@ export default function AllotmentDetailPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Back */}
-      <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-red-50 hover:text-red-600 transition-colors">
+      <Button variant="ghost" size="sm" onClick={() => navigate('/allotment')} className="flex items-center gap-1.5 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to States
       </Button>
 
       {/* Hero */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <HeroBanner>
           <div className="relative z-10">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div className="space-y-3">
@@ -275,7 +289,7 @@ export default function AllotmentDetailPage() {
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                   Allotment Mapping
                 </h1>
-                <p className="text-red-100/80 text-sm max-w-lg leading-relaxed">
+                <p className="text-emerald-100/80 text-sm max-w-lg leading-relaxed">
                   Real counselling seat allotments across rounds, quotas, and categories with AI-powered filtering.
                 </p>
               </div>
@@ -286,27 +300,28 @@ export default function AllotmentDetailPage() {
                 </span>
                 <button
                   onClick={() => navigate('/allotment')}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-red-600 text-sm font-bold hover:bg-red-50 transition-colors shadow-sm"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white text-emerald-600 text-sm font-bold hover:bg-emerald-50 transition-colors shadow-sm"
                 >
                   <GraduationCap className="w-4 h-4" />
-                  Counselling
+                  {byState ? 'All states' : 'Counselling'}
                 </button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
         {[
-          { label: 'Total Allotments', value: counsellingTotal.toLocaleString(), icon: Award, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Total Allotments', value: counsellingTotal.toLocaleString(), icon: Award, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Institutes', value: instituteCount.toLocaleString(), icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
           { label: 'Filtered', value: filteredTotal.toLocaleString(), icon: Target, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Rounds', value: String(roundCount), icon: BarChart3, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
         ].map((s) => (
           <Card key={s.label} className="group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-            <CardContent className="p-4">
+            {/* sm:p-4 is required: CardContent defaults to sm:pt-0 (for cards with a header),
+                which would otherwise flush the number against the top border on desktop. */}
+            <CardContent className="p-4 sm:p-4">
               <div className="flex items-center gap-3">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${s.bg} transition-transform duration-300 group-hover:scale-110`}>
                   <s.icon className={`w-5 h-5 ${s.color}`} />
@@ -333,7 +348,7 @@ export default function AllotmentDetailPage() {
               {search && <FilterTag label={`"${search}"`} onRemove={() => { setSearch(''); setPage(1); }} />}
               {rankMin && <FilterTag label={`Rank >= ${rankMin}`} onRemove={() => { setRankMin(''); setPage(1); }} />}
               {rankMax && <FilterTag label={`Rank <= ${rankMax}`} onRemove={() => { setRankMax(''); setPage(1); }} />}
-              <button onClick={handleReset} className="text-xs font-semibold text-red-600 hover:underline">Clear all</button>
+              <button onClick={handleReset} className="text-xs font-semibold text-emerald-600 hover:underline">Clear all</button>
             </>
           )}
         </div>
@@ -345,18 +360,18 @@ export default function AllotmentDetailPage() {
             <Filter className="w-4 h-4 mr-2" />
             Filters
             {activeFilterCount > 0 && (
-              <span className="ml-2 w-5 h-5 flex items-center justify-center rounded-full bg-white text-red-600 text-[10px] font-bold">
+              <span className="ml-2 w-5 h-5 flex items-center justify-center rounded-full bg-white text-emerald-600 text-[10px] font-bold">
                 {activeFilterCount}
               </span>
             )}
           </Button>
           {canFullData ? (
-            <Button onClick={handleExportCsv} disabled={exporting || filteredTotal === 0} variant="outline" className="hover:border-red-300 hover:text-red-600 transition-colors">
+            <Button onClick={handleExportCsv} disabled={exporting || filteredTotal === 0} variant="outline" className="hover:border-emerald-300 hover:text-emerald-600 transition-colors">
               {exporting ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Download className="w-4 h-4 mr-2" />}
               <span className="hidden sm:inline">{exporting ? 'Exporting…' : 'Export'}</span>
             </Button>
           ) : (
-            <Link to="/pricing" title="Upgrade to Pro to export" className="inline-flex items-center h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-500 hover:border-red-300 hover:text-red-600 transition-colors">
+            <Link to="/pricing" title="Upgrade to Pro to export" className="inline-flex items-center h-10 px-4 rounded-lg border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-500 hover:border-emerald-300 hover:text-emerald-600 transition-colors">
               <Lock className="w-4 h-4 sm:mr-2" /> <span className="hidden sm:inline">Export (Pro)</span>
             </Link>
           )}
@@ -385,7 +400,7 @@ export default function AllotmentDetailPage() {
                   </div>
                   <div>
                     <h2 className="text-xl font-extrabold text-white">Filters</h2>
-                    <p className="text-red-200 text-xs mt-0.5">Refine allotment results</p>
+                    <p className="text-emerald-200 text-xs mt-0.5">Refine allotment results</p>
                   </div>
                 </div>
                 <button onClick={() => setShowFilters(false)} className="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-all duration-200 hover:scale-105">
@@ -399,7 +414,7 @@ export default function AllotmentDetailPage() {
               {/* Rank & Score */}
               <section className="space-y-4">
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                  <span className="w-1 h-5 rounded-full bg-red-500" />
+                  <span className="w-1 h-5 rounded-full bg-emerald-500" />
                   Rank & Score Range
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -442,7 +457,7 @@ export default function AllotmentDetailPage() {
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         roundFilter === r
                           ? 'gradient-primary text-white border-transparent shadow-md'
-                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                       }`}
                     >
                       {r === 'All' ? 'All Rounds' : `Round ${r}`}
@@ -465,7 +480,7 @@ export default function AllotmentDetailPage() {
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         categoryFilter === cat
                           ? 'gradient-primary text-white border-transparent shadow-md'
-                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                       }`}
                     >
                       {cat}
@@ -488,7 +503,7 @@ export default function AllotmentDetailPage() {
                       className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         seatTypeFilter === st
                           ? 'gradient-primary text-white border-transparent shadow-md'
-                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                       }`}
                     >
                       {st}
@@ -518,7 +533,7 @@ export default function AllotmentDetailPage() {
             {/* Footer */}
             <div className="shrink-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 px-6 py-4">
               <div className="flex items-center justify-between">
-                <Button variant="outline" onClick={handleReset} className="h-11 px-6 rounded-xl border-2 hover:border-red-300 hover:text-red-600 transition-all hover:scale-[1.02] active:scale-[0.98]">
+                <Button variant="outline" onClick={handleReset} className="h-11 px-6 rounded-xl border-2 hover:border-emerald-300 hover:text-emerald-600 transition-all hover:scale-[1.02] active:scale-[0.98]">
                   Clear All
                 </Button>
                 <Button
@@ -555,12 +570,12 @@ export default function AllotmentDetailPage() {
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-left text-xs">
               <thead>
-                <tr className="bg-gradient-to-r from-red-600 via-red-600 to-rose-500 text-white text-[11px] uppercase tracking-wider">
+                <tr className="bg-gradient-to-r from-emerald-600 via-emerald-600 to-green-500 text-white text-[11px] uppercase tracking-wider">
                   <SortHeader field="allIndiaRank" className="text-white hover:bg-white/10">All India Rank</SortHeader>
-                  {!isMCC && <SortHeader field="stateRank" className="text-white hover:bg-white/10">State Rank</SortHeader>}
-                  <SortHeader field="neetScore" className="text-white hover:bg-white/10">NEET Score</SortHeader>
+                  {hasStateRank && <SortHeader field="stateRank" className="text-white hover:bg-white/10">State Rank</SortHeader>}
+                  {hasNeetScore && <SortHeader field="neetScore" className="text-white hover:bg-white/10">NEET Score</SortHeader>}
                   <SortHeader field="category" className="text-white hover:bg-white/10">Category</SortHeader>
-                  <th className="px-3 sm:px-4 py-3 whitespace-nowrap font-bold">Subcategory</th>
+                  {hasSubcategory && <th className="px-3 sm:px-4 py-3 whitespace-nowrap font-bold">Subcategory</th>}
                   <SortHeader field="instituteName" className="text-white hover:bg-white/10">Institute Name</SortHeader>
                   <SortHeader field="seatType" className="text-white hover:bg-white/10">Seat Type</SortHeader>
                   <th className="px-3 sm:px-4 py-3 whitespace-nowrap font-bold">Counselling</th>
@@ -571,19 +586,21 @@ export default function AllotmentDetailPage() {
                 {paginated.map((entry) => (
                   <tr
                     key={entry.id}
-                    className="group hover:bg-red-50/30 dark:hover:bg-red-950/10 transition-colors duration-150"
+                    className="group hover:bg-emerald-50/30 dark:hover:bg-emerald-950/10 transition-colors duration-150"
                   >
                     <td className="px-3 sm:px-4 py-3.5 font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">
                       {entry.allIndiaRank.toLocaleString()}
                     </td>
-                    {!isMCC && (
+                    {hasStateRank && (
                       <td className="px-3 sm:px-4 py-3.5 text-slate-500 tabular-nums font-medium">
                         {entry.stateRank?.toLocaleString() ?? '-'}
                       </td>
                     )}
-                    <td className="px-3 sm:px-4 py-3.5 font-bold text-slate-800 dark:text-slate-200 tabular-nums">
-                      {entry.neetScore ?? '-'}
-                    </td>
+                    {hasNeetScore && (
+                      <td className="px-3 sm:px-4 py-3.5 font-bold text-slate-800 dark:text-slate-200 tabular-nums">
+                        {entry.neetScore ?? '-'}
+                      </td>
+                    )}
                     <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap">
                       <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full ${
                         entry.category === 'General' ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300' :
@@ -595,11 +612,13 @@ export default function AllotmentDetailPage() {
                         {entry.category}
                       </span>
                     </td>
-                    <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap text-slate-500 font-medium text-[11px]">
-                      {entry.subcategory || '-'}
-                    </td>
+                    {hasSubcategory && (
+                      <td className="px-3 sm:px-4 py-3.5 whitespace-nowrap text-slate-500 font-medium text-[11px]">
+                        {entry.subcategory || '-'}
+                      </td>
+                    )}
                     <td className="px-3 sm:px-4 py-3.5 max-w-[280px]">
-                      <p className="font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
+                      <p className="font-semibold text-slate-800 dark:text-slate-200 truncate group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
                         {entry.instituteName}
                       </p>
                     </td>
@@ -618,7 +637,7 @@ export default function AllotmentDetailPage() {
                       </span>
                     </td>
                     <td className="px-3 sm:px-4 py-3.5 text-center">
-                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-red-50 dark:bg-red-950/30 font-extrabold text-red-600 dark:text-red-400 text-[11px]">
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 font-extrabold text-emerald-600 dark:text-emerald-400 text-[11px]">
                         R{entry.round}
                       </span>
                     </td>
@@ -643,9 +662,9 @@ export default function AllotmentDetailPage() {
 
 function FilterTag({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-[11px] font-semibold border border-red-200 dark:border-red-900/40 hover:bg-red-100 transition-colors">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-200 dark:border-emerald-900/40 hover:bg-emerald-100 transition-colors">
       {label}
-      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors">
+      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-900/50 flex items-center justify-center transition-colors">
         <X className="w-2.5 h-2.5" />
       </button>
     </span>

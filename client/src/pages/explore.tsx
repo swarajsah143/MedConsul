@@ -2,10 +2,13 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCollection, distinct } from '@/lib/data-api';
+import { MEDICAL_COURSES, MEDICAL_BRANCHES } from '@/lib/explore-data';
+import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   Compass,
   Building2,
@@ -103,11 +106,22 @@ function distinctFromArrays<T>(rows: T[], pick: (row: T) => string[] | undefined
   return [...set].sort();
 }
 
+/**
+ * Dropdown options = the full curated catalog (in its intentional order) followed by any values the
+ * live data carries that the catalog doesn't. The universities collection only lists "MBBS" and no
+ * branches, so without the catalog the Course/Branch filters would be near-empty.
+ */
+function withCatalog(catalog: string[], fromData: string[]): string[] {
+  const known = new Set(catalog);
+  const extras = fromData.filter((v) => !known.has(v)).sort();
+  return [...catalog, ...extras];
+}
+
 function LoadingCard({ label }: { label: string }) {
   return (
     <Card>
       <CardContent className="py-20 flex flex-col items-center justify-center gap-3">
-        <Loader2 className="w-7 h-7 text-red-600 animate-spin" />
+        <Loader2 className="w-7 h-7 text-emerald-600 animate-spin" />
         <p className="text-sm text-muted-foreground">{label}</p>
       </CardContent>
     </Card>
@@ -124,13 +138,16 @@ const NEON_TYPE: Record<string, { border: string; text: string; bg: string; icon
   Government: { border: 'border-emerald-500/20', text: 'text-emerald-400', bg: 'bg-emerald-500/10', icon: 'text-emerald-400', glow: 'hover:shadow-emerald-500/10', hoverText: 'group-hover:text-emerald-300' },
   Private: { border: 'border-amber-500/20', text: 'text-amber-400', bg: 'bg-amber-500/10', icon: 'text-amber-400', glow: 'hover:shadow-amber-500/10', hoverText: 'group-hover:text-amber-300' },
   Deemed: { border: 'border-blue-500/20', text: 'text-blue-400', bg: 'bg-blue-500/10', icon: 'text-blue-400', glow: 'hover:shadow-blue-500/10', hoverText: 'group-hover:text-blue-300' },
-  AIIMS: { border: 'border-red-500/20', text: 'text-red-400', bg: 'bg-red-500/10', icon: 'text-red-400', glow: 'hover:shadow-red-500/10', hoverText: 'group-hover:text-red-300' },
+  AIIMS: { border: 'border-emerald-500/20', text: 'text-emerald-400', bg: 'bg-emerald-500/10', icon: 'text-emerald-400', glow: 'hover:shadow-emerald-500/10', hoverText: 'group-hover:text-emerald-300' },
   Central: { border: 'border-purple-500/20', text: 'text-purple-400', bg: 'bg-purple-500/10', icon: 'text-purple-400', glow: 'hover:shadow-purple-500/10', hoverText: 'group-hover:text-purple-300' },
 };
 const DEFAULT_NEON = { border: 'border-slate-500/20', text: 'text-slate-400', bg: 'bg-slate-500/10', icon: 'text-slate-400', glow: 'hover:shadow-slate-500/10', hoverText: 'group-hover:text-slate-300' };
 
-function selectClass() {
-  return 'h-11 w-full appearance-none rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 pl-4 pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer';
+// `pl` is a param, not appended by the caller: a `selectClass() + ' pl-11'` override is unreliable
+// because both pl-4 and pl-11 then exist and Tailwind's CSS source order (not string order) decides
+// the winner — which left the "All States" text tucked under its leading icon.
+function selectClass(pl = 'pl-4') {
+  return `h-11 w-full appearance-none rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 ${pl} pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer`;
 }
 
 function UniversityCard({ u }: { u: University }) {
@@ -144,17 +161,21 @@ function UniversityCard({ u }: { u: University }) {
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-      {/* Photo banner */}
+      {/* Photo banner — real image if the record has one, else a deterministic building/campus
+          photo so a university without a stored image never shows a blank banner. */}
       <div className="relative h-32 overflow-hidden">
-        {u.image && (
-          <img
-            src={u.image}
-            alt={name}
-            loading="lazy"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        )}
+        <img
+          src={u.image || collegePhoto(name)}
+          alt={name}
+          loading="lazy"
+          onError={(e) => {
+            const img = e.currentTarget as HTMLImageElement;
+            if (img.dataset.fellBack) return;   // swap to the building fallback at most once
+            img.dataset.fellBack = '1';
+            img.src = collegePhoto(name);
+          }}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
         {u.type && (
           <span className={`absolute top-2.5 right-2.5 text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${neon.bg} ${neon.text} ${neon.border}`}>
@@ -207,7 +228,7 @@ function UniversityCard({ u }: { u: University }) {
             <p className="text-[8px] font-bold uppercase tracking-widest text-slate-500 mb-2">Courses Offered</p>
             <div className="flex flex-wrap gap-1">
               {courses.slice(0, 6).map((c) => (
-                <span key={c} className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-red-500/10 border border-red-500/20 text-red-400">
+                <span key={c} className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
                   {c}
                 </span>
               ))}
@@ -297,7 +318,7 @@ function UniversitySection() {
   return (
     <div className="space-y-6">
       <Card className="overflow-hidden border-0 shadow-lg">
-        <div className="h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400" />
+        <div className="h-1 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400" />
         <CardContent className="p-5 sm:p-6">
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="relative flex-1">
@@ -311,7 +332,7 @@ function UniversitySection() {
             </div>
             <div className="relative sm:w-72">
               <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none z-10" />
-              <select value={state} onChange={(e) => setState(e.target.value)} className={selectClass() + ' pl-11'}>
+              <select value={state} onChange={(e) => setState(e.target.value)} className={selectClass('pl-11')}>
                 <option value="All States">All States</option>
                 {stateOptions.map((s) => (
                   <option key={s} value={s}>{s}</option>
@@ -327,7 +348,7 @@ function UniversitySection() {
         <p className="text-sm text-muted-foreground">
           <span className="font-bold text-slate-800 dark:text-slate-200">{results.length}</span>{' '}
           medical universit{results.length !== 1 ? 'ies' : 'y'} found
-          {state !== 'All States' && <> in <span className="font-semibold text-red-600 dark:text-red-400">{state}</span></>}
+          {state !== 'All States' && <> in <span className="font-semibold text-emerald-600 dark:text-emerald-400">{state}</span></>}
         </p>
       </div>
 
@@ -353,8 +374,8 @@ function CoursesSection() {
   const [branch, setBranch] = useState('All Branches');
   const [results, setResults] = useState<University[] | null>(null);
 
-  const courseOptions = useMemo(() => distinctFromArrays(data, (u) => u.courses), [data]);
-  const branchOptions = useMemo(() => distinctFromArrays(data, (u) => u.branches), [data]);
+  const courseOptions = useMemo(() => withCatalog(MEDICAL_COURSES, distinctFromArrays(data, (u) => u.courses)), [data]);
+  const branchOptions = useMemo(() => withCatalog(MEDICAL_BRANCHES, distinctFromArrays(data, (u) => u.branches)), [data]);
 
   const handleSearch = () => setResults(searchByCourse(data, course, branch));
 
@@ -373,7 +394,7 @@ function CoursesSection() {
   return (
     <div className="space-y-6">
       <Card className="overflow-hidden border-0 shadow-lg">
-        <div className="h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400" />
+        <div className="h-1 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400" />
         <CardContent className="p-5 sm:p-6 space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
@@ -416,8 +437,8 @@ function CoursesSection() {
       ) : results === null ? (
         <Card className="bg-slate-50 dark:bg-slate-800/50 border-dashed">
           <CardContent className="p-10 text-center">
-            <div className="w-16 h-16 rounded-2xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center mx-auto mb-4">
-              <BookOpen className="w-8 h-8 text-red-500" />
+            <div className="w-16 h-16 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center mx-auto mb-4">
+              <BookOpen className="w-8 h-8 text-emerald-500" />
             </div>
             <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">Select a course and branch, then hit search</p>
             <p className="text-xs text-muted-foreground mt-1">We'll list every university offering that course & specialization.</p>
@@ -428,8 +449,8 @@ function CoursesSection() {
           <p className="text-sm text-muted-foreground px-1">
             <span className="font-bold text-slate-800 dark:text-slate-200">{results.length}</span> universit{results.length !== 1 ? 'ies' : 'y'} offer
             {results.length === 1 ? 's' : ''}{' '}
-            <span className="font-semibold text-red-600 dark:text-red-400">{course === 'All Courses' ? 'any course' : course}</span>
-            {branch !== 'All Branches' && <> in <span className="font-semibold text-red-600 dark:text-red-400">{branch}</span></>}
+            <span className="font-semibold text-emerald-600 dark:text-emerald-400">{course === 'All Courses' ? 'any course' : course}</span>
+            {branch !== 'All Branches' && <> in <span className="font-semibold text-emerald-600 dark:text-emerald-400">{branch}</span></>}
           </p>
           {results.length === 0 ? (
             <EmptyResults message="No universities found for this combination" hint="Try 'All Branches' or a broader course selection." />
@@ -492,10 +513,10 @@ const BLOG_CAT: Record<string, BlogCat> = {
   },
 };
 const DEFAULT_BLOG_CAT: BlogCat = {
-  grad: 'from-rose-50 via-white to-white dark:from-rose-950/30 dark:via-slate-900 dark:to-slate-900',
-  bar: 'from-rose-500 to-red-500', badge: 'bg-rose-100 text-rose-700 dark:bg-rose-950/50 dark:text-rose-300',
-  border: 'border-rose-200/70 dark:border-rose-900/40', glow: 'group-hover:shadow-rose-500/20',
-  hoverTitle: 'group-hover:text-rose-700 dark:group-hover:text-rose-300', Icon: Newspaper,
+  grad: 'from-green-50 via-white to-white dark:from-green-950/30 dark:via-slate-900 dark:to-slate-900',
+  bar: 'from-green-500 to-emerald-500', badge: 'bg-green-100 text-green-700 dark:bg-green-950/50 dark:text-green-300',
+  border: 'border-green-200/70 dark:border-green-900/40', glow: 'group-hover:shadow-green-500/20',
+  hoverTitle: 'group-hover:text-green-700 dark:group-hover:text-green-300', Icon: Newspaper,
 };
 
 function formatBlogDate(date?: string): string {
@@ -614,7 +635,7 @@ function BlogsSection() {
   return (
     <div className="space-y-6">
       <Card className="overflow-hidden border-0 shadow-lg">
-        <div className="h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400" />
+        <div className="h-1 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400" />
         <CardContent className="p-5 sm:p-6">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
@@ -633,7 +654,7 @@ function BlogsSection() {
                 className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                   category === cat
                     ? 'gradient-primary text-white border-transparent shadow-md'
-                    : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 hover:border-red-300 hover:text-red-600'
+                    : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 hover:border-emerald-300 hover:text-emerald-600'
                 }`}
               >
                 {cat}
@@ -670,10 +691,7 @@ export default function ExplorePage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8 lg:p-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <HeroBanner>
           <div className="relative z-10 space-y-3">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
               <Sparkles className="w-3.5 h-3.5" /> Explore
@@ -681,12 +699,11 @@ export default function ExplorePage() {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight flex items-center gap-2.5">
               <Compass className="w-7 h-7 sm:w-8 sm:h-8" /> Explore
             </h1>
-            <p className="text-red-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
+            <p className="text-emerald-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
               Discover medical universities, browse courses & specializations, and read the latest blogs on institutions and research.
             </p>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Section tabs */}
       <div className="flex flex-wrap justify-center gap-2">
@@ -699,8 +716,8 @@ export default function ExplorePage() {
               onClick={() => navigate(`/explore/${s.key}`)}
               className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                 isOn
-                  ? 'gradient-primary text-white border-transparent shadow-md shadow-red-500/25'
-                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 hover:border-red-300 hover:text-red-600'
+                  ? 'gradient-primary text-white border-transparent shadow-md shadow-emerald-500/25'
+                  : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 bg-white dark:bg-slate-800 hover:border-emerald-300 hover:text-emerald-600'
               }`}
             >
               <Icon className="w-4 h-4" />
