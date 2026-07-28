@@ -53,8 +53,18 @@ npm --prefix "$REPO/client" run build
 say "[2/6] Discovering prod layout"
 SERVER_DIR="${MEDC_SERVER_DIR:-$($SSH "$HOST" "systemctl show -p WorkingDirectory --value $SERVICE" 2>/dev/null || true)}"
 [ -n "$SERVER_DIR" ] && [ "$SERVER_DIR" != "/" ] || die "could not discover server dir from systemd; set MEDC_SERVER_DIR"
-WEB_ROOT="${MEDC_WEB_ROOT:-$($SSH "$HOST" "sudo nginx -T 2>/dev/null | awk '/server_name[^;]*medconsul/{f=1} f&&/^[[:space:]]*root[[:space:]]/{print \$2; exit}' | tr -d ';'" 2>/dev/null || true)}"
+# Take the root that belongs to the SERVER block, not one nested in a `location`. The port-80
+# block matches server_name first and its only root is the Let's Encrypt webroot
+# (`location /.well-known/acme-challenge { root /var/www/certbot; }`), so the old first-root-wins
+# awk discovered /var/www/certbot. Deploying there would have missed the real docroot entirely AND
+# --delete'd the ACME challenge dir, breaking certificate auto-renewal on a live HTTPS site.
+# Skipping location blocks falls through to the 443 block's server-level root.
+WEB_ROOT="${MEDC_WEB_ROOT:-$($SSH "$HOST" "sudo nginx -T 2>/dev/null | awk '/server_name[^;]*medconsul/{f=1} f&&/[[:space:]]*location[[:space:]]/{inloc=1} f&&inloc&&/}/{inloc=0; next} f&&!inloc&&/^[[:space:]]*root[[:space:]]/{print \$2; exit}' | tr -d ';'" 2>/dev/null || true)}"
 [ -n "$WEB_ROOT" ] && [ "$WEB_ROOT" != "/" ] || die "could not discover nginx web root; set MEDC_WEB_ROOT"
+# Belt and braces: never rsync --delete over an ACME webroot even if discovery regresses again.
+case "$WEB_ROOT" in
+  */certbot*|*acme*|/var/www/html) die "refusing to deploy to '$WEB_ROOT' — that looks like an ACME/default webroot, not the app docroot. Set MEDC_WEB_ROOT explicitly." ;;
+esac
 
 printf '    server dir : %s   (<- server/dist)\n' "$SERVER_DIR"
 printf '    web root   : %s   (<- client/dist)\n' "$WEB_ROOT"
