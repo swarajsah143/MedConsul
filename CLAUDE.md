@@ -36,7 +36,8 @@ The suites in `server/src/test/*` are standalone `tsx` scripts that make **real 
 
 - The real env file is **`.env` at the repo root** (loaded by `server/src/config/load-env.ts` from `../../../.env`), not `server/.env`. Both `server.ts` and `env.ts` import `load-env` first so `process.env` is populated before any module reads it.
 - **`.env.example` is stale/aspirational** — it lists PostgreSQL, Redis, Twilio, and OTP vars that the code does **not** use. The actual stack is MongoDB + an OpenAI-compatible AI endpoint. Trust the code (`config/env.ts`, `config/database.ts`), not `.env.example`.
-- Required secrets: `JWT_SECRET`, `JWT_REFRESH_SECRET` — the server **refuses to boot** if unset or left as a `fallback-` value (see `env.ts`). `MONGODB_URI` enables domain data (see below). `AI_API_KEY` is optional (blank → RAG fallback). SMTP vars are optional (unset/placeholder → mail no-ops).
+- Required secrets: `JWT_SECRET`, `JWT_REFRESH_SECRET` — the server **refuses to boot** if unset or left as a `fallback-` value (see `env.ts`). `MONGODB_URI` enables domain data (see below). `AI_API_KEY` is optional (blank → RAG fallback). SMTP vars are optional (unset/placeholder → mail no-ops). `GOOGLE_CLIENT_ID` is optional and follows the SMTP pattern — blank makes `POST /auth/google` respond **503** instead of failing fast (it isn't security-critical).
+- **The client has its own env file** (`client/.env`, Vite-loaded, `VITE_`-prefixed). Only `VITE_GOOGLE_CLIENT_ID` today — it's a public identifier (usually the same value as the server's `GOOGLE_CLIENT_ID`); a blank value hides the Google button entirely (`components/auth/google-auth-button.tsx` exports `isGoogleAuthEnabled`).
 - Server port comes from root `.env` `PORT` (code default 5000). The Vite dev server (5173) proxies `/api` to that port, falling back to 5050 — so the client only ever calls `/api/...` (see `client/vite.config.ts`).
 
 ## Architecture
@@ -74,8 +75,10 @@ Key invariants baked into this layer:
 ### Subscription gating (free / pro / premium)
 `server/src/utils/plan.ts` is the server source of truth (mirrored client-side in `client/src/lib/plans.ts` + `use-plan.ts`). Gating is **server-enforced**, not just UI: e.g. `allotments/paged` returns only `FREE_ALLOTMENT_ROWS` (25) with `gated: true` for non-pro users (which also blocks CSV export). An expired `planExpiresAt` silently downgrades to free (`effectiveTier`).
 
+**Admins bypass all gating.** `isAdmin(role)` short-circuits the plan checks — `hasFullData` and `hasUnlimitedAi` return true for any admin regardless of `plan`. Check role-then-plan, not plan alone, or admins get incorrectly gated.
+
 ### Auth flow
-JWT access token (15m, `localStorage`) + httpOnly refresh cookie (7d). The client `api.ts` transparently retries once on 401 by hitting `/auth/refresh`; `auth-provider.tsx` restores sessions on mount by trying the access token then falling back to the refresh cookie (this is what makes "remember me" work across reloads). Routes are gated by `ProtectedRoute` / `PublicRoute` / `AdminRoute` in `client/src/routes/index.tsx`.
+JWT access token (15m, `localStorage`) + httpOnly refresh cookie (7d). The client `api.ts` transparently retries once on 401 by hitting `/auth/refresh`; `auth-provider.tsx` restores sessions on mount by trying the access token then falling back to the refresh cookie (this is what makes "remember me" work across reloads). Routes are gated by `ProtectedRoute` / `PublicRoute` / `AdminRoute` in `client/src/routes/index.tsx`. **Google Sign-In** is an alternate entry: the client posts a Google ID token to `POST /auth/google`, which `google-auth-library` verifies server-side and then either logs in or auto-provisions the user (`authProvider: 'google'`), issuing the same JWT + refresh cookie as password login.
 
 ### AI chatbot (RAG + SSE)
 `server/src/services/ai.service.ts` runs a pipeline: query → intent classification → data retrieval (`services/rag/`) → context building → provider call. It targets any **OpenAI-compatible** endpoint (`AI_API_KEY`/`AI_API_BASE_URL`/`AI_MODEL`). With no key, or when the provider errors/is unreachable, it **degrades to a formatted RAG answer built directly from DB data** rather than failing the chat. Streaming uses **SSE** (`routes/chat.sse.ts`), mounted in `server.ts` **before** `compression()` on purpose — gzip would buffer and break the token-by-token stream.
@@ -97,7 +100,8 @@ Mounted under `/api` in `server/src/routes/index.ts`: `/auth`, `/chat` (+ SSE), 
 
 ## Operational scripts (`scripts/`)
 - `migrate-to-db.ts` — migrate legacy static data into Mongo via the real admin HTTP API (`--dry`, `--replace`). Prints a college-reconciliation report.
-- `import-neet.ts`, `migrate-counselling.ts` — one-off data imports.
+- `import-neet.ts`, `migrate-counselling.ts`, `import-seed.ts` — one-off data imports.
+- `enrich-colleges.ts`, `enrich-abroad.ts` — backfill/augment college & abroad-university records (photos, websites, metadata).
 - `backup.sh`, `pull-prod.sh` (`npm run pull:prod`) — DB backup / pull production data.
 
 ## Reference docs in this repo
