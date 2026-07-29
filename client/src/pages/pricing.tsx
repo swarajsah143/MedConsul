@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Stethoscope, Check, X, ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
-import { PLANS, FEATURE_MATRIX, formatPrice, type PlanTier } from '@/lib/plans';
+import { PLANS, FEATURE_MATRIX, formatPrice, isStaff, type PlanTier } from '@/lib/plans';
 import { useAuth } from '@/providers/auth-provider';
 
 /**
@@ -18,10 +18,14 @@ function Cell({ value }: { value: string | boolean }) {
 }
 
 export default function PricingPage() {
-  // Admins have complete authority and no subscription of their own — suppress the buy CTAs and
-  // show a note instead. The comparison table stays as reference for the plans they grant students.
+  // Staff (admin or counsellor) have complete authority and no subscription of their own —
+  // suppress the buy CTAs and show a note instead. The comparison table stays as reference
+  // for the plans an admin grants students. Only admins can reach the Students page that
+  // does the granting, so the note only links there for them — a counsellor following that
+  // link would just hit a 403.
   const { user } = useAuth();
   const isAdmin = user?.role === 'admin';
+  const staff = isStaff(user?.role);
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
@@ -49,13 +53,14 @@ export default function PricingPage() {
           <p className="mt-4 text-slate-600 dark:text-slate-400">Start free. Upgrade any time — one payment covers the whole NEET-UG counselling season, not a recurring bill.</p>
         </div>
 
-        {isAdmin && (
+        {staff && (
           <div className="mt-8 max-w-2xl mx-auto flex items-start gap-3 rounded-2xl border border-emerald-200 dark:border-emerald-900/40 bg-emerald-50 dark:bg-emerald-950/20 px-5 py-4">
             <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
             <p className="text-sm text-emerald-800 dark:text-emerald-300">
-              <span className="font-bold">You have full administrative access.</span> Subscriptions don’t apply to your
-              account — this page is a reference for the plans you grant students on the{' '}
-              <Link to="/admin/students" className="font-semibold underline hover:no-underline">Students</Link> page.
+              <span className="font-bold">You have full staff access.</span> There is no subscription on your
+              account — this page is a reference for the plans {isAdmin ? (
+                <>you grant students on the <Link to="/admin/students" className="font-semibold underline hover:no-underline">Students</Link> page</>
+              ) : 'an admin grants students'}.
             </p>
           </div>
         )}
@@ -73,9 +78,9 @@ export default function PricingPage() {
                 <span className="text-4xl font-extrabold gradient-text">{formatPrice(p.price)}</span>
                 {p.price > 0 && <span className="text-sm text-slate-500">/ season</span>}
               </div>
-              {isAdmin ? (
+              {staff ? (
                 <span className="mt-6 w-full text-center px-5 py-3 rounded-xl border-2 border-dashed border-slate-200 dark:border-slate-700 font-semibold text-slate-400 dark:text-slate-500 inline-flex items-center justify-center gap-2 cursor-default">
-                  <ShieldCheck className="w-4 h-4" /> Admin — full access
+                  <ShieldCheck className="w-4 h-4" /> {isAdmin ? 'Admin' : 'Counsellor'} — full access
                 </span>
               ) : p.id === 'free' ? (
                 <Link to="/signup" className="mt-6 w-full text-center px-5 py-3 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-semibold hover:border-emerald-300 hover:text-emerald-600 transition-all">{p.cta}</Link>

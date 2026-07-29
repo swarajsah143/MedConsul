@@ -41,3 +41,15 @@ export function requireAdmin(req: AuthRequest, res: Response, next: NextFunction
   }
   next();
 }
+
+/**
+ * Gate for counsellor-facing pages. Admins are also counsellors in the sense that they can
+ * see everything a counsellor can, so they pass too — only students are rejected.
+ */
+export function requireCounsellor(req: AuthRequest, res: Response, next: NextFunction): void {
+  if (req.user?.role !== 'admin' && req.user?.role !== 'counsellor') {
+    res.status(403).json({ success: false, message: 'Counsellor access required' });
+    return;
+  }
+  next();
+}

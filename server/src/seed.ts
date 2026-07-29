@@ -27,19 +27,24 @@ const studentPassword = process.env.SEED_STUDENT_PASSWORD || 'ChangeMe#Student1'
 // expiry or effectiveTier() treats it as free — so seeded paid accounts get a year of runway.
 const PLAN_EXPIRY = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString();
 
+type SeedRole = 'admin' | 'counsellor' | 'student';
+
 type SeedAccount = {
   name: string;
   email: string;
   password: string;
-  role: 'admin' | 'student';
+  role: SeedRole;
   plan?: 'free' | 'pro' | 'premium';
   planNote?: string;
 };
 
 // One account per tier so every gated path (allotment export, full predict shortlist, unlimited
 // AI) has a login that exercises it. isPro = pro OR premium; isPremium = premium only.
+// Staff (admin, counsellor) deliberately carry NO plan — they bypass gating by ROLE via
+// hasFullData(), so applyPlan() no-ops for them and must keep doing so.
 const DEMO_ACCOUNTS: SeedAccount[] = [
   { name: 'Admin User', email: 'admin@medcounsel.ai', password: adminPassword, role: 'admin' },
+  { name: 'Demo Counsellor', email: 'counsellor@medcounsel.ai', password: studentPassword, role: 'counsellor' },
   { name: 'Swaraj Sah', email: 'swaraj@medcounsel.ai', password: studentPassword, role: 'student', plan: 'free' },
   { name: 'Demo Student', email: 'demo@medcounsel.ai', password: studentPassword, role: 'student', plan: 'free' },
   { name: 'Pro Student', email: 'pro@medcounsel.ai', password: studentPassword, role: 'student', plan: 'pro', planNote: 'Seeded Pro demo account' },

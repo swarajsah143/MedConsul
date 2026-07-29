@@ -55,7 +55,7 @@ const PLAN_DISCLOSURE =
 
 type DocStatus = 'verified' | 'pending' | 'rejected' | 'not_uploaded';
 
-const ROLES = ['student', 'admin'] as const;
+const ROLES = ['student', 'counsellor', 'admin'] as const;
 type Role = (typeof ROLES)[number];
 
 /** The server rejects anything outside this list with a 400. */
@@ -1738,6 +1738,11 @@ export default function AdminStudentsPage() {
                                     <Shield className="w-3 h-3" /> Admin
                                   </span>
                                 )}
+                                {s.role === 'counsellor' && (
+                                  <span className="ml-1.5 inline-flex items-center gap-0.5 text-[10px] font-bold text-sky-600 dark:text-sky-400 align-middle">
+                                    <UsersRound className="w-3 h-3" /> Counsellor
+                                  </span>
+                                )}
                               </p>
                               <p className="text-xs text-muted-foreground truncate">{s.email}</p>
 
@@ -1808,17 +1813,25 @@ export default function AdminStudentsPage() {
                             >
                               <Eye className="w-4 h-4" /> View
                             </Button>
-                            <Button
-                              size="sm"
-                              variant="ghost"
-                              aria-label={`Set plan for ${s.name}`}
-                              onClick={() => {
-                                setPlanError(null);
-                                setEditingId((cur) => (cur === s.id ? null : s.id));
-                              }}
-                            >
-                              <Sparkles className="w-4 h-4" /> Set plan
-                            </Button>
+                            {/* Staff (admin/counsellor) have no plan system — a "plan" on their own
+                                account is a no-op the server ignores for gating, so don't offer to
+                                set one; that's exactly how a counsellor ended up on a stray Premium
+                                plan before. */}
+                            {s.role === 'admin' || s.role === 'counsellor' ? (
+                              <span className="px-2.5 py-1.5 text-xs text-muted-foreground">No plan system (staff)</span>
+                            ) : (
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                aria-label={`Set plan for ${s.name}`}
+                                onClick={() => {
+                                  setPlanError(null);
+                                  setEditingId((cur) => (cur === s.id ? null : s.id));
+                                }}
+                              >
+                                <Sparkles className="w-4 h-4" /> Set plan
+                              </Button>
+                            )}
                           </div>
                         </td>
                       </tr>

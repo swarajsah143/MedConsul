@@ -72,6 +72,7 @@ router.post('/', optionalAuth, async (req: AuthRequest, res: Response) => {
 
   // Subscription gate: the full shortlist + export is a Pro (₹3,999+) feature. Free users see the
   // top matches only; `estimatedRank`/percentile/counts stay intact so the core estimate is free.
+  // Staff (admin or counsellor) bypass by role — there is no plan system for them.
   //
   // Cut it the same way predict() does — a plain .slice() here took the first 10 of a
   // toughest-cutoff-first list, so a free user was told "605 Safe colleges" and then shown ten

@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import {
   Shield,
   Users,
+  UsersRound,
   GraduationCap,
   Loader2,
   Mail,
@@ -31,7 +32,14 @@ interface AdminUser {
   updatedAt?: string;
 }
 
-type Role = 'student' | 'admin';
+type Role = 'student' | 'admin' | 'counsellor';
+const ROLE_OPTIONS: { value: Role; label: string }[] = [
+  { value: 'student', label: 'Student' },
+  { value: 'counsellor', label: 'Counsellor' },
+  { value: 'admin', label: 'Admin' },
+];
+/** Whatever the server hands back that isn't a role we recognise yet — treat as student, not silently as admin. */
+const asRole = (role: string): Role => (role === 'admin' || role === 'counsellor' ? role : 'student');
 
 /** The server rejects anything weaker — show the rules instead of letting an admin guess. */
 const PASSWORD_RULES = 'At least 8 characters, including an uppercase letter, a lowercase letter and a number.';
@@ -43,14 +51,18 @@ const SELECT_CLASS =
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
+const ROLE_BADGE: Record<Role, { icon: typeof Shield; label: string; className: string }> = {
+  admin: { icon: Shield, label: 'Admin', className: 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' },
+  counsellor: { icon: UsersRound, label: 'Counsellor', className: 'bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400' },
+  student: { icon: GraduationCap, label: 'Student', className: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' },
+};
+
+/** Every role gets its own badge — a counsellor must never render as (or be indistinguishable from) a student. */
 function RoleBadge({ role }: { role: string }) {
-  const isAdmin = role === 'admin';
+  const { icon: Icon, label, className } = ROLE_BADGE[asRole(role)];
   return (
-    <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${
-      isAdmin ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400'
-    }`}>
-      {isAdmin ? <Shield className="w-3 h-3" /> : <GraduationCap className="w-3 h-3" />}
-      {isAdmin ? 'Admin' : 'Student'}
+    <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${className}`}>
+      <Icon className="w-3 h-3" /> {label}
     </span>
   );
 }
@@ -116,8 +128,7 @@ function AddUserForm({
         <div>
           <FieldLabel htmlFor="new-role">Role</FieldLabel>
           <select id="new-role" className={SELECT_CLASS} value={role} onChange={(e) => setRole(e.target.value as Role)}>
-            <option value="student">Student</option>
-            <option value="admin">Admin</option>
+            {ROLE_OPTIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
           </select>
         </div>
       </div>
@@ -155,7 +166,10 @@ function EditUserForm({
 }) {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [role, setRole] = useState<Role>(user.role === 'admin' ? 'admin' : 'student');
+  // Was `user.role === 'admin' ? 'admin' : 'student'` — that silently collapsed a counsellor's
+  // role to 'student' the moment this form's local state was seeded, so saving ANY edit (even
+  // just the name) demoted them. asRole() preserves every role the server actually sends.
+  const [role, setRole] = useState<Role>(asRole(user.role));
 
   return (
     <form
@@ -184,8 +198,7 @@ function EditUserForm({
             disabled={isSelf}
             onChange={(e) => setRole(e.target.value as Role)}
           >
-            <option value="student">Student</option>
-            <option value="admin">Admin</option>
+            {ROLE_OPTIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
           </select>
           {isSelf && <p className="text-[11px] text-muted-foreground mt-1.5">You cannot remove your own admin role.</p>}
         </div>

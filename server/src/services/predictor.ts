@@ -70,6 +70,15 @@ export interface PredictInput {
   limit?: number;
 }
 
+/**
+ * Where a cutoff came from. Every match is currently built from the `closingRanks`
+ * collection (see the module notes above) — the official published cutoff dataset —
+ * never from raw `allotments` rows, so today this is always 'official'. The second
+ * value is reserved for if the predictor is ever extended to also match against
+ * allotments directly.
+ */
+export type MatchSource = 'official' | 'derived_from_allotments';
+
 export interface Match {
   collegeId: string;
   college: string;
@@ -82,6 +91,7 @@ export interface Match {
   year: number;
   closingRank: number;
   chance: Chance;
+  source: MatchSource;
 }
 
 export interface Prediction {
@@ -314,6 +324,8 @@ export async function predict(input: PredictInput): Promise<Prediction> {
       year: x.r.year,
       closingRank: x.r.closingRank,
       chance,
+      // Always 'official': this row came from closingRanks, not allotments — see MatchSource.
+      source: 'official',
     };
   });
 
