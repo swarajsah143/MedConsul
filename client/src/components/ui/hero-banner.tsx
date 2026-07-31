@@ -53,15 +53,17 @@ export function HeroBanner({
           }}
         />
 
-        {/* Floating glow blobs — lumpy, uneven surface */}
-        <div className="absolute -top-20 -right-10 w-80 h-80 rounded-full bg-emerald-300/20 blur-3xl float-slow" />
-        <div className="absolute top-1/2 right-1/4 w-44 h-44 rounded-full bg-teal-300/20 blur-2xl float-medium" />
-        <div className="absolute -bottom-24 left-8 w-64 h-64 rounded-full bg-lime-300/15 blur-3xl float-fast" />
-        <div className="absolute top-6 left-1/3 w-32 h-32 rounded-full bg-emerald-200/15 blur-2xl float-slow" />
-        <div className="absolute bottom-4 right-1/3 w-36 h-36 rounded-full bg-teal-200/15 blur-2xl float-fast" />
-        <div className="absolute top-1/3 left-2/3 w-24 h-24 rounded-full bg-green-300/15 blur-2xl float-medium" />
+        {/* Static glow blobs — lumpy, uneven surface.
+            These were 6 blurred blobs each on an infinite `float-*` transform loop.
+            Six large blur-3xl/2xl layers animating forever kept the compositor busy
+            even when idle and made scrolling stutter. They are now static (the blur
+            already gives a soft, organic look) and trimmed from 6 to 4. */}
+        <div className="absolute -top-20 -right-10 w-80 h-80 rounded-full bg-emerald-300/20 blur-3xl" />
+        <div className="absolute -bottom-24 left-8 w-64 h-64 rounded-full bg-lime-300/15 blur-3xl" />
+        <div className="absolute top-6 left-1/3 w-32 h-32 rounded-full bg-emerald-200/15 blur-2xl" />
+        <div className="absolute bottom-4 right-1/3 w-36 h-36 rounded-full bg-teal-200/15 blur-2xl" />
 
-        {/* Subtle light sheen + gentle hover sweep */}
+        {/* Subtle static light sheen + gentle hover sweep (hover-only, so no idle cost) */}
         <div className="absolute inset-0 hero-sheen" />
         <div className="absolute inset-y-0 -left-1/3 w-1/3 skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-40 group-hover/hero:translate-x-[350%] transition-transform duration-1000 ease-out" />
       </div>

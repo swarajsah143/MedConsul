@@ -415,12 +415,12 @@ export default function CollegeDetailPage() {
         <div className="absolute bottom-0 inset-x-0 p-5 sm:p-7 md:p-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}>
             <div className="flex flex-wrap gap-2 mb-3">
-              <span className={`text-[10px] uppercase font-bold px-2.5 py-1 rounded-full backdrop-blur-sm ${style.badge}`}>{college.type}</span>
+              <span className={`text-[10px] uppercase font-bold px-2.5 py-1 rounded-full ${style.badge}`}>{college.type}</span>
               {college.established != null && (
-                <span className="text-[10px] uppercase font-bold px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white/90">Est. {college.established}</span>
+                <span className="text-[10px] uppercase font-bold px-2.5 py-1 rounded-full bg-white/20 text-white/90">Est. {college.established}</span>
               )}
               {college.totalSeats != null && (
-                <span className="text-[10px] uppercase font-bold px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white/90">{college.totalSeats} Seats</span>
+                <span className="text-[10px] uppercase font-bold px-2.5 py-1 rounded-full bg-white/20 text-white/90">{college.totalSeats} Seats</span>
               )}
             </div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight max-w-3xl tracking-tight">{college.name}</h1>
@@ -449,7 +449,10 @@ export default function CollegeDetailPage() {
       </StaggerContainer>
 
       {/* ═══ Tab Navigation ═══ */}
-      <div className="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2.5 bg-white/90 dark:bg-slate-950/90 backdrop-blur-lg border-b border-slate-200/80 dark:border-slate-800/80">
+      {/* Opaque, not backdrop-blurred. A sticky element with `backdrop-blur` forces the
+          browser to re-blur everything behind it on every scroll frame — the single
+          biggest cause of the scroll jank here. A solid background is just as readable. */}
+      <div className="sticky top-0 z-20 -mx-4 sm:-mx-6 px-4 sm:px-6 py-2.5 bg-white dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80">
         <div className="flex gap-1 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
           {TABS.map((tab) => {
             const active = activeTab === tab.id;
