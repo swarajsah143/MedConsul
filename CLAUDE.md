@@ -26,19 +26,26 @@ npm test               # client vitest + full server test suite
 - **Server build:** `cd server && npm run build` (tsc → `dist/`); start prod with `npm start`.
 - **Client build:** `cd client && npm run build` (tsc -b + vite → `dist/`).
 - **Client lint:** `cd client && npm run lint` (oxlint). There is no server lint.
-- **Client tests:** `cd client && npm test` (vitest, jsdom). Watch: `npm run test:watch`. A single
-  file: `npx vitest run src/test/csv.test.tsx`.
+- **Client tests:** `npm --prefix client run test` (vitest, jsdom). Watch: `npm run test:watch`. A
+  single file: `cd client && npx vitest run src/test/csv.test.tsx`. Run it from `client/` — a bare
+  `npx vitest run` at the **repo root** also picks up `server/src/test/*` and fails, since those are
+  not vitest files.
 - **Server tests are integration tests, not unit tests.** `server/src/test/*` are standalone `tsx`
   scripts that make **real HTTP calls to a running server** (`http://localhost:5050`, override with
-  `API_URL`) against a real Mongo with a seeded admin — so `npm run dev` must be up and
-  `npm run seed` must have run, or they fail on connect/login. There is no framework: each prints
-  `✓`/`✗` per assertion and exits non-zero. Run them one at a time by script name —
-  `test:integrity`, `test:documents`, `test:admin-users`, `test:students`, `test:profile`.
-  `test:admin-users` and the client's `admin-ui.test.tsx` write to that real Mongo and are not safe
+  `API_URL`) against a real Mongo with seeded accounts — so `npm run dev` must be up, or they fail
+  on connect/login. There is no framework: each prints `✓`/`✗` per assertion and exits non-zero.
+  Run one at a time by script name: `test:integrity`, `test:documents`, `test:admin-users`,
+  `test:students`, `test:profile`. **`predictor.test.ts` also hits the API** (`predictor.test.ts:16`)
+  — it is *not* pure despite what its name suggests; it is simply not in the default `test` script.
+  Run it with `npx tsx server/src/test/predictor.test.ts`.
+- **Test credentials are the reason these suites often "can't run".** `integrity.test.ts` reads
+  `ADMIN_PASSWORD` from the env, but `documents`/`students`/`profile` **hardcode the demo passwords
+  as literals in committed source** (`documents.test.ts:63-65`, `students.test.ts:68-69`). Those
+  literals — not `CREDENTIALS.md` — are the authoritative local passwords. **`CREDENTIALS.md` is
+  committed and WRONG**: every password it documents fails against a seeded DB. If a suite 401s,
+  reconcile the DB against the test literals rather than trusting that file.
+- `test:admin-users` and the client's `admin-ui.test.tsx` write to that real Mongo and are not safe
   in parallel; `admin-ui.test.tsx` also drives the real UI against the live server.
-- **`server/src/test/predictor.test.ts` is the exception** — pure, no server or DB needed, and
-  deliberately **not** in the default `test` script. Run it directly:
-  `npx tsx server/src/test/predictor.test.ts`.
 
 ### Ops scripts
 
@@ -158,9 +165,10 @@ Keep this property when touching import/bulk code. Full detail in `ADMIN.md`.
    `auth.routes.ts`. `trust proxy = 1` so rate limiters key on the real client IP behind nginx.
 4. JSON body limit is raised to **25mb** for bulk CSV imports.
 
-Route groups (`server/src/routes/index.ts`): `/auth`, `/chat`, `/admin` (behind `requireAuth` +
-`requireAdmin`), `/data` (public read), `/documents` (student uploads + admin verification),
-`/profile`, `/predict`.
+Route groups (`server/src/routes/index.ts`): `/health`, `/auth`, `/chat`, `/admin` (behind
+`requireAuth` + `requireAdmin`), `/data` (public read), `/documents` (student uploads + admin
+verification), `/profile`, `/predict`. There is no `/counsellor` server group — counsellors use the
+same APIs behind `requireCounsellor`, and `/counsellor*` exists only as client routes.
 
 Other one-off scripts in `scripts/`: `import-neet.ts`, `migrate-counselling.ts`, `import-seed.ts`
 (legacy imports); `enrich-colleges.ts` / `enrich-abroad.ts` (photos, websites, metadata);
@@ -174,8 +182,37 @@ Score → estimated AIR → percentile/category rank → Safe/Good/Reach/Tough c
 on the server (not the browser) because the closing-rank set exceeds the public read cap, the chatbot
 must return the same numbers, and the curves (`rankBands`/`categoryFactors`) are admin-editable rows,
 not constants. `PUBLIC_MAX = 20000` caps the unpaginated public read; the truly large collections use
-`/paged` + `/facets`. Some features are Pro-gated (`utils/plan.ts`, `isPro`) — e.g. free users get a
-25-row allotment sample.
+`/paged` + `/facets`. Some features are gated (`utils/plan.ts`) — e.g. free users get a 25-row
+allotment sample and a 10-college shortlist. Gate with `hasFullData(user)` / `hasUnlimitedAi(user)`,
+never bare `isPro(plan)`, or staff get wrongly capped (see the staff-bypass note above).
+
+### `closingRanks.source` — published cutoffs vs derived ones
+
+A blank `source` is a **published** cutoff. `source: 'derived: MCC allotments'` was computed by
+`scripts/derive-closing-ranks.ts` as `max(allIndiaRank)` over our allotment rows for that group, so
+it is only as complete as that data — where it disagrees with a published cutoff it reads
+**optimistic** (median 1.46x, p90 3.38x better than truth, measured over 2,317 overlapping groups).
+2,154 of ~8,600 rows are derived. Anything that shows a student a cutoff should keep the two
+distinguishable; the derive script is insert-only and never overwrites a published row.
+
+### Domicile-gated seats (`utils/quota.ts`, mirrored to `client/src/lib/quota.ts`)
+
+A fee belongs to a **seat**, not a student, and most state seats require that state's domicile: in
+Karnataka a domiciled student takes a private college seat at the KEA "Government (G)" rate (~₹1.4L)
+while a student from another state pays the Private (P) rate (~₹12L) for the same seat.
+`quotaAccess(quota, collegeState)` derives this from the quota string — no schema field, no
+migration. Two rules carry the weight:
+
+- `Government Quota (G)` is the **Karnataka state quota**, not a national government seat. It is the
+  most misread label in the dataset.
+- `Private Quota (P)`, `Other Quota (Q)`, `NRI Quota (N)` return `unknown` **on purpose** and must
+  render nothing. `data/fetch_kea_fees.py` refuses to translate KEA's letters ("OTHER (Q) is not the
+  same thing as a COMEDK seat"), so classifying them would invent eligibility advice. Silence is
+  safe; a wrong badge is not.
+
+Consumed by `fee-matrix.tsx`, `fee-detail.tsx`, `counsellor-lookup.tsx` and the chatbot's fee source
+(which also drops ineligible seats before the "cheapest college" sort — otherwise it ranked
+unreachable seats first). `server/src/test/quota.test.ts` is pure and covers every live quota string.
 
 ### Subscription gating is server-enforced and mirrored
 
@@ -201,10 +238,13 @@ React 19 + Vite 8 + React Router 7 + Tailwind 3 + Recharts + Radix + framer-moti
 `client/src`. Pages are flat in `pages/`; `components/ui` is the shadcn-style primitive set,
 `components/admin` renders the schema-driven admin panel.
 
-- **Auth:** `providers/auth-provider.tsx` — JWT access token (15m, localStorage) + httpOnly refresh
-  cookie (7d). `api.ts` transparently retries once on 401 via `/auth/refresh`; the provider restores
-  a session on mount by trying the access token then the refresh cookie (this is what makes
-  "remember me" survive a reload). Routes gate through `ProtectedRoute`/`PublicRoute`/`AdminRoute`.
+- **Auth** lives in `providers/auth-provider.tsx` — see the Auth flow section above; the token is in
+  `localStorage` under `accessToken`. A hook that needs the signed-in user but may run on a page
+  mounted standalone (tests, or any page rendered outside the provider) should read that key
+  directly rather than call `useAuth()`, which **throws** without an `AuthProvider` ancestor.
+- **Hooks must sit above a component's early returns.** Several pages `return` on
+  loading/error/not-found before the render body; a hook added after those changes hook order
+  between renders and React throws. This has bitten `fee-detail.tsx` specifically.
 - **Every page is lazy-loaded/code-split** (`routes/index.tsx`) — the audience is on Indian mobile
   data, so the login screen must not pull Recharts/framer-motion. Vite 8 uses the **rolldown**
   bundler; heavy libs are split into named chunks via `rolldownOptions` in `vite.config.ts`.
@@ -240,12 +280,45 @@ server dir and nginx root, never touches the prod `.env`/`node_modules`, and rol
 `/api/health` doesn't return 200. See `PRODUCTION_READINESS.md` for go-live blockers and
 `scripts/backup.sh` for the automated Mongo backup.
 
+**A new server dependency must be installed on prod BEFORE you deploy.** The rsync ships only
+`server/dist` + `client/dist` — never `node_modules` — so new code importing a package prod doesn't
+have crashes the service on restart and auto-rolls-back. This already happened once with
+`google-auth-library` (imported at the top of `auth.service.ts`, which loads at boot). Check with
+`git diff <last-deployed-sha>..HEAD -- server/package.json`, then
+`ssh … 'cd /opt/medconsul/server && npm install <pkg> --omit=dev'` first.
+
+**nginx must 404 a missing asset, not fall through to the SPA.** `rsync --delete` removes the
+previous build's content-hashed chunks, so a browser holding a cached `index.html` requests a chunk
+that no longer exists. With a single catch-all `try_files $uri $uri/ /index.html` that returned
+`index.html` as `text/html` with **HTTP 200**, which the browser reports as "Expected a
+JavaScript-or-Wasm module script" and renders a blank page — after *every* deploy. The vhost now has
+`location /assets/ { try_files $uri =404; }` (plus a 1-year immutable cache, safe because the
+filenames are content-hashed) and `location = /index.html { Cache-Control: no-cache }`. Re-apply with
+`scripts/prod-patch-nginx-assets.py` if the config is ever rebuilt; verify with
+`curl -o /dev/null -w '%{http_code}' https://…/assets/does-not-exist.js` → must be 404.
+
+### Pushing domain data to prod
+
+There is no push-to-prod for *user* data, but domain rows can be moved with
+`scripts/prod-import-domain.mjs`, which runs **on the EC2 host** (mongod is localhost-only there and
+`MONGODB_URI` lives in `/opt/medconsul/.env`, so the connection string never crosses the wire). Do
+**not** create colleges through the admin API for this: it mints new ObjectIds, which orphan any
+child rows referencing the ids they were derived against. Writing directly lets new colleges keep
+their `_id` so every child row resolves. Dry-run by default, `$setOnInsert` only, natural-key
+upserts, and it aborts if any FK would dangle. `mongodump` the affected collections first.
+
 ## Stale docs — don't trust these
 
 `README.md` predates most of the current architecture: it claims port 5000, a `server/.env`, and
 lists only the auth endpoints. `.env.example` lists Postgres/Redis/Twilio vars this stack never
 used. `ADMIN.md` row counts are from the original migration and are long superseded by the `data/`
-pipeline. Prefer this file and the code; when they conflict, the code wins.
+pipeline. **`CREDENTIALS.md` is committed and its passwords do not work** — the real local values
+are hardcoded in the server test files. Prefer this file and the code; when they conflict, the code
+wins.
+
+**Row counts anywhere in docs or tests age badly.** The dataset has grown from 29 colleges to
+~1,114, which silently broke a test that assumed a specific college was on page 1 of the admin
+table (it is now on page 15). Assert on shape, not on a named row.
 
 ## Local AI backend (optional)
 
