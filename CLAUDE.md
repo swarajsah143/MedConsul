@@ -74,6 +74,12 @@ is MongoDB + a JSON file fallback). The vars that actually matter:
 - `AI_API_KEY` / `AI_API_BASE_URL` / `AI_MODEL` — OpenAI-compatible chat endpoint for the assistant.
   Leave blank to run the RAG-only structured fallback (no external call).
 - `SEED_ADMIN_PASSWORD` / `SEED_STUDENT_PASSWORD` — required by `npm run seed`.
+- `GOOGLE_CLIENT_ID` — optional, follows the SMTP pattern: blank makes `POST /auth/google` return
+  **503** rather than failing boot (it isn't security-critical).
+- **The client has its own env file** (`client/.env`, Vite-loaded, `VITE_`-prefixed) — only
+  `VITE_GOOGLE_CLIENT_ID` today. It's a public identifier (usually the same value as the server's
+  `GOOGLE_CLIENT_ID`); blank hides the Google button entirely
+  (`components/auth/google-auth-button.tsx` exports `isGoogleAuthEnabled`).
 
 ## Architecture
 
@@ -109,6 +115,13 @@ bulk-import route rejects a whole batch if any ref doesn't resolve. `universitie
 importing or migrating, **colleges must exist first**. Note: the colleges table carries duplicate
 clusters (one institution entered several ways); the predictor collapses them by a name key — see the
 comment in `server/src/services/predictor.ts`.
+
+**Staff bypass all gating.** "Staff" = `isStaff(role)` = **admin OR counsellor**. `hasFullData` and `hasUnlimitedAi` short-circuit on `isStaff`, returning true for any staff member regardless of `plan` — there is no plan system for staff at all, only for the students they serve (so `admin-students.tsx` hides plan controls on staff rows; setting one is a no-op). Gate on role-then-plan (pass the whole principal to these helpers), not `isPro(plan)`/`isPremium(plan)` alone, or staff get incorrectly gated.
+
+### Auth flow
+JWT access token (15m, `localStorage`) + httpOnly refresh cookie (7d). The client `api.ts` transparently retries once on 401 by hitting `/auth/refresh`; `auth-provider.tsx` restores sessions on mount by trying the access token then falling back to the refresh cookie (this is what makes "remember me" work across reloads). Routes are gated by `ProtectedRoute` / `PublicRoute` / `AdminRoute` in `client/src/routes/index.tsx`. **Google Sign-In** is an alternate entry: the client posts a Google ID token to `POST /auth/google`, which `google-auth-library` verifies server-side and then either logs in or auto-provisions the user (`authProvider: 'google'`), issuing the same JWT + refresh cookie as password login.
+
+**Three roles: `student`, `admin`, `counsellor`.** Each lands on its own home via `homeFor(role)` (student → `/dashboard`, admin → `/admin`, counsellor → `/counsellor`) so the destinations can't drift. Client route gates mirror server middleware: `AdminRoute`↔`requireAdmin` (admin only), `CounsellorRoute` (counsellor-only dashboard), and `StaffRoute`↔`requireCounsellor` (admin **or** counsellor — for shared tools like Counsellor Lookup at `/counsellor-lookup`). Counsellors get `counsellor-dashboard.tsx` + `counsellor-lookup.tsx`; they are staff (see gating above), not admins — they don't get the admin CRUD surface.
 
 ### CSV import is an upsert on `naturalKey` — never a delete-then-insert
 
@@ -148,6 +161,12 @@ Keep this property when touching import/bulk code. Full detail in `ADMIN.md`.
 Route groups (`server/src/routes/index.ts`): `/auth`, `/chat`, `/admin` (behind `requireAuth` +
 `requireAdmin`), `/data` (public read), `/documents` (student uploads + admin verification),
 `/profile`, `/predict`.
+
+Other one-off scripts in `scripts/`: `import-neet.ts`, `migrate-counselling.ts`, `import-seed.ts`
+(legacy imports); `enrich-colleges.ts` / `enrich-abroad.ts` (photos, websites, metadata);
+`derive-closing-ranks.ts` (cutoffs from allotment data — see the `source` field on `closingRanks`);
+`prod-import-domain.mjs` / `prod-fix-blank-quota.mjs` / `prod-reset-admin-password.mjs` (run **on**
+the prod host, dry-run by default).
 
 ### Rank predictor is server-side (`services/predictor.ts`)
 

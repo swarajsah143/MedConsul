@@ -669,6 +669,27 @@ export default function RankInsightsPage() {
         ))}
       </div>
 
+      {/* Inline Search — find a university's closing ranks directly, without opening Filters */}
+      <div className="relative">
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
+        <Input
+          value={search}
+          onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+          placeholder="Search a university or college to see its closing ranks…"
+          aria-label="Search colleges by name, course, category, or quota"
+          className="pl-12 pr-11 h-12 sm:h-14 text-sm sm:text-base rounded-2xl shadow-sm focus:shadow-lg transition-all duration-200"
+        />
+        {search && (
+          <button
+            onClick={() => { setSearch(''); setPage(1); }}
+            aria-label="Clear search"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-muted-foreground transition-colors"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        )}
+      </div>
+
       {/* Active Filters Tags */}
       {activeFilterCount > 0 && (
         <div className="flex flex-wrap items-center gap-2">
