@@ -1,6 +1,7 @@
 import { DataSource, RetrievedChunk, matchScore, extractParam } from './retriever';
 import { resource } from '../../models/resource.model';
 import * as S from '../../schema/collections';
+import { quotaAccess, isOpenTo } from '../../utils/quota';
 
 /**
  * DB-backed RAG sources.
@@ -13,6 +14,19 @@ import * as S from '../../schema/collections';
  * Chunk shape is deliberately identical to the static sources, so context-builder
  * and the prompt are unchanged.
  */
+
+/**
+ * The eligibility sentence appended to a fee chunk, so the model cannot quote the number without
+ * the condition attached. Says nothing for a nationally-open seat, and nothing for a quota we
+ * cannot classify (KEA's P/Q/N) — an invented restriction would be worse than none.
+ */
+function eligibilityLine(quota?: string, collegeState?: string, askerDomicile?: string): string {
+  const a = quotaAccess(quota, collegeState);
+  if (a.scope !== 'state' || !a.domicileState) return '';
+  const base = `\nELIGIBILITY: this is a ${a.domicileState} state-quota seat — it requires ${a.domicileState} domicile.`;
+  if (!askerDomicile || isOpenTo(a, askerDomicile)) return base;
+  return `${base} The student asking is from ${askerDomicile}, so they CANNOT take this seat and this fee does not apply to them; quote the All India Quota, deemed or management fee instead.`;
+}
 
 const colleges = () => resource(S.colleges);
 const ranks = () => resource(S.closingRanks);
@@ -145,6 +159,22 @@ export class DbFeeSource implements DataSource {
       if (filtered.length) results = filtered;
     }
 
+    // Domicile: a state-quota seat is not on offer to a student from another state, and its fee
+    // is usually far lower than what they would actually pay. Ranking "cheapest" purely on price
+    // therefore put the CHEAPEST-BUT-UNREACHABLE seats at the top of the answer — a Bihar student
+    // asking for the cheapest college in Karnataka was shown the ~1.4L Karnataka-domicile rate
+    // when their real cost is the ~12L private-quota rate. Drop seats they cannot take BEFORE
+    // ordering, so the top answer is one they can actually get.
+    const domicile = params.domicile || '';
+    if (domicile) {
+      const eligible = results.filter((f: any) =>
+        isOpenTo(quotaAccess(f.quota, cmap.get(f.collegeId)?.state), domicile),
+      );
+      // If nothing survives, the question was probably about a single state's own quota — better
+      // to answer with the caveat attached (below) than to answer with nothing at all.
+      if (eligible.length) results = eligible;
+    }
+
     // A "cheapest"/"costliest" question is answered by price order, not by word overlap.
     const price = (f: any) => Number(f.totalFirstYear ?? 0);
     if (wantsCheap) results = [...results].sort((a: any, b: any) => price(a) - price(b));
@@ -161,7 +191,10 @@ export class DbFeeSource implements DataSource {
           `Tuition: ${inr(f.tuitionFee)}/yr | Hostel: ${inr(f.hostelFee)} | Misc: ${inr(f.miscCharges)} | ` +
           `Deposit: ${inr(f.securityDeposit)} | First-year total: ${inr(f.totalFirstYear)}\n` +
           `Seats — Govt: ${f.govtSeats ?? 0}, Management: ${f.mgmtSeats ?? 0}, NRI: ${f.nriSeats ?? 0}` +
-          `${f.scholarships?.length ? `\nScholarships: ${f.scholarships.join('; ')}` : ''}`,
+          `${f.scholarships?.length ? `\nScholarships: ${f.scholarships.join('; ')}` : ''}` +
+          // State the restriction in the chunk itself so the model repeats it alongside the
+          // number. Without this the model quotes a domicile-gated fee as if anyone could pay it.
+          `${eligibilityLine(f.quota, c?.state, domicile)}`,
         relevance: matchScore(query, `${name} ${f.course} ${f.category} ${f.quota} fees`),
       };
     });

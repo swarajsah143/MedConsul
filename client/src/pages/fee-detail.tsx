@@ -5,6 +5,8 @@ import { formatINRFull } from '@/lib/fee-matrix-data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { EmptyState } from '@/components/ui/empty-state';
+import { DomicileBadge } from '@/components/ui/domicile-badge';
+import { useDomicile } from '@/lib/use-domicile';
 import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   PieChart, Pie, Cell,
@@ -44,6 +46,11 @@ export default function FeeDetailPage() {
     [data.colleges, entry]
   );
 
+  // Must stay ABOVE the loading/error/not-found early returns — this component returns before
+  // reaching the render body on those paths, so a hook called after them changes the hook order
+  // between renders and React throws.
+  const myDomicile = useDomicile();
+
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-3">
@@ -74,6 +81,7 @@ export default function FeeDetailPage() {
   // ── every optional field guarded: admin rows may fill only the required ones ──
   const collegeName = collegeInfo?.name ?? 'Unknown college';
   const collegeType = collegeInfo?.type ?? '';
+  const collegeState = collegeInfo?.state ?? '';
   const tuitionFee = entry.tuitionFee ?? 0;
   const hostelFee = entry.hostelFee ?? 0;
   const miscCharges = entry.miscCharges ?? 0;
@@ -147,6 +155,9 @@ export default function FeeDetailPage() {
               <span className="text-[10px] uppercase font-bold px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 text-white">{entry.course}</span>
               <span className="text-[10px] uppercase font-bold px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm border border-white/10 text-white">{entry.category} - {entry.quota}</span>
             </div>
+            {/* Eligibility sits in the hero, next to the quota it qualifies — a student reading
+                this page is deciding whether the numbers below apply to them at all. */}
+            <DomicileBadge quota={entry.quota} collegeState={collegeState} myDomicile={myDomicile} />
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center shrink-0 border border-white/10">
                 <GraduationCap className="w-7 h-7 text-white" />
