@@ -53,3 +53,16 @@ export function requireCounsellor(req: AuthRequest, res: Response, next: NextFun
   }
   next();
 }
+
+/**
+ * Gate for the student identity-document workflow. Staff (admin/counsellor) accounts have
+ * no document requirement at all — they must never be able to create a submission of their
+ * own, which is what would let a staff account show up in the verification queue.
+ */
+export function requireStudent(req: AuthRequest, res: Response, next: NextFunction): void {
+  if (req.user?.role !== 'student') {
+    res.status(403).json({ success: false, message: 'The document workflow is only available to student accounts' });
+    return;
+  }
+  next();
+}

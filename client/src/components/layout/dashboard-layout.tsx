@@ -280,15 +280,18 @@ export default function DashboardLayout() {
 
   const navSections = buildNavSections(announcementBadge, docsBadge);
   // Admins get the admin nav prepended to Overview, and the student-facing "Dashboard"
-  // entry removed — their home is the Admin Dashboard. Counsellors get their own short,
-  // separate list (buildCounsellorNavSections) — not a filtered version of either the
-  // student or admin nav, so changes to those two never leak into the counsellor's.
+  // and "Doc Checklist" entries removed — admins have their own home (the Admin
+  // Dashboard) and no document requirement of their own to check off. Counsellors get
+  // their own short, separate list (buildCounsellorNavSections) — not a filtered version
+  // of either the student or admin nav, so changes to those two never leak into the
+  // counsellor's.
   const visibleSections: NavSection[] = user?.role === 'admin'
-    ? navSections.map((s, i) =>
-        i === 0
-          ? { ...s, items: [...ADMIN_NAV, ...s.items.filter((it) => !('href' in it && it.href === '/dashboard'))] }
-          : s
-      )
+    ? navSections.map((s, i) => ({
+        ...s,
+        items: (i === 0 ? [...ADMIN_NAV, ...s.items] : s.items).filter(
+          (it) => !('href' in it && (it.href === '/dashboard' || it.href === '/doc-checklist'))
+        ),
+      }))
     : user?.role === 'counsellor'
       ? buildCounsellorNavSections(announcementBadge)
       : navSections;

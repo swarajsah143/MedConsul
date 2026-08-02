@@ -124,6 +124,18 @@ function StudentDashboardRoute() {
   return <DashboardPage />;
 }
 
+/**
+ * Student-only pages — today just the document checklist. Staff have no document
+ * requirement at all, so a staff account must never be able to open the upload UI,
+ * not just have it hidden from their sidebar.
+ */
+function StudentRoute({ children }: { children: React.ReactNode }) {
+  const { user, isLoading } = useAuth();
+  if (isLoading) return <FullPageSpinner />;
+  if (user?.role === 'admin' || user?.role === 'counsellor') return <Navigate to={homeFor(user.role)} replace />;
+  return <>{children}</>;
+}
+
 export default function AppRoutes() {
   return (
     <Suspense fallback={<FullPageSpinner />}>
@@ -171,7 +183,7 @@ export default function AppRoutes() {
         <Route path="colleges/:id" element={<CollegeDetailPage />} />
         <Route path="counselling-conditions" element={<Navigate to="/counselling-conditions/eligibility" replace />} />
         <Route path="counselling-conditions/:section" element={<CounsellingConditionsPage />} />
-        <Route path="doc-checklist" element={<DocChecklistPage />} />
+        <Route path="doc-checklist" element={<StudentRoute><DocChecklistPage /></StudentRoute>} />
         <Route path="explore" element={<Navigate to="/explore/university" replace />} />
         <Route path="explore/:section" element={<ExplorePage />} />
         <Route path="abroad-universities" element={<AbroadUniversitiesPage />} />
