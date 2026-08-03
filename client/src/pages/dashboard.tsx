@@ -229,8 +229,8 @@ export default function DashboardPage() {
           </p>
 
           <form onSubmit={handleSearch} className="mt-5 max-w-xl" role="search">
-            <div className="flex items-center bg-white rounded-xl shadow-lg overflow-hidden">
-              <Search className="w-4.5 h-4.5 text-slate-400 ml-4 shrink-0" aria-hidden="true" />
+            <div className="group flex items-center bg-white rounded-xl shadow-lg overflow-hidden ring-1 ring-transparent transition-all duration-300 hover:shadow-xl focus-within:ring-2 focus-within:ring-white/70 focus-within:shadow-xl">
+              <Search className="w-4.5 h-4.5 text-slate-400 ml-4 shrink-0 transition-colors duration-300 group-focus-within:text-emerald-600" aria-hidden="true" />
               <input
                 type="text"
                 value={searchQuery}
@@ -238,11 +238,11 @@ export default function DashboardPage() {
                 onFocus={() => { void loadColleges(); }}
                 placeholder="Search a college to open its review, or ranks, fees, documents..."
                 aria-label="Search MedCounsel AI"
-                className="flex-1 bg-transparent text-slate-900 text-sm placeholder:text-slate-400 px-3 py-3.5 outline-none"
+                className="flex-1 bg-transparent text-slate-900 text-sm placeholder:text-slate-400 px-3 py-3.5 outline-none focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
               />
               <button
                 type="submit"
-                className="shrink-0 m-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold transition-colors"
+                className="shrink-0 m-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-sm font-semibold transition-all duration-200"
               >
                 Search
               </button>
