@@ -11,6 +11,7 @@ import { store } from '../config/database';
 import { v4 as uuid } from 'uuid';
 import { buildContextPrompt } from './rag/context-builder';
 import { retrieve, listSources } from './rag/retriever';
+import { UserModel } from '../models/user.model';
 
 // ── Types ──────────────────────────────────────────────────
 
@@ -55,8 +56,23 @@ function checkRateLimit(userId: string): { allowed: boolean; retryAfter?: number
 // When no AI API key is set, we generate a formatted response
 // directly from the retrieved data chunks.
 
-async function generateFallbackFromRAG(query: string): Promise<string> {
-  const { intent, chunks } = await buildContextPrompt(query);
+/**
+ * The asker's home state, for domicile-aware fee retrieval. Best-effort: a miss returns '' and the
+ * retriever simply does not personalise — it must never fail the chat, and an unknown domicile is
+ * never treated as "ineligible for everything".
+ */
+async function domicileOf(userId?: string): Promise<string> {
+  if (!userId) return '';
+  try {
+    const u = await UserModel.findById(userId);
+    return (u as { domicileState?: string } | null)?.domicileState?.trim() || '';
+  } catch {
+    return '';
+  }
+}
+
+async function generateFallbackFromRAG(query: string, domicile = ''): Promise<string> {
+  const { intent, chunks } = await buildContextPrompt(query, domicile ? { domicile } : {});
 
   if (chunks.length === 0) {
     return `Hey! I understand your question, but I don't have specific data matching it in my database right now.
@@ -165,7 +181,10 @@ async function callProvider(
   messages: ChatMsg[],
   onChunk: StreamCallback,
   onDone: DoneCallback,
-  signal?: AbortSignal
+  signal?: AbortSignal,
+  // Forwarded to the RAG fallback paths below so a no-key / provider-down answer is just as
+  // domicile-aware as a live one — the fallback is what most self-hosted setups actually run.
+  domicile = ''
 ): Promise<void> {
   const apiKey = process.env.AI_API_KEY;
   const baseUrl = process.env.AI_API_BASE_URL || 'https://api.openai.com/v1';
@@ -174,7 +193,7 @@ async function callProvider(
   // No API key → generate response from RAG data directly
   if (!apiKey) {
     const userMsg = messages.filter((m) => m.role === 'user').pop();
-    const text = await generateFallbackFromRAG(userMsg?.content || '');
+    const text = await generateFallbackFromRAG(userMsg?.content || '', domicile);
     // In fallback mode, send the complete response.
     // The frontend handles typing animation on its side.
     onChunk(text);
@@ -208,7 +227,7 @@ async function callProvider(
     if (err?.name === 'AbortError') throw err;
     console.error(`  AI provider unreachable (${baseUrl}) — falling back to RAG:`, err?.message);
     const userMsg = messages.filter((m) => m.role === 'user').pop();
-    const text = await generateFallbackFromRAG(userMsg?.content || '');
+    const text = await generateFallbackFromRAG(userMsg?.content || '', domicile);
     onChunk(text);
     onDone(text);
     return;
@@ -218,7 +237,7 @@ async function callProvider(
     const err = await res.text();
     console.error(`  AI provider error (${res.status}) — falling back to RAG: ${err.slice(0, 200)}`);
     const userMsg = messages.filter((m) => m.role === 'user').pop();
-    const text = await generateFallbackFromRAG(userMsg?.content || '');
+    const text = await generateFallbackFromRAG(userMsg?.content || '', domicile);
     onChunk(text);
     onDone(text);
     return;
@@ -354,8 +373,10 @@ export const aiService = {
     const lastUserMsg = s.messages.filter((m) => m.role === 'user').pop();
     const query = lastUserMsg?.content || '';
 
-    // Build RAG-enriched system prompt
-    const { systemPrompt } = await buildContextPrompt(query);
+    // Build RAG-enriched system prompt. The asker's domicile rides along so the fee source can
+    // drop state-quota seats they are not eligible for before ranking (see DbFeeSource).
+    const domicile = await domicileOf(userId);
+    const { systemPrompt } = await buildContextPrompt(query, domicile ? { domicile } : {});
 
     const messages: ChatMsg[] = [
       { role: 'system', content: systemPrompt },
@@ -366,7 +387,7 @@ export const aiService = {
     await callProvider(messages, onChunk, (fullText) => {
       this.addMessage(sessionId, userId, { role: 'assistant', content: fullText });
       onDone(fullText);
-    }, signal);
+    }, signal, domicile);
   },
 
   /** Expose data source names for diagnostics */

@@ -5,6 +5,8 @@ import {
   type Prediction, type PredictMatch, type Chance,
 } from '@/lib/predict-api';
 import { useCollection, type FeeEntry } from '@/lib/data-api';
+import { quotaAccess } from '@/lib/quota';
+import { DomicileBadge } from '@/components/ui/domicile-badge';
 import { formatINR } from '@/lib/fee-matrix-data';
 import { toCsv, downloadCsv } from '@/lib/csv';
 import { Card, CardContent } from '@/components/ui/card';
@@ -74,6 +76,17 @@ export default function CounsellorLookupPage() {
     return amount != null ? `₹${formatINR(amount)}` : 'Not available';
   }
 
+  /**
+   * The seat's domicile condition, for the export/handout. Deliberately NOT personalised: this
+   * screen is used by a counsellor advising someone else, so their own profile domicile says
+   * nothing about the family in front of them. State the seat's requirement and let the counsellor
+   * apply it.
+   */
+  function eligibilityFor(m: PredictMatch): string {
+    const a = quotaAccess(m.quota, m.state);
+    return a.scope === 'state' && a.domicileState ? `${a.domicileState} domicile only` : 'Open to all states';
+  }
+
   const canSubmit = rank.trim() !== '';
   const handlePrint = () => window.print();
 
@@ -86,8 +99,8 @@ export default function CounsellorLookupPage() {
     downloadCsv(
       `counsellor-lookup-${result.year}-${result.category}-air-${result.air.point}.csv`,
       toCsv(
-        ['College', 'City', 'Quota', 'Closing Rank', 'Fee', 'Status'],
-        rows.map((m) => [m.college, m.city ?? '', m.quota, m.closingRank, feeFor(m), CHANCE_STYLE[m.chance].label])
+        ['College', 'City', 'Quota', 'Eligibility', 'Closing Rank', 'Fee', 'Status'],
+        rows.map((m) => [m.college, m.city ?? '', m.quota, eligibilityFor(m), m.closingRank, feeFor(m), CHANCE_STYLE[m.chance].label])
       )
     );
   }
@@ -368,7 +381,10 @@ function GroupTable({ chance, matches, feeFor }: {
                     </Link>
                   </td>
                   <td className="px-4 py-3 whitespace-nowrap text-slate-600 dark:text-slate-400">{m.city || '—'}</td>
-                  <td className="px-4 py-3 text-xs text-muted-foreground max-w-[14rem]">{m.quota}</td>
+                  <td className="px-4 py-3 text-xs text-muted-foreground max-w-[14rem]">
+                    {m.quota}
+                    <DomicileBadge quota={m.quota} collegeState={m.state} compact />
+                  </td>
                   <td className="px-4 py-3 font-semibold tabular-nums whitespace-nowrap">
                     {fmt(m.closingRank)}
                     {m.source === 'derived_from_allotments' && (

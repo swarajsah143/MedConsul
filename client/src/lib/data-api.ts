@@ -221,6 +221,8 @@ export interface FeeEntry {
   miscCharges?: number;
   securityDeposit?: number;
   totalFirstYear?: number;
+  /** Whole-course cost (all years) — a different quantity from totalFirstYear. */
+  totalCourseFee?: number;
   govtSeats?: number;
   mgmtSeats?: number;
   nriSeats?: number;

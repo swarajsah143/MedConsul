@@ -82,12 +82,21 @@ suite('admin UI — driven as a user, against the real API + Mongo', () => {
   it('loads the Colleges table with real rows and real column values', async () => {
     mount('colleges')
     // Wait for the schema fetch AND the list fetch to land, then assert on real rows.
+    //
+    // Deliberately NOT anchored on a specific college. This used to wait for "Maulana Azad" on
+    // page 1, which held when the table had 29 rows; the table now has ~1,114 sorted by name, so
+    // that college sits at position 749 (page 15) and the assertion could never pass. Assert the
+    // SHAPE of a loaded table instead — that survives the dataset growing again.
     await waitFor(
-      () => expect(screen.getAllByText(/Maulana Azad/i).length).toBeGreaterThan(0),
+      () => {
+        const body = document.body.textContent ?? ''
+        // A real college name renders (rows exist and are not placeholders)...
+        expect(body).toMatch(/Medical College|Institute of Medical Sciences|AIIMS/i)
+        // ...and the type column carries a real enum value, not a blank cell.
+        expect(body).toMatch(/Government|Private|Deemed/)
+      },
       { timeout: 20000 }
     )
-    // The table renders real column values, not placeholders.
-    expect(document.body.textContent).toMatch(/Government|Private|Deemed/)
   })
 
   it('a ref column shows the COLLEGE NAME, not a Mongo ObjectId', async () => {

@@ -23,14 +23,47 @@ if (!adminPassword || adminPassword.length < 10) {
 }
 const studentPassword = process.env.SEED_STUDENT_PASSWORD || 'ChangeMe#Student1';
 
+// Plans are an ADMIN grant, not billing (see user.model.ts). A pro/premium plan needs a future
+// expiry or effectiveTier() treats it as free — so seeded paid accounts get a year of runway.
+const PLAN_EXPIRY = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString();
+
 type SeedRole = 'admin' | 'counsellor' | 'student';
 
-const DEMO_ACCOUNTS: { name: string; email: string; password: string; role: SeedRole }[] = [
+type SeedAccount = {
+  name: string;
+  email: string;
+  password: string;
+  role: SeedRole;
+  plan?: 'free' | 'pro' | 'premium';
+  planNote?: string;
+};
+
+// One account per tier so every gated path (allotment export, full predict shortlist, unlimited
+// AI) has a login that exercises it. isPro = pro OR premium; isPremium = premium only.
+// Staff (admin, counsellor) deliberately carry NO plan — they bypass gating by ROLE via
+// hasFullData(), so applyPlan() no-ops for them and must keep doing so.
+const DEMO_ACCOUNTS: SeedAccount[] = [
   { name: 'Admin User', email: 'admin@medcounsel.ai', password: adminPassword, role: 'admin' },
   { name: 'Demo Counsellor', email: 'counsellor@medcounsel.ai', password: studentPassword, role: 'counsellor' },
-  { name: 'Swaraj Sah', email: 'swaraj@medcounsel.ai', password: studentPassword, role: 'student' },
-  { name: 'Demo Student', email: 'demo@medcounsel.ai', password: studentPassword, role: 'student' },
+  { name: 'Swaraj Sah', email: 'swaraj@medcounsel.ai', password: studentPassword, role: 'student', plan: 'free' },
+  { name: 'Demo Student', email: 'demo@medcounsel.ai', password: studentPassword, role: 'student', plan: 'free' },
+  { name: 'Pro Student', email: 'pro@medcounsel.ai', password: studentPassword, role: 'student', plan: 'pro', planNote: 'Seeded Pro demo account' },
+  { name: 'Premium Student', email: 'premium@medcounsel.ai', password: studentPassword, role: 'student', plan: 'premium', planNote: 'Seeded Premium demo account' },
 ];
+
+// Make the account's plan match the seed exactly. The seed is the source of truth for these
+// demo logins, so a `free` account is reset to free (clearing any stale grant from earlier dev
+// testing) and a paid account gets a year of runway. Only the DEMO_ACCOUNTS emails are touched —
+// real users an admin has upgraded are never seeded, so never reset.
+async function applyPlan(id: string, account: SeedAccount): Promise<void> {
+  if (!account.plan) return; // admin: no plan concept
+  const paid = account.plan !== 'free';
+  await UserModel.update(id, {
+    plan: account.plan,
+    planExpiresAt: paid ? PLAN_EXPIRY : null,
+    planNote: paid ? account.planNote : undefined,
+  });
+}
 
 async function seed() {
   await connectDatabase();
@@ -39,15 +72,23 @@ async function seed() {
   for (const account of DEMO_ACCOUNTS) {
     const existing = await UserModel.findByEmail(account.email);
     if (existing) {
-      console.log(`  [skip] ${account.email} already exists`);
+      // Idempotent: don't recreate, but still make sure the plan grant is in place so re-running
+      // after adding a tier upgrades the existing row rather than silently skipping it.
+      await applyPlan(existing.id, account);
+      const planLabel = account.plan && account.plan !== 'free' ? ` [plan: ${account.plan}]` : '';
+      console.log(`  [skip] ${account.email} already exists${planLabel}`);
       continue;
     }
     const hashed = await hashPassword(account.password);
-    await UserModel.create(account.name, account.email, hashed, account.role);
-    console.log(`  [created] ${account.email} (${account.role})`);
+    const created = await UserModel.create(account.name, account.email, hashed, account.role);
+    await applyPlan(created.id, account);
+    const planLabel = account.plan && account.plan !== 'free' ? `, ${account.plan}` : '';
+    console.log(`  [created] ${account.email} (${account.role}${planLabel})`);
   }
 
-  console.log('\n  Seeding complete.\n');
+  console.log('\n  Seeding complete.');
+  console.log('  Logins: admin@ (admin) · demo@/swaraj@ (free) · pro@ (pro) · premium@ (premium)');
+  console.log('  Student password: SEED_STUDENT_PASSWORD (default "ChangeMe#Student1").\n');
   await mongoose.disconnect();
   process.exit(0);
 }

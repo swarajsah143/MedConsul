@@ -106,6 +106,16 @@ export const closingRanks: CollectionSchema = {
     { name: 'quota', type: 'string', label: 'Quota', required: true, filterable: true, help: QUOTA_EXAMPLES },
     { name: 'closingRank', type: 'number', label: 'Closing rank', required: true, inList: true },
     { name: 'closingScore', type: 'number', label: 'Closing score' },
+    {
+      name: 'source', type: 'string', label: 'Source', filterable: true,
+      // Load-bearing: a PUBLISHED cutoff and one DERIVED from allotment data are not the same
+      // claim. Derivation takes max(allIndiaRank) over the candidates we hold for a group, so it
+      // is only as complete as our allotment set — where it disagrees with a published cutoff it
+      // reads OPTIMISTIC (median 1.46x, p90 3.38x better than truth, measured over the 2,317
+      // overlapping groups). Students plan around these numbers, so a derived row must be
+      // labelled and must never silently overwrite a published one.
+      help: 'Where this cutoff came from. Blank = published/imported cutoff. "derived: MCC allotments" = computed as the last allotted rank in our allotment data, which is a lower bound, not an official cutoff.',
+    },
   ],
 };
 
@@ -138,6 +148,14 @@ export const fees: CollectionSchema = {
       // it, so the help must not claim it does — the old copy ("Recomputed on save")
       // let it drift silently out of sync with the components above.
       help: 'Enter this yourself — it is NOT auto-calculated. It should equal tuition + hostel + misc + deposit.',
+    },
+    {
+      name: 'totalCourseFee', type: 'number', label: 'Total course fee', inList: true,
+      // A DIFFERENT QUANTITY from totalFirstYear — the whole 4.5-year MBBS cost, which is what a
+      // family actually budgets against. Kept as its own field precisely so the two can never be
+      // confused: aggregator sheets quote course totals ("42.5 Lakhs") that are ~4.5x the annual
+      // figure, and loading one into a per-year column overstates the first year enormously.
+      help: 'Whole-course cost (all years), NOT the first year. Leave blank if you only know the annual fee.',
     },
 
     { name: 'govtSeats', type: 'number', label: 'Govt seats' },
