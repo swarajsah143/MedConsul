@@ -6,6 +6,18 @@ let loggedOut = false;
 export function markLoggedOut() { loggedOut = true; }
 export function clearLoggedOut() { loggedOut = false; }
 
+/**
+ * Fired when the refresh token is dead — i.e. the session cannot be recovered.
+ *
+ * Without this, `tryRefresh` dropped the access token from localStorage but nothing told the
+ * AuthProvider, whose `isAuthenticated` is just `!!user` in React state. The app therefore kept
+ * rendering as signed-in while every request 401'd in a loop (visible as repeated
+ * `auth/refresh` + `documents/mine` 401s in the console) and the user was left on a half-broken
+ * page instead of being sent to the login screen.
+ */
+let onSessionExpired: (() => void) | null = null;
+export function setSessionExpiredHandler(cb: (() => void) | null) { onSessionExpired = cb; }
+
 interface ApiOptions {
   method?: string;
   body?: unknown;
@@ -77,7 +89,13 @@ async function tryRefresh(): Promise<boolean> {
       return true;
     }
   } catch { /* ignore */ }
-  if (!loggedOut) localStorage.removeItem('accessToken');
+  if (!loggedOut) {
+    localStorage.removeItem('accessToken');
+    // The session is unrecoverable — tell the provider so it can clear `user` and let the route
+    // guards send the person to /login. Dropping the token alone leaves the UI claiming they are
+    // still signed in.
+    onSessionExpired?.();
+  }
   return false;
 }
 

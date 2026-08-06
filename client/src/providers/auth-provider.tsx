@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import { googleLogout } from '@react-oauth/google';
-import { api, markLoggedOut, clearLoggedOut } from '@/lib/api';
+import { api, markLoggedOut, clearLoggedOut, setSessionExpiredHandler } from '@/lib/api';
 
 export interface AuthUser {
   id: string;
@@ -117,6 +117,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } else {
       throw { message: res.message || 'Registration failed' };
     }
+  }, []);
+
+  // A dead refresh token means the session is gone. Clear `user` so the route guards redirect to
+  // /login, instead of leaving the app rendering as signed-in while every request 401s. Storage is
+  // already cleared by api.ts; deliberately NOT calling markLoggedOut() here, because the person
+  // has not logged out — they should be able to sign straight back in.
+  useEffect(() => {
+    setSessionExpiredHandler(() => setUser(null));
+    return () => setSessionExpiredHandler(null);
   }, []);
 
   const logout = useCallback(async () => {
