@@ -149,6 +149,14 @@ export const fees: CollectionSchema = {
       // let it drift silently out of sync with the components above.
       help: 'Enter this yourself — it is NOT auto-calculated. It should equal tuition + hostel + misc + deposit.',
     },
+    {
+      name: 'totalCourseFee', type: 'number', label: 'Total course fee', inList: true,
+      // A DIFFERENT QUANTITY from totalFirstYear — the whole 4.5-year MBBS cost, which is what a
+      // family actually budgets against. Kept as its own field precisely so the two can never be
+      // confused: aggregator sheets quote course totals ("42.5 Lakhs") that are ~4.5x the annual
+      // figure, and loading one into a per-year column overstates the first year enormously.
+      help: 'Whole-course cost (all years), NOT the first year. Leave blank if you only know the annual fee.',
+    },
 
     { name: 'govtSeats', type: 'number', label: 'Govt seats' },
     { name: 'mgmtSeats', type: 'number', label: 'Management seats' },
