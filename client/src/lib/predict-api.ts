@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { api } from './api';
 
 /**
  * The Rank Predictor's client. All the maths lives on the server (services/predictor.ts)
@@ -10,6 +11,9 @@ import { useEffect, useState } from 'react';
  */
 
 export type Chance = 'Safe' | 'Good' | 'Reach' | 'Tough';
+
+/** Where a cutoff came from: an official published cutoff, or one derived from raw MCC allotment rows. */
+export type MatchSource = 'official' | 'derived_from_allotments';
 
 export interface PredictMatch {
   collegeId: string;
@@ -23,6 +27,7 @@ export interface PredictMatch {
   year: number;
   closingRank: number;
   chance: Chance;
+  source: MatchSource;
 }
 
 export interface Prediction {
@@ -61,21 +66,12 @@ export interface PredictInput {
   state?: string;
 }
 
-async function call<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`/api/predict${path}`, {
-    credentials: 'include',
-    headers: { 'Content-Type': 'application/json' },
-    ...init,
-  });
-  const body = await res.json().catch(() => ({}));
-  if (!res.ok || !body?.success) {
-    throw new Error(body?.message || `Prediction failed (${res.status})`);
-  }
-  return body.data as T;
-}
-
+// Goes through the shared `api` client (lib/api.ts), not a raw fetch — that's what attaches
+// the signed-in user's Bearer token (and retries once on an expired one). A plain fetch here
+// would silently be treated as anonymous by the server, always hitting the free-tier gate
+// regardless of the caller's actual plan or staff role.
 export const predict = (input: PredictInput) =>
-  call<Prediction>('', { method: 'POST', body: JSON.stringify(input) });
+  api.post<{ success: boolean; data: Prediction }>('/predict', input).then((r) => r.data);
 
 /** The dropdown values, straight from the data — so the form can only offer real options. */
 export function usePredictorMeta() {
@@ -84,8 +80,8 @@ export function usePredictorMeta() {
 
   useEffect(() => {
     let alive = true;
-    call<PredictorMeta>('/meta')
-      .then((m) => alive && setMeta(m))
+    api.get<{ success: boolean; data: PredictorMeta }>('/predict/meta')
+      .then((r) => alive && setMeta(r.data))
       .catch((e) => alive && setError(e.message));
     return () => { alive = false; };
   }, []);
@@ -114,8 +110,8 @@ export const CHANCE_STYLE: Record<Chance, { label: string; dot: string; chip: st
   },
   Tough: {
     label: 'Tough',
-    dot: 'bg-rose-500',
-    chip: 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-950/40 dark:text-rose-300 dark:border-rose-900',
+    dot: 'bg-green-500',
+    chip: 'bg-green-50 text-green-700 border-green-200 dark:bg-green-950/40 dark:text-green-300 dark:border-green-900',
     blurb: 'Closed above your rank last year. Only if the cutoff loosens.',
   },
 };

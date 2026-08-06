@@ -5,6 +5,7 @@ import { AuthLayout } from '@/components/layout/auth-layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { AuthDivider, GoogleAuthButton, isGoogleAuthEnabled } from '@/components/auth/google-auth-button';
 import { useAuth } from '@/providers/auth-provider';
 
 const PASSWORD_RULES = [
@@ -16,7 +17,7 @@ const PASSWORD_RULES = [
 
 export default function SignupPage() {
   const navigate = useNavigate();
-  const { register } = useAuth();
+  const { register, loginWithGoogle } = useAuth();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -57,6 +58,23 @@ export default function SignupPage() {
       navigate('/rank-insights', { replace: true });
     } catch (err: any) {
       setError(err.message || 'Registration failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleCredential = async (idToken: string) => {
+    if (!agreed) {
+      setError('Please agree to the Privacy Policy and Terms to continue');
+      return;
+    }
+    try {
+      setError('');
+      setLoading(true);
+      await loginWithGoogle(idToken);
+      navigate('/rank-insights', { replace: true });
+    } catch (err: any) {
+      setError(err.message || 'Google sign-in failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -171,12 +189,12 @@ export default function SignupPage() {
             type="checkbox"
             checked={agreed}
             onChange={(e) => setAgreed(e.target.checked)}
-            className="mt-0.5 w-4 h-4 accent-red-600 shrink-0"
+            className="mt-0.5 w-4 h-4 accent-emerald-600 shrink-0"
           />
           <span className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
             I agree to the{' '}
-            <Link to="/privacy" target="_blank" className="text-red-600 hover:underline font-medium">Privacy Policy</Link>{' '}and{' '}
-            <Link to="/terms" target="_blank" className="text-red-600 hover:underline font-medium">Terms of Service</Link>, and consent to MedCounsel AI storing the details and documents I choose to provide.
+            <Link to="/privacy" target="_blank" className="text-emerald-600 hover:underline font-medium">Privacy Policy</Link>{' '}and{' '}
+            <Link to="/terms" target="_blank" className="text-emerald-600 hover:underline font-medium">Terms of Service</Link>, and consent to MedCounsel AI storing the details and documents I choose to provide.
           </span>
         </label>
 
@@ -195,6 +213,17 @@ export default function SignupPage() {
             'Create Account'
           )}
         </Button>
+
+        {isGoogleAuthEnabled && (
+          <>
+            <AuthDivider />
+            <GoogleAuthButton
+              onCredential={handleGoogleCredential}
+              onError={setError}
+              disabled={loading || !agreed}
+            />
+          </>
+        )}
 
         <p className="text-center text-sm text-muted-foreground">
           Already have an account?{' '}

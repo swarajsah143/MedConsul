@@ -116,10 +116,29 @@ cd server && npm install && cd ..
 ### Seed Demo Accounts
 
 ```bash
-npm run seed
+SEED_ADMIN_PASSWORD=<min 10 chars> npm run seed
 ```
 
 This creates three demo accounts. See [CREDENTIALS.md](./CREDENTIALS.md) for login details.
+
+### Load the domain data (MongoDB)
+
+Colleges, ranks, fees and allotments live in MongoDB; the source JSON is committed under
+`data/out/`. To populate a fresh database:
+
+1. Set `MONGODB_URI` in `.env` to a MongoDB you can reach (a local `mongod`, or your own Atlas).
+2. Start the app: `npm run dev`.
+3. In another terminal, run the importer (it logs in with the admin account from the seed step):
+
+   ```bash
+   SEED_ADMIN_PASSWORD=<same as above> node data/import.mjs
+   ```
+
+   It loads colleges first, then the rank/fee/allotment rows that reference them (~222k
+   allotments, so allow a minute or two). Re-running is idempotent.
+
+Without MongoDB the app still runs on a JSON auth fallback — logins work, but the data pages
+return 503 and MedAssist grounds on a small built-in sample instead of the full dataset.
 
 ### Run Development Server
 
@@ -168,16 +187,34 @@ cd server && npm run build
 
 ## Environment Variables
 
-Create a `.env` file in the `server/` directory:
+Copy `.env.example` to `.env` in the **project root** (not `server/`) and fill in the values:
 
-```env
-PORT=5000
-CLIENT_URL=http://localhost:5173
-JWT_SECRET=your-secret-key-here
-JWT_REFRESH_SECRET=your-refresh-secret-here
-JWT_EXPIRES_IN=15m
-JWT_REFRESH_EXPIRES_IN=7d
+```bash
+cp .env.example .env
 ```
+
+Key variables:
+
+| Variable | Purpose |
+|----------|---------|
+| `MONGODB_URI` | MongoDB connection string. Domain data (colleges, ranks, fees, allotments) requires it; auth falls back to a local JSON store if unset. |
+| `JWT_SECRET`, `JWT_REFRESH_SECRET` | Required — the server refuses to start without strong values. |
+| `PORT`, `CLIENT_URL` | API port and the frontend origin (used for CORS). |
+| `AI_API_KEY`, `AI_API_BASE_URL`, `AI_MODEL` | Powers the MedAssist AI chatbot — see below. |
+
+### Enable MedAssist AI (chatbot)
+
+MedAssist answers questions conversationally (like ChatGPT) and grounds NEET-specific
+answers in the app's own data. It needs a key for any OpenAI-compatible model, and
+**Groq offers one for free:**
+
+1. Get a free API key at **https://console.groq.com** → sign in → **API Keys** → **Create API Key**.
+2. Paste it into your `.env`: `AI_API_KEY=gsk_...` — the base URL and model are already set for Groq in `.env.example`.
+3. Restart: `npm run dev`.
+
+Without a key, the chatbot still runs in a limited **offline mode** that answers from the
+app's data only. Each contributor uses their **own** free key — **never commit a real key**
+(a key pushed to a public repo is scraped and auto-revoked within minutes).
 
 ## License
 

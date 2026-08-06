@@ -1,13 +1,19 @@
 import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCollections, byId, distinct, type College, type FeeEntry } from '@/lib/data-api';
+import { useCollections, byId, distinct, withCatalog, NEET_UG_COURSES, type College, type FeeEntry } from '@/lib/data-api';
+import { collegePhoto } from '@/lib/college-photo';
 import { formatINR } from '@/lib/fee-matrix-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { SearchBar } from '@/components/ui/search-bar';
 import { Pagination } from '@/components/ui/pagination';
+import { DomicileBadge } from '@/components/ui/domicile-badge';
+import { useDomicile } from '@/lib/use-domicile';
+import { quotaAccess, isOpenTo } from '@/lib/quota';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import {
   Search,
   ArrowUpDown,
@@ -69,6 +75,10 @@ export default function FeeMatrixPage() {
   const [course, setCourse] = useState('All');
   const [category, setCategory] = useState('All');
   const [quota, setQuota] = useState('All');
+  // Opt-in, not default: hiding rows by default would quietly shrink the table for anyone whose
+  // profile domicile is stale, and they would never know what they were not being shown.
+  const [openToMeOnly, setOpenToMeOnly] = useState(false);
+  const myDomicile = useDomicile();
   const [showFilters, setShowFilters] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
 
@@ -121,7 +131,8 @@ export default function FeeMatrixPage() {
   // Dropdown options built from the live rows, so admin-added colleges/quotas show up automatically.
   const filterOptions = useMemo(() => ({
     states: distinct(rows, 'state'),
-    courses: distinct(rows, 'course'),
+    // Show every NEET-UG course, not just those in the loaded rows (data has only MBBS + BDS).
+    courses: withCatalog(NEET_UG_COURSES, distinct(rows, 'course')),
     categories: distinct(rows, 'category'),
     quotas: distinct(rows, 'quota'),
   }), [rows]);
@@ -151,6 +162,9 @@ export default function FeeMatrixPage() {
     if (course !== 'All') list = list.filter((e) => e.course === course);
     if (category !== 'All') list = list.filter((e) => e.category === category);
     if (quota !== 'All') list = list.filter((e) => e.quota === quota);
+    if (openToMeOnly && myDomicile) {
+      list = list.filter((e) => isOpenTo(quotaAccess(e.quota, e.state), myDomicile));
+    }
 
     list = [...list].sort((a, b) => {
       let cmp = 0;
@@ -165,7 +179,7 @@ export default function FeeMatrixPage() {
       return sortOrder === 'asc' ? cmp : -cmp;
     });
     return list;
-  }, [rows, search, state, college, course, category, quota, sortBy, sortOrder]);
+  }, [rows, search, state, college, course, category, quota, openToMeOnly, myDomicile, sortBy, sortOrder]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 
@@ -223,7 +237,7 @@ export default function FeeMatrixPage() {
       <th onClick={() => handleSort(field)} className={`px-3 py-3.5 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 select-none whitespace-nowrap transition-colors duration-150 ${className || ''}`}>
         <span className="flex items-center gap-1">
           {children}
-          <ArrowUpDown className={`w-3 h-3 shrink-0 transition-colors ${active ? 'text-red-600' : 'text-slate-400'}`} />
+          <ArrowUpDown className={`w-3 h-3 shrink-0 transition-colors ${active ? 'text-emerald-600' : 'text-slate-400'}`} />
         </span>
       </th>
     );
@@ -232,7 +246,7 @@ export default function FeeMatrixPage() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-3">
-        <Loader2 className="w-8 h-8 text-red-600 animate-spin" />
+        <Loader2 className="w-8 h-8 text-emerald-600 animate-spin" />
         <p className="text-sm text-muted-foreground">Loading fee & seat data...</p>
       </div>
     );
@@ -254,10 +268,7 @@ export default function FeeMatrixPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+      <HeroBanner>
           <div className="relative z-10">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div className="space-y-2">
@@ -265,19 +276,19 @@ export default function FeeMatrixPage() {
                   <Sparkles className="w-3.5 h-3.5" /> NEET UG 2026
                 </span>
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-                  <IndianRupee className="w-7 h-7 text-red-200" />
+                  <IndianRupee className="w-7 h-7 text-emerald-200" />
                   Fee & Seat Matrix
                 </h1>
-                <p className="text-red-100/90 text-sm max-w-xl leading-relaxed">
+                <p className="text-emerald-100/90 text-sm max-w-xl leading-relaxed">
                   Compare tuition fees, hostel charges, and seat distribution across medical colleges. Plan your budget smartly.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 shrink-0">
-                <Button onClick={() => setShowFilters(true)} className="bg-white text-red-600 hover:bg-red-50 transition-all duration-200 shadow-sm font-semibold">
+                <Button onClick={() => setShowFilters(true)} className="bg-white text-emerald-600 hover:bg-emerald-50 transition-all duration-200 shadow-sm font-semibold">
                   <SlidersHorizontal className="w-4 h-4 mr-2" />
                   Filters
                   {activeFilterCount > 0 && (
-                    <span className="ml-2 w-5 h-5 flex items-center justify-center rounded-full bg-red-600 text-white text-[10px] font-bold">{activeFilterCount}</span>
+                    <span className="ml-2 w-5 h-5 flex items-center justify-center rounded-full bg-emerald-600 text-white text-[10px] font-bold">{activeFilterCount}</span>
                   )}
                 </Button>
                 <Button onClick={handleExportCsv} className="bg-white/15 text-white border border-white/20 hover:bg-white/25 transition-all duration-200">
@@ -287,13 +298,12 @@ export default function FeeMatrixPage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: 'Avg. 1st Year', value: statFee(avgTotal), icon: Wallet, color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+          { label: 'Avg. 1st Year', value: statFee(avgTotal), icon: Wallet, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Lowest Fee', value: statFee(minTotal), icon: TrendingUp, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
           { label: 'Highest Fee', value: statFee(maxTotal), icon: IndianRupee, color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
           { label: 'Govt Seats', value: hasRows ? totalGovtSeats.toLocaleString() : '—', icon: Building2, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
@@ -314,6 +324,15 @@ export default function FeeMatrixPage() {
         ))}
       </div>
 
+      {/* Inline Search — find a university's fees directly, without opening Filters */}
+      <SearchBar
+        value={search}
+        onValueChange={(v) => { setSearch(v); setPage(1); }}
+        onClear={() => { setSearch(''); setPage(1); }}
+        placeholder="Search a university or college to see its fees…"
+        aria-label="Search colleges by name, city, or course"
+      />
+
       {/* Filter Modal */}
       {showFilters && (
         <div className="fixed inset-0 z-50 flex items-start justify-center">
@@ -327,7 +346,7 @@ export default function FeeMatrixPage() {
                   </div>
                   <div>
                     <h2 className="text-xl font-extrabold text-white">Fee Filters</h2>
-                    <p className="text-red-200 text-xs mt-0.5">Narrow down colleges by fees and seats</p>
+                    <p className="text-emerald-200 text-xs mt-0.5">Narrow down colleges by fees and seats</p>
                   </div>
                 </div>
                 <button onClick={() => setShowFilters(false)} className="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-all duration-200 hover:scale-105">
@@ -340,7 +359,7 @@ export default function FeeMatrixPage() {
               {/* Search */}
               <section className="space-y-4">
                 <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                  <span className="w-1 h-5 rounded-full bg-red-500" /> Quick Search
+                  <span className="w-1 h-5 rounded-full bg-emerald-500" /> Quick Search
                 </h3>
                 <div className="relative">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -359,7 +378,7 @@ export default function FeeMatrixPage() {
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">State</label>
                       <select value={state} onChange={(e) => { setState(e.target.value); setPage(1); }}
-                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all hover:border-emerald-300 cursor-pointer">
                         <option value="All">All States</option>
                         {filterOptions.states.map((s) => <option key={s} value={s}>{s}</option>)}
                       </select>
@@ -367,7 +386,7 @@ export default function FeeMatrixPage() {
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">College</label>
                       <select value={college} onChange={(e) => { setCollege(e.target.value); setPage(1); }}
-                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all hover:border-emerald-300 cursor-pointer">
                         <option value="All">All Colleges</option>
                         {collegeOptions.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
                       </select>
@@ -386,7 +405,7 @@ export default function FeeMatrixPage() {
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Course</label>
                       <select value={course} onChange={(e) => { setCourse(e.target.value); setPage(1); }}
-                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all hover:border-emerald-300 cursor-pointer">
                         <option value="All">All Courses</option>
                         {filterOptions.courses.map((c) => <option key={c} value={c}>{c}</option>)}
                       </select>
@@ -394,7 +413,7 @@ export default function FeeMatrixPage() {
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Category</label>
                       <select value={category} onChange={(e) => { setCategory(e.target.value); setPage(1); }}
-                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all hover:border-emerald-300 cursor-pointer">
                         <option value="All">All Categories</option>
                         {filterOptions.categories.map((c) => <option key={c} value={c}>{c}</option>)}
                       </select>
@@ -402,12 +421,29 @@ export default function FeeMatrixPage() {
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-slate-700 dark:text-slate-300">Quota</label>
                       <select value={quota} onChange={(e) => { setQuota(e.target.value); setPage(1); }}
-                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all hover:border-red-300 cursor-pointer">
+                        className="w-full h-11 px-4 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all hover:border-emerald-300 cursor-pointer">
                         <option value="All">All Quotas</option>
                         {filterOptions.quotas.map((q) => <option key={q} value={q}>{q}</option>)}
                       </select>
                     </div>
                   </div>
+
+                  {/* Only offered when we actually know their domicile — a checkbox that silently
+                      does nothing is worse than no checkbox. */}
+                  {myDomicile && (
+                    <label className="flex items-start gap-2 mt-4 cursor-pointer select-none">
+                      <input type="checkbox" checked={openToMeOnly}
+                        onChange={(e) => { setOpenToMeOnly(e.target.checked); setPage(1); }}
+                        className="mt-0.5 w-4 h-4 rounded accent-emerald-600 cursor-pointer" />
+                      <span className="text-xs text-slate-700 dark:text-slate-300 leading-snug">
+                        Hide seats I'm not eligible for
+                        <span className="block text-[11px] text-muted-foreground">
+                          Your profile says <strong>{myDomicile}</strong>. State-quota seats in other
+                          states require that state's domicile.
+                        </span>
+                      </span>
+                    </label>
+                  )}
                 </div>
               </section>
 
@@ -428,7 +464,7 @@ export default function FeeMatrixPage() {
                       className={`px-4 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] ${
                         sortBy === item.field
                           ? 'gradient-primary text-white border-transparent shadow-md'
-                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-red-300 hover:text-red-600 bg-white dark:bg-slate-800'
+                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-emerald-300 hover:text-emerald-600 bg-white dark:bg-slate-800'
                       }`}>
                       {item.label}
                     </button>
@@ -439,7 +475,7 @@ export default function FeeMatrixPage() {
 
             <div className="shrink-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700 px-6 py-4">
               <div className="flex items-center justify-between">
-                <Button variant="outline" onClick={handleReset} className="h-11 px-6 rounded-xl border-2 hover:border-red-300 hover:text-red-600 transition-all hover:scale-[1.02] active:scale-[0.98]">Clear All</Button>
+                <Button variant="outline" onClick={handleReset} className="h-11 px-6 rounded-xl border-2 hover:border-emerald-300 hover:text-emerald-600 transition-all hover:scale-[1.02] active:scale-[0.98]">Clear All</Button>
                 <Button onClick={() => { setPage(1); setShowFilters(false); }} className="gradient-primary text-white h-11 px-8 rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] font-semibold">
                   Show {filtered.length} Results
                 </Button>
@@ -460,7 +496,7 @@ export default function FeeMatrixPage() {
               {category !== 'All' && <FilterTag label={category} onRemove={() => { setCategory('All'); setPage(1); }} />}
               {quota !== 'All' && <FilterTag label={quota} onRemove={() => { setQuota('All'); setPage(1); }} />}
               {search && <FilterTag label={`"${search}"`} onRemove={() => { setSearch(''); setPage(1); }} />}
-              <button onClick={handleReset} className="text-xs font-semibold text-red-600 hover:underline">Clear all</button>
+              <button onClick={handleReset} className="text-xs font-semibold text-emerald-600 hover:underline">Clear all</button>
             </>
           )}
           {activeFilterCount === 0 && (
@@ -498,8 +534,11 @@ export default function FeeMatrixPage() {
               <div className="p-4 sm:p-5 relative">
                 {/* Top: Icon + Name + Location */}
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-emerald-500/20 transition-all duration-300">
+                  <div className="relative w-10 h-10 rounded-xl overflow-hidden shrink-0 bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-all duration-300">
                     <GraduationCap className="w-5 h-5 text-emerald-400" />
+                    <img src={collegePhoto(entry.name)} alt="" loading="lazy"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      className="absolute inset-0 w-full h-full object-cover" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h3 className="text-sm font-bold text-white leading-snug truncate group-hover:text-emerald-300 transition-colors duration-200">
@@ -522,14 +561,19 @@ export default function FeeMatrixPage() {
                   )}
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">{entry.course}</span>
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">{entry.category}</span>
+                  <DomicileBadge quota={entry.quota} collegeState={entry.state} myDomicile={myDomicile} compact />
                 </div>
 
-                {/* Fee Hero — big glowing number */}
+                {/* Fee Hero — big glowing number. The domicile note sits directly under the number
+                    it qualifies: this figure is only reachable if the student is eligible. */}
                 <div className="rounded-xl bg-slate-800/80 border border-slate-700/50 p-4 mb-3">
                   <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center mb-1">Total 1st Year Fee</p>
-                  <p className="text-center text-2xl sm:text-3xl font-extrabold tabular-nums text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-rose-500" style={{ textShadow: '0 0 30px rgba(239,68,68,0.3)' }}>
+                  <p className="text-center text-2xl sm:text-3xl font-extrabold tabular-nums text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-green-500" style={{ textShadow: '0 0 30px rgba(239,68,68,0.3)' }}>
                     {formatINR(entry.totalFirstYear)}
                   </p>
+                  <div className="flex justify-center">
+                    <DomicileBadge quota={entry.quota} collegeState={entry.state} myDomicile={myDomicile} />
+                  </div>
 
                   {/* Tuition + Hostel row */}
                   <div className="grid grid-cols-2 gap-2 mt-3">
@@ -601,12 +645,13 @@ export default function FeeMatrixPage() {
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {paginated.map((entry) => (
                   <tr key={entry.id} onClick={() => navigate(`/fee-matrix/${entry.id}`)}
-                    className="hover:bg-red-50/40 dark:hover:bg-red-950/20 transition-colors duration-200 cursor-pointer group">
+                    className="hover:bg-emerald-50/40 dark:hover:bg-emerald-950/20 transition-colors duration-200 cursor-pointer group">
                     <td className="px-3 py-3.5 font-bold text-slate-800 dark:text-slate-100 min-w-[200px]">
-                      <div className="truncate max-w-[220px] group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">{entry.name}</div>
+                      <div className="truncate max-w-[220px] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">{entry.name}</div>
                       <div className="flex flex-wrap items-center gap-1.5 mt-1 text-[10px] text-muted-foreground font-normal">
                         <span className="flex items-center gap-0.5"><MapPin className="w-2.5 h-2.5" />{entry.city}, {entry.state}</span>
                         {entry.type && <span className={`px-1.5 py-0.5 rounded-full font-bold ${typeColor(entry.type)}`}>{entry.type}</span>}
+                        <DomicileBadge quota={entry.quota} collegeState={entry.state} myDomicile={myDomicile} compact />
                       </div>
                     </td>
                     <td className="px-3 py-3.5 text-right tabular-nums font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">{formatINR(entry.tuitionFee)}</td>
@@ -617,7 +662,7 @@ export default function FeeMatrixPage() {
                     <td className="px-3 py-3.5 text-center tabular-nums font-bold text-amber-600 dark:text-amber-400">{entry.mgmtSeats || '-'}</td>
                     <td className="px-3 py-3.5 text-center tabular-nums font-bold text-blue-600 dark:text-blue-400">{entry.nriSeats || '-'}</td>
                     <td className="px-3 py-3.5 text-center">
-                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all duration-200 inline-block" />
+                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all duration-200 inline-block" />
                     </td>
                   </tr>
                 ))}
@@ -649,9 +694,9 @@ export default function FeeMatrixPage() {
 
 function FilterTag({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
-    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-[11px] font-semibold border border-red-200 dark:border-red-900/40 hover:bg-red-100 transition-colors">
+    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 text-[11px] font-semibold border border-emerald-200 dark:border-emerald-900/40 hover:bg-emerald-100 transition-colors">
       {label}
-      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 flex items-center justify-center transition-colors">
+      <button onClick={onRemove} className="w-3.5 h-3.5 rounded-full hover:bg-emerald-200 dark:hover:bg-emerald-900/50 flex items-center justify-center transition-colors">
         <X className="w-2.5 h-2.5" />
       </button>
     </span>

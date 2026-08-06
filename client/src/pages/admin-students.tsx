@@ -55,9 +55,6 @@ const PLAN_DISCLOSURE =
 
 type DocStatus = 'verified' | 'pending' | 'rejected' | 'not_uploaded';
 
-const ROLES = ['student', 'admin'] as const;
-type Role = (typeof ROLES)[number];
-
 /** The server rejects anything outside this list with a 400. */
 const CATEGORIES = ['General', 'OBC', 'SC', 'ST', 'EWS', 'PwD'] as const;
 const COURSES = ['MBBS', 'BDS', 'BAMS', 'BHMS', 'BUMS', 'BSMS', 'BNYS', 'BVSc'] as const;
@@ -161,7 +158,6 @@ interface StudentRow {
 interface Summary {
   total: number;
   students: number;
-  admins: number;
   onPaidPlan: number;
   expired: number;
   awaitingReview: number;
@@ -323,7 +319,7 @@ function StatCard({
   to?: string;
 }) {
   const body = (
-    <CardContent className="p-5 flex items-center gap-4">
+    <CardContent className="px-5 pt-8 pb-4 sm:px-5 sm:pt-8 sm:pb-4 flex items-center gap-4">
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${tint}`}>
         <Icon className="w-6 h-6" />
       </div>
@@ -357,12 +353,12 @@ function PlanBadge({ plan, active, expiresAt }: { plan: Plan; active: boolean; e
   if (!active) {
     return (
       <span className="inline-flex flex-col gap-0.5">
-        <span className="inline-flex w-fit items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400">
+        <span className="inline-flex w-fit items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400">
           <AlertTriangle className="w-3 h-3" />
           Expired · {plan}
         </span>
         {expiresAt && (
-          <span className="text-[10px] text-red-600/80 dark:text-red-400/80">Ended {fmtDate(expiresAt)}</span>
+          <span className="text-[10px] text-emerald-600/80 dark:text-emerald-400/80">Ended {fmtDate(expiresAt)}</span>
         )}
       </span>
     );
@@ -407,7 +403,7 @@ function ProgressBar({ verified, total, pct }: { verified: number; total: number
         aria-label={`${verified} of ${total} documents verified`}
       >
         <div
-          className={`h-full rounded-full transition-all duration-500 ${done ? 'bg-emerald-500' : 'bg-red-500'}`}
+          className={`h-full rounded-full transition-all duration-500 ${done ? 'bg-emerald-500' : 'bg-emerald-500'}`}
           style={{ width: `${Math.min(100, Math.max(0, pct))}%` }}
         />
       </div>
@@ -431,8 +427,8 @@ const DOC_STATUS: Record<DocStatus, { label: string; icon: typeof Clock; badge: 
   rejected: {
     label: 'Rejected',
     icon: X,
-    badge: 'bg-red-50 text-red-700 dark:bg-red-950/30 dark:text-red-400',
-    row: 'border-red-200 dark:border-red-900/40',
+    badge: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-400',
+    row: 'border-emerald-200 dark:border-emerald-900/40',
   },
   // The gap. Dashed border + muted fill so a missing document cannot be mistaken for
   // a quiet, harmless row — this is the whole point of the detail view.
@@ -456,7 +452,7 @@ function DocStatusBadge({ status }: { status: DocStatus }) {
 
 function FormError({ message }: { message: string }) {
   return (
-    <p className="flex items-start gap-2 text-sm font-medium text-red-600 dark:text-red-400" role="alert">
+    <p className="flex items-start gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400" role="alert">
       <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" /> {message}
     </p>
   );
@@ -744,14 +740,14 @@ function BroadcastModal({
         <CardContent className="p-6 space-y-5">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-950/30 flex items-center justify-center shrink-0">
-                <Mail className="w-5 h-5 text-red-600 dark:text-red-400" />
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 flex items-center justify-center shrink-0">
+                <Mail className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </div>
               <div>
                 <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Email students</h2>
                 <p className="text-xs text-muted-foreground mt-0.5">
                   To <span className="font-semibold text-slate-700 dark:text-slate-300">{audienceLabel}</span>
-                  {count !== null && <> — <span className="font-semibold text-red-600 dark:text-red-400">{count}</span> recipient{count === 1 ? '' : 's'}</>}
+                  {count !== null && <> — <span className="font-semibold text-emerald-600 dark:text-emerald-400">{count}</span> recipient{count === 1 ? '' : 's'}</>}
                 </p>
               </div>
             </div>
@@ -773,7 +769,7 @@ function BroadcastModal({
               onChange={(e) => setMessage(e.target.value)}
               rows={7}
               placeholder="Write your reminder or announcement. Blank lines become paragraphs."
-              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-400 transition-all resize-y"
+              className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/30 focus:border-emerald-400 transition-all resize-y"
             />
             <p className="text-[11px] text-muted-foreground">Sent as a branded MedCounsel email with a plain-text fallback.</p>
           </div>
@@ -810,29 +806,31 @@ function AddStudentForm({
 }: {
   busy: boolean;
   error: string | null;
-  onSubmit: (v: { name: string; email: string; password: string; role: Role; details: Counselling }) => void;
+  onSubmit: (v: { name: string; email: string; password: string; details: Counselling }) => void;
   onCancel: () => void;
 }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState<Role>('student');
   const [details, setDetails] = useState<Counselling>(EMPTY_COUNSELLING);
 
   const set = useCallback((patch: Partial<Counselling>) => setDetails((d) => ({ ...d, ...patch })), []);
 
   return (
-    <Card className="border-red-200 dark:border-red-900/40">
+    <Card className="border-emerald-200 dark:border-emerald-900/40">
       <CardContent className="p-5">
         <form
           className="space-y-6"
           onSubmit={(e) => {
             e.preventDefault();
-            onSubmit({ name: name.trim(), email: email.trim(), password, role, details });
+            onSubmit({ name: name.trim(), email: email.trim(), password, details });
           }}
         >
+          {/* Staff accounts (counsellor/admin) are created from the Staff section of the
+              Admin Dashboard, not here — this form only ever creates students, so there is
+              no role picker to get wrong. */}
           <FormSection title="Account" hint="The only required part. The student signs in with this email and password.">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <Field id="new-name" label="Name *">
                 <Input
                   id="new-name"
@@ -872,22 +870,6 @@ function AddStudentForm({
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Set an initial password"
                 />
-              </Field>
-
-              <Field id="new-role" label="Role">
-                <select
-                  id="new-role"
-                  className={SELECT_CLASS}
-                  value={role}
-                  disabled={busy}
-                  onChange={(e) => setRole(e.target.value as Role)}
-                >
-                  {ROLES.map((r) => (
-                    <option key={r} value={r}>
-                      {r.charAt(0).toUpperCase() + r.slice(1)}
-                    </option>
-                  ))}
-                </select>
               </Field>
             </div>
           </FormSection>
@@ -1201,7 +1183,7 @@ function DetailModal({
         <div className="overflow-y-auto p-5 space-y-5">
           {loading ? (
             <div className="flex items-center justify-center py-16">
-              <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+              <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
             </div>
           ) : error ? (
             <FormError message={error} />
@@ -1294,7 +1276,7 @@ function DetailModal({
                               <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
                                 {d.name}
                                 {d.mandatory && (
-                                  <span className="ml-1.5 text-[10px] font-bold uppercase text-red-600 dark:text-red-400">
+                                  <span className="ml-1.5 text-[10px] font-bold uppercase text-emerald-600 dark:text-emerald-400">
                                     Required
                                   </span>
                                 )}
@@ -1317,7 +1299,7 @@ function DetailModal({
 
                               {/* The admin's own words back to them — why this was refused. */}
                               {d.status === 'rejected' && d.remarks && (
-                                <p className="text-xs text-red-600 dark:text-red-400 mt-1.5">
+                                <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1.5">
                                   <span className="font-semibold">Reason: </span>
                                   {d.remarks}
                                 </p>
@@ -1442,7 +1424,7 @@ export default function AdminStudentsPage() {
    * counsellor loses a walk-in student's details twice.
    */
   const createStudent = useCallback(
-    async (v: { name: string; email: string; password: string; role: Role; details: Counselling }) => {
+    async (v: { name: string; email: string; password: string; details: Counselling }) => {
       setCreating(true);
       setCreateError(null);
       try {
@@ -1450,7 +1432,7 @@ export default function AdminStudentsPage() {
           name: v.name,
           email: v.email,
           password: v.password,
-          role: v.role,
+          role: 'student',
           ...createPayload(v.details),
         });
         setAdding(false);
@@ -1535,7 +1517,7 @@ export default function AdminStudentsPage() {
       <PageHeader
         icon={UsersRound}
         title="Students"
-        description="Everyone with an account, how far they actually are through the document checklist, and the plan an admin has given them."
+        description="Every student account, how far they actually are through the document checklist, and the plan an admin has given them. Staff accounts are managed separately, on the Admin Dashboard."
       >
         {flash && (
           <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
@@ -1584,13 +1566,7 @@ export default function AdminStudentsPage() {
       )}
 
       {/* Tiles. "Awaiting review" is the only actionable one — it links to the queue. */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        <StatCard
-          icon={UsersRound}
-          label="Total users"
-          value={summary?.total ?? '—'}
-          tint="bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400"
-        />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           icon={GraduationCap}
           label="Students"
@@ -1642,7 +1618,7 @@ export default function AdminStudentsPage() {
                 }}
                 className={`inline-flex items-center gap-1.5 rounded-lg px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 ${
                   active
-                    ? 'bg-red-50 text-red-700 dark:bg-red-950/20 dark:text-red-400'
+                    ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400'
                     : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200'
                 }`}
               >
@@ -1676,12 +1652,12 @@ export default function AdminStudentsPage() {
       </div>
 
       {error && (
-        <Card className="border-red-200 dark:border-red-900/40">
+        <Card className="border-emerald-200 dark:border-emerald-900/40">
           <CardContent className="p-4 flex items-start gap-2.5">
-            <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400 mt-0.5 shrink-0" />
+            <AlertTriangle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mt-0.5 shrink-0" />
             <div>
-              <p className="text-sm font-semibold text-red-600 dark:text-red-400">{error}</p>
-              <button onClick={refresh} className="text-xs text-muted-foreground hover:text-red-600 mt-1 font-medium">
+              <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">{error}</p>
+              <button onClick={refresh} className="text-xs text-muted-foreground hover:text-emerald-600 mt-1 font-medium">
                 Try again
               </button>
             </div>
@@ -1691,7 +1667,7 @@ export default function AdminStudentsPage() {
 
       {students === null ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+          <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
         </div>
       ) : error ? null : visible.length === 0 ? (
         <EmptyState
@@ -1733,11 +1709,6 @@ export default function AdminStudentsPage() {
                             <div className="min-w-0">
                               <p className="font-semibold text-slate-800 dark:text-slate-200 truncate">
                                 {s.name}
-                                {s.role === 'admin' && (
-                                  <span className="ml-1.5 inline-flex items-center gap-0.5 text-[10px] font-bold text-red-600 dark:text-red-400 align-middle">
-                                    <Shield className="w-3 h-3" /> Admin
-                                  </span>
-                                )}
                               </p>
                               <p className="text-xs text-muted-foreground truncate">{s.email}</p>
 
@@ -1770,7 +1741,7 @@ export default function AdminStudentsPage() {
                                 </span>
                               )}
                               {s.docsRejected > 0 && (
-                                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-red-600 dark:text-red-400">
+                                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
                                   <X className="w-3 h-3" /> {s.docsRejected} rejected
                                 </span>
                               )}

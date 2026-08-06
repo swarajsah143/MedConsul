@@ -32,6 +32,7 @@ const PLAN: { coll: string; file: string; collegeRef?: 'required' | 'optional' }
   { coll: 'abroadUniversities', file: 'abroadUniversities.json' },
   { coll: 'announcements', file: 'announcements.json' },
   { coll: 'blogs', file: 'blogs.json' },
+  { coll: 'collegeRankings', file: 'collegeRankings.json' },
   { coll: 'checklistDocs', file: 'checklistDocs.json' },
   { coll: 'stateDocs', file: 'stateDocs.json' },
   { coll: 'counsellingQuotas', file: 'counsellingQuotas.json' },

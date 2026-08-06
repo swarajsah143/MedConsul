@@ -1,9 +1,11 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
-import { useCollection } from '@/lib/data-api';
+import { useCollection, type College } from '@/lib/data-api';
+import { matchCollege } from '@/lib/college-search';
 import { Card, CardContent } from '@/components/ui/card';
 import { FadeIn } from '@/components/ui/motion';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   GraduationCap,
@@ -93,7 +95,7 @@ const TYPE_ICONS: Record<string, typeof Bell> = {
 // One accent color, big icons, one line of text — nothing else.
 const FEATURES = [
   { title: 'Colleges', description: 'Browse & compare medical colleges', icon: Star, href: '/colleges', color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-950/40' },
-  { title: 'Closing Ranks', description: 'Check past cutoff ranks', icon: BarChart3, href: '/rank-insights', color: 'text-red-600 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-950/40' },
+  { title: 'Closing Ranks', description: 'Check past cutoff ranks', icon: BarChart3, href: '/rank-insights', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40' },
   { title: 'Fees & Seats', description: 'Compare fees and seat counts', icon: IndianRupee, href: '/fee-matrix', color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/40' },
   { title: 'My Documents', description: 'Track documents you need', icon: ClipboardCheck, href: '/doc-checklist', color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40' },
   { title: 'Counselling Rules', description: 'Eligibility & quota rules explained', icon: BookOpen, href: '/counselling-conditions/eligibility', color: 'text-purple-600 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-950/40' },
@@ -168,10 +170,38 @@ export default function DashboardPage() {
     return 'Good evening';
   }, []);
 
-  const handleSearch = useCallback((e: React.FormEvent) => {
+  // Colleges are fetched lazily (on first focus/submit) and cached, so the dashboard
+  // itself stays light — the full list is only needed to resolve a search.
+  const collegesRef = useRef<College[] | null>(null);
+  const loadColleges = useCallback(async (): Promise<College[]> => {
+    if (collegesRef.current) return collegesRef.current;
+    try {
+      const res = await fetch('/api/data/colleges', { credentials: 'include' });
+      const body = await res.json();
+      const items: College[] = body?.data?.items ?? [];
+      collegesRef.current = items;
+      return items;
+    } catch {
+      return [];
+    }
+  }, []);
+
+  const handleSearch = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    const q = searchQuery.trim().toLowerCase();
-    if (!q) return;
+    const raw = searchQuery.trim();
+    if (!raw) return;
+
+    // 1. If the query names a college (tolerant of partial names + small typos),
+    //    open that college's review directly.
+    const college = matchCollege(raw, await loadColleges());
+    if (college) {
+      navigate(`/colleges/${college.id}`);
+      setSearchQuery('');
+      return;
+    }
+
+    // 2. Otherwise route by topic keyword, defaulting to the AI assistant.
+    const q = raw.toLowerCase();
     const routes: [string[], string][] = [
       [['college', 'review', 'aiims', 'campus'], '/colleges'],
       [['rank', 'cutoff', 'closing', 'score'], '/rank-insights'],
@@ -184,14 +214,13 @@ export default function DashboardPage() {
     const match = routes.find(([keywords]) => keywords.some((kw) => q.includes(kw)));
     navigate(match ? match[1] : '/ai-assistant');
     setSearchQuery('');
-  }, [searchQuery, navigate]);
+  }, [searchQuery, navigate, loadColleges]);
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 pb-12">
       {/* ═══════════════ HEADER: greeting + search ═══════════════ */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="absolute inset-0 gradient-primary" />
-        <div className="relative z-10 p-6 sm:p-8">
+      <HeroBanner>
+        <div className="relative z-10">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
             {greeting}, {firstName}
           </h1>
@@ -200,26 +229,27 @@ export default function DashboardPage() {
           </p>
 
           <form onSubmit={handleSearch} className="mt-5 max-w-xl" role="search">
-            <div className="flex items-center bg-white rounded-xl shadow-lg overflow-hidden">
-              <Search className="w-4.5 h-4.5 text-slate-400 ml-4 shrink-0" aria-hidden="true" />
+            <div className="group flex items-center bg-white rounded-xl shadow-lg overflow-hidden ring-1 ring-transparent transition-all duration-300 hover:shadow-xl focus-within:ring-2 focus-within:ring-white/70 focus-within:shadow-xl">
+              <Search className="w-4.5 h-4.5 text-slate-400 ml-4 shrink-0 transition-colors duration-300 group-focus-within:text-emerald-600" aria-hidden="true" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search colleges, ranks, fees, documents..."
+                onFocus={() => { void loadColleges(); }}
+                placeholder="Search a college to open its review, or ranks, fees, documents..."
                 aria-label="Search MedCounsel AI"
-                className="flex-1 bg-transparent text-slate-900 text-sm placeholder:text-slate-400 px-3 py-3.5 outline-none"
+                className="flex-1 bg-transparent text-slate-900 text-sm placeholder:text-slate-400 px-3 py-3.5 outline-none focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
               />
               <button
                 type="submit"
-                className="shrink-0 m-1.5 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm font-semibold transition-colors"
+                className="shrink-0 m-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-sm font-semibold transition-all duration-200"
               >
                 Search
               </button>
             </div>
           </form>
         </div>
-      </div>
+      </HeroBanner>
 
       {/* ═══════════════ DOCUMENT PROGRESS ═══════════════ */}
       <FadeIn delay={0.05}>
@@ -248,7 +278,7 @@ export default function DashboardPage() {
                     className="h-full rounded-full transition-all duration-700"
                     style={{
                       width: checklistDocs.loading || checklistDocs.error ? '0%' : `${checklistPct}%`,
-                      backgroundColor: checklistPct === 100 ? '#059669' : '#dc2626',
+                      backgroundColor: checklistPct === 100 ? '#059669' : '#059669',
                     }}
                   />
                 </div>
@@ -302,7 +332,7 @@ export default function DashboardPage() {
       <FadeIn delay={0.15}>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Latest updates</h2>
-          <Link to="/announcements" className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline flex items-center gap-1">
+          <Link to="/announcements" className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1">
             See all <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
@@ -310,7 +340,7 @@ export default function DashboardPage() {
           <CardContent className="p-0 divide-y divide-slate-100 dark:divide-slate-800">
             {announcements.loading ? (
               <div className="flex items-center justify-center gap-2.5 p-8">
-                <Loader2 className="w-5 h-5 text-red-600 animate-spin" />
+                <Loader2 className="w-5 h-5 text-emerald-600 animate-spin" />
                 <p className="text-sm text-muted-foreground">Loading latest updates...</p>
               </div>
             ) : announcements.error ? (
@@ -318,7 +348,7 @@ export default function DashboardPage() {
                 <p className="text-sm text-muted-foreground">Could not load the latest updates.</p>
                 <button
                   onClick={announcements.reload}
-                  className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline"
+                  className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
                 >
                   Retry
                 </button>

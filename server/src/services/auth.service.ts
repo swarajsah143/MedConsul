@@ -14,6 +14,9 @@ import { mailService } from './mail.service';
 import { welcomeEmail, resetEmail } from './mail.templates';
 import { env } from '../config/env';
 import crypto from 'crypto';
+import { OAuth2Client } from 'google-auth-library';
+
+const googleClient = env.google.clientId ? new OAuth2Client(env.google.clientId) : null;
 
 export class AuthService {
   async register(name: string, email: string, password: string) {
@@ -48,7 +51,9 @@ export class AuthService {
     if (!email || !password) throw { status: 400, message: 'Email and password are required' };
 
     const user = await UserModel.findByEmail(email);
-    if (!user) throw { status: 401, message: 'Invalid email or password' };
+    // Google-only accounts have no password hash to compare against — comparePassword
+    // would throw on `undefined`, so treat "no password set" the same as "wrong password".
+    if (!user || !user.password) throw { status: 401, message: 'Invalid email or password' };
 
     const valid = await comparePassword(password, user.password);
     if (!valid) throw { status: 401, message: 'Invalid email or password' };
@@ -56,6 +61,61 @@ export class AuthService {
     const payload: JwtPayload = { userId: user.id, email: user.email, role: user.role, plan: effectiveTier(user.plan, user.planExpiresAt) };
     const accessToken = signAccessToken(payload);
     const refreshToken = signRefreshToken(payload);
+
+    await TokenModel.createRefreshToken(user.id, refreshToken, getRefreshTokenExpiry());
+
+    return { user: toSafe(user), accessToken, refreshToken };
+  }
+
+  /**
+   * Verify a Google ID token (from Google Identity Services on the client) and log the
+   * user in — creating an account on first sign-in, or linking Google to a matching
+   * existing email so a second signup never appears for the same person.
+   */
+  async loginWithGoogle(idToken: string) {
+    if (!googleClient) throw { status: 503, message: 'Google sign-in is not configured on this server' };
+    if (!idToken) throw { status: 400, message: 'Google ID token is required' };
+
+    let payload;
+    try {
+      const ticket = await googleClient.verifyIdToken({ idToken, audience: env.google.clientId });
+      payload = ticket.getPayload();
+    } catch {
+      throw { status: 401, message: 'Invalid Google sign-in token' };
+    }
+    if (!payload?.email) throw { status: 401, message: 'Invalid Google sign-in token' };
+    // Google only marks an email verified after the user confirms it — an unverified
+    // email could belong to someone else, so it must not auto-link to an existing account.
+    if (!payload.email_verified) throw { status: 401, message: 'Google account email is not verified' };
+
+    let user = await UserModel.findByGoogleId(payload.sub);
+
+    if (!user) {
+      const existing = await UserModel.findByEmail(payload.email);
+      if (existing) {
+        await UserModel.linkGoogleAccount(existing.id, payload.sub, payload.picture);
+        user = await UserModel.findById(existing.id);
+      } else {
+        // No usable password for a Google-only account — a random hash keeps the
+        // schema's expectations intact (and comparePassword still fails safely against it,
+        // since login() rejects unset passwords before ever reaching it).
+        const randomHash = await hashPassword(crypto.randomBytes(32).toString('hex'));
+        const created = await UserModel.create(
+          payload.name || payload.email.split('@')[0],
+          payload.email,
+          randomHash,
+          'student',
+          { authProvider: 'google', googleId: payload.sub, avatar: payload.picture || '' }
+        );
+        void mailService.send({ to: created.email, ...welcomeEmail(created.name) });
+        user = await UserModel.findById(created.id);
+      }
+    }
+    if (!user) throw { status: 500, message: 'Could not create or find account' };
+
+    const jwtPayload: JwtPayload = { userId: user.id, email: user.email, role: user.role, plan: effectiveTier(user.plan, user.planExpiresAt) };
+    const accessToken = signAccessToken(jwtPayload);
+    const refreshToken = signRefreshToken(jwtPayload);
 
     await TokenModel.createRefreshToken(user.id, refreshToken, getRefreshTokenExpiry());
 
@@ -143,6 +203,11 @@ export class AuthService {
 
   async getProfile(userId: string) {
     const user = await UserModel.findById(userId);
+    if (!user) throw { status: 404, message: 'User not found' };
+    return toSafe(user);
+  }
+  async getProfileEmail(email: string) {
+    const user = await UserModel.findByEmail(email);
     if (!user) throw { status: 404, message: 'User not found' };
     return toSafe(user);
   }

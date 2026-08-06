@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { Link } from 'react-router-dom';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import {
@@ -13,7 +14,7 @@ import {
  */
 
 const FEATURES = [
-  { icon: Target, title: 'Rank Predictor', body: 'Enter your NEET score or rank and see the colleges you can realistically target — matched against real closing ranks.', color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-950/30' },
+  { icon: Target, title: 'Rank Predictor', body: 'Enter your NEET score or rank and see the colleges you can realistically target — matched against real closing ranks.', color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
   { icon: BarChart3, title: 'Closing Rank Insights', body: 'Year-over-year cutoffs across 900+ colleges, by category, quota and round. Find your safe range.', color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/30' },
   { icon: IndianRupee, title: 'Fee & Seat Matrix', body: 'Compare tuition, hostel and total first-year fees with seat counts across government, management and NRI quotas.', color: 'text-amber-600', bg: 'bg-amber-50 dark:bg-amber-950/30' },
   { icon: GraduationCap, title: 'College Reviews', body: 'Detailed profiles — faculty, infrastructure, hospital exposure, hostel and student life — to build a real shortlist.', color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-950/30' },
@@ -67,8 +68,8 @@ export default function LandingPage() {
             <span className="text-lg font-extrabold tracking-tight">MedCounsel AI</span>
           </div>
           <div className="hidden sm:flex items-center gap-2">
-            <Link to="/pricing" className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-red-600 transition-colors">Pricing</Link>
-            <Link to="/login" className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-red-600 transition-colors">Sign in</Link>
+            <Link to="/pricing" className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Pricing</Link>
+            <Link to="/login" className="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">Sign in</Link>
             <Link to="/signup" className="px-4 py-2 rounded-xl gradient-primary text-white text-sm font-semibold shadow-sm hover:shadow-md transition-all">Get started</Link>
             <ThemeToggle />
           </div>
@@ -91,11 +92,11 @@ export default function LandingPage() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-500/10 rounded-full blur-3xl" />
-          <div className="absolute top-40 -left-24 w-96 h-96 bg-rose-400/10 rounded-full blur-3xl" />
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
+          <div className="absolute top-40 -left-24 w-96 h-96 bg-green-400/10 rounded-full blur-3xl" />
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-14 sm:pt-24 sm:pb-20 text-center">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-300 text-xs font-semibold border border-red-100 dark:border-red-900/40">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-semibold border border-emerald-100 dark:border-emerald-900/40">
             <Sparkles className="w-3.5 h-3.5" /> NEET UG 2026 Counselling
           </span>
           <h1 className="mt-5 text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.1]">
@@ -106,10 +107,10 @@ export default function LandingPage() {
             Predict your rank, compare fees, explore college reviews, and track your documents — everything you need for AIQ &amp; state counselling, in one place.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <Link to="/signup" className="w-full sm:w-auto px-7 py-3.5 rounded-xl gradient-primary text-white font-semibold shadow-lg shadow-red-500/25 hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center justify-center gap-2">
+            <Link to="/signup" className="w-full sm:w-auto px-7 py-3.5 rounded-xl gradient-primary text-white font-semibold shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:-translate-y-0.5 transition-all inline-flex items-center justify-center gap-2">
               Create free account <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link to="/login" className="w-full sm:w-auto px-7 py-3.5 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-semibold hover:border-red-300 hover:text-red-600 transition-all">
+            <Link to="/login" className="w-full sm:w-auto px-7 py-3.5 rounded-xl border-2 border-slate-200 dark:border-slate-700 font-semibold hover:border-emerald-300 hover:text-emerald-600 transition-all">
               Sign in
             </Link>
           </div>
@@ -154,14 +155,14 @@ export default function LandingPage() {
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {STEPS.map((s) => (
               <div key={s.n} className="text-center">
-                <div className="w-12 h-12 rounded-2xl gradient-primary text-white font-extrabold text-lg flex items-center justify-center mx-auto shadow-md shadow-red-500/25">{s.n}</div>
+                <div className="w-12 h-12 rounded-2xl gradient-primary text-white font-extrabold text-lg flex items-center justify-center mx-auto shadow-md shadow-emerald-500/25">{s.n}</div>
                 <h3 className="mt-4 font-bold">{s.title}</h3>
                 <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-400">{s.body}</p>
               </div>
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link to="/signup" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl gradient-primary text-white font-semibold shadow-lg shadow-red-500/25 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+            <Link to="/signup" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl gradient-primary text-white font-semibold shadow-lg shadow-emerald-500/25 hover:shadow-xl hover:-translate-y-0.5 transition-all">
               Start free <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -175,7 +176,7 @@ export default function LandingPage() {
           <ul className="mt-6 space-y-3">
             {['All India Quota (MCC) + state counselling', 'MBBS, BDS & AYUSH streams', 'Government, deemed, private & NRI seats', 'General, OBC, SC, ST & EWS categories'].map((t) => (
               <li key={t} className="flex items-start gap-3">
-                <span className="mt-0.5 w-5 h-5 rounded-full bg-red-50 dark:bg-red-950/40 flex items-center justify-center shrink-0"><Check className="w-3.5 h-3.5 text-red-600" /></span>
+                <span className="mt-0.5 w-5 h-5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center shrink-0"><Check className="w-3.5 h-3.5 text-emerald-600" /></span>
                 <span className="text-slate-700 dark:text-slate-300">{t}</span>
               </li>
             ))}
@@ -198,14 +199,13 @@ export default function LandingPage() {
 
       {/* ── Final CTA ── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
-        <div className="rounded-3xl gradient-primary p-10 sm:p-14 text-center text-white relative overflow-hidden">
-          <div className="absolute -top-16 -right-16 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
+        <HeroBanner contentClassName="p-10 sm:p-14 text-center text-white">
           <h2 className="relative text-2xl sm:text-3xl font-extrabold tracking-tight">Ready to plan your admission?</h2>
-          <p className="relative mt-3 text-red-100/90 max-w-xl mx-auto">Join free and turn your NEET rank into a confident college shortlist.</p>
-          <Link to="/signup" className="relative mt-7 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white text-red-600 font-bold shadow-lg hover:-translate-y-0.5 transition-all">
+          <p className="relative mt-3 text-emerald-100/90 max-w-xl mx-auto">Join free and turn your NEET rank into a confident college shortlist.</p>
+          <Link to="/signup" className="relative mt-7 inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white text-emerald-600 font-bold shadow-lg hover:-translate-y-0.5 transition-all">
             Create free account <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </HeroBanner>
       </section>
 
       {/* ── Footer ── */}
@@ -216,11 +216,11 @@ export default function LandingPage() {
             <span className="font-bold">MedCounsel AI</span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-slate-500">
-            <Link to="/pricing" className="hover:text-red-600">Pricing</Link>
-            <Link to="/privacy" className="hover:text-red-600">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-red-600">Terms</Link>
-            <a href="mailto:services@earthlingaidtech.com" className="hover:text-red-600">Contact</a>
-            <Link to="/login" className="hover:text-red-600">Sign in</Link>
+            <Link to="/pricing" className="hover:text-emerald-600">Pricing</Link>
+            <Link to="/privacy" className="hover:text-emerald-600">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-emerald-600">Terms</Link>
+            <a href="mailto:services@earthlingaidtech.com" className="hover:text-emerald-600">Contact</a>
+            <Link to="/login" className="hover:text-emerald-600">Sign in</Link>
           </div>
         </div>
         <p className="text-center text-xs text-slate-400 pb-8 px-4">

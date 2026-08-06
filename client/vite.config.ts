@@ -36,6 +36,9 @@ export default defineConfig(({ mode }) => {
               { name: 'charts', test: /node_modules[\\/](recharts|d3-.*|victory-.*|internmap|robust-predicates|delaunator)[\\/]/ },
               { name: 'motion', test: /node_modules[\\/](framer-motion|motion-dom|motion-utils)[\\/]/ },
               { name: 'icons', test: /node_modules[\\/]lucide-react[\\/]/ },
+              // India state-map path data (~75 KB gz) — only the Allotment Mapping page pulls it,
+              // and it never changes, so keep it in its own long-cached chunk.
+              { name: 'state-maps', test: /node_modules[\\/]@svg-maps[\\/]/ },
             ],
           },
         },

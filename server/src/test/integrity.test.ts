@@ -209,18 +209,33 @@ async function main() {
     `${distinctRefresh.size} distinct of ${refreshCookies.length}`
   );
 
-  // ── 8. derived fields are recomputed on write ───────────────────────
-  const feeRow = (await api('/api/admin/resources/fees?limit=1')).body.data.items[0];
+  // ── 8. a partial edit PRESERVES the sourced totalFirstYear ──────────
+  //
+  // This used to assert the opposite — that totalFirstYear was recomputed from its components on
+  // every write. That derive was deliberately REMOVED (see the note on the fees schema in
+  // collections.ts): FRA/KEA notify a first-year total that bundles charges the row does not
+  // itemise, so recomputing it as tuition+hostel+misc+deposit silently discarded the authoritative
+  // figure on 58 of 182 sourced rows. The test outlived the behaviour it was written for and had
+  // been failing ever since; it now guards the invariant that actually matters.
+  //
+  // Pick a row that HAS a total — ?limit=1 returned whichever row sorted first, and ~429 rows carry
+  // no totalFirstYear at all, so the old fixture was often `undefined` before the PUT even ran.
+  const feeList = (await api('/api/admin/resources/fees?limit=200')).body.data.items;
+  const feeRow = feeList.find((r: any) => r.totalFirstYear != null) ?? feeList[0];
   const patched = await api(`/api/admin/resources/fees/${feeRow.id}`, {
     method: 'PUT',
     body: JSON.stringify({ tuitionFee: 123456 }),
   });
   const f = patched.body?.data?.item;
-  const sum = (f?.tuitionFee ?? 0) + (f?.hostelFee ?? 0) + (f?.miscCharges ?? 0) + (f?.securityDeposit ?? 0);
   check(
-    'editing only the tuition fee recomputes totalFirstYear',
-    f?.totalFirstYear === sum,
-    `totalFirstYear=${f?.totalFirstYear} but components sum to ${sum}`
+    'editing only the tuition fee PRESERVES the sourced totalFirstYear',
+    f?.totalFirstYear === feeRow.totalFirstYear,
+    `totalFirstYear was ${feeRow.totalFirstYear} before the edit and ${f?.totalFirstYear} after`
+  );
+  check(
+    'the field that WAS edited did change',
+    f?.tuitionFee === 123456,
+    `tuitionFee=${f?.tuitionFee}`
   );
   // put it back
   await api(`/api/admin/resources/fees/${feeRow.id}`, {

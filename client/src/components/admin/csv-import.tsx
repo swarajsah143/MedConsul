@@ -374,7 +374,7 @@ export function CsvImport(props: {
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="text-lg font-extrabold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-            <FileSpreadsheet className="w-5 h-5 text-red-600 dark:text-red-400" />
+            <FileSpreadsheet className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
             Import {schema.labelPlural}
           </h2>
           <p className="text-xs text-muted-foreground mt-0.5">
@@ -414,7 +414,7 @@ export function CsvImport(props: {
                 setServerErrors([]);
                 setMessage(null);
               }}
-              className="text-xs font-semibold text-red-600 dark:text-red-400 hover:underline"
+              className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
             >
               Clear
             </button>
@@ -527,7 +527,7 @@ export function CsvImport(props: {
                   {parsed.columns.map((f) => (
                     <th key={f.name} className="px-3 py-2.5 whitespace-nowrap">
                       {f.label}
-                      {f.required && <span className="text-red-500 ml-0.5">*</span>}
+                      {f.required && <span className="text-emerald-500 ml-0.5">*</span>}
                     </th>
                   ))}
                 </tr>
@@ -556,7 +556,7 @@ export function CsvImport(props: {
             type="checkbox"
             checked={replace}
             onChange={(e) => setReplace(e.target.checked)}
-            className="mt-0.5 h-4 w-4 rounded border-slate-300 dark:border-slate-600 accent-red-600 cursor-pointer"
+            className="mt-0.5 h-4 w-4 rounded border-slate-300 dark:border-slate-600 accent-emerald-600 cursor-pointer"
           />
           <span>
             <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">
@@ -611,8 +611,8 @@ function Callout({
 }) {
   const styles = {
     error: {
-      box: 'border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20',
-      text: 'text-red-700 dark:text-red-400',
+      box: 'border-emerald-200 dark:border-emerald-900/40 bg-emerald-50 dark:bg-emerald-950/20',
+      text: 'text-emerald-700 dark:text-emerald-400',
       Icon: AlertTriangle,
     },
     warning: {

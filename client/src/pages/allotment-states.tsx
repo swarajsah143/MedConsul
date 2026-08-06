@@ -1,19 +1,20 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useLayoutEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePaged, useFacets, type Paged } from '@/lib/data-api';
 import type { AllotmentEntry } from '@/lib/allotment-data';
+import { stateMap, INDIA_VIEWBOX } from '@/lib/state-maps';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Pagination } from '@/components/ui/pagination';
 import { EmptyState } from '@/components/ui/empty-state';
+import { HeroBanner } from '@/components/ui/hero-banner';
 import { motion } from 'framer-motion';
 import {
   Search,
   ChevronRight,
   Sparkles,
   MapPin,
-  Star,
   Globe,
   Hash,
   ArrowRight,
@@ -35,7 +36,7 @@ const GRADIENT_COLORS = [
   'from-purple-500 to-violet-500',
   'from-amber-500 to-orange-500',
   'from-cyan-500 to-blue-500',
-  'from-rose-500 to-pink-500',
+  'from-green-500 to-pink-500',
   'from-indigo-500 to-purple-500',
   'from-teal-500 to-emerald-500',
 ];
@@ -46,14 +47,14 @@ const ICON_BG_COLORS = [
   'bg-purple-100 dark:bg-purple-950/40',
   'bg-amber-100 dark:bg-amber-950/40',
   'bg-cyan-100 dark:bg-cyan-950/40',
-  'bg-rose-100 dark:bg-rose-950/40',
+  'bg-green-100 dark:bg-green-950/40',
   'bg-indigo-100 dark:bg-indigo-950/40',
   'bg-teal-100 dark:bg-teal-950/40',
 ];
 
 const ICON_TEXT_COLORS = [
   'text-blue-600', 'text-emerald-600', 'text-purple-600', 'text-amber-600',
-  'text-cyan-600', 'text-rose-600', 'text-indigo-600', 'text-teal-600',
+  'text-cyan-600', 'text-green-600', 'text-indigo-600', 'text-teal-600',
 ];
 
 const CATEGORY_STYLES: Record<string, { gradient: string; bg: string; text: string; glow: string }> = {
@@ -75,6 +76,43 @@ const RANK_RESULTS_PER_PAGE = 15;
 // it an impossible range (min > max) that returns nothing rather than a stray page of all rows.
 const NO_SEARCH_PARAMS = { limit: 1, allIndiaRank_min: '2', allIndiaRank_max: '1' };
 
+/** A single state's map outline, cropped to fill its icon box. */
+const mapViewBoxCache = new Map<string, string>();
+
+function StateMapIcon({ path, className }: { path: string; className?: string }) {
+  const pathRef = useRef<SVGPathElement>(null);
+  const [viewBox, setViewBox] = useState<string | undefined>(() => mapViewBoxCache.get(path));
+
+  // Every state path is drawn in the same India viewBox, so on its own it renders tiny and
+  // off-centre. getBBox gives the path's real geometry box (independent of render size), which
+  // we use to crop the viewBox down to just this state. useLayoutEffect runs before paint, so
+  // there's no visible jump; the result is cached so repeat mounts are correct on first render.
+  useLayoutEffect(() => {
+    if (viewBox || !pathRef.current) return;
+    try {
+      const b = pathRef.current.getBBox();
+      if (!b || (!b.width && !b.height)) return;
+      const pad = Math.max(b.width, b.height) * 0.1 || 1;
+      const vb = `${b.x - pad} ${b.y - pad} ${b.width + pad * 2} ${b.height + pad * 2}`;
+      mapViewBoxCache.set(path, vb);
+      setViewBox(vb);
+    } catch {
+      /* getBBox unsupported (e.g. jsdom in tests) — fall back to the full-India viewBox */
+    }
+  }, [path, viewBox]);
+
+  return (
+    <svg
+      viewBox={viewBox ?? INDIA_VIEWBOX}
+      className={className}
+      preserveAspectRatio="xMidYMid meet"
+      aria-hidden="true"
+    >
+      <path ref={pathRef} d={path} fill="currentColor" />
+    </svg>
+  );
+}
+
 export default function AllotmentStatesPage() {
   const navigate = useNavigate();
 
@@ -93,14 +131,30 @@ export default function AllotmentStatesPage() {
   const [rankCategory, setRankCategory] = useState('All');
   const [rankRound, setRankRound] = useState('All');
 
-  // Counselling list (state grid) + filter-pill options come from the whole collection, on the
-  // server — no rows are shipped just to derive them. A counselling with no rows is not offered.
-  const { facets } = useFacets('allotments', ['counselling', 'category', 'round']);
-  const counsellings = (facets.counselling as string[]) ?? [];
+  // State list (state grid) + filter-pill options come from the whole collection, on the server —
+  // no rows are shipped just to derive them. A state with no rows is not offered.
+  const { facets } = useFacets('allotments', ['state', 'category', 'round']);
   const filterOptions = {
     categories: (facets.category as string[]) ?? [],
     rounds: (facets.round as number[]) ?? [],
   };
+
+  // Deduplicate the raw state values onto their canonical map name (the data carries a couple of
+  // variants, e.g. "Andaman Nicobar Islands" vs "Andaman and Nicobar Islands"), attach each
+  // state's map outline, and sort alphabetically. `query` is the exact value we filter rows by.
+  const stateList = useMemo(() => {
+    const rawStates = (facets.state as string[]) ?? [];
+    const seen = new Map<string, { name: string; path?: string; query: string }>();
+    for (const raw of rawStates) {
+      const m = stateMap(raw);
+      const name = m?.name ?? raw;
+      const existing = seen.get(name);
+      if (!existing) seen.set(name, { name, path: m?.path, query: raw });
+      // Prefer the variant that exactly matches the canonical name — fewer missed rows.
+      else if (raw === name) existing.query = raw;
+    }
+    return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name));
+  }, [facets.state]);
 
   // Existence / load status (also gives the error path that facets swallows).
   const { total: anyTotal, loading: existLoading, error: existError } = usePaged('allotments', { limit: 1 });
@@ -127,16 +181,14 @@ export default function AllotmentStatesPage() {
   }: Paged<AllotmentEntry> = usePaged<AllotmentEntry>('allotments', rankParams);
   const searching = rankLoading && !!searchedRank;
 
-  // Counselling list comes from the allotments actually loaded — a counselling with no rows is
-  // not offered, so nobody clicks through to an empty table.
   const filteredStates = useMemo(() => {
-    if (!stateSearch) return counsellings;
+    if (!stateSearch) return stateList;
     const q = stateSearch.toLowerCase();
-    return counsellings.filter((s) => s.toLowerCase().includes(q));
-  }, [counsellings, stateSearch]);
+    return stateList.filter((s) => s.name.toLowerCase().includes(q));
+  }, [stateList, stateSearch]);
 
-  const handleSelectState = (state: string) => {
-    navigate(`/allotment/${encodeURIComponent(state)}`);
+  const handleSelectState = (query: string) => {
+    navigate(`/allotment/state/${encodeURIComponent(query)}`);
   };
 
   const handleRankSearch = () => {
@@ -151,7 +203,7 @@ export default function AllotmentStatesPage() {
   if (existLoading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-red-600" />
+        <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
       </div>
     );
   }
@@ -174,20 +226,16 @@ export default function AllotmentStatesPage() {
   if (anyTotal === 0) {
     return (
       <div className="space-y-6 pb-10 page-enter">
-        <div className="relative rounded-2xl overflow-hidden">
-          <div className="gradient-primary p-6 sm:p-8 lg:p-10">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+        <HeroBanner>
             <div className="relative z-10 space-y-3">
               <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
                 Allotment Mapping
               </h1>
-              <p className="text-red-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
+              <p className="text-emerald-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
                 Find which colleges you can get based on your NEET rank.
               </p>
             </div>
-          </div>
-        </div>
+        </HeroBanner>
         <EmptyState
           icon={Database}
           title="No allotment data yet"
@@ -200,12 +248,7 @@ export default function AllotmentStatesPage() {
   return (
     <div className="space-y-6 pb-10 page-enter">
       {/* Hero */}
-      <div className="relative rounded-2xl overflow-hidden">
-        <div className="gradient-primary p-6 sm:p-8 lg:p-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
-          <div className="absolute top-1/2 right-1/3 w-32 h-32 bg-rose-400/10 rounded-full blur-2xl" />
-
+      <HeroBanner>
           <div className="relative z-10 space-y-3">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
               <Sparkles className="w-3.5 h-3.5" /> Live Data
@@ -213,12 +256,11 @@ export default function AllotmentStatesPage() {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
               Allotment Mapping
             </h1>
-            <p className="text-red-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
+            <p className="text-emerald-100/90 text-sm sm:text-base max-w-xl leading-relaxed">
               Find which colleges you can get based on your NEET rank. Search by state or enter your rank directly.
             </p>
           </div>
-        </div>
-      </div>
+      </HeroBanner>
 
       {/* Mode Toggle */}
       <div className="flex justify-center">
@@ -227,7 +269,7 @@ export default function AllotmentStatesPage() {
             onClick={() => setMode('state')}
             className={`flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
               mode === 'state'
-                ? 'gradient-primary text-white shadow-lg shadow-red-500/25 scale-[1.02]'
+                ? 'gradient-primary text-white shadow-lg shadow-emerald-500/25 scale-[1.02]'
                 : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-700/50'
             }`}
           >
@@ -238,7 +280,7 @@ export default function AllotmentStatesPage() {
             onClick={() => setMode('rank')}
             className={`flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
               mode === 'rank'
-                ? 'gradient-primary text-white shadow-lg shadow-red-500/25 scale-[1.02]'
+                ? 'gradient-primary text-white shadow-lg shadow-emerald-500/25 scale-[1.02]'
                 : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 hover:bg-white/50 dark:hover:bg-slate-700/50'
             }`}
           >
@@ -253,7 +295,7 @@ export default function AllotmentStatesPage() {
         <div className="space-y-6">
           {/* Search */}
           <Card className="overflow-hidden border-0 shadow-lg">
-            <div className="h-1 bg-gradient-to-r from-red-500 via-rose-500 to-red-400" />
+            <div className="h-1 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400" />
             <CardContent className="p-4 sm:p-5">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
@@ -261,7 +303,7 @@ export default function AllotmentStatesPage() {
                   placeholder="Search states or union territories..."
                   value={stateSearch}
                   onChange={(e) => setStateSearch(e.target.value)}
-                  className="pl-12 h-13 text-base rounded-xl border-slate-200 focus:border-red-400 focus:shadow-lg transition-all duration-200"
+                  className="pl-12 h-13 text-base rounded-xl border-slate-200 focus:border-emerald-400 focus:shadow-lg transition-all duration-200"
                 />
                 {stateSearch && (
                   <button
@@ -280,40 +322,15 @@ export default function AllotmentStatesPage() {
             <span className="font-bold text-slate-800 dark:text-slate-200">{filteredStates.length}</span> state{filteredStates.length !== 1 ? 's' : ''} found
           </p>
 
-          {/* All India Quota - MCC (always first if visible) */}
-          {filteredStates.includes('All India Quota - MCC') && (
-            <button onClick={() => handleSelectState('All India Quota - MCC')} className="group w-full text-left">
-              <Card className="overflow-hidden border-2 border-red-200 dark:border-red-900/40 bg-gradient-to-r from-red-50 via-rose-50 to-white dark:from-red-950/20 dark:via-rose-950/10 dark:to-slate-900 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-                <CardContent className="p-5 sm:p-6">
-                  <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center shrink-0 shadow-lg shadow-red-500/25 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                      <Star className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-base sm:text-lg font-extrabold text-red-700 dark:text-red-400 group-hover:text-red-600 transition-colors">
-                        All India Quota - MCC
-                      </h3>
-                      <p className="text-xs text-red-500/80 dark:text-red-400/60 mt-0.5">National level counselling across all AIIMS, JIPMER & top government colleges</p>
-                    </div>
-                    <div className="shrink-0 w-10 h-10 rounded-full bg-red-100 dark:bg-red-950/40 flex items-center justify-center text-red-600 transition-all duration-300 group-hover:translate-x-1 group-hover:bg-red-200">
-                      <ChevronRight className="w-5 h-5" />
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </button>
-          )}
-
-          {/* State Grid */}
+          {/* State Grid — every state alphabetically, each with its own map outline */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {filteredStates
-              .filter((s) => s !== 'All India Quota - MCC')
-              .map((state, idx) => {
+              .map((st, idx) => {
                 const colorIdx = idx % GRADIENT_COLORS.length;
                 return (
                   <button
-                    key={state}
-                    onClick={() => handleSelectState(state)}
+                    key={st.name}
+                    onClick={() => handleSelectState(st.query)}
                     className="group text-left w-full"
                   >
                     <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-transparent hover:border-slate-200 dark:hover:border-slate-700 relative">
@@ -321,14 +338,21 @@ export default function AllotmentStatesPage() {
                       <CardContent className="p-4 sm:p-5">
                         <div className="flex items-center gap-4">
                           <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md ${ICON_BG_COLORS[colorIdx]}`}>
-                            <Globe className={`w-5 h-5 ${ICON_TEXT_COLORS[colorIdx]} transition-transform duration-300 group-hover:rotate-12`} />
+                            {st.path ? (
+                              <StateMapIcon
+                                path={st.path}
+                                className={`w-6 h-6 ${ICON_TEXT_COLORS[colorIdx]} transition-transform duration-300 group-hover:scale-110`}
+                              />
+                            ) : (
+                              <Globe className={`w-5 h-5 ${ICON_TEXT_COLORS[colorIdx]} transition-transform duration-300 group-hover:rotate-12`} />
+                            )}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
-                              {state}
+                            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200">
+                              {st.name}
                             </h3>
                           </div>
-                          <div className="shrink-0 w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-red-50 group-hover:text-red-600 dark:group-hover:bg-red-950/30 transition-all duration-300 group-hover:translate-x-0.5">
+                          <div className="shrink-0 w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-emerald-50 group-hover:text-emerald-600 dark:group-hover:bg-emerald-950/30 transition-all duration-300 group-hover:translate-x-0.5">
                             <ChevronRight className="w-4 h-4" />
                           </div>
                         </div>
@@ -607,9 +631,9 @@ export default function AllotmentStatesPage() {
                   icon: TrendingUp,
                   title: 'Plan Your Choices',
                   description: 'Compare allotments across categories and rounds to make an informed choice list.',
-                  gradient: 'from-pink-500 to-rose-600',
+                  gradient: 'from-pink-500 to-green-600',
                   glow: 'shadow-pink-500/20',
-                  bg: 'bg-gradient-to-br from-pink-50 to-rose-50/50 dark:from-pink-950/30 dark:to-rose-950/20',
+                  bg: 'bg-gradient-to-br from-pink-50 to-green-50/50 dark:from-pink-950/30 dark:to-green-950/20',
                 },
               ].map((step, idx) => (
                 <motion.div

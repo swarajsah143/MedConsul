@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { googleLogout } from '@react-oauth/google';
 import { api, markLoggedOut, clearLoggedOut } from '@/lib/api';
 
 export interface AuthUser {
@@ -16,7 +17,8 @@ interface AuthContextType {
   user: AuthUser | null;
   isLoading: boolean;
   isAuthenticated: boolean;
-  login: (email: string, password: string, remember?: boolean) => Promise<void>;
+  login: (email: string, password: string, remember?: boolean) => Promise<AuthUser>;
+  loginWithGoogle: (idToken: string) => Promise<AuthUser>;
   register: (name: string, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   forgotPassword: (email: string) => Promise<{ message: string; resetToken?: string }>;
@@ -90,9 +92,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (remember) localStorage.setItem('rememberEmail', email);
       else localStorage.removeItem('rememberEmail');
       setUser(res.data.user);
-    } else {
-      throw { message: res.message || 'Login failed' };
+      return res.data.user as AuthUser;
     }
+    throw { message: res.message || 'Login failed' };
+  }, []);
+
+  const loginWithGoogle = useCallback(async (idToken: string) => {
+    clearLoggedOut();
+    const res = await api.post('/auth/google', { idToken });
+    if (res.success && res.data) {
+      localStorage.setItem('accessToken', res.data.accessToken);
+      setUser(res.data.user);
+      return res.data.user as AuthUser;
+    }
+    throw { message: res.message || 'Google sign-in failed' };
   }, []);
 
   const register = useCallback(async (name: string, email: string, password: string) => {
@@ -116,6 +129,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
     // 4. Invalidate server session (fire and forget, don't block UI)
     fetch('/api/auth/logout', { method: 'POST', credentials: 'include' }).catch(() => {});
+    // 5. Drop Google's client-side auto-select session so the next visit doesn't
+    // silently re-sign the same Google account back in via One Tap.
+    googleLogout();
   }, []);
 
   const forgotPassword = useCallback(async (email: string) => {
@@ -136,6 +152,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         isLoading,
         isAuthenticated: !!user,
         login,
+        loginWithGoogle,
         register,
         logout,
         forgotPassword,

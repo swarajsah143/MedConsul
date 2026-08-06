@@ -128,9 +128,17 @@ const RAG_SYSTEM_PROMPT = `You are MedAssist, an expert AI counselling assistant
 - Total MBBS seats in India: ~1,10,000 (Govt ~55,000 + Private ~55,000)
 - NEET UG max score: 720`;
 
-export async function buildContextPrompt(query: string): Promise<{ systemPrompt: string; intent: Intent; chunks: RetrievedChunk[] }> {
+/**
+ * `params` is forwarded verbatim to every retrieval source. Today it carries `domicile` (the
+ * asker's home state) so the fee source can drop state-quota seats they are not eligible for
+ * before answering "cheapest college in X" — see DbFeeSource in ./db-sources.
+ */
+export async function buildContextPrompt(
+  query: string,
+  params: Record<string, string> = {},
+): Promise<{ systemPrompt: string; intent: Intent; chunks: RetrievedChunk[] }> {
   const intent = classifyIntent(query);
-  const chunks = await retrieve(query);
+  const chunks = await retrieve(query, params);
 
   let contextSection = '';
 

@@ -12,7 +12,7 @@
  * 1. COLOR PALETTE
  * ────────────────────────────────────────────────────────────────────
  *
- * Primary brand: Crimson red (#dc2626 / red-600).
+ * Primary brand: Crimson red (#059669 / emerald-600).
  * Used sparingly — hero gradients, active states, primary CTAs.
  * Everything else is neutral. Let content breathe.
  *
@@ -104,7 +104,7 @@
  *   - Cards have shadow-sm at rest, shadow-lg on hover.
  *   - Never use shadow-md — skip from sm to lg for perceptible change.
  *   - Modals use shadow-2xl + backdrop blur.
- *   - Use colored shadows sparingly: shadow-red-500/25 on primary CTAs only.
+ *   - Use colored shadows sparingly: shadow-emerald-500/25 on primary CTAs only.
  *   - Dark mode: shadows are invisible; rely on border contrast instead.
  *
  *
@@ -209,7 +209,7 @@
  *
  * Secondary / outline:
  *   border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800
- *   hover:border-red-300 hover:text-red-600 transition-all duration-200
+ *   hover:border-emerald-300 hover:text-emerald-600 transition-all duration-200
  *   rounded-xl h-11 px-6 font-semibold
  *
  * Ghost:
@@ -219,7 +219,7 @@
  * Pill toggle (filter buttons):
  *   px-4 py-2 rounded-full text-xs font-semibold border-2
  *   Active: gradient-primary text-white border-transparent shadow-md
- *   Inactive: border-slate-200 bg-white hover:border-red-300
+ *   Inactive: border-slate-200 bg-white hover:border-emerald-300
  *   hover:scale-[1.03] active:scale-[0.97]
  *
  * Icon button:
@@ -277,17 +277,17 @@
  *   2. Shadow increases: shadow-sm → shadow-lg
  *   3. Accent bar:       opacity 0 → 1 (gradient at top)
  *   4. Icon scales:      scale-110
- *   5. Title color:      slate-900 → red-600
+ *   5. Title color:      slate-900 → emerald-600
  *   6. CTA slides in:    opacity 0 + translateX(8px) → visible
  *   7. Chevron moves:    translateX(2px)
  *
  * Table rows:
- *   bg-red-50/30 dark:bg-red-950/10 (subtle tint, no lift)
- *   Name text → red-600 on hover
- *   Chevron → red-600 + translateX(2px)
+ *   bg-emerald-50/30 dark:bg-emerald-950/10 (subtle tint, no lift)
+ *   Name text → emerald-600 on hover
+ *   Chevron → emerald-600 + translateX(2px)
  *
  * Nav items:
- *   bg-slate-50 on hover, bg-red-50 + text-red-700 when active.
+ *   bg-slate-50 on hover, bg-emerald-50 + text-emerald-700 when active.
  *   No scale. No shadow. Just color.
  *
  * Buttons:
@@ -359,9 +359,9 @@
  * Size: text-[10px] font-bold px-2 py-0.5 rounded-full
  *
  * Filter tag (removable):
- *   bg-red-50 text-red-700 border border-red-200 rounded-full
+ *   bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full
  *   text-[11px] font-semibold px-2.5 py-1
- *   X button: w-3.5 h-3.5 rounded-full hover:bg-red-200
+ *   X button: w-3.5 h-3.5 rounded-full hover:bg-emerald-200
  *
  *
  * 15. HERO BANNER PATTERN
@@ -376,14 +376,14 @@
  *       <div className="relative z-10">
  *         <Badge />  — bg-white/15 backdrop-blur-sm rounded-full
  *         <h1 />     — text-2xl sm:text-3xl font-extrabold text-white
- *         <p />      — text-red-100/90 text-sm max-w-xl
+ *         <p />      — text-emerald-100/90 text-sm max-w-xl
  *       </div>
  *     </div>
  *   </div>
  *
  * Rules:
  *   - Every page has a hero banner at the top.
- *   - Gradient is always gradient-primary (red-600 → rose-500).
+ *   - Gradient is always gradient-primary (emerald-600 → green-500).
  *   - 2-3 decorative blur circles (bg-white/5, blur-3xl).
  *   - Badge pill at top. Title below. Description below. Actions on the right.
  *   - Hero content is always z-10 (above decorative elements).

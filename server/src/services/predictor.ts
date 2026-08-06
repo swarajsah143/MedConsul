@@ -70,6 +70,15 @@ export interface PredictInput {
   limit?: number;
 }
 
+/**
+ * Where a cutoff came from. Every match is currently built from the `closingRanks`
+ * collection (see the module notes above) — the official published cutoff dataset —
+ * never from raw `allotments` rows, so today this is always 'official'. The second
+ * value is reserved for if the predictor is ever extended to also match against
+ * allotments directly.
+ */
+export type MatchSource = 'official' | 'derived_from_allotments';
+
 export interface Match {
   collegeId: string;
   college: string;
@@ -82,6 +91,7 @@ export interface Match {
   year: number;
   closingRank: number;
   chance: Chance;
+  source: MatchSource;
 }
 
 export interface Prediction {
@@ -131,6 +141,20 @@ export function estimateAIR(marks: number, table: Band[]): { point: number; lo: 
   if (band) {
     return { point: interpolateRank(marks, table)!, lo: band.rankMin, hi: band.rankMax };
   }
+
+  // ABOVE the top of the curve. A year's curve only reaches as high as that year's best score,
+  // and that moves: 2025's topper scored 686 where 2024's scored 720. So 690 against the 2025
+  // curve is not "off the chart" in the sense of being un-rankable — it is better than the chart's
+  // best score, i.e. rank 1 of that curve.
+  //
+  // The linear fallback below is only meaningful UNDERNEATH the curve. Applied above it, it put
+  // 690 marks at AIR 100,000 and 700 marks at 66,667 — worse than the AIR 1 it gave 686, so a
+  // higher score returned a worse rank and a shortlist with every top college missing.
+  // `table` is sorted descending by marksMin (see loadBands), so table[0] is the top band.
+  if (table.length && marks > table[0].marksMax) {
+    return { point: 1, lo: 1, hi: table[0].rankMin };
+  }
+
   // Below the lowest band (or no curve for this year at all): fall back to a crude linear
   // spread over the whole candidate pool rather than refusing to answer.
   const f = Math.max(1, Math.round(TOTAL_CANDIDATES * (1 - marks / TOTAL_MARKS)));
@@ -155,6 +179,40 @@ export function categoryRankOf(air: number, category: string, factors: Map<strin
  * The ratio is the college's closing rank over the student's rank, so >1 means the cutoff
  * is more lenient than they need — the further above 1, the safer.
  */
+/**
+ * Cut a shortlist down to `limit` FAIRLY ACROSS THE FOUR BANDS, not off the end of the list.
+ *
+ * The list is sorted by closing rank ascending, so the toughest colleges come first and the
+ * safest last. A plain `.slice(0, limit)` therefore returns Good/Reach/Tough only: at AIR 10,000
+ * the summary said "605 Safe" and then showed the student not one of them.
+ *
+ * We round-robin one college at a time from each band, so every band that has any members is
+ * represented even at limit = 10, and each band contributes its HARDEST members first — which is
+ * what a student actually wants, the best college that is still a safe bet. The result is then
+ * re-filtered through the original array so the caller still gets it hardest-cutoff-first.
+ *
+ * This lives here, exported, because the free-plan gate in predict.routes.ts has to cut the same
+ * list again. It used to do that with a plain slice, which quietly reinstated the exact bug this
+ * function exists to prevent — for every anonymous visitor, which is most of them.
+ */
+export function takeAcrossBands(matches: Match[], limit: number): Match[] {
+  if (matches.length <= limit) return matches;
+  const buckets: Record<Chance, Match[]> = { Safe: [], Good: [], Reach: [], Tough: [] };
+  for (const m of matches) buckets[m.chance].push(m);
+
+  const keep = new Set<Match>();
+  const order: Chance[] = ['Safe', 'Good', 'Reach', 'Tough'];
+  const deepest = Math.max(...order.map((b) => buckets[b].length));
+  for (let i = 0; i < deepest && keep.size < limit; i++) {
+    for (const b of order) {
+      const m = buckets[b][i];
+      if (m) keep.add(m);
+      if (keep.size === limit) break;
+    }
+  }
+  return matches.filter((m) => keep.has(m));
+}
+
 export function chanceOf(userRank: number, closingRank: number): Chance {
   const ratio = closingRank / userRank;
   if (ratio >= 2) return 'Safe';
@@ -266,22 +324,13 @@ export async function predict(input: PredictInput): Promise<Prediction> {
       year: x.r.year,
       closingRank: x.r.closingRank,
       chance,
+      // Always 'official': this row came from closingRanks, not allotments — see MatchSource.
+      source: 'official',
     };
   });
 
   const limit = Math.min(Math.max(4, input.limit ?? 200), 500);
-
-  // Truncate FAIRLY ACROSS THE FOUR BANDS, not off the end of the sorted list.
-  //
-  // The list is sorted by closing rank ascending, so the toughest colleges come first and
-  // the safest last. A plain .slice(0, 200) therefore returned Good/Reach/Tough only: at
-  // AIR 10,000 the summary said "542 Safe" and then showed the student not one of them.
-  //
-  // Taking the first N of each band keeps that band's HARDEST members, which is what a
-  // student actually wants — the best college that is still a safe bet.
-  const perBand = Math.ceil(limit / 4);
-  const taken: Record<Chance, number> = { Safe: 0, Good: 0, Reach: 0, Tough: 0 };
-  const page = matches.filter((m) => taken[m.chance]++ < perBand);
+  const page = takeAcrossBands(matches, limit);
 
   return {
     mode,

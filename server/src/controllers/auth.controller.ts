@@ -63,6 +63,24 @@ export const authController = {
     }
   },
 
+  async google(req: Request, res: Response) {
+    try {
+      const { idToken } = req.body;
+      const result = await authService.loginWithGoogle(idToken);
+      setRefreshCookie(res, result.refreshToken);
+      res.json({
+        success: true,
+        message: 'Login successful',
+        data: { user: result.user, accessToken: result.accessToken },
+      });
+    } catch (err: any) {
+      res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Google sign-in failed',
+      });
+    }
+  },
+
   async refresh(req: Request, res: Response) {
     try {
       const token = req.cookies?.refreshToken || req.body?.refreshToken;
@@ -97,12 +115,18 @@ export const authController = {
   async forgotPassword(req: Request, res: Response) {
     try {
       const { email } = req.body;
+
+      const user = await authService.getProfileEmail(email);
+      
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
       const result = await authService.forgotPassword(email);
       // In dev mode include resetToken in response for testing
       const data: any = { message: result.message };
-      if (process.env.NODE_ENV !== 'production' && result.resetToken) {
-        data.resetToken = result.resetToken;
-      }
+      // if (process.env.NODE_ENV !== 'production' && result.resetToken) {
+      //   data.resetToken = result.resetToken;
+      // }
       res.json({ success: true, ...data });
     } catch (err: any) {
       console.error("LOGIN ERROR:", err); res.status(err.status || 500).json({

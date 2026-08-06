@@ -59,6 +59,12 @@ initializeDatabase();
 // Start server immediately, connect MongoDB in background
 app.listen(env.port, () => {
   console.log(`\n  MedCounsel AI Server running on http://localhost:${env.port}\n`);
+  // Nudge contributors who cloned the repo without an AI key. The chatbot still works
+  // (keyless offline fallback), but a free Groq key unlocks the conversational answers.
+  if (!process.env.AI_API_KEY) {
+    console.log('  MedAssist AI: AI_API_KEY not set — running the keyless offline fallback.');
+    console.log('  Add a free Groq key to .env for full ChatGPT-style answers (see .env.example).\n');
+  }
 });
 
 connectDatabase().catch((err) => {
