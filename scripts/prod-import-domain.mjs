@@ -35,6 +35,7 @@ const CONFIRM = process.argv.includes('--confirm');
 const PAYLOAD = process.argv[2];
 const ENV_PATH = '/opt/medconsul/.env';
 const NAT_KEY = ['collegeId', 'year', 'round', 'course', 'category', 'quota'];
+const FEE_KEY = ['collegeId', 'course', 'category', 'quota'];
 
 if (!PAYLOAD || PAYLOAD.startsWith('--')) {
   console.error('\n  usage: node prod-import-domain.mjs <payload.json> [--confirm]\n');
@@ -59,8 +60,9 @@ async function main() {
   const payload = JSON.parse(readFileSync(PAYLOAD, 'utf8'));
   const colleges = payload.colleges || [];
   const ranks = payload.closingRanks || [];
+  const fees = payload.fees || [];
 
-  console.log(`\n  payload: ${colleges.length} colleges, ${ranks.length} closing ranks`);
+  console.log(`\n  payload: ${colleges.length} colleges, ${ranks.length} closing ranks, ${fees.length} fees`);
 
   const client = new MongoClient(mongoUri());
   await client.connect();
@@ -108,6 +110,30 @@ async function main() {
   console.log(`  closing ranks already present: ${ranks.length - freshRanks.length}`);
   console.log(`  NEW closing ranks to insert  : ${freshRanks.length}`);
 
+  // ── fees ────────────────────────────────────────────────────────────────
+  // Own natural key, and INSERT-ONLY on it: prod may hold a statutory figure this payload does
+  // not know about, and an aggregator row must never overwrite one. Same FK rule as ranks.
+  const feeKeyOf = (r) => FEE_KEY.map((k) => String(r[k])).join('|');
+  const existingFeeKeys = new Set(
+    (
+      await db
+        .collection('fees')
+        .find({}, { projection: Object.fromEntries(FEE_KEY.map((k) => [k, 1])) })
+        .toArray()
+    ).map(feeKeyOf),
+  );
+  const unresolvedFees = fees.filter(
+    (f) => !prodIds.has(String(f.collegeId)) && !incomingIds.has(String(f.collegeId)),
+  );
+  if (unresolvedFees.length) {
+    console.error(`\n  ABORT: ${unresolvedFees.length} fee rows reference a college that will not exist.`);
+    await client.close();
+    process.exit(1);
+  }
+  const freshFees = fees.filter((f) => !existingFeeKeys.has(feeKeyOf(f)));
+  console.log(`  fees already present         : ${fees.length - freshFees.length}`);
+  console.log(`  NEW fees to insert           : ${freshFees.length}`);
+
   if (!CONFIRM) {
     console.log('\n  DRY RUN — nothing written. Re-run with --confirm.\n');
     await client.close();
@@ -144,6 +170,18 @@ async function main() {
     }));
     const res = await db.collection('closingRanks').bulkWrite(ops, { ordered: false });
     console.log(`  closingRanks upserted: ${res.upsertedCount} new`);
+  }
+
+  if (freshFees.length) {
+    const ops = freshFees.map((f) => ({
+      updateOne: {
+        filter: Object.fromEntries(FEE_KEY.map((k) => [k, f[k]])),
+        update: { $setOnInsert: { ...f, createdAt: new Date(), updatedAt: new Date() } },
+        upsert: true,
+      },
+    }));
+    const res = await db.collection('fees').bulkWrite(ops, { ordered: false });
+    console.log(`  fees upserted: ${res.upsertedCount} new`);
   }
 
   console.log(`\n  prod after: colleges ${await db.collection('colleges').countDocuments()}, closingRanks ${await db.collection('closingRanks').countDocuments()}`);
