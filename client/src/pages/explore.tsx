@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCollection, distinct } from '@/lib/data-api';
+import { MEDICAL_COURSES, MEDICAL_BRANCHES } from '@/lib/explore-data';
+import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -104,6 +106,17 @@ function distinctFromArrays<T>(rows: T[], pick: (row: T) => string[] | undefined
   return [...set].sort();
 }
 
+/**
+ * Dropdown options = the full curated catalog (in its intentional order) followed by any values the
+ * live data carries that the catalog doesn't. The universities collection only lists "MBBS" and no
+ * branches, so without the catalog the Course/Branch filters would be near-empty.
+ */
+function withCatalog(catalog: string[], fromData: string[]): string[] {
+  const known = new Set(catalog);
+  const extras = fromData.filter((v) => !known.has(v)).sort();
+  return [...catalog, ...extras];
+}
+
 function LoadingCard({ label }: { label: string }) {
   return (
     <Card>
@@ -130,8 +143,11 @@ const NEON_TYPE: Record<string, { border: string; text: string; bg: string; icon
 };
 const DEFAULT_NEON = { border: 'border-slate-500/20', text: 'text-slate-400', bg: 'bg-slate-500/10', icon: 'text-slate-400', glow: 'hover:shadow-slate-500/10', hoverText: 'group-hover:text-slate-300' };
 
-function selectClass() {
-  return 'h-11 w-full appearance-none rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 pl-4 pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer';
+// `pl` is a param, not appended by the caller: a `selectClass() + ' pl-11'` override is unreliable
+// because both pl-4 and pl-11 then exist and Tailwind's CSS source order (not string order) decides
+// the winner — which left the "All States" text tucked under its leading icon.
+function selectClass(pl = 'pl-4') {
+  return `h-11 w-full appearance-none rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 ${pl} pr-10 text-sm font-medium text-slate-700 dark:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-600 cursor-pointer`;
 }
 
 function UniversityCard({ u }: { u: University }) {
@@ -145,17 +161,21 @@ function UniversityCard({ u }: { u: University }) {
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-      {/* Photo banner */}
+      {/* Photo banner — real image if the record has one, else a deterministic building/campus
+          photo so a university without a stored image never shows a blank banner. */}
       <div className="relative h-32 overflow-hidden">
-        {u.image && (
-          <img
-            src={u.image}
-            alt={name}
-            loading="lazy"
-            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        )}
+        <img
+          src={u.image || collegePhoto(name)}
+          alt={name}
+          loading="lazy"
+          onError={(e) => {
+            const img = e.currentTarget as HTMLImageElement;
+            if (img.dataset.fellBack) return;   // swap to the building fallback at most once
+            img.dataset.fellBack = '1';
+            img.src = collegePhoto(name);
+          }}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
         {u.type && (
           <span className={`absolute top-2.5 right-2.5 text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${neon.bg} ${neon.text} ${neon.border}`}>
@@ -312,7 +332,7 @@ function UniversitySection() {
             </div>
             <div className="relative sm:w-72">
               <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400 pointer-events-none z-10" />
-              <select value={state} onChange={(e) => setState(e.target.value)} className={selectClass() + ' pl-11'}>
+              <select value={state} onChange={(e) => setState(e.target.value)} className={selectClass('pl-11')}>
                 <option value="All States">All States</option>
                 {stateOptions.map((s) => (
                   <option key={s} value={s}>{s}</option>
@@ -354,8 +374,8 @@ function CoursesSection() {
   const [branch, setBranch] = useState('All Branches');
   const [results, setResults] = useState<University[] | null>(null);
 
-  const courseOptions = useMemo(() => distinctFromArrays(data, (u) => u.courses), [data]);
-  const branchOptions = useMemo(() => distinctFromArrays(data, (u) => u.branches), [data]);
+  const courseOptions = useMemo(() => withCatalog(MEDICAL_COURSES, distinctFromArrays(data, (u) => u.courses)), [data]);
+  const branchOptions = useMemo(() => withCatalog(MEDICAL_BRANCHES, distinctFromArrays(data, (u) => u.branches)), [data]);
 
   const handleSearch = () => setResults(searchByCourse(data, course, branch));
 

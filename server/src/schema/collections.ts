@@ -106,6 +106,16 @@ export const closingRanks: CollectionSchema = {
     { name: 'quota', type: 'string', label: 'Quota', required: true, filterable: true, help: QUOTA_EXAMPLES },
     { name: 'closingRank', type: 'number', label: 'Closing rank', required: true, inList: true },
     { name: 'closingScore', type: 'number', label: 'Closing score' },
+    {
+      name: 'source', type: 'string', label: 'Source', filterable: true,
+      // Load-bearing: a PUBLISHED cutoff and one DERIVED from allotment data are not the same
+      // claim. Derivation takes max(allIndiaRank) over the candidates we hold for a group, so it
+      // is only as complete as our allotment set — where it disagrees with a published cutoff it
+      // reads OPTIMISTIC (median 1.46x, p90 3.38x better than truth, measured over the 2,317
+      // overlapping groups). Students plan around these numbers, so a derived row must be
+      // labelled and must never silently overwrite a published one.
+      help: 'Where this cutoff came from. Blank = published/imported cutoff. "derived: MCC allotments" = computed as the last allotted rank in our allotment data, which is a lower bound, not an official cutoff.',
+    },
   ],
 };
 
@@ -138,6 +148,14 @@ export const fees: CollectionSchema = {
       // it, so the help must not claim it does — the old copy ("Recomputed on save")
       // let it drift silently out of sync with the components above.
       help: 'Enter this yourself — it is NOT auto-calculated. It should equal tuition + hostel + misc + deposit.',
+    },
+    {
+      name: 'totalCourseFee', type: 'number', label: 'Total course fee', inList: true,
+      // A DIFFERENT QUANTITY from totalFirstYear — the whole 4.5-year MBBS cost, which is what a
+      // family actually budgets against. Kept as its own field precisely so the two can never be
+      // confused: aggregator sheets quote course totals ("42.5 Lakhs") that are ~4.5x the annual
+      // figure, and loading one into a per-year column overstates the first year enormously.
+      help: 'Whole-course cost (all years), NOT the first year. Leave blank if you only know the annual fee.',
     },
 
     { name: 'govtSeats', type: 'number', label: 'Govt seats' },
@@ -357,6 +375,43 @@ export const abroadUniversities: CollectionSchema = {
   ],
 };
 
+/**
+ * Third-party MBBS-college rankings, scraped from Collegedunia (the "Fees 2026 /
+ * Rankings" listing). Deliberately a SEPARATE collection, not new `colleges` rows:
+ * the source names are truncated with an ellipsis (and a few are missing), it carries
+ * no Government/Private/Deemed type, and ~80% of its rows already exist in canonical
+ * `colleges` under fuller names — so merging it in would duplicate and corrupt the FK
+ * hub. Kept as its own browse/compare dataset instead, keyed on (source, cdRank) so
+ * re-importing the same scrape is idempotent and future scrapes live side by side.
+ */
+export const collegeRankings: CollectionSchema = {
+  name: 'collegeRankings',
+  naturalKey: ['source', 'cdRank'],
+  label: 'College ranking',
+  labelPlural: 'College Rankings',
+  publicRead: true,
+  defaultSort: 'cdRank',
+  description:
+    'Third-party MBBS college rankings (Collegedunia): CD rank, CD score, user rating and indicative total fees. A browse/compare dataset, not canonical seat data.',
+  fields: [
+    { name: 'source', type: 'string', label: 'Source', required: true, filterable: true, help: 'Provenance tag, e.g. "collegedunia-2026". Part of the natural key, so one row per source × CD rank.' },
+    { name: 'cdRank', type: 'number', label: 'CD rank', required: true, inList: true, filterable: true, plain: true, help: 'Collegedunia list rank (1 = top). Part of the natural key.' },
+    {
+      name: 'name', type: 'string', label: 'College name', inList: true, searchable: true,
+      help: 'As scraped — usually truncated with an ellipsis (…), and a few rows have no recoverable name. Not the natural key, so this is fine; do not treat it as canonical.',
+    },
+    { name: 'city', type: 'string', label: 'City', inList: true, filterable: true, searchable: true },
+    { name: 'state', type: 'string', label: 'State', inList: true, filterable: true, searchable: true },
+    { name: 'approvals', type: 'string', label: 'Approvals', help: 'Regulatory approvals as listed, e.g. "MCI Approved" or "DCI, PCI, INC, MCI Approved".' },
+    { name: 'feeDisplay', type: 'string', label: 'Total fees (display)', inList: true, help: 'Indicative total course fee exactly as shown on the source, e.g. "₹ 5,356". This is the authoritative fee field.' },
+    { name: 'feeNumeric', type: 'number', label: 'Total fees (₹, approx)', help: 'Best-effort numeric parse of feeDisplay; may be missing or approximate. Display the string, sort/range on this.' },
+    { name: 'rating', type: 'number', label: 'User rating (/5)', inList: true, help: 'Collegedunia user rating out of 5.' },
+    { name: 'reviewCount', type: 'number', label: 'Review count', plain: true },
+    { name: 'cdScore', type: 'number', label: 'CD score (/1000)', inList: true, plain: true, help: 'Collegedunia overall score out of 1000.' },
+    { name: 'nationalRank', type: 'number', label: 'National medical rank', plain: true, help: 'Rank within India for Medical on the source (e.g. #12 of 517).' },
+  ],
+};
+
 export const knowledgeBase: CollectionSchema = {
   name: 'knowledgeBase',
   naturalKey: ['title'],
@@ -485,6 +540,7 @@ export const COLLECTIONS: CollectionSchema[] = [
   universities,
   blogs,
   abroadUniversities,
+  collegeRankings,
   knowledgeBase,
   counsellingSections,
   counsellingQuotas,

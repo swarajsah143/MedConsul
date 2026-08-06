@@ -1,6 +1,7 @@
 import { Fragment, useCallback, useEffect, useState, type ReactNode } from 'react';
 import { api } from '@/lib/api';
 import { useAuth } from '@/providers/auth-provider';
+import { DashboardAnalytics } from '@/components/admin/dashboard-analytics';
 import { Card, CardContent } from '@/components/ui/card';
 import { PageHeader } from '@/components/ui/page-header';
 import { Button } from '@/components/ui/button';
@@ -8,8 +9,8 @@ import { Input } from '@/components/ui/input';
 import {
   Shield,
   Users,
+  UsersRound,
   GraduationCap,
-  ShieldCheck,
   Loader2,
   Mail,
   CalendarDays,
@@ -31,13 +32,22 @@ interface AdminUser {
   updatedAt?: string;
 }
 
-interface AdminStats {
-  totalUsers: number;
-  admins: number;
-  students: number;
-}
-
-type Role = 'student' | 'admin';
+type Role = 'student' | 'admin' | 'counsellor';
+/** All roles — used by Edit, since demoting a staff member back to student is a
+ *  legitimate action here (they then show up on the Students page instead). */
+const ROLE_OPTIONS: { value: Role; label: string }[] = [
+  { value: 'student', label: 'Student' },
+  { value: 'counsellor', label: 'Counsellor' },
+  { value: 'admin', label: 'Admin' },
+];
+/** This table only manages staff — student accounts are created from the Students
+ *  page, which also captures their counselling details in the same step. */
+const CREATE_ROLE_OPTIONS: { value: Role; label: string }[] = [
+  { value: 'counsellor', label: 'Counsellor' },
+  { value: 'admin', label: 'Admin' },
+];
+/** Whatever the server hands back that isn't a role we recognise yet — treat as student, not silently as admin. */
+const asRole = (role: string): Role => (role === 'admin' || role === 'counsellor' ? role : 'student');
 
 /** The server rejects anything weaker — show the rules instead of letting an admin guess. */
 const PASSWORD_RULES = 'At least 8 characters, including an uppercase letter, a lowercase letter and a number.';
@@ -49,30 +59,18 @@ const SELECT_CLASS =
 const fmtDate = (iso: string) =>
   new Date(iso).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
-function StatCard({ icon: Icon, label, value, tint }: { icon: typeof Users; label: string; value: number | string; tint: string }) {
-  return (
-    <Card className="overflow-hidden">
-      <CardContent className="p-5 sm:p-5 flex items-center gap-4">
-        <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${tint}`}>
-          <Icon className="w-6 h-6" />
-        </div>
-        <div className="min-w-0">
-          <p className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 tabular-nums">{value}</p>
-          <p className="text-xs text-muted-foreground font-medium truncate">{label}</p>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
+const ROLE_BADGE: Record<Role, { icon: typeof Shield; label: string; className: string }> = {
+  admin: { icon: Shield, label: 'Admin', className: 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' },
+  counsellor: { icon: UsersRound, label: 'Counsellor', className: 'bg-sky-50 dark:bg-sky-950/30 text-sky-700 dark:text-sky-400' },
+  student: { icon: GraduationCap, label: 'Student', className: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' },
+};
 
+/** Every role gets its own badge — a counsellor must never render as (or be indistinguishable from) a student. */
 function RoleBadge({ role }: { role: string }) {
-  const isAdmin = role === 'admin';
+  const { icon: Icon, label, className } = ROLE_BADGE[asRole(role)];
   return (
-    <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${
-      isAdmin ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400' : 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400'
-    }`}>
-      {isAdmin ? <Shield className="w-3 h-3" /> : <GraduationCap className="w-3 h-3" />}
-      {isAdmin ? 'Admin' : 'Student'}
+    <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${className}`}>
+      <Icon className="w-3 h-3" /> {label}
     </span>
   );
 }
@@ -110,7 +108,7 @@ function AddUserForm({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState<Role>('student');
+  const [role, setRole] = useState<Role>('counsellor');
 
   return (
     <form
@@ -120,7 +118,7 @@ function AddUserForm({
         onSubmit({ name: name.trim(), email: email.trim(), password, role });
       }}
     >
-      <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">New user</h4>
+      <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">New staff account</h4>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div>
@@ -138,8 +136,7 @@ function AddUserForm({
         <div>
           <FieldLabel htmlFor="new-role">Role</FieldLabel>
           <select id="new-role" className={SELECT_CLASS} value={role} onChange={(e) => setRole(e.target.value as Role)}>
-            <option value="student">Student</option>
-            <option value="admin">Admin</option>
+            {CREATE_ROLE_OPTIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
           </select>
         </div>
       </div>
@@ -150,7 +147,7 @@ function AddUserForm({
 
       <div className="flex items-center gap-2">
         <Button type="submit" size="sm" disabled={busy}>
-          {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <UserPlus className="w-4 h-4" />} Create user
+          {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <UserPlus className="w-4 h-4" />} Create staff account
         </Button>
         <Button type="button" size="sm" variant="ghost" onClick={onCancel} disabled={busy}>Cancel</Button>
       </div>
@@ -177,7 +174,10 @@ function EditUserForm({
 }) {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
-  const [role, setRole] = useState<Role>(user.role === 'admin' ? 'admin' : 'student');
+  // Was `user.role === 'admin' ? 'admin' : 'student'` — that silently collapsed a counsellor's
+  // role to 'student' the moment this form's local state was seeded, so saving ANY edit (even
+  // just the name) demoted them. asRole() preserves every role the server actually sends.
+  const [role, setRole] = useState<Role>(asRole(user.role));
 
   return (
     <form
@@ -206,8 +206,7 @@ function EditUserForm({
             disabled={isSelf}
             onChange={(e) => setRole(e.target.value as Role)}
           >
-            <option value="student">Student</option>
-            <option value="admin">Admin</option>
+            {ROLE_OPTIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
           </select>
           {isSelf && <p className="text-[11px] text-muted-foreground mt-1.5">You cannot remove your own admin role.</p>}
         </div>
@@ -326,7 +325,6 @@ export default function AdminDashboardPage() {
   const { user: me } = useAuth();
 
   const [users, setUsers] = useState<AdminUser[]>([]);
-  const [stats, setStats] = useState<AdminStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [actionError, setActionError] = useState<string | null>(null);
@@ -335,20 +333,19 @@ export default function AdminDashboardPage() {
   const [adding, setAdding] = useState(false);
   const [rowAction, setRowAction] = useState<RowAction>(null);
 
-  /** Users and stats always move together — a write that changes one changes the other. */
   const refresh = useCallback(async () => {
     try {
-      const [usersRes, statsRes] = await Promise.all([
-        api.get('/admin/users'),
-        api.get('/admin/stats'),
-      ]);
+      const usersRes = await api.get('/admin/users');
       setUsers(usersRes?.data?.users ?? []);
-      setStats(statsRes?.data ?? null);
       setError(null);
     } catch (e: any) {
       setError(e?.message || 'Failed to load users');
     }
   }, []);
+
+  // Staff only — admin or counsellor. Students are managed on their own page (with the
+  // document checklist and plan columns that make no sense for a staff account).
+  const staff = users.filter((u) => u.role === 'admin' || u.role === 'counsellor');
 
   useEffect(() => {
     refresh().finally(() => setLoading(false));
@@ -432,7 +429,7 @@ export default function AdminDashboardPage() {
       <PageHeader
         icon={Shield}
         title="Admin Dashboard"
-        description="Administrative overview — add, edit and remove user accounts."
+        description="Administrative overview and staff account management. Student accounts are managed on the Students page."
       />
 
       {error && (
@@ -443,14 +440,10 @@ export default function AdminDashboardPage() {
         </Card>
       )}
 
-      {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        <StatCard icon={Users} label="Total Users" value={stats?.totalUsers ?? users.length} tint="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" />
-        <StatCard icon={GraduationCap} label="Students" value={stats?.students ?? 0} tint="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" />
-        <StatCard icon={ShieldCheck} label="Admins" value={stats?.admins ?? 0} tint="bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400" />
-      </div>
+      {/* Analytics, charts & system monitoring */}
+      <DashboardAnalytics />
 
-      {/* All Users */}
+      {/* Staff */}
       <Card className="overflow-hidden">
         <CardContent className="p-0">
           <div className="flex flex-wrap items-center justify-between gap-3 p-5 border-b border-slate-100 dark:border-slate-800">
@@ -459,8 +452,8 @@ export default function AdminDashboardPage() {
                 <Users className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </span>
               <div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">All Users</h3>
-                <p className="text-xs text-muted-foreground">{users.length} registered account{users.length !== 1 ? 's' : ''}</p>
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">Staff</h3>
+                <p className="text-xs text-muted-foreground">{staff.length} admin/counsellor account{staff.length !== 1 ? 's' : ''}</p>
               </div>
             </div>
 
@@ -478,7 +471,7 @@ export default function AdminDashboardPage() {
                   setAdding((a) => !a);
                 }}
               >
-                <UserPlus className="w-4 h-4" /> Add user
+                <UserPlus className="w-4 h-4" /> Add staff
               </Button>
             </div>
           </div>
@@ -492,13 +485,13 @@ export default function AdminDashboardPage() {
             />
           )}
 
-          {users.length === 0 ? (
+          {staff.length === 0 ? (
             <div className="p-10 text-center">
               <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mx-auto mb-3">
                 <Users className="w-7 h-7 text-slate-400" />
               </div>
-              <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">No users yet</p>
-              <p className="text-xs text-muted-foreground mt-1">Use “Add user” to create the first account.</p>
+              <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">No staff accounts yet</p>
+              <p className="text-xs text-muted-foreground mt-1">Use “Add user” to create the first admin or counsellor account.</p>
             </div>
           ) : (
             <div className="overflow-x-auto">
@@ -514,7 +507,7 @@ export default function AdminDashboardPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((u) => {
+                  {staff.map((u) => {
                     const isSelf = me?.id === u.id;
                     const open = rowAction?.id === u.id ? rowAction.kind : null;
 

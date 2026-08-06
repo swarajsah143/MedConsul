@@ -1,13 +1,17 @@
 import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCollections, byId, distinct, type College, type FeeEntry } from '@/lib/data-api';
+import { useCollections, byId, distinct, withCatalog, NEET_UG_COURSES, type College, type FeeEntry } from '@/lib/data-api';
 import { collegePhoto } from '@/lib/college-photo';
 import { formatINR } from '@/lib/fee-matrix-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { SearchBar } from '@/components/ui/search-bar';
 import { Pagination } from '@/components/ui/pagination';
+import { DomicileBadge } from '@/components/ui/domicile-badge';
+import { useDomicile } from '@/lib/use-domicile';
+import { quotaAccess, isOpenTo } from '@/lib/quota';
 import { EmptyState } from '@/components/ui/empty-state';
 import { HeroBanner } from '@/components/ui/hero-banner';
 import {
@@ -71,6 +75,10 @@ export default function FeeMatrixPage() {
   const [course, setCourse] = useState('All');
   const [category, setCategory] = useState('All');
   const [quota, setQuota] = useState('All');
+  // Opt-in, not default: hiding rows by default would quietly shrink the table for anyone whose
+  // profile domicile is stale, and they would never know what they were not being shown.
+  const [openToMeOnly, setOpenToMeOnly] = useState(false);
+  const myDomicile = useDomicile();
   const [showFilters, setShowFilters] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
 
@@ -123,7 +131,8 @@ export default function FeeMatrixPage() {
   // Dropdown options built from the live rows, so admin-added colleges/quotas show up automatically.
   const filterOptions = useMemo(() => ({
     states: distinct(rows, 'state'),
-    courses: distinct(rows, 'course'),
+    // Show every NEET-UG course, not just those in the loaded rows (data has only MBBS + BDS).
+    courses: withCatalog(NEET_UG_COURSES, distinct(rows, 'course')),
     categories: distinct(rows, 'category'),
     quotas: distinct(rows, 'quota'),
   }), [rows]);
@@ -153,6 +162,9 @@ export default function FeeMatrixPage() {
     if (course !== 'All') list = list.filter((e) => e.course === course);
     if (category !== 'All') list = list.filter((e) => e.category === category);
     if (quota !== 'All') list = list.filter((e) => e.quota === quota);
+    if (openToMeOnly && myDomicile) {
+      list = list.filter((e) => isOpenTo(quotaAccess(e.quota, e.state), myDomicile));
+    }
 
     list = [...list].sort((a, b) => {
       let cmp = 0;
@@ -167,7 +179,7 @@ export default function FeeMatrixPage() {
       return sortOrder === 'asc' ? cmp : -cmp;
     });
     return list;
-  }, [rows, search, state, college, course, category, quota, sortBy, sortOrder]);
+  }, [rows, search, state, college, course, category, quota, openToMeOnly, myDomicile, sortBy, sortOrder]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 
@@ -312,6 +324,15 @@ export default function FeeMatrixPage() {
         ))}
       </div>
 
+      {/* Inline Search — find a university's fees directly, without opening Filters */}
+      <SearchBar
+        value={search}
+        onValueChange={(v) => { setSearch(v); setPage(1); }}
+        onClear={() => { setSearch(''); setPage(1); }}
+        placeholder="Search a university or college to see its fees…"
+        aria-label="Search colleges by name, city, or course"
+      />
+
       {/* Filter Modal */}
       {showFilters && (
         <div className="fixed inset-0 z-50 flex items-start justify-center">
@@ -406,6 +427,23 @@ export default function FeeMatrixPage() {
                       </select>
                     </div>
                   </div>
+
+                  {/* Only offered when we actually know their domicile — a checkbox that silently
+                      does nothing is worse than no checkbox. */}
+                  {myDomicile && (
+                    <label className="flex items-start gap-2 mt-4 cursor-pointer select-none">
+                      <input type="checkbox" checked={openToMeOnly}
+                        onChange={(e) => { setOpenToMeOnly(e.target.checked); setPage(1); }}
+                        className="mt-0.5 w-4 h-4 rounded accent-emerald-600 cursor-pointer" />
+                      <span className="text-xs text-slate-700 dark:text-slate-300 leading-snug">
+                        Hide seats I'm not eligible for
+                        <span className="block text-[11px] text-muted-foreground">
+                          Your profile says <strong>{myDomicile}</strong>. State-quota seats in other
+                          states require that state's domicile.
+                        </span>
+                      </span>
+                    </label>
+                  )}
                 </div>
               </section>
 
@@ -523,14 +561,19 @@ export default function FeeMatrixPage() {
                   )}
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">{entry.course}</span>
                   <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">{entry.category}</span>
+                  <DomicileBadge quota={entry.quota} collegeState={entry.state} myDomicile={myDomicile} compact />
                 </div>
 
-                {/* Fee Hero — big glowing number */}
+                {/* Fee Hero — big glowing number. The domicile note sits directly under the number
+                    it qualifies: this figure is only reachable if the student is eligible. */}
                 <div className="rounded-xl bg-slate-800/80 border border-slate-700/50 p-4 mb-3">
                   <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest text-center mb-1">Total 1st Year Fee</p>
                   <p className="text-center text-2xl sm:text-3xl font-extrabold tabular-nums text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-emerald-500 to-green-500" style={{ textShadow: '0 0 30px rgba(239,68,68,0.3)' }}>
                     {formatINR(entry.totalFirstYear)}
                   </p>
+                  <div className="flex justify-center">
+                    <DomicileBadge quota={entry.quota} collegeState={entry.state} myDomicile={myDomicile} />
+                  </div>
 
                   {/* Tuition + Hostel row */}
                   <div className="grid grid-cols-2 gap-2 mt-3">
@@ -608,6 +651,7 @@ export default function FeeMatrixPage() {
                       <div className="flex flex-wrap items-center gap-1.5 mt-1 text-[10px] text-muted-foreground font-normal">
                         <span className="flex items-center gap-0.5"><MapPin className="w-2.5 h-2.5" />{entry.city}, {entry.state}</span>
                         {entry.type && <span className={`px-1.5 py-0.5 rounded-full font-bold ${typeColor(entry.type)}`}>{entry.type}</span>}
+                        <DomicileBadge quota={entry.quota} collegeState={entry.state} myDomicile={myDomicile} compact />
                       </div>
                     </td>
                     <td className="px-3 py-3.5 text-right tabular-nums font-semibold text-slate-700 dark:text-slate-300 whitespace-nowrap">{formatINR(entry.tuitionFee)}</td>

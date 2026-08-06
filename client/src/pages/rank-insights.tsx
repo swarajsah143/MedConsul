@@ -1,11 +1,12 @@
 import { toCsv, downloadCsv } from '@/lib/csv';
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useCollections, byId, distinct, type College, type ClosingRank } from '@/lib/data-api';
+import { useCollections, byId, distinct, withCatalog, NEET_UG_COURSES, type College, type ClosingRank } from '@/lib/data-api';
 import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { SearchBar } from '@/components/ui/search-bar';
 import { Pagination } from '@/components/ui/pagination';
 import { EmptyState } from '@/components/ui/empty-state';
 import { HeroBanner } from '@/components/ui/hero-banner';
@@ -119,7 +120,8 @@ export default function RankInsightsPage() {
   const filterOptions = useMemo(() => ({
     states: distinct(rows, 'collegeState'),
     colleges: distinct(rows, 'collegeName'),
-    courses: distinct(rows, 'course'),
+    // Show every NEET-UG course, not just those in the loaded rows (data has only MBBS + BDS).
+    courses: withCatalog(NEET_UG_COURSES, distinct(rows, 'course')),
     categories: distinct(rows, 'category'),
     quotas: distinct(rows, 'quota'),
     rounds: [...new Set(rows.map((r) => r.round))].sort((a, b) => a - b),
@@ -667,6 +669,15 @@ export default function RankInsightsPage() {
           </Card>
         ))}
       </div>
+
+      {/* Inline Search — find a university's closing ranks directly, without opening Filters */}
+      <SearchBar
+        value={search}
+        onValueChange={(v) => { setSearch(v); setPage(1); }}
+        onClear={() => { setSearch(''); setPage(1); }}
+        placeholder="Search a university or college to see its closing ranks…"
+        aria-label="Search colleges by name, course, category, or quota"
+      />
 
       {/* Active Filters Tags */}
       {activeFilterCount > 0 && (

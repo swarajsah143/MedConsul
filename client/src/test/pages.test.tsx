@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { render, screen, waitFor, cleanup } from '@testing-library/react'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
+import { AuthProvider } from '@/providers/auth-provider'
 import type { ReactElement } from 'react'
 
 /**
@@ -183,11 +184,17 @@ afterEach(() => {
 
 async function mount(path: string, routePath: string, element: ReactElement) {
   render(
-    <MemoryRouter initialEntries={[path]}>
-      <Routes>
-        <Route path={routePath} element={element} />
-      </Routes>
-    </MemoryRouter>
+    // AuthProvider is part of the real app shell (see App.tsx) — pages are never mounted without
+    // it. Omitting it here made every page that calls useAuth (college-detail, allotment-detail)
+    // throw "useAuth must be used within AuthProvider" and fail in all three worlds, which is a
+    // fault in the harness rather than in those pages.
+    <AuthProvider>
+      <MemoryRouter initialEntries={[path]}>
+        <Routes>
+          <Route path={routePath} element={element} />
+        </Routes>
+      </MemoryRouter>
+    </AuthProvider>
   )
   // Let the fetch resolve and the page settle out of its loading state.
   await waitFor(() => expect(screen.queryByText(/loading/i)).not.toBeInTheDocument(), { timeout: 8000 }).catch(() => {})

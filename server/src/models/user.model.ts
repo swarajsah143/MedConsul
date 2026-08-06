@@ -8,10 +8,19 @@ export interface IUser {
   id: string;
   name: string;
   email: string;
-  password: string;
+  /** Absent for accounts created via Google Sign-In — see authProvider. */
+  password?: string;
   role: string;
   createdAt: string;
   updatedAt: string;
+
+  /**
+   * How this account authenticates. 'google' accounts have no usable password
+   * (see UserModel.create) and log in only via /auth/google.
+   */
+  authProvider?: 'local' | 'google';
+  /** Google's stable per-account subject id ('sub' claim). Set only for authProvider: 'google'. */
+  googleId?: string | null;
 
   /**
    * Plan, set BY AN ADMIN. This is not billing.
@@ -74,7 +83,10 @@ const userSchema = new Schema(
   {
     name: { type: String, required: true, trim: true },
     email: { type: String, required: true, unique: true, lowercase: true, trim: true },
-    password: { type: String, required: true },
+    // Not required: Google-only accounts have no password (see UserModel.create).
+    password: { type: String },
+    authProvider: { type: String, enum: ['local', 'google'], default: 'local' },
+    googleId: { type: String, default: null, index: true, sparse: true },
     role: { type: String, default: 'student' },
     plan: { type: String, enum: ['free', 'pro', 'premium'], default: 'free', index: true },
     planExpiresAt: { type: Date, default: null },
@@ -106,6 +118,8 @@ function docToUser(doc: any): IUser {
     name: doc.name,
     email: doc.email,
     password: doc.password,
+    authProvider: doc.authProvider || 'local',
+    googleId: doc.googleId || null,
     role: doc.role,
     createdAt: doc.createdAt?.toISOString?.() || doc.createdAt,
     updatedAt: doc.updatedAt?.toISOString?.() || doc.updatedAt,
@@ -192,9 +206,10 @@ export const UserModel = {
   async create(
     name: string,
     email: string,
-    hashedPassword: string,
+    // Optional: Google-only accounts (authProvider: 'google' in `profile`) have no password.
+    hashedPassword: string | undefined,
     role = 'student',
-    profile: Partial<Record<ProfileField | 'adminNotes', any>> = {}
+    profile: Partial<Record<ProfileField | 'adminNotes' | 'authProvider' | 'googleId', any>> = {}
   ): Promise<SafeUser> {
     if (isMongoConnected()) {
       const doc = await UserDoc.create({
@@ -206,10 +221,44 @@ export const UserModel = {
     if (!db.users) db.users = {};
     const id = uuid();
     const now = new Date().toISOString();
-    const user: IUser = { id, name, email: email.toLowerCase(), password: hashedPassword, role, createdAt: now, updatedAt: now };
+    const user: IUser = {
+      id, name, email: email.toLowerCase(), password: hashedPassword, role,
+      createdAt: now, updatedAt: now, ...profile,
+    };
     db.users[id] = user;
     store.save(db);
     return toSafe(user);
+  },
+
+  /** Looks up a user linked to a Google account. Mirrors findByEmail's Mongo/JSON-store split. */
+  async findByGoogleId(googleId: string): Promise<IUser | null> {
+    if (isMongoConnected()) {
+      const doc = await UserDoc.findOne({ googleId });
+      return doc ? docToUser(doc) : null;
+    }
+    const db = store.load();
+    const users = db.users || {};
+    const found = Object.values(users).find((u: any) => u.googleId === googleId) as IUser | undefined;
+    return found || null;
+  },
+
+  /**
+   * Link an existing (password-based) account to a Google account after email verification.
+   * authProvider is left as 'local' — the user keeps signing in with a password too; googleId
+   * just adds Google as a second way in.
+   */
+  async linkGoogleAccount(id: string, googleId: string, avatar?: string): Promise<void> {
+    const patch: Record<string, any> = { googleId };
+    if (avatar) patch.avatar = avatar;
+    if (isMongoConnected()) {
+      await UserDoc.findByIdAndUpdate(id, { $set: patch });
+      return;
+    }
+    const db = store.load();
+    if (db.users?.[id]) {
+      Object.assign(db.users[id], patch, { updatedAt: new Date().toISOString() });
+      store.save(db);
+    }
   },
 
   async updatePassword(id: string, hashedPassword: string): Promise<void> {

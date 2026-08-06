@@ -56,4 +56,10 @@ export const gates = {
   unlimitedAi: (tier: PlanTier) => tier === 'premium',
 };
 
+/**
+ * Admins and counsellors work with the full data on the job, not on a subscription — they
+ * should never see an upgrade prompt. Mirrors server/src/utils/plan.ts isStaff().
+ */
+export const isStaff = (role?: string | null) => role === 'admin' || role === 'counsellor';
+
 export const formatPrice = (n: number) => (n === 0 ? 'Free' : `₹${n.toLocaleString('en-IN')}`);

@@ -5,11 +5,12 @@ import { AuthLayout } from '@/components/layout/auth-layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { AuthDivider, GoogleAuthButton, isGoogleAuthEnabled } from '@/components/auth/google-auth-button';
 import { useAuth } from '@/providers/auth-provider';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
 
   const [email, setEmail] = useState(() => localStorage.getItem('rememberEmail') || '');
   const [password, setPassword] = useState('');
@@ -32,6 +33,19 @@ export default function LoginPage() {
       navigate(user.role === 'admin' ? '/admin' : '/rank-insights', { replace: true });
     } catch (err: any) {
       setError(err.message || 'Login failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleCredential = async (idToken: string) => {
+    try {
+      setError('');
+      setLoading(true);
+      const user = await loginWithGoogle(idToken);
+      navigate(user.role === 'admin' ? '/admin' : '/rank-insights', { replace: true });
+    } catch (err: any) {
+      setError(err.message || 'Google sign-in failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -124,6 +138,17 @@ export default function LoginPage() {
             'Sign In'
           )}
         </Button>
+
+        {isGoogleAuthEnabled && (
+          <>
+            <AuthDivider />
+            <GoogleAuthButton
+              onCredential={handleGoogleCredential}
+              onError={setError}
+              disabled={loading}
+            />
+          </>
+        )}
 
         <p className="text-center text-sm text-muted-foreground">
           Don't have an account?{' '}

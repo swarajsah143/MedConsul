@@ -123,7 +123,7 @@ function toForm(p: Profile): FormState {
 }
 
 /** Fields that only a student fills in — the NEET/counselling numbers and guardian contact.
- *  Hidden from the admin's own profile, and excluded from their completion score. */
+ *  Hidden from staff's (admin or counsellor) own profile, and excluded from their completion score. */
 const STUDENT_ONLY_FIELDS: ReadonlyArray<keyof FormState> = [
   'neetRollNo', 'neetRank', 'neetScore', 'category', 'domicileState', 'coursePreference',
   'guardianName', 'guardianPhone',
@@ -132,10 +132,10 @@ const STUDENT_ONLY_FIELDS: ReadonlyArray<keyof FormState> = [
 /** How much of the profile is filled in, 0–100. Every counselling field counts equally — this
  *  is the number the hero ring animates to, so it must move the moment the user types. The
  *  avatar is deliberately excluded: "profile strength" is about the counselling data a
- *  counsellor needs, not whether you uploaded a photo. For an admin, the student-only fields
+ *  counsellor needs, not whether you uploaded a photo. For staff, the student-only fields
  *  are hidden, so they are left out of the score too — otherwise it could never reach 100%. */
-function completionPercent(f: FormState, isAdmin: boolean): number {
-  const hidden = new Set<string>(isAdmin ? STUDENT_ONLY_FIELDS : []);
+function completionPercent(f: FormState, isStaff: boolean): number {
+  const hidden = new Set<string>(isStaff ? STUDENT_ONLY_FIELDS : []);
   const vals = Object.entries(f)
     .filter(([k]) => k !== 'avatar' && !hidden.has(k))
     .map(([, v]) => v);
@@ -526,10 +526,12 @@ export default function ProfilePage() {
     []
   );
 
-  // The profile's own role is authoritative for this exact user; an admin's own profile
-  // has no NEET/counselling or guardian details to fill in.
+  // The profile's own role is authoritative for this exact user; staff (admin or counsellor)
+  // have no NEET/counselling or guardian details to fill in, and no plan of their own.
   const isAdmin = profile?.role === 'admin';
-  const completion = useMemo(() => completionPercent(form, isAdmin), [form, isAdmin]);
+  const isCounsellor = profile?.role === 'counsellor';
+  const isStaff = isAdmin || isCounsellor;
+  const completion = useMemo(() => completionPercent(form, isStaff), [form, isStaff]);
   // Compared against the last-saved snapshot so the save bar can say "unsaved changes".
   const dirty = useMemo(
     () => (profile ? JSON.stringify(form) !== JSON.stringify(toForm(profile)) : false),
@@ -650,9 +652,10 @@ export default function ProfilePage() {
                 <span className="truncate">{profile.email}</span>
               </p>
               <div className="mt-3 flex flex-wrap items-center gap-2">
+                {/* Staff have full authority and no subscription — show the role, not a plan. */}
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-bold uppercase tracking-wide border border-white/15">
                   <Crown className="w-3.5 h-3.5" />
-                  {PLAN_LABEL[plan]} plan
+                  {isAdmin ? 'Administrator' : isCounsellor ? 'Counsellor' : `${PLAN_LABEL[plan]} plan`}
                 </span>
                 {memberSince && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-xs font-medium text-emerald-50">
@@ -675,8 +678,8 @@ export default function ProfilePage() {
         </div>
       </HeroBanner>
 
-      {/* ── Live stat strip (student NEET/counselling data — hidden for admins) ── */}
-      {!isAdmin && (
+      {/* ── Live stat strip (student NEET/counselling data — hidden for staff) ── */}
+      {!isStaff && (
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -761,7 +764,7 @@ export default function ProfilePage() {
         </Section>
 
         {/* ── NEET & counselling (student-only) ── */}
-        {!isAdmin && (
+        {!isStaff && (
         <Section
           icon={Target}
           accent={ACCENT.red}
@@ -856,7 +859,7 @@ export default function ProfilePage() {
         )}
 
         {/* ── Guardian (student-only) ── */}
-        {!isAdmin && (
+        {!isStaff && (
         <Section
           icon={Users}
           accent={ACCENT.emerald}
@@ -933,7 +936,8 @@ export default function ProfilePage() {
         </motion.div>
       </form>
 
-      {/* ── Plan (read-only) ── */}
+      {/* ── Plan (read-only) — hidden for staff, who have full authority and no subscription ── */}
+      {!isStaff && (
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -973,6 +977,7 @@ export default function ProfilePage() {
           </CardContent>
         </Card>
       </motion.div>
+      )}
     </div>
   );
 }

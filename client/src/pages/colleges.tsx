@@ -112,7 +112,7 @@ export default function CollegesPage() {
       {/* Hero */}
       <HeroBanner>
           <div className="relative z-10 space-y-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-xs font-semibold text-white border border-white/10">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-xs font-semibold text-white border border-white/10">
               <Sparkles className="w-3.5 h-3.5" /> Detailed Reviews
             </span>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
@@ -219,7 +219,14 @@ export default function CollegesPage() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {paginated.map((college) => (
-            <Link key={college.id} to={`/colleges/${college.id}`} className="group">
+            <Link
+              key={college.id}
+              to={`/colleges/${college.id}`}
+              className="group"
+              // Skip layout/paint for cards scrolled out of view; the reserved size
+              // keeps the scrollbar honest so scrolling stays smooth.
+              style={{ contentVisibility: 'auto', containIntrinsicSize: '0 460px' }}
+            >
               <Card className="overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col border-transparent hover:border-emerald-200 dark:hover:border-emerald-900/40 relative">
                 {/* Hover accent */}
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
@@ -240,7 +247,7 @@ export default function CollegesPage() {
 
                   {/* Type badge on image */}
                   <div className="absolute top-3 left-3">
-                    <span className={`text-[10px] uppercase font-bold px-2.5 py-1 rounded-full ${typeColors[college.type] ?? ''} backdrop-blur-sm`}>
+                    <span className={`text-[10px] uppercase font-bold px-2.5 py-1 rounded-full ${typeColors[college.type] ?? ''}`}>
                       {college.type}
                     </span>
                   </div>
@@ -248,7 +255,7 @@ export default function CollegesPage() {
                   {/* Established year */}
                   {college.established != null && (
                     <div className="absolute top-3 right-3">
-                      <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-black/40 backdrop-blur-sm text-white/90 flex items-center gap-1">
+                      <span className="text-[10px] font-semibold px-2 py-1 rounded-full bg-black/55 text-white/90 flex items-center gap-1">
                         <Calendar className="w-2.5 h-2.5" /> Est. {college.established}
                       </span>
                     </div>

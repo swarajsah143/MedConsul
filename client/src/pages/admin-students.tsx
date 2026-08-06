@@ -55,9 +55,6 @@ const PLAN_DISCLOSURE =
 
 type DocStatus = 'verified' | 'pending' | 'rejected' | 'not_uploaded';
 
-const ROLES = ['student', 'admin'] as const;
-type Role = (typeof ROLES)[number];
-
 /** The server rejects anything outside this list with a 400. */
 const CATEGORIES = ['General', 'OBC', 'SC', 'ST', 'EWS', 'PwD'] as const;
 const COURSES = ['MBBS', 'BDS', 'BAMS', 'BHMS', 'BUMS', 'BSMS', 'BNYS', 'BVSc'] as const;
@@ -161,7 +158,6 @@ interface StudentRow {
 interface Summary {
   total: number;
   students: number;
-  admins: number;
   onPaidPlan: number;
   expired: number;
   awaitingReview: number;
@@ -810,13 +806,12 @@ function AddStudentForm({
 }: {
   busy: boolean;
   error: string | null;
-  onSubmit: (v: { name: string; email: string; password: string; role: Role; details: Counselling }) => void;
+  onSubmit: (v: { name: string; email: string; password: string; details: Counselling }) => void;
   onCancel: () => void;
 }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState<Role>('student');
   const [details, setDetails] = useState<Counselling>(EMPTY_COUNSELLING);
 
   const set = useCallback((patch: Partial<Counselling>) => setDetails((d) => ({ ...d, ...patch })), []);
@@ -828,11 +823,14 @@ function AddStudentForm({
           className="space-y-6"
           onSubmit={(e) => {
             e.preventDefault();
-            onSubmit({ name: name.trim(), email: email.trim(), password, role, details });
+            onSubmit({ name: name.trim(), email: email.trim(), password, details });
           }}
         >
+          {/* Staff accounts (counsellor/admin) are created from the Staff section of the
+              Admin Dashboard, not here — this form only ever creates students, so there is
+              no role picker to get wrong. */}
           <FormSection title="Account" hint="The only required part. The student signs in with this email and password.">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               <Field id="new-name" label="Name *">
                 <Input
                   id="new-name"
@@ -872,22 +870,6 @@ function AddStudentForm({
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Set an initial password"
                 />
-              </Field>
-
-              <Field id="new-role" label="Role">
-                <select
-                  id="new-role"
-                  className={SELECT_CLASS}
-                  value={role}
-                  disabled={busy}
-                  onChange={(e) => setRole(e.target.value as Role)}
-                >
-                  {ROLES.map((r) => (
-                    <option key={r} value={r}>
-                      {r.charAt(0).toUpperCase() + r.slice(1)}
-                    </option>
-                  ))}
-                </select>
               </Field>
             </div>
           </FormSection>
@@ -1442,7 +1424,7 @@ export default function AdminStudentsPage() {
    * counsellor loses a walk-in student's details twice.
    */
   const createStudent = useCallback(
-    async (v: { name: string; email: string; password: string; role: Role; details: Counselling }) => {
+    async (v: { name: string; email: string; password: string; details: Counselling }) => {
       setCreating(true);
       setCreateError(null);
       try {
@@ -1450,7 +1432,7 @@ export default function AdminStudentsPage() {
           name: v.name,
           email: v.email,
           password: v.password,
-          role: v.role,
+          role: 'student',
           ...createPayload(v.details),
         });
         setAdding(false);
@@ -1535,7 +1517,7 @@ export default function AdminStudentsPage() {
       <PageHeader
         icon={UsersRound}
         title="Students"
-        description="Everyone with an account, how far they actually are through the document checklist, and the plan an admin has given them."
+        description="Every student account, how far they actually are through the document checklist, and the plan an admin has given them. Staff accounts are managed separately, on the Admin Dashboard."
       >
         {flash && (
           <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
@@ -1584,13 +1566,7 @@ export default function AdminStudentsPage() {
       )}
 
       {/* Tiles. "Awaiting review" is the only actionable one — it links to the queue. */}
-      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        <StatCard
-          icon={UsersRound}
-          label="Total users"
-          value={summary?.total ?? '—'}
-          tint="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400"
-        />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           icon={GraduationCap}
           label="Students"
@@ -1733,11 +1709,6 @@ export default function AdminStudentsPage() {
                             <div className="min-w-0">
                               <p className="font-semibold text-slate-800 dark:text-slate-200 truncate">
                                 {s.name}
-                                {s.role === 'admin' && (
-                                  <span className="ml-1.5 inline-flex items-center gap-0.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400 align-middle">
-                                    <Shield className="w-3 h-3" /> Admin
-                                  </span>
-                                )}
                               </p>
                               <p className="text-xs text-muted-foreground truncate">{s.email}</p>
 

@@ -55,12 +55,14 @@ function planActive(plan: Plan, expiresAt: string | null): boolean {
 }
 
 export const studentsController = {
-  /** Every user, with their real checklist progress and plan. */
+  /** Every student, with their real checklist progress and plan. Staff (admin/counsellor)
+   *  have no document requirement and no plan system — they never belong in this list. */
   async list(req: AuthRequest, res: Response): Promise<void> {
-    const [users, docs] = await Promise.all([
+    const [allUsers, docs] = await Promise.all([
       UserModel.findAll(),
       resource(checklistDocs).all(),
     ]);
+    const users = allUsers.filter((u: any) => u.role === 'student');
     const docsTotal = docs.length;
 
     const rows: StudentRow[] = await Promise.all(
@@ -120,8 +122,7 @@ export const studentsController = {
         docsTotal,
         summary: {
           total: rows.length,
-          students: rows.filter((r) => r.role === 'student').length,
-          admins: rows.filter((r) => r.role === 'admin').length,
+          students: rows.length,
           onPaidPlan: rows.filter((r) => r.plan !== 'free' && r.planActive).length,
           expired: rows.filter((r) => r.plan !== 'free' && !r.planActive).length,
           awaitingReview: rows.reduce((n, r) => n + r.docsPending, 0),

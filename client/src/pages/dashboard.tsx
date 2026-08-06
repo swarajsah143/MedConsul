@@ -1,7 +1,8 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/providers/auth-provider';
-import { useCollection } from '@/lib/data-api';
+import { useCollection, type College } from '@/lib/data-api';
+import { matchCollege } from '@/lib/college-search';
 import { Card, CardContent } from '@/components/ui/card';
 import { FadeIn } from '@/components/ui/motion';
 import { HeroBanner } from '@/components/ui/hero-banner';
@@ -169,10 +170,38 @@ export default function DashboardPage() {
     return 'Good evening';
   }, []);
 
-  const handleSearch = useCallback((e: React.FormEvent) => {
+  // Colleges are fetched lazily (on first focus/submit) and cached, so the dashboard
+  // itself stays light — the full list is only needed to resolve a search.
+  const collegesRef = useRef<College[] | null>(null);
+  const loadColleges = useCallback(async (): Promise<College[]> => {
+    if (collegesRef.current) return collegesRef.current;
+    try {
+      const res = await fetch('/api/data/colleges', { credentials: 'include' });
+      const body = await res.json();
+      const items: College[] = body?.data?.items ?? [];
+      collegesRef.current = items;
+      return items;
+    } catch {
+      return [];
+    }
+  }, []);
+
+  const handleSearch = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    const q = searchQuery.trim().toLowerCase();
-    if (!q) return;
+    const raw = searchQuery.trim();
+    if (!raw) return;
+
+    // 1. If the query names a college (tolerant of partial names + small typos),
+    //    open that college's review directly.
+    const college = matchCollege(raw, await loadColleges());
+    if (college) {
+      navigate(`/colleges/${college.id}`);
+      setSearchQuery('');
+      return;
+    }
+
+    // 2. Otherwise route by topic keyword, defaulting to the AI assistant.
+    const q = raw.toLowerCase();
     const routes: [string[], string][] = [
       [['college', 'review', 'aiims', 'campus'], '/colleges'],
       [['rank', 'cutoff', 'closing', 'score'], '/rank-insights'],
@@ -185,7 +214,7 @@ export default function DashboardPage() {
     const match = routes.find(([keywords]) => keywords.some((kw) => q.includes(kw)));
     navigate(match ? match[1] : '/ai-assistant');
     setSearchQuery('');
-  }, [searchQuery, navigate]);
+  }, [searchQuery, navigate, loadColleges]);
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 pb-12">
@@ -200,19 +229,20 @@ export default function DashboardPage() {
           </p>
 
           <form onSubmit={handleSearch} className="mt-5 max-w-xl" role="search">
-            <div className="flex items-center bg-white rounded-xl shadow-lg overflow-hidden">
-              <Search className="w-4.5 h-4.5 text-slate-400 ml-4 shrink-0" aria-hidden="true" />
+            <div className="group flex items-center bg-white rounded-xl shadow-lg overflow-hidden ring-1 ring-transparent transition-all duration-300 hover:shadow-xl focus-within:ring-2 focus-within:ring-white/70 focus-within:shadow-xl">
+              <Search className="w-4.5 h-4.5 text-slate-400 ml-4 shrink-0 transition-colors duration-300 group-focus-within:text-emerald-600" aria-hidden="true" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search colleges, ranks, fees, documents..."
+                onFocus={() => { void loadColleges(); }}
+                placeholder="Search a college to open its review, or ranks, fees, documents..."
                 aria-label="Search MedCounsel AI"
-                className="flex-1 bg-transparent text-slate-900 text-sm placeholder:text-slate-400 px-3 py-3.5 outline-none"
+                className="flex-1 bg-transparent text-slate-900 text-sm placeholder:text-slate-400 px-3 py-3.5 outline-none focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0"
               />
               <button
                 type="submit"
-                className="shrink-0 m-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold transition-colors"
+                className="shrink-0 m-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-sm font-semibold transition-all duration-200"
               >
                 Search
               </button>

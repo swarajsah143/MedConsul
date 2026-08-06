@@ -7,7 +7,7 @@ import { UserModel } from '../models/user.model';
 import { resource } from '../models/resource.model';
 import { checklistDocs } from '../schema/collections';
 import { isMongoConnected } from '../config/database';
-import { requireAuth, requireAdmin, AuthRequest } from '../middlewares/auth.middleware';
+import { requireAuth, requireAdmin, requireStudent, AuthRequest } from '../middlewares/auth.middleware';
 import {
   UPLOAD_DIR,
   MAX_FILE_BYTES,
@@ -72,7 +72,9 @@ const unlinkQuiet = (p: string | null) => { if (p) fs.promises.unlink(p).catch((
 
 // ── student ────────────────────────────────────────────────────────────
 
-router.post('/:docId', (req: AuthRequest, res: Response) => {
+// Only students have a document requirement — staff (admin/counsellor) must never be
+// able to create a submission of their own, or they'd show up in the review queue.
+router.post('/:docId', requireStudent, (req: AuthRequest, res: Response) => {
   upload.single('file')(req as any, res as any, async (err: any) => {
     if (err) {
       const tooBig = err?.code === 'LIMIT_FILE_SIZE';
