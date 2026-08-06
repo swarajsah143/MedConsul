@@ -24,10 +24,28 @@ const CONFIRM = process.argv.includes('--confirm');
 const ENV_PATH = '/opt/medconsul/.env';
 const SALT_ROUNDS = 12;
 
-const ACCOUNTS = [
-  { name: 'Demo Counsellor', email: 'counsellor@medcounsel.ai', role: 'counsellor' },
-  { name: 'Premium Student', email: 'premium@medcounsel.ai', role: 'student', plan: 'premium' },
-];
+/**
+ * Defaults, or override from the CLI to mint one specific account:
+ *   node prod-create-demo-accounts.mjs --email x@y.ai --name "X" --role student --plan free --confirm
+ */
+const arg = (flag) => {
+  const i = process.argv.indexOf(flag);
+  return i > -1 ? process.argv[i + 1] : undefined;
+};
+
+const ACCOUNTS = arg('--email')
+  ? [{
+      name: arg('--name') || 'Demo Student',
+      email: arg('--email'),
+      role: arg('--role') || 'student',
+      // 'free' is the absence of a paid grant, not a grant — passing plan:'free' would set a
+      // planExpiresAt and planNote for a tier that has neither.
+      ...(arg('--plan') && arg('--plan') !== 'free' ? { plan: arg('--plan') } : {}),
+    }]
+  : [
+      { name: 'Demo Counsellor', email: 'counsellor@medcounsel.ai', role: 'counsellor' },
+      { name: 'Premium Student', email: 'premium@medcounsel.ai', role: 'student', plan: 'premium' },
+    ];
 
 /** Readable but strong: unambiguous alphabet (no O/0, l/1/I) so it can be retyped off a screen. */
 function generatePassword() {
@@ -78,6 +96,12 @@ async function main() {
       set.plan = a.plan;
       set.planExpiresAt = oneYear;      // without this, effectiveTier() reads it as free
       set.planNote = 'Seeded demo account';
+    } else if (a.role === 'student') {
+      // An explicit free tier with no expiry — otherwise a re-run over a previously-paid account
+      // would leave a stale grant in place and the "free" demo would behave as pro.
+      set.plan = 'free';
+      set.planExpiresAt = null;
+      set.planNote = '';
     }
 
     await users.updateOne(
@@ -95,7 +119,7 @@ async function main() {
 
   console.log('\n  ── credentials (shown once) ──');
   for (const o of out) {
-    console.log(`  ${o.role === 'counsellor' ? 'COUNSELLOR' : 'PREMIUM STUDENT'}`);
+    console.log(`  ${o.role.toUpperCase()}${o.plan ? ` — ${o.plan.toUpperCase()}` : ' — FREE'}`);
     console.log(`    email    : ${o.email}`);
     console.log(`    password : ${o.password}`);
     console.log(`    login check: ${o.ok ? 'PASS' : 'FAIL — do not use'}`);
