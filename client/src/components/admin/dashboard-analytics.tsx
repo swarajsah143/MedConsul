@@ -7,7 +7,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts';
 import {
-  Users, GraduationCap, ShieldCheck, CreditCard, FileClock, Database,
+  Users, GraduationCap, ShieldCheck, UsersRound, CreditCard, FileClock, Database,
   Activity, RefreshCw, Cpu, HardDrive, Mail, Bot, Server, TrendingUp,
   PieChart as PieIcon, BarChart3, Clock, CheckCircle2, AlertCircle,
   type LucideIcon,
@@ -16,7 +16,7 @@ import {
 // ── shape of GET /admin/analytics ──
 interface Analytics {
   users: {
-    total: number; students: number; admins: number;
+    total: number; students: number; admins: number; counsellors: number;
     plans: { free: number; pro: number; premium: number };
     activeSubscriptions: number; withProfile: number;
     signupsByDay: { date: string; count: number }[];
@@ -157,8 +157,8 @@ export function DashboardAnalytics() {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-        {Array.from({ length: 6 }).map((_, i) => (
+      <div className="grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-7 gap-4">
+        {Array.from({ length: 7 }).map((_, i) => (
           <Card key={i}><CardContent className="p-5 h-[92px] animate-pulse bg-slate-50 dark:bg-slate-800/30" /></Card>
         ))}
       </div>
@@ -208,9 +208,10 @@ export function DashboardAnalytics() {
       </div>
 
       {/* KPI cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-7 gap-4">
         <KpiCard icon={Users} label="Total Users" value={fmtInt(users.total)} tint="bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400" />
         <KpiCard icon={GraduationCap} label="Students" value={fmtInt(users.students)} tint="bg-sky-50 dark:bg-sky-950/30 text-sky-600 dark:text-sky-400" />
+        <KpiCard icon={UsersRound} label="Counsellors" value={fmtInt(users.counsellors)} tint="bg-teal-50 dark:bg-teal-950/30 text-teal-600 dark:text-teal-400" />
         <KpiCard icon={ShieldCheck} label="Admins" value={fmtInt(users.admins)} tint="bg-violet-50 dark:bg-violet-950/30 text-violet-600 dark:text-violet-400" />
         <KpiCard icon={CreditCard} label="Active Plans" value={fmtInt(users.activeSubscriptions)} sub={`${fmtInt(users.plans.pro)} pro · ${fmtInt(users.plans.premium)} premium`} tint="bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-400" />
         <KpiCard icon={FileClock} label="Pending Reviews" value={fmtInt(documents.pending)} sub={`${fmtInt(documents.total)} docs total`} tint="bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400" />

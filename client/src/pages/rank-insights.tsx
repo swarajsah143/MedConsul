@@ -6,6 +6,7 @@ import { collegePhoto } from '@/lib/college-photo';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { SearchBar } from '@/components/ui/search-bar';
 import { Pagination } from '@/components/ui/pagination';
 import { EmptyState } from '@/components/ui/empty-state';
 import { HeroBanner } from '@/components/ui/hero-banner';
@@ -670,25 +671,13 @@ export default function RankInsightsPage() {
       </div>
 
       {/* Inline Search — find a university's closing ranks directly, without opening Filters */}
-      <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
-        <Input
-          value={search}
-          onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-          placeholder="Search a university or college to see its closing ranks…"
-          aria-label="Search colleges by name, course, category, or quota"
-          className="pl-12 pr-11 h-12 sm:h-14 text-sm sm:text-base rounded-2xl shadow-sm focus:shadow-lg transition-all duration-200"
-        />
-        {search && (
-          <button
-            onClick={() => { setSearch(''); setPage(1); }}
-            aria-label="Clear search"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-muted-foreground transition-colors"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        )}
-      </div>
+      <SearchBar
+        value={search}
+        onValueChange={(v) => { setSearch(v); setPage(1); }}
+        onClear={() => { setSearch(''); setPage(1); }}
+        placeholder="Search a university or college to see its closing ranks…"
+        aria-label="Search colleges by name, course, category, or quota"
+      />
 
       {/* Active Filters Tags */}
       {activeFilterCount > 0 && (

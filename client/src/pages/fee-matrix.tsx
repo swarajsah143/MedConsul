@@ -7,6 +7,7 @@ import { formatINR } from '@/lib/fee-matrix-data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { SearchBar } from '@/components/ui/search-bar';
 import { Pagination } from '@/components/ui/pagination';
 import { DomicileBadge } from '@/components/ui/domicile-badge';
 import { useDomicile } from '@/lib/use-domicile';
@@ -324,25 +325,13 @@ export default function FeeMatrixPage() {
       </div>
 
       {/* Inline Search — find a university's fees directly, without opening Filters */}
-      <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground pointer-events-none" />
-        <Input
-          value={search}
-          onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-          placeholder="Search a university or college to see its fees…"
-          aria-label="Search colleges by name, city, or course"
-          className="pl-12 pr-11 h-12 sm:h-14 text-sm sm:text-base rounded-2xl shadow-sm focus:shadow-lg transition-all duration-200"
-        />
-        {search && (
-          <button
-            onClick={() => { setSearch(''); setPage(1); }}
-            aria-label="Clear search"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-muted-foreground transition-colors"
-          >
-            <X className="w-4 h-4" />
-          </button>
-        )}
-      </div>
+      <SearchBar
+        value={search}
+        onValueChange={(v) => { setSearch(v); setPage(1); }}
+        onClear={() => { setSearch(''); setPage(1); }}
+        placeholder="Search a university or college to see its fees…"
+        aria-label="Search colleges by name, city, or course"
+      />
 
       {/* Filter Modal */}
       {showFilters && (

@@ -33,8 +33,16 @@ interface AdminUser {
 }
 
 type Role = 'student' | 'admin' | 'counsellor';
+/** All roles — used by Edit, since demoting a staff member back to student is a
+ *  legitimate action here (they then show up on the Students page instead). */
 const ROLE_OPTIONS: { value: Role; label: string }[] = [
   { value: 'student', label: 'Student' },
+  { value: 'counsellor', label: 'Counsellor' },
+  { value: 'admin', label: 'Admin' },
+];
+/** This table only manages staff — student accounts are created from the Students
+ *  page, which also captures their counselling details in the same step. */
+const CREATE_ROLE_OPTIONS: { value: Role; label: string }[] = [
   { value: 'counsellor', label: 'Counsellor' },
   { value: 'admin', label: 'Admin' },
 ];
@@ -100,7 +108,7 @@ function AddUserForm({
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState<Role>('student');
+  const [role, setRole] = useState<Role>('counsellor');
 
   return (
     <form
@@ -110,7 +118,7 @@ function AddUserForm({
         onSubmit({ name: name.trim(), email: email.trim(), password, role });
       }}
     >
-      <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">New user</h4>
+      <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">New staff account</h4>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div>
@@ -128,7 +136,7 @@ function AddUserForm({
         <div>
           <FieldLabel htmlFor="new-role">Role</FieldLabel>
           <select id="new-role" className={SELECT_CLASS} value={role} onChange={(e) => setRole(e.target.value as Role)}>
-            {ROLE_OPTIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
+            {CREATE_ROLE_OPTIONS.map((r) => <option key={r.value} value={r.value}>{r.label}</option>)}
           </select>
         </div>
       </div>
@@ -139,7 +147,7 @@ function AddUserForm({
 
       <div className="flex items-center gap-2">
         <Button type="submit" size="sm" disabled={busy}>
-          {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <UserPlus className="w-4 h-4" />} Create user
+          {busy ? <Loader2 className="w-4 h-4 animate-spin" /> : <UserPlus className="w-4 h-4" />} Create staff account
         </Button>
         <Button type="button" size="sm" variant="ghost" onClick={onCancel} disabled={busy}>Cancel</Button>
       </div>
@@ -335,6 +343,10 @@ export default function AdminDashboardPage() {
     }
   }, []);
 
+  // Staff only — admin or counsellor. Students are managed on their own page (with the
+  // document checklist and plan columns that make no sense for a staff account).
+  const staff = users.filter((u) => u.role === 'admin' || u.role === 'counsellor');
+
   useEffect(() => {
     refresh().finally(() => setLoading(false));
   }, [refresh]);
@@ -417,7 +429,7 @@ export default function AdminDashboardPage() {
       <PageHeader
         icon={Shield}
         title="Admin Dashboard"
-        description="Administrative overview — add, edit and remove user accounts."
+        description="Administrative overview and staff account management. Student accounts are managed on the Students page."
       />
 
       {error && (
@@ -431,7 +443,7 @@ export default function AdminDashboardPage() {
       {/* Analytics, charts & system monitoring */}
       <DashboardAnalytics />
 
-      {/* All Users */}
+      {/* Staff */}
       <Card className="overflow-hidden">
         <CardContent className="p-0">
           <div className="flex flex-wrap items-center justify-between gap-3 p-5 border-b border-slate-100 dark:border-slate-800">
@@ -440,8 +452,8 @@ export default function AdminDashboardPage() {
                 <Users className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </span>
               <div>
-                <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">All Users</h3>
-                <p className="text-xs text-muted-foreground">{users.length} registered account{users.length !== 1 ? 's' : ''}</p>
+                <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">Staff</h3>
+                <p className="text-xs text-muted-foreground">{staff.length} admin/counsellor account{staff.length !== 1 ? 's' : ''}</p>
               </div>
             </div>
 
@@ -459,7 +471,7 @@ export default function AdminDashboardPage() {
                   setAdding((a) => !a);
                 }}
               >
-                <UserPlus className="w-4 h-4" /> Add user
+                <UserPlus className="w-4 h-4" /> Add staff
               </Button>
             </div>
           </div>
@@ -473,13 +485,13 @@ export default function AdminDashboardPage() {
             />
           )}
 
-          {users.length === 0 ? (
+          {staff.length === 0 ? (
             <div className="p-10 text-center">
               <div className="w-14 h-14 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mx-auto mb-3">
                 <Users className="w-7 h-7 text-slate-400" />
               </div>
-              <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">No users yet</p>
-              <p className="text-xs text-muted-foreground mt-1">Use “Add user” to create the first account.</p>
+              <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">No staff accounts yet</p>
+              <p className="text-xs text-muted-foreground mt-1">Use “Add user” to create the first admin or counsellor account.</p>
             </div>
           ) : (
             <div className="overflow-x-auto">
@@ -495,7 +507,7 @@ export default function AdminDashboardPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((u) => {
+                  {staff.map((u) => {
                     const isSelf = me?.id === u.id;
                     const open = rowAction?.id === u.id ? rowAction.kind : null;
 
