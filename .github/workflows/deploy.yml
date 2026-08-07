@@ -1,0 +1,112 @@
+name: Deploy to production
+
+# Auto-deploy on every push to main. `workflow_dispatch` lets you re-run a deploy by hand
+# (Actions tab -> Deploy to production -> Run workflow) without pushing an empty commit.
+#
+# Deliberately NOT triggered on pull_request: this repo is PUBLIC, and a workflow that runs on
+# a fork's PR would hand the deploy key to anyone who opens one. Secrets are not exposed to fork
+# PRs by GitHub, but the safest design is to never run this on untrusted refs at all.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# One deploy at a time. Two overlapping rsyncs into the same directory interleave files and can
+# leave the server running a mix of two builds. Newer pushes queue rather than cancel, so the last
+# push always ends up being what is live.
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # The build happens HERE, not on the server: the EC2 box is a t3.micro with ~400MB free and a
+    # history of OOM kills, and it has no git. CI builds, the server only receives dist/.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'          # matches the node on prod
+
+      - name: Install dependencies
+        run: |
+          npm ci --prefix client
+          npm ci --prefix server
+
+      - name: Build
+        run: |
+          npm run build --prefix server
+          npm run build --prefix client
+
+      - name: Sanity-check the build
+        run: |
+          test -f server/dist/server.js   || { echo "server build produced no dist/server.js"; exit 1; }
+          test -f client/dist/index.html  || { echo "client build produced no dist/index.html"; exit 1; }
+
+      - name: Run the pure test suites
+        # Only the suites that need no live server or DB. The integration suites hit a running API
+        # and a seeded Mongo, so they belong in a separate job with services, not in the deploy path.
+        run: |
+          npx tsx server/src/test/quota.test.ts
+          npm run test --prefix client
+
+      - name: Set up SSH
+        env:
+          SSH_KEY: ${{ secrets.MEDC_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.MEDC_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Install any NEW server dependencies on prod
+        # rsync ships only dist/ — it never touches prod node_modules. New code importing a package
+        # prod does not have crashes the service on restart. This already happened once with
+        # google-auth-library, which is imported at the top of auth.service.ts and so loads at boot.
+        run: |
+          scp -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+            server/package.json server/package-lock.json \
+            "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}:${{ secrets.MEDC_SERVER_DIR }}/"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+            "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}" \
+            "cd ${{ secrets.MEDC_SERVER_DIR }} && npm ci --omit=dev"
+
+      - name: Back up the current release
+        run: |
+          STAMP=$(date +%Y-%m-%d_%H%M%S)
+          echo "STAMP=$STAMP" >> "$GITHUB_ENV"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+            "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}" \
+            "mkdir -p ~/releases/$STAMP && cp -a ${{ secrets.MEDC_SERVER_DIR }}/dist ~/releases/$STAMP/server-dist 2>/dev/null || true"
+
+      - name: Deploy
+        run: |
+          rsync -az --delete -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+            server/dist/ "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}:${{ secrets.MEDC_SERVER_DIR }}/dist/"
+          rsync -az --delete --rsync-path="sudo rsync" -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes" \
+            client/dist/ "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}:${{ secrets.MEDC_WEB_ROOT }}/"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+            "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}" "sudo systemctl restart medconsul"
+
+      - name: Health check, roll back on failure
+        run: |
+          for i in $(seq 1 15); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "${{ secrets.MEDC_HEALTH }}" || echo 000)
+            [ "$code" = "200" ] && { echo "healthy after ${i} attempt(s)"; exit 0; }
+            echo "  waiting for service... ($code) attempt $i/15"
+            sleep 4
+          done
+          echo "::error::health check never returned 200 — rolling back to the previous release"
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+            "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}" \
+            "rm -rf ${{ secrets.MEDC_SERVER_DIR }}/dist && cp -a ~/releases/${STAMP}/server-dist ${{ secrets.MEDC_SERVER_DIR }}/dist && sudo systemctl restart medconsul"
+          exit 1
+
+      - name: Prune old releases
+        if: always()
+        run: |
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
+            "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}" \
+            "ls -1dt ~/releases/*/ 2>/dev/null | tail -n +6 | xargs -r rm -rf" || true
