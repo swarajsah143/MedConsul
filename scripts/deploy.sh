@@ -105,7 +105,11 @@ done
 if [ "$ok" = "1" ]; then
   say "DEPLOYED  $BRANCH @ $SHA  (release $STAMP). Health check OK."
   # Keep the 5 most recent release backups.
-  $SSH "$HOST" "ls -1dt ~/releases/*/ 2>/dev/null | tail -n +6 | xargs -r rm -rf" || true
+  # sudo: the web-root half of each release backup is copied from a root-owned nginx docroot, so
+  # ec2-user cannot delete it. Without sudo this failed on every deploy with a wall of
+  # "Permission denied" and old releases accumulated silently — on an 8GB disk already at 86%.
+  # ~ is expanded by the LOCAL shell inside sudo's environment, so name the home explicitly.
+  $SSH "$HOST" "sudo bash -c 'ls -1dt ~ec2-user/releases/*/ 2>/dev/null | tail -n +6 | xargs -r rm -rf'" || true
 else
   say "HEALTH CHECK FAILED (last: $code) — ROLLING BACK"
   $SSH "$HOST" "set -e; \

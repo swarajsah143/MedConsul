@@ -109,4 +109,4 @@ jobs:
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=yes \
             "${{ secrets.MEDC_USER }}@${{ secrets.MEDC_HOST }}" \
-            "ls -1dt ~/releases/*/ 2>/dev/null | tail -n +6 | xargs -r rm -rf" || true
+            "sudo bash -c 'ls -1dt ~ec2-user/releases/*/ 2>/dev/null | tail -n +6 | xargs -r rm -rf'" || true
