@@ -15,7 +15,10 @@ import { CollectionSchema, Field } from './types';
  * NEET seats to compete for) with disjoint fields.
  */
 
-const COURSES = ['MBBS', 'BDS', 'BAMS', 'BHMS', 'BUMS', 'BSMS', 'BNYS', 'BVSc'];
+// 'BSc Nursing' is here because MCC's AIQ seat matrix allots it alongside MBBS/BDS (368 seats in
+// the 2026 Round-1 matrix). Import is all-or-nothing, so omitting it does not drop 68 rows — it
+// rejects the entire batch.
+const COURSES = ['MBBS', 'BDS', 'BAMS', 'BHMS', 'BUMS', 'BSMS', 'BNYS', 'BVSc', 'BSc Nursing'];
 const CATEGORIES = ['General', 'OBC', 'SC', 'ST', 'EWS', 'PwD'];
 // Quota is open-ended: 'All India Quota (AIQ)', 'Management Quota', and one per state
 // ('Delhi State Quota', 'Gujarat State Quota', ...). A closed enum would reject every

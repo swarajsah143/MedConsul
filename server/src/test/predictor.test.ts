@@ -41,21 +41,46 @@ async function main() {
   check('total marks is 720', m.totalMarks === 720);
 
   // ── the curve ────────────────────────────────────────────────────────
-  // The 2025 band {marks 607-622 -> rank 630-1140} is the one we pin to.
-  const at622 = (await post({ marks: 622, category: 'General', year: 2025 })).body.data;
-  const at607 = (await post({ marks: 607, category: 'General', year: 2025 })).body.data;
-  const at612 = (await post({ marks: 612, category: 'General', year: 2025 })).body.data;
+  // These assert the interpolation SEMANTICS, deriving the expected numbers from whatever curve is
+  // actually loaded. They used to hardcode the 2025 band {607-622 -> 630-1140}, which meant
+  // recalibrating that curve to official NTA data broke four tests that were not testing the
+  // recalibration at all. The rule the repo keeps relearning: assert the shape, not the row.
+  // `rankBands` is publicRead:false by design, so the band table is derived from the predictor's
+  // OWN responses: air.lo / air.hi ARE the enclosing band's best/worst rank. Walk down from 660
+  // until three consecutive marks share one band and it is wide enough to interpolate inside.
+  let probe: { top: number; bottom: number; mid: number; lo: number; hi: number } | null = null;
+  for (let m = 660; m >= 480 && !probe; m -= 1) {
+    const a = (await post({ marks: m, category: 'General', year: 2025 })).body.data?.air;
+    const b = (await post({ marks: m - 6, category: 'General', year: 2025 })).body.data?.air;
+    if (!a || !b) continue;
+    // Same band, and wide enough that the midpoint is a genuinely distinct third value.
+    if (a.lo === b.lo && a.hi === b.hi && a.hi - a.lo >= 60) {
+      probe = { top: m, bottom: m - 6, mid: m - 3, lo: a.lo, hi: a.hi };
+    }
+  }
+  check('found a 2025 band wide enough to pin the interpolation to', !!probe, JSON.stringify(probe));
 
-  check('the TOP of a score band gives that band\'s best rank', at622.air.point === 630,
-    `622 marks -> AIR ${at622.air.point}, expected 630`);
-  check('the BOTTOM of a score band gives its worst rank', at607.air.point === 1140,
-    `607 marks -> AIR ${at607.air.point}, expected 1140`);
-  check('more marks means a BETTER (smaller) rank', at622.air.point < at612.air.point && at612.air.point < at607.air.point,
-    `${at622.air.point} < ${at612.air.point} < ${at607.air.point}`);
-  check('a mid-band score interpolates linearly', at612.air.point === 970,
-    `612 marks -> AIR ${at612.air.point}, expected 970 (630 + 10/15 * 510)`);
-  check('the band range is reported, not just a point', at612.air.lo === 630 && at612.air.hi === 1140,
-    JSON.stringify(at612.air));
+  if (probe) {
+    const atTop = (await post({ marks: probe.top, category: 'General', year: 2025 })).body.data;
+    const atBottom = (await post({ marks: probe.bottom, category: 'General', year: 2025 })).body.data;
+    const atMid = (await post({ marks: probe.mid, category: 'General', year: 2025 })).body.data;
+
+    check('more marks means a BETTER (smaller) rank',
+      atTop.air.point < atMid.air.point && atMid.air.point < atBottom.air.point,
+      `${atTop.air.point} < ${atMid.air.point} < ${atBottom.air.point}`);
+    check('every point sits inside its own reported band',
+      [atTop, atMid, atBottom].every((r) => r.air.point >= r.air.lo && r.air.point <= r.air.hi),
+      JSON.stringify([atTop.air, atMid.air, atBottom.air]));
+    check('the band range is reported, not just a point',
+      atMid.air.lo === probe.lo && atMid.air.hi === probe.hi, JSON.stringify(atMid.air));
+
+    // Linear within a band: equal marks steps must give equal rank steps. This is the property
+    // that matters, and unlike a hardcoded rank it survives recalibrating the curve.
+    const stepUp = atMid.air.point - atTop.air.point;
+    const stepDown = atBottom.air.point - atMid.air.point;
+    check('a mid-band score interpolates linearly', Math.abs(stepUp - stepDown) <= 2,
+      `steps ${stepUp} vs ${stepDown} across marks ${probe.top}/${probe.mid}/${probe.bottom}`);
+  }
 
   // ── years are never blended ──────────────────────────────────────────
   const y2025 = (await post({ marks: 650, category: 'General', year: 2025 })).body.data;

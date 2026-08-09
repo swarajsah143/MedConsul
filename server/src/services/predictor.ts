@@ -49,10 +49,19 @@ function canonCollegeKey(name: string): string {
 }
 
 /**
- * NEET-UG draws roughly 23-24 lakh candidates. Only used to turn a rank into a percentile
- * for display; it does not affect which colleges are matched.
+ * Candidates who actually APPEARED, per NTA's own published figures. Used to turn a rank into a
+ * percentile for display, and as the crude linear fallback below the lowest band. It does not
+ * affect which colleges are matched.
+ *
+ * This was 2_400_000 — a round guess ~20% above the real 2026 pool, which put NTA's own
+ * 50th-percentile score (rank 996,935) at the 58.5th percentile on our page. The 50th-percentile
+ * line is precisely what a student checks against the qualifying cut-off, so the error showed up
+ * exactly where it mattered most.
+ *
+ * Keep this in step with the newest year in `rankBands`. Appeared, not registered: NTA publishes
+ * both and the gap is ~10%.
  */
-export const TOTAL_CANDIDATES = 2_400_000;
+export const TOTAL_CANDIDATES = 1_999_895; // NEET-UG 2026 (re-exam, 21 Jun 2026)
 
 export interface Band { year: number; marksMin: number; marksMax: number; rankMin: number; rankMax: number }
 

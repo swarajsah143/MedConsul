@@ -1,0 +1,16 @@
+[
+  { "year": 2026, "marksMin": 706, "marksMax": 715, "rankMin": 1,       "rankMax": 17 },
+  { "year": 2026, "marksMin": 701, "marksMax": 706, "rankMin": 17,      "rankMax": 19 },
+  { "year": 2026, "marksMin": 690, "marksMax": 701, "rankMin": 19,      "rankMax": 138 },
+  { "year": 2026, "marksMin": 650, "marksMax": 690, "rankMin": 138,     "rankMax": 1492 },
+  { "year": 2026, "marksMin": 606, "marksMax": 650, "rankMin": 1492,    "rankMax": 8363 },
+  { "year": 2026, "marksMin": 600, "marksMax": 606, "rankMin": 8363,    "rankMax": 10160 },
+  { "year": 2026, "marksMin": 573, "marksMax": 600, "rankMin": 10160,   "rankMax": 21936 },
+  { "year": 2026, "marksMin": 530, "marksMax": 573, "rankMin": 21936,   "rankMax": 55908 },
+  { "year": 2026, "marksMin": 500, "marksMax": 530, "rankMin": 55908,   "rankMax": 90780 },
+  { "year": 2026, "marksMin": 400, "marksMax": 500, "rankMin": 90780,   "rankMax": 259964 },
+  { "year": 2026, "marksMin": 300, "marksMax": 400, "rankMin": 259964,  "rankMax": 577254 },
+  { "year": 2026, "marksMin": 213, "marksMax": 300, "rankMin": 577254,  "rankMax": 996935 },
+  { "year": 2026, "marksMin": 177, "marksMax": 213, "rankMin": 996935,  "rankMax": 1185000 },
+  { "year": 2026, "marksMin": 0,   "marksMax": 177, "rankMin": 1185000, "rankMax": 1999895 }
+]
