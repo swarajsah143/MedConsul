@@ -52,6 +52,22 @@ export const colleges: CollectionSchema = {
       name: 'source', type: 'string', label: 'Source', filterable: true,
       help: 'Where this record came from. Blank means hand-curated (the original 29, with review prose). Bulk imports stamp themselves here, so the importer can tell a reviewed record from one of its own.',
     },
+    {
+      name: 'mccCode', type: 'string', label: 'MCC institute code', filterable: true,
+      pattern: '^\\d{6}$',
+      patternMessage: 'MCC institute code is exactly 6 digits (e.g. 200446).',
+      // MCC prints this in brackets after every institute name in its seat matrix, and it is a
+      // clean 1:1 key on their side (606 codes, each one institute, one state). Matching MCC
+      // documents by NAME only resolves ~60% and is where the medical/dental and duplicate-cluster
+      // bugs come from; a verified code turns every future MCC ingest into an exact join.
+      //
+      // BLANK MEANS UNVERIFIED, not "has no code" — most colleges will never carry one, since only
+      // institutes participating in AIQ appear in the matrix. Deliberately NOT part of naturalKey:
+      // at most 606 of 1,114 rows can have it, and a null-heavy key would break the CSV upsert path
+      // that test:integrity guards. Uniqueness is enforced by an out-of-band partial index, because
+      // CollectionSchema.indexes passes no options to s.index().
+      help: 'MCC\'s own 6-digit institute code, from the NEET-UG seat matrix. Blank means UNVERIFIED — it does not mean the college has no code. Never fill this in by guessing from a name match.',
+    },
 
     {
       name: 'coursesOffered', type: 'string[]', label: 'Courses offered',
@@ -216,6 +232,81 @@ export const allotments: CollectionSchema = {
     { name: 'subcategory', type: 'string', label: 'Subcategory' },
     { name: 'seatType', type: 'enum', label: 'Seat type', required: true, options: COLLEGE_TYPES, filterable: true },
     { name: 'course', type: 'enum', label: 'Course', required: true, options: COURSES, filterable: true },
+  ],
+};
+
+export const seatMatrix: CollectionSchema = {
+  name: 'seatMatrix',
+  // Seats OFFERED per round, as published before allotment — a different thing from `allotments`
+  // (who actually got a seat) and from `fees.govtSeats` (a coarse per-college annual total).
+  // Keeping them apart is deliberate: MCC republishes a whole new matrix each round with different
+  // numbers, so folding it into either of the others would destroy information.
+  //
+  // Every component of the key earns its place:
+  //   counselling    — code namespaces differ per authority (MCC 200101 vs a state's own scheme),
+  //                    so instituteCode alone is not globally unique.
+  //   year + round   — a NEW matrix per round. Without `round`, importing R2 would upsert over R1
+  //                    in place and R1's seat counts would be gone for good.
+  //   instituteCode  — the authority's own id: stable, 1:1, and immune to the medical/dental and
+  //                    duplicate-cluster name traps. NOT collegeId, which is nullable — a null
+  //                    inside a unique key collapses unrelated rows onto each other.
+  //   quota/course/category/pwd/seatGender — the actual cross product published. Dropping
+  //                    seatGender alone would collide the 78 'Female Only' rows onto their twins.
+  naturalKey: ['counselling', 'year', 'round', 'instituteCode', 'quota', 'course', 'category', 'pwd', 'seatGender'],
+  indexes: [{ counselling: 1, year: -1, round: 1 }, { collegeId: 1, course: 1 }],
+  label: 'Seat matrix row',
+  labelPlural: 'Seat Matrix (by round)',
+  publicRead: true,
+  defaultSort: '-year',
+  description:
+    'Seats offered per round, as published by the counselling authority. One row per institute × quota × course × category × PwD × gender. Republished each round — never overwrite a previous round.',
+  fields: [
+    {
+      name: 'counselling', type: 'string', label: 'Counselling', required: true, inList: true, filterable: true, searchable: true,
+      help: 'Authority + stream WITHOUT the round, e.g. "MCC AIQ UG". The round is its own field.',
+    },
+    { name: 'year', type: 'number', label: 'Year', required: true, inList: true, filterable: true, plain: true },
+    { name: 'round', type: 'number', label: 'Round', required: true, inList: true, filterable: true },
+
+    {
+      name: 'instituteCode', type: 'string', label: 'Institute code', required: true, inList: true, filterable: true,
+      pattern: '^[A-Za-z0-9][A-Za-z0-9./-]{1,11}$',
+      patternMessage: 'Institute code is the authority\'s own code, 2–12 characters (e.g. 200446).',
+      help: 'MCC prints a 6-digit code in brackets after each institute name. Take the LAST bracketed 6-digit group — some addresses carry a PIN code first.',
+    },
+    {
+      name: 'collegeId', type: 'ref', ref: 'colleges', label: 'College', filterable: true,
+      help: 'Optional. Blank means this institute is not yet confidently linked to a colleges row — never guess it.',
+    },
+    {
+      name: 'instituteName', type: 'string', label: 'Institute name', required: true, inList: true, searchable: true,
+      help: 'Verbatim from the source with the code stripped. Kept even when collegeId is set, because authorities name institutes inconsistently.',
+    },
+    { name: 'state', type: 'string', label: 'State', required: true, filterable: true, searchable: true },
+    {
+      name: 'instituteType', type: 'string', label: 'Institute type', filterable: true,
+      help: 'Verbatim source value, e.g. "All India except Central University" (the 15% AIQ pool) or "Deemed University".',
+    },
+
+    { name: 'quota', type: 'string', label: 'Quota', required: true, filterable: true, help: QUOTA_EXAMPLES },
+    { name: 'course', type: 'enum', label: 'Course', required: true, options: COURSES, inList: true, filterable: true },
+    {
+      name: 'category', type: 'enum', label: 'Category', required: true, options: CATEGORIES, filterable: true,
+      help: 'MCC\'s OP/BC/EW/SC/ST mapped to General/OBC/EWS/SC/ST. PwD is the separate `pwd` flag, not a category.',
+    },
+    {
+      name: 'pwd', type: 'boolean', label: 'PwD seat', default: false, filterable: true,
+      help: 'From MCC\'s category suffix: NO = false, PH = true.',
+    },
+    {
+      name: 'seatGender', type: 'string', label: 'Seat gender', filterable: true,
+      help: '"Both" or "Female Only". Part of the natural key — some institutes publish both for the same category.',
+    },
+    { name: 'totalSeats', type: 'number', label: 'Total seats', required: true, inList: true },
+    {
+      name: 'source', type: 'string', label: 'Source', filterable: true,
+      help: 'The published document this row came from, so a figure can always be traced back to the authority that issued it.',
+    },
   ],
 };
 
@@ -534,6 +625,7 @@ export const COLLECTIONS: CollectionSchema[] = [
   categoryFactors,
   fees,
   allotments,
+  seatMatrix,
   announcements,
   checklistDocs,
   stateDocs,

@@ -179,6 +179,8 @@ export interface College {
   affiliation?: string;
   website?: string;
   isActive?: boolean;
+  /** MCC's own 6-digit institute code. Blank means UNVERIFIED, not "has no code". */
+  mccCode?: string;
   coursesOffered?: string[];
   description?: string;
   thumbnail?: string;
@@ -232,6 +234,32 @@ export interface FeeEntry {
   paymentSchedule?: string;
   refundPolicy?: string;
   bondDetails?: string;
+}
+
+/**
+ * Seats OFFERED in a given round, as published before allotment.
+ *
+ * Distinct from `Allotment` (who actually received a seat) and from `FeeEntry.govtSeats` (a coarse
+ * per-college annual total). The authority republishes a whole new matrix each round with different
+ * numbers, so always filter by `round` — never aggregate across rounds as if they were additive.
+ */
+export interface SeatMatrixRow {
+  id: string;
+  counselling: string;
+  year: number;
+  round: number;
+  instituteCode: string;
+  collegeId?: string;
+  instituteName: string;
+  state: string;
+  instituteType?: string;
+  quota: string;
+  course: string;
+  category: string;
+  pwd?: boolean;
+  seatGender?: string;
+  totalSeats: number;
+  source?: string;
 }
 
 /** Index colleges by id — rank/fee rows carry only a collegeId now. */
