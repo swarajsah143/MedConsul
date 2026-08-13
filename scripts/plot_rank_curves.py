@@ -116,7 +116,7 @@ def plot_overlay(df):
     ax.legend(title='Exam year', frameon=False, loc='upper left')
     fig.tight_layout()
     fig.savefig(f'{OUT}/1_curves_overlay.png')
-    plt.close(fig)
+    return fig
 
 
 def plot_facets(df):
@@ -140,14 +140,14 @@ def plot_facets(df):
     g.figure.suptitle('Shared axes — the shapes are directly comparable', y=1.02, fontsize=12,
                       fontweight='semibold')
     g.figure.savefig(f'{OUT}/2_facet_by_year.png', bbox_inches='tight')
-    plt.close(g.figure)
+    return g.figure
 
 
 def plot_divergence(df):
     """Each year as a multiple of 2026 — i.e. the error you'd make using that year's curve."""
     wide = df.pivot(index='marks', columns='year', values='rank').dropna()
     if 2026 not in wide.columns:
-        return
+        return None
     ratio = wide.div(wide[2026], axis=0).drop(columns=[2026])
 
     fig, ax = plt.subplots(figsize=(9, 4.6))
@@ -164,7 +164,7 @@ def plot_divergence(df):
     ax.legend(title='curve used', frameon=False)
     fig.tight_layout()
     fig.savefig(f'{OUT}/3_divergence.png')
-    plt.close(fig)
+    return fig
 
 
 def plot_band_structure(bands):
@@ -190,7 +190,20 @@ def plot_band_structure(bands):
     ax.set_xlim(195, 760)
     fig.tight_layout()
     fig.savefig(f'{OUT}/4_band_structure.png')
-    plt.close(fig)
+    return fig
+
+
+def write_pdf(figs, path):
+    """One multi-page PDF, vector throughout — it stays sharp at any zoom, unlike stitched PNGs."""
+    from matplotlib.backends.backend_pdf import PdfPages
+    with PdfPages(path) as pdf:
+        for fig in figs:
+            pdf.savefig(fig, bbox_inches='tight')
+        meta = pdf.infodict()
+        meta['Title'] = 'NEET marks-to-rank curves, 2023-2026'
+        meta['Subject'] = ('Why the predictor was 20x too optimistic for 2026 candidates: '
+                           'each exam year maps the same score to a very different rank.')
+        meta['Author'] = 'MedCounsel'
 
 
 def main():
@@ -206,11 +219,16 @@ def main():
         .pivot(index='marks', columns='year', values='rank').round().astype('Int64')
     print(piv.to_string())
 
-    plot_overlay(df)
-    plot_facets(df)
-    plot_divergence(df)
-    plot_band_structure(bands)
-    print(f'\n  wrote 4 plots -> {OUT}')
+    figs = [plot_overlay(df), plot_facets(df), plot_divergence(df), plot_band_structure(bands)]
+    figs = [f for f in figs if f is not None]
+
+    pdf_path = f'{OUT}/neet-rank-curves.pdf'
+    write_pdf(figs, pdf_path)
+    for f in figs:
+        plt.close(f)
+
+    print(f'\n  wrote {len(figs)} plots -> {OUT}')
+    print(f'  wrote PDF ({len(figs)} pages) -> {pdf_path}')
 
 
 if __name__ == '__main__':
