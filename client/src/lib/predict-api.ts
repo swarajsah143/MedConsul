@@ -32,7 +32,14 @@ export interface PredictMatch {
 
 export interface Prediction {
   mode: 'marks' | 'rank';
+  /** The year whose curve converted marks into a rank. */
   year: number;
+  /**
+   * The year whose CUTOFFS the colleges were matched against — not always `year`. Early in a
+   * season this year's curve exists but this year's closing ranks do not, and the shortlist is
+   * then compared against the most recent published cutoffs. `note` spells this out for the user.
+   */
+  cutoffYear: number;
   category: string;
   marks?: number;
   air: { point: number; lo: number; hi: number };

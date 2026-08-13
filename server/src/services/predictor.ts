@@ -105,7 +105,16 @@ export interface Match {
 
 export interface Prediction {
   mode: 'marks' | 'rank';
+  /** The year whose CURVE converted marks into a rank. */
   year: number;
+  /**
+   * The year whose CUTOFFS the colleges were matched against. Usually the same as `year`, but
+   * they separate early in a counselling season: this year's curve exists as soon as NTA
+   * publishes results, while this year's closing ranks only exist after the first round is
+   * allotted. Surfaced so the UI can say which year's cutoffs a student is being compared to
+   * instead of implying they are the current ones.
+   */
+  cutoffYear: number;
   category: string;
   marks?: number;
   air: { point: number; lo: number; hi: number };
@@ -242,6 +251,21 @@ async function loadBands(year?: number): Promise<{ year: number; table: Band[] }
   return { year: pick, table };
 }
 
+/**
+ * The newest year that actually HAS closing ranks, never newer than the curve year.
+ *
+ * Falls back to the curve year when nothing is loaded at all, so the caller still gets a
+ * coherent (if empty) answer rather than a crash.
+ */
+async function latestCutoffYear(curveYear: number): Promise<number> {
+  const years = (await ranks().facets(['year']))?.year ?? [];
+  const usable = (years as unknown[])
+    .map((y) => Number(y))
+    .filter((y) => Number.isFinite(y) && y <= curveYear)
+    .sort((a, b) => b - a);
+  return usable[0] ?? curveYear;
+}
+
 async function loadFactors(): Promise<Map<string, number>> {
   const all = await factorsRes().all();
   return new Map(all.map((f: any) => [f.category, f.factor]));
@@ -268,11 +292,20 @@ export async function predict(input: PredictInput): Promise<Prediction> {
   // Only ever query FILTERED. closingRanks is larger than the 5,000-row read cap, so an
   // unfiltered read would quietly hand back a truncated table and under-report matches.
   //
-  // The year filter uses the RESOLVED year — the same one whose curve produced the rank
-  // above, not just whatever the caller passed. Estimating an AIR off the 2025 curve and
-  // then matching it against 2024's cutoffs silently compares two different scales, and
-  // showed each college twice (once per year) into the bargain.
-  const filters: Record<string, string> = { category: input.category, year: String(year) };
+  // CURVE YEAR vs CUTOFF YEAR. These are normally the same, and must never be blended
+  // arbitrarily: estimating an AIR off one year's curve and matching it against another's
+  // cutoffs compares two different scales, and lists each college once per year into the
+  // bargain. But they legitimately separate early in a season — this year's curve exists the
+  // day NTA publishes results, while this year's closing ranks only exist after the first
+  // round is allotted.
+  //
+  // Coupling them regardless was the worse failure of the two. With no 2026 cutoffs loaded,
+  // the resolved year stayed 2025 and every 2026 candidate was scored on the 2025 curve: 650
+  // marks returned AIR 74 when the 2026 answer is ~1,492 — 20x too optimistic, at exactly the
+  // moment students are choice-filling. So: estimate the rank on the NEWEST curve, then match
+  // against the newest cutoffs that actually EXIST, and report both so the UI can say which.
+  const cutoffYear = await latestCutoffYear(year);
+  const filters: Record<string, string> = { category: input.category, year: String(cutoffYear) };
   if (input.course) filters.course = input.course;
   if (input.quota) filters.quota = input.quota;
   if (input.round) filters.round = String(input.round);
@@ -344,6 +377,7 @@ export async function predict(input: PredictInput): Promise<Prediction> {
   return {
     mode,
     year,
+    cutoffYear,
     category: input.category,
     ...(mode === 'marks' ? { marks: input.marks } : {}),
     air,
@@ -353,9 +387,13 @@ export async function predict(input: PredictInput): Promise<Prediction> {
     counts,
     total: matches.length,
     matches: page,
-    note: table.length
-      ? undefined
-      : `No marks-to-rank curve is loaded for ${year}, so the rank estimate is a rough linear one.`,
+    note: !table.length
+      ? `No marks-to-rank curve is loaded for ${year}, so the rank estimate is a rough linear one.`
+      // Say it plainly when the comparison is against an older year. A student reading a
+      // shortlist has to know whether these are this year's cutoffs or last year's.
+      : cutoffYear !== year
+        ? `Your rank is estimated on the ${year} curve, but ${year} closing ranks are not published yet — colleges are matched against ${cutoffYear} cutoffs.`
+        : undefined,
   };
 }
 
